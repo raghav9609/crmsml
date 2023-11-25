@@ -3,8 +3,8 @@
     require_once(dirname(__FILE__) . '/helpers/common-helper.php');
     require_once(dirname(__FILE__) . '/config/config.php');	
     session_start();
-
-    echo $login_ip = ipAddress();
+    $login_ip = ipAddress();
+    echo $_SESSION['userDetails']['user_id'];
     exit;
     if (!empty($_SESSION['userDetails']['user_id'])){
         $insert_arr = array(
