@@ -5,6 +5,7 @@
     session_start();
     $login_ip = ipAddress();
     echo $_SESSION['userDetails']['user_id'];
+    print_r($_SESSION);
     exit;
     if (!empty($_SESSION['userDetails']['user_id'])){
         $insert_arr = array(
