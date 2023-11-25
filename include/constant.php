@@ -2,7 +2,7 @@
 $multi_browser_array = array();
 $global_otp_flag = 1; //1 - Dynamic OTP, 2 - Static OTP , 3- For Auto Login
 $sms_api_vendor = 1;
-$head_url = 'https://crm.moneywide.com/crm/';
+$head_url = 'https://astechnos.com/crmsml/';
 
 date_default_timezone_set('Asia/Calcutta');
 $page = 1;
