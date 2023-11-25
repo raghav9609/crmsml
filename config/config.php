@@ -4,10 +4,10 @@ require_once(dirname(__FILE__) . '/../../../../config/config.php');
 require_once(dirname(__FILE__) . '/../include/constant.php');
 class DBController
 {
-        private $host = 'nbfc-db-new-proxy.proxy-csjul4cncnwk.ap-south-1.rds.amazonaws.com';
-        private $user = 'mwide_crm_siu';
-        private $password = '0nwurhB11ur1g2mb';
-        private $database = 'crm';
+        private $host = 'localhost';
+        private $user = 'astecztc_sml';
+        private $password = 'yI@l~0Sy7F%y';
+        private $database = 'astecztc_sml';
         private $connection = "";
 
         function __construct()
