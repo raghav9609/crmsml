@@ -53,12 +53,12 @@ class DBController
 }
 $db_handle = new DBController();
 
-if($_SESSION['userDetails']['multi_login_flag'] == 1) {
-        $getToken_qry = $db_handle->tokenCheck($_SESSION['userDetails']['user_id']);
-        $login_token_val = $db_handle->runQuery($getToken_qry);
-        if($login_token_val[0]['last_token'] != $_SESSION['userDetails']['login_token']){
-                header("location:".$head_url."logout.php");
-        exit;
-        }
-}
+// if($_SESSION['userDetails']['multi_login_flag'] == 1) {
+//         $getToken_qry = $db_handle->tokenCheck($_SESSION['userDetails']['user_id']);
+//         $login_token_val = $db_handle->runQuery($getToken_qry);
+//         if($login_token_val[0]['last_token'] != $_SESSION['userDetails']['login_token']){
+//                 header("location:".$head_url."logout.php");
+//         exit;
+//         }
+// }
 ?>
