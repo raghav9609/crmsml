@@ -1,0 +1,15 @@
+[13-Oct-2023 10:45:28 Asia/Calcutta] PHP Warning:  Undefined array key "term" in /home1/astecztc/public_html/crmdemo/query/check-city.php on line 8
+[13-Oct-2023 10:45:44 Asia/Calcutta] PHP Warning:  Undefined variable $query in /home1/astecztc/public_html/crmdemo/model/queryHelper.php on line 63
+[13-Oct-2023 10:46:11 Asia/Calcutta] PHP Warning:  Undefined variable $query in /home1/astecztc/public_html/crmdemo/model/queryHelper.php on line 63
+[13-Oct-2023 10:46:11 Asia/Calcutta] PHP Warning:  Undefined variable $query in /home1/astecztc/public_html/crmdemo/model/queryHelper.php on line 79
+[13-Oct-2023 10:46:42 Asia/Calcutta] PHP Warning:  Undefined variable $query in /home1/astecztc/public_html/crmdemo/model/queryHelper.php on line 63
+[13-Oct-2023 10:46:42 Asia/Calcutta] PHP Warning:  Undefined variable $query in /home1/astecztc/public_html/crmdemo/model/queryHelper.php on line 79
+[13-Oct-2023 10:47:05 Asia/Calcutta] PHP Warning:  Undefined array key "query_fup_id" in /home1/astecztc/public_html/crmdemo/query/update-follow-up.php on line 10
+[13-Oct-2023 10:47:05 Asia/Calcutta] PHP Warning:  Undefined array key "fol_date" in /home1/astecztc/public_html/crmdemo/query/update-follow-up.php on line 11
+[13-Oct-2023 10:47:05 Asia/Calcutta] PHP Warning:  Undefined array key "fol_time" in /home1/astecztc/public_html/crmdemo/query/update-follow-up.php on line 11
+[13-Oct-2023 10:47:05 Asia/Calcutta] PHP Warning:  Undefined array key "f_stats" in /home1/astecztc/public_html/crmdemo/query/update-follow-up.php on line 13
+[13-Oct-2023 10:47:05 Asia/Calcutta] PHP Warning:  Undefined array key "remark" in /home1/astecztc/public_html/crmdemo/query/update-follow-up.php on line 15
+[13-Oct-2023 10:47:05 Asia/Calcutta] PHP Warning:  Undefined array key "f_stats" in /home1/astecztc/public_html/crmdemo/query/update-follow-up.php on line 21
+[13-Oct-2023 10:47:05 Asia/Calcutta] PHP Warning:  Undefined array key "remark" in /home1/astecztc/public_html/crmdemo/query/update-follow-up.php on line 23
+[13-Oct-2023 10:47:05 Asia/Calcutta] PHP Warning:  Undefined variable $query in /home1/astecztc/public_html/crmdemo/model/queryHelper.php on line 63
+[13-Oct-2023 10:47:05 Asia/Calcutta] PHP Warning:  Undefined variable $query in /home1/astecztc/public_html/crmdemo/model/queryHelper.php on line 79
