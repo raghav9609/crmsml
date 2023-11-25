@@ -23,7 +23,7 @@ var deviceId = 2;
                             $("#submit").val('Please Wait....');
                         },
                         success: function (response) {
-                            console.log(response);
+                            alert(response);
                             var data = $.parseJSON(response);
                             $("#err").addClass("red").text("");
                             if (data.status == 'error') {
