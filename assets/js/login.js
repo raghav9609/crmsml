@@ -23,13 +23,13 @@ var deviceId = 2;
                             $("#submit").val('Please Wait....');
                         },
                         success: function (response) {
-                            alert(response);
                             var data = $.parseJSON(response);
                             $("#err").addClass("red").text("");
                             if (data.status == 'error') {
                                 $("#err").addClass("red").text(data.message);
                             }
                             if(data.goto != ''){
+                                alert(data.goto);
                                 window.location.href = data.goto;
                             }
                             $("#submit").val('Login');
