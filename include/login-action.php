@@ -5,22 +5,22 @@ $goto = '';
 
 require_once(dirname(__FILE__) . '/../helpers/common-helper.php');
 
-if(requestMethod() != 'POST' && requestMethod() != 'GET'){ 
+if(requestMethod() != 'POST'){ 
     $status = 'error';
     $message = 'Not on correct page !!!!!!!';
-}else if(!empty($_REQUEST['id']) && $_REQUEST['step'] == 0){
-    $step = $_REQUEST['step'];
+}else if(!empty($_POST['id']) && $_POST['step'] == 0){
+    $step = $_POST['step'];
     require_once(dirname(__FILE__) . '/../config/config.php');
     require_once(dirname(__FILE__) . '/../model/loginHelper.php');
     $get_user = new userModel();
-    $user_query = $get_user->userDetails(array("email_id = '".$_REQUEST['id']."'"));
+    $user_query = $get_user->userDetails(array("email_id = '".$_POST['id']."'"));
     $db_handle = new DBController();
     $user_data = $db_handle->runQuery($user_query);
     if(!empty($user_data) && $user_data[0]['is_active'] == 1){
         if($user_data[0]['is_ip_restriction_enable'] == 0 || ($user_data[0]['is_ip_restriction_enable'] == 1 && ipRestrictionCheck($_SERVER['REMOTE_ADDR']) == 1)){
-            if(password_verify($_REQUEST['otp'], $user_data[0]['password'])){
+            if(password_verify($_POST['otp'], $user_data[0]['password'])){
                 $login_history_update = $get_user->updateLoginDateTime($user_data[0]['id'],currentDateTime24());
-                $login_history_insert = $get_user->loginHistory(array('crm_master_user_id','login_ip'),array($user_data[0]['id'],$_REQUEST['deviceId']));
+                $login_history_insert = $get_user->loginHistory(array('crm_master_user_id','login_ip'),array($user_data[0]['id'],$_POST['deviceId']));
                 $db_handle->insertRows($login_history_insert);
                 $db_handle->updateRows($login_history_update);
                 session_start();
