@@ -2,6 +2,8 @@
 $no_head = 1;
 $btn_txt = '';
 $goto = '';
+echo "as";
+exit;
 require_once(dirname(__FILE__) . '/../helpers/common-helper.php');
 if(requestMethod() != 'POST'){ 
     $status = 'error';
