@@ -18,5 +18,5 @@
     }
 
     session_destroy();
-    header("location:".$head_url);
+    header("location:".$head_url."/");
 ?>

@@ -8,7 +8,6 @@
             return $return;
         }
     }
-
     if(!function_exists('ipAddress')){
         function ipAddress() {
             $ipaddress = '';
