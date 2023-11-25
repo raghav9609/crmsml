@@ -11,8 +11,8 @@ if(requestMethod() != 'POST'){
 }else if(!empty($_POST['id']) && $_POST['step'] == 0){
     $step = $_POST['step'];
     require_once(dirname(__FILE__) . '/../config/config.php');
-    echo "as";
-    exit;
+    // echo "as";
+    // exit;
     require_once(dirname(__FILE__) . '/../model/loginHelper.php');
     $get_user = new userModel();
     $user_query = $get_user->userDetails(array("email_id = '".$_POST['id']."'"));
