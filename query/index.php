@@ -1,6 +1,7 @@
 <?php
 session_start();
 print_r($_SESSION);
+phpinfo();
 require_once(dirname(__FILE__) . '/../helpers/common-helper.php');
 require_once(dirname(__FILE__) . '/../include/header.php');
 //exit;
