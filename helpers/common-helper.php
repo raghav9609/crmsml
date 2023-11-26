@@ -229,7 +229,7 @@ if (!function_exists('curl_get_helper')) {
     }
 }
 if(!function_exists('get_dropdown')){
-    function get_dropdown($code_id,$name,$selected_val=''){
+    function get_dropdown($code_id,$name,$selected_val='',$func_call=''){
          $arr = array();
          switch ($code_id){
             case "city":
