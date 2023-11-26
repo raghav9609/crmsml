@@ -1,7 +1,6 @@
 <?php
 error_reporting(0); 
 require_once(dirname(__FILE__) . '/constant.php');
-echo "as";
 require_once(dirname(__FILE__) . '/../config/session.php');
 echo "as";
 require_once(dirname(__FILE__) . '/../config/config.php');
