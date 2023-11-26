@@ -1,4 +1,5 @@
 <?php
+require_once(dirname(__FILE__) . '/../include/constant.php');
 require_once(dirname(__FILE__) . '/../helpers/common-helper.php');
 require_once(dirname(__FILE__) . '/../include/header.php');
 require_once(dirname(__FILE__) . '/../model/queryHelper.php');
