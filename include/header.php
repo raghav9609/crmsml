@@ -1,9 +1,10 @@
 <?php
 error_reporting(0); 
-require_once(dirname(__FILE__) . '/constant.php');
+
 require_once(dirname(__FILE__) . '/../config/session.php');
 echo "as";
 require_once(dirname(__FILE__) . '/../config/config.php');
+require_once(dirname(__FILE__) . '/constant.php');
 require_once(dirname(__FILE__) . '/../model/headerModel.php');
 
 echo "sd";
