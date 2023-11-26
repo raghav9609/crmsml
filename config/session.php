@@ -1,12 +1,6 @@
 <?php
-  ini_set('session.cookie_domain', '.astechnos.com');
+phpinfo();
 session_start();
-echo "<pre>";
-print_r($_SERVER);
-echo "</pre>";
-// echo "as";
-print_r($_SESSION);
-// exit;
 $user_id = $_SESSION['userDetails']['user_id'];
 $user_role = $_SESSION['userDetails']['role_id'];
 $show_external_api_data = 1;
