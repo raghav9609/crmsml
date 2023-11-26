@@ -24,6 +24,7 @@ if(requestMethod() != 'POST'){
                 $db_handle->insertRows($login_history_insert);
                 $db_handle->updateRows($login_history_update);
                 session_start();
+                session_regenerate_id();
                 $_SESSION['userDetails'] = array(
                                                 "user_id"=>$user_data[0]['id'],
                                                 "user_name"=>$user_data[0]['name'],
