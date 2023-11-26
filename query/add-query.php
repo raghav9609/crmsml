@@ -5,7 +5,7 @@ require_once(dirname(__FILE__) . '/../include/header.php');
 require_once(dirname(__FILE__) . '/../model/queryHelper.php');
 ?>
 
-<link href="<?php echo $head_url; ?>assets/css/grid.css?v=1.1" rel="stylesheet">
+<link href="<?php echo $head_url; ?>/assets/css/grid.css?v=1.1" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <style>
 .set-label-pos {
