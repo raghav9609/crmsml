@@ -234,6 +234,8 @@ function get_dropdown($type, $name, $selected_val, $fun_call)
         global $user_role, $tl_loan_type, $tl_member, $rm_banks, $bnk_rm_id_imp, $loan_type, $Conn1, $language_barrier_loan_type,$level_id;
         $arr = array();
         switch ($type) {
+            case "master":
+                $qry = "select id,value from crm_masters where is_active = 1 and crm_masters_code_id = ".$selected_val." order by id";
             case "occupation":
                 $qry = "select occupation_id,occupation_name from lms_occupation order by occupation_name";
                 break;

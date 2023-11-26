@@ -131,7 +131,7 @@ require_once(dirname(__FILE__) . '/../model/queryHelper.php');
 
                                 <div class="form-group col-xl-3 col-lg-4 col-md-6 salary_method hidden">
                                     <span class="fa-icon fa-money"></span>
-                                    <?php echo get_dropdown('salary_method', 'salary_method', '', 'onchange="spb_change();"'); ?>
+                                    <?php echo get_dropdown('master', 'master', 4, 'onchange="spb_change();"'); ?>
                                     <label for="salary_method" id="salary_method_label" class="label-tag set-label-pos">Salary Paid By</label>
                                 </div>
 
