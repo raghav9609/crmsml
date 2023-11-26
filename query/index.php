@@ -1,9 +1,4 @@
 <?php
-//print_r($_SERVER);
-session_start();
-// echo "as";
-var_dump($_SESSION);
-echo "as";
 require_once(dirname(__FILE__) . '/../helpers/common-helper.php');
 require_once(dirname(__FILE__) . '/../include/header.php');
 require_once(dirname(__FILE__) . '/../model/queryHelper.php');
