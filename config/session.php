@@ -1,6 +1,8 @@
 <?php
-phpinfo();
 session_start();
+echo "<pre>";
+print_r($_SESSION);
+echo "</pre>";
 $user_id = $_SESSION['userDetails']['user_id'];
 $user_role = $_SESSION['userDetails']['role_id'];
 $show_external_api_data = 1;
