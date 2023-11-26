@@ -1,5 +1,6 @@
 <?php 
 require_once(dirname(__FILE__) . '/../helpers/common-helper.php');
+echo "as";
 require_once(dirname(__FILE__) . '/../include/header.php');
 echo "as";
 require_once(dirname(__FILE__) . '/../model/queryHelper.php');
