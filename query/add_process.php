@@ -2,16 +2,16 @@
 require_once(dirname(__FILE__) . '/../include/check-session.php');
 require_once(dirname(__FILE__) . '/../include/config.php');
 require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
-$loan_type = replace_special($_POST['loan_type']);
-$loan_amount = replace_special($_POST['loan_amount']);
-$amt_deposit = replace_special($_POST['amt_deposit']);
-$saluation = replace_special($_POST['saluation']);
-$name = replace_special($_POST['name']);
-$city_id = replace_special($_POST['city_id']);
-$net_incm = replace_special($_POST['net_month_inc']);
-$date_of_birth = $_POST['date_of_birth'];
-$bus_reg_with = $_POST['bus_reg_with'];
-$bank_account_type = $_POST['bank_account_type'];
+$loan_type = replace_special($_REQUEST['loan_type']);
+$loan_amount = replace_special($_REQUEST['loan_amount']);
+$amt_deposit = replace_special($_REQUEST['amt_deposit']);
+$saluation = replace_special($_REQUEST['saluation']);
+$name = replace_special($_REQUEST['name']);
+$city_id = replace_special($_REQUEST['city_id']);
+$net_incm = replace_special($_REQUEST['net_month_inc']);
+$date_of_birth = $_REQUEST['date_of_birth'];
+$bus_reg_with = $_REQUEST['bus_reg_with'];
+$bank_account_type = $_REQUEST['bank_account_type'];
 if($amt_deposit > 0){
     $loan_amount = $amt_deposit;
 }
@@ -43,17 +43,17 @@ $city_id = '26';
 }
 
 
-$phone = replace_special($_POST['phone_no']); 
-$email = replace_special($_POST['email']);
-$occup_id = replace_special($_POST['occupation_id']);
-$gl_gram = replace_special($_POST['gl_gram']);
-$gl_carat = replace_special($_POST['gl_carat']);
-$itr_avl = replace_special($_POST['itr_avl']);
-$anl_trn = replace_special($_POST['anl_trn']);
-$company_name = replace_special($_POST['comp_name']);
-$reffrl_mob = replace_special($_POST['ref_mob']);
-$acq_id = replace_special($_POST['acq_id']);
-$ref_type = replace_special($_POST['ref_type']);
+$phone = replace_special($_REQUEST['phone_no']); 
+$email = replace_special($_REQUEST['email']);
+$occup_id = replace_special($_REQUEST['occupation_id']);
+$gl_gram = replace_special($_REQUEST['gl_gram']);
+$gl_carat = replace_special($_REQUEST['gl_carat']);
+$itr_avl = replace_special($_REQUEST['itr_avl']);
+$anl_trn = replace_special($_REQUEST['anl_trn']);
+$company_name = replace_special($_REQUEST['comp_name']);
+$reffrl_mob = replace_special($_REQUEST['ref_mob']);
+$acq_id = replace_special($_REQUEST['acq_id']);
+$ref_type = replace_special($_REQUEST['ref_type']);
 
 if($_REQUEST['assign_to'] == '1'){
     $user_id = $user;
