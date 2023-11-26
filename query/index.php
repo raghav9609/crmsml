@@ -1,5 +1,5 @@
 <?php
-print_r($_SERVER);
+//print_r($_SERVER);
 session_start();
 // echo "as";
 var_dump($_SESSION);
