@@ -2,7 +2,7 @@
 print_r($_SERVER);
 session_start();
 // echo "as";
-print_r($_SESSION);
+var_dump($_SESSION);
 echo "as";
 require_once(dirname(__FILE__) . '/../helpers/common-helper.php');
 require_once(dirname(__FILE__) . '/../include/header.php');
