@@ -1,6 +1,6 @@
 <?php
-require_once(dirname(__FILE__) . '/../include/session.php');
-require_once(dirname(__FILE__) . '/../include/config.php');
+require_once(dirname(__FILE__) . '/../config/session.php');
+require_once(dirname(__FILE__) . '/../config/config.php');
 
 require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
 $loan_type = replace_special($_REQUEST['loan_type']);
