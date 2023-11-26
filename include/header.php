@@ -1,7 +1,11 @@
 <?php
 error_reporting(0); 
 require_once(dirname(__FILE__) . '/../config/config.php');
+echo "anu";
+
 require_once(dirname(__FILE__) . '/../config/session.php');
+echo "Sumit";
+
 require_once(dirname(__FILE__) . '/../model/headerModel.php');
 
 ?>
