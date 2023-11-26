@@ -4,7 +4,7 @@ error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
 
 require_once(dirname(__FILE__) . '/../helpers/common-helper.php');
 require_once(dirname(__FILE__) . '/../include/header.php');
-exit;
+//exit;
 require_once(dirname(__FILE__) . '/../model/queryHelper.php');
 if ($user_role != 3) {
     $ut = '';
