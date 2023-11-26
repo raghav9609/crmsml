@@ -1,4 +1,5 @@
 <?php
+$password_field_text = '';
 require_once(dirname(__FILE__) . '/include/constant.php');
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
