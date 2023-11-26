@@ -154,7 +154,7 @@ require_once(dirname(__FILE__) . '/../model/queryHelper.php');
                                 </div>
                                 <div class="form-group col-xl-3 col-lg-4 col-md-6">
                                     <span class="fa-icon fa-amnt"></span>
-                                    <?php echo get_dropdown('loan_type', 'loan_type', '', 'onchange="loan_type_chng();" class=""'); ?>
+                                    <?php echo get_dropdown(1, 'loan_type', '', 'onchange="loan_type_chng();" class=""'); ?>
                                     <label for="loan_type" class="missed-id-tag label-tag set-label-pos">Loan Type</label>
                                 </div>
                             
