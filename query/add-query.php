@@ -237,13 +237,13 @@ require_once(dirname(__FILE__) . '/../model/queryHelper.php');
 
                                 <!-- <div class="form-group col-xl-3 col-lg-4 col-md-6 user_assign hidden">
                                     <span class="fa-icon fa-user"></span>
-                                <?php echo get_dropdown('u_assign', 'u_assign', '', ''); ?>
+                                <?php // echo get_dropdown('u_assign', 'u_assign', '', ''); ?>
                                     <label for="u_assign" id="u_assign_label" class="label-tag set-label-pos optional-tag">User Assign</label>
                                 </div>
 
                                 <div class="form-group col-xl-3 col-lg-4 col-md-6 acq_mod  hidden">
                                     <span class="fa-icon fa-medium"></span>
-                                    <?php echo get_dropdown('acq_mode', 'acq_id', '5', 'onchange= "acqtype(this.value);"'); ?>
+                                    <?php // echo get_dropdown('acq_mode', 'acq_id', '5', 'onchange= "acqtype(this.value);"'); ?>
                                     <label for="acq_id" class="label-tag set-label-pos optional-tag">Acquistion Mode</label>
                                 </div> -->
 
