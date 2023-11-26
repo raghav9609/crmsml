@@ -222,7 +222,7 @@ if ($user_role != 3) {
         <?php $get_qry_det = new queryModel();
 			  $qry_dets = $get_qry_det->fetchDetails($offset,$filter_data_qry);
               echo $qry_dets;
-              exit;
+             // exit;
 			  $get_num_data = $db_handle->numRows($qry_dets);
 			 if ($get_num_data > 0) {
                 $record = 0;
