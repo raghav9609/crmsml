@@ -1,7 +1,9 @@
 <?php
 ob_clean();
 session_start();
-
+echo "<pre>";
+print_r($_SERVER);
+echo "</pre>";
 // echo "as";
 print_r($_SESSION);
 // exit;
