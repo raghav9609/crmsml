@@ -232,9 +232,6 @@ if(!function_exists('get_dropdown')){
     function get_dropdown($code_id,$name,$selected_val=''){
          $arr = array();
          switch ($code_id){
-            case is_numeric($code_id):
-            $qry = "select id,value from crm_masters where crm_masters_code_id = ".$code_id." and is_active = 1";
-            break;
             case "city":
                 $qry = "select id,city_name from crm_master_city where is_active = 1";
             break;
@@ -246,6 +243,9 @@ if(!function_exists('get_dropdown')){
             break;
             case "crm_master_city_sub_group":
                 $qry = "select id,city_sub_group_name from crm_master_city_sub_group where is_active = 1";
+            break;
+            default:
+            $qry = "select id,value from crm_masters where crm_masters_code_id = ".$code_id." and is_active = 1";
             break;
          }
          echo $qry;
