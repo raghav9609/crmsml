@@ -52,7 +52,7 @@ class DBController
         }
 }
 $db_handle = new DBController();
-
+$Conn1 = $db_handle->connectDB()
 // if($_SESSION['userDetails']['multi_login_flag'] == 1) {
 //         $getToken_qry = $db_handle->tokenCheck($_SESSION['userDetails']['user_id']);
 //         $login_token_val = $db_handle->runQuery($getToken_qry);

@@ -230,7 +230,7 @@ if (!function_exists('curl_get_helper')) {
 }
 if(!function_exists('get_dropdown')){
     function get_dropdown($code_id,$name,$selected_val='',$func_call=''){
-        global $db_handle;
+        global $Conn1;
          $arr = array();
          switch ($code_id){
             case "city":
@@ -249,8 +249,9 @@ if(!function_exists('get_dropdown')){
             $qry = "select id,value from crm_masters where crm_masters_code_id = ".$code_id." and is_active = 1";
             break;
          }
-        $data = $db_handle->runQuery($qry);
-        print_r($data);
+        $data = mysqli_query($Conn1,$qry);
+        $get_data = mysqli_fetch_array($data);
+        print_r($get_data);
     }
 }
 // function get_dropdown($type, $name, $selected_val, $fun_call)
