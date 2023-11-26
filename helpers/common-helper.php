@@ -230,25 +230,27 @@ if (!function_exists('curl_get_helper')) {
 }
 if(!function_exists('get_dropdown')){
     function get_dropdown($code_id,$name,$selected_val='',$func_call=''){
+        global $db_handle;
          $arr = array();
          switch ($code_id){
             case "city":
-                $qry = "select id,city_name from crm_master_city where is_active = 1";
+                $qry = "select id as id,city_name as value from crm_master_city where is_active = 1";
             break;
             case "state":
-                $qry = "select id,state_name from crm_master_state where is_active = 1";
+                $qry = "select id as id, state_name as value from crm_master_state where is_active = 1";
             break;
             case "user":
-                $qry = "select id,name from crm_master_user where is_active = 1";
+                $qry = "select id as id,name as value from crm_master_user where is_active = 1";
             break;
             case "crm_master_city_sub_group":
-                $qry = "select id,city_sub_group_name from crm_master_city_sub_group where is_active = 1";
+                $qry = "select id as id,city_sub_group_name as value from crm_master_city_sub_group where is_active = 1";
             break;
             default:
             $qry = "select id,value from crm_masters where crm_masters_code_id = ".$code_id." and is_active = 1";
             break;
          }
-         echo $qry;
+        $data = $db_handle->runQuery($qry);
+        print_r($data);
     }
 }
 // function get_dropdown($type, $name, $selected_val, $fun_call)
