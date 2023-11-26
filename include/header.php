@@ -4,7 +4,6 @@ require_once(dirname(__FILE__) . '/../config/config.php');
 require_once(dirname(__FILE__) . '/../config/session.php');
 require_once(dirname(__FILE__) . '/../model/headerModel.php');
 
-echo "sd";
 ?>
 <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400" rel="stylesheet">
 <link href="<?php echo $head_url; ?>/assets/css/header.css" rel="stylesheet" type="text/css" />
