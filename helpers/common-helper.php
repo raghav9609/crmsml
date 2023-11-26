@@ -248,6 +248,7 @@ if(!function_exists('get_dropdown')){
                 $qry = "select id,city_sub_group_name from crm_master_city_sub_group where is_active = 1";
             break;
          }
+         echo $qry;
     }
 }
 // function get_dropdown($type, $name, $selected_val, $fun_call)
