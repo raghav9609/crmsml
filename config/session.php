@@ -1,5 +1,5 @@
 <?php
-ob_clean();
+  ini_set('session.cookie_domain', '.astechnos.com');
 session_start();
 echo "<pre>";
 print_r($_SERVER);
