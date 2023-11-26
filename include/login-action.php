@@ -32,6 +32,7 @@ if(requestMethod() != 'POST'){
                                                 "role_id"=>$user_data[0]['role_id'],
                                                 "user_login_datetime"=>$user_data[0]['last_login_on']
                                             );
+                print_r($_SESSION);
                 $status = 'success';
                 $message = 'Details Fetch Successfully';
                 $goto = $head_url."/query/";               
