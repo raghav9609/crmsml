@@ -1,4 +1,5 @@
 <?php 
+session_start();
 require_once(dirname(__FILE__) . '/../helpers/common-helper.php');
 echo "as";
 require_once(dirname(__FILE__) . '/../include/header.php');
