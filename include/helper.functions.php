@@ -21,8 +21,13 @@ if(!function_exists('get_dropdown')){
             break;
          }
         $data = mysqli_query($Conn1,$qry);
-        $get_data = mysqli_fetch_array($data);
-        print_r($get_data);
+        if(mysqli_num_rows($data) > 0){
+            echo "<select name='".$name."' id='".$name."' ><option value= ''>Select Any One</option>";
+            while($get_data = mysqli_fetch_array($data)){
+                echo "<option value='".$get_data['id']."'>".$get_data['value']."</option>";
+            }
+            echo "</select>";
+        }
     }
 }
 ?>
