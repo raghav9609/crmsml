@@ -1,4 +1,5 @@
 <?php 
+session_start();
 $no_head = 1;
 $btn_txt = '';
 $goto = '';
