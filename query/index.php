@@ -1,5 +1,4 @@
 <?php
-ini_set('session.cookie_samesite', 'Strict'); ini_set('session.cookie_secure', 1); ini_set('session.use_strict_mode', 1); ini_set('session.save_path',realpath(dirname($_SERVER['DOCUMENT_ROOT']) . '/../session')); 
 session_start();
 print_r($_SESSION);
 phpinfo();

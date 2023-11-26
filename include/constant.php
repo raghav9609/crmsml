@@ -24,10 +24,6 @@ $onboarding_display_count = 100;
 //     $onboarding_offset = ($page_no_onboarding - 1) * $onboarding_display_count;
 // }
 
-// if($no_head != 1){ ?>
-    <!-- <script>
-    var headURL = "<?php //echo $head_url; ?>";
-</script> -->
-<?php // }
+
  ?>
 
