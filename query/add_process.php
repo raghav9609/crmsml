@@ -1,6 +1,8 @@
 <?php
 require_once(dirname(__FILE__) . '/../include/check-session.php');
 require_once(dirname(__FILE__) . '/../include/config.php');
+echo "as";
+exit;
 require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
 $loan_type = replace_special($_REQUEST['loan_type']);
 $loan_amount = replace_special($_REQUEST['loan_amount']);
