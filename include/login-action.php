@@ -49,5 +49,6 @@ if(requestMethod() != 'POST'){
         $message = 'Enter a Valid UserName';
     }
 }
+print_r($_SESSION);
 echo json_encode(array("status" => $status, "message" => $message, "step" => $step, "btn_text" => $btn_txt, "goto" => $goto));
 ?>
