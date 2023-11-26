@@ -1,5 +1,7 @@
 <?php
+ob_clean();
 session_start();
+
 // echo "as";
 print_r($_SESSION);
 // exit;
