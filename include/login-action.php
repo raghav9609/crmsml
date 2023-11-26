@@ -52,5 +52,5 @@ if(requestMethod() != 'POST'){
 }
 //print_r($_SESSION);
 echo json_encode(array("status" => $status, "message" => $message, "step" => $step, "btn_text" => $btn_txt, "goto" => $goto));
-session_write_close();
+//session_write_close();
 ?>
