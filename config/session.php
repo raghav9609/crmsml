@@ -1,6 +1,7 @@
 <?php
 session_start();
 echo "dfdfdfdf";
+echo phpinfo();
 print_r($_SESSION);
 $user_id = $_SESSION['userDetails']['user_id'];
 $user_role = $_SESSION['userDetails']['role_id'];
