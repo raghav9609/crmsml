@@ -1,9 +1,7 @@
 <?php
-
 require_once(dirname(__FILE__) . '/../helpers/common-helper.php');
 require_once(dirname(__FILE__) . '/../include/header.php');
 require_once(dirname(__FILE__) . '/../model/queryHelper.php');
-require_once(dirname(__FILE__) . '/../include/constant.php');
 if ($user_role != 3) {
     $ut = '';
 	$filter_data_qry = array();

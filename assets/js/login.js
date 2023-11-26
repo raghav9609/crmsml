@@ -29,7 +29,7 @@ var deviceId = 2;
                                 $("#err").addClass("red").text(data.message);
                             }
                             if(data.goto != ''){
-                                alert(data.goto);
+                                //alert(data.goto);
                                 window.location.href = data.goto;
                             }
                             $("#submit").val('Login');
