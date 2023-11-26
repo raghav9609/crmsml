@@ -168,7 +168,7 @@ if ($user_role != 3) {
                 if ($("#email_search").val().trim() != "") {
                     var email_regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
                     if (!email_regex.test($("#email_search").val())) {
-                        alert("Customer Email not valid")
+                       // alert("Customer Email not valid")
                         return false;
                     }
                 }
