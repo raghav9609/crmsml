@@ -138,7 +138,7 @@ require_once(dirname(__FILE__) . '/../model/queryHelper.php');
 
                                 <div class="form-group col-xl-3 col-lg-4 col-md-6 banks_list hidden">
                                     <span class="fa-icon fa-bank"></span>
-                                    <?php echo get_dropdown('banks_type', 'banks_list', '', ''); ?>
+                                    <?php echo get_dropdown(2, 'banks_list', '', ''); ?>
                                     <label for="banks_list" class="label-tag set-label-pos">Banks</label>
                                 </div>
 
@@ -193,21 +193,13 @@ require_once(dirname(__FILE__) . '/../model/queryHelper.php');
                                     <div class='word_below set_amt_frmt orange'><b id="at_in_words" class='anl_trn_value_formt'></b></div>
                                 </div>
 
-                                <div class="form-group col-xl-3 col-lg-4 col-md-6 business hidden">
-                                    <span class="fa-icon fa-file"></span>
-                                    <?php echo get_dropdown('ITR_available', 'itr_avl', '', ''); ?>
-                                    <label for="itr_avl" class="label-tag set-label-pos optional-tag">ITR available for how many years</label>
-                                </div>
+                                
 
-                                <div class="form-group col-xl-3 col-lg-4 col-md-6 bus_reg_with hidden">
-                                    <span class="fa-icon fa-registered"></span>
-                                    <?php echo get_dropdown('type_of_registration', 'bus_reg_with', '', ''); ?>
-                                    <label for="bus_reg_with" class="label-tag set-label-pos">Business Registered With</label>
-                                </div>
+                               
 
                                 <div class="form-group col-xl-3 col-lg-4 col-md-6 bank_account_type hidden">
                                     <span class="fa-icon fa-bank"></span>
-                                    <?php echo get_dropdown('bank_account_type', 'bank_account_type', '', ''); ?>
+                                    <?php echo get_dropdown(13, 'bank_account_type', '', ''); ?>
                                     <label for="bank_account_type" class="label-tag set-label-pos">Bank Account Type</label>
                                 </div>
 
@@ -225,11 +217,7 @@ require_once(dirname(__FILE__) . '/../model/queryHelper.php');
                                     <div class='word_below set_amt_frmt orange'><b id="ap_in_words" class='anl_prof_value_formt'></b></div>
                                 </div>
 
-                                <div class="form-group col-xl-3 col-lg-4 col-md-6 profession hidden">
-                                    <span class="fa-icon fa-briefcase"></span>
-                                    <?php echo get_dropdown('profession', 'profession', '', ''); ?>
-                                    <label for="profession" class="label-tag set-label-pos optional-tag">Select Profession</label>
-                                </div>
+                               
 
                                 <div class="form-group col-xl-3 col-lg-4 col-md-6 assign_to user_ass hidden">
                                     <label for="" class="radio-tag set-label-pos label-tag optional-tag">Assign To</label>
@@ -247,7 +235,7 @@ require_once(dirname(__FILE__) . '/../model/queryHelper.php');
                                     </div>
                                 </div>
 
-                                <div class="form-group col-xl-3 col-lg-4 col-md-6 user_assign hidden">
+                                <!-- <div class="form-group col-xl-3 col-lg-4 col-md-6 user_assign hidden">
                                     <span class="fa-icon fa-user"></span>
                                 <?php echo get_dropdown('u_assign', 'u_assign', '', ''); ?>
                                     <label for="u_assign" id="u_assign_label" class="label-tag set-label-pos optional-tag">User Assign</label>
@@ -257,7 +245,7 @@ require_once(dirname(__FILE__) . '/../model/queryHelper.php');
                                     <span class="fa-icon fa-medium"></span>
                                     <?php echo get_dropdown('acq_mode', 'acq_id', '5', 'onchange= "acqtype(this.value);"'); ?>
                                     <label for="acq_id" class="label-tag set-label-pos optional-tag">Acquistion Mode</label>
-                                </div>
+                                </div> -->
 
                                 <div class="form-group col-xl-3 col-lg-4 col-md-6 ref_type" style="display:none;">
                                     <span class="fa-icon fa-sitemap"></span>
