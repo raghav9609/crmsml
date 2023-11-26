@@ -19,9 +19,9 @@ if($amt_deposit > 0){
 if(preg_match('/^[1-9][0-9]{5}$/',$_REQUEST['city_name'])){
     
   
-$qry = mysqli_query($Conn1,"SELECT cty.city_id as city_id FROM lms_pincode as pin left join lms_city as cty on pin.city_id = cty.city_id WHERE pin.pin_code = '".$_REQUEST['city_name']."'");
+$qry = mysqli_query($Conn1,"SELECT pin.city_id as city_id FROM crm_master_pincode as pin WHERE pin.pincode = '".$_REQUEST['city_name']."'");
 $result_qry = mysqli_fetch_array($qry);
-$pin_code_id = $_REQUEST['city'];
+$pin_code_id = $_REQUEST['city_name'];
 $city_id = $result_qry['city_id'];
 
 if($city_id != '' && $city_id != '0'){
@@ -32,9 +32,9 @@ $city_id = '26';
 
 }else if(preg_match('/^[a-zA-Z0-9]/',$_REQUEST['city_name'])){
     
-$qry = mysqli_query($Conn1,"SELECT city_id FROM lms_city WHERE city_name = '".$_REQUEST['city_name']."'");
+$qry = mysqli_query($Conn1,"SELECT id FROM crm_master_city WHERE city_name = '".$_REQUEST['city_name']."'");
 $result_qry = mysqli_fetch_array($qry);
-$city_id_oth = $result_qry['city_id'];
+$city_id_oth = $result_qry['id'];
 
 if($city_id_oth != '' && $city_id_oth != '0'){
 $city_id = $city_id_oth;
@@ -73,19 +73,19 @@ if($loan_type == 32){
     $user_id = 83;
 }
 
-if($acq_id == 3 && $reffrl_mob > 6000000000 && $ref_type=='1'){
-	$ref_idm = get_display_name('customer_id',$reffrl_mob);
-	if($ref_idm == '' || $ref_idm == 0){
-		$insert_customer_qry = mysqli_query($Conn1,"insert into tbl_mint_customer_info set phone = '".$reffrl_mob."',date=CURDATE(),time=CURTIME()");
-}
-	$ref_id = get_display_name('customer_id',$reffrl_mob);
-} else if($acq_id == 3 && $reffrl_mob > 6000000000 && $ref_type=='2'){
-	$ref_idm = get_display_name('referer_partner_id',$reffrl_mob);
-	if($ref_idm == '' || $ref_idm == 0){
-		$insert_customer_qry = mysqli_query($Conn1,"insert into tbl_mint_partner_info set phone = '".$reffrl_mob."',phone_no = '".$reffrl_mob."',date=NOW()");
-}
-	$ref_id = get_display_name('referer_partner_id',$reffrl_mob);
-}
+// if($acq_id == 3 && $reffrl_mob > 6000000000 && $ref_type=='1'){
+// 	$ref_idm = get_display_name('customer_id',$reffrl_mob);
+// 	if($ref_idm == '' || $ref_idm == 0){
+// 		$insert_customer_qry = mysqli_query($Conn1,"insert into crm_customer set phone = '".$reffrl_mob."',date=CURDATE(),time=CURTIME()");
+// }
+// 	$ref_id = get_display_name('customer_id',$reffrl_mob);
+// } else if($acq_id == 3 && $reffrl_mob > 6000000000 && $ref_type=='2'){
+// 	$ref_idm = get_display_name('referer_partner_id',$reffrl_mob);
+// 	if($ref_idm == '' || $ref_idm == 0){
+// 		$insert_customer_qry = mysqli_query($Conn1,"insert into tbl_mint_partner_info set phone = '".$reffrl_mob."',phone_no = '".$reffrl_mob."',date=NOW()");
+// }
+// 	$ref_id = get_display_name('referer_partner_id',$reffrl_mob);
+// }
 
 
 $qry_get_anl_num = mysqli_query($Conn1,"select turnover_num from tbl_bussiness_anl_trunover where bus_anl_id ='".$anl_trn."'");
@@ -95,7 +95,8 @@ $comp_id = get_display_name('comp_id',$company_name);
 $refer_amt = get_display_name('cashback',$loan_type);
 $cust_id = get_display_name('customer_id',$phone);
 if($comp_id == '' || $comp_id == '0'){
-    $comp_id_n = '';$comp_name_other = $company_name;
+    $comp_id_n = '';
+    $comp_name_other = $company_name;
 }else{
     $comp_id_n = $comp_id;$comp_name_other = '';
 }
