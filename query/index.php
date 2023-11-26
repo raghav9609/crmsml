@@ -1,6 +1,5 @@
 <?php
 session_start();
-error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
 
 require_once(dirname(__FILE__) . '/../helpers/common-helper.php');
 require_once(dirname(__FILE__) . '/../include/header.php');
