@@ -1,6 +1,6 @@
 <?php
-require_once "../include/header.php";
-require_once "../include/helper.functions.php";
+require_once(dirname(__FILE__) . '/../include/header.php');
+require_once(dirname(__FILE__) . '/../include/helper.functions.php');
 
 $loan_he = replace_special($_REQUEST['loan']);
 $query_halt = mysqli_query($Conn1, "select shift_id from crm_lead_assignment");
