@@ -1,11 +1,6 @@
 <?php
 session_start();
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-is_writable(session_save_path());
 print_r($_SESSION);
-
 require_once(dirname(__FILE__) . '/../helpers/common-helper.php');
 require_once(dirname(__FILE__) . '/../include/header.php');
 require_once(dirname(__FILE__) . '/../model/queryHelper.php');

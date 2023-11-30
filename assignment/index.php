@@ -3,12 +3,7 @@ session_start();
 print_r($_SESSION);
 require_once(dirname(__FILE__) . '/../helpers/common-helper.php');
 require_once(dirname(__FILE__) . '/../include/header.php');
-//require_once(dirname(__FILE__) . '/../include/helper.functions.php');
-
-$loan_he = replace_special($_REQUEST['loan']);
-$query_halt = mysqli_query($Conn1, "select shift_id from crm_lead_assignment");
-$result_halt = mysqli_fetch_array($query_halt);
-
+require_once(dirname(__FILE__) . '/../include/helper.functions.php');
 ?>
 <!DOCTYPE html>
 <html>
