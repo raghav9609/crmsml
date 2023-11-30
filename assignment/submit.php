@@ -15,7 +15,7 @@ $arr = array('user_ist' => $user_first, 'user_2nd' => $user_secnd);
 
 foreach ($arr as $user => $val) {
     echo $user;
-
+    print_r($val);
     //$avail_flag = replace_special($_REQUEST[$user . "_flag"]);
     if ($user == 'user_ist') {
         $shift = 1;
@@ -24,28 +24,26 @@ foreach ($arr as $user => $val) {
     }
     $count = count($val);
     if ($count > 0) {
+        for ($i = 0; $i < $count; $i++) {
+            $user_id = $val[$i];
+            echo "select * from crm_lead_assignment where loan_type ='" . replace_special($_REQUEST['loan_type']) . "' and min_loan_amount = '" . replace_special($_REQUEST['loan_frm']) . "' and max_loan_amount ='" . replace_special($_REQUEST['loan_to']) . "' and min_net_income ='" . replace_special($_REQUEST['salry_from']) . "' and max_net_income ='" . replace_special($_REQUEST['salry_to']) . "' and city_sub_group_id ='" . replace_special($_REQUEST['city_sub_group']) . "' and user_id = '".$user_id."',shift_id ='" . replace_special($shift) . "'";
 
-    
-    for ($i = 0; $i < $count; $i++) {
-        $user_id = $val[$i];
-        echo "select * from crm_lead_assignment where loan_type ='" . replace_special($_REQUEST['loan_type']) . "' and min_loan_amount = '" . replace_special($_REQUEST['loan_frm']) . "' and max_loan_amount ='" . replace_special($_REQUEST['loan_to']) . "' and min_net_income ='" . replace_special($_REQUEST['salry_from']) . "' and max_net_income ='" . replace_special($_REQUEST['salry_to']) . "' and city_sub_group_id ='" . replace_special($_REQUEST['city_sub_group']) . "' and user_id = '".$user_id."',shift_id ='" . replace_special($shift) . "'";
-
-        $qry_search = mysqli_query($Conn1, "select * from crm_lead_assignment where loan_type ='" . replace_special($_REQUEST['loan_type']) . "' and min_loan_amount = '" . replace_special($_REQUEST['loan_frm']) . "' and max_loan_amount ='" . replace_special($_REQUEST['loan_to']) . "' and min_net_income ='" . replace_special($_REQUEST['salry_from']) . "' and max_net_income ='" . replace_special($_REQUEST['salry_to']) . "' and city_sub_group_id ='" . replace_special($_REQUEST['city_sub_group']) . "' and user_id = '".$user_id."',shift_id ='" . replace_special($shift) . "'");
-        $res_search = mysqli_num_rows($qry_search);
+            $qry_search = mysqli_query($Conn1, "select * from crm_lead_assignment where loan_type ='" . replace_special($_REQUEST['loan_type']) . "' and min_loan_amount = '" . replace_special($_REQUEST['loan_frm']) . "' and max_loan_amount ='" . replace_special($_REQUEST['loan_to']) . "' and min_net_income ='" . replace_special($_REQUEST['salry_from']) . "' and max_net_income ='" . replace_special($_REQUEST['salry_to']) . "' and city_sub_group_id ='" . replace_special($_REQUEST['city_sub_group']) . "' and user_id = '".$user_id."',shift_id ='" . replace_special($shift) . "'");
+            $res_search = mysqli_num_rows($qry_search);
         
-        if ($res_search == '0') {
+            if ($res_search == '0') {
             
-            $qry_select = mysqli_query($Conn1, "select id as filter_id,shift_id As shift_flag from crm_lead_assignment order by id desc limit 1");
+                $qry_select = mysqli_query($Conn1, "select id as filter_id,shift_id As shift_flag from crm_lead_assignment order by id desc limit 1");
             
-            $res_select = mysqli_fetch_array($qry_select);
+                $res_select = mysqli_fetch_array($qry_select);
           
-            $qry_ins = mysqli_query($Conn1, "INSERT into crm_lead_assignment set loan_type='" . replace_special($_REQUEST['loan_type']) . "', min_loan_amount = '" . replace_special($_REQUEST['loan_frm']) . "', max_loan_amount='" . replace_special($_REQUEST['loan_to']) . "',min_net_income ='" . replace_special($_REQUEST['salry_from']) . "', max_net_income ='" . replace_special($_REQUEST['salry_to']) . "', city_sub_group_id='" . replace_special($_REQUEST['city_sub_group']) . "',shift_id ='" . replace_special($res_select['shift_flag']) . "',user_id = '".$user_id."'");
+                $qry_ins = mysqli_query($Conn1, "INSERT into crm_lead_assignment set loan_type='" . replace_special($_REQUEST['loan_type']) . "', min_loan_amount = '" . replace_special($_REQUEST['loan_frm']) . "', max_loan_amount='" . replace_special($_REQUEST['loan_to']) . "',min_net_income ='" . replace_special($_REQUEST['salry_from']) . "', max_net_income ='" . replace_special($_REQUEST['salry_to']) . "', city_sub_group_id='" . replace_special($_REQUEST['city_sub_group']) . "',shift_id ='" . replace_special($res_select['shift_flag']) . "',user_id = '".$user_id."'");
             
-            $filter = mysqli_insert_id($Conn1);
+                $filter = mysqli_insert_id($Conn1);
         
+            }
         }
     }
-}
 } 
 
 header("location:index.php?msg=1");
