@@ -1,6 +1,5 @@
 <?php
-session_start();
-print_r($_SESSION);
+require_once(dirname(__FILE__) . '/../config/session.php');
 require_once(dirname(__FILE__) . '/../helpers/common-helper.php');
 require_once(dirname(__FILE__) . '/../include/header.php');
 require_once(dirname(__FILE__) . '/../include/helper.functions.php');
@@ -35,7 +34,7 @@ require_once(dirname(__FILE__) . '/../include/helper.functions.php');
         ?>
         <input class="cursor" type='button' value='Search' name='search_btn' id="search_btn" onclick='search_as();'>
         <input class="cursor" type='button' value='Clear' name='clear_btn' onclick='clear_fnc();'>
-        <input class="cursor" type="button" name="add" value="Add" id="add" onclick="add_info();">
+        <!-- <input class="cursor" type="button" name="add" value="Add" id="add" onclick="add_info();"> -->
     </fieldset>
 </div>
 <div id="loan"></div>
@@ -127,13 +126,10 @@ include("../../include/footer_close.php");
         var loan_type = $("#loan_type").val();
         var city_sub_grp = $("#city_sub_grp").val();
         var user_mlc = $("#u_assign").val();
-        var crasssell = $("#crasssell").val();
         if(city_sub_grp == '') {
             alert("Please Select City Sub Group!");
         } else if (loan_type == '') {
             alert("Please Select Loan Type!");
-        } else if (loan_type == '56' && $("#employer_type").val() == '') {
-            alert("Please Select Employer Type");
         } else {
             $("#search_btn").attr('value', 'Searching...');
             $("#search_btn").attr("disabled", true);
@@ -141,7 +137,7 @@ include("../../include/footer_close.php");
                 type: "POST",
                 cache: false,
                 url: "search_assign.php",
-                data: "loan_type=" + loan_type + "&mlc_user=" + user_mlc + "&city_sub_grp=" + city_sub_grp + "&employer_type=" + $("#employer_type").val()+"&crasssell="+ crasssell,
+                data: "loan_type=" + loan_type + "&mlc_user=" + user_mlc + "&city_sub_grp=" + city_sub_grp,
                 success: function (html) {
                     $("#search_btn").attr('value', 'Search');
                     $("#search_btn").attr("disabled", false);
