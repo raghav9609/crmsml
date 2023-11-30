@@ -12,6 +12,7 @@ class leadAssignMent{
             $query_to_execute .= " and user_id = ".$data['user_id'];
         }
         $query_to_execute .= " order by city_sub_group_id";
+        
         return $query_to_execute;
     }
     function leadAssignment($data){
