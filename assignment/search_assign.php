@@ -28,6 +28,7 @@ if ($city_sub_grp != '') {
 
 $qry .= " group by tbl_assign_l.id order by tbl_assign_l.id";
 echo $qry;
+
 exit;
 $query = mysqli_query($Conn1, $qry) or die(mysqli_error($Conn1));
 ?>
