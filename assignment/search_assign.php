@@ -27,7 +27,6 @@ $query = mysqli_query($Conn1, $qry) or die(mysqli_error($Conn1));
                     <th>Salary Range</th>
                     <th>Loan Amount</th>
                    
-                    <th>Occupation</th>
                     <th>Ist Shift</th>
                     <th>IInd Shift</th>
                 </tr>
@@ -86,20 +85,6 @@ if (this.checked) {
                                disabled="" type="text"/>
                     </td>
                   
-                    <td>
-                        <?php
-                        $ocupt_select = "<select id='$id" . "_occupation' name='occupation_" . $id . "' disabled = '' class='$id" . "_test $id" . "_chng'>";
-                        $ocupt_select .= "<option value='0'>Select Occupation</option>";
-                        $occup_query = mysqli_query($Conn1, "SELECT * FROM `lms_occupation` ORDER BY sort_order");
-                        while ($occup_row = mysqli_fetch_array($occup_query)) {
-                            $occupation_id = $occup_row['occupation_id'];
-                            $occup_name = $occup_row['occupation_name'];
-                            $occup_sel_val = $occupation_id == $occupation ? "selected" : "";
-                            $ocupt_select .= "<option value='$occupation_id' $occup_sel_val>$occup_name</option>";
-                        }
-                        $ocupt_select .= "</select>";
-                        echo $ocupt_select;
-                        ?></td>
                     <td>
                         <?php
                         $shift_1_qry = mysqli_query($Conn1, $user_query_data . " and shift_id = 1");
