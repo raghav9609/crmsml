@@ -1,6 +1,7 @@
 <?php 
 class leadAssignMent{
     function searchFilter($data){
+        return "as";
         $query_to_execute = "select tbl_assign_l.*, city_group.city_sub_group_name from crm_lead_assignment As tbl_assign_l INNER JOIN crm_master_city_sub_group as city_group on tbl_assign_l.city_sub_group_id = city_group.id  where tbl_assign_l.is_active = ".$data['is_active'];
         if($data['city_sub_group_id'] > 0){
             $query_to_execute .= " and city_sub_group_id = ".$data['city_sub_group_id'];
@@ -12,7 +13,7 @@ class leadAssignMent{
             $query_to_execute .= " and user_id = ".$data['user_id'];
         }
         $query_to_execute .= " order by city_sub_group_id";
-        
+
         return $query_to_execute;
     }
     function leadAssignment($data){
