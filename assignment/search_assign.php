@@ -8,31 +8,10 @@ require_once(dirname(__FILE__) . '/../model/assignmentModel.php');
 $loan_type = replace_special($_REQUEST['loan_type']);
 $sml_user = replace_special($_REQUEST['sml_user']);
 $city_sub_grp = replace_special($_REQUEST['city_sub_grp']);
-echo "dsdsd";
+
 $filterArr = array("city_sub_group_id"=>$city_sub_grp,"loan_type"=>$loan_type,"user_id"=>$sml_user,"is_active"=>1);
 echo $qry = $leadAssignmentClassexport->searchFilter($filterArr);
 
-exit;
-$qry = "select tbl_assign_l.company_cat,tbl_assign_l.business_registered_with,tbl_assign_l.account_type,tbl_assign_l.hdfc_auto_push as hdfc_auto_push,tbl_assign_l.employer_type,tbl_assign_l.occup_id,tbl_assign_l.min_itr_amt,tbl_assign_l.max_itr_amt,tbl_assign_l.id, tbl_assign_l.min_loan_amt as min_loan,tbl_assign_l.max_loan_amt as max_loan,
-tbl_assign_l.min_net_income as min_sal,tbl_assign_l.max_net_income as max_sal,tbl_assign_l.loan_type,
-city_group.city_sub_group_name
-from crm_lead_assignment as tbl_assign_l
-inner join crm_master_city_sub_group as city_group on tbl_assign_l.city_sub_group_id = city_group.id
-where tbl_assign_l.id > 0 ";
-if ($loan_type != '') {
-    $qry .= " and loan_type = ".$loan_type ;
-}
-if ($sml_user != '') {
-    $qry .= " and tbl_assign_l.user_id = '" . $sml_user . "'";
-}
-if ($city_sub_grp != '') {
-    $qry .= " and city_group.id = '" . $city_sub_grp . "' ";
-}
-
-$qry .= " group by tbl_assign_l.id order by tbl_assign_l.id";
-echo $qry;
-
-exit;
 $query = mysqli_query($Conn1, $qry) or die(mysqli_error($Conn1));
 ?>
 
