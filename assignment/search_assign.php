@@ -107,7 +107,6 @@ if (this.checked) {
                                 </select>&nbsp;&nbsp;
                                 <?php
                             }
-
                         }
                         ?>
                     </td>
@@ -140,6 +139,7 @@ if (this.checked) {
                         }
                         ?>
                     </td>
+                    </tr>
                     <?php } ?>
             </table>
         </form>
