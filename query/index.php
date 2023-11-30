@@ -98,9 +98,6 @@ if ($user_role != 3) {
     <link rel="shortcut icon" href="<?php echo $head_url; ?>/assets/images/favicon.png" type="image/x-icon">
         <link rel="icon" href="<?php echo $head_url; ?>/assets/images/favicon.png" type="image/x-icon">
         <link rel="stylesheet" href="<?php echo $head_url; ?>/assets/css/jquery-ui.css">
-        <script type="text/javascript" src="<?php echo $head_url; ?>/assets/js/jquery-1.10.2.js"></script>
-        <script type="text/javascript" src="<?php echo $head_url; ?>/assets/js/jquery-ui.js"></script>
-        
         <script>
             function selectAll(source) {
                 checkboxes = document.getElementsByName('mask[]');

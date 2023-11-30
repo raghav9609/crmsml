@@ -106,14 +106,14 @@ if (isset($_REQUEST["update"])) {
 
     }
 }
-mysqli_close($mlc);
-include("../../include/footer_close.php");
 ?>
 </body>
 </html>
+<script src="<?php echo $head_url; ?>/assets/js/jquery-1.10.2.js"></script>
+<script src="<?php echo $head_url; ?>/assets/js/jquery-ui.js"></script>
 <script>
     function clear_fnc() {
-        window.location.href = "<?php echo $head_url; ?>/sugar/assign-mlc/";
+        window.location.href = "<?php echo $head_url; ?>/assignment/";
     }
 
     $(document).ready(function () {
