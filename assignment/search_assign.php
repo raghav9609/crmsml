@@ -1,7 +1,7 @@
 <?php
 require_once(dirname(__FILE__) . '/../config/session.php');
 require_once(dirname(__FILE__) . '/../config/config.php');
-require_once(dirname(__FILE__) . '/../model/assignmentModel.php');
+//require_once(dirname(__FILE__) . '/../model/assignmentModel.php');
 
 
 $loan_type = replace_special($_REQUEST['loan_type']);
