@@ -7,7 +7,6 @@ require_once(dirname(__FILE__) . '/../include/helper.functions.php');
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="../include/style.css">
     <style>
         .new_textbox {
             background: #E6E6E6 none repeat scroll 0% 0%;
