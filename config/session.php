@@ -7,5 +7,5 @@ $show_external_api_data = 1;
 //   header("location:".$head_url."/logout.php");
 //     exit();
 // }
-print_r($_SESSION);
+//print_r($_SESSION);
 ?>
