@@ -32,22 +32,10 @@ require_once(dirname(__FILE__) . '/../include/helper.functions.php');
         <?php echo get_dropdown('crm_master_city_sub_group', 'city_sub_grp', '', '');
         echo get_dropdown(1, 'loan_type', '', 'onchange="user_tab()"');
         echo get_dropdown('user', 'u_assign', '', '');
-        //echo get_dropdown('employer_type','employer_type','','');
         ?>
-         <select name="crasssell" id="crasssell"><option value="">Select Cross sell </option><option value="1">Yes</option><option value="0">No</option></select>
         <input class="cursor" type='button' value='Search' name='search_btn' id="search_btn" onclick='search_as();'>
         <input class="cursor" type='button' value='Clear' name='clear_btn' onclick='clear_fnc();'>
         <input class="cursor" type="button" name="add" value="Add" id="add" onclick="add_info();">
-        <?php if ($user_role == 1 || $user_role == 4) { ?>
-            <div class="onoffswitch" id='btn_text' style='float: right;margin: 10px 10% 0 0;'>
-            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox onoff" id="myonoffswitch"
-                   onchange="halt()" onclick="halt()" <?php if ($result_halt['shift_id'] == 1) { ?> checked <?php } ?>
-                   value="<?php echo $result_halt['shift_id'] ?>">
-            <label class="onoffswitch-label" for="myonoffswitch">
-                <span class="onoffswitch-inner"></span>
-                <span class="onoffswitch-switch"></span>
-            </label>
-            </div><?php } ?>
     </fieldset>
 </div>
 <div id="loan"></div>
