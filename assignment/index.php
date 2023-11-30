@@ -33,7 +33,7 @@ require_once(dirname(__FILE__) . '/../include/helper.functions.php');
         ?>
         <input class="cursor" type='button' value='Search' name='search_btn' id="search_btn" onclick='search_as();'>
         <input class="cursor" type='button' value='Clear' name='clear_btn' onclick='clear_fnc();'>
-        <!-- <input class="cursor" type="button" name="add" value="Add" id="add" onclick="add_info();"> -->
+        <input class="cursor" type="button" name="add" value="Add" id="add" onclick="add_info();">
     </fieldset>
 </div>
 <div id="loan"></div>
