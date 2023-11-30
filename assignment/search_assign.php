@@ -10,7 +10,7 @@ $sml_user = replace_special($_REQUEST['sml_user']);
 $city_sub_grp = replace_special($_REQUEST['city_sub_grp']);
 
 $filterArr = array("city_sub_group_id"=>$city_sub_grp,"loan_type"=>$loan_type,"user_id"=>$sml_user,"is_active"=>1);
-echo $qry = $leadAssignmentClassexport->searchFilter($filterArr);
+$qry = $leadAssignmentClassexport->searchFilter($filterArr);
 
 $query = mysqli_query($Conn1, $qry) or die(mysqli_error($Conn1));
 ?>
@@ -76,16 +76,16 @@ $query = mysqli_query($Conn1, $qry) or die(mysqli_error($Conn1));
                         $final_business_registered_loan_name = $business_registered_with_name." + ".$account_type_name;
                     }
 
-                $get_loan_name_qry = mysqli_query($Conn1, "select loan_type_name from lms_loan_type where loan_type_id = '" . $loan_type . "'");
+                $get_loan_name_qry = mysqli_query($Conn1, "select value As loan_type_name from crm_masters where crm_masters_code_id = 1 and id = '" . $loan_type . "'");
                 $result_loan_name = mysqli_fetch_array($get_loan_name_qry);
                 $loan_name = $result_loan_name['loan_type_name'];
 
                 if ($loan_type != '' && $loan_type > 0) {
-                    $mlc_qry_user = "select user.user_id as user_id,user.user_name as user_name from tbl_user_assign as user join tl_loan_type_assign as map on user.user_id = map.tl_id where user.status = 1 and map.loan_type = '" . $loan_type . "' group by user.user_id order by user.user_name";
+                    $get_qry_user = "select user.id as user_id,user.name as user_name from crm_master_user as user join tl_loan_type_assign as map on user.user_id = map.tl_id where user.is_active = 1 and map.loan_type = '" . $loan_type . "' group by user.id order by user.name";
                 } else {
-                    $mlc_qry_user = "select user_id,user_name from tbl_user_assign where status = 1";
+                    $get_qry_user = "select id As user_id,name As user_name from crm_master_user where is_active = 1";
                 }
-                $user_query_data = "select * from tbl_assign_user_query_filter where filter_id = $id ";
+                $user_query_data = "select * from crm_lead_assignment where id = $id ";
                 $script[] = '<script type="text/javascript">
 $("#' . $id . '").change(function(){
 if (this.checked) {
@@ -157,13 +157,13 @@ if (this.checked) {
                         ?></td>
                     <td>
                         <?php
-                        $shift_1_qry = mysqli_query($Conn1, $user_query_data . " and shift_flag = 1");
+                        $shift_1_qry = mysqli_query($Conn1, $user_query_data . " and shift_id = 1");
                         while ($result_user_query = mysqli_fetch_assoc($shift_1_qry)) {
                             $datacheck = $result_user_query['shift_flag'];
                             $user_id_first = $result_user_query['user_id'];
                             $assign_id = $result_user_query['assign_id'];
                             if ($datacheck == 1) {
-                                $user_query = mysqli_query($Conn1, $mlc_qry_user);
+                                $user_query = mysqli_query($Conn1, $get_qry_user);
                                 ?>
                                 <select id="<?php echo $id ?>_name" disabled="" name="user_id_<?php echo $id ?>[]"
                                         class="<?php echo $id ?>_test <?php echo $id; ?>_chng">
@@ -183,7 +183,7 @@ if (this.checked) {
                     </td>
                     <td>
                         <?php
-                        $shift_2_qry = mysqli_query($Conn1, $user_query_data . " and shift_flag = 2");
+                        $shift_2_qry = mysqli_query($Conn1, $user_query_data . " and shift_id = 2");
                         while ($result_user_query = mysqli_fetch_assoc($shift_2_qry)) {
                             $datacheck = $result_user_query['shift_flag'];
                             $user_id_first = $result_user_query['user_id'];
@@ -192,7 +192,7 @@ if (this.checked) {
                             $i = 1;
                             if ($datacheck == 2) {
                                 mysqli_data_seek($user_query, 0);
-                                $user_query = mysqli_query($Conn1, $mlc_qry_user);
+                                $user_query = mysqli_query($Conn1, $get_qry_user);
                                 ?>
                                 <select id="<?php echo $id ?>_name1" disabled="" name="user_id1_<?php echo $id ?>[]"
                                         class="<?php echo $id ?>_test1 <?php echo $id; ?>_chng">
@@ -294,6 +294,5 @@ if (this.checked) {
         });
     </script>
 <?php
-mysqli_close($mlc);
-include("../../include/footer_close.php");
+include("../include/footer_close.php");
 ?>
