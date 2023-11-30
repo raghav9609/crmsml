@@ -26,13 +26,7 @@ $query = mysqli_query($Conn1, $qry) or die(mysqli_error($Conn1));
                     <th>City Group</th>
                     <th>Salary Range</th>
                     <th>Loan Amount</th>
-                    <?php if ($loan_type == 57) { ?>
-                        <th>Annual Turnover
-                        </th><?php } else if ($loan_type == 51 || $loan_type == 52 || $loan_type == 54) { ?>
-                        <th>Auto Push</th>
-                    <?php }else if($loan_type == 56){ ?>
-                        <th>HDFC Company Category</th>
-                   <?php } ?>
+                   
                     <th>Occupation</th>
                     <th>Ist Shift</th>
                     <th>IInd Shift</th>
@@ -47,34 +41,10 @@ $query = mysqli_query($Conn1, $qry) or die(mysqli_error($Conn1));
                 $sub_group_name = $result_query['city_sub_group_name'];
                 $min_loan = $result_query['min_loan'];
                 $max_loan = $result_query['max_loan'];
-                // $min_itr_amt = $result_query['min_itr_amt'];
-                // $max_itr_amt = $result_query['max_itr_amt'];
+
                 $min_sal = $result_query['min_sal'];
                 $max_sal = $result_query['max_sal'];
-               // $occupation = $result_query['occup_id'];
-                //$crasssell=$result_query['cross_sell_flag'];
-                //$company_cat=explode(',',$result_query['company_cat']);
-                //$cross=($crasssell == 1)?'Yes':'No';
-                //$empl_ty = $result_query['employer_type'];
-                // $hdfc_auto_push = $result_query['hdfc_auto_push'];
-                // $account_type = $result_query['account_type'];
-                // $business_registered_with=$result_query['business_registered_with'];
-                //     $account_type_name = $business_registered_with_name = $final_business_registered_loan_name = '';
-                //     if($account_type == '1,5'){
-                //         $account_type_name= 'Current A/C';
-                //     }else if($account_type == '2,3,4'){
-                //         $account_type_name= 'Saving A/c';
-                //     }else if($account_type == '1,2,3,4,5'){
-                //         $account_type_name= 'All';
-                //     }
-                //     if($business_registered_with == '6,8'){
-                //         $business_registered_with_name = 'GST';
-                //     }else if($business_registered_with == '3,5,7,9'){
-                //         $business_registered_with_name = 'No GST';
-                //     }
-                //     if($business_registered_with_name != '' && $account_type_name != ''){
-                //         $final_business_registered_loan_name = $business_registered_with_name." + ".$account_type_name;
-                //     }
+      
 
                 $get_loan_name_qry = mysqli_query($Conn1, "select value As loan_type_name from crm_masters where crm_masters_code_id = 1 and id = '" . $loan_type . "'");
                 $result_loan_name = mysqli_fetch_array($get_loan_name_qry);
@@ -115,32 +85,7 @@ if (this.checked) {
                                value="<?php echo $min_loan . " - " . $max_loan ?>" class="<?php echo $id; ?>_chng"
                                disabled="" type="text"/>
                     </td>
-                    <?php
-                    if($loan_type == 56){ ?>
-                       <td> <select disabled="" multiple class="<?php echo $id; ?>_chng" name='hdfc_cat_<?php echo $id;?>[]'
-                                id='<?php echo $id ?>_hdfc_cat'>
-                                <option value=''>Select Company Category</option>
-                                <?php
-                                $qry = mysqli_query($Conn1,"select category_id,category_name from pl_comp_bank_category where bank_id  = 42 and is_active = 1");
-                                while ($category_row = mysqli_fetch_array($qry)) {
-                            $category_id = $category_row['category_id'];
-                            $category_name = $category_row['category_name'];?>
-                          <option value='<?php echo $category_id;?>' <?php if(in_array($category_id,$company_cat)){echo 'selected';} ?>><?php echo $category_name; ?></option>
-                      <?php   } ?>
-                        </select></td>
-                  <?php  }else if ($loan_type == '57') {
-                        ?>
-                        <td><input id="<?php echo $id ?>_itr_amt" name="itr_amt_<?php echo $id; ?>"
-                                   value="<?php echo $min_itr_amt . " - " . $max_itr_amt; ?>"
-                                   class="<?php echo $id; ?>_chng" disabled="" type="text"/></td>
-                    <?php } else if ($_REQUEST['loan_type'] == '51' || $_REQUEST['loan_type'] == '52' || $_REQUEST['loan_type'] == '54') { ?>
-                        <td>
-                        <select disabled="" class="<?php echo $id; ?>_chng" name='hdfc_<?php echo $id; ?>'
-                                id='<?php echo $id ?>_hdfc'>
-                            <option value='1' <?php if ($hdfc_auto_push == 1){ ?>selected<?php } ?>>Y</option>
-                            <option value='0' <?php if ($hdfc_auto_push != 1){ ?>selected<?php } ?>>N</option>
-                        </select></td>
-                    <?php } ?>
+                  
                     <td>
                         <?php
                         $ocupt_select = "<select id='$id" . "_occupation' name='occupation_" . $id . "' disabled = '' class='$id" . "_test $id" . "_chng'>";
