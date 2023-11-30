@@ -7,7 +7,7 @@ require_once(dirname(__FILE__) . '/../model/assignmentModel.php');
 $loan_type = replace_special($_REQUEST['loan_type']);
 $sml_user = replace_special($_REQUEST['sml_user']);
 $city_sub_grp = replace_special($_REQUEST['city_sub_grp']);
-
+echo "dsdsd";
 $filterArr = array("city_sub_group_id"=>$city_sub_grp,"loan_type"=>$loan_type,"user_id"=>$sml_user,"is_active"=>1);
 echo $qry = $leadAssignmentClassexport->searchFilter($filterArr);
 
