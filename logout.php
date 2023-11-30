@@ -13,7 +13,7 @@
             "ip"=>$login_ip,
             "login_type"=>2
         );
-        $ins_qry = $query_model->insertQueryData('mlc_user_login_history',$insert_arr);
+        $ins_qry = $query_model->insertQueryData('sml_user_login_history',$insert_arr);
         $db_handle->insertRows($ins_qry);
     }
 

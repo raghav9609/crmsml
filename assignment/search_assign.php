@@ -1,17 +1,19 @@
 <?php
 require_once(dirname(__FILE__) . '/../config/session.php');
 require_once(dirname(__FILE__) . '/../config/config.php');
-//require_once(dirname(__FILE__) . '/../model/assignmentModel.php');
+require_once(dirname(__FILE__) . '/../model/assignmentModel.php');
 
 
 $loan_type = replace_special($_REQUEST['loan_type']);
-$mlc_user = replace_special($_REQUEST['mlc_user']);
+$sml_user = replace_special($_REQUEST['sml_user']);
 $city_sub_grp = replace_special($_REQUEST['city_sub_grp']);
 
+$filterArr = array("city_sub_group_id"=>$city_sub_grp,"loan_type"=>$loan_type,"user_id"=>$sml_user,"is_active"=>1);
+echo $qry = $leadAssignmentClassexport->searchFilter($filterArr);
 
-// $leadAssignmentClassexport->leadAssignment()
-$qry = "select tbl_assign_l.company_cat,tbl_assign_l.business_registered_with,tbl_assign_l.account_type,tbl_assign_l.cross_sell_flag,tbl_assign_l.hdfc_auto_push as hdfc_auto_push,tbl_assign_l.employer_type,tbl_assign_l.occup_id,tbl_assign_l.min_itr_amt,tbl_assign_l.max_itr_amt,tbl_assign_l.filter_id, tbl_assign_l.min_loan_amt as min_loan,tbl_assign_l.max_loan_amt as max_loan,
-tbl_assign_l.min_salary as min_sal,tbl_assign_l.max_salary as max_sal,tbl_assign_l.loan_type,
+exit;
+$qry = "select tbl_assign_l.company_cat,tbl_assign_l.business_registered_with,tbl_assign_l.account_type,tbl_assign_l.hdfc_auto_push as hdfc_auto_push,tbl_assign_l.employer_type,tbl_assign_l.occup_id,tbl_assign_l.min_itr_amt,tbl_assign_l.max_itr_amt,tbl_assign_l.id, tbl_assign_l.min_loan_amt as min_loan,tbl_assign_l.max_loan_amt as max_loan,
+tbl_assign_l.min_net_income as min_sal,tbl_assign_l.max_net_income as max_sal,tbl_assign_l.loan_type,
 city_group.city_sub_group_name
 from crm_lead_assignment as tbl_assign_l
 inner join crm_master_city_sub_group as city_group on tbl_assign_l.city_sub_group_id = city_group.id
@@ -19,8 +21,8 @@ where tbl_assign_l.id > 0 ";
 if ($loan_type != '') {
     $qry .= " and loan_type = ".$loan_type ;
 }
-if ($mlc_user != '') {
-    $qry .= " and tbl_assign_l.user_id = '" . $mlc_user . "'";
+if ($sml_user != '') {
+    $qry .= " and tbl_assign_l.user_id = '" . $sml_user . "'";
 }
 if ($city_sub_grp != '') {
     $qry .= " and city_group.id = '" . $city_sub_grp . "' ";
@@ -187,9 +189,9 @@ if (this.checked) {
                                     <option value="0,<?php echo $assign_id; ?>">Select User</option>
                                     <?php
                                     while ($result_user_query = mysqli_fetch_array($user_query)) {
-                                        $mlc_user_id = $result_user_query['user_id'];
-                                        $mlc_user_name = $result_user_query['user_name']; ?>
-                                        <option value="<?php echo $mlc_user_id . ',' . $assign_id; ?>" <?php if ($mlc_user_id == $user_id_first) { ?> selected <?php } ?>><?php echo $mlc_user_name; ?></option>
+                                        $sml_user_id = $result_user_query['user_id'];
+                                        $sml_user_name = $result_user_query['user_name']; ?>
+                                        <option value="<?php echo $sml_user_id . ',' . $assign_id; ?>" <?php if ($sml_user_id == $user_id_first) { ?> selected <?php } ?>><?php echo $sml_user_name; ?></option>
                                     <?php } ?>
                                 </select>&nbsp;&nbsp;
                                 <?php
@@ -216,9 +218,9 @@ if (this.checked) {
                                     <option value="0,<?php echo $assign_id; ?>">Select User</option>
                                     <?php
                                     while ($result_user_query = mysqli_fetch_array($user_query)) {
-                                        $mlc_user_id = $result_user_query['user_id'];
-                                        $mlc_user_name = $result_user_query['user_name']; ?>
-                                        <option value="<?php echo $mlc_user_id . ',' . $assign_id; ?>" <?php if ($mlc_user_id == $user_id_first) { ?> selected <?php } ?>><?php echo $mlc_user_name; ?></option>
+                                        $sml_user_id = $result_user_query['user_id'];
+                                        $sml_user_name = $result_user_query['user_name']; ?>
+                                        <option value="<?php echo $sml_user_id . ',' . $assign_id; ?>" <?php if ($sml_user_id == $user_id_first) { ?> selected <?php } ?>><?php echo $sml_user_name; ?></option>
                                     <?php } ?>
                                 </select>&nbsp;&nbsp;
                                 <?php

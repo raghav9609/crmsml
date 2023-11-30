@@ -151,7 +151,7 @@ function get_display_name($type,$selected_val){
     	case "tool_type":
             $qry = "select tool_type_name from lms_tool_type   where tool_type_name = '".$selected_val."'";
         break;
-        case "mlc_user_name":
+        case "sml_user_name":
             $qry = "select user_name from tbl_user_assign where user_id = '".$selected_val."'";
         break;
         case "app_pat_list":
@@ -193,7 +193,7 @@ function get_display_name($type,$selected_val){
 		case "industry_type_name";
 			$qry = "select industry_name from tbl_industry_type where industry_id ='".$selected_val."'";
 		break;
-		case "mlc_user_id":
+		case "sml_user_id":
             $qry = "select user_id from tbl_user_assign where user_name = '".$selected_val."'";
         break;
         case "query_status_display":

@@ -136,7 +136,7 @@ if (isset($_REQUEST["update"])) {
                 type: "POST",
                 cache: false,
                 url: "search_assign.php",
-                data: "loan_type=" + loan_type + "&mlc_user=" + user_mlc + "&city_sub_grp=" + city_sub_grp,
+                data: "loan_type=" + loan_type + "&sml_user=" + user_mlc + "&city_sub_grp=" + city_sub_grp,
                 success: function (html) {
                     $("#search_btn").attr('value', 'Search');
                     $("#search_btn").attr("disabled", false);
