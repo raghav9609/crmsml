@@ -14,6 +14,8 @@ print_r($_REQUEST);
 $arr = array('user_ist' => $user_first, 'user_2nd' => $user_secnd);
 
 foreach ($arr as $user => $val) {
+    echo $user;
+    
     //$avail_flag = replace_special($_REQUEST[$user . "_flag"]);
     if ($user == 'user_ist') {
         $shift = 1;
