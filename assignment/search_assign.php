@@ -10,7 +10,7 @@ $sml_user = replace_special($_REQUEST['sml_user']);
 $city_sub_grp = replace_special($_REQUEST['city_sub_grp']);
 
 $filterArr = array("city_sub_group_id"=>$city_sub_grp,"loan_type"=>$loan_type,"user_id"=>$sml_user,"is_active"=>1);
-$qry = $leadAssignmentClassexport->searchFilter($filterArr);
+echo $qry = $leadAssignmentClassexport->searchFilter($filterArr);
 
 $query = mysqli_query($Conn1, $qry) or die(mysqli_error($Conn1));
 ?>
