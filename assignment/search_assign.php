@@ -38,7 +38,8 @@ $query = mysqli_query($Conn1, $qry) or die(mysqli_error($Conn1));
                     <th>IInd Shift</th>
                 </tr>
                 <?php
-                //$row_counter = mysqli_num_rows($query);
+
+                $row_counter = mysqli_num_rows($query);
                 while ($result_query = mysqli_fetch_array($query)){
                 //$row_counter = mysqli_num_rows($result_query);
                 $id = $result_query['filter_id'];
