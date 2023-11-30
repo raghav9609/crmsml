@@ -32,6 +32,6 @@ foreach ($arr as $user => $val) {
     }
 } 
 
-header("location:index.php?msg=1");
+header("location:https://astechnos.com/crmsml/assignment/index.php?msg=1");
 
 ?>
