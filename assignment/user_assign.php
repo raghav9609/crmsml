@@ -18,5 +18,5 @@ while($res_user = mysqli_fetch_array($qry_user)){?>
   <option value="<?php echo $res_user['user_id'];?>"><?php echo $res_user['user_name'];?></option>
   <?php } ?>
   </select>
-  <select name="<?php echo $name.'_flag';?>[]" ><option value="">Avail Flag</option><option value="0">0</option><option value="1">1</option></select> <br>
+ <br>
 
