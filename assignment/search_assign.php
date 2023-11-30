@@ -47,34 +47,34 @@ $query = mysqli_query($Conn1, $qry) or die(mysqli_error($Conn1));
                 $sub_group_name = $result_query['city_sub_group_name'];
                 $min_loan = $result_query['min_loan'];
                 $max_loan = $result_query['max_loan'];
-                $min_itr_amt = $result_query['min_itr_amt'];
-                $max_itr_amt = $result_query['max_itr_amt'];
+                // $min_itr_amt = $result_query['min_itr_amt'];
+                // $max_itr_amt = $result_query['max_itr_amt'];
                 $min_sal = $result_query['min_sal'];
                 $max_sal = $result_query['max_sal'];
-                $occupation = $result_query['occup_id'];
-                $crasssell=$result_query['cross_sell_flag'];
-                $company_cat=explode(',',$result_query['company_cat']);
-                $cross=($crasssell == 1)?'Yes':'No';
+               // $occupation = $result_query['occup_id'];
+                //$crasssell=$result_query['cross_sell_flag'];
+                //$company_cat=explode(',',$result_query['company_cat']);
+                //$cross=($crasssell == 1)?'Yes':'No';
                 //$empl_ty = $result_query['employer_type'];
-                $hdfc_auto_push = $result_query['hdfc_auto_push'];
-                $account_type = $result_query['account_type'];
-                $business_registered_with=$result_query['business_registered_with'];
-                    $account_type_name = $business_registered_with_name = $final_business_registered_loan_name = '';
-                    if($account_type == '1,5'){
-                        $account_type_name= 'Current A/C';
-                    }else if($account_type == '2,3,4'){
-                        $account_type_name= 'Saving A/c';
-                    }else if($account_type == '1,2,3,4,5'){
-                        $account_type_name= 'All';
-                    }
-                    if($business_registered_with == '6,8'){
-                        $business_registered_with_name = 'GST';
-                    }else if($business_registered_with == '3,5,7,9'){
-                        $business_registered_with_name = 'No GST';
-                    }
-                    if($business_registered_with_name != '' && $account_type_name != ''){
-                        $final_business_registered_loan_name = $business_registered_with_name." + ".$account_type_name;
-                    }
+                // $hdfc_auto_push = $result_query['hdfc_auto_push'];
+                // $account_type = $result_query['account_type'];
+                // $business_registered_with=$result_query['business_registered_with'];
+                //     $account_type_name = $business_registered_with_name = $final_business_registered_loan_name = '';
+                //     if($account_type == '1,5'){
+                //         $account_type_name= 'Current A/C';
+                //     }else if($account_type == '2,3,4'){
+                //         $account_type_name= 'Saving A/c';
+                //     }else if($account_type == '1,2,3,4,5'){
+                //         $account_type_name= 'All';
+                //     }
+                //     if($business_registered_with == '6,8'){
+                //         $business_registered_with_name = 'GST';
+                //     }else if($business_registered_with == '3,5,7,9'){
+                //         $business_registered_with_name = 'No GST';
+                //     }
+                //     if($business_registered_with_name != '' && $account_type_name != ''){
+                //         $final_business_registered_loan_name = $business_registered_with_name." + ".$account_type_name;
+                //     }
 
                 $get_loan_name_qry = mysqli_query($Conn1, "select value As loan_type_name from crm_masters where crm_masters_code_id = 1 and id = '" . $loan_type . "'");
                 $result_loan_name = mysqli_fetch_array($get_loan_name_qry);
