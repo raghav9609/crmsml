@@ -1,48 +1,34 @@
 <?php
 require_once(dirname(__FILE__) . '/../config/session.php');
 require_once(dirname(__FILE__) . '/../config/config.php');
+require_once(dirname(__FILE__) . '/../model/assignmentModel.php');
 
-print_r($_REQUEST);
 
-exit;
 $loan_type = replace_special($_REQUEST['loan_type']);
 $mlc_user = replace_special($_REQUEST['mlc_user']);
 $city_sub_grp = replace_special($_REQUEST['city_sub_grp']);
-$employer_type = replace_special($_REQUEST['employer_type']);
-$crasssell = replace_special($_REQUEST['crasssell']);
 
-/*if(in_array($loan_type,array(11,63))){
-    $loan_type = 57;
-}*/
 
-if ($employer_type == 1 || $employer_type == 56472 || $employer_type == 38665 || $employer_type == 56470) {
-    $type_emp = '0';
-} else {
-    $type_emp = $employer_type;
-}
+// $leadAssignmentClassexport->leadAssignment()
 $qry = "select tbl_assign_l.company_cat,tbl_assign_l.business_registered_with,tbl_assign_l.account_type,tbl_assign_l.cross_sell_flag,tbl_assign_l.hdfc_auto_push as hdfc_auto_push,tbl_assign_l.employer_type,tbl_assign_l.occup_id,tbl_assign_l.min_itr_amt,tbl_assign_l.max_itr_amt,tbl_assign_l.filter_id, tbl_assign_l.min_loan_amt as min_loan,tbl_assign_l.max_loan_amt as max_loan,
 tbl_assign_l.min_salary as min_sal,tbl_assign_l.max_salary as max_sal,tbl_assign_l.loan_type,
 city_group.city_sub_group_name
-from tbl_assign_lead_filter as tbl_assign_l
-inner join tbl_assign_user_query_filter as tbl_assing_fil on tbl_assign_l.filter_id = tbl_assing_fil.filter_id
-inner join lms_city_sub_group as city_group on tbl_assign_l.city_sub_group_id = city_group.city_sub_group_id
-where tbl_assign_l.filter_id >0 ";
+from crm_lead_assignment as tbl_assign_l
+inner join crm_master_city_sub_group as city_group on tbl_assign_l.city_sub_group_id = city_group.id
+where tbl_assign_l.id > 0 ";
 if ($loan_type != '') {
-    $qry .= " and find_in_set($loan_type,loan_type) > 0 ";
+    $qry .= " and loan_type = ".$loan_type ;
 }
-/*if($employer_type != '' && $loan_type == 56){
-	$qry .= " and find_in_set($type_emp,tbl_assign_l.employer_type) > 0 " ;
-}*/
 if ($mlc_user != '') {
-    $qry .= " and tbl_assing_fil.user_id = '" . $mlc_user . "'";
+    $qry .= " and tbl_assign_l.user_id = '" . $mlc_user . "'";
 }
 if ($city_sub_grp != '') {
-    $qry .= " and city_group.city_sub_group_id = '" . $city_sub_grp . "' ";
+    $qry .= " and city_group.id = '" . $city_sub_grp . "' ";
 }
-if($crasssell!=''){
-    $qry .= " and tbl_assign_l.cross_sell_flag=$crasssell";
-}
-$qry .= " group by tbl_assing_fil.filter_id order by tbl_assign_l.filter_id";
+
+$qry .= " group by tbl_assign_l.id order by tbl_assign_l.id";
+echo $qry;
+exit;
 $query = mysqli_query($Conn1, $qry) or die(mysqli_error($Conn1));
 ?>
 

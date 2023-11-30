@@ -69,7 +69,7 @@ while($res = mysqli_fetch_array($qry_leads)){
 	$city_id = $res['city_id'];
 	$city_sub_group_id = $res['city_sub_group_id'];
 
-$qry_filtr = "select filter_id,shift_flag from tbl_assign_lead_filter where loan_type = '".$loan_type."' and city_sub_group_id = '".$city_sub_group_id."'";
+$qry_filtr = "select filter_id,shift_flag from crm_lead_assignment where loan_type = '".$loan_type."' and city_sub_group_id = '".$city_sub_group_id."'";
 if($loan_amt != ''){
 	$qry_filtr .= " and min_loan_amt <= '".$loan_amt."' and max_loan_amt >= '".$loan_amt."'";
 }
