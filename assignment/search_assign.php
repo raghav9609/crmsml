@@ -67,7 +67,7 @@ $query = mysqli_query($Conn1, $qry) or die(mysqli_error($Conn1));
                 <tr>
                     <td><input type="checkbox" name="ch_edit[]" value="<?php echo $id ?>" id="<?php echo $id ?>" class="loan_type abcd"/></td>
 
-                    <td rowspan="<?php echo $row_counter ?>">
+                    <td >
                         <?php echo $sub_group_name . "<br><span class='orange'>" . $loan_name  ."</span><br>"; ?>
                     </td>
                     <td>
