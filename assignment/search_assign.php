@@ -3,7 +3,8 @@ require_once(dirname(__FILE__) . '/../config/session.php');
 require_once(dirname(__FILE__) . '/../config/config.php');
 require_once(dirname(__FILE__) . '/../model/assignmentModel.php');
 
-
+echo "as";
+exit;
 $loan_type = replace_special($_REQUEST['loan_type']);
 $sml_user = replace_special($_REQUEST['sml_user']);
 $city_sub_grp = replace_special($_REQUEST['city_sub_grp']);
