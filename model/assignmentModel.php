@@ -1,5 +1,5 @@
 <?php 
-class leadAssignMent{
+class LeadAssignMent{
     public function searchFilter($data=array()){
         return "as";
         $query_to_execute = "select tbl_assign_l.*, city_group.city_sub_group_name from crm_lead_assignment As tbl_assign_l INNER JOIN crm_master_city_sub_group as city_group on tbl_assign_l.city_sub_group_id = city_group.id  where tbl_assign_l.is_active = ".$data['is_active'];
@@ -30,6 +30,6 @@ class leadAssignMent{
     }
 }
 
-$leadAssignmentClassexport = new leadAssignMent();
+$leadAssignmentClassexport = new LeadAssignMent();
 
 ?>
