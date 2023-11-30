@@ -8,7 +8,6 @@ print_r($_SESSION);
 
 require_once(dirname(__FILE__) . '/../helpers/common-helper.php');
 require_once(dirname(__FILE__) . '/../include/header.php');
-//exit;
 require_once(dirname(__FILE__) . '/../model/queryHelper.php');
 if ($user_role != 3) {
     $ut = '';
