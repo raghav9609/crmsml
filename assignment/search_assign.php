@@ -81,7 +81,7 @@ $query = mysqli_query($Conn1, $qry) or die(mysqli_error($Conn1));
                 $loan_name = $result_loan_name['loan_type_name'];
 
                 if ($loan_type != '' && $loan_type > 0) {
-                    $get_qry_user = "select user.id as user_id,user.name as user_name from crm_master_user as user join crm_user_loan_type_mapping as map on user.user_id = map.tl_id where user.is_active = 1 and map.loan_type = '" . $loan_type . "' group by user.id order by user.name";
+                    $get_qry_user = "select user.id as user_id,user.name as user_name from crm_master_user as user join crm_user_loan_type_mapping as map on user.id = map.user_id where user.is_active = 1 and map.loan_type = '" . $loan_type . "' group by user.id order by user.name";
                 } else {
                     $get_qry_user = "select id As user_id,name As user_name from crm_master_user where is_active = 1";
                 }
