@@ -165,7 +165,7 @@ if (isset($_REQUEST["update"])) {
         $("#add").addClass("hidden");
         $.ajax({
             type: "POST",
-            url: "add_partner.php",
+            url: "add-partner.php",
             success: function (html) {
                 $("#loan").html(html);
             }
