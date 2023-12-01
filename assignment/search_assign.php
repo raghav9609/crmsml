@@ -39,7 +39,7 @@ $query = mysqli_query($Conn1, $qry) or die(mysqli_error($Conn1));
                         $min_sal = $result_query['min_sal'];
                         $max_sal = $result_query['max_sal'];
                         $shift1user_id = $result_query['shift1user_id'];
-                        $shift2user_id = $result_query['shift2user_id'];
+                        $shift2user_id = $result_query['shift2_user_id'];
 
                         $get_loan_name_qry = mysqli_query($Conn1, "select value As loan_type_name from crm_masters where crm_masters_code_id = 1 and id = '" . $loan_type . "'");
                         $result_loan_name = mysqli_fetch_array($get_loan_name_qry);
