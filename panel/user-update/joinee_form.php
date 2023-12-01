@@ -69,7 +69,7 @@ function joinee_validation() {
     </td>
 </tr>
 <tr><td>Role Id :</td><td><select name="role_id" id="role_id" required onchange="change();">
-<?php $qry_role = mysqli_query($Conn1,"select role_id,role_type from tbl_user_role");
+<?php $qry_role = mysqli_query($Conn1,"select id as role_id,role_name As role_type from crm_master_user_role");
     while($res_role = mysqli_fetch_array($qry_role)) {?>
 	    <?php if($res_role['role_id'] == 1) { ?>
             <?php if($user_role == 1) { ?>
