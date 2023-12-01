@@ -1,6 +1,7 @@
 <?php 
-require_once "../../include/check-session.php";
-require_once "../../include/config.php";
+require_once(dirname(__FILE__) . '/../../config/session.php');
+require_once(dirname(__FILE__) . '/../../helpers/common-helper.php');
+require_once "../../config/config.php";
 	 $user_id = replace_special($_REQUEST['user_select']);
      replace_special($_REQUEST['status']);
 ?>
