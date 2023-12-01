@@ -6,7 +6,7 @@ class headerModel {
     }
 	
 	function getMainHeader ($user_role,$user,$parent_id=0){
-        $queryReturn = "select * from crm_master_header where id > 0 and status =1 AND parent_id = ".$parent_id." AND (find_in_set('".$user_role."',role) OR find_in_set('".$user."',user_id)) ";
+        $queryReturn = "select * from crm_master_header where id > 0 and status = 1 AND parent_id = ".$parent_id." AND (find_in_set('".$user_role."',role) OR find_in_set('".$user."',user_id)) ";
 		return $queryReturn;
 	}
 
