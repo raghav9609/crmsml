@@ -1,14 +1,14 @@
 <?php
-require_once "../../include/crm-header.php";
-require_once "../../include/con-config.php";
-require_once "../../include/dropdown.php";
+require_once "../../include/header.php";
+require_once "../../config/config.php";
+require_once "../../include/helper.functions.php";
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="../../include/style.css">
-    <script type="text/javascript" src="../../include/js/jquery-1.10.2.js"></script> <!--Js For Testing-->
-    <script type="text/javascript" src="../../include/js/common-function.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../assets/style.css">
+    <script type="text/javascript" src="../../assets/js/jquery-1.10.2.js"></script> <!--Js For Testing-->
+    <script type="text/javascript" src="../../assets/js/common-function.js"></script>
 
     <script>
     function form_valid() {
