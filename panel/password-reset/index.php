@@ -21,11 +21,11 @@ if($msg == 1) {
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="../../include/css/multiselect.css">
-    <link rel="stylesheet" type="text/css" href="../../include/style.css" />
+    <link rel="stylesheet" href="../../assets/css/multiselect.css">
+    <link rel="stylesheet" type="text/css" href="../../assets/style.css" />
     <style>
     </style>
-    <script src="../../include/js/jquery-1.10.2.js"></script>
+    <script src="../../assets/js/jquery-1.10.2.js"></script>
     <script>
     function validatePassword() {
         var old_pass = $("#old_password").val();

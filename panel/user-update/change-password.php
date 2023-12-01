@@ -28,7 +28,7 @@ require_once "../../include/crm-header.php";
 </table>
 </form>
 
-<script type="text/javascript" src="../include/js/jquery-1.10.2.js"></script>
+<script type="text/javascript" src="../assets/js/jquery-1.10.2.js"></script>
 <script>
 function check(){
 	var pass = $("#new_pass").val();
