@@ -201,6 +201,7 @@ if(role != '3') {
 }
  
 $(document).ready(function() {
+    alert("anu");
     var role_id = $("#role_id option:selected").val();
     var login_role = "<?php echo $user_role; ?>";
 
