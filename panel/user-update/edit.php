@@ -43,14 +43,12 @@ fieldset {
 <fieldset><legend>Search</legend>
 User Name: <input type="text" name="user_select" id="user_select" placeholder="User Name"/>
 Status: <select name="status" id="status"><option value="">Select User Status</option><option value="1">Active</option> <option value="0">Inactive</option></select>
-Lead View: <select name="lead_view" id="lead_view"><option value="">Select Lead View</option><option value="0">Grid View</option> <option value="1">One Lead</option></select>
-Support Desk Flag: <select name="support_desk_flag" id="support_desk_flag"><option value="">Support Desk Status</option><option value="0">Inactive</option> <option value="1">Active</option></select>
 
 <br>
-Mobile Recording Flag: <select name="mobile_recording_flag" id="mobile_recording_flag"><option value="">Mobile Recording Status</option><option value="0">Inactive</option> <option value="1">Active</option></select>
+
 Loan Type: <?php echo get_dropdown("loan_type", "loan_type", "", ""); ?>
 Mobile Number: <input type="text" name="mobile_number" id="mobile_number" placeholder="Mobile Number"/>
-Dialer Number: <input type="text" name="dialer_number" id="dialer_number" placeholder="Dialer Number"/>
+
 <br>Last Login Date: <input type="text" class="text-input" name="last_login" id="last_login" placeholder="Last Login Date" maxlength="10" value="">
 
 <input type="button" name="submit" value="SUBMIT" onclick="search_as()"/></fieldset>
@@ -77,26 +75,21 @@ $(function() {
 });
 
 function search_as(){ 
-var user =  $("#user_select").val();
-var status = $("#status").val();
-var lead_view =  $("#lead_view").val();
-var support_desk_flag = $("#support_desk_flag").val();
+    var user =  $("#user_select").val();
+    var status = $("#status").val();
 
-var mobile_recording_flag = $("#mobile_recording_flag").val();
-var mobile_number = $("#mobile_number").val();
-var dialer_number = $("#dialer_number").val();
-var loan_type = $("#loan_type").val();
-var last_login = $("#last_login").val();
+    var mobile_number = $("#mobile_number").val();
+    var loan_type = $("#loan_type").val();
+    var last_login = $("#last_login").val();
 
-$.ajax({
-type:  "POST",
-cache:  false ,
-url:  "<?php echo $head_url; ?>/panel/user-update/search_data.php",
-data: "user_select="+user+"&status="+status+"&lead_view="+lead_view+"&support_desk_flag="+support_desk_flag+"&mobile_recording_flag="+mobile_recording_flag+"&mobile_number="+mobile_number+"&dialer_number="+dialer_number+"&loan_type="+loan_type+"&last_login="+last_login,
-success: function(html)
-{
-$("#user").html(html);
-}
-});
+    $.ajax({
+        type:  "POST",
+        cache:  false ,
+        url:  "<?php echo $head_url; ?>/panel/user-update/search_data.php",
+        data: "user_select="+user+"&status="+status+"&mobile_number="+mobile_number+"&loan_type="+loan_type+"&last_login="+last_login,
+        success: function(html){
+            $("#user").html(html);
+        }
+    });
 }
 </script>
