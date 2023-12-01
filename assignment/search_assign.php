@@ -77,11 +77,10 @@ $query = mysqli_query($Conn1, $qry) or die(mysqli_error($Conn1));
                     </td>
                   
                     <td>
-                        <?php $user_query = mysqli_query($Conn1, $get_qry_user); ?>
                         <select id="<?php echo $id ?>_name" disabled="" name="user_id_<?php echo $id ?>[]"
                                         class="<?php echo $id ?>_test <?php echo $id; ?>_chng">
                                     <option value="0">Select User</option>
-                                    <?php
+                                    <?php $user_query = mysqli_query($Conn1, $get_qry_user);
                                     while ($result_user_query = mysqli_fetch_array($user_query)) {
                                         $sml_user_id = $result_user_query['user_id'];
                                         $sml_user_name = $result_user_query['user_name']; ?>
@@ -94,7 +93,7 @@ $query = mysqli_query($Conn1, $qry) or die(mysqli_error($Conn1));
                                 <select id="<?php echo $id ?>_name1" disabled="" name="user_id1_<?php echo $id ?>[]"
                                         class="<?php echo $id ?>_test1 <?php echo $id; ?>_chng">
                                     <option value="0">Select User</option>
-                                    <?php
+                                    <?php $user_query = mysqli_query($Conn1, $get_qry_user);
                                     while ($result_user_query_1 = mysqli_fetch_array($user_query)) {
                                         $sml_user_id = $result_user_query_1['user_id'];
                                         $sml_user_name = $result_user_query_1['user_name']; ?>
