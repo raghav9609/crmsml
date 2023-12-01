@@ -30,6 +30,7 @@ require_once(dirname(__FILE__) . '/../include/helper.functions.php');
     <fieldset style='width:90%;margin-left:5%;'>
         <legend style='color:#2E2EAB;font-weight: bold;'>Search Filter</legend>
         <?php echo get_dropdown(10, 'partner', '', '');
+        echo get_dropdown('city', 'partner', '', '');
         ?>
         <input class="cursor" type='button' value='Search' name='search_btn' id="search_btn" onclick='search_as();'>
         <input class="cursor" type='button' value='Clear' name='clear_btn' onclick='clear_fnc();'>
