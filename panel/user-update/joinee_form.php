@@ -162,46 +162,21 @@ if(role != '3' && role != '2'){
     } else {
         $("#t_loan").removeClass("hidden");
     }
-    $(".is_fos_flag").addClass("hidden");
+
 } else {
 		$("#t_lead").removeClass("hidden");
     $("#t_loan").removeClass("hidden");
-    if(role == 2) {
-        $(".city_sub_group").removeClass("hidden");
-    }
-    $(".is_fos_flag").removeClass("hidden");
+
 }	
 if(role != '3') {
     $("#sms_active").addClass("hidden");
     $("#t_lead").addClass("hidden");
-    $(".lead_view_row").addClass("hidden");
-    $(".support_desk_flag_row").addClass("hidden");
-    $(".total_lead_limit").addClass("hidden");
-    $(".open_lead_limit").addClass("hidden");
-    if(role == 2) {
-        $(".city_sub_group").removeClass("hidden");
-        $(".is_fos_flag").removeClass("hidden");
-        if(login_role == 1 || login_user == 241) {
-            $(".lead_view_row").removeClass("hidden");
-        }
-    } else {
-        $(".city_sub_group").addClass("hidden");
-        $(".is_fos_flag").addClass("hidden");
-    }
 } else {
         $("#sms_active").removeClass("hidden"); 
-        if(login_role == 1 || login_user == 241) {
-            $(".lead_view_row").removeClass("hidden");
-        }
-        $(".support_desk_flag_row").removeClass("hidden");
-        $(".total_lead_limit").removeClass("hidden");
-        $(".open_lead_limit").removeClass("hidden");
-        $(".is_fos_flag").removeClass("hidden");
     }
 }
  
 $(document).ready(function() {
-    alert("anu");
     var role_id = $("#role_id option:selected").val();
     var login_role = "<?php echo $user_role; ?>";
 
@@ -213,39 +188,6 @@ $(document).ready(function() {
         $(".password_flag").addClass("hidden");
         $(".show_number_flag").addClass("hidden");
     }
-
-    if(login_role == 1 || login_user_id == 241) {
-        $(".user_employee_code").removeClass("hidden");
-    } else {
-        $(".user_employee_code").addClass("hidden");
-    }
-
-    if(role_id == 3) {
-        if(login_role == 1 || login_user_id == 241) {
-            $(".lead_view_row").removeClass("hidden");
-        }
-        $(".support_desk_flag_row").removeClass("hidden");
-        $(".total_lead_limit").removeClass("hidden");
-        $(".open_lead_limit").removeClass("hidden");
-        $(".is_fos_flag").removeClass("hidden");
-    }
-    if(role_id == 2) {
-        $(".city_sub_group").removeClass("hidden");
-        $(".is_fos_flag").removeClass("hidden");
-        if(login_role == 1 || login_user_id == 241) {
-            $(".lead_view_row").removeClass("hidden");
-        }
-    }
 });
 
-document.getElementById("total_lead_limit").addEventListener("keypress", function (evt) {
-    if (evt.which < 48 || evt.which > 57) {
-        evt.preventDefault();
-    }
-});
-document.getElementById("open_lead_limit").addEventListener("keypress", function (evt) {
-    if (evt.which < 48 || evt.which > 57) {
-        evt.preventDefault();
-    }
-});
 </script>
