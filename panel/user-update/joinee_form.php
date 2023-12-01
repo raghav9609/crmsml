@@ -150,12 +150,7 @@ function joinee_validation() {
         </select>
     </td>
 </tr>
-<tr><td>Secondry User:</td><td><select name="user_ids" id="user_ids" required><option value=''>Select Secondry User</option>
-<?php $user_ids = mysqli_query($Conn1,"select user_id, user_name from tbl_user_assign where status = '1' order by user_name");
-     while($res_user = mysqli_fetch_array($user_ids)) { ?>
-     <option value="<?php echo $res_user['user_id'];?>" <?php if($res_user['user_id'] == 3){?>selected<?php } ?>><?php echo $res_user['user_name'];?></option>
-    <?php } ?>
-</select></td></tr>
+
 
 <tr>
     <td>No. of Ringing Slots :</td>
