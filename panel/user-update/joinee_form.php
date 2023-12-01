@@ -174,56 +174,19 @@ function joinee_validation() {
 <tr>
     <td>FOS TL :</td>
     <td>
-        <?php echo get_dropdown("user_assign", "fos_tl", "", ""); ?>
+        <?php echo get_dropdown("user", "fos_tl", "", ""); ?>
     </td>
 </tr>
 
-<!--<tr><th>Password : </th><td><input type="password" name="pass" id="pass" required/></td></tr> 
-<tr><th>Confirm Password : </th><td><input type="password" name="cnfrm_pass" id="cnfrm_pass" required onfocusout="check_pass()"/></td></tr>
-<tr><th>OTP Flag :</th><td><select name="otp_flag" id="otp_flag" required><option value="">OTP Flag</option><option value="0" selected>ON</option><option value="1" selected>OFF</option></select></td></tr>-->
-<tr><td>Extension</td><td><input type='text' name='extension' ></td></tr>
- <tr><td>Port</td><td><input type='text' name='port_id' ></td></tr>
-<tr><td>Gateway No : </td><td><select name="gateway" id="gateway" > 
-<option value="">--Select Gateaway--</option>
-<?php $qry_gateway = mysqli_query($Conn1,"select * from dialer_gateway_mapping");
-     while($res_gateway = mysqli_fetch_array($qry_gateway)){?>
-	 <option value="<?php echo $res_gateway['gateway_id'];?>"><?php echo $res_gateway['gateway_name'].' ('.$res_gateway['gateway_ip'];?>)</option>
-	<?php }?></select></td></tr>
 
-<?php if($user_role == 1 || $user == 83 || $user == 314) { ?>
-    <tr>
-        <td>Dialer Type : </td>
-        <td>
-            <select name="is_dialer" id="is_dialer">
-                <option value="">--Select Dialer--</option>
-                <option value="0">Neron</option>
-                <option value="1">In-House</option>
-            </select>
-        </td>
-    </tr>
-<?php } ?>
-
-<tr class="city_sub_group hidden" id="city_sub_group">
-    <td>City Subgroup :</td>
-    <td>
-    <?php
-        $city_sub_group_qry = mysqli_query($Conn1, "select city_sub_group_id, city_sub_group_name from lms_city_sub_group");
-        while($city_sub_group_res = mysqli_fetch_array($city_sub_group_qry)) {
-            ?>
-            <input type="checkbox" name="c_s_group[]" value="<?php echo $city_sub_group_res['city_sub_group_id'];?>">
-            <?php echo $city_sub_group_res['city_sub_group_name'];
-        }
-    ?>
-    </td>
-</tr>
 
 <tr id="t_lead"><td>Team Leader : </td><td>
-<?php $qry_tl = mysqli_query($Conn1,"select user_name, user_id from tbl_user_assign where role_id='2' and status='1'");
+<?php $qry_tl = mysqli_query($Conn1,"select name as user_name, id as user_id from crm_master_user where role_id='2' and status='1'");
 while($res_tl = mysqli_fetch_array($qry_tl)){?>
 <input type="checkbox" name="tl[]" value="<?php echo $res_tl['user_id'];?>"><?php echo $res_tl['user_name'];?>
 <?php } ?></select></td></tr>
 <tr id="t_loan"><td>Loan Name</td><td width="70%">
-<?php $qry_ln = mysqli_query($Conn1,"select loan_type_id,loan_type_name from lms_loan_type where mlc_product_id IN (15,12,17,11) and flag='1'");
+<?php $qry_ln = mysqli_query($Conn1,"select loan_type_id,loan_type_name from crm_masters where crm_masters_code_id = 1 and id IN (15,12,17,11) and is_active = 1");
       while($res_ln = mysqli_fetch_array($qry_ln)){?>
 		  <input type="checkbox" name="loan_type[]" value="<?php echo $res_ln['loan_type_id'];?>"><?php echo $res_ln['loan_type_name'];?>
 	  <?php } ?> </td></tr>
