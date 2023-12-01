@@ -1,13 +1,14 @@
 <?php 
-require_once "../../include/crm-header.php";
-include("../../include/dropdown.php");
+require_once(dirname(__FILE__) . '/../../config/session.php');
+require_once(dirname(__FILE__) . '/../../helpers/common-helper.php');
+require_once "../../include/header.php";
+include("../../include/helper.functions.php");
 	$user_id = base64_decode(urldecode($_REQUEST['value']));
-	$qry_info = mysqli_query($Conn1,"SELECT u_ass.user_id as user_id,u_ass.user_name as user_name,u_ass.gateway_id as gateway_id,u_ass.email as email,u_ass.contact_no as contact_no, u_ass.scontact_no as scontact_no,u_ass.role_id as role_id, u_ass.case_secd_user as case_secd_user, u_ass.sms_flag as sms_flag, mobile_recording_flag, total_lead_limit, open_lead_limit, super_a_flag, u_ass.is_fos as is_fos, u_ass.status as status,u_ass.port_id as port_id,u_ass.extension as extension,tb_ad.admin_id as admin_id, tb_ad.otp_flag as otp_flag, GROUP_CONCAT(l_typ.loan_type SEPARATOR ',') as loan_type, GROUP_CONCAT(l_typ.tl_id SEPARATOR ',') as tl_id, GROUP_CONCAT(l_ass.user_id SEPARATOR ',') as user_assign, u_ass.one_lead_flag as one_lead_flag, support_desk_flag, GROUP_CONCAT(l_ass.tl_id SEPARATOR ',') as tl_assign, u_ass.hot_lead_limit as hot_lead_limit, u_ass.sme_flag as sme_flag, u_ass.user_employee_code as user_employee_code, u_ass.show_number_flag as show_number_flag, u_ass.is_new_dialer, u_ass.no_of_ringing_slots AS no_of_ringing_slots, u_ass.fos_tl_user AS fos_tl FROM tbl_user_assign as u_ass LEFT JOIN tbl_admin as tb_ad ON tb_ad.user_name = u_ass.email LEFT JOIN tl_user_assignment as l_ass ON l_ass.user_id = u_ass.user_id LEFT JOIN tl_loan_type_assign as l_typ ON l_typ.tl_id = u_ass.user_id where u_ass.user_id='".$user_id."'");
+	$qry_info = mysqli_query($Conn1,"SELECT u_ass.id as user_id,u_ass.name as user_name,u_ass.email_id as email, u_ass.mobile_no as contact_no, u_ass.role_id as role_id, u_ass.sms_flag as sms_flag, u_ass.is_active as status,tb_ad.admin_id as admin_id, tb_ad.otp_flag as otp_flag, GROUP_CONCAT(l_typ.loan_type SEPARATOR ',') as loan_type, GROUP_CONCAT(l_typ.user_id SEPARATOR ',') as tl_id, GROUP_CONCAT(l_ass.user_id SEPARATOR ',') as user_assign, GROUP_CONCAT(l_ass.tl_id SEPARATOR ',') as tl_assign,u_ass.show_number_flag as show_number_flag FROM crm_master_user as u_ass LEFT JOIN tbl_admin as tb_ad ON tb_ad.user_name = u_ass.email LEFT JOIN tl_user_assignment as l_ass ON l_ass.user_id = u_ass.user_id LEFT JOIN crm_user_loan_type_mapping as l_typ ON l_typ.user_id = u_ass.id where u_ass.id = '".$user_id."'");
 	$res_info = mysqli_fetch_array($qry_info);
 	$tl_id_arr = explode(',',$res_info['tl_assign']);
     $loan_type_arr = explode(',',$res_info['loan_type']);
-    $no_of_ringing_slots = $res_info['no_of_ringing_slots'];
-    $fos_tl = $res_info['fos_tl'];
+   
 ?>
 <style>
 .buttonsub {
