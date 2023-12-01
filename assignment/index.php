@@ -42,6 +42,14 @@ require_once(dirname(__FILE__) . '/../include/helper.functions.php');
 if (isset($_REQUEST["update"])) {
     $chech_id = replace_special($_REQUEST['ch_edit']);
     print_r($_REQUEST);
+    foreach($chech_id as $key=>$value){
+        $salary = explode("-",$_REQUEST['salary_'.$value]);
+        $loan_amount = explode("-",$_REQUEST['loan_amt_'.$value]);
+        $user_id = $_REQUEST['user_id_'.$value];
+        $user_id1 = $_REQUEST['user_id1_'.$value];
+        mysqli_query($Conn1,"update crm_lead_assignment set min_net_income ='".$salary[0]."',max_net_income ='".$salary[1]."',min_loan_amount ='".$loan_amount[0]."',max_loan_amount ='".$loan_amount[1]."',shift1user_id ='".$user_id."',shift2_user_id ='".$user_id1."' where id = '".$value."'");
+    }
+
 }
 ?>
 </body>
