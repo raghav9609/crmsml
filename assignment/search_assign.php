@@ -95,9 +95,9 @@ $query = mysqli_query($Conn1, $qry) or die(mysqli_error($Conn1));
                                         class="<?php echo $id ?>_test1 <?php echo $id; ?>_chng">
                                     <option value="0">Select User</option>
                                     <?php
-                                    while ($result_user_query = mysqli_fetch_array($user_query)) {
-                                        $sml_user_id = $result_user_query['user_id'];
-                                        $sml_user_name = $result_user_query['user_name']; ?>
+                                    while ($result_user_query_1 = mysqli_fetch_array($user_query)) {
+                                        $sml_user_id = $result_user_query_1['user_id'];
+                                        $sml_user_name = $result_user_query_1['user_name']; ?>
                                         <option value="<?php echo $sml_user_id; ?>" <?php if ($sml_user_id == $shift2user_id) { ?> selected <?php } ?>><?php echo $sml_user_name; ?></option>
                                     <?php } ?>
                                 </select>&nbsp;&nbsp;
