@@ -4,6 +4,8 @@ require_once(dirname(__FILE__) . '/../../helpers/common-helper.php');
 require_once "../../include/header.php";
 include("../../include/helper.functions.php");
 
+echo $user_role;
+
  $msg = $_REQUEST['msg'];
 if($msg == '1'){ 
  $message = "<span class='green'>Id Created Successfully!!!</span>";
