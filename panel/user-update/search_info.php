@@ -76,15 +76,10 @@ function joinee_validation() {
 <tr><td>User Name :</td><td><input type="text" name="name" id="name" value="<?php echo $res_info['user_name'];?>" required/></td></tr>
 <tr><td>Email :</td><td><input type="email" name="email" id="email" value="<?php echo $res_info['email'];?>" required/></td></tr>
 <tr><td>Cell number :</td><td><input type="tel" name="sphone" id="sphone" maxlength="10" value="<?php echo $res_info['contact_no'];?>" /></td></tr>
-<tr><td>Dailer number :</td><td><input type="tel" name="phone" id="phone" maxlength="10" value="<?php echo $res_info['scontact_no'];?>" /></td></tr>
-<tr class="user_employee_code hidden">
-    <td>Employee Code :</td>
-    <td>
-        <input type="text" name="user_employee_code" id="user_employee_code" value="<?php echo $res_info['user_employee_code']; ?>" maxlength="10" placeholder="Employee Code"/>
-    </td>
-</tr>
+
+
 <tr><td>Role Id :</td><td><select name="role_id" id="role_id" required onchange="change();">
-<?php $qry_role = mysqli_query($Conn1,"select role_id,role_type from tbl_user_role");
+<?php $qry_role = mysqli_query($Conn1,"select id as role_id,role_name as role_type from crm_master_user_role");
      while($res_role = mysqli_fetch_array($qry_role)) {?>
         <?php if($res_role['role_id'] == 1) { ?>
             <?php if($user_role == 1) { ?>
