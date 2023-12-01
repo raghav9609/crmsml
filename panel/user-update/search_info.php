@@ -27,7 +27,7 @@ include("../../include/helper.functions.php");
     font-weight: 700;
     height: 32px;
     padding: 4px 16px;
-    text-shadow: ;
+    text-shadow: '';
 }
 </style>
 <script>
