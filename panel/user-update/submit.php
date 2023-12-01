@@ -28,7 +28,7 @@ require_once "../../config/config.php";
 	}
 
 
-	$qry_check = mysqli_query($Conn1,"SELECT user_id from tbl_user_assign where email='".$email."'");
+	$qry_check = mysqli_query($Conn1,"SELECT id as user_id from crm_master_user where email_id = '".$email."'");
 	if(mysqli_num_rows($qry_check) == 0){
 	
 	$user_insert_query = "INSERT into crm_master_user set name = '".$name."', email_id = '".$email."', mobile_no = '".$mobile."', role_id = '".$_REQUEST['role_id']."', sms_flag = '".$_REQUEST['sms_flag']."', is_active = '".$_REQUEST['status']."',  password = '".$password."' ";
