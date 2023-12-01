@@ -186,7 +186,7 @@ while($res_tl = mysqli_fetch_array($qry_tl)){?>
 <input type="checkbox" name="tl[]" value="<?php echo $res_tl['user_id'];?>"><?php echo $res_tl['user_name'];?>
 <?php } ?></select></td></tr>
 <tr id="t_loan"><td>Loan Name</td><td width="70%">
-<?php $qry_ln = mysqli_query($Conn1,"select loan_type_id,loan_type_name from crm_masters where crm_masters_code_id = 1 and id IN (15,12,17,11) and is_active = 1");
+<?php $qry_ln = mysqli_query($Conn1,"select id As loan_type_id, value as loan_type_name from crm_masters where crm_masters_code_id = 1 and id IN (15,12,17,11) and is_active = 1");
       while($res_ln = mysqli_fetch_array($qry_ln)){?>
 		  <input type="checkbox" name="loan_type[]" value="<?php echo $res_ln['loan_type_id'];?>"><?php echo $res_ln['loan_type_name'];?>
 	  <?php } ?> </td></tr>
