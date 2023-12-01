@@ -4,13 +4,12 @@ require_once(dirname(__FILE__) . '/../helpers/common-helper.php');
 require_once(dirname(__FILE__) . '/../config/config.php');
 require_once(dirname(__FILE__) . '/../model/assignmentModel.php');
 
-
 $loan_type = replace_special($_REQUEST['loan_type']);
 $sml_user = replace_special($_REQUEST['sml_user']);
 $city_sub_grp = replace_special($_REQUEST['city_sub_grp']);
 
 $filterArr = array("city_sub_group_id"=>$city_sub_grp,"loan_type"=>$loan_type,"user_id"=>$sml_user,"is_active"=>1);
- $qry = $leadAssignmentClassexport->searchFilter($filterArr);
+$qry = $leadAssignmentClassexport->searchFilter($filterArr);
 
 $query = mysqli_query($Conn1, $qry) or die(mysqli_error($Conn1));
 ?>
@@ -39,12 +38,14 @@ $query = mysqli_query($Conn1, $qry) or die(mysqli_error($Conn1));
                         $max_loan = $result_query['max_loan'];
                         $min_sal = $result_query['min_sal'];
                         $max_sal = $result_query['max_sal'];
+                        $shift1user_id = = $result_query['shift1user_id'];
+                        $shift2user_id = = $result_query['shift2user_id'];
+
       
 
                         $get_loan_name_qry = mysqli_query($Conn1, "select value As loan_type_name from crm_masters where crm_masters_code_id = 1 and id = '" . $loan_type . "'");
                         $result_loan_name = mysqli_fetch_array($get_loan_name_qry);
                         $loan_name = $result_loan_name['loan_type_name'];
-
                         if ($loan_type != '' && $loan_type > 0) {
                             $get_qry_user = "select user.id as user_id,user.name as user_name from crm_master_user as user join crm_user_loan_type_mapping as map on user.id = map.user_id where user.is_active = 1 and map.loan_type = '" . $loan_type . "' group by user.id order by user.name";
                         } else {
@@ -79,42 +80,20 @@ $query = mysqli_query($Conn1, $qry) or die(mysqli_error($Conn1));
                     </td>
                   
                     <td>
-                        <?php
-                        $shift_1_qry = mysqli_query($Conn1, $user_query_data . " and shift_id = 1");
-                        while ($result_user_query = mysqli_fetch_assoc($shift_1_qry)) {
-                            $datacheck = $result_user_query['shift_id'];
-                            $user_id_first = $result_user_query['user_id'];
-                            //$assign_id = $result_user_query['assign_id'];
-                            if ($datacheck == 1) {
-                                $user_query = mysqli_query($Conn1, $get_qry_user);
-                                ?>
-                                <select id="<?php echo $id ?>_name" disabled="" name="user_id_<?php echo $id ?>[]"
+                        <?php $user_query = mysqli_query($Conn1, $get_qry_user); ?>
+                        <select id="<?php echo $id ?>_name" disabled="" name="user_id_<?php echo $id ?>[]"
                                         class="<?php echo $id ?>_test <?php echo $id; ?>_chng">
                                     <option value="0,<?php // echo $assign_id; ?>">Select User</option>
                                     <?php
                                     while ($result_user_query = mysqli_fetch_array($user_query)) {
                                         $sml_user_id = $result_user_query['user_id'];
                                         $sml_user_name = $result_user_query['user_name']; ?>
-                                        <option value="<?php echo $sml_user_id; ?>" <?php if ($sml_user_id == $user_id_first) { ?> selected <?php } ?>><?php echo $sml_user_name; ?></option>
+                                        <option value="<?php echo $sml_user_id; ?>" <?php if ($sml_user_id == $shift1user_id) { ?> selected <?php } ?>><?php echo $sml_user_name; ?></option>
                                     <?php } ?>
                                 </select>&nbsp;&nbsp;
-                                <?php
-                            }
-                        } ?>
+                                
                     </td>
                     <td>
-                        <?php
-                        $shift_2_qry = mysqli_query($Conn1, $user_query_data . " and shift_id = 2");
-                        while ($result_user_query = mysqli_fetch_assoc($shift_2_qry)) {
-                            $datacheck = $result_user_query['shift_flag'];
-                            $user_id_first = $result_user_query['user_id'];
-                            //$assign_id = $result_user_query['assign_id'];
-
-                            $i = 1;
-                            if ($datacheck == 2) {
-                                mysqli_data_seek($user_query, 0);
-                                $user_query = mysqli_query($Conn1, $get_qry_user);
-                                ?>
                                 <select id="<?php echo $id ?>_name1" disabled="" name="user_id1_<?php echo $id ?>[]"
                                         class="<?php echo $id ?>_test1 <?php echo $id; ?>_chng">
                                     <option value="0">Select User</option>
@@ -122,14 +101,9 @@ $query = mysqli_query($Conn1, $qry) or die(mysqli_error($Conn1));
                                     while ($result_user_query = mysqli_fetch_array($user_query)) {
                                         $sml_user_id = $result_user_query['user_id'];
                                         $sml_user_name = $result_user_query['user_name']; ?>
-                                        <option value="<?php echo $sml_user_id; ?>" <?php if ($sml_user_id == $user_id_first) { ?> selected <?php } ?>><?php echo $sml_user_name; ?></option>
+                                        <option value="<?php echo $sml_user_id; ?>" <?php if ($sml_user_id == $shift2user_id) { ?> selected <?php } ?>><?php echo $sml_user_name; ?></option>
                                     <?php } ?>
                                 </select>&nbsp;&nbsp;
-                                <?php
-                            }
-
-                        }
-                        ?>
                     </td>
                 </tr>
                     <?php } ?>
