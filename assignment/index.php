@@ -8,6 +8,7 @@ require_once(dirname(__FILE__) . '/../include/helper.functions.php');
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="../assets/css/style-assignment.css">
+<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'></link>  
     <style>
         .new_textbox {
             background: #E6E6E6 none repeat scroll 0% 0%;
@@ -38,29 +39,15 @@ require_once(dirname(__FILE__) . '/../include/helper.functions.php');
     </fieldset>
 </div>
 <div id="loan"></div>
-<?php
-if (isset($_REQUEST["update"])) {
-    $chech_id = replace_special($_REQUEST['ch_edit']);
-    print_r($_REQUEST);
-    foreach($chech_id as $key=>$value){
-        $salary = explode("-",$_REQUEST['salary_'.$value]);
-        $loan_amount = explode("-",$_REQUEST['loan_amt_'.$value]);
-        $user_id = $_REQUEST['user_id_'.$value];
-        $user_id1 = $_REQUEST['user_id1_'.$value];
-        mysqli_query($Conn1,"update crm_lead_assignment set min_net_income ='".$salary[0]."',max_net_income ='".$salary[1]."',min_loan_amount ='".$loan_amount[0]."',max_loan_amount ='".$loan_amount[1]."',shift1user_id ='".$user_id."',shift2_user_id ='".$user_id1."' where id = '".$value."'");
-    }
-
-}
-?>
 </body>
 </html>
 <script src="<?php echo $head_url; ?>/assets/js/jquery-1.10.2.js"></script>
 <script src="<?php echo $head_url; ?>/assets/js/jquery-ui.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>  
 <script>
     function clear_fnc() {
         window.location.href = "<?php echo $head_url; ?>/assignment/";
     }
-
     $(document).ready(function () {
         $("#add_data").click(function () {
             $("#abc").toggle();
@@ -72,9 +59,9 @@ if (isset($_REQUEST["update"])) {
         var city_sub_grp = $("#city_sub_grp").val();
         var user_mlc = $("#u_assign").val();
         if(city_sub_grp == '') {
-            alert("Please Select City Sub Group!");
+            swal("Oops!", "Please Select City Sub Group!", "error");  
         } else if (loan_type == '') {
-            alert("Please Select Loan Type!");
+            swal("Oops!", "Please Select Loan Type", "error");  
         } else {
             $("#search_btn").attr('value', 'Searching...');
             $("#search_btn").attr("disabled", true);
@@ -92,19 +79,6 @@ if (isset($_REQUEST["update"])) {
         }
     }
 
-    function halt() {
-        var onoff = $("#myonoffswitch").val();
-        $.ajax({
-            type: "POST",
-            cache: false,
-            url: "halt.php",
-            data: "on=" + onoff,
-            success: function (html) {
-                location.reload();
-            }
-        });
-    }
-
     function add_info() {
         $("#msg").text("");
         $("#add").addClass("hidden");
@@ -117,3 +91,16 @@ if (isset($_REQUEST["update"])) {
         })
     }
 </script> 
+
+<?php
+if (isset($_REQUEST["update"])) {
+    $chech_id = replace_special($_REQUEST['ch_edit']);
+    foreach($chech_id as $key=>$value){
+        $salary = explode("-",$_REQUEST['salary_'.$value]);
+        $loan_amount = explode("-",$_REQUEST['loan_amt_'.$value]);
+        $user_id = $_REQUEST['user_id_'.$value];
+        $user_id1 = $_REQUEST['user_id1_'.$value];
+        mysqli_query($Conn1,"update crm_lead_assignment set min_net_income ='".$salary[0]."',max_net_income ='".$salary[1]."',min_loan_amount ='".$loan_amount[0]."',max_loan_amount ='".$loan_amount[1]."',shift1user_id ='".$user_id."',shift2_user_id ='".$user_id1."' where id = '".$value."'");
+    }
+}
+?>

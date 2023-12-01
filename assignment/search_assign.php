@@ -63,11 +63,11 @@ $query = mysqli_query($Conn1, $qry) or die(mysqli_error($Conn1));
                         </script>';
                     ?>
                 <tr>
-                    <td><input type="checkbox" name="ch_edit[]" value="<?php echo $id ?>" id="<?php echo $id ?>" class="loan_type abcd"/></td>
-
-                    <td >
-                        <?php echo $sub_group_name . "<br><span class='orange'>" . $loan_name  ."</span><br>"; ?>
-                    </td>
+                <td><input type="checkbox" name="ch_edit[]" value="<?php echo $id ?>" id="<?php echo $id ?>" class="loan_type abcd"/>
+                </td>
+                <td >
+                <?php echo $sub_group_name . "<br><span class='orange'>" . $loan_name  ."</span><br>"; ?>
+                </td>
                     <td>
                         <input id="<?php echo $id ?>_amt" name="salary_<?php echo $id ?>" value="<?php echo $min_sal . " - " . $max_sal ?>" class="<?php echo $id; ?>_chng" disabled="" type="text"/>
                     </td>
