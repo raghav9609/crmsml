@@ -149,7 +149,7 @@ while($res_tl = mysqli_fetch_array($qry_tl)){?>
 </table>
 </form>
 </div>
-<script src="<?php echo $head_url; ?>/include/js/jquery-1.10.2.js" type="text/javascript"></script>
+<script src="<?php echo $head_url; ?>/assets/js/jquery-1.10.2.js" type="text/javascript"></script>
 <script>
 function change() {
 var login_role = "<?php echo $user_role; ?>";
