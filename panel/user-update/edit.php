@@ -43,10 +43,7 @@ fieldset {
 <fieldset><legend>Search</legend>
 User Name: <input type="text" name="user_select" id="user_select" placeholder="User Name"/>
 Status: <select name="status" id="status"><option value="">Select User Status</option><option value="1">Active</option> <option value="0">Inactive</option></select>
-
-<br>
-
-Loan Type: <?php echo get_dropdown("loan_type", "loan_type", "", ""); ?>
+Loan Type: <?php echo get_dropdown(1, "loan_type", "", ""); ?>
 Mobile Number: <input type="text" name="mobile_number" id="mobile_number" placeholder="Mobile Number"/>
 
 <br>Last Login Date: <input type="text" class="text-input" name="last_login" id="last_login" placeholder="Last Login Date" maxlength="10" value="">
