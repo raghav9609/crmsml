@@ -61,13 +61,7 @@ function joinee_validation() {
 <tr><th colspan="2"><input type="submit" class="buttonsub cursor" name="submit" id="submit" value="SUBMIT"></th></tr>
 <tr><td>User Name :</td><td><input type="text" name="name" id="name" value="" required/></td></tr>
 <tr><td>Email :</td><td><input type="email" name="email" id="email" value="" required/></td></tr>
-<tr><td>Dialer Number :</td><td><input type="tel" name="phone" id="phone" maxlength="10" /></td></tr>
-<tr class="user_employee_code hidden">
-    <td>Employee Code :</td>
-    <td>
-        <input type="text" name="user_employee_code" id="user_employee_code" value="" maxlength="10" placeholder="Employee Code"/>
-    </td>
-</tr>
+
 <tr><td>Role Id :</td><td><select name="role_id" id="role_id" required onchange="change();">
 <?php $qry_role = mysqli_query($Conn1,"select id as role_id,role_name As role_type from crm_master_user_role");
     while($res_role = mysqli_fetch_array($qry_role)) {?>
@@ -100,16 +94,7 @@ function joinee_validation() {
         </select>
     </td>
 </tr>
-<tr class="mobile_recording_flag">
-    <td>Mobile Recording Flag :</td>
-    <td>
-        <select name="mobile_recording_flag" id="mobile_recording_flag">
-            <option value="" selected>Mobile Recording Status</option>
-            <option value="0">Inactive</option>
-            <option value="1">Active</option>
-        </select>
-    </td>
-</tr>
+
 <tr class="total_lead_limit hidden">
     <td>Maximum Lead Count :</td>
     <td>
@@ -122,16 +107,7 @@ function joinee_validation() {
         <input type="text" name="open_lead_limit" id="open_lead_limit" value="" placeholder="Open Lead Count"/>
     </td>
 </tr>
-<tr class="super_a_flag">
-    <td>Super A Flag :</td>
-    <td>
-        <select name="super_a_flag" id="super_a_flag">
-            <option value="">Super A Status</option>
-            <option value="0" selected>Inactive</option>
-            <option value="1">Active</option>
-        </select>
-    </td>
-</tr>
+
 <tr class="password_flag hidden">
     <td>Password :</td>
     <td>
@@ -151,33 +127,8 @@ function joinee_validation() {
     </td>
 </tr>
 
-
-<tr>
-    <td>No. of Ringing Slots :</td>
-    <td><input type="text" class="numonly" name="no_of_ringing_slots" id="no_of_ringing_slots" value=""/></td>
-</tr>
-
 <tr id="sms_active"><td>Sms On Lead :</td><td><select name="sms_flag" id="sms_flag" required><option value="">Sms on lead</option><option value="1">Yes</option><option value="0" selected>No</option></select></td></tr>
 <tr><td>Status : </td><td><select name="status" id="status" ><option value="">Status</option><option value="0">INACTIVE</option><option value="1" selected>ACTIVE</option></select></td></tr>
-
-<tr class='is_fos_flag'>
-    <td>is FOS : </td>
-    <td>
-        <select name="is_fos_flag" id="is_fos_flag">
-            <option value="">--Select FOS Flag--</option>
-            <option value="0" selected>Inactive</option>
-            <option value="1">Active</option>
-        </select>
-    </td>
-</tr>
-
-<tr>
-    <td>FOS TL :</td>
-    <td>
-        <?php echo get_dropdown("user", "fos_tl", "", ""); ?>
-    </td>
-</tr>
-
 
 
 <tr id="t_lead"><td>Team Leader : </td><td>
