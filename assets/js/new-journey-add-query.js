@@ -20,7 +20,7 @@ $(document).ready(function() {
 
         $.ajax({
             type: "POST",
-            url: "/crm/query/fetch_customer_details.php",
+            url: "/crmsml/query/fetch_customer_details.php",
             data: "customer_phone="+customer_mobile,
             success: function(response) {
                 var customer_details = JSON.parse(response);
@@ -107,7 +107,7 @@ $(document).ready(function() {
                 $("#customer_phone-error").addClass("hidden");
                 $.ajax({
                     type: "POST",
-                    url: "/crm/query/fetch_customer_details.php",
+                    url: "/crmsml/query/fetch_customer_details.php",
                     data: "customer_phone="+customer_phone,
                     beforeSend: function () {
                         $("#fetch_details").attr('value', 'Fetching...').prop('disabled', true);
