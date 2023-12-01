@@ -41,8 +41,6 @@ $query = mysqli_query($Conn1, $qry) or die(mysqli_error($Conn1));
                         $shift1user_id = $result_query['shift1user_id'];
                         $shift2user_id = $result_query['shift2user_id'];
 
-      
-
                         $get_loan_name_qry = mysqli_query($Conn1, "select value As loan_type_name from crm_masters where crm_masters_code_id = 1 and id = '" . $loan_type . "'");
                         $result_loan_name = mysqli_fetch_array($get_loan_name_qry);
                         $loan_name = $result_loan_name['loan_type_name'];
@@ -82,7 +80,7 @@ $query = mysqli_query($Conn1, $qry) or die(mysqli_error($Conn1));
                         <?php $user_query = mysqli_query($Conn1, $get_qry_user); ?>
                         <select id="<?php echo $id ?>_name" disabled="" name="user_id_<?php echo $id ?>[]"
                                         class="<?php echo $id ?>_test <?php echo $id; ?>_chng">
-                                    <option value="0,<?php // echo $assign_id; ?>">Select User</option>
+                                    <option value="0">Select User</option>
                                     <?php
                                     while ($result_user_query = mysqli_fetch_array($user_query)) {
                                         $sml_user_id = $result_user_query['user_id'];
