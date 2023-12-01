@@ -46,7 +46,7 @@ Status: <select name="status" id="status"><option value="">Select User Status</o
 Loan Type: <?php echo get_dropdown(1, "loan_type", "", ""); ?>
 Mobile Number: <input type="text" name="mobile_number" id="mobile_number" placeholder="Mobile Number"/>
 
-<br>Last Login Date: <input type="text" class="text-input" name="last_login" id="last_login" placeholder="Last Login Date" maxlength="10" value="">
+Last Login Date: <input type="text" class="text-input" name="last_login" id="last_login" placeholder="Last Login Date" maxlength="10" value="">
 
 <input type="button" name="submit" value="SUBMIT" onclick="search_as()"/></fieldset>
 </form>
