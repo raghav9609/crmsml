@@ -47,12 +47,8 @@ $city_id = '26';
 $phone = replace_special($_REQUEST['phone_no']); 
 $email = replace_special($_REQUEST['email']);
 $occup_id = replace_special($_REQUEST['occupation_id']);
-$gl_gram = replace_special($_REQUEST['gl_gram']);
-$gl_carat = replace_special($_REQUEST['gl_carat']);
-$itr_avl = replace_special($_REQUEST['itr_avl']);
-$anl_trn = replace_special($_REQUEST['anl_trn']);
+
 $company_name = replace_special($_REQUEST['comp_name']);
-$reffrl_mob = replace_special($_REQUEST['ref_mob']);
 $acq_id = replace_special($_REQUEST['acq_id']);
 $ref_type = replace_special($_REQUEST['ref_type']);
 
@@ -88,9 +84,6 @@ if($loan_type == 32){
 // }
 
 
-$qry_get_anl_num = mysqli_query($Conn1,"select turnover_num from tbl_bussiness_anl_trunover where bus_anl_id ='".$anl_trn."'");
-$res_get_anl_num = mysqli_fetch_array($qry_get_anl_num);
-
 $comp_id = get_display_name('comp_id',$company_name);
 $refer_amt = get_display_name('cashback',$loan_type);
 $cust_id = get_display_name('customer_id',$phone);
@@ -101,9 +94,7 @@ if($comp_id == '' || $comp_id == '0'){
     $comp_id_n = $comp_id;$comp_name_other = '';
 }
 
- $get_itr_num = mysqli_query($Conn1,"select itr_num from tbl_bussiness_itr_aval where bus_itr_aval_id = '".$_REQUEST['itr_avl']."'");
- $result_itr_num = mysqli_fetch_array($get_itr_num);
- $itr_num = $result_itr_num['itr_num'];
+
             
 if($loan_type == 56){
 if($_REQUEST['salary_method'] == '2' || $_REQUEST['salary_method'] == '3'){
