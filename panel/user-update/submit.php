@@ -37,7 +37,7 @@ require_once "../../config/config.php";
 		$user_insert_query .= " , show_number_flag = '".$show_number_flag."' ";
 	}
 
-
+	echo $user_insert_query;
 	$qry_ins = mysqli_query($Conn1, $user_insert_query);
 
 	$query_execute = base64_encode($user_insert_query);
