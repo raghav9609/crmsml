@@ -1,6 +1,8 @@
 <?php 
-require_once "../../include/crm-header.php";
-require_once "../../include/dropdown.php";
+require_once(dirname(__FILE__) . '/../../config/session.php');
+require_once(dirname(__FILE__) . '/../../helpers/common-helper.php');
+require_once "../../include/header.php";
+require_once "../../include/helper.functions.php";
 ?>
 <style>
 fieldset { 
