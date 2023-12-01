@@ -22,7 +22,7 @@ if(!function_exists('get_dropdown')){
          }
         $data = mysqli_query($Conn1,$qry);
         if(mysqli_num_rows($data) > 0){
-            echo "<select name='".$name."' id='".$name."' $func_call><option value= ''>Select ".str_replace('_',' ',ucwords($name))."</option>";
+            echo "<select name='".$name."' id='".$name."' $func_call><option value= ''>Select ".ucwords(str_replace('_',' ',$name))."</option>";
             while($get_data = mysqli_fetch_array($data)){
                 echo "<option value='".$get_data['id']."'>".$get_data['value']."</option>";
             }
