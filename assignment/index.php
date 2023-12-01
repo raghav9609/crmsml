@@ -103,7 +103,7 @@ if (isset($_REQUEST["update"])) {
         mysqli_query($Conn1,"update crm_lead_assignment set min_net_income ='".$salary[0]."',max_net_income ='".$salary[1]."',min_loan_amount ='".$loan_amount[0]."',max_loan_amount ='".$loan_amount[1]."',shift1user_id ='".$user_id."',shift2_user_id ='".$user_id1."' where id = '".$value."'");
     } ?>
     <script>
-        swal("Data Updated Successfully", "success");  
+        swal("Data Updated Successfully!");  
         sleep(2);
         window.location.href = "<?php echo $head_url; ?>/assignment/";
     </script>
