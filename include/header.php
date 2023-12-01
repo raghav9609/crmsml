@@ -24,7 +24,7 @@ require_once(dirname(__FILE__) . '/../model/headerModel.php');
   <ul class="nav-menu">
   <?php
 	$get_header_qr = new headerModel();
-	$get_main_head = $get_header_qr->getMainHeader($user_role,$user_id);
+	echo $get_main_head = $get_header_qr->getMainHeader($user_role,$user_id);
 	$db_handle = new DBController();
 	$details_fetch = $db_handle->runQuery($get_main_head);
   
