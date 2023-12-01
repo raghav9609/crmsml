@@ -1,6 +1,6 @@
 <?php 
-require_once "../../include/crm-header.php";
-include("../../include/dropdown.php");
+require_once "../../include/header.php";
+include("../../include/helper.functions.php");
 
  $msg = $_REQUEST['msg'];
 if($msg == '1'){ 
