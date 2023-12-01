@@ -181,7 +181,7 @@ function joinee_validation() {
 
 
 <tr id="t_lead"><td>Team Leader : </td><td>
-<?php $qry_tl = mysqli_query($Conn1,"select name as user_name, id as user_id from crm_master_user where role_id='2' and status='1'");
+<?php $qry_tl = mysqli_query($Conn1,"select name as user_name, id as user_id from crm_master_user where role_id = 2 and is_active = 1 ");
 while($res_tl = mysqli_fetch_array($qry_tl)){?>
 <input type="checkbox" name="tl[]" value="<?php echo $res_tl['user_id'];?>"><?php echo $res_tl['user_name'];?>
 <?php } ?></select></td></tr>
