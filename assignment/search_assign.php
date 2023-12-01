@@ -38,8 +38,8 @@ $query = mysqli_query($Conn1, $qry) or die(mysqli_error($Conn1));
                         $max_loan = $result_query['max_loan'];
                         $min_sal = $result_query['min_sal'];
                         $max_sal = $result_query['max_sal'];
-                        $shift1user_id = = $result_query['shift1user_id'];
-                        $shift2user_id = = $result_query['shift2user_id'];
+                        $shift1user_id = $result_query['shift1user_id'];
+                        $shift2user_id = $result_query['shift2user_id'];
 
       
 
@@ -51,7 +51,6 @@ $query = mysqli_query($Conn1, $qry) or die(mysqli_error($Conn1));
                         } else {
                             $get_qry_user = "select id As user_id,name As user_name from crm_master_user where is_active = 1";
                         }
-                        $user_query_data = "select * from crm_lead_assignment where id = $id ";
                         $script[] = '<script type="text/javascript">
                             $("#' . $id . '").change(function(){
                             if (this.checked) {
