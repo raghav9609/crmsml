@@ -7,7 +7,7 @@ require_once "../../config/config.php";
 ?>
 
 <table class="gridtable" style='margin-left:2%;width:90%;'>
-<tr><th>User ID</th><th>User Name</th><th>Email</th><th>Cell number / Dialer number</th><th>Lead View / Count</th><th>Status</th><th>Hot Lead Limit</th><th>SME Flag</th><th>Last Login</th><th>Action</th></tr>
+<tr><th>User ID</th><th>User Name</th><th>Email</th><th>Cell number </th><th>Status</th><th>Last Login</th><th>Action</th></tr>
 <?php 
 	 $qry_info = "select u_ass.id as user_id,u_ass.name as user_name, u_ass.email_id as email, u_ass.mobile_no as contact_no, u_ass.last_login_on as user_login_datetime, u_ass.is_active as status, urole.id as role_id, urole.role_name as role_type from crm_master_user as u_ass left join crm_master_user_role As urole on urole.id = u_ass.role_id left join crm_user_loan_type_mapping As ultyass on ultyass.user_id = u_ass.id where u_ass.id != ''";	 
    	 if($user_id != ''){
@@ -46,16 +46,10 @@ require_once "../../config/config.php";
 $contact_number = ($res_info['contact_no'] != "" && $res_info['contact_no'] > 0) ? $res_info['contact_no'] : "--";
 
 ?>
-<td><?php echo $contact_number."<br>(Dialer : ".$scontact_no.")";?></td>
-<td><?php echo ($res_info['one_lead_flag'] == 1 ? "One Lead" : "Grid View")."<br>";
-if($res_info['role_id'] == 3) {
-  echo "(Open Limit : ".$open_count.") / (Total Limit : ".$total_count.")";
-}
-?></td>
+<td><?php echo $contact_number;?></td>
+
 <td><?php echo $status;?></td>
-<td><?php echo $res_info['hot_lead_limit'];?></td>
-<td><?php if($res_info['sme_flag'] == 0){      echo "<span class='red'>Inactive</span>";    } else { 
-       echo "<span class='green'>Active</span>";    } ?></td>
+
 <td><?php echo  (date("d-m-Y", strtotime($res_info['user_login_datetime'])) != "" && date("d-m-Y", strtotime($res_info['user_login_datetime'])) != "01-01-1970" && date("d-m-Y", strtotime($res_info['user_login_datetime'])) != "00-00-0000") ? date("d-m-Y H:i A", strtotime($res_info['user_login_datetime'])) : "--"; ?></td>
 <?php
 if($user_role == 9) {
