@@ -30,7 +30,7 @@ if($msg == '1'){
     font-weight: 700;
     height: 32px;
     padding: 4px 16px;
-    text-shadow: ;
+    text-shadow: '';
 }
 
 </style>
