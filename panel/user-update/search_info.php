@@ -114,18 +114,7 @@ function joinee_validation() {
 
 <tr><td>Sms On Lead :</td><td><select name="sms_flag" id="sms_flag" required><option value="">Sms on lead</option><option value="1" <?php if($res_info['sms_flag'] == 1){?>selected<?php }?>>Yes</option><option value="0" <?php if($res_info['sms_flag'] == 0){?>selected<?php }?>>No</option></select></td></tr>
 
-<tr>
-    <td>FOS TL :</td>
-    <td>
-        <?php echo get_dropdown("user", "fos_tl", $fos_tl, ""); ?>
-    </td>
-</tr>
-
 <tr><td>Status : </td><td><select name="status" id="status" ><option value="">Status</option><option value="0" <?php if($res_info['status'] == 0){?>selected<?php }?>>Inactive</option><option value="1" <?php if($res_info['status'] == 1){?>selected<?php }?>>Active</option></select></td></tr>
-
-
-
-
 
 <tr id="t_lead"><td>Team Leader : </td><td>
 <?php $qry_tl = mysqli_query($Conn1,"select name as user_name, id as user_id from crm_master_user where role_id = 2 and is_active = 1");
