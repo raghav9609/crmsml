@@ -14,7 +14,9 @@ if($_REQUEST['city'] > 0){
 if($_REQUEST['agent_type'] > 0){
     $filter_data['partner_id'] = $_REQUEST['agent_type']; 
 }
-preArray($filter_data);
+$data_to_display = $partnerDetailsExport->searchFilter($filter_data);
+
+preArray($data_to_display);
 ?>
 <!DOCTYPE html>
 <html>
