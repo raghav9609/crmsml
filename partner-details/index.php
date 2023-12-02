@@ -25,7 +25,6 @@ if($_REQUEST['phoneno'] > 0){
     $filter_data['phoneno'] = $_REQUEST['phoneno']; 
 }
 $data_to_display = $db_handle->runQuery($partnerDetailsExport->searchFilter($filter_data));
-preArray($data_to_display);
 ?>
 <!DOCTYPE html>
 <html>
@@ -150,13 +149,15 @@ preArray($data_to_display);
 if (isset($_REQUEST["update"])) {
     $chech_id = replace_special($_REQUEST['ch_edit']);
     foreach($chech_id as $key=>$value){
-       preArray($value);
-       
+        $name = $_REQUEST['name_'.$value];
+        $mobile_no = $_REQUEST['mobile_no_'.$value];
+        $sms_flag = $_REQUEST['sms_flag'.$value];
+        $email_id = $_REQUEST['email_id_'.$value];
+        $email_flag = $_REQUEST['email_flag'.$value];
+        mysqli_query($Conn1,"update crm_partner_rm_sm_details set name ='".$name."',email_id ='".$email_id."',mobile_no ='".$mobile_no."',is_email_flag_active ='".$email_flag."',is_sms_flag_active ='".$sms_flag."' where id = '".$value."'");       
     } 
     ?>
     <script>
-       // swal("Data Updated Successfully!");  
-        sleep(2);
-       // window.location.href = "<?php echo $head_url; ?>/partner-details/";
+       swal("Data Updated Successfully!");  
     </script>
 <?php } ?>
