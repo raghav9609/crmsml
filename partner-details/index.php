@@ -126,6 +126,11 @@ preArray($data_to_display);
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>  
 <script>
     function disbaledFields(e){
+        if(e.checked){
+           
+        }else{
+            alert("This is Not checked");
+        }
         alert(e);
     }
 </script>
