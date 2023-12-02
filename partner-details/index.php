@@ -62,9 +62,9 @@ preArray($data_to_display);
             <option value="1">RM</option>
             <option value="2">SM</option>
         </select>
-        <!-- <input type='text' name="sm_name" placeholder= "RM/ SM Name" maxlength="100">
+        <input type='text' name="sm_name" placeholder= "RM/ SM Name" maxlength="100">
         <input type='text' name="sm_email_id" placeholder= "RM/ SM Email ID" maxlength="100">
-        <input type='text' name="phoneno" placeholder= "RM/ SM Phone No" maxlength="10"> -->
+        <input type='text' name="phoneno" placeholder= "RM/ SM Phone No" maxlength="10">
         <input class="cursor" type='submit' value='Search' name='search_btn'>
         <a href="<?php echo $head_url; ?>/partner-details/"><input class="cursor" type='button' value='Clear'></a>
     </form>
