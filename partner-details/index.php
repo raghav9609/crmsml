@@ -15,6 +15,15 @@ if($_REQUEST['city'] > 0){
 if($_REQUEST['agent_type'] > 0){
     $filter_data['partner_id'] = $_REQUEST['agent_type']; 
 }
+if($_REQUEST['sm_name']!=){
+    $filter_data['sm_name'] = $_REQUEST['sm_name']; 
+}
+if($_REQUEST['sm_email_id'] !=""){
+    $filter_data['sm_email_id'] = $_REQUEST['sm_email_id']; 
+}
+if($_REQUEST['phoneno'] > 0){
+    $filter_data['phoneno'] = $_REQUEST['phoneno']; 
+}
 $data_to_display = $partnerDetailsExport->searchFilter($filter_data);
 
 preArray($data_to_display);
@@ -53,6 +62,9 @@ preArray($data_to_display);
             <option value="1">RM</option>
             <option value="2">SM</option>
         </select>
+        <input type='text' name="sm_name" placeholder= "RM/ SM Name" maxlength="100">
+        <input type='text' name="sm_email_id" placeholder= "RM/ SM Email ID" maxlength="100">
+        <input type='text' name="phoneno" placeholder= "RM/ SM Phone No" maxlength="10">
         <input class="cursor" type='submit' value='Search' name='search_btn' id="search_btn" onclick='search_as();'>
         <a href="<?php echo $head_url; ?>/partner-details/"><input class="cursor" type='button' value='Clear'></a>
     </form>
