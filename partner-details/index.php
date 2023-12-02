@@ -96,22 +96,23 @@ preArray($data_to_display);
                         $agent_type = $value['agent_type'];
                         ?>
                 <tr>
-                <td><input type="checkbox" name="ch_edit[]" value="<?php echo $id; ?>" id="<?php echo $id; ?>" class="loan_type abcd"/>
+                <td><input type="checkbox" name="ch_edit[]" value="<?php echo $id; ?>" id="<?php echo $id; ?>" class="loan_type abcd" onchange="disbaledFields(this.id);";/>
                 </td>
                 <td >
                 <?php echo $partner_id . "<br><span class='orange'>" . $city_id  ."</span><br>"; ?>
                 </td>
                     <td>
+                    <?php echo $agent_type == 2 ? "SM":"RM"; ?>
                         <input name="name_<?php echo $id; ?>" value="<?php echo $name; ?>" class="<?php echo $id; ?>_chng" disabled="" type="text"/>
-                        <?php echo $agent_type == 2 ? "SM":"RM"; ?>
+                        
                     </td>
                     <td>
                         <input name="mobile_no_<?php echo $id; ?>" value="<?php echo $mobile_no; ?>" class="<?php echo $id; ?>_chng" disabled="" type="text"/>
-                        <input type="checkbox" name="sms_flag<?php echo $id; ?>" value="1" <?php if($is_sms_flag_active == 1){echo "checked";} ?> class="<?php echo $id; ?>_chng"/>
+                        <input type="checkbox" name="sms_flag<?php echo $id; ?>" value="1" <?php if($is_sms_flag_active == 1){echo "checked";} ?> class="<?php echo $id; ?>_chng" disabled=""/>
                     </td>
                     <td>
                         <input name="email_id_<?php echo $id; ?>" value="<?php echo $email_id; ?>" class="<?php echo $id; ?>_chng" disabled="" type="text"/>
-                        <input type="checkbox" name="email_flag<?php echo $id; ?>" <?php if($is_email_flag_active == 1){echo "checked";} ?> value="1" class="<?php echo $id; ?>_chng"/>
+                        <input type="checkbox" name="email_flag<?php echo $id; ?>" <?php if($is_email_flag_active == 1){echo "checked";} ?> value="1" class="<?php echo $id; ?>_chng" disabled=""/>
                     </td>
                 </tr>
                     <?php } ?>
@@ -123,3 +124,8 @@ preArray($data_to_display);
 <script src="<?php echo $head_url; ?>/assets/js/jquery-1.10.2.js"></script>
 <script src="<?php echo $head_url; ?>/assets/js/jquery-ui.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>  
+<script>
+    function disbaledFields(e){
+        alert(e);
+    }
+</script>
