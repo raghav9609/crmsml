@@ -49,8 +49,8 @@ print_r($_REQUEST);
             <option value="1">RM</option>
             <option value="2">SM</option>
         </select>
-        <input class="cursor" type='button' value='Search' name='search_btn' id="search_btn" onclick='search_as();'>
-        <input class="cursor" type='button' value='Clear' name='clear_btn' onclick='clear_fnc();'>
+        <input class="cursor" type='submit' value='Search' name='search_btn' id="search_btn" onclick='search_as();'>
+        <a href="<?php echo $head_url; ?>/partner-details/"><input class="cursor" type='button' value='Clear'></a>
         <!-- <input class="cursor" type="button" name="add" value="Add" id="add" onclick="add_info();"> -->
     </fieldset>
 </div>
@@ -60,8 +60,3 @@ print_r($_REQUEST);
 <script src="<?php echo $head_url; ?>/assets/js/jquery-1.10.2.js"></script>
 <script src="<?php echo $head_url; ?>/assets/js/jquery-ui.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>  
-<script>
-    function clear_fnc() {
-        window.location.href = "<?php echo $head_url; ?>/partner-details/";
-    }
-</script> 
