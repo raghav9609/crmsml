@@ -131,13 +131,13 @@ preArray($data_to_display);
             
         }else{
             $("."+e.id+"_chng").attr('disabled', 'disabled');
-            $("#selectAll").attr("checked",false);
+            $("#selectAll").prop("checked",false);
         }
     }
     function selectallDisabled(e){
         if(e.checked){
             $(".all").removeAttr("disabled");
-            $("#allchecked").attr("checked",true);
+            $(".allchecked").prop("checked",true);
         }else{
             $(".all").attr('disabled', 'disabled');
             $(".allchecked").attr('disabled', 'disabled');
