@@ -77,7 +77,7 @@ preArray($data_to_display);
                     <th colspan="10"><input type="submit" name="update" class="buttonsub ml10 cursor" value="Update"/></th>
                 </tr>
                 <tr>
-                    <th><input type="checkbox" name="selectAll[]" id="selectAll">Select All</th>
+                    <th><input type="checkbox" name="selectAll[]" id="selectAll" onchange="selectallDisabled(e);">Select All</th>
                     <th>Partner Name<br> City Name</th>
                     <th>Agent Name  <br> Agent Type</th>
                     <th>Agent Contact No <br> Status</th>
@@ -96,23 +96,23 @@ preArray($data_to_display);
                         $agent_type = $value['agent_type'];
                         ?>
                 <tr>
-                <td><input type="checkbox" name="ch_edit[]" value="<?php echo $id; ?>" id="<?php echo $id; ?>" class="loan_type abcd" onchange="disbaledFields(this);";/>
+                <td><input type="checkbox" name="ch_edit[]" value="<?php echo $id; ?>" id="<?php echo $id; ?>" class="all" onchange="disbaledFields(this);";/>
                 </td>
                 <td >
                 <?php echo $partner_id . "<br><span class='orange'>" . $city_id  ."</span><br>"; ?>
                 </td>
                     <td>
                     <?php echo $agent_type == 2 ? "SM":"RM"; ?>
-                        <input name="name_<?php echo $id; ?>" value="<?php echo $name; ?>" class="<?php echo $id; ?>_chng" disabled="" type="text" maxlength="50"/>
+                        <input name="name_<?php echo $id; ?>" value="<?php echo $name; ?>" class="<?php echo $id; ?>_chng all" disabled="" type="text" maxlength="50"/>
                         
                     </td>
                     <td>
-                        <input name="mobile_no_<?php echo $id; ?>" value="<?php echo $mobile_no; ?>" class="<?php echo $id; ?>_chng" disabled="" type="text" maxlength="10"/>
-                        <input type="checkbox" name="sms_flag<?php echo $id; ?>" value="1" <?php if($is_sms_flag_active == 1){echo "checked";} ?> class="<?php echo $id; ?>_chng" disabled=""/>
+                        <input name="mobile_no_<?php echo $id; ?>" value="<?php echo $mobile_no; ?>" class="<?php echo $id; ?>_chng all" disabled="" type="text" maxlength="10"/>
+                        <input type="checkbox" name="sms_flag<?php echo $id; ?>" value="1" <?php if($is_sms_flag_active == 1){echo "checked";} ?> class="<?php echo $id; ?>_chng all" disabled=""/>
                     </td>
                     <td>
-                        <input name="email_id_<?php echo $id; ?>" value="<?php echo $email_id; ?>" class="<?php echo $id; ?>_chng" disabled="" type="text" maxlength="100"/>
-                        <input type="checkbox" name="email_flag<?php echo $id; ?>" <?php if($is_email_flag_active == 1){echo "checked";} ?> value="1" class="<?php echo $id; ?>_chng" disabled=""/>
+                        <input name="email_id_<?php echo $id; ?>" value="<?php echo $email_id; ?>" class="<?php echo $id; ?>_chng all" disabled="" type="text" maxlength="100"/>
+                        <input type="checkbox" name="email_flag<?php echo $id; ?>" <?php if($is_email_flag_active == 1){echo "checked";} ?> value="1" class="<?php echo $id; ?>_chng all" disabled=""/>
                     </td>
                 </tr>
                     <?php } ?>
@@ -130,7 +130,13 @@ preArray($data_to_display);
             $("."+e.id+"_chng").removeAttr("disabled");
         }else{
             $("."+e.id+"_chng").attr('disabled', 'disabled');
-            alert("This is Not checked");
+        }
+    }
+    function selectallDisabled(e){
+        if(e.checked){
+            $(".all").removeAttr("disabled");
+        }else{
+            $(".all").attr('disabled', 'disabled');
         }
     }
 </script>
