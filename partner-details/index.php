@@ -103,15 +103,15 @@ preArray($data_to_display);
                 </td>
                     <td>
                     <?php echo $agent_type == 2 ? "SM":"RM"; ?>
-                        <input name="name_<?php echo $id; ?>" value="<?php echo $name; ?>" class="<?php echo $id; ?>_chng" disabled="" type="text"/>
+                        <input name="name_<?php echo $id; ?>" value="<?php echo $name; ?>" class="<?php echo $id; ?>_chng" disabled="" type="text" maxlength="50"/>
                         
                     </td>
                     <td>
-                        <input name="mobile_no_<?php echo $id; ?>" value="<?php echo $mobile_no; ?>" class="<?php echo $id; ?>_chng" disabled="" type="text"/>
+                        <input name="mobile_no_<?php echo $id; ?>" value="<?php echo $mobile_no; ?>" class="<?php echo $id; ?>_chng" disabled="" type="text" maxlength="10"/>
                         <input type="checkbox" name="sms_flag<?php echo $id; ?>" value="1" <?php if($is_sms_flag_active == 1){echo "checked";} ?> class="<?php echo $id; ?>_chng" disabled=""/>
                     </td>
                     <td>
-                        <input name="email_id_<?php echo $id; ?>" value="<?php echo $email_id; ?>" class="<?php echo $id; ?>_chng" disabled="" type="text"/>
+                        <input name="email_id_<?php echo $id; ?>" value="<?php echo $email_id; ?>" class="<?php echo $id; ?>_chng" disabled="" type="text" maxlength="100"/>
                         <input type="checkbox" name="email_flag<?php echo $id; ?>" <?php if($is_email_flag_active == 1){echo "checked";} ?> value="1" class="<?php echo $id; ?>_chng" disabled=""/>
                     </td>
                 </tr>
