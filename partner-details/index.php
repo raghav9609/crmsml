@@ -24,8 +24,7 @@ if($_REQUEST['sm_email_id'] !=""){
 if($_REQUEST['phoneno'] > 0){
     $filter_data['phoneno'] = $_REQUEST['phoneno']; 
 }
-$data_to_display = $partnerDetailsExport->searchFilter($filter_data);
-
+$data_to_display = $db_handle->runQuery($partnerDetailsExport->searchFilter($filter_data));
 preArray($data_to_display);
 ?>
 <!DOCTYPE html>
