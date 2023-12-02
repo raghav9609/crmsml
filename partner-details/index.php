@@ -41,6 +41,7 @@ print_r($_REQUEST);
 <div style="width:100%;">
     <fieldset style='width:90%;margin-left:5%;'>
         <legend style='color:#2E2EAB;font-weight: bold;'>Search Filter</legend>
+    <form>
         <?php echo get_dropdown(10, 'partner', '', '');
         echo get_dropdown('city', 'city', '', '');
         ?>
@@ -51,6 +52,7 @@ print_r($_REQUEST);
         </select>
         <input class="cursor" type='submit' value='Search' name='search_btn' id="search_btn" onclick='search_as();'>
         <a href="<?php echo $head_url; ?>/partner-details/"><input class="cursor" type='button' value='Clear'></a>
+    </form>
         <!-- <input class="cursor" type="button" name="add" value="Add" id="add" onclick="add_info();"> -->
     </fieldset>
 </div>
