@@ -158,6 +158,7 @@ if (isset($_REQUEST["update"])) {
     } 
     ?>
     <script>
-       swal("Data Updated Successfully!");  
+       swal("Data Updated Successfully!");
+       window.location.href = "<?php echo $head_url; ?>/partner-details/";  
     </script>
 <?php } ?>
