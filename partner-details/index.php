@@ -128,6 +128,7 @@ preArray($data_to_display);
     function disbaledFields(e){
         if(e.checked){
             $("."+e.id+"_chng").removeAttr("disabled");
+            
         }else{
             $("."+e.id+"_chng").attr('disabled', 'disabled');
             $("#selectAll").attr("checked",false);
@@ -136,6 +137,7 @@ preArray($data_to_display);
     function selectallDisabled(e){
         if(e.checked){
             $(".all").removeAttr("disabled");
+            $("#allchecked").attr("checked",true);
         }else{
             $(".all").attr('disabled', 'disabled');
             $(".allchecked").attr('disabled', 'disabled');
