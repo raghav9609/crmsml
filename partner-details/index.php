@@ -14,7 +14,7 @@ if($_REQUEST['city'] > 0){
 if($_REQUEST['agent_type'] > 0){
     $filter_data['partner_id'] = $_REQUEST['agent_type']; 
 }
-print_r($filter_data);
+print_r($_REQUEST);
 ?>
 <!DOCTYPE html>
 <html>
