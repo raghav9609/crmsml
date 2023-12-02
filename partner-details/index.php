@@ -96,7 +96,7 @@ preArray($data_to_display);
                         $agent_type = $value['agent_type'];
                         ?>
                 <tr>
-                <td><input type="checkbox" name="ch_edit[]" value="<?php echo $id; ?>" id="<?php echo $id; ?>" class="all" onchange="disbaledFields(this);"/>
+                <td><input type="checkbox" name="ch_edit[]" value="<?php echo $id; ?>" id="<?php echo $id; ?>" class ="all allchecked" onchange="disbaledFields(this);"/>
                 </td>
                 <td >
                 <?php echo $partner_id . "<br><span class='orange'>" . $city_id  ."</span><br>"; ?>
@@ -130,6 +130,7 @@ preArray($data_to_display);
             $("."+e.id+"_chng").removeAttr("disabled");
         }else{
             $("."+e.id+"_chng").attr('disabled', 'disabled');
+            $("#selectAll").attr("checked",false);
         }
     }
     function selectallDisabled(e){
@@ -137,6 +138,7 @@ preArray($data_to_display);
             $(".all").removeAttr("disabled");
         }else{
             $(".all").attr('disabled', 'disabled');
+            $(".allchecked").attr('disabled', 'disabled');
         }
     }
 </script>
