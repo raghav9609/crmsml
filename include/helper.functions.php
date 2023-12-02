@@ -72,7 +72,7 @@ if(!function_exists('get_name')){
             break;
          }
         $data = mysqli_query($Conn1,$qry);
-        return $data_to_return - mysqli_fetch_assoc($data);
+        return $data_to_return = mysqli_fetch_assoc($data);
 
     }
 }
