@@ -99,7 +99,7 @@ preArray($data_to_display);
                 <td><input type="checkbox" name="ch_edit[]" value="<?php echo $id; ?>" id="<?php echo $id; ?>" class ="all allchecked" onchange="disbaledFields(this);"/>
                 </td>
                 <td >
-                <?php echo $partner_id . "<br><span class='orange'>" . $city_id  ."</span><br>"; ?>
+                <?php echo get_name($partner_id,$partner_id); . "<br><span class='orange'>" .  get_name('city_id',$city_id)  ."</span><br>"; ?>
                 </td>
                     <td>
                     <?php echo $agent_type == 2 ? "SM":"RM"; ?>
