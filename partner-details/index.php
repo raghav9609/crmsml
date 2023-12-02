@@ -77,7 +77,7 @@ preArray($data_to_display);
                     <th colspan="10"><input type="submit" name="update" class="buttonsub ml10 cursor" value="Update"/></th>
                 </tr>
                 <tr>
-                    <th><input type="checkbox" name="selectAll[]" id="selectAll" onchange="selectallDisabled(e);">Select All</th>
+                    <th><input type="checkbox" name="selectAll[]" id="selectAll" onchange="selectallDisabled(this);">Select All</th>
                     <th>Partner Name<br> City Name</th>
                     <th>Agent Name  <br> Agent Type</th>
                     <th>Agent Contact No <br> Status</th>
@@ -96,7 +96,7 @@ preArray($data_to_display);
                         $agent_type = $value['agent_type'];
                         ?>
                 <tr>
-                <td><input type="checkbox" name="ch_edit[]" value="<?php echo $id; ?>" id="<?php echo $id; ?>" class="all" onchange="disbaledFields(this);";/>
+                <td><input type="checkbox" name="ch_edit[]" value="<?php echo $id; ?>" id="<?php echo $id; ?>" class="all" onchange="disbaledFields(this);"/>
                 </td>
                 <td >
                 <?php echo $partner_id . "<br><span class='orange'>" . $city_id  ."</span><br>"; ?>
