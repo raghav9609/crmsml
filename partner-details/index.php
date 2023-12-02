@@ -96,22 +96,22 @@ preArray($data_to_display);
                         $agent_type = $value['agent_type'];
                         ?>
                 <tr>
-                <td><input type="checkbox" name="ch_edit[]" value="<?php echo $id ?>" id="<?php echo $id ?>" class="loan_type abcd"/>
+                <td><input type="checkbox" name="ch_edit[]" value="<?php echo $id; ?>" id="<?php echo $id; ?>" class="loan_type abcd"/>
                 </td>
                 <td >
                 <?php echo $partner_id . "<br><span class='orange'>" . $city_id  ."</span><br>"; ?>
                 </td>
                     <td>
-                        <input name="name_<?php echo $id ?>" value="<?php echo $name ?>" class="<?php echo $id; ?>_chng" disabled="" type="text"/>
+                        <input name="name_<?php echo $id; ?>" value="<?php echo $name; ?>" class="<?php echo $id; ?>_chng" disabled="" type="text"/>
                         <?php echo $agent_type == 2 ? "SM":"RM"; ?>
                     </td>
                     <td>
-                        <input name="mobile_no_<?php echo $id ?>" value="<?php echo $mobile_no ?>" class="<?php echo $id; ?>_chng" disabled="" type="text"/>
-                        <input type="checkbox" name="sms_flag<?php echo $id ?>" value="1" <?php if($is_sms_flag_active == 1)(echo "checked") ?> class="<?php echo $id; ?>_chng"/>
+                        <input name="mobile_no_<?php echo $id; ?>" value="<?php echo $mobile_no; ?>" class="<?php echo $id; ?>_chng" disabled="" type="text"/>
+                        <input type="checkbox" name="sms_flag<?php echo $id; ?>" value="1" <?php if($is_sms_flag_active == 1){echo "checked";} ?> class="<?php echo $id; ?>_chng"/>
                     </td>
                     <td>
-                        <input name="email_id_<?php echo $id ?>" value="<?php echo $email_id ?>" class="<?php echo $id; ?>_chng" disabled="" type="text"/>
-                        <input type="checkbox" name="email_flag<?php echo $id ?>" <?php if($is_email_flag_active == 1)(echo "checked") ?> value="1" class="<?php echo $id; ?>_chng"/>
+                        <input name="email_id_<?php echo $id; ?>" value="<?php echo $email_id; ?>" class="<?php echo $id; ?>_chng" disabled="" type="text"/>
+                        <input type="checkbox" name="email_flag<?php echo $id; ?>" <?php if($is_email_flag_active == 1){echo "checked";} ?> value="1" class="<?php echo $id; ?>_chng"/>
                     </td>
                 </tr>
                     <?php } ?>
