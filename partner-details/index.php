@@ -70,7 +70,54 @@ preArray($data_to_display);
         <!-- <input class="cursor" type="button" name="add" value="Add" id="add" onclick="add_info();"> -->
     </fieldset>
 </div>
-<div id="loan"></div>
+<div style="margin:0 auto; width:90%; padding:10px; background-color:#fff; height:800px;">
+        <form action="" method="POST">
+            <table class="gridtable" width="95%;">
+                <tr>
+                    <th colspan="10"><input type="submit" name="update" class="buttonsub ml10 cursor" value="Update"/></th>
+                </tr>
+                <tr>
+                    <th><input type="checkbox" name="selectAll[]" id="selectAll">Select All</th>
+                    <th>Partner Name<br> City Name</th>
+                    <th>Agent Name  <br> Agent Type</th>
+                    <th>Agent Contact No <br> Status</th>
+                    <th>Agent Email ID<br> Status</th>
+                </tr>
+                <?php
+                    foreach($data_to_display as $key=>$value){
+                        $id = $value['id'];
+                        $partner_id = $value['partner_id'];
+                        $city_id = $value['city_id'];
+                        $name = $value['name'];
+                        $email_id = $value['email_id'];
+                        $mobile_no = $value['mobile_no'];
+                        $is_email_flag_active = $value['is_email_flag_active'];
+                        $is_sms_flag_active = $value['is_sms_flag_active'];
+                        $agent_type = $value['agent_type'];
+                        ?>
+                <tr>
+                <td><input type="checkbox" name="ch_edit[]" value="<?php echo $id ?>" id="<?php echo $id ?>" class="loan_type abcd"/>
+                </td>
+                <td >
+                <?php echo $partner_id . "<br><span class='orange'>" . $city_id  ."</span><br>"; ?>
+                </td>
+                    <td>
+                        <input name="name_<?php echo $id ?>" value="<?php echo $name ?>" class="<?php echo $id; ?>_chng" disabled="" type="text"/>
+                        <?php echo $agent_type == 2 ? "SM":"RM"; ?>
+                    </td>
+                    <td>
+                        <input name="mobile_no_<?php echo $id ?>" value="<?php echo $mobile_no ?>" class="<?php echo $id; ?>_chng" disabled="" type="text"/>
+                        <input type="checkbox" name="sms_flag<?php echo $id ?>" value="1" <?php if($is_sms_flag_active == 1)(echo "checked") ?> class="<?php echo $id; ?>_chng"/>
+                    </td>
+                    <td>
+                        <input name="email_id_<?php echo $id ?>" value="<?php echo $email_id ?>" class="<?php echo $id; ?>_chng" disabled="" type="text"/>
+                        <input type="checkbox" name="email_flag<?php echo $id ?>" <?php if($is_email_flag_active == 1)(echo "checked") ?> value="1" class="<?php echo $id; ?>_chng"/>
+                    </td>
+                </tr>
+                    <?php } ?>
+            </table>
+        </form>
+    </div>
 </body>
 </html>
 <script src="<?php echo $head_url; ?>/assets/js/jquery-1.10.2.js"></script>
