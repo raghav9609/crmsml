@@ -127,10 +127,9 @@ preArray($data_to_display);
 <script>
     function disbaledFields(e){
         if(e.checked){
-            alert("#"+e.id+"_chng");
-            $("#"+e.id+"_chng").removeAttr("disabled");
+            $("."+e.id+"_chng").removeAttr("disabled");
         }else{
-            $("#"+e.id+"_chng").attr('disabled', 'disabled');
+            $("."+e.id+"_chng").attr('disabled', 'disabled');
             alert("This is Not checked");
         }
     }
