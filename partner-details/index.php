@@ -140,7 +140,7 @@ preArray($data_to_display);
             $(".allchecked").prop("checked",true);
         }else{
             $(".all").attr('disabled', 'disabled');
-            $(".allchecked").removeAttr('disabled');
+            $(".allchecked").removeAttr('disabled').prop("checked",false);
         }
     }
 </script>
