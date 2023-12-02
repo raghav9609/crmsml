@@ -7,8 +7,7 @@ class partnerDetails{
         }
         if($data['partner_id'] > 0){
             $query_to_execute .= " and partner_id = ".$data['partner_id'];
-        }
-        if($data['agent_type'] > 0){
+        }if($data['agent_type'] > 0){
             $query_to_execute .= " and agent_type = ".$data['agent_type'];
         }
         if($data['sm_name'] != ""){
