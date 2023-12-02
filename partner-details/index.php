@@ -127,10 +127,9 @@ preArray($data_to_display);
 <script>
     function disbaledFields(e){
         if(e.checked){
-           
+            alert("This is checked");
         }else{
             alert("This is Not checked");
         }
-        alert(e);
     }
 </script>
