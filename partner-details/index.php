@@ -3,7 +3,7 @@ require_once(dirname(__FILE__) . '/../config/session.php');
 require_once(dirname(__FILE__) . '/../helpers/common-helper.php');
 require_once(dirname(__FILE__) . '/../include/header.php');
 require_once(dirname(__FILE__) . '/../include/helper.functions.php');
-//require_once(dirname(__FILE__) . '/../model/partnerDetailsModel.php');
+require_once(dirname(__FILE__) . '/../model/partnerDetailsModel.php');
 
 $filter_data = [];
 if($_REQUEST['partner'] > 0){
@@ -15,7 +15,7 @@ if($_REQUEST['city'] > 0){
 if($_REQUEST['agent_type'] > 0){
     $filter_data['partner_id'] = $_REQUEST['agent_type']; 
 }
-if($_REQUEST['sm_name']!=){
+if($_REQUEST['sm_name']!= ""){
     $filter_data['sm_name'] = $_REQUEST['sm_name']; 
 }
 if($_REQUEST['sm_email_id'] !=""){
@@ -24,9 +24,9 @@ if($_REQUEST['sm_email_id'] !=""){
 if($_REQUEST['phoneno'] > 0){
     $filter_data['phoneno'] = $_REQUEST['phoneno']; 
 }
-//$data_to_display = $partnerDetailsExport->searchFilter($filter_data);
+$data_to_display = $partnerDetailsExport->searchFilter($filter_data);
 
-//preArray($data_to_display);
+preArray($data_to_display);
 ?>
 <!DOCTYPE html>
 <html>
