@@ -7,7 +7,8 @@ class partnerDetails{
         }
         if($data['partner_id'] > 0){
             $query_to_execute .= " and partner_id = ".$data['partner_id'];
-        }if($data['agent_type'] > 0){
+        }
+        if($data['agent_type'] > 0){
             $query_to_execute .= " and agent_type = ".$data['agent_type'];
         }
         if($data['sm_name'] != ""){
@@ -19,7 +20,6 @@ class partnerDetails{
             $query_to_execute .= " and mobile_no = '".$data['phoneno']."'";
         }
         $query_to_execute .= " order by partner_id";
-        
         return $query_to_execute;
     }
 }
