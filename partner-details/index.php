@@ -3,6 +3,18 @@ require_once(dirname(__FILE__) . '/../config/session.php');
 require_once(dirname(__FILE__) . '/../helpers/common-helper.php');
 require_once(dirname(__FILE__) . '/../include/header.php');
 require_once(dirname(__FILE__) . '/../include/helper.functions.php');
+
+$filter_data = [];
+if($_REQUEST['partner'] > 0){
+    $filter_data['partner_id'] = $_REQUEST['partner']; 
+}
+if($_REQUEST['city'] > 0){
+    $filter_data['partner_id'] = $_REQUEST['city']; 
+}
+if($_REQUEST['agent_type'] > 0){
+    $filter_data['partner_id'] = $_REQUEST['agent_type']; 
+}
+print_r($filter_data);
 ?>
 <!DOCTYPE html>
 <html>
@@ -32,9 +44,14 @@ require_once(dirname(__FILE__) . '/../include/helper.functions.php');
         <?php echo get_dropdown(10, 'partner', '', '');
         echo get_dropdown('city', 'city', '', '');
         ?>
+        <select name="agent_type" id = "agent_type">
+            <option value="0">Select Agent Type</option>
+            <option value="1">RM</option>
+            <option value="2">SM</option>
+        </select>
         <input class="cursor" type='button' value='Search' name='search_btn' id="search_btn" onclick='search_as();'>
         <input class="cursor" type='button' value='Clear' name='clear_btn' onclick='clear_fnc();'>
-        <input class="cursor" type="button" name="add" value="Add" id="add" onclick="add_info();">
+        <!-- <input class="cursor" type="button" name="add" value="Add" id="add" onclick="add_info();"> -->
     </fieldset>
 </div>
 <div id="loan"></div>
@@ -45,65 +62,6 @@ require_once(dirname(__FILE__) . '/../include/helper.functions.php');
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>  
 <script>
     function clear_fnc() {
-        window.location.href = "<?php echo $head_url; ?>/assignment/";
-    }
-    $(document).ready(function () {
-        $("#add_data").click(function () {
-            $("#abc").toggle();
-        });
-    });
-
-    function search_as() {
-        var loan_type = $("#loan_type").val();
-        var city_sub_grp = $("#city_sub_grp").val();
-        var user_mlc = $("#u_assign").val();
-        if(city_sub_grp == '') {
-            swal("Oops!", "Please Select City Sub Group!", "error");  
-        } else if (loan_type == '') {
-            swal("Oops!", "Please Select Loan Type", "error");  
-        } else {
-            $("#search_btn").attr('value', 'Searching...');
-            $("#search_btn").attr("disabled", true);
-            $.ajax({
-                type: "POST",
-                cache: false,
-                url: "search_assign.php",
-                data: "loan_type=" + loan_type + "&sml_user=" + user_mlc + "&city_sub_grp=" + city_sub_grp,
-                success: function (html) {
-                    $("#search_btn").attr('value', 'Search');
-                    $("#search_btn").attr("disabled", false);
-                    $("#loan").html(html);
-                }
-            });
-        }
-    }
-
-    function add_info() {
-        $("#msg").text("");
-        $("#add").addClass("hidden");
-        $.ajax({
-            type: "POST",
-            url: "add-partner.php",
-            success: function (html) {
-                $("#loan").html(html);
-            }
-        })
+        window.location.href = "<?php echo $head_url; ?>/partner-details/";
     }
 </script> 
-
-<?php
-if (isset($_REQUEST["update"])) {
-    $chech_id = replace_special($_REQUEST['ch_edit']);
-    foreach($chech_id as $key=>$value){
-        $salary = explode("-",$_REQUEST['salary_'.$value]);
-        $loan_amount = explode("-",$_REQUEST['loan_amt_'.$value]);
-        $user_id = $_REQUEST['user_id_'.$value];
-        $user_id1 = $_REQUEST['user_id1_'.$value];
-        mysqli_query($Conn1,"update crm_lead_assignment set min_net_income ='".$salary[0]."',max_net_income ='".$salary[1]."',min_loan_amount ='".$loan_amount[0]."',max_loan_amount ='".$loan_amount[1]."',shift1user_id ='".$user_id."',shift2_user_id ='".$user_id1."' where id = '".$value."'");
-    } ?>
-    <script>
-        swal("Data Updated Successfully!");  
-        sleep(2);
-        window.location.href = "<?php echo $head_url; ?>/assignment/";
-    </script>
-<?php } ?>
