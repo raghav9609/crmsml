@@ -26,7 +26,7 @@ if($_REQUEST['phoneno'] > 0){
 }
 //$data_to_display = $partnerDetailsExport->searchFilter($filter_data);
 
-preArray($data_to_display);
+//preArray($data_to_display);
 ?>
 <!DOCTYPE html>
 <html>
