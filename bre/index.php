@@ -1,46 +1,36 @@
 <?php
-require_once "../../include/header.php";
-require_once "../../config/config.php";
-require_once "../../include/helper.functions.php";
+require_once(dirname(__FILE__) . '/../config/session.php');
+require_once(dirname(__FILE__) . '/../helpers/common-helper.php');
+require_once(dirname(__FILE__) . '/../include/header.php');
+require_once(dirname(__FILE__) . '/../include/helper.functions.php');
+require_once(dirname(__FILE__) . '/../model/partnerDetailsModel.php');
+
+$filter_data = [];
+if($_REQUEST['partner'] > 0){
+    $filter_data['partner_id'] = $_REQUEST['partner']; 
+}
+if($_REQUEST['city'] > 0){
+    $filter_data['partner_id'] = $_REQUEST['city']; 
+}
+if($_REQUEST['agent_type'] > 0){
+    $filter_data['partner_id'] = $_REQUEST['agent_type']; 
+}
+if($_REQUEST['sm_name']!= ""){
+    $filter_data['sm_name'] = $_REQUEST['sm_name']; 
+}
+if($_REQUEST['sm_email_id'] !=""){
+    $filter_data['sm_email_id'] = $_REQUEST['sm_email_id']; 
+}
+if($_REQUEST['phoneno'] > 0){
+    $filter_data['phoneno'] = $_REQUEST['phoneno']; 
+}
+$data_to_display = $db_handle->runQuery($partnerDetailsExport->searchFilter($filter_data));
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="../../assets/style.css">
-    <script type="text/javascript" src="../../assets/js/jquery-1.10.2.js"></script> <!--Js For Testing-->
-    <script type="text/javascript" src="../../assets/js/common-function.js"></script>
-
-    <script>
-    function form_valid() {
-        var max_val_err = "";
-        var max_val_1000_err = "";
-        
-        $('.max_val').each(function(i, obj) {
-            console.log($(this).val());
-            if(parseInt($(this).val().replace(/,/g, '')) > 100) {
-                max_val_err = 1;
-            }
-        });
-
-        $('.max_val_1000').each(function(i, obj) {
-            console.log($(this).val());
-            if(parseInt($(this).val().replace(/,/g, '')) > 1000) {
-                max_val_1000_err = 1;
-            }
-        });
-
-        if(max_val_1000_err == 1) {
-            alert("Offer values on CRM /MLC cannot be greater than 1000");
-            return false;
-        }
-        
-        if(max_val_err == 1) {
-            alert("Approval values cannot be greater than 100");
-            return false;
-        }
-    }
-    </script>
-
+<link rel="stylesheet" type="text/css" href="../assets/css/style-assignment.css">
+<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'></link>  
     <style>
         .new_textbox {
             background: #E6E6E6 none repeat scroll 0% 0%;
@@ -58,156 +48,117 @@ require_once "../../include/helper.functions.php";
 
 </head>
 <body>
-<div style="width:90%; margin:auto;">
-    <fieldset>
+<div style="width:100%;">
+    <fieldset style='width:90%;margin-left:5%;'>
         <legend style='color:#2E2EAB;font-weight: bold;'>Search Filter</legend>
-        <select name="loan_type" id="loan_type" onchange="fetch_partner_id();">
-            <option value="">Select Loan Type</option>
-            <option value="56" <?php echo ($_REQUEST['loan_type'] == 56) ? "selected" : ""; ?> >Personal Loan</option>
-            <option value="51" <?php echo ($_REQUEST['loan_type'] == 51) ? "selected" : ""; ?> >Home Loan</option>
-            <option value="54" <?php echo ($_REQUEST['loan_type'] == 54) ? "selected" : ""; ?> >Loan Against Property</option>
-            <option value="60" <?php echo ($_REQUEST['loan_type'] == 60) ? "selected" : ""; ?> >Gold Loan</option>
-            <option value="57" <?php echo ($_REQUEST['loan_type'] == 57) ? "selected" : ""; ?> >Business Loan</option>
-            <option value="11" <?php echo ($_REQUEST['loan_type'] == 11) ? "selected" : ""; ?> >Doctor Loan</option>
-            <option value="63" <?php echo ($_REQUEST['loan_type'] == 63) ? "selected" : ""; ?> >Professional Loan</option>
-        </select>
-        <?php
-        //echo get_dropdown('loan_type', 'loan_type', $_REQUEST['loan_type'], 'onchange="fetch_partner_id();"');
-        //echo get_dropdown('partner_list', 'partner_id', $_REQUEST['partner_id'], '');
+    <form>
+        <?php echo get_dropdown(10, 'partner', '', '');
+        echo get_dropdown('city', 'city', '', '');
         ?>
-        <select name="partner_id" id="partner_id">
-            <option value=''>Select Partner List</option>          
+        <select name="agent_type" id = "agent_type">
+            <option value="0">Select Agent Type</option>
+            <option value="1">RM</option>
+            <option value="2">SM</option>
         </select>
-        <input class="cursor" type='button' value='Search' name='search_btn' id="search_btn" onclick='search_as();'>
-        <input class="cursor" type='button' value='Clear' name='clear_btn' onclick='clear_fnc();'>
+        <input type='text' name="sm_name" placeholder= "RM/ SM Name" maxlength="100">
+        <input type='text' name="sm_email_id" placeholder= "RM/ SM Email ID" maxlength="100">
+        <input type='text' name="phoneno" placeholder= "RM/ SM Phone No" maxlength="10">
+        <input class="cursor" type='submit' value='Search' name='search_btn'>
+        <a href="<?php echo $head_url; ?>/partner-details/"><input class="cursor" type='button' value='Clear'></a>
+    </form>
+        <!-- <input class="cursor" type="button" name="add" value="Add" id="add" onclick="add_info();"> -->
     </fieldset>
 </div>
-<div id="loan"></div>
-<?php
-if (isset($_REQUEST["update"]) && !empty($_REQUEST['ch_edit'])) {
-    $chech_id = replace_special($_REQUEST['ch_edit']);
-    for ($i = 0; $i < count($chech_id); $i++) {
-        $crm_offers_on = $_REQUEST['is_offers_crm_'.$chech_id[$i]];
-        $website_offers_on = $_REQUEST['is_offers_website_'.$chech_id[$i]];
-        $city_flag = $_REQUEST['city_flag_'.$chech_id[$i]];
-        $cashback_strip = $_REQUEST['cashback_strip_'.$chech_id[$i]];
-        $bank_id_select = $_REQUEST['bank_id_select_'.$chech_id[$i]];
-        $loan_id_select = $_REQUEST['loan_id_select_'.$chech_id[$i]];
-        mysqli_query($Conn1,"update bre_stp_decision set 
-             is_offers_website = '".$website_offers_on."',
-             is_offers_crm = '".$crm_offers_on."',
-             is_cashback_strip  = '".$cashback_strip."',
-             city_flag  = '".$city_flag."',
-             is_stp = '".$_REQUEST['stp_'.$chech_id[$i]]."',
-             min_score_for_offer_on_site= '".str_replace(',', '', $_REQUEST['min_score_for_offer_on_site_'.$chech_id[$i]])."',
-             max_score_for_offer_on_site = '".str_replace(',', '',$_REQUEST['max_score_for_offer_on_site_'.$chech_id[$i]])."',
-             min_score_for_offer_on_crm = '".str_replace(',', '',$_REQUEST['min_score_for_offer_on_crm_'.$chech_id[$i]])."',
-             max_score_for_offer_on_crm = '".str_replace(',', '',$_REQUEST['max_score_for_offer_on_crm_'.$chech_id[$i]])."',
-             score_slab1_from = '".str_replace(',', '',$_REQUEST['score_slab1_from_'.$chech_id[$i]])."',
-             score_slab1_to= '".str_replace(',', '',$_REQUEST['score_slab1_to_'.$chech_id[$i]])."',
-             score_slab2_from= '".str_replace(',', '',$_REQUEST['score_slab2_from_'.$chech_id[$i]])."',
-             score_slab2_to= '".str_replace(',', '',$_REQUEST['score_slab2_to_'.$chech_id[$i]])."',
-             score_slab3_from= '".str_replace(',', '',$_REQUEST['score_slab3_from_'.$chech_id[$i]])."',
-             score_slab3_to= '".str_replace(',', '',$_REQUEST['score_slab3_to_'.$chech_id[$i]])."',
-             approval_chance_slab1 = '".str_replace(',', '',$_REQUEST['approval_chance_slab1_'.$chech_id[$i]])."',
-             approval_chance_slab1_to= '".str_replace(',', '',$_REQUEST['approval_chance_slab1_to_'.$chech_id[$i]])."',
-             approval_chance_slab2= '".str_replace(',', '',$_REQUEST['approval_chance_slab2_'.$chech_id[$i]])."',
-             approval_chance_slab2_to= '".str_replace(',', '',$_REQUEST['approval_chance_slab2_to_'.$chech_id[$i]])."',
-             approval_chance_slab3= '".str_replace(',', '',$_REQUEST['approval_chance_slab3_'.$chech_id[$i]])."',
-             approval_chance_slab3_to= '".str_replace(',', '',$_REQUEST['approval_chance_slab3_to_'.$chech_id[$i]])."'
-            where id = ".$chech_id[$i]) or die(mysqli_error($Conn1));
-            if($website_offers_on == 11){
-                mysqli_query($mlc,"update tbl_pat_loan_type_mapping set is_cashback_strip='".$cashback_strip."',city_flag='".$city_flag."',disp_flag=0,mlc_disp=0,apply_flag=0 where loan_type= ".$loan_id_select." and bank_id = ".$bank_id_select);
-                mysqli_query($Conn1,"update tbl_pat_loan_type_mapping set is_cashback_strip='".$cashback_strip."',city_flag='".$city_flag."',mlc_disp= 0,apply_flag=0 where loan_type= ".$loan_id_select." and bank_id = ".$bank_id_select);
-            }else{
-                mysqli_query($mlc,"update tbl_pat_loan_type_mapping set is_cashback_strip='".$cashback_strip."',city_flag='".$city_flag."',mlc_disp=1,apply_flag='".$website_offers_on."' where loan_type= ".$loan_id_select." and bank_id = ".$bank_id_select) or die("Error 1".mysqli_error($mlc));
-                mysqli_query($Conn1,"update tbl_pat_loan_type_mapping set is_cashback_strip='".$cashback_strip."',city_flag='".$city_flag."',mlc_disp=1,apply_flag='".$website_offers_on."' where loan_type= ".$loan_id_select." and bank_id = ".$bank_id_select) or die("Error 2".mysqli_error($Conn1));
-            }
-            mysqli_query($Conn1,"update tbl_pat_loan_type_mapping set is_cashback_strip='".$cashback_strip."',city_flag='".$city_flag."',disp_flag=".$crm_offers_on." where loan_type= ".$loan_id_select." and bank_id = ".$bank_id_select);
-    }
-   header("location:index.php?loan_type=".$_REQUEST['search_loan_type']."&partner_id=".$_REQUEST['search_partner_id']);
-}
-mysqli_close($mlc);
-include("../../include/footer_close.php");
-?>
+<div style="margin:0 auto; width:90%; padding:10px; background-color:#fff; height:800px;">
+        <form action="" method="POST">
+            <table class="gridtable" width="95%;">
+                <tr>
+                    <th colspan="10"><input type="submit" name="update" class="buttonsub ml10 cursor" value="Update"/></th>
+                </tr>
+                <tr>
+                    <th><input type="checkbox" name="selectAll[]" id="selectAll" onchange="selectallDisabled(this);">Select All</th>
+                    <th>Partner Name<br> City Name</th>
+                    <th>Agent Name  <br> Agent Type</th>
+                    <th>Agent Contact No <br> Status</th>
+                    <th>Agent Email ID<br> Status</th>
+                </tr>
+                <?php
+                    foreach($data_to_display as $key=>$value){
+                        $id = $value['id'];
+                        $partner_id = $value['partner_id'];
+                        $city_id = $value['city_id'];
+                        $name = $value['name'];
+                        $email_id = $value['email_id'];
+                        $mobile_no = $value['mobile_no'];
+                        $is_email_flag_active = $value['is_email_flag_active'];
+                        $is_sms_flag_active = $value['is_sms_flag_active'];
+                        $agent_type = $value['agent_type'];
+                        ?>
+                <tr>
+                <td><input type="checkbox" name="ch_edit[]" value="<?php echo $id; ?>" id="<?php echo $id; ?>" class ="all allchecked" onchange="disbaledFields(this);"/>
+                </td>
+                <td >
+                <?php $partner_name  = get_name($partner_id,$partner_id);
+                $city_name  = get_name('city_id',$city_id); 
+                echo $partner_name['value']. "<br><span class='orange'>" .$city_name['city_name']."</span><br>"; ?>
+                </td>
+                    <td>
+                    <?php echo $agent_type == 2 ? "SM":"RM"; ?>
+                        <input name="name_<?php echo $id; ?>" value="<?php echo $name; ?>" class="<?php echo $id; ?>_chng all" disabled="" type="text" maxlength="50"/>
+                        
+                    </td>
+                    <td>
+                        <input name="mobile_no_<?php echo $id; ?>" value="<?php echo $mobile_no; ?>" class="<?php echo $id; ?>_chng all" disabled="" type="text" maxlength="10"/>
+                        <input type="checkbox" name="sms_flag<?php echo $id; ?>" value="1" <?php if($is_sms_flag_active == 1){echo "checked";} ?> class="<?php echo $id; ?>_chng all" disabled=""/>
+                    </td>
+                    <td>
+                        <input name="email_id_<?php echo $id; ?>" value="<?php echo $email_id; ?>" class="<?php echo $id; ?>_chng all" disabled="" type="text" maxlength="100"/>
+                        <input type="checkbox" name="email_flag<?php echo $id; ?>" <?php if($is_email_flag_active == 1){echo "checked";} ?> value="1" class="<?php echo $id; ?>_chng all" disabled=""/>
+                    </td>
+                </tr>
+                    <?php } ?>
+            </table>
+        </form>
+    </div>
 </body>
 </html>
+<script src="<?php echo $head_url; ?>/assets/js/jquery-1.10.2.js"></script>
+<script src="<?php echo $head_url; ?>/assets/js/jquery-ui.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>  
 <script>
-    function clear_fnc() {
-        //window.location.href = "<?php echo $head_url; ?>/sugar/assign-mlc/";
-        location.reload();
-    }
-      function fetch_partner_id() {
-        var loan_type = $("#loan_type").val();
-         if (loan_type == '') {
-            alert("Please Select Loan Type!");
-        } else {
-            $("#search_btn").attr("disabled", true);
-            $.ajax({
-                type: "POST",
-                cache: false,
-                url: "../insert/get_partner.php",
-                data: "loan_type_id=" + loan_type,
-                success: function (html) {
-                    $("#search_btn").attr('value', 'Search');
-                    $("#search_btn").attr("disabled", false);
-                    $("#partner_id").html(html).val(<?php echo $_REQUEST['partner_id']; ?>);
-                }
-            });
+    function disbaledFields(e){
+        if(e.checked){
+            $("."+e.id+"_chng").removeAttr("disabled");
+            
+        }else{
+            $("."+e.id+"_chng").attr('disabled', 'disabled');
+            $("#selectAll").prop("checked",false);
         }
     }
-    function search_as() {
-            var loan_type = $("#loan_type").val();
-            var partner_id = $("#partner_id").val();
-         if (loan_type == '') {
-            alert("Please Select Loan Type!");
-        } else {
-            $("#search_btn").attr('value', 'Searching...');
-            $("#search_btn").attr("disabled", true);
-            $.ajax({
-                type: "POST",
-                cache: false,
-                url: "search_assign.php",
-                data: "loan_type=" + loan_type + "&partner_id=" + partner_id,
-                success: function (html) {
-                    $("#search_btn").attr('value', 'Search');
-                    $("#search_btn").attr("disabled", false);
-                    $("#loan").html(html);
-                }
-            });
+    function selectallDisabled(e){
+        if(e.checked){
+            $(".all").removeAttr("disabled");
+            $(".allchecked").prop("checked",true);
+        }else{
+            $(".all").attr('disabled', 'disabled');
+            $(".allchecked").removeAttr('disabled').prop("checked",false);
         }
     }
-
-    function download_csv(pat, loan) {
-        console.log(pat + " > " + loan);
-        $.ajax({
-            type: "POST",
-            cache: false,
-            url: "download.php",
-            data: "loan_type=" + loan + "&partner_id=" + pat,
-            success: function (data) {
-                
-                var downloadLink = document.createElement("a");
-                var fileData = ['\ufeff'+data];
-
-                var blobObject = new Blob(fileData,{
-                    type: "text/csv;charset=utf-8;"
-                });
-
-                var url = URL.createObjectURL(blobObject);
-                downloadLink.href = url;
-                downloadLink.download = "BRE_Data.csv";
-
-                document.body.appendChild(downloadLink);
-                downloadLink.click();
-                document.body.removeChild(downloadLink);
-
-
-            }
-        });
-    }
-  
-<?php if($_REQUEST['loan_type'] > 0 ){ ?>
-    search_as();
+</script>
+<?php
+if (isset($_REQUEST["update"])) {
+    $chech_id = replace_special($_REQUEST['ch_edit']);
+    foreach($chech_id as $key=>$value){
+        $name = $_REQUEST['name_'.$value];
+        $mobile_no = $_REQUEST['mobile_no_'.$value];
+        $sms_flag = $_REQUEST['sms_flag'.$value];
+        $email_id = $_REQUEST['email_id_'.$value];
+        $email_flag = $_REQUEST['email_flag'.$value];
+        mysqli_query($Conn1,"update crm_partner_rm_sm_details set name ='".$name."',email_id ='".$email_id."',mobile_no ='".$mobile_no."',is_email_flag_active ='".$email_flag."',is_sms_flag_active ='".$sms_flag."' where id = '".$value."'");       
+    } 
+    ?>
+    <script>
+       swal("Data Updated Successfully!");
+       window.location.href = "<?php echo $head_url; ?>/partner-details/";  
+    </script>
 <?php } ?>
-</script> 
