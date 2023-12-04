@@ -1,6 +1,6 @@
 <?php 
 class partnerDetails{
-    function searchFilter($data){
+    function breDetails($data){
         $query_to_execute = "select * from crm_partner_rm_sm_details where 1";
         if($data['city_id'] > 0){
             $query_to_execute .= " and city_id = ".$data['city_id'];
@@ -21,8 +21,9 @@ class partnerDetails{
         $query_to_execute .= " order by partner_id";
         return $query_to_execute;
     }
+   
 }
 
-$partnerDetailsExport = new partnerDetails();
+$breDetailsExport = new breDetails();
 
 ?>

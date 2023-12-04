@@ -24,7 +24,7 @@ if($_REQUEST['sm_email_id'] !=""){
 if($_REQUEST['phoneno'] > 0){
     $filter_data['phoneno'] = $_REQUEST['phoneno']; 
 }
-$data_to_display = $db_handle->runQuery($partnerDetailsExport->searchFilter($filter_data));
+$data_to_display = $db_handle->runQuery($breDetailsExport->searchFilter($filter_data));
 ?>
 <!DOCTYPE html>
 <html>
@@ -154,7 +154,7 @@ if (isset($_REQUEST["update"])) {
         $sms_flag = $_REQUEST['sms_flag'.$value];
         $email_id = $_REQUEST['email_id_'.$value];
         $email_flag = $_REQUEST['email_flag'.$value];
-        mysqli_query($Conn1,"update crm_partner_rm_sm_details set name ='".$name."',email_id ='".$email_id."',mobile_no ='".$mobile_no."',is_email_flag_active ='".$email_flag."',is_sms_flag_active ='".$sms_flag."' where id = '".$value."'");       
+       // mysqli_query($Conn1,"update crm_partner_rm_sm_details set name ='".$name."',email_id ='".$email_id."',mobile_no ='".$mobile_no."',is_email_flag_active ='".$email_flag."',is_sms_flag_active ='".$sms_flag."' where id = '".$value."'");       
     } 
     ?>
     <script>
