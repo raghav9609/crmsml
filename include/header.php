@@ -35,7 +35,7 @@ require_once(dirname(__FILE__) . '/../model/headerModel.php');
         }else{
             $main_header_link = $main_header_val['link'];            
         }
-        $header_var = "<li><a href='".$main_header_link."'>".$main_header_val['description'];
+        $header_var = "<li><a href='".$head_url.$main_header_link."'>".$main_header_val['description'];
         if($main_header_val['class_flag'] == '1'){
              $header_var .= "<span class='caret'></span>";
         }
@@ -53,7 +53,7 @@ require_once(dirname(__FILE__) . '/../model/headerModel.php');
                         }else{
                             $sec_header_link = $sub_header_val['link'];
                         }
-                            $header_var .= "<li><a href='".$sec_header_link."'>".$sub_header_val['description'];
+                            $header_var .= "<li><a href='".$head_url.$sec_header_link."'>".$sub_header_val['description'];
                             if($sub_header_val['class_flag'] == '1'){
                                  $header_var .= "<span class='caret'></span>";
                             }
@@ -68,7 +68,7 @@ require_once(dirname(__FILE__) . '/../model/headerModel.php');
                                             }else{
                                                 $sec_sub_header_link = $sub_sub_header_val['link'];
                                             }
-                                                $header_var .= "<li><a href='".$sec_sub_header_link."' > " .$sub_sub_header_val['description']." </a></li>";
+                                                $header_var .= "<li><a href='".$head_url.$sec_sub_header_link."' > " .$sub_sub_header_val['description']." </a></li>";
                                     }
                                 $header_var .= "</ul>";
                            }     
