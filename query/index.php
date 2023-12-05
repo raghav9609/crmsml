@@ -286,7 +286,7 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                 <div class="span9">
                     <!--Begin page content column-->
                     <?php
-                    $qry = "select qry.query_status as query_status,qry.junk_reason as junk_reason,cust.id as customer_id, cust.name as name,cust.email_id as email, cust.phone_no as phone,cust.cibil_score as cibil_score, cust.occupation_id as occup_id,city.city_name as city_name, cust.net_income as net_incm, qry.verify_phone as verify_phone, qry.follow_status as follow_status,qry.follow_date as q_follow_date, qry.q_follow_time AS q_follow_time, user.name as user_name, qry.id as id,qry.created_on as date,qry.query_status_desc as query_status_desc, qry.tool_type as tool_type, qry.lead_assign_to as user_id, qry.loan_amount as loan_amt,qry.page_url as page_url from crm_query as qry INNER join crm_customer as cust on qry.crm_customer_id = cust.id left join crm_master_city as city on cust.city_id = city.id left join crm_master_user as user on qry.lead_assign_to = user.id where 1 ";
+                    $qry = "select qry.query_status as query_status,qry.junk_reason as junk_reason,cust.id as customer_id, cust.name as name,cust.email_id as email, cust.phone_no as phone,cust.cibil_score as cibil_score, cust.occupation_id as occup_id,city.city_name as city_name, cust.net_income as net_incm, qry.verify_phone as verify_phone, qry.follow_status as follow_status,qry.follow_date as q_follow_date, qry.follow_time AS q_follow_time, user.name as user_name, qry.id as id,qry.created_on as date,qry.query_status_desc as query_status_desc, qry.tool_type as tool_type, qry.lead_assign_to as user_id, qry.loan_amount as loan_amt,qry.page_url as page_url from crm_query as qry INNER join crm_customer as cust on qry.crm_customer_id = cust.id left join crm_master_city as city on cust.city_id = city.id left join crm_master_user as user on qry.lead_assign_to = user.id where 1 ";
                     if ($user_role != 1) {
                         $qry .= " and cust.phone_no NOT IN (0) ";
                     }
@@ -442,7 +442,7 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                         $qry .= " and qry.created_on between DATE_SUB(CURDATE(), INTERVAL 5 DAY) and CURDATE() ";
                     }
                    echo $qry .= " order by qry.id desc limit " . $offset . "," . $max_offset;
-                    exit;
+                
                     ?>
                     <fieldset>
                         <legend>Query Filter</legend>
