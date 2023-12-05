@@ -579,10 +579,10 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                                 //print_r($res_loan_name);
                                    $get_occup_name = mysqli_query($Conn1,"select value as occup_name from crm_masters where crm_masters_code_id = 7 and id = ".$exe_form['occup_id']);
                                    $res_occup_name = mysqli_fetch_array($get_occup_name);
-                                print_r($res_occup_name);
+                                
                                    $get_city_name = mysqli_query($Conn1,"select city_name from crm_master_city where id = ".$exe_form['city_id']);
                                    $res_city_name = mysqli_fetch_array($get_city_name);
-
+                                   print_r($res_city_name);
                                     $loantype_name = ($res_loan_name['value'] != "") ? "(" . $res_loan_name['value'] . ")" : "";
                                     $city_name = ($res_city_name['city_name'] != "") ? "(" . $res_city_name['city_name'] . ")" : "";
                                     $occupation_name = ($res_occup_name['occup_name']) ? "(" . $res_occup_name['occup_name'] . ")" : "";
