@@ -460,64 +460,18 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                             <input type="text" class="text-input numonly" name="net_incm_to" id="net_incm_to" placeholder="Net Incm To" maxlength="10" value="<?php echo $net_incm_to; ?>" />
                             <input type="text" class="text-input" name="date_from" id="date_from" placeholder="Date From" maxlength="10" value="<?php echo $date_from; ?>" readonly="readonly" />
                             <input type="text" class="text-input" name="date_to" id="date_to" placeholder="Date To" maxlength="10" value="<?php echo $date_to; ?>" readonly="readonly" />
-                            <?php echo get_dropdown('annual_turnover', 'anl_trn', $bs_anl_turn, ''); ?></td>
+                            <?php // echo get_dropdown('annual_turnover', 'anl_trn', $bs_anl_turn, ''); ?>
+                        </td>
 
-                            <?php
-                            /*if(in_array($user,$user_new_status) || in_array($loan_type,$loan_type_new_status) || new_staus_user_level == 1 || new_staus_loan_type_level == 1){*/
-                            // if($user == 173) {
-                            echo get_dropdown('query_status', 'query_statussearch', $query_statussearch, '');
-
-                            echo get_dropdown('query_new_status', 'query_new_status', $query_new_status, 'onchange="new_qs_change(this, 1);"');
-                            if ($query_new_status != "") {
-                                $get_status_query   = mysqli_query($Conn1, "SELECT status_id, description FROM status_master WHERE level_id = 1 AND parent_id = $query_new_status AND is_active_for_filter = 1 ");
-                                if (mysqli_num_rows($get_status_query) > 0) {
-                            ?>
-                                    <select name='sub_status' id='sub_status' onchange="new_qs_change(this, 2);">
-                                        <option value="">Select Sub Status</option>
-                                        <?php
-                                        while ($get_status_res = mysqli_fetch_array($get_status_query)) {
-                                            $selected = ($get_status_res['status_id'] == $sub_status) ? "selected" : "";
-                                        ?>
-                                            <option value="<?php echo $get_status_res['status_id']; ?>" <?php echo $selected; ?>><?php echo $get_status_res['description']; ?></option>
-                                        <?php
-                                        }
-                                        ?>
-                                    </select>
-                                    <?php
-                                }
-
-                                if ($sub_status != "") {
-                                    $get_status_query   = mysqli_query($Conn1, "SELECT status_id, description FROM status_master WHERE level_id = 1 AND parent_id = $sub_status AND is_active_for_filter = 1 ");
-                                    if (mysqli_num_rows($get_status_query) > 0) {
-                                    ?>
-                                        <select name='sub_sub_status' id='sub_sub_status'>
-                                            <option value="">Select Sub Sub Status</option>
-                                            <?php
-                                            while ($get_status_res = mysqli_fetch_array($get_status_query)) {
-                                                $selected = ($get_status_res['status_id'] == $sub_sub_status) ? "selected" : "";
-                                            ?>
-                                                <option value="<?php echo $get_status_res['status_id']; ?>" <?php echo $selected; ?>><?php echo $get_status_res['description']; ?></option>
-                                            <?php
-                                            }
-                                            ?>
-                                        </select>
-                            <?php
-                                    }
-                                }
-                            }
-                            /*} else {
-
-    }*/
-                            //echo get_dropdown('query_status','query_statussearch',$query_statussearch,'');
-                            ?>
+               
 
                             <?php if ($user_role == 1 || $user_role == 4 || $user_role == 2 || $user_role == 5 || $user_role == 9) { ?>
-                                <?php echo get_dropdown('loan_type', 'loan_type', $search, ''); ?>
+                                <?php echo get_dropdown(1, 'loan_type', $search, ''); ?>
                             <?php }
                             if ($user_role != 3) { ?>
-                                <?php echo get_dropdown('user_assign', 'u_assign', $u_assign, ''); ?>
+                                <?php echo get_dropdown('user', 'u_assign', $u_assign, ''); ?>
                             <?php } ?>
-                            <?php echo get_dropdown('tool_type', 'tool', $tool, ''); ?>
+                            <?php // echo get_dropdown('tool_type', 'tool', $tool, ''); ?>
                             <select name="auto_case_create">
                                 <option value=''>Auto Case</option>
                                 <option value='1' <?php if ($auto_case_create > 0) {
@@ -527,17 +481,7 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                                                         echo "selected";
                                                     } ?>>No</option>
                             </select>
-                            <?php if ($user_role == '1' || $user_role == '4') { ?>
-                                <select name="source_compign" id="source_compign" onchange="opn_subsource();">
-                                    <option value="">Campaign Source</option>
-                                    <?php $qry_camp = mysqli_query($Conn1, "select * from campaign");
-
-                                    while ($res_camp = mysqli_fetch_array($qry_camp)) {
-                                    ?>
-                                        <option value="<?php echo $res_camp['campaign_val']; ?>" <?php if ($res_camp['campaign_val'] == $source_compign) { ?>selected <?php } ?>><?php echo $res_camp['campaign_name']; ?></option>
-                                    <?php } ?>
-                                </select>
-                                <span id="sub"></span> <?php } ?>
+                         
                             <input type="text" class="text-input" name="follow_date_from" id="follow_date_from" placeholder="Follow Date From" maxlength="10" value="<?php echo $follow_date_from; ?>" readonly="readonly" />
                             <input type="text" class="text-input" name="follow_date_to" id="follow_date_to" placeholder="Follow Date To" maxlength="10" value="<?php echo $follow_date_to; ?>" readonly="readonly" />
 
@@ -545,15 +489,15 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                                 <option value="">Followup Given By</option>
                                 <option value="1" <?php echo ($fup_given_by == 1) ? "selected" : ""; ?>>Customer</option>
                                 <option value="5" <?php echo ($fup_given_by == 5) ? "selected" : ""; ?>>Auto FUP by Customer</option>
-                                <option value="2" <?php echo ($fup_given_by == 2) ? "selected" : ""; ?>>MLC User</option>
+                                <option value="2" <?php echo ($fup_given_by == 2) ? "selected" : ""; ?>>SML User</option>
                             </select>
 
                             <input type="text" class="text-input numonly" name="customer_id_search" id="customer_id_search" placeholder="Customer ID" maxlength="30" value="<?php echo $customer_id_search; ?>" />
                             <input type="text" class="text-input alnum-wo-space" name="masked_phone" id="masked_phone" placeholder="Masked Phone No." value="<?php echo $masked_phone; ?>" maxlength="10" />
                             <input type="text" class="text-input no-space" name="email_search" id="email_search" placeholder="Customer Email" value="<?php echo $email_search; ?>" maxlength="100" autocomplete="null" />
-                            <?php get_dropdown("ni_user", "ni_user", $ni_user, ""); ?>
+                            <?php // get_dropdown("ni_user", "ni_user", $ni_user, ""); ?>
 
-                            <?php get_dropdown("type_of_registration", "type_of_registration", $type_of_registration, ""); ?>
+                            <?php // get_dropdown("type_of_registration", "type_of_registration", $type_of_registration, ""); ?>
 
                             <input type="text" class="text-input numonly" name="referee_phone" id="referee_phone" placeholder="Referee Phone No" value="<?php echo $referee_phone; ?>" maxlength="10" />
                             <select name="hot_lead_query" id="hot_lead_query">
@@ -592,7 +536,7 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                             /*if($user == 173) {
     echo $qry;
 }*/
-                            // echo $qry;
+                            echo $qry;
                             $res = mysqli_query($Conn1, $qry) or die("Error: " . mysqli_error($Conn1));
                             $recordcount = mysqli_num_rows($res); // 11
                             if ($recordcount > 0) {
