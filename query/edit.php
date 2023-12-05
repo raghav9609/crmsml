@@ -1,8 +1,11 @@
 <?php
+session_start();
+require_once(dirname(__FILE__) . '/../config/session.php');
 require_once(dirname(__FILE__) . '/../helpers/common-helper.php');
 require_once(dirname(__FILE__) . '/../include/header.php');
 require_once(dirname(__FILE__) . '/../model/queryHelper.php');
 require_once(dirname(__FILE__) . '/../include/loader.php');
+require_once(dirname(__FILE__) . '/../config/config.php');
 $level_id = 1;
 if (isset($_REQUEST['page'])) {
     $page = replace_special($_REQUEST['page']);
@@ -18,8 +21,8 @@ $lead_disp_arr = array(
     'user_id'=>$_SESSION['userDetails']['user_id'],
     'created_on'=>currentDateTime24(),
 );
-$lead_disp_qry = $get_qry_det->insertQueryData('lead_display_history',$lead_disp_arr);
-$lead_view_id = $db_handle->insertRows($lead_disp_qry);
+// $lead_disp_qry = $get_qry_det->insertQueryData('lead_display_history',$lead_disp_arr);
+// $lead_view_id = $db_handle->insertRows($lead_disp_qry);
 
 
 $qry_dets = $get_qry_det->getQueryData($qryyy_id,$user_id,$user_role);
