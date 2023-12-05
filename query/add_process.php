@@ -137,7 +137,7 @@ if($bank_account_type != "") {
     $qry_edit .= ", bank_acc_type = '".$bank_account_type."' ";
 }
 
-echo $qry_edit;
+//echo $qry_edit;
 
 $res_qry = mysqli_query($Conn1,$qry_edit);
  
