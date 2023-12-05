@@ -545,7 +545,7 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                                     $query_follow_date = ($exe_form['q_follow_date'] == '0000-00-00' || $exe_form['q_follow_date'] == '' || $exe_form['q_follow_date'] == '1970-01-01') ? '--' : date("d-m-Y", strtotime($exe_form['q_follow_date']));
 
                                     $query_follow_time = ($exe_form['q_follow_time'] != "" && $exe_form['q_follow_time'] != "00:00:00") ? date("H:i:s A", strtotime($exe_form['q_follow_time'])) : "--";
-                                echo "dfgdgf";
+
                                     if ($query_follow_date != "--") {
                                         if (strtotime($query_follow_date) == strtotime(date("d-m-Y"))) {
                                             $query_follow_date = "<span class='orange badge-success badge-pill badge'>" . $query_follow_date . " " . $query_follow_time . "</span>";
