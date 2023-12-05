@@ -59,9 +59,9 @@ $remarks = $qry_data_arr[0]['remarks'];
 $city_name = $qry_data_arr[0]['city_name'];
 //$phone_no_up = mobile_hide($phone_no);
 $phone_no_up = ($phone_no);
-$status_his_qry = $get_qry_det->getQueryRecord('status_history',$columns_to_fetch = array("*"),array('lead_id = "'.$qryyy_id.'"'), 'Created_on', 'DESC');
-$status_his_count = $db_handle->numRows($status_his_qry);
-$status_his_res = $db_handle->runQuery($status_his_qry);
+// $status_his_qry = $get_qry_det->getQueryRecord('status_history',$columns_to_fetch = array("*"),array('lead_id = "'.$qryyy_id.'"'), 'Created_on', 'DESC');
+// $status_his_count = $db_handle->numRows($status_his_qry);
+// $status_his_res = $db_handle->runQuery($status_his_qry);
 ?>
 <html>
     <head>
