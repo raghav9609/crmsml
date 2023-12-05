@@ -451,7 +451,7 @@ $phone_no_up = ($phone_no);
             if(query_id) {
                 $.ajax({
                     type: "POST",
-                    url: "/crmdemo/query/call-log.php",
+                    url: "/query/call-log.php",
                     data: "query_id="+query_id,
                     beforeSend: function () {
                         $(".tab-2 > .facts > .register > .table_set").html('<div class="img">Please wait while we are fetching the details...</div><div class="img"><img style="width: 10%" src="<?php echo $head_url.'/assets/images/common-loader.gif';?>" /></div>');
@@ -475,7 +475,7 @@ $phone_no_up = ($phone_no);
             if(query_id) {
                 $.ajax({
                     type: "POST",
-                    url: "/crmdemo/query/show-history.php",
+                    url: "/query/show-history.php",
                     data: "query_id="+query_id,
                     beforeSend: function () {
                         $(".tab-4 > .facts > .register > .table_set").html('<div class="img">Please wait while we are fetching the details...</div><div class="img"><img style="width: 10%" src="<?php echo $head_url.'/assets/images/common-loader.gif';?>" /></div>');
