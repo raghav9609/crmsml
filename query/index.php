@@ -286,7 +286,7 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                 <div class="span9">
                     <!--Begin page content column-->
                     <?php
-                    $qry = "select qry.query_status as query_status,qry.junk_reason as junk_reason,cust.id as customer_id, cust.name as name,cust.email_id as email, cust.phone_no as phone,cust.cibil_score as cibil_score, cust.occupation_id as occup_id,city.city_name as city_name, cust.net_income as net_incm, qry.verify_phone as verify_phone, qry.follow_status as follow_status,qry.follow_date as q_follow_date, qry.follow_time AS q_follow_time, user.name as user_name, qry.id as id,qry.created_on as date,qry.query_status_desc as query_status_desc, qry.tool_type as tool_type, qry.lead_assign_to as user_id, qry.loan_type_id as loan_type_id, qry.loan_amount as loan_amt,qry.page_url as page_url from crm_query as qry INNER join crm_customer as cust on qry.crm_customer_id = cust.id left join crm_master_city as city on cust.city_id = city.id left join crm_master_user as user on qry.lead_assign_to = user.id where 1 ";
+                    $qry = "select qry.query_status as query_status,qry.junk_reason as junk_reason,cust.id as customer_id, cust.name as name,cust.email_id as email, cust.phone_no as phone,cust.cibil_score as cibil_score, cust.occupation_id as occup_id,city.city_name as city_name,cust.city_id as city_id, cust.net_income as net_incm, qry.verify_phone as verify_phone, qry.follow_status as follow_status,qry.follow_date as q_follow_date, qry.follow_time AS q_follow_time, user.name as user_name, qry.id as id,qry.created_on as date,qry.query_status_desc as query_status_desc, qry.tool_type as tool_type, qry.lead_assign_to as user_id, qry.loan_type_id as loan_type_id, qry.loan_amount as loan_amt,qry.page_url as page_url from crm_query as qry INNER join crm_customer as cust on qry.crm_customer_id = cust.id left join crm_master_city as city on cust.city_id = city.id left join crm_master_user as user on qry.lead_assign_to = user.id where 1 ";
                     if ($user_role != 1) {
                         $qry .= " and cust.phone_no NOT IN (0) ";
                     }
@@ -568,7 +568,7 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                                     } else {
                                         $echo_number = $phone_no;
                                     }
-                                    echo "dfgdgf s";
+                                  
                                     // $net_incm = custom_money_format($exe_form['net_incm']);
                                     $net_incm = ($exe_form['net_incm'] > 0) ? custom_money_format($exe_form['net_incm']) : "";
                                   //  $auto_case_create_v = $exe_form['auto_case_create'];
@@ -580,11 +580,11 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                                    $get_occup_name = mysqli_query($Conn1,"select value as occup_name from crm_masters where crm_masters_code_id = 7 and id = ".$exe_form['occup_id']);
                                    $res_occup_name = mysqli_fetch_array($get_occup_name);
                                 
-                                   $get_city_name = mysqli_query($Conn1,"select city_name from crm_master_city where id = ".$exe_form['city_id']);
-                                   $res_city_name = mysqli_fetch_array($get_city_name);
-                                   print_r($res_city_name);
+                                //    $get_city_name = mysqli_query($Conn1,"select city_name from crm_master_city where id = ".$exe_form['city_id']);
+                                //    $res_city_name = mysqli_fetch_array($get_city_name);
+                                //    print_r($res_city_name);
                                     $loantype_name = ($res_loan_name['value'] != "") ? "(" . $res_loan_name['value'] . ")" : "";
-                                    $city_name = ($res_city_name['city_name'] != "") ? "(" . $res_city_name['city_name'] . ")" : "";
+                                    $city_name = ($exe_form['city_name'] != "") ? "(" . $exe_form['city_name'] . ")" : "";
                                     $occupation_name = ($res_occup_name['occup_name']) ? "(" . $res_occup_name['occup_name'] . ")" : "";
                                     //$qy_status = $exe_form['qy_status'];
                                     $user_name = $exe_form['user_name'];
@@ -595,7 +595,7 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                                     // if ($qy_status == '') {
                                     //     $qy_status = get_display_name('new_status_name', $query_status);;
                                     // }
-
+                                    echo "dfgdgf s";
                                     //$stats_other_status = trim($exe_form['other_status'], ',');
                                 
 
