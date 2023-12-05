@@ -522,12 +522,13 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                             /*if($user == 173) {
     echo $qry;
 }*/
-                           // echo $qry;
+                           echo $qry."<br>";
                             $res = mysqli_query($Conn1, $qry) or die("Error: " . mysqli_error($Conn1));
-                            $recordcount = mysqli_num_rows($res); // 11
+                            echo $recordcount = mysqli_num_rows($res); // 11
                             if ($recordcount > 0) {
                                 $record = 0;
                                 while ($exe_form = mysqli_fetch_array($res)) {
+                                    echo "as";
                                     $record++;
                                     if ($record > 10) {
                                         continue;
