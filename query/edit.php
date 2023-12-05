@@ -32,6 +32,7 @@ if($get_num_data == 0){
 }
 $qry_data_arr = $db_handle->runQuery($qry_dets);
 
+print_r($qry_data_arr);
 $cust_id = $qry_data_arr[0]['cust_id'];
 $customer_name = $qry_data_arr[0]['customer_name'];
 $email_id = $qry_data_arr[0]['email_id'];
