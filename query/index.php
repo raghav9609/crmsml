@@ -304,7 +304,7 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                     if ($search != '') {
                         $default = 1;
                         $qry .= " and qry.loan_type = '" . $search . "'";
-                        $qry .= " and qry.created_on between DATE_SUB(CURDATE(), INTERVAL 3 Month) and CURDATE() ";
+                        $qry .= " and date(qry.created_on) between DATE_SUB(CURDATE(), INTERVAL 3 Month) and CURDATE() ";
                     }
                     if ($follow_date_from != '' && $follow_date_to != '') {
                         $default = 1;
@@ -384,7 +384,7 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
 
                     if ($date_from != '' && $date_to != '') {
                         $default = 1;
-                        $qry .= " and qry.created_on between '" . $date_from . "' and '" . $date_to . "' ";
+                        $qry .= " and date(qry.created_on) between '" . $date_from . "' and '" . $date_to . "' ";
                     }
                     
                     if (trim($email_search) != "") {
@@ -439,9 +439,9 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                     //     }
                     // } else
                      if ($default != 1) {
-                        $qry .= " and qry.created_on between DATE_SUB(CURDATE(), INTERVAL 5 DAY) and CURDATE() ";
+                        $qry .= " and date(qry.created_on) between DATE_SUB(CURDATE(), INTERVAL 5 DAY) and CURDATE() ";
                     }
-                   echo $qry .= " order by qry.id desc limit " . $offset . "," . $max_offset;
+                    $qry .= " order by qry.id desc limit " . $offset . "," . $max_offset;
                 
                     ?>
                     <fieldset>
@@ -522,7 +522,7 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                             /*if($user == 173) {
     echo $qry;
 }*/
-                            echo $qry;
+                           // echo $qry;
                             $res = mysqli_query($Conn1, $qry) or die("Error: " . mysqli_error($Conn1));
                             $recordcount = mysqli_num_rows($res); // 11
                             if ($recordcount > 0) {
