@@ -57,7 +57,8 @@ $assign_date_time = $qry_data_arr[0]['assign_date_time'];
 $follow_up_date_time = $qry_data_arr[0]['follow_up_date_time'];
 $remarks = $qry_data_arr[0]['remarks'];
 $city_name = $qry_data_arr[0]['city_name'];
-$phone_no_up = mobile_hide($phone_no);
+//$phone_no_up = mobile_hide($phone_no);
+$phone_no_up = ($phone_no);
 $status_his_qry = $get_qry_det->getQueryRecord('status_history',$columns_to_fetch = array("*"),array('lead_id = "'.$qryyy_id.'"'), 'Created_on', 'DESC');
 $status_his_count = $db_handle->numRows($status_his_qry);
 $status_his_res = $db_handle->runQuery($status_his_qry);
@@ -359,31 +360,34 @@ $status_his_res = $db_handle->runQuery($status_his_qry);
                         <div id="side-status">
                         <h1>Follow Up Status</h1>
                         <!-- div repeat -->
-                        <?php foreach($status_his_res as $status_his_record){
-                                $follow_up_status = $status_his_record['follow_up_type'];
-                                $user_id = $status_his_record['updated_by'];
-                                $status_fet = get_query_status('description ',array('id ='.$follow_up_status));
-								$stats_name = $db_handle->runQuery($status_fet);
+                        <?php 
+                        //foreach($status_his_res as $status_his_record){
+                                // $follow_up_status = $status_his_record['follow_up_type'];
+                                // $user_id = $status_his_record['updated_by'];
+                                // $status_fet = get_query_status('description ',array('id ='.$follow_up_status));
+								// $stats_name = $db_handle->runQuery($status_fet);
 
-                                $user_fet = get_username('user_name ',array('user_id ='.$user_id));
-								$user_name = $db_handle->runQuery($user_fet);
+                                // $user_fet = get_username('user_name ',array('user_id ='.$user_id));
+								// $user_name = $db_handle->runQuery($user_fet);
 
-                                $created_on_dt = $status_his_record['created_on'];
-                                $fup_date_time = $status_his_record['fup_date_time'];
+                                // $created_on_dt = $status_his_record['created_on'];
+                                // $fup_date_time = $status_his_record['fup_date_time'];
                         ?>
-                        <div class="status-box">
+                        <!-- <div class="status-box">
                             <div class="date-time">
-                                <?php echo date('d-m-Y',strtotime($created_on_dt)); ?> <span><?php echo date('h:i A',strtotime($created_on_dt)); ?></span>
+                                <?php //echo date('d-m-Y',strtotime($created_on_dt)); 
+                                ?> <span><?php //echo date('h:i A',strtotime($created_on_dt));
+                                 ?></span>
                             </div>
                             <div class="track-detail">
-                                User: <td><?php echo $user_name[0][0]; ?></td><br>
-                                Status: <?php echo $stats_name[0][0]; ?><br>
-                                Remark: <?php echo $status_his_record['remarks']; ?><br>
-                                Date: <?php echo date('d-m-Y',strtotime($fup_date_time)); ?><br>
-                                Time: <?php echo date('h:i A',strtotime($fup_date_time)); ?>
+                                User: <td><?php //echo $user_name[0][0]; ?></td><br>
+                                Status: <?php // echo $stats_name[0][0]; ?><br>
+                                Remark: <?php // echo $status_his_record['remarks']; ?><br>
+                                Date: <?php  //echo date('d-m-Y',strtotime($fup_date_time)); ?><br>
+                                Time: <?php // echo date('h:i A',strtotime($fup_date_time)); ?>
                             </div>
-                        </div>
-                        <?php } ?>
+                        </div> -->
+                        <?php // } ?>
                     </div>
                     <?php } ?>
                     </div>
