@@ -27,13 +27,11 @@ class queryModel {
     }
 
     function getQueryData($qryyy_id,$user_id_fetch,$user_role_fetch){
-        $queryReturn = "SELECT city.city_name,qry.created_on, qry.follow_up_date_time,qry.verify_phone,qry.query_status,qry.updated_on, qry.loan_type_id As product_id, qry.assign_date_time, qry.remarks, cust.id as cust_id, cust.customer_name,cust.email_id,cust.phone_no, 
-        cust.alternate_phone_no,cust.city_id, cust.pincode,cust.address,cust.is_mobile_blocked, cust.is_verified, prod.value as prod_name, plan.value as plan_name from query_details as qry 
-        INNER JOIN customer_info as cust ON qry.crm_customer_id = cust.id 
-        INNER JOIN master_product as prod ON qry.loan_type_id = prod.id 
-        INNER JOIN master_plan as plan ON qry.plan_id = plan.id 
-        LEFT JOIN tbl_user_assign as user ON qry.lead_assign_to = user.user_id 
-        LEFT JOIN lms_city as city ON cust.city_id = city.city_id 
+        $queryReturn = "SELECT city.city_name,qry.created_on, qry.follow_date as follow_up_date_time, qry.follow_time,qry.verify_phone,qry.query_status,qry.updated_on, qry.loan_type_id As product_id, qry.lead_assign_on as assign_date_time,  cust.id as cust_id, cust.name as customer_name,cust.email_id,cust.phone_no, 
+        cust.alternate_phone_no,cust.city_id, cust.pincode,cust.address,cust.is_mobile_blocked, cust.is_phone_no_verified as is_verified from crm_query as qry 
+        INNER JOIN crm_customer as cust ON qry.crm_customer_id = cust.id 
+        LEFT JOIN crm_master_user as user ON qry.lead_assign_to = user.id 
+        LEFT JOIN crm_master_city as city ON cust.city_id = city.id 
         where qry.id = '".$qryyy_id."'";
         if($user_role_fetch == 3){
             $queryReturn .= " and lead_assign_to = ".$user_id_fetch;
