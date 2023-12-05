@@ -595,7 +595,7 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                                     // if ($qy_status == '') {
                                     //     $qy_status = get_display_name('new_status_name', $query_status);;
                                     // }
-                                    echo "dfgdgf s";
+                               
                                     //$stats_other_status = trim($exe_form['other_status'], ',');
                                 
 
@@ -629,7 +629,6 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                                     
                                     parse_str($exe_form['page_url'], $get_array);
                                     $utm_campain_name = ucfirst($get_array['utm_campaign']);
-                       echo "sdsdsdsd";
                                     // $obj = new queries($id);
                                     // $obj->email_count();
                                     // $resulr_case_mail_count = $obj->execute();
