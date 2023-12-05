@@ -472,15 +472,7 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                                 <?php echo get_dropdown('user', 'u_assign', $u_assign, ''); ?>
                             <?php } ?>
                             <?php // echo get_dropdown('tool_type', 'tool', $tool, ''); ?>
-                            <select name="auto_case_create">
-                                <option value=''>Auto Case</option>
-                                <option value='1' <?php if ($auto_case_create > 0) {
-                                                        echo "selected";
-                                                    } ?>>Yes</option>
-                                <option value='0' <?php if ($auto_case_create == 0) {
-                                                        echo "selected";
-                                                    } ?>>No</option>
-                            </select>
+                            
                          
                             <input type="text" class="text-input" name="follow_date_from" id="follow_date_from" placeholder="Follow Date From" maxlength="10" value="<?php echo $follow_date_from; ?>" readonly="readonly" />
                             <input type="text" class="text-input" name="follow_date_to" id="follow_date_to" placeholder="Follow Date To" maxlength="10" value="<?php echo $follow_date_to; ?>" readonly="readonly" />
@@ -499,12 +491,6 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
 
                             <?php // get_dropdown("type_of_registration", "type_of_registration", $type_of_registration, ""); ?>
 
-                            <input type="text" class="text-input numonly" name="referee_phone" id="referee_phone" placeholder="Referee Phone No" value="<?php echo $referee_phone; ?>" maxlength="10" />
-                            <select name="hot_lead_query" id="hot_lead_query">
-                                <option value="">Select Hot Lead</option>
-                                <option value="1" <?php echo ($hot_lead_query == 1) ? "selected" : ""; ?>>Yes</option>
-                                <option value="2" <?php echo ($hot_lead_query == 2) ? "selected" : ""; ?>>No</option>
-                            </select>
                             <input class="cursor" type="submit" name="searchsubmit" value="Filter"><input class="cursor" type="button" onclick="resetform()" value="Clear">
                         </form>
                     </fieldset>
