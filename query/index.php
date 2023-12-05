@@ -519,10 +519,6 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                                     <th width="10%">View</th>
                             </tr>
                             <?php
-                            /*if($user == 173) {
-    echo $qry;
-}*/
-                          // echo $qry."<br>";
                             $res = mysqli_query($Conn1, $qry) or die("Error: " . mysqli_error($Conn1));
                              $recordcount = mysqli_num_rows($res); // 11
                             if ($recordcount > 0) {
@@ -549,7 +545,7 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                                     $query_follow_date = ($exe_form['q_follow_date'] == '0000-00-00' || $exe_form['q_follow_date'] == '' || $exe_form['q_follow_date'] == '1970-01-01') ? '--' : date("d-m-Y", strtotime($exe_form['q_follow_date']));
 
                                     $query_follow_time = ($exe_form['q_follow_time'] != "" && $exe_form['q_follow_time'] != "00:00:00") ? date("H:i:s A", strtotime($exe_form['q_follow_time'])) : "--";
-
+                                echo "dfgdgf";
                                     if ($query_follow_date != "--") {
                                         if (strtotime($query_follow_date) == strtotime(date("d-m-Y"))) {
                                             $query_follow_date = "<span class='orange badge-success badge-pill badge'>" . $query_follow_date . " " . $query_follow_time . "</span>";
@@ -572,6 +568,7 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                                     } else {
                                         $echo_number = $phone_no;
                                     }
+                                    echo "dfgdgf s";
                                     // $net_incm = custom_money_format($exe_form['net_incm']);
                                     $net_incm = ($exe_form['net_incm'] > 0) ? custom_money_format($exe_form['net_incm']) : "";
                                   //  $auto_case_create_v = $exe_form['auto_case_create'];
