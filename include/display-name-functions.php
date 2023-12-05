@@ -17,7 +17,7 @@ function get_display_name($type,$selected_val){
                         LEFT JOIN ybl_credit_score as YBLCS ON YBLCR.report_id = YBLCS.report_id where YBLCR.app_id = '".$selected_val."'";
 		break;
         case "comp_id":
-           $qry = "select comp_id from pl_company where comp_name = '".$selected_val."'";
+           $qry = "select id as comp_id from crm_master_company where company_name = '".$selected_val."'";
         break;
          case "sub_employer":
            $qry = "select sub_employer from tbl_sub_employer where id = '".$selected_val."'";
@@ -176,7 +176,7 @@ function get_display_name($type,$selected_val){
             $qry = "select branch_name from  ifsc_code where id ='".$selected_val."'";
         break; 
     	case "customer_id";
-    		$qry = "select id from tbl_mint_customer_info where phone = '".$selected_val."'";
+    		$qry = "select id from crm_customer where phone_no = '".$selected_val."'";
     	break;
     	case "cashback";
     		$qry = "select cback_amt from tbl_refer_cashback where loan_type = '".$selected_val."'";
