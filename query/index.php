@@ -568,7 +568,7 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                                     } else {
                                         $echo_number = $phone_no;
                                     }
-                                    echo "dfgdgf s";
+                                   
                                     // $net_incm = custom_money_format($exe_form['net_incm']);
                                     $net_incm = ($exe_form['net_incm'] > 0) ? custom_money_format($exe_form['net_incm']) : "";
                                   //  $auto_case_create_v = $exe_form['auto_case_create'];
@@ -586,6 +586,9 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                                     $loantype_name = ($res_loan_name['value'] != "") ? "(" . $res_loan_name['value'] . ")" : "";
                                     $city_name = ($res_city_name['city_name'] != "") ? "(" . $res_city_name['city_name'] . ")" : "";
                                     $occupation_name = ($res_occup_name['occup_name']) ? "(" . $res_occup_name['occup_name'] . ")" : "";
+
+
+                                    echo "dfgdgf s";
                                     //$qy_status = $exe_form['qy_status'];
                                     $user_name = $exe_form['user_name'];
                                    // $extension = $exe_form['extension'];
