@@ -35,6 +35,11 @@ if(!function_exists('get_dropdown')){
     }
 }
 
+function get_textbox($name, $selected_val, $fun_call)
+{
+    echo "<input type= 'text' name ='" . $name . "' id ='" . $name . "' value='" . $selected_val . "' " . $fun_call . ">";
+}
+
 if(!function_exists('get_name')){
     function get_name($code_id,$id){
         global $Conn1;
