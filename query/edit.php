@@ -66,7 +66,7 @@ $phone_no_up = ($phone_no);
 <html>
     <head>
     <title>Edit Query</title>
-        <link href="<?php echo $head_url; ?>/assets/query/css/grid.css?v=1.1" rel="stylesheet">
+        <link href="<?php echo $head_url; ?>/assets/css/grid.css?v=1.1" rel="stylesheet">
         <link href="<?php echo $head_url;?>/assets/css/tab_style.css" rel='stylesheet' type='text/css' />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
         <link href="<?php echo $head_url;?>/assets/css/jquery.timepicker.min.css" rel="stylesheet"/> 
