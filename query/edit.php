@@ -275,7 +275,7 @@ $phone_no_up = ($phone_no);
                                                                 <div class="row div-width">       
                                                                     <div class="form-group col-xl-3 col-lg-4 col-md-6">
                                                                         <span class="fa-icon fa-list-alt"></span>
-                                                                        <?php echo get_dropdown('query_status','f_stats','','onchange="cng_status(this);"'); ?>
+                                                                        <?php // echo get_dropdown('query_status','f_stats','','onchange="cng_status(this);"'); ?>
                                                                         <label for="f_stats" class="label-tag">Select Query Status</label> 
                                                                     </div>
                                                                     
