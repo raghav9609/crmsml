@@ -428,7 +428,7 @@ $phone_no_up = ($phone_no);
             if(query_id) {
                 $.ajax({
                     type: "POST",
-                    url: "/crmdemo/query/lead-display.php",
+                    url: "/query/lead-display.php",
                     data: "query_id="+query_id,
                     beforeSend: function () {
                         $(".tab-3 > .facts > .register > .table_set").html('<div class="img">Please wait while we are fetching the details...</div><div class="img"><img style="width: 10%" src="<?php echo $head_url.'/assets/images/common-loader.gif';?>" /></div>');
