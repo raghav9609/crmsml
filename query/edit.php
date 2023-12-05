@@ -25,7 +25,7 @@ $lead_disp_arr = array(
 // $lead_view_id = $db_handle->insertRows($lead_disp_qry);
 
 
-$qry_dets = $get_qry_det->getQueryData($qryyy_id,$user_id,$user_role);
+echo $qry_dets = $get_qry_det->getQueryData($qryyy_id,$user_id,$user_role);
 $get_num_data = $db_handle->numRows($qry_dets);
 if($get_num_data == 0){
     header("location:index.php");
@@ -34,6 +34,7 @@ $qry_data_arr = $db_handle->runQuery($qry_dets);
 
 print_r($qry_data_arr);
 exit;
+
 $cust_id = $qry_data_arr[0]['cust_id'];
 $customer_name = $qry_data_arr[0]['customer_name'];
 $email_id = $qry_data_arr[0]['email_id'];
