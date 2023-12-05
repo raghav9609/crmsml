@@ -11,7 +11,7 @@ $name = replace_special($_REQUEST['name']);
 $city_id = replace_special($_REQUEST['city_id']);
 $net_incm = replace_special($_REQUEST['net_month_inc']);
 $date_of_birth = $_REQUEST['date_of_birth'];
-$bus_reg_with = $_REQUEST['bus_reg_with'];
+
 $bank_account_type = $_REQUEST['bank_account_type'];
 if($amt_deposit > 0){
     $loan_amount = $amt_deposit;
@@ -126,48 +126,18 @@ if($position != "" && $position > 0) {
     $first_name = $name;
 }
 
-$qry_edit = "insert into form_merge_data set salu_id='".$saluation."',name='".$first_name."', lname='".$last_name."', email='".$email."',phone='".$phone."',phone_no='".$phone."',city_id='".$city_id."',
-pin_code='".$pin_code_id."',occup_id='".$occup_id."',loan_type='".$loan_type."',loan_amt='".$loan_amount."',comp_id='".$comp_id_n."',
-comp_name_other='".$comp_name_other."',weight_gold='".$gl_gram."',purity_gold='".$gl_carat."',itr_available_num='".$itr_num."',
-bus_anl_trnover='".$anl_trn."',bus_itr_aval='".$itr_avl."',profession_id ='".$_REQUEST['profession']."',net_incm='".$net_income."',main_acc='".$main_account."',
-annual_turnover_num='".$res_get_anl_num['turnover_num']."',query_status='11',tool_type='Direct',slry_paid='".$salary_paid."',profit_itr_amt='".$_REQUEST['anl_profit']."',
-date=CURDATE(),time=CURTIME(),assign_flag='1',user_ip='".$_SERVER['REMOTE_ADDR']."',acq_id='".$acq_id."',user_id='".$user_id."',description='".$desc."',ref_mobile='".$ref_id."',
-refer_form_type='".$ref_type."',ref_amount='".$refer_amt."',verify_phone='1'";
+$qry_edit = "insert into crm_raw_data set salutation_id='".$saluation."',name='".$first_name."', email_id ='".$email."',phone_no = '".$phone."', alternate_phone_no = '".$phone."', city_id = '".$city_id."', pincode = '".$pin_code_id."', occupation_id = '".$occup_id."', loan_type_id = '".$loan_type."', loan_amount = '".$loan_amount."', company_id = '".$comp_id_n."', company_name = '".$comp_name_other."', net_income = '".$net_income."',bank_account_no = '".$main_account."', query_status='1',tool_type='Direct',mode_of_salary='".$salary_paid."', created_on=CURDATE(),user_ip='".$_SERVER['REMOTE_ADDR']."',lead_assign_to='".$user_id."',description='".$desc."',ref_mobile='".$ref_id."', refer_form_type='".$ref_type."', ref_amount='".$refer_amt."', verify_phone='1'";
 
 if($date_of_birth != "") {
     $qry_edit .= " , dob = '".$date_of_birth."' ";
 }
-if($bus_reg_with != "") {
-    $qry_edit .= ", bus_reg_type = '".$bus_reg_with."' ";
-}
+
 if($bank_account_type != "") {
     $qry_edit .= ", bank_acc_type = '".$bank_account_type."' ";
 }
 
 $res_qry = mysqli_query($Conn1,$qry_edit);
-if($loan_type == 32){
-    $select_qry = mysqli_query($Conn1,"select max(id) as max_id from form_merge_data where phone = '".$phone."' and loan_type = '".$loan_type."' order by id desc");
-    $result_qry = mysqli_fetch_array($select_qry);
-    $uniq_id = $result_qry['max_id'];
-    $select_status = mysqli_query($Conn1,"select query_status from tbl_mint_query_status_detail where query_id = '".$uniq_id."' and query_status = 11");
-    if(mysqli_num_rows($select_status) > 0){
-    header("Location:create-process.php?fd_status=auto&query_id=".$uniq_id);
-    }
-    }else{
-        // $new_query_id = urlencode(base64_encode(mysqli_insert_id($Conn1)));
-        $new_fmd_id = mysqli_insert_id($Conn1);
-        $new_query_id = urlencode(base64_encode($new_fmd_id));
-        if($_REQUEST['missed_id'] != "") {
-            $missed_call_update = "UPDATE missed_call_log SET lead_id = '".$new_fmd_id."', level_id = '1' WHERE id = '".$_REQUEST['missed_id']."' ";
-            mysqli_query($Conn1, $missed_call_update);
-        }
-        include("../include/footer_close.php");
-        if($res_qry == true) {
-            header("Location: edit.php?id=".$new_query_id);
-        } else {
-            header("Location:add_query.php");
-        }
-        // header("Location:add_query.php");
-    } 
+ 
+    header("Location:add_query.php");
     include("../include/footer_close.php");
 ?>
