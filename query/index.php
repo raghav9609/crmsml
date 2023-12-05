@@ -441,8 +441,8 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                      if ($default != 1) {
                         $qry .= " and qry.created_on between DATE_SUB(CURDATE(), INTERVAL 5 DAY) and CURDATE() ";
                     }
-                    $qry .= " order by qry.id desc limit " . $offset . "," . $max_offset;
-                    
+                   echo $qry .= " order by qry.id desc limit " . $offset . "," . $max_offset;
+                    exit;
                     ?>
                     <fieldset>
                         <legend>Query Filter</legend>
