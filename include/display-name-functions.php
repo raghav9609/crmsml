@@ -7,7 +7,7 @@ function get_display_name($type,$selected_val){
     	    $qry = "select occupation_name from lms_occupation where occupation_id = '".$selected_val."'";
         break;
         case "city_name":
-            $qry = "select city_name from lms_city where city_id = '".$selected_val."'";
+            $qry = "select city_name from crm_master_city where id = '".$selected_val."'";
         break;
     	case "city_sub_group_name":
             $qry = "select grp.city_sub_group_name as city_sub_group_name from lms_city as city left join lms_city_sub_group as grp on city.city_sub_group_id = grp.city_sub_group_id where city.city_id = '".$selected_val."'";
