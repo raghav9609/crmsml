@@ -390,8 +390,6 @@ if($tool_type == "Cross Sell - Auto") {
             }
             echo "<span style='font-weight: 600; color: #000;'> ".$tool_type." </span>";
         }
-        echo "hello";
-        
 
         // if(in_array($exe_form['query_status'], array('5','16','17','11','13','18', '21')) && $exe_form['fup_date'] != '' && $exe_form['fup_date'] != '0000-00-00') {
         //     echo "<br><span class='ml10 fs-13' style='font-weight: normal; color: #000'>Updated Date: </span>";
@@ -439,16 +437,9 @@ if($tool_type == "Cross Sell - Auto") {
             echo "<span class='orange' style='margin-left:20px;'>Referred by : " . $referral_name . " (" . $referral_phone . ")</span>";
         }
     } 
-    echo "hello 1";
     ?>
     </span>
 
-
-                            <?php
-                            if ($promocode == 99) {
-                                echo "<span class='box'>Promocode 99 Ist prefer HDFC for 24 hrs.</span>";
-                            }
-                            ?>
                              <!-- Toggle Div -->
                              <?php // include("type_of_loan.php");
                             // $select="select final_status from hl_filtering where level_id=$id and level_type=$level_type order by id desc limit 0,1";
@@ -478,6 +469,7 @@ if($tool_type == "Cross Sell - Auto") {
                         else{
                             $style="visibility: hidden;";
                         }
+                        echo "hello";
                         ?>
 
                             <!-- <input type="button" class="buttonsub cursor float-rt"  style="margin-left:0; float:left;" value="HL Filtering" name="hlque" id="hlque">
@@ -512,6 +504,7 @@ if($tool_type == "Cross Sell - Auto") {
                             } ?>
                             <div class='clear'></div>
                            <?php
+                           echo "hello 1";
                            require_once "../../include/crm_functions-new.php";
                            echo "hello 6";
                            include("js-insert.php");
