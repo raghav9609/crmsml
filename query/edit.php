@@ -578,8 +578,8 @@ if($tool_type == "Cross Sell - Auto") {
                         </div>
                     </div>
                 </div>
-<link href="../../include/css/notepad.css" rel='stylesheet' type='text/css' />
-<script src="../../include/js/easyResponsiveTabs.js" type="text/javascript"></script>
+<link href="../../assets/css/notepad.css" rel='stylesheet' type='text/css' />
+<script src="../../assets/js/easyResponsiveTabs.js" type="text/javascript"></script>
 <script type="text/javascript">
     $(document).ready(function () {
         $('#horizontal_details_tab').easyResponsiveTabs({
@@ -621,7 +621,7 @@ if($tool_type == "Cross Sell - Auto") {
                     url: "../insert/ajax_insert_updated_query_details.php",
                     data: "query_id="+query_id,
                     beforeSend: function () {
-                        $(".tab-2 > .facts > .register > .table_set").html('<div class="img">Please wait while we are fetching the details...</div><div class="img"><img style="width: 10%" src="../../include/img/common-loader.gif" /></div>');
+                        $(".tab-2 > .facts > .register > .table_set").html('<div class="img">Please wait while we are fetching the details...</div><div class="img"><img style="width: 10%" src="../../assets/img/common-loader.gif" /></div>');
                     },
                     success: function(msg) {
                         if(msg.trim() == "") {
@@ -644,7 +644,7 @@ if($tool_type == "Cross Sell - Auto") {
                     url: "../insert/ajax_insert_cust_query_history.php",
                     data: "case_id="+case_id+"&type=case",
                     beforeSend: function () {
-                        $(".tab-3 > .facts > .register > .table_set").html('<div class="img">Please wait while we are fetching the details...</div><div class="img"><img style="width: 10%" src="../../include/img/common-loader.gif" /></div>');
+                        $(".tab-3 > .facts > .register > .table_set").html('<div class="img">Please wait while we are fetching the details...</div><div class="img"><img style="width: 10%" src="../../assets/img/common-loader.gif" /></div>');
                     },
                     success: function(msg) {
                         if(msg.trim() == "") {
@@ -669,7 +669,7 @@ if($tool_type == "Cross Sell - Auto") {
                     url: "../insert/ajax_insert_cust_query_history.php",
                     data: "case_id="+case_id+"&loan_type="+loan_type+"&cust_id="+cust_id+"&type=app",
                     beforeSend: function () {
-                        $(".tab-4 > .facts > .register > .table_set").html('<div class="img">Please wait while we are fetching the details...</div><div class="img"><img style="width: 10%" src="../../include/img/common-loader.gif" /></div>');
+                        $(".tab-4 > .facts > .register > .table_set").html('<div class="img">Please wait while we are fetching the details...</div><div class="img"><img style="width: 10%" src="../../assets/img/common-loader.gif" /></div>');
                     },
                     success: function(msg) {
                         if(msg.trim() == "") {
@@ -692,7 +692,7 @@ if($tool_type == "Cross Sell - Auto") {
                     url: "../all_query/query_other_details.php",
                     data: "query_id="+query_id,
                     beforeSend: function () {
-                        $(".tab-5 > .facts > .register > .table_set").html('<div class="img">Please wait while we are fetching the details...</div><div class="img"><img style="width: 10%" src="../../include/img/common-loader.gif" /></div>');
+                        $(".tab-5 > .facts > .register > .table_set").html('<div class="img">Please wait while we are fetching the details...</div><div class="img"><img style="width: 10%" src="../../assets/img/common-loader.gif" /></div>');
                     },
                     success: function(msg) {
                         if(msg.trim() == "") {
@@ -717,7 +717,7 @@ if($tool_type == "Cross Sell - Auto") {
                     url: "../app/case_app_req_res.php",
                     data: "case_id="+case_id+"&query_id="+query_id,
                     beforeSend: function () {
-                        $(".tab-6 > .facts > .register > .table_set").html('<div class="img">Please wait while we are fetching the details...</div><div class="img"><img style="width: 10%" src="../../include/img/common-loader.gif" /></div>');
+                        $(".tab-6 > .facts > .register > .table_set").html('<div class="img">Please wait while we are fetching the details...</div><div class="img"><img style="width: 10%" src="../../assets/img/common-loader.gif" /></div>');
                     },
                     success: function(msg) {
                         if(msg.trim() == "") {
@@ -743,7 +743,7 @@ if($tool_type == "Cross Sell - Auto") {
                     url: "../assign/assign-history.php",
                     data: "case_id="+case_id+"&query_id="+query_id,
                     beforeSend: function () {
-                        $(".tab-7 > .facts > .register > .table_set").html('<div class="img">Please wait while we are fetching the details...</div><div class="img"><img style="width: 10%" src="../../include/img/common-loader.gif" /></div>');
+                        $(".tab-7 > .facts > .register > .table_set").html('<div class="img">Please wait while we are fetching the details...</div><div class="img"><img style="width: 10%" src="../../assets/img/common-loader.gif" /></div>');
                     },
                     success: function(msg) {
                         if(msg.trim() == "") {
@@ -1132,7 +1132,7 @@ if($tool_type == "Cross Sell - Auto") {
                             <div class="register">
                                 <div class="table_set">
                                     <?php
-                                        if(in_array($user,$user_new_status) || in_array($loan_type,$loan_type_new_status) || new_staus_user_level == 1 ||  new_staus_loan_type_level == 1){
+                                        if(in_array($user,$user_new_status) || in_array($loan_type,$loan_type_new_status)){
                                             include("query-follow-up.php");
                                         }else{
                                             include("query_followup_history.php");
@@ -1383,7 +1383,7 @@ if($tool_type == "Cross Sell - Auto") {
 <?php
 }
 include("../../include/footer_close.php"); ?>
-<script src="../../include/js/notepad.js"></script>
+<script src="../../assets/js/notepad.js"></script>
 <script>
     function occup_sal(value_get) {
         var pre_fetched_occup = '<?php echo $occup;?>';
@@ -1452,23 +1452,23 @@ include("../../include/footer_close.php"); ?>
         }
     }
 
-    function sub_emp_type() {
-        if ($("#employer_name").val() != '56473' && $("#employer_name").val() != '1') {
-            $.ajax({
-                data: "emp_type=" + $("#employer_name").val() + "&sub_emp=<?php echo $sub_employer_type; ?>",
-                type: "POST",
-                url: "<?php echo $head_url;?>/include/sub_emp_type.php",
-                success: function (data) {
-                    $("#sub_emp_val").html(data);
-                    $("#sub_employer").val("");
-                    $(".sub_emp_ty").removeClass("hidden");
-                }
-            })
-        } else {
-            $("#sub_employer").val("");
-            $(".sub_emp_ty").addClass("hidden");
-        }
-    }
+    // function sub_emp_type() {
+    //     if ($("#employer_name").val() != '56473' && $("#employer_name").val() != '1') {
+    //         $.ajax({
+    //             data: "emp_type=" + $("#employer_name").val() + "&sub_emp=<?php echo $sub_employer_type; ?>",
+    //             type: "POST",
+    //             url: "<?php echo $head_url;?>/include/sub_emp_type.php",
+    //             success: function (data) {
+    //                 $("#sub_emp_val").html(data);
+    //                 $("#sub_employer").val("");
+    //                 $(".sub_emp_ty").removeClass("hidden");
+    //             }
+    //         })
+    //     } else {
+    //         $("#sub_employer").val("");
+    //         $(".sub_emp_ty").addClass("hidden");
+    //     }
+    // }
 
     sub_emp_type();
     occup_sal(<?php echo $occup;?>);
