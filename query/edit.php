@@ -381,18 +381,18 @@ echo "hello 5";
                 $select_status_res = mysqli_fetch_array($select_status_exe);
                 $current_status = $select_status_res['qy_status'];
             }*/
-            $current_status = get_display_name('query_status',$exe_form['query_status']);
-            if($current_status == ''){
-                $current_status = get_display_name('new_status_name',$exe_form['query_status']);
-            }
+            // $current_status = get_display_name('query_status',$exe_form['query_status']);
+            // if($current_status == ''){
+            //     $current_status = get_display_name('new_status_name',$exe_form['query_status']);
+            // }
 
-            if(in_array($exe_form['query_status'], array(1003, 1004))) {
-                $query_other_status = trim($exe_form['other_status'], ',');
-                $other_status_query = " SELECT group_concat(' ', description) AS new_status FROM status_master WHERE status_id IN ($query_other_status) AND is_active_for_filter = 1 ";
-                $other_status_exe = mysqli_query($Conn1, $other_status_query);
-                $other_status_res = mysqli_fetch_array($other_status_exe);
-                $current_status = $current_status.", ".$other_status_res['new_status'];
-            }
+            // if(in_array($exe_form['query_status'], array(1003, 1004))) {
+            //     $query_other_status = trim($exe_form['other_status'], ',');
+            //     $other_status_query = " SELECT group_concat(' ', description) AS new_status FROM status_master WHERE status_id IN ($query_other_status) AND is_active_for_filter = 1 ";
+            //     $other_status_exe = mysqli_query($Conn1, $other_status_query);
+            //     $other_status_res = mysqli_fetch_array($other_status_exe);
+            //     $current_status = $current_status.", ".$other_status_res['new_status'];
+            // }
         }
 
         echo " <span class='ml10 fs-13' style='font-weight: normal; color: #000'>Current Status:</span> <span style='font-weight: 600; color: #000;'> ".$current_status." </span>";
@@ -412,33 +412,33 @@ echo "hello 5";
 			echo "<span class='ml10 fs-13' style='font-weight: normal; color: #000'>Additional Cashback:</span> <span style='font-weight: 600; color: #000;'> Rs. 1,000 for Vantage Users. Valid Till 30th April 2021 </span>";
         }
         
-        $money_tap_pre_app = mysqli_query($Conn1, "SELECT id FROM banks_pre_approved_offers WHERE partner_id = 122 AND level_type = 1 AND lead_id = '".$qryyy_id."' LIMIT 0, 1");
-        if(mysqli_num_rows($money_tap_pre_app) > 0) {
+        // $money_tap_pre_app = mysqli_query($Conn1, "SELECT id FROM banks_pre_approved_offers WHERE partner_id = 122 AND level_type = 1 AND lead_id = '".$qryyy_id."' LIMIT 0, 1");
+        // if(mysqli_num_rows($money_tap_pre_app) > 0) {
         ?>
-            <input type="button" class="pointer_n" value="Money Tap Pre Approved" style="border-radius: 5px; background-color: #18375f; font-weight: bold; cursor: pointer;">
+            <!-- <input type="button" class="pointer_n" value="Money Tap Pre Approved" style="border-radius: 5px; background-color: #18375f; font-weight: bold; cursor: pointer;"> -->
         <?php
-        }
+       // }
 
-        if(in_array($exe_form['query_status'], array('5','16','17','11','13','18', '21')) && $exe_form['fup_date'] != '' && $exe_form['fup_date'] != '0000-00-00') {
-            echo "<br><span class='ml10 fs-13' style='font-weight: normal; color: #000'>Updated Date: </span>";
-            $update_qry = "select * from tbl_mint_case_followup where query_id = '" . $id . "' order by follow_id desc limit 1";
-            $update_exe = mysqli_query($Conn1, $update_qry);
-            $updated_date = "--";
-            $updated_time = "--";
-            if(mysqli_num_rows($update_exe) > 0) {
-                $update_res = mysqli_fetch_array($update_exe);
-                $updated_date = ($update_res['date'] != "0000-00-00" && $update_res['date'] != "" && $update_res['date'] != "1970-01-01") ? date("d-m-Y", strtotime($update_res['date'])) : "--";
-                if($updated_date != "--" && $update_res['time'] != "00:00:00" && $update_res['time'] != "") {
-                    $updated_time = date("h:i:s A", strtotime($update_res['time']));
-                }
-            }
-            echo "<span style='font-weight: 600; color: #000;'>".$updated_date." ".$updated_time."</span>";
+        // if(in_array($exe_form['query_status'], array('5','16','17','11','13','18', '21')) && $exe_form['fup_date'] != '' && $exe_form['fup_date'] != '0000-00-00') {
+        //     echo "<br><span class='ml10 fs-13' style='font-weight: normal; color: #000'>Updated Date: </span>";
+        //     $update_qry = "select * from tbl_mint_case_followup where query_id = '" . $id . "' order by follow_id desc limit 1";
+        //     $update_exe = mysqli_query($Conn1, $update_qry);
+        //     $updated_date = "--";
+        //     $updated_time = "--";
+        //     if(mysqli_num_rows($update_exe) > 0) {
+        //         $update_res = mysqli_fetch_array($update_exe);
+        //         $updated_date = ($update_res['date'] != "0000-00-00" && $update_res['date'] != "" && $update_res['date'] != "1970-01-01") ? date("d-m-Y", strtotime($update_res['date'])) : "--";
+        //         if($updated_date != "--" && $update_res['time'] != "00:00:00" && $update_res['time'] != "") {
+        //             $updated_time = date("h:i:s A", strtotime($update_res['time']));
+        //         }
+        //     }
+        //     echo "<span style='font-weight: 600; color: #000;'>".$updated_date." ".$updated_time."</span>";
 
-            if($exe_form['query_status_desc'] != ''){
-                echo "<br><span class='ml10 fs-13' style='font-weight: normal; color: #000'>Remarks: </span>";
-                echo "<span style='font-weight: 600; color: #000;'>".$exe_form['query_status_desc']."</span>";
-            }
-        }
+        //     if($exe_form['query_status_desc'] != ''){
+        //         echo "<br><span class='ml10 fs-13' style='font-weight: normal; color: #000'>Remarks: </span>";
+        //         echo "<span style='font-weight: 600; color: #000;'>".$exe_form['query_status_desc']."</span>";
+        //     }
+        // }
 
     ?>
 
@@ -446,18 +446,18 @@ echo "hello 5";
     <?php if(strpos($exe_form['page_url'], 'two-wheeler-loan')){
 		 echo "<span class='orange' style='margin-left:20px;'><b>Referred from Two Wheeler Loan</b></span>";
 		} if ($ref_mobile != '' && $ref_mobile != 0) {
-        if ($refer_form_type == 2) {
-            $qry_refer_name = "select name,lname,phone,promocode,source, work_city from tbl_mint_partner_info where partner_id ='" . $ref_mobile . "'";
-        } else if($refer_form_type == 3){
-             $qry_refer_name = "select partner_name as name from tbl_mlc_partner where partner_id ='" . $ref_mobile . "'";
-        }else {
-            $qry_refer_name = "select name,lname,phone from tbl_mint_customer_info where id ='" . $ref_mobile . "'";
-        }
-        $get_refer_name = mysqli_query($Conn1, $qry_refer_name);
-        $result_refer_name = mysqli_fetch_array($get_refer_name);
-        $referral_name = $result_refer_name['name'] . " " . $result_refer_name['lname'];
-        $referral_phone = $result_refer_name['phone'];
-        $promocode = $result_refer_name['promocode'];
+        // if ($refer_form_type == 2) {
+        //     $qry_refer_name = "select name,lname,phone,promocode,source, work_city from tbl_mint_partner_info where partner_id ='" . $ref_mobile . "'";
+        // } else if($refer_form_type == 3){
+        //      $qry_refer_name = "select partner_name as name from tbl_mlc_partner where partner_id ='" . $ref_mobile . "'";
+        // }else {
+        //     $qry_refer_name = "select name,lname,phone from tbl_mint_customer_info where id ='" . $ref_mobile . "'";
+        // }
+        // $get_refer_name = mysqli_query($Conn1, $qry_refer_name);
+        // $result_refer_name = mysqli_fetch_array($get_refer_name);
+        // $referral_name = $result_refer_name['name'] . " " . $result_refer_name['lname'];
+        // $referral_phone = $result_refer_name['phone'];
+        // $promocode = $result_refer_name['promocode'];
 
         if($refer_form_type == 3){
              echo "<span class='orange' style='margin-left:20px;'>Referred by : " . $referral_name . "</span>";
@@ -495,10 +495,10 @@ echo "hello 5";
                             ?>
                              <!-- Toggle Div -->
                              <?php // include("type_of_loan.php");
-                            $select="select final_status from hl_filtering where level_id=$id and level_type=$level_type order by id desc limit 0,1";
-                            $resufil=mysqli_query($Conn1, $select);
-                            $rowfilter=mysqli_fetch_array($resufil);
-                            $filterstatus=$rowfilter['final_status'];
+                            // $select="select final_status from hl_filtering where level_id=$id and level_type=$level_type order by id desc limit 0,1";
+                            // $resufil=mysqli_query($Conn1, $select);
+                            // $rowfilter=mysqli_fetch_array($resufil);
+                            // $filterstatus=$rowfilter['final_status'];
                             if($filterstatus!=""){
                                 $filter=1;
                             }
@@ -557,6 +557,7 @@ echo "hello 5";
                             <div class='clear'></div>
                            <?php
                            require_once "../../include/crm_functions-new.php";
+                           echo "hello 6";
                            include("js-insert.php");
                             include("hl-journey/index.php");
                             //include("generate-popup.php");
