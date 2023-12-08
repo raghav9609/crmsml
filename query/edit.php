@@ -49,8 +49,6 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
         header("location:index.php");
     }
 } else {
-    echo "hello";
-    
     $cust_id = $exe_form['cust_id'];
 
     $tool_type = $exe_form['tool_type'];
@@ -91,7 +89,6 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
    
     $lead_date_time = $exe_form['date'];
 
-    echo "hello 1 ";
     // $experian_fileId_qry = mysqli_query($Conn1, "select history_id from experian_report_pull_history where  cust_id = " . $cust_id . " order by report_created_date desc");
     // $result_experian_fileId_query = mysqli_fetch_array($experian_fileId_qry);
 
@@ -105,24 +102,11 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
         $src[] = str_replace(array('-', '/', '*', '.php'), ' ', $src_exp[$i]);
     }
     $final_src = ucwords(implode(" ", $src)) . " (" . $exe_form['tool_type'] . ")";
-
-    // if ($borrower_count > 0) {
-    //     $query_cob = mysqli_query($Conn1, "select * from tbl_mint_cust_coborrower where query_id = '" . $id . "'");
-    //     $result_query_cob = mysqli_fetch_array($query_cob);
-    //     $co_b_occu_1 = $result_query_cob['occup_on'];
-    //     $co_b_incm_1 = $result_query_cob['net_incm_on'];
-    //     $co_b_dob_1 = $result_query_cob['dob_on'];
-    //     $co_b_emi_1 = $result_query_cob['cur_emi_on'];
-    //     $co_b_occu_2 = $result_query_cob['occup_tw'];
-    //     $co_b_incm_2 = $result_query_cob['net_incm_tw'];
-    //     $co_b_dob_2 = $result_query_cob['dob_tw'];
-    //     $co_b_emi_2 = $result_query_cob['co_b_emi_tw'];
-    // }
-
  
     $cust_data = mysqli_query($Conn1, "select cust.cibil_score as cibil_score,cust.company_id as comp_id,cust.name as mname,city.city_name as city_name,city.city_sub_group_id as city_sub_group_id, comp.company_name as comp_name,cust.bank_id as bank_id,cust.salutation_id as salu_id,cust.name as name,cust.dob as dob,cust.phone_no as phone, cust.email_id as email,cust.address as res_address,cust.occupation_id as occup_id,cust.net_income as net_incm, cust.company_name as comp_name_other,cust.pan_no as pan_card,cust.city_id city_id,cust.alternate_phone_no as alt_phone, cust.bank_account_no as account_no,cust.ofc_contact as ofc_contact,cust.office_address as offce_address,cust.office_pincode as ofc_pincode, cust.office_email_id as ofc_email,cust.office_city_id as work_city,cust.marital_status_id as maritalstatus,cust.current_work_exp as cur_comp_wrk_exp, cust.total_work_exp as totl_wrk_exp,cust.mode_of_salary AS salary_pay_id,cust.pincode as pincode from crm_customer as cust left join crm_master_city as city on cust.city_id = city.id left join crm_master_company as comp on cust.company_id = comp.id where cust.id = " . $cust_id . "");
    
     $result_cust_data = mysqli_fetch_array($cust_data);
+    echo "hello 3";
     $city_sub_group_id = $result_cust_data['city_sub_group_id'];
     $city_name = $result_cust_data['city_name'];
     $employer_type = $comp_id = $result_cust_data['comp_id'];
