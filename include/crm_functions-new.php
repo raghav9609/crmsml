@@ -1,5 +1,4 @@
 <script>
-    <?php echo "hello"; ?>
 function loantype(da){
     var val = $("#loan_type option:selected").val();
 
@@ -233,7 +232,6 @@ function loantype(da){
         //Changes - HDFCFields - Akash - Ends
         occup_sal();
     } else {
-        <?php echo "hello 1"; ?>
         $(".cl").hide();
         $(".hl").hide();
         $(".gl").hide();
@@ -256,7 +254,6 @@ function loantype(da){
     }
 }
 function property_identify(){
-    <?php echo "hello 2"; ?>
     if($("#prop_identified").val() == 'Y'){
         $(".prop_iden").show();
         $(".prop_iden_munc").hide();
@@ -269,7 +266,6 @@ function property_identify(){
     }
 }
 function acqtype(){
-    <?php echo "hello 3"; ?>
     var value = $("#acq_mode").val();
     if(value == '3'){ 
         $(".ref_mob").show();
