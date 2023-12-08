@@ -173,8 +173,6 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
         $search_type = $_REQUEST['search_type'];
     }
 
-    echo "hello 3";
-
         //     $insert_one_lead = mysqli_query($Conn1, "insert into one_lead_history set id = '" . $q_id . "', level_id = 1, priority_id = '".$ol_priority_id."', user_id = '".$user."', date = NOW(), search_type = '".$search_type."', url = '".$_SERVER['REQUEST_URI']."', referer_url = '".$_SERVER['HTTP_REFERER']."' ");
         // $lead_view_id = mysqli_insert_id($Conn1);
 
@@ -223,7 +221,7 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
         $count_pan = $result_customer_qry['total_count_pan'];
         $cust_pan_id = $result_customer_qry['cust_pan_id'];
     }
-    echo "hello 4";
+
     ?>
     <html>
     <head>
@@ -305,7 +303,7 @@ if($tool_type == "Cross Sell - Auto") {
 } else {
     $tool_type_filter = 0;
 }
-echo "hello 5";
+
 
 // if($call_button_display == 1){echo common_call_btn($user, $Conn1, $phone, $query_status, $qryyy_id, $ver_phone, $level_type,$mobile_status, $tool_type_filter,$loantype_name,$loan_type); } ?>
 
@@ -392,16 +390,8 @@ echo "hello 5";
             }
             echo "<span style='font-weight: 600; color: #000;'> ".$tool_type." </span>";
         }
-		if($exe_form['page_url'] == 'https://www.myloancare.in/lp/personal-loan-vantage.php' || $exe_form['page_url'] == 'https://www.myloancare.in/lp/home-loan-vantage.php'){
-			echo "<span class='ml10 fs-13' style='font-weight: normal; color: #000'>Additional Cashback:</span> <span style='font-weight: 600; color: #000;'> Rs. 1,000 for Vantage Users. Valid Till 30th April 2021 </span>";
-        }
+        echo "hello";
         
-        // $money_tap_pre_app = mysqli_query($Conn1, "SELECT id FROM banks_pre_approved_offers WHERE partner_id = 122 AND level_type = 1 AND lead_id = '".$qryyy_id."' LIMIT 0, 1");
-        // if(mysqli_num_rows($money_tap_pre_app) > 0) {
-        ?>
-            <!-- <input type="button" class="pointer_n" value="Money Tap Pre Approved" style="border-radius: 5px; background-color: #18375f; font-weight: bold; cursor: pointer;"> -->
-        <?php
-       // }
 
         // if(in_array($exe_form['query_status'], array('5','16','17','11','13','18', '21')) && $exe_form['fup_date'] != '' && $exe_form['fup_date'] != '0000-00-00') {
         //     echo "<br><span class='ml10 fs-13' style='font-weight: normal; color: #000'>Updated Date: </span>";
@@ -424,28 +414,10 @@ echo "hello 5";
         //     }
         // }
 
-    ?>
-
-
-    <?php if(strpos($exe_form['page_url'], 'two-wheeler-loan')){
-		 echo "<span class='orange' style='margin-left:20px;'><b>Referred from Two Wheeler Loan</b></span>";
-		} if ($ref_mobile != '' && $ref_mobile != 0) {
-        // if ($refer_form_type == 2) {
-        //     $qry_refer_name = "select name,lname,phone,promocode,source, work_city from tbl_mint_partner_info where partner_id ='" . $ref_mobile . "'";
-        // } else if($refer_form_type == 3){
-        //      $qry_refer_name = "select partner_name as name from tbl_mlc_partner where partner_id ='" . $ref_mobile . "'";
-        // }else {
-        //     $qry_refer_name = "select name,lname,phone from tbl_mint_customer_info where id ='" . $ref_mobile . "'";
-        // }
-        // $get_refer_name = mysqli_query($Conn1, $qry_refer_name);
-        // $result_refer_name = mysqli_fetch_array($get_refer_name);
-        // $referral_name = $result_refer_name['name'] . " " . $result_refer_name['lname'];
-        // $referral_phone = $result_refer_name['phone'];
-        // $promocode = $result_refer_name['promocode'];
-
+     if ($ref_mobile != '' && $ref_mobile != 0) {
         if($refer_form_type == 3){
              echo "<span class='orange' style='margin-left:20px;'>Referred by : " . $referral_name . "</span>";
-        }else if($refer_form_type == 2) {
+        } else if($refer_form_type == 2) {
             $part_source = $result_refer_name['source'];
             $ref_city_name = $result_refer_name['work_city'];
             $ref_cname = "";
@@ -466,10 +438,10 @@ echo "hello 5";
         } else {
             echo "<span class='orange' style='margin-left:20px;'>Referred by : " . $referral_name . " (" . $referral_phone . ")</span>";
         }
-
-
-
-    } ?></span>
+    } 
+    echo "hello 1";
+    ?>
+    </span>
 
 
                             <?php
