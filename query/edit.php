@@ -286,11 +286,11 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
       <?php } ?>
 
         <?php
-        $cust_id_data = mysqli_query($Conn1, "SELECT id FROM banks_pre_approved_offers WHERE cust_id = '".$cust_id."' AND is_offers = 1 AND DATE(date) >= DATE(NOW()) - INTERVAL 7 DAY");
-        if(mysqli_num_rows($cust_id_data) > 0) {
+        // $cust_id_data = mysqli_query($Conn1, "SELECT id FROM banks_pre_approved_offers WHERE cust_id = '".$cust_id."' AND is_offers = 1 AND DATE(date) >= DATE(NOW()) - INTERVAL 7 DAY");
+        // if(mysqli_num_rows($cust_id_data) > 0) {
         ?>
-            <a href="#pre_approved_offers" onclick="trig_pre_approve()" class="buttonsub" style="background-color: #18375f">Pre Approved</a>
-        <?php } ?>
+            <!-- <a href="#pre_approved_offers" onclick="trig_pre_approve()" class="buttonsub" style="background-color: #18375f">Pre Approved</a> -->
+        <?php // } ?>
 
       <a href="<?php echo $head_url; ?>/include/call-structure/<?php echo str_replace(' ', '-', strtolower($loantype_name)); ?>.pdf"
          target="_blank"><input type="button" style='background: #1b8c1b;' class="buttonsub cursor" id='script_buttn'
@@ -321,8 +321,8 @@ if($tool_type == "Cross Sell - Auto") {
 } else {
     $tool_type_filter = 0;
 }
-?>
-<?php 
+echo "hello 5";
+
 // if($call_button_display == 1){echo common_call_btn($user, $Conn1, $phone, $query_status, $qryyy_id, $ver_phone, $level_type,$mobile_status, $tool_type_filter,$loantype_name,$loan_type); } ?>
 
 </span>
