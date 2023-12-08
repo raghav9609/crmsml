@@ -469,7 +469,6 @@ if($tool_type == "Cross Sell - Auto") {
                         else{
                             $style="visibility: hidden;";
                         }
-                        echo "hello";
                         ?>
 
                             <!-- <input type="button" class="buttonsub cursor float-rt"  style="margin-left:0; float:left;" value="HL Filtering" name="hlque" id="hlque">
@@ -504,8 +503,9 @@ if($tool_type == "Cross Sell - Auto") {
                             } ?>
                             <div class='clear'></div>
                            <?php
-                           echo "hello 1";
+                           
                            require_once "../../include/crm_functions-new.php";
+                           
                            echo "hello 6";
                            include("js-insert.php");
                             include("hl-journey/index.php");

@@ -1,322 +1,315 @@
 <script>
 function loantype(da){
-var val = $("#loan_type option:selected").val();
+    var val = $("#loan_type option:selected").val();
 
-$(".prop_iden_munc").hide();
-if(val == '11'){
-	$(".dl_fields").removeClass("hidden");
-	$(".hl").hide();
-	$(".cl").hide();
-	$(".gl").hide();
-	$(".el").hide();	
-	$(".prop_iden").hide();
-	$(".exis_tl").hide();
-	$(".exis_pl").hide();
-	$(".ln_nature").hide();	
-	$(".pl").hide();
-	$(".exis").hide();
-	$(".credit_details").addClass("hidden");
-	$(".occudetails_h,.comp_head,.addrs_proof").removeClass("hidden");
-    $(".pl_crs").hide();
-    $(".el-fields").hide();
-    //Changes - HDFCFields - Akash - Starts
-    $(".el-pl").hide();
-    //Changes - HDFCFields - Akash - Ends
-occup_sal();
-} else if(val == '71'){
-    $(".credit_details").removeClass("hidden");
-    $(".occudetails_h,.comp_head").removeClass("hidden");
-    $(".addrs_proof").removeClass("hidden");
-	$(".dl_fields").addClass("hidden");
-    $(".pl,.hl,.cl,.gl,.el,.prop_iden,.exis_tl,.exis_pl,.ln_nature,.empl,#employed_in_cur_org_since,#cbl_loan_amt,.exis,.subjct,.bl,.senp").hide();
-    $(".pl_crs").hide();
-    $(".el-fields").hide();
-    //Changes - HDFCFields - Akash - Starts
-    $(".el-pl").hide();
-    //Changes - HDFCFields - Akash - Ends
-occup_sal();
-} else if(val == 56){
-$(".pl").show();
-$(".hl").hide();
-$(".cl").hide();
-$(".gl").hide();
-$(".el").hide();
-//$(".exis").hide();
-$(".prop_iden").hide();
-$(".exis_tl").hide();
-$(".exis_pl").show();
-$(".ln_nature").show();
-$(".credit_details,.dl_fields").addClass("hidden");
-$(".occudetails_h,.comp_head").removeClass("hidden");
-$(".addrs_proof").removeClass("hidden");
-$(".el-fields").hide();
-//Changes - HDFCFields - Akash - Starts
-$(".el-pl").show();
-//Changes - HDFCFields - Akash - Ends
-occup_sal(1);
-$(".pl_crs").show();
-}else if(val == 51 || val == 54){
-    if(val == 51){
-        $('#asset_type option').eq(2).remove();
-         $('#asset_type option').eq(1).remove();
+    $(".prop_iden_munc").hide();
+    if(val == '11'){
+	    $(".dl_fields").removeClass("hidden");
+	    $(".hl").hide();
+	    $(".cl").hide();
+	    $(".gl").hide();
+	    $(".el").hide();	
+	    $(".prop_iden").hide();
+	    $(".exis_tl").hide();
+	    $(".exis_pl").hide();
+	    $(".ln_nature").hide();	
+	    $(".pl").hide();
+	    $(".exis").hide();
+	    $(".credit_details").addClass("hidden");
+	    $(".occudetails_h,.comp_head,.addrs_proof").removeClass("hidden");
+        $(".pl_crs").hide();
+        $(".el-fields").hide();
+        //Changes - HDFCFields - Akash - Starts
+        $(".el-pl").hide();
+        //Changes - HDFCFields - Akash - Ends
+    occup_sal();
+    } else if(val == '71'){
+        $(".credit_details").removeClass("hidden");
+        $(".occudetails_h,.comp_head").removeClass("hidden");
+        $(".addrs_proof").removeClass("hidden");
+	    $(".dl_fields").addClass("hidden");
+        $(".pl,.hl,.cl,.gl,.el,.prop_iden,.exis_tl,.exis_pl,.ln_nature,.empl,#employed_in_cur_org_since,#cbl_loan_amt,.exis,.subjct,.bl,.senp").hide();
+        $(".pl_crs").hide();
+        $(".el-fields").hide();
+        //Changes - HDFCFields - Akash - Starts
+        $(".el-pl").hide();
+        //Changes - HDFCFields - Akash - Ends
+    occup_sal();
+    } else if(val == 56){
+        $(".pl").show();
+        $(".hl").hide();
+        $(".cl").hide();
+        $(".gl").hide();
+        $(".el").hide();
+        //$(".exis").hide();
+        $(".prop_iden").hide();
+        $(".exis_tl").hide();
+        $(".exis_pl").show();
+        $(".ln_nature").show();
+        $(".credit_details,.dl_fields").addClass("hidden");
+        $(".occudetails_h,.comp_head").removeClass("hidden");
+        $(".addrs_proof").removeClass("hidden");
+        $(".el-fields").hide();
+        //Changes - HDFCFields - Akash - Starts
+        $(".el-pl").show();
+        //Changes - HDFCFields - Akash - Ends
+        occup_sal(1);
+        $(".pl_crs").show();
+    }else if(val == 51 || val == 54){
+        if(val == 51){
+            $('#asset_type option').eq(2).remove();
+            $('#asset_type option').eq(1).remove();
+        }
+        $(".hl").show();
+        $(".pl").show();
+        $(".ln_nature").show();
+        $(".empl").show();
+        $("#employed_in_cur_org_since").show();
+        $("#cbl_loan_amt").show();
+        $(".gl").hide();
+        $(".el").hide();
+        $(".cl").hide();
+        $(".credit_details,.dl_fields").addClass("hidden");
+        $(".occudetails_h,.comp_head").removeClass("hidden");
+        $(".addrs_proof").addClass("hidden");
+        $(".pl_crs").hide();
+        $(".el-fields").hide();
+        //Changes - HDFCFields - Akash - Starts
+        $(".el-pl").hide();
+        //Changes - HDFCFields - Akash - Ends
+        occup_sal();
+    } else if(val == 52){
+        $(".hl").hide();
+        $(".cpl").show();
+        $(".ln_nature").hide();
+        $(".gl").hide();
+        $(".el").hide();
+        $(".cl").hide();
+        $(".exis").hide();
+        $(".pl").hide();
+        $(".prop_iden").hide();
+        $(".exis_tl").hide();
+        $(".exis_pl").hide();
+        $(".credit_details,.dl_fields").addClass("hidden");
+        $(".occudetails_h,.comp_head").removeClass("hidden");
+        $(".addrs_proof").removeClass("hidden");
+        $(".pl_crs").hide();
+        $(".el-fields").hide();
+        //Changes - HDFCFields - Akash - Starts
+        $(".el-pl").hide();
+        //Changes - HDFCFields - Akash - Ends
+        occup_sal();
+    } else if(val == 57){
+        $(".hl").hide();
+        $(".gl").hide();
+        $(".pl").hide();
+        $(".el").hide();
+        $(".cl").hide();
+        $(".exis").hide();
+        $(".prop_iden").hide();
+        $(".exis_tl").hide();
+        $(".exis_pl").hide();
+        $(".ln_nature").hide();
+        $(".credit_details,.dl_fields").addClass("hidden");
+        $(".occudetails_h,.comp_head,.senp_itr").removeClass("hidden");
+        $(".addrs_proof").removeClass("hidden");
+        $(".el-fields").hide();
+        //Changes - HDFCFields - Akash - Starts
+        $(".el-pl").hide();
+        //Changes - HDFCFields - Akash - Ends
+        occup_sal(3);
+        $(".pl_crs").hide();
+    } else if(val == 63){
+        $(".senp_itr").removeClass("hidden");
+        $(".dl_fields").addClass("hidden");
+        $(".hl").hide();
+        $(".cl").hide();
+        $(".gl").hide();
+        $(".el").hide();	
+        $(".prop_iden").hide();
+        $(".exis_tl").hide();
+        $(".exis_pl").hide();
+        $(".ln_nature").hide();	
+        $(".pl").hide();
+        $(".exis").hide();
+        $(".credit_details").addClass("hidden");    
+        $(".el-fields").hide();    
+        occup_sal(2);
+        $(".pl_crs").hide();
+        //Changes - HDFCFields - Akash - Starts
+        $(".el-pl").hide();
+        //Changes - HDFCFields - Akash - Ends
+    } else if(val == 60){
+        $(".hl").hide();
+        $(".gl").show();
+        $(".el").hide();
+        $(".cl").hide();
+        $(".pl").hide();
+        $(".exis").hide();
+        $(".prop_iden").hide();
+        $(".exis_tl").hide();
+        $(".exis_pl").hide();
+        $(".ln_nature").hide();
+        $(".credit_details,.dl_fields").addClass("hidden");
+        $(".occudetails_h,.comp_head").addClass("hidden");
+        $(".addrs_proof").removeClass("hidden");
+        $("#occupation_id").val("");
+        $(".sal").hide();
+        $(".senp").hide();
+        $(".cc_sepb").hide();
+        $(".senp_itr").addClass("hidden");
+        $(".senp_itr").hide();
+        $(".senp_cc").hide();
+        $(".pl_crs").hide();
+        $(".el-fields").hide();
+        //Changes - HDFCFields - Akash - Starts
+        $(".el-pl").hide();
+        //Changes - HDFCFields - Akash - Ends
+    } else if(val == 59){
+        $(".hl").hide();
+        $(".gl").hide();
+        $(".cl").hide();
+        $(".el").show();
+        $(".pl").hide();
+        $(".exis").hide();
+        $(".prop_iden").hide();
+        $(".exis_tl").hide();
+        $(".exis_pl").hide();
+        $(".ln_nature").hide();
+        $(".credit_details,.dl_fields").addClass("hidden");
+        $(".comp_head").addClass("hidden");
+        $(".occudetails_h").removeClass("hidden");
+        $(".el-at").show();
+        $(".el-fields").show();
+        $(".addrs_proof").removeClass("hidden");
+        $(".pl_crs").hide();
+        //Changes - HDFCFields - Akash - Starts
+        $(".el-pl").show();
+        //Changes - HDFCFields - Akash - Ends
+        occup_sal();
+    } else if(val == 58){
+        $(".hl").hide();
+        $(".tl").show();
+        $(".empl").hide();
+        $(".cl").hide();
+        $(".gl").hide();
+        $(".el").hide();
+        $(".pl").hide();
+        $(".exis").hide();
+        $(".prop_iden").hide();
+        $("#employed_in_cur_org_since").hide();
+        $("#cbl_loan_amt").hide();
+        $(".exis_pl").hide();
+        $(".exis_tl").show();
+        $(".ln_nature").hide();
+        $(".credit_details,.dl_fields").addClass("hidden");
+        $(".occudetails_h,.comp_head").removeClass("hidden");
+        $(".addrs_proof").removeClass("hidden");
+        $(".pl_crs").hide();
+        $(".el-fields").hide();
+        //Changes - HDFCFields - Akash - Starts
+        $(".el-pl").hide();
+        //Changes - HDFCFields - Akash - Ends
+        occup_sal();
+    } else if(val == 61){
+        $(".cl").show();
+        $(".hl").hide();
+        $(".gl").hide();
+        $(".el").hide();
+        $(".pl").hide();
+        $(".exis").hide();
+        $(".prop_iden").hide();
+        $(".exis_tl").hide();
+        $(".exis_pl").hide();
+        $(".ln_nature").hide();
+        $(".credit_details,.dl_fields").addClass("hidden");
+        $(".occudetails_h,.comp_head").removeClass("hidden");
+        $(".addrs_proof").removeClass("hidden");
+        $(".pl_crs").hide();
+        $(".el-fields").hide();
+        //Changes - HDFCFields - Akash - Starts
+        $(".el-pl").hide();
+        //Changes - HDFCFields - Akash - Ends
+        occup_sal();
+    } else {
+        $(".cl").hide();
+        $(".hl").hide();
+        $(".gl").hide();
+        $(".el").hide();
+        $(".pl").hide();
+        $(".exis").hide();
+        $(".prop_iden").hide();
+        $(".exis_tl").hide();
+        $(".exis_pl").hide();
+        $(".ln_nature").hide();   
+        $(".credit_details,.dl_fields").addClass("hidden");
+        $(".occudetails_h,.comp_head").removeClass("hidden");
+        $(".addrs_proof").removeClass("hidden");
+        $(".pl_crs").hide();
+        $(".el-fields").hide();
+        //Changes - HDFCFields - Akash - Starts
+        $(".el-pl").hide();
+        //Changes - HDFCFields - Akash - Ends
+        occup_sal();
     }
-$(".hl").show();
-$(".pl").show();
-$(".ln_nature").show();
-$(".empl").show();
-$("#employed_in_cur_org_since").show();
-$("#cbl_loan_amt").show();
-$(".gl").hide();
-$(".el").hide();
-$(".cl").hide();
-$(".credit_details,.dl_fields").addClass("hidden");
-$(".occudetails_h,.comp_head").removeClass("hidden");
-$(".addrs_proof").addClass("hidden");
-$(".pl_crs").hide();
-$(".el-fields").hide();
-//Changes - HDFCFields - Akash - Starts
-$(".el-pl").hide();
-//Changes - HDFCFields - Akash - Ends
-occup_sal();
-}else if(val == 52){
-$(".hl").hide();
-$(".cpl").show();
-$(".ln_nature").hide();
-$(".gl").hide();
-$(".el").hide();
-$(".cl").hide();
-$(".exis").hide();
-$(".pl").hide();
-$(".prop_iden").hide();
-$(".exis_tl").hide();
-$(".exis_pl").hide();
-$(".credit_details,.dl_fields").addClass("hidden");
-$(".occudetails_h,.comp_head").removeClass("hidden");
-$(".addrs_proof").removeClass("hidden");
-$(".pl_crs").hide();
-$(".el-fields").hide();
-//Changes - HDFCFields - Akash - Starts
-$(".el-pl").hide();
-//Changes - HDFCFields - Akash - Ends
-occup_sal();
-}else if(val == 57){
-$(".hl").hide();
-$(".gl").hide();
-$(".pl").hide();
-$(".el").hide();
-$(".cl").hide();
-$(".exis").hide();
-$(".prop_iden").hide();
-$(".exis_tl").hide();
-$(".exis_pl").hide();
-$(".ln_nature").hide();
-$(".credit_details,.dl_fields").addClass("hidden");
-$(".occudetails_h,.comp_head,.senp_itr").removeClass("hidden");
-$(".addrs_proof").removeClass("hidden");
-$(".el-fields").hide();
-//Changes - HDFCFields - Akash - Starts
-$(".el-pl").hide();
-//Changes - HDFCFields - Akash - Ends
-occup_sal(3);
-$(".pl_crs").hide();
-} else if(val == 63){
-	$(".senp_itr").removeClass("hidden");
-	$(".dl_fields").addClass("hidden");
-	$(".hl").hide();
-	$(".cl").hide();
-	$(".gl").hide();
-	$(".el").hide();	
-	$(".prop_iden").hide();
-	$(".exis_tl").hide();
-	$(".exis_pl").hide();
-	$(".ln_nature").hide();	
-	$(".pl").hide();
-	$(".exis").hide();
-	$(".credit_details").addClass("hidden");    
-    $(".el-fields").hide();    
-    occup_sal(2);
-    $(".pl_crs").hide();
-    //Changes - HDFCFields - Akash - Starts
-    $(".el-pl").hide();
-    //Changes - HDFCFields - Akash - Ends
-} else if(val == 60){
-$(".hl").hide();
-$(".gl").show();
-$(".el").hide();
-$(".cl").hide();
-$(".pl").hide();
-$(".exis").hide();
-$(".prop_iden").hide();
-$(".exis_tl").hide();
-$(".exis_pl").hide();
-$(".ln_nature").hide();
-$(".credit_details,.dl_fields").addClass("hidden");
-$(".occudetails_h,.comp_head").addClass("hidden");
-$(".addrs_proof").removeClass("hidden");
-$("#occupation_id").val("");
-$(".sal").hide();
-$(".senp").hide();
-$(".cc_sepb").hide();
-$(".senp_itr").addClass("hidden");
-$(".senp_itr").hide();
-$(".senp_cc").hide();
-$(".pl_crs").hide();
-$(".el-fields").hide();
-//Changes - HDFCFields - Akash - Starts
-$(".el-pl").hide();
-//Changes - HDFCFields - Akash - Ends
-}else if(val == 59){
-$(".hl").hide();
-$(".gl").hide();
-$(".cl").hide();
-$(".el").show();
-$(".pl").hide();
-$(".exis").hide();
-$(".prop_iden").hide();
-$(".exis_tl").hide();
-$(".exis_pl").hide();
-$(".ln_nature").hide();
-$(".credit_details,.dl_fields").addClass("hidden");
-$(".comp_head").addClass("hidden");
-$(".occudetails_h").removeClass("hidden");
-$(".el-at").show();
-$(".el-fields").show();
-$(".addrs_proof").removeClass("hidden");
-$(".pl_crs").hide();
-//Changes - HDFCFields - Akash - Starts
-$(".el-pl").show();
-//Changes - HDFCFields - Akash - Ends
-occup_sal();
-}
-else if(val == 58){
-$(".hl").hide();
-$(".tl").show();
-$(".empl").hide();
-$(".cl").hide();
-$(".gl").hide();
-$(".el").hide();
-$(".pl").hide();
-$(".exis").hide();
-$(".prop_iden").hide();
-$("#employed_in_cur_org_since").hide();
-$("#cbl_loan_amt").hide();
-$(".exis_pl").hide();
-$(".exis_tl").show();
-$(".ln_nature").hide();
-$(".credit_details,.dl_fields").addClass("hidden");
-$(".occudetails_h,.comp_head").removeClass("hidden");
-$(".addrs_proof").removeClass("hidden");
-$(".pl_crs").hide();
-$(".el-fields").hide();
-//Changes - HDFCFields - Akash - Starts
-$(".el-pl").hide();
-//Changes - HDFCFields - Akash - Ends
-occup_sal();
-}
-else if(val == 61){
-$(".cl").show();
-$(".hl").hide();
-$(".gl").hide();
-$(".el").hide();
-$(".pl").hide();
-$(".exis").hide();
-$(".prop_iden").hide();
-$(".exis_tl").hide();
-$(".exis_pl").hide();
-$(".ln_nature").hide();
-$(".credit_details,.dl_fields").addClass("hidden");
-$(".occudetails_h,.comp_head").removeClass("hidden");
-$(".addrs_proof").removeClass("hidden");
-$(".pl_crs").hide();
-$(".el-fields").hide();
-//Changes - HDFCFields - Akash - Starts
-$(".el-pl").hide();
-//Changes - HDFCFields - Akash - Ends
-occup_sal();
-}else{
- $(".cl").hide();
-$(".hl").hide();
-$(".gl").hide();
-$(".el").hide();
-$(".pl").hide();
-$(".exis").hide();
-$(".prop_iden").hide();
-$(".exis_tl").hide();
-$(".exis_pl").hide();
-$(".ln_nature").hide();   
-$(".credit_details,.dl_fields").addClass("hidden");
-$(".occudetails_h,.comp_head").removeClass("hidden");
-$(".addrs_proof").removeClass("hidden");
-$(".pl_crs").hide();
-$(".el-fields").hide();
-//Changes - HDFCFields - Akash - Starts
-$(".el-pl").hide();
-//Changes - HDFCFields - Akash - Ends
-occup_sal();
-}
 }
 function property_identify(){
-if($("#prop_identified").val() == 'Y'){
-$(".prop_iden").show();
-$(".prop_iden_munc").hide();
-}else if($("#prop_identified").val() == 'N'){
-$(".prop_iden").hide();
-$(".prop_iden_munc").show();
-}else{
-$(".prop_iden").hide();
-$(".prop_iden_munc").hide();
-}
+    if($("#prop_identified").val() == 'Y'){
+        $(".prop_iden").show();
+        $(".prop_iden_munc").hide();
+    } else if($("#prop_identified").val() == 'N'){
+        $(".prop_iden").hide();
+        $(".prop_iden_munc").show();
+    } else {
+        $(".prop_iden").hide();
+        $(".prop_iden_munc").hide();
+    }
 }
 function acqtype(){
-var value = $("#acq_mode").val();
-if(value == '3')
-{ 
-$(".ref_mob").show();
-}
-else { 
- $(".ref_mob").hide();
-$("#ref_mob").val('');
-}
+    var value = $("#acq_mode").val();
+    if(value == '3'){ 
+        $(".ref_mob").show();
+    } else { 
+        $(".ref_mob").hide();
+        $("#ref_mob").val('');
+    }
 }
 function loannature(){
-var nat = $('#nature_loan').val();
-if(nat != "2"){
-$(".exis").hide();
-$(".exis_tl").hide();
-$(".exis_pl").hide();
-}
-else if(nat == "2"){
-$(".exis").show();
-$(".exis_tl").show();
-$(".exis_pl").show();
- }
+    var nat = $('#nature_loan').val();
+    if(nat != "2"){
+        $(".exis").hide();
+        $(".exis_tl").hide();
+        $(".exis_pl").hide();
+    } else if(nat == "2"){
+        $(".exis").show();
+        $(".exis_tl").show();
+        $(".exis_pl").show();
+    }
 }
 function existing_loans(){
-if($('#exis_loans').val() == "0" || $('#exis_loans').val() == "" ){
-$(".loan_on,.loan_tw,.loan_th,.loan_fr,.loan_fv").hide();
+    if($('#exis_loans').val() == "0" || $('#exis_loans').val() == "" ){
+        $(".loan_on,.loan_tw,.loan_th,.loan_fr,.loan_fv").hide();
    }
-if($('#exis_loans').val() == "1" )
-  {
-  	  $(".loan_on").show();
-	$(".loan_tw,.loan_th,.loan_fr,.loan_fv").hide();
-  }
- if($('#exis_loans').val() == "2" )
-  {	  $(".loan_on").show();
-	  $(".loan_tw").show();
-	  $(".loan_th,.loan_fr,.loan_fv").hide();
-  }
-  if($('#exis_loans').val() == "3" ){
-  	  $(".loan_on,.loan_tw,.loan_th").show();
-	   $(".loan_fr,.loan_fv").hide();
-   }
+    if($('#exis_loans').val() == "1" ) {
+        $(".loan_on").show();
+        $(".loan_tw,.loan_th,.loan_fr,.loan_fv").hide();
+    }
+    if($('#exis_loans').val() == "2" ){	  
+        $(".loan_on").show();
+	    $(".loan_tw").show();
+	    $(".loan_th,.loan_fr,.loan_fv").hide();
+    }
+    if($('#exis_loans').val() == "3" ){
+  	    $(".loan_on,.loan_tw,.loan_th").show();
+	    $(".loan_fr,.loan_fv").hide();
+    }
     if($('#exis_loans').val() == "4" ){
-  	  $(".loan_on,.loan_tw,.loan_th,.loan_fr").show();
-	   $(".loan_fv").hide();
-   }
+  	    $(".loan_on,.loan_tw,.loan_th,.loan_fr").show();
+	    $(".loan_fv").hide();
+    }
     if($('#exis_loans').val() == "5" ){
-  	  $(".loan_on,.loan_tw,.loan_th,.loan_fr,.loan_fv").show();
-   }
-   
+  	    $(".loan_on,.loan_tw,.loan_th,.loan_fr,.loan_fv").show();
+    }
 }
 
 function credit_cards(){
