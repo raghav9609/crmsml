@@ -504,8 +504,8 @@ if($tool_type == "Cross Sell - Auto") {
                             <div class='clear'></div>
                            <?php
                            
-                           require_once "../../include/crm_functions-new.php";
-                           
+                           require_once "../include/crm_functions-new.php";
+
                            echo "hello 6";
                            include("js-insert.php");
                             include("hl-journey/index.php");
