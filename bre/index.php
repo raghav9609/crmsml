@@ -39,18 +39,9 @@ preArray($data_to_display);
         <legend style='color:#2E2EAB;font-weight: bold;'>Search Filter</legend>
     <form>
         <?php echo get_dropdown(10, 'partner', '', '');
-        echo get_dropdown('city', 'city', '', '');
         ?>
-        <select name="agent_type" id = "agent_type">
-            <option value="0">Select Agent Type</option>
-            <option value="1">RM</option>
-            <option value="2">SM</option>
-        </select>
-        <input type='text' name="sm_name" placeholder= "RM/ SM Name" maxlength="100">
-        <input type='text' name="sm_email_id" placeholder= "RM/ SM Email ID" maxlength="100">
-        <input type='text' name="phoneno" placeholder= "RM/ SM Phone No" maxlength="10">
         <input class="cursor" type='submit' value='Search' name='search_btn'>
-        <a href="<?php echo $head_url; ?>/partner-details/"><input class="cursor" type='button' value='Clear'></a>
+        <a href="<?php echo $head_url; ?>/bre/"><input class="cursor" type='button' value='Clear'></a>
     </form>
         <!-- <input class="cursor" type="button" name="add" value="Add" id="add" onclick="add_info();"> -->
     </fieldset>
@@ -63,43 +54,87 @@ preArray($data_to_display);
                 </tr>
                 <tr>
                     <th><input type="checkbox" name="selectAll[]" id="selectAll" onchange="selectallDisabled(this);">Select All</th>
-                    <th>Partner Name<br> City Name</th>
-                    <th>Agent Name  <br> Agent Type</th>
-                    <th>Agent Contact No <br> Status</th>
-                    <th>Agent Email ID<br> Status</th>
+                    <th>Partner Name</th>
+                    <th>Loan Amount</th>
+                    <th>Net Income</th>
+                    <th>Age</th>
+                    <th>Credit Score</th>
+                    <th>DPD</th>
+                    <th>Enquiries</th>
+                    <th>Overdue</th>
+                    <th>Foir</th>
+                    <th>Tennure</th>
+                    <th>Status</th>                    
                 </tr>
                 <?php
                     foreach($data_to_display as $key=>$value){
                         $id = $value['id'];
                         $partner_id = $value['partner_id'];
-                        $city_id = $value['city_id'];
-                        $name = $value['name'];
-                        $email_id = $value['email_id'];
-                        $mobile_no = $value['mobile_no'];
-                        $is_email_flag_active = $value['is_email_flag_active'];
-                        $is_sms_flag_active = $value['is_sms_flag_active'];
-                        $agent_type = $value['agent_type'];
+                        $min_loan_amount = $value['min_loan_amount'];
+                        $max_loan_amount = $value['max_loan_amount'];
+                        $min_net_income = $value['min_net_income'];
+                        $max_net_income = $value['max_net_income'];
+                        $min_dpd = $value['min_dpd'];
+                        $max_dpd = $value['max_dpd'];
+                        $min_age = $value['min_age'];
+                        $max_age = $value['max_age'];
+                        $min_enquiries = $value['min_enquiries'];
+                        $max_enquiries = $value['max_enquiries'];
+                        $min_overdue = $value['min_overdue'];
+                        $max_overdue = $value['max_overdue'];
+                        $min_tennure = $value['min_tennure'];
+                        $max_tennure = $value['max_tennure'];
+                        $min_foir = $value['min_tennure'];
+                        $max_foir = $value['max_tennure'];
+                        $min_credit_score = $value['min_credit_score'];
+                        $max_credit_score = $value['max_credit_score'];
+                        $is_active = $value['is_active'];
                         ?>
                 <tr>
                 <td><input type="checkbox" name="ch_edit[]" value="<?php echo $id; ?>" id="<?php echo $id; ?>" class ="all allchecked" onchange="disbaledFields(this);"/>
                 </td>
                 <td >
                 <?php $partner_name  = get_name($partner_id,$partner_id);
-                $city_name  = get_name('city_id',$city_id); 
-                echo $partner_name['value']. "<br><span class='orange'>" .$city_name['city_name']."</span><br>"; ?>
+                echo $partner_name['value']; ?>
                 </td>
                     <td>
-                    <?php echo $agent_type == 2 ? "SM":"RM"; ?>
-                        <input name="name_<?php echo $id; ?>" value="<?php echo $name; ?>" class="<?php echo $id; ?>_chng all" disabled="" type="text" maxlength="50"/>
-                        
+                        <input name="min_loan_amount<?php echo $id; ?>" value="<?php echo $min_loan_amount; ?>" class="<?php echo $id; ?>_chng all" disabled="" type="text" maxlength="10"/>
+                        <input name="max_loan_amount<?php echo $id; ?>" value="<?php echo $max_loan_amount; ?>" class="<?php echo $id; ?>_chng all" disabled="" type="text" maxlength="10"/>
                     </td>
                     <td>
-                        <input name="mobile_no_<?php echo $id; ?>" value="<?php echo $mobile_no; ?>" class="<?php echo $id; ?>_chng all" disabled="" type="text" maxlength="10"/>
-                        <input type="checkbox" name="sms_flag<?php echo $id; ?>" value="1" <?php if($is_sms_flag_active == 1){echo "checked";} ?> class="<?php echo $id; ?>_chng all" disabled=""/>
+                    <input name="min_net_income<?php echo $id; ?>" value="<?php echo $min_net_income; ?>" class="<?php echo $id; ?>_chng all" disabled="" type="text" maxlength="10"/>
+                        <input name="max_net_income<?php echo $id; ?>" value="<?php echo $max_net_income; ?>" class="<?php echo $id; ?>_chng all" disabled="" type="text" maxlength="10"/>
                     </td>
                     <td>
-                        <input name="email_id_<?php echo $id; ?>" value="<?php echo $email_id; ?>" class="<?php echo $id; ?>_chng all" disabled="" type="text" maxlength="100"/>
-                        <input type="checkbox" name="email_flag<?php echo $id; ?>" <?php if($is_email_flag_active == 1){echo "checked";} ?> value="1" class="<?php echo $id; ?>_chng all" disabled=""/>
+                    <input name="min_age<?php echo $id; ?>" value="<?php echo $min_age; ?>" class="<?php echo $id; ?>_chng all" disabled="" type="text" maxlength="2"/>
+                        <input name="max_age<?php echo $id; ?>" value="<?php echo $max_age; ?>" class="<?php echo $id; ?>_chng all" disabled="" type="text" maxlength="2"/>
+                    </td>
+                    <td>
+                    <input name="min_credit_score<?php echo $id; ?>" value="<?php echo $min_credit_score; ?>" class="<?php echo $id; ?>_chng all" disabled="" type="text" maxlength="3"/>
+                        <input name="max_credit_score<?php echo $id; ?>" value="<?php echo $max_credit_score; ?>" class="<?php echo $id; ?>_chng all" disabled="" type="text" maxlength="3"/>
+                    </td>
+                    <td>
+                    <input name="min_dpd<?php echo $id; ?>" value="<?php echo $min_dpd; ?>" class="<?php echo $id; ?>_chng all" disabled="" type="text" maxlength="4"/>
+                        <input name="max_dpd<?php echo $id; ?>" value="<?php echo $max_dpd; ?>" class="<?php echo $id; ?>_chng all" disabled="" type="text" maxlength="4"/>
+                    </td>
+                    <td>
+                    <input name="min_enquiries<?php echo $id; ?>" value="<?php echo $min_enquiries; ?>" class="<?php echo $id; ?>_chng all" disabled="" type="text" maxlength="5"/>
+                        <input name="max_enquiries<?php echo $id; ?>" value="<?php echo $max_enquiries; ?>" class="<?php echo $id; ?>_chng all" disabled="" type="text" maxlength="5"/>
+                    </td>
+                    <td>
+                    <input name="min_overdue<?php echo $id; ?>" value="<?php echo $min_overdue; ?>" class="<?php echo $id; ?>_chng all" disabled="" type="text" maxlength="10"/>
+                        <input name="max_overdue<?php echo $id; ?>" value="<?php echo $max_overdue; ?>" class="<?php echo $id; ?>_chng all" disabled="" type="text" maxlength="10"/>
+                    </td>
+                    <td>
+                    <input name="min_foir<?php echo $id; ?>" value="<?php echo $min_foir; ?>" class="<?php echo $id; ?>_chng all" disabled="" type="text" maxlength="3"/>
+                        <input name="max_foir<?php echo $id; ?>" value="<?php echo $max_foir; ?>" class="<?php echo $id; ?>_chng all" disabled="" type="text" maxlength="3"/>
+                    </td>
+                    <td>
+                    <input name="min_tennure<?php echo $id; ?>" value="<?php echo $min_tennure; ?>" class="<?php echo $id; ?>_chng all" disabled="" type="text" maxlength="3"/>
+                        <input name="max_tennure<?php echo $id; ?>" value="<?php echo $max_tennure; ?>" class="<?php echo $id; ?>_chng all" disabled="" type="text" maxlength="3"/>
+                    </td>
+                    <td>
+                        <input type="checkbox" name="is_active<?php echo $id; ?>" <?php if($is_active == 1){echo "checked";} ?> value="1" class="<?php echo $id; ?>_chng all" disabled=""/>
                     </td>
                 </tr>
                     <?php } ?>
@@ -135,11 +170,25 @@ preArray($data_to_display);
 if (isset($_REQUEST["update"])) {
     $chech_id = replace_special($_REQUEST['ch_edit']);
     foreach($chech_id as $key=>$value){
-        $name = $_REQUEST['name_'.$value];
-        $mobile_no = $_REQUEST['mobile_no_'.$value];
-        $sms_flag = $_REQUEST['sms_flag'.$value];
-        $email_id = $_REQUEST['email_id_'.$value];
-        $email_flag = $_REQUEST['email_flag'.$value];
+        $min_loan_amount = $_REQUEST['min_loan_amount'.$value];
+        $max_loan_amount = $_REQUEST['max_loan_amount'.$value];
+        $min_net_income = $_REQUEST['min_net_income'.$value];
+        $max_net_income = $_REQUEST['max_net_income'.$value];
+        $min_age = $_REQUEST['min_age'.$value];
+        $max_age = $_REQUEST['max_age'.$value];
+        $min_credit_score = $_REQUEST['min_credit_score'.$value];
+        $max_credit_score = $_REQUEST['max_credit_score'.$value];
+        $min_dpd = $_REQUEST['min_dpd'.$value];
+        $max_dpd = $_REQUEST['max_dpd'.$value];
+        $min_enquiries = $_REQUEST['min_enquiries'.$value];
+        $max_enquiries = $_REQUEST['max_enquiries'.$value];
+        $min_overdue = $_REQUEST['min_overdue'.$value];
+        $max_overdue = $_REQUEST['max_overdue'.$value];
+        $min_foir = $_REQUEST['min_foir'.$value];
+        $max_foir = $_REQUEST['max_foir'.$value];
+        $min_tennure = $_REQUEST['min_tennure'.$value];
+        $max_tennure = $_REQUEST['max_tennure'.$value];
+        $is_active = $_REQUEST['is_active'.$value];
        // mysqli_query($Conn1,"update crm_partner_rm_sm_details set name ='".$name."',email_id ='".$email_id."',mobile_no ='".$mobile_no."',is_email_flag_active ='".$email_flag."',is_sms_flag_active ='".$sms_flag."' where id = '".$value."'");       
     } 
     ?>
