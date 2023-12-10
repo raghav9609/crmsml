@@ -189,11 +189,11 @@ if (isset($_REQUEST["update"])) {
         $min_tennure = $_REQUEST['min_tennure'.$value];
         $max_tennure = $_REQUEST['max_tennure'.$value];
         $is_active = $_REQUEST['is_active'.$value];
-       // mysqli_query($Conn1,"update crm_partner_rm_sm_details set name ='".$name."',email_id ='".$email_id."',mobile_no ='".$mobile_no."',is_email_flag_active ='".$email_flag."',is_sms_flag_active ='".$sms_flag."' where id = '".$value."'");       
+       mysqli_query($Conn1,"update crm_offer_eligibilty set min_loan_amount ='".$min_loan_amount."',max_loan_amount ='".$max_loan_amount."',min_net_income ='".$min_net_income."',max_net_income ='".$max_net_income."',min_age ='".$min_age."',max_age ='".$max_age."',min_credit_score ='".$min_credit_score."',max_credit_score ='".$max_credit_score."',min_dpd ='".$min_dpd."',max_dpd ='".$max_dpd."',min_enquiries ='".$min_enquiries."',max_enquiries ='".$max_enquiries."',min_overdue ='".$min_overdue."',max_overdue ='".$max_overdue."',min_foir ='".$min_foir."',max_foir ='".$max_foir."',min_tennure ='".$min_tennure."',max_tennure ='".$max_tennure."',is_active ='".$is_active."' where id = '".$value."'");       
     } 
     ?>
     <script>
        swal("Data Updated Successfully!");
-       window.location.href = "<?php echo $head_url; ?>/partner-details/";  
+       window.location.href = "<?php echo $head_url; ?>/bre/";  
     </script>
 <?php } ?>
