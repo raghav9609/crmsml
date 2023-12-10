@@ -10,7 +10,6 @@ if($_REQUEST['partner'] > 0){
     $filter_data['partner_id'] = $_REQUEST['partner']; 
 }
 $data_to_display = $db_handle->runQuery($breDetailsExport->searchFilter($filter_data));
-preArray($data_to_display);
 ?>
 <!DOCTYPE html>
 <html>
