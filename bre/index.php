@@ -50,7 +50,7 @@ preArray($data_to_display);
         <form action="" method="POST">
             <table class="gridtable" width="95%;">
                 <tr>
-                    <th colspan="10"><input type="submit" name="update" class="buttonsub ml10 cursor" value="Update"/></th>
+                    <th colspan="12"><input type="submit" name="update" class="buttonsub ml10 cursor" value="Update"/></th>
                 </tr>
                 <tr>
                     <th><input type="checkbox" name="selectAll[]" id="selectAll" onchange="selectallDisabled(this);">Select All</th>
