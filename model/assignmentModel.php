@@ -27,6 +27,18 @@ class leadAssignMent{
         $query_to_execute = "update crm_lead_assignment set last_lead_assign_on = NOW() where id =".$data['id'];
         return $query_to_execute;
     }
+    function searchRM($data){
+        $query_to_execute = "select * from crm_rm_assignment where 1 ";
+        if($data['partner_id'] > 0){
+            $query_to_execute .= " and partner_id = ".$data['partner_id'];
+        }
+        if($data['user_id'] > 0){
+            $query_to_execute .= " and rm_user_id = ".$data['user_id'];
+        }
+        $query_to_execute .= " order by rm_user_id";
+        
+        return $query_to_execute;
+    }
 }
 
 $leadAssignmentClassexport = new leadAssignMent();

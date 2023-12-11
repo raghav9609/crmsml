@@ -82,12 +82,6 @@
             echo "</pre>";
         }
     }
-    if(!function_exists('gateway_ip')){
-        function gateway_ip($val){
-            $array = array(1=>"192.168.1.212",2=>"192.168.1.208",3=>"192.168.1.204",4=>"192.168.1.206");
-            return $array[$val];
-        }
-    }
     if(!function_exists('replace_special')){
         function replace_special($postData)
         {
