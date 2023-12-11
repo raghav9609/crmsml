@@ -42,7 +42,7 @@ $data_to_display = $db_handle->runQuery($leadAssignmentClassexport->searchRM($fi
     <form>
         <?php 
         echo get_dropdown(10, 'partner', '', '');
-        echo get_dropdown("user", 'user', '', '');
+        echo get_dropdown("user_id_4", 'user_id', '', '');
         ?>
         <input class="cursor" type='submit' value='Search' name='search_btn'>
         <a href="<?php echo $head_url; ?>/rm-assignment/"><input class="cursor" type='button' value='Clear'></a>
@@ -59,15 +59,7 @@ $data_to_display = $db_handle->runQuery($leadAssignmentClassexport->searchRM($fi
                 <tr>
                     <th><input type="checkbox" name="selectAll[]" id="selectAll" onchange="selectallDisabled(this);">Select All</th>
                     <th>Partner Name</th>
-                    <th>Loan Amount</th>
-                    <th>Net Income</th>
-                    <th>Age</th>
-                    <th>Credit Score</th>
-                    <th>DPD</th>
-                    <th>Enquiries</th>
-                    <th>Overdue</th>
-                    <th>Foir</th>
-                    <th>Tennure</th>
+                    <th>User Name</th>
                     <th>Status</th>                    
                 </tr>
                 <?php

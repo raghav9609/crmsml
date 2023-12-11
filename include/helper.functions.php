@@ -60,6 +60,15 @@ if(!function_exists('get_name')){
             case "user_id":
                 $qry = "select * from crm_master_user where id = ".$id;
             break;
+            case "user_id_2":
+                $qry = "select * from crm_master_user where id = ".$id." and role_id = 2";
+            break;
+            case "user_id_3":
+                $qry = "select * from crm_master_user where id = ".$id." and role_id = 3 ";
+            break;
+            case "user_id_4":
+                $qry = "select * from crm_master_user where id = ".$id." and role_id = 3 ";
+            break;
             case "user_name":
                 $qry = "select * from crm_master_user where name = '".$id."'";
             break;
