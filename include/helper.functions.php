@@ -13,6 +13,15 @@ if(!function_exists('get_dropdown')){
             case "user":
                 $qry = "select id as id,name as value,'User' as code_value  from crm_master_user where is_active = 1";
             break;
+            case "user_id_2":
+                $qry = "select id as id,name as value,'User' as code_value  from crm_master_user where is_active = 1 and role_id = 2";
+            break;
+            case "user_id_3":
+                $qry = "select id as id,name as value,'User' as code_value  from crm_master_user where is_active = 1 and role_id = 3 ";
+            break;
+            case "user_id_4":
+                $qry = "select id as id,name as value,'User' as code_value  from crm_master_user where is_active = 1 and role_id = 4 ";
+            break;
             case "crm_master_city_sub_group":
                 $qry = "select id as id,city_sub_group_name as value,'City Sub Group' as code_value from crm_master_city_sub_group where is_active = 1";
             break;
@@ -60,15 +69,7 @@ if(!function_exists('get_name')){
             case "user_id":
                 $qry = "select * from crm_master_user where id = ".$id;
             break;
-            case "user_id_2":
-                $qry = "select * from crm_master_user where id = ".$id." and role_id = 2";
-            break;
-            case "user_id_3":
-                $qry = "select * from crm_master_user where id = ".$id." and role_id = 3 ";
-            break;
-            case "user_id_4":
-                $qry = "select * from crm_master_user where id = ".$id." and role_id = 3 ";
-            break;
+            
             case "user_name":
                 $qry = "select * from crm_master_user where name = '".$id."'";
             break;
