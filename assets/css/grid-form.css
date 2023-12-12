@@ -5323,7 +5323,7 @@
   .ui-widget-content .ui-state-active,
   .ui-widget-header .ui-state-active {
     border: 1px solid #aaa;
-    background: url(/assets/css/smoothness/images/ui-bg_glass_65_ffffff_1x400.png) 50% 50% repeat-x #fff;
+    background: url(/crmsml/assets/css/smoothness/images/ui-bg_glass_65_ffffff_1x400.png) 50% 50% repeat-x #fff;
     font-weight: 400;
     color: #212121
   }
