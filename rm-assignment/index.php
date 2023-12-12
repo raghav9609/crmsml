@@ -42,7 +42,7 @@ $data_to_display = $db_handle->runQuery($leadAssignmentClassexport->searchRM($fi
     <form>
         <?php 
         echo get_dropdown(10, 'partner', '', '');
-        echo get_dropdown("user_id_4", 'user_id', '', '');
+        echo get_dropdown("user", 'user_id', '', '');
         ?>
         <input class="cursor" type='submit' value='Search' name='search_btn'>
         <a href="<?php echo $head_url; ?>/rm-assignment/"><input class="cursor" type='button' value='Clear'></a>
