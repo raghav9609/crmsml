@@ -65,12 +65,9 @@
             <br><br> <?php } ?>
         <h2 class="f_14 fw_bold" style='font-size: 15px'>Agent Offered Banks</h2>
         <br>
-        <?php echo "hello 10";
-        if (($loan_type == 51 || $loan_type == 52 || $loan_type == 54) && $prop_city != 0) {
-            $fil_city_id = $prop_city;
-        } else {
+        <?php 
             $fil_city_id = $city_id;
-        }
+        
         // if(in_array($loan_type,array(32,56,60,51,52,54))){
             
             // if($loan_type == 32){
@@ -762,7 +759,7 @@
                     <?php
                     $user_new_status = [];
                     $loan_type_new_status = [];
-                    echo "anu"; if(in_array($user,$user_new_status) || in_array($loan_type,$loan_type_new_status)){ echo "anu";
+                     if(in_array($user,$user_new_status) || in_array($loan_type,$loan_type_new_status)){ 
                          $level_id =2; ?>
                         <form action="" class="form-step" id="form_step4" style="display:none">
                         <input type="hidden" name="cust_id" value="<?php echo $cust_id; ?>">
@@ -967,7 +964,7 @@ if (in_array($loan_type, $language_barrier_loan_type)) {?>
                 </div>
              </form> 
 
-                    <?php } else{ echo "anu"; ?>
+                    <?php } else{  ?>
                     <form action="" class="form-step" id="form_step4" style="display:none">
                         <input type="hidden" name="cust_id" value="<?php echo $cust_id; ?>">
                     <input type="hidden" name="case_id_follow" class="case_id_received" id="case_id_received" value="<?php echo $case_id ?>">

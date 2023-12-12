@@ -505,12 +505,9 @@ if($tool_type == "Cross Sell - Auto") {
                            <?php
                            
                            require_once "../include/crm_functions-new.php";
-
-                           echo "hello 6 ";
                            include("js-insert.php");
-                           echo "hello 7 ";
                             include("form_index.php");
-                            echo "hello 8 ";
+                           
                             //include("generate-popup.php");
                               ?>
                             <br>
@@ -549,6 +546,7 @@ if($tool_type == "Cross Sell - Auto") {
     });
 </script>
 <script>
+    <?php  echo "hello 8 "; ?>
     var loaded_qry_tab = false;
     var loaded_cases_tab = false;
     var loaded_app_tab = false;
