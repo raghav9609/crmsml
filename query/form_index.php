@@ -228,7 +228,7 @@
                                     <span class="fa-icon fa-inr"></span>
                                     <input type="tel" class="text form-control loan_net_incm numonly salaried" name="net_month_inc" id="net_month_inc" maxlength="9" value="<?php echo $net_incm ;?>" data-rule-min="10000" required/>
                                     <?php
-                                    $raw_details_nmi = mysqli_query($Conn1, "SELECT cust.net_income as r_nmi, qry.net_income AS lan_incm FROM crm_query As qry Inner JOIN crm_customer As cust WHERE qry.id = '".$q_id."' ");
+                                    $raw_details_nmi = mysqli_query($Conn1, "SELECT cust.net_income as r_nmi, qry.net_income AS lan_incm FROM crm_query As qry Inner JOIN crm_customer As cust ON qry.crm_customer_id = cust.id WHERE qry.id = '".$q_id."' order by cust.id ");
                                     if(mysqli_num_rows($raw_details_nmi) > 0)  {
                                         $raw_details_result = mysqli_fetch_array($raw_details_nmi);
                                         
