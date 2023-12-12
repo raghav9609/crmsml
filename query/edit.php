@@ -109,7 +109,7 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
     $city_sub_group_id = $result_cust_data['city_sub_group_id'];
     $city_name = $result_cust_data['city_name'];
     $employer_type = $comp_id = $result_cust_data['comp_id'];
-    $main_account = $result_cust_data['bank_id'];
+    $saving_accounts_with = $main_account = $result_cust_data['bank_id'];
     $salu_id = $result_cust_data['salu_id'];
     $name = $result_cust_data['name'];
     $mname = $result_cust_data['mname'];
@@ -143,7 +143,7 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
     $twe = $result_cust_data['totl_wrk_exp'];
     $salary_pay_id = $result_cust_data['salary_pay_id'];
     $pin_code = $result_cust_data['pincode'];
-    $saving_accounts_with = $result_cust_data['saving_accounts_with'];
+    //$saving_accounts_with = $result_cust_data['saving_accounts_with'];
     $check_cibil_val = 1;
     if(($exis_loans == 0 || $exis_loans == '') && ($credit_running == 0 || $credit_running == '') && $loan_in_past == 2){
         $check_cibil_val = 0;
