@@ -275,7 +275,28 @@
                                     <label for="gross_annual_receipt" class="label-tag">Gross Annual Receipt</label>
                                 </div>
                           
-                                    
+                                    <!-- <div class="col-12 mb-2">
+                                        <h4>Saving Accounts WIth</h4>
+                                        <span>
+                                        <input type="checkbox" class="bank_offers_checkbox" name="saving_acc_with_banks[]" id="saving_acc_with_banks25" value="25" <?php if(in_array(25,$saving_accounts_with)){ echo "checked"; } ?> >
+                                        <label for="saving_acc_with_banks25" class="checkbox">Axis Bank</label></span>
+                                        
+                                        <span><input type="checkbox" class="bank_offers_checkbox" name="saving_acc_with_banks[]" id="saving_acc_with_banks33" value="33" <?php if(in_array(33,$saving_accounts_with)){ echo "checked"; } ?> >
+                                        <label for="saving_acc_with_banks33" class="checkbox">ICICI Bank</label></span>
+                                        
+                                        <span><input type="checkbox" class="bank_offers_checkbox" name="saving_acc_with_banks[]" id="saving_acc_with_banks40" value="40" <?php if(in_array(40,$saving_accounts_with)){ echo "checked"; } ?> >
+                                        <label for="saving_acc_with_banks40" class="checkbox">Kotak Bank</label></span>
+                                        
+                                        <span><input type="checkbox" class="bank_offers_checkbox" name="saving_acc_with_banks[]" id="saving_acc_with_banks32" value="32" <?php if(in_array(32,$saving_accounts_with)){ echo "checked"; } ?> >
+                                        <label for="saving_acc_with_banks32" class="checkbox">HDFC Bank</label></span>
+                                        
+                                        <span><input type="checkbox" class="bank_offers_checkbox" name="saving_acc_with_banks[]" id="saving_acc_with_banks35" value="35" <?php if(in_array(35,$saving_accounts_with)){ echo "checked"; } ?> >
+                                        <label for="saving_acc_with_banks35" class="checkbox">IDFC First Bank</label></span>
+                                        
+                                        <span><input type="checkbox" class="bank_offers_checkbox" name="saving_acc_with_banks[]" id="saving_acc_with_banks29" value="29" <?php if(in_array(29,$saving_accounts_with)){ echo "checked"; } ?> >
+                                        <label for="saving_acc_with_banks29" class="checkbox">DCB Bank</label></span>
+                                    </div> -->
+
                             <div class="heading-offers">
                                     <div class="exclamatry-text">Office Details</div>
                                 </div>
@@ -348,13 +369,10 @@
                         <div class="row div-width">
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6 hidden">
                                     <span class="fa-icon fa-amnt"></span>
-                                    <?php echo get_dropdown('loan_type','loan_type',$loan_type,'required'); ?>
+                                    <?php echo get_dropdown('7','loan_type',$loan_type,'required'); ?>
                                     <label for="loan_type" class="label-tag">Loan Type</label>
                                 </div>
-                                <?php if(in_array($loan_type,array(54))){
-                                    if($loan_type == 51){
-                                        $asset_type = 1;
-                                    } if($loan_type == 54){?>
+                              
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
                                     <span class="fa-icon fa-search"></span>
                                     <?php echo get_dropdown('purpose_of_loan', 'purpose_of_loan', $purpose_of_loan, 'required'); ?>
@@ -378,7 +396,7 @@
                                         <label for="emi_moritorium2" class="no">No</label> 
                                     </div>
                                 </div>
-                                <?php } ?>
+                          
                                 <div class="heading-offers bt_case">
                                     <div class="exclamatry-text">Existing Loan Details</div>
                                 </div>
@@ -387,7 +405,7 @@
                                     <?php echo get_dropdown('bank_name_','exs_bank_id',$exstn_bank,'class="bt_case"'); ?>
                                     <label for="exs_bank_id" class="label-tag">Existing Bank</label>
                                 </div>
-                                <?php if(!in_array($loan_type, array(60))) { ?>
+                              
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6 bt_case">
                                     <span class="fa-icon">%</span>
                                     <input type="text" class="text form-control bt_case" maxlength="5" name="cur_rate" id="cur_rate" value="<?php echo $cur_rate ;?>" />
@@ -404,16 +422,16 @@
                                     <div class='word_below orange'><b class='ex_emi_value_formt money_format'></b></div>
                                     <label for="ex_emi" class="label-tag">Existing EMI </label>
                                 </div>
-                                <?php } ?>
+                            
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6 exis_tl bt_case">
                                     <span class="fa-icon fa-inr"></span>
                                     <input type="tel" class="text form-control loan_net_incm bt_case" name="ex_amt" maxlength="10" id="ex_amt" value="<?php echo $exstning_loan_amt ;?>" />
                                     <div class='word_below orange'><b class='ex_amt_value_formt money_format'></b></div>
                                     <label for="ex_amt" class="label-tag">Current Outstanding Amount </label>
                                 </div>
-                                <?php } ?>
+                             
                             </div>
-                            <?php if(in_array($loan_type,array(54))){ ?>
+                      
                             <div class="heading-offers">
                                     <div class="exclamatry-text">Existing Loans</div>
                                 </div>
@@ -716,7 +734,7 @@
                                     <label for="credit_card_vintage_fv" class="label-tag">Credit Card Vintage</label>
                                 </div>
 
-                            <?php } ?>
+                           
                             <div class="text-center col-12 mb-2"><input type="button" class="btn btn-primary" name="edit_temp" id="step2-temp" value="Edit">&nbsp;&nbsp;&nbsp;
                                 <input type="button" class="btn btn-primary" name="submit" id="step2" value="SUBMIT">
                             </div>                        
@@ -950,10 +968,7 @@ while ($language_users_result = mysqli_fetch_array($language_users_execute)) {
                     <input type="hidden" name="case_id_follow" class="case_id_received" id="case_id_received" value="<?php echo $case_id ?>">
                      <input type="hidden" name="lead_view_id" value="<?php echo $lead_view_id; ?>">
                     <input type="hidden" name="click_to_call_id" id="click_to_call_id" value="">
-                        <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                            <input type="checkbox" name="hot_lead" class="hot_case" id="hot_case_fup" value="1" <?php echo ($hotcase == 1) ? "checked" : ""; ?> >
-                            <label for="hot_case_fup" class="checkbox green f_14">Hot Case</label>
-                        </div>
+                      
                         <div class="form-group col-xl-2 col-lg-4 col-md-6">
                             <span class="fa-icon fa-list-alt"></span>
                             <?php echo get_dropdown('case_status', 'case_f_stats', '', 'onchange="cng_case_status(this.value);" style="width: 100% !important" required'); ?>
@@ -1004,9 +1019,9 @@ while ($language_users_result = mysqli_fetch_array($language_users_execute)) {
                         </div>
                         <input type="hidden" id="is_fos" name="is_fos" value="<?php echo $is_fos; ?>" />
                         <?php
-                        if(in_array($loan_type, $fos_loan_type)) {
+                       // if(in_array($loan_type, $fos_loan_type)) {
                         ?>
-                        <div class="form-group col-xl-2 col-lg-4 col-md-6 fos_flag">
+                        <!-- <div class="form-group col-xl-2 col-lg-4 col-md-6 fos_flag">
                             <input type="checkbox" name="fos_checked" class="fos_check" id="fos_check" value="1" <?php echo ($is_fos == 1) ? "checked" : ""; ?> >
                             <label for="fos_check" class="checkbox green f_14">FOS Flag</label>
                         </div>
@@ -1022,7 +1037,7 @@ while ($language_users_result = mysqli_fetch_array($language_users_execute)) {
                         </div>
                          <div class="form-group col-xl-2 col-lg-4 col-md-6 fos_user">
                             <span class="fa-icon fa-user"></span>
-                            <select name="fos_user_id" id="fos_users" class="fos_users" style='100% !important'>
+                            <select name="fos_user_id" id="fos_users" class="fos_users" style="100%!important">
                             </select>
                             <label for="fos_users" class="label-tag">FOS User</label>
                         </div>
@@ -1030,9 +1045,11 @@ while ($language_users_result = mysqli_fetch_array($language_users_execute)) {
                             <span class="fa-icon fa-home"></span>
                             <textarea class="text valid form-control alpha-num removeSpecial" name="fos_address" id="fos_address" placeholder="Customer Address for FOS" autocomplete="off"><?php echo $fos_address; ?></textarea>
                             <label for="fos_address" class="label-tag">FOS Address</label>
-                        </div>
+                        </div> -->
                         <?php
-                        }$level_id =1;
+                        // }
+                        
+                        $level_id =1;
                         ?>
                         <div class="form-group col-xl-2 col-lg-4 col-md-6">
                             <span class="fa-icon fa-commenting"></span>
@@ -1056,25 +1073,7 @@ while ($language_users_result = mysqli_fetch_array($language_users_execute)) {
                 </div>
                 <?php include("../insert/telecaller_script.php"); ?>
             <?php } ?>
-            <!-- <div class="col-3 pl-0 pr-0">
-                <?php //include("../insert/telecaller_script.php"); ?>
-                <div class='mt-4'>
-                        <?php //if ($fin_opt_bank != '') { ?><p class='orange center'>Customer Applied Banks</p>
-                            <hr><br>
-                            <span class='green f_13'> <?php //echo $apply_bnk_name; ?></span>
-                            <hr><br> <?php //} ?>
-                        <p class='orange center'>Agent Offered Banks</p><br>
-                        <hr><br>
-                        <?php
-                        // if (($loan_type == 51 || $loan_type == 52 || $loan_type == 54) && $prop_city != 0) {
-                        //     $fil_city_id = $prop_city;
-                        // } else {
-                        //     $fil_city_id = $city_id;
-                        // }
-                        // $loan_obj = new loan_filtering($phone, $loan_type, $occup, $net_incm, $loan_amt, $fil_city_id, $pin_code, $annual_turnover_num,$comp_id,$loan_in_past,$main_account,$loan_in_past,$comp_name,$diff,$cibil_score);
-                        ?>
-                    </div>
-            </div> -->
+
         </section>
     </main>
     <?php
@@ -1083,19 +1082,19 @@ while ($language_users_result = mysqli_fetch_array($language_users_execute)) {
     //}
     ?>
 
-    <?php include('../../include/loader.php') ?>
+    <?php include('../include/loader.php') ?>
     <script>
         var negative_ques_val = '<?php echo $property_negative_ques ?>';
         var industry_id = '<?php echo $industry_id; ?>';
         var user_role = "<?php echo $_SESSION['user_role']; ?>";
         var one_lead = "<?php echo $_SESSION['one_lead_flag']; ?>";
     </script>
-<script src="../../include/js/common-function.js"></script> 
+<script src="../assets/js/common-function.js"></script> 
 <?php if(in_array($user,$user_new_status) || in_array($loan_type,$loan_type_new_status) ){ ?>
-<script src="../../include/js/query-journey-new-status.js?v=15"></script>
-<script src="../../include/js/case-follow-up.js?v=4"></script>
+<script src="../assets/js/query-journey-new-status.js?v=15"></script>
+<script src="../assets/js/case-follow-up.js?v=4"></script>
 <?php } else{ ?>
-<script src="../../include/js/query-journey.js?v=4"></script>
+<script src="../assets/js/query-journey.js?v=4"></script>
 <?php } ?>
 <script>
 $(document).ready(function() {
