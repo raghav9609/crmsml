@@ -369,15 +369,15 @@
                         <div class="row div-width">
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6 hidden">
                                     <span class="fa-icon fa-amnt"></span>
-                                    <?php echo get_dropdown(7,'loan_type',$loan_type,'required'); ?>
+                                    <?php echo get_dropdown(1,'loan_type',$loan_type,'required'); ?>
                                     <label for="loan_type" class="label-tag">Loan Type</label>
                                 </div>
                               
-                                <div class="form-group col-xl-2 col-lg-4 col-md-6">
+                                <!-- <div class="form-group col-xl-2 col-lg-4 col-md-6">
                                     <span class="fa-icon fa-search"></span>
-                                    <?php echo get_dropdown('purpose_of_loan', 'purpose_of_loan', $purpose_of_loan, 'required'); ?>
+                                    <?php // echo get_dropdown('purpose_of_loan', 'purpose_of_loan', $purpose_of_loan, 'required'); ?>
                                     <label for="purpose_of_loan" class="label-tag">Purpose of Loan</label>
-                                </div>
+                                </div> -->
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
                                     <label for="loan_in_past" class="radio-tag label-tag">Any loan or credit card in past?</label>
                                     <div class="boolean-button error_contain">
