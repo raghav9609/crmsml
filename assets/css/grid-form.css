@@ -4,8 +4,8 @@
  
  @font-face {
     font-family: FontAwesome;
-    src: url(/assets/fonts/icon.eot?wvc7cg);
-    src: url(/assets/fonts/icon.eot?wvc7cg#iefix) format('embedded-opentype'), url(/assets/fonts/icon.woff?wvc7cg) format('woff'), url(/assets/fonts/icon.ttf?wvc7cg) format('truetype'), url(/assets/fonts/icon.svg?wvc7cg#icon) format('svg');
+    src: url(/crmsml/assets/fonts/icon.eot?wvc7cg);
+    src: url(/crmsml/assets/fonts/icon.eot?wvc7cg#iefix) format('embedded-opentype'), url(/crmsml/assets/fonts/icon.woff?wvc7cg) format('woff'), url(/crmsml/assets/fonts/icon.ttf?wvc7cg) format('truetype'), url(/crmsml/assets/fonts/icon.svg?wvc7cg#icon) format('svg');
     font-weight: 400;
     font-style: normal
   }
