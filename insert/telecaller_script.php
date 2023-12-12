@@ -12,15 +12,11 @@ $result_english = "";
 $tc_loan_nature_id = 0;
 $tc_tool_type_id = 0;
 
-if($loan_type == 54 || $loan_type == 52) {
-    $loan_type_script = 51;
-} else if($loan_type == 11) {
-    $loan_type_script = 63;
-} else {
-    $loan_type_script = $loan_type;
-}
 
-$agent_name_exe = mysqli_query($Conn1, "SELECT user_name, user_employee_code FROM tbl_user_assign WHERE user_id = $user limit 0, 1 ");
+    $loan_type_script = $loan_type;
+
+
+$agent_name_exe = mysqli_query($Conn1, "SELECT name as user_name, id as user_employee_code FROM crm_master_user WHERE id = $user limit 0, 1 ");
 if(mysqli_num_rows($agent_name_exe) > 0) {
     $agent_name_res     = mysqli_fetch_array($agent_name_exe);
     $agent_name         = $agent_name_res['user_name'];
@@ -28,7 +24,7 @@ if(mysqli_num_rows($agent_name_exe) > 0) {
 }
 
 $occupation_name = "";
-$occupation_name_exe = mysqli_query($Conn1, "SELECT occupation_name FROM lms_occupation WHERE occupation_id = $occup");
+$occupation_name_exe = mysqli_query($Conn1, "SELECT value as occupation_name FROM crm_masters WHERE crm_masters_code_id = 7 and id = $occup");
 if(mysqli_num_rows($occupation_name_exe) > 0) {
     $occupation_name_res = mysqli_fetch_array($occupation_name_exe);
     $occupation_name = $occupation_name_res['occupation_name'];
@@ -36,34 +32,10 @@ if(mysqli_num_rows($occupation_name_exe) > 0) {
 
 $existing_bank = "";
 if(!empty($exstn_bank)) {
-    $exstn_bank_name    = mysqli_query($Conn1, "SELECT bank_id, bank_name FROM tbl_bank WHERE bank_id = '".$exstn_bank."' ");
+    $exstn_bank_name    = mysqli_query($Conn1, "SELECT id as bank_id, value as bank_name FROM crm_masters WHERE crm_masters_code_id = 13 and id = '".$exstn_bank."' ");
     $existing_bank      = mysqli_fetch_array($exstn_bank_name)['bank_name'];
 }
-$business_type_name = "";
-if(!empty($business_type)) {
-    $business_type_exe  = mysqli_query($Conn1, "SELECT bus_type_id, bus_type_name FROM tbl_bussiness_type WHERE bus_type_id = '".$business_type."' ");
-    $business_type_name = mysqli_fetch_array($business_type_exe)['bus_type_name'];
-}
-$professional_type_name = "";
-if(!empty($prof_id)) {
-    $professional_type_exe  = mysqli_query($Conn1, "SELECT profession_id, profession_name FROM lms_profession WHERE profession_id = '".$prof_id."' ");
-    $professional_type_name = mysqli_fetch_array($professional_type_exe)['profession_name'];
-}
-$property_type = "";
-if(!empty($prop_sale_type)) {
-    $property_type_exe  = mysqli_query($Conn1, "SELECT property_type_id, property_type_name FROM lms_property_type WHERE property_type_id = '".$prop_sale_type."' ");
-    $property_type      = mysqli_fetch_array($property_type_exe)['property_type_name'];
-}
-$annual_turnover = "";
-if(!empty($bs_anl_turn)) {
-    $annual_turnover_exe    = mysqli_query($Conn1, "SELECT bus_anl_id,bus_anl_name FROM tbl_bussiness_anl_trunover WHERE bus_anl_id = '".$bs_anl_turn."' ");
-    $annual_turnover        = mysqli_fetch_array($annual_turnover_exe)['bus_anl_name'];
-}
-$business_existing = "";
-if(!empty($bs_ext_yr)) {
-    $business_existing_exe  = mysqli_query($Conn1, "SELECT bus_ext_year_id, bus_ext_year_name FROM tbl_bussiness_extng_year WHERE bus_ext_year_id = '".$bs_ext_yr."' ");
-    $business_existing      = mysqli_fetch_array($business_existing_exe)['bus_ext_year_name'];
-}
+
 
 if($user_role != '') {
 
