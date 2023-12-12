@@ -778,12 +778,12 @@
                         </div>
                     <?php } ?>
                         <div class="form-group col-xl-2 col-lg-4 col-md-6">
-        <span class="fa-icon fa-list-alt"></span>
-        <?php $level_id = 2;
-        //echo get_dropdown('status_', 'case_f_stats', '', 'class="required valid" onchange = "case_cng_status(this);" required'); 
-        $level_id = 1;?>
-        <label for="case_f_stats" class="label-tag">Select Status</label>
-        </div>
+                            <span class="fa-icon fa-list-alt"></span>
+                            <?php $level_id = 2;
+                                //echo get_dropdown('status_', 'case_f_stats', '', 'class="required valid" onchange = "case_cng_status(this);" required'); 
+                             $level_id = 1;?>
+                            <label for="case_f_stats" class="label-tag">Select Status</label>
+                        </div>
         <div class="form-group col-xl-2 col-lg-4 col-md-6 case_f_sub_stats hidden">
         <span class="fa-icon fa-list-alt"></span>
         <select name="case_f_sub_stats" id = "case_f_sub_stats" class="hidden valid" onchange = "case_cng_status(this);"></select>
@@ -822,20 +822,20 @@ if (in_array($loan_type, $language_barrier_loan_type)) {?>
     <label for="case_languages" class="label-tag">Select Language</label>
         </div>
         <?php
-$language_users_query = "SELECT tbl_language_user_map.user_id AS user_id, tbl_user_assign.user_name AS user_name FROM tbl_language_user_map INNER JOIN tbl_user_assign ON tbl_user_assign.user_id = tbl_language_user_map.user_id WHERE tbl_language_user_map.status = 1 AND loan_type = $loan_type ";
-    $language_users_execute = mysqli_query($Conn1, $language_users_query);
+// $language_users_query = "SELECT tbl_language_user_map.user_id AS user_id, tbl_user_assign.user_name AS user_name FROM tbl_language_user_map INNER JOIN tbl_user_assign ON tbl_user_assign.user_id = tbl_language_user_map.user_id WHERE tbl_language_user_map.status = 1 AND loan_type = $loan_type ";
+//     $language_users_execute = mysqli_query($Conn1, $language_users_query);
     ?>
     <div class="form-group col-xl-2 col-lg-4 col-md-6 case_lang_users hidden">
         <span class="fa-icon fa-user"></span>
             <select name='case_lang_users' id='case_lang_users' class='case_lang_users hidden valid'>
                 <option value=''>Select Users</option>
             <?php
-while ($language_users_result = mysqli_fetch_array($language_users_execute)) {
-        $selected_var = ($language_users_result['user_id'] == $lang_user_id) ? "selected" : "";
-        ?>
-                <option value="<?php echo $language_users_result['user_id']; ?>" <?php echo $selected_var; ?>><?php echo $language_users_result['user_name']; ?></option>
-                <?php
-}
+// while ($language_users_result = mysqli_fetch_array($language_users_execute)) {
+//         $selected_var = ($language_users_result['user_id'] == $lang_user_id) ? "selected" : "";
+//         ?>
+//                 <option value="<?php //echo $language_users_result['user_id']; ?>" <?php //echo $selected_var; ?>><?php //echo $language_users_result['user_name']; ?></option>
+//                 <?php
+// }
     ?>
             </select>
             <label for="case_lang_users" class="label-tag">Select Users</label>
