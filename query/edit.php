@@ -9,7 +9,6 @@ require_once(dirname(__FILE__) . '/../include/loader.php');
 require_once(dirname(__FILE__) . '/../config/config.php');
 require_once "../include/helper.functions.php";
 require_once "../include/display-name-functions.php";
-
 require_once "../include/case-query-function-insert.php";
 
 
@@ -144,6 +143,7 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
     $twe = $result_cust_data['totl_wrk_exp'];
     $salary_pay_id = $result_cust_data['salary_pay_id'];
     $pin_code = $result_cust_data['pincode'];
+    $saving_accounts_with = $result_cust_data['saving_accounts_with'];
     $check_cibil_val = 1;
     if(($exis_loans == 0 || $exis_loans == '') && ($credit_running == 0 || $credit_running == '') && $loan_in_past == 2){
         $check_cibil_val = 0;
