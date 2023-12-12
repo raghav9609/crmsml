@@ -313,9 +313,9 @@ $("#ad_new_query").on("click", function(){
         success: function (data) {
             $("#ln_type_pop").css("display","none");
             if(user_role != '3'){
-            window.location.href='https://myloancrm.com/sugar/all_query/';
+            window.location.href='https://astechnos.com/crmsml/query/';
             } else {
-              window.location.href='https://myloancrm.com/sugar/all_query/user.php';  
+              window.location.href='https://astechnos.com/crmsml/query/user.php';  
             } 
         }
      });
