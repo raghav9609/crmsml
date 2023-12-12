@@ -216,7 +216,7 @@
                                 </div>
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
                                     <span class="fa-icon fa-briefcase"></span>
-                                    <?php echo get_dropdown('1','occupation_id',$occup,'required'); ?>
+                                    <?php echo get_dropdown('7','occupation_id',$occup,'required'); ?>
                                     <label for="occupation" class="label-tag">Employment Type</label>
                                 </div>
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6 salaried company_name_input">
@@ -334,13 +334,13 @@
                                 <div class="heading-offers">
                                     <div class="exclamatry-text">Residence Details</div>   
                                 </div>
-                                <?php if($loan_type == 56){ ?>
+                        
                                     <div class="form-group col-xl-2 col-lg-4 col-md-6">
                                     <span class="fa-icon fa-home"></span>
-                                    <?php echo get_dropdown('residential_type', 'residential_type', $rented_id, 'required'); ?>
+                                    <?php //echo get_dropdown('residential_type', 'residential_type', $rented_id, 'required'); ?>
                                     <label for="residential_type" class="label-tag">Type of Residence</label>
                                 </div>
-                              <?php  } ?>
+                            
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
                                     <span class="fa-icon fa-map-marker"></span>
                                     <input type="tel" class="text form-control numonly" name="pin_code" id="pin_code" minlength="6" maxlength="6" required value="<?php echo (trim($pin_code) == 0) ? "" : $pin_code; ?>" />
@@ -657,7 +657,7 @@
                     <!-- Existing Card 3 -->
                     <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_card_3">
                             <span class="fa-icon fa-bank"></span>
-                            <?php echo get_dropdown('bank_name_','credit_bank_id_th',$credit_bank_id_th,'class="ext_card_3"'); ?>
+                            <?php echo get_dropdown('13','credit_bank_id_th',$credit_bank_id_th,'class="ext_card_3"'); ?>
                             <label for="credit_bank_id_th" class="label-tag">Bank</label>
                         </div>
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_card_3">
@@ -684,7 +684,7 @@
                     <!-- Existing Card 4 -->
                     <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_card_4">
                             <span class="fa-icon fa-bank"></span>
-                            <?php echo get_dropdown('bank_name_','credit_bank_id_fr',$credit_bank_id_fr,'class="ext_card_4"'); ?>
+                            <?php echo get_dropdown('13','credit_bank_id_fr',$credit_bank_id_fr,'class="ext_card_4"'); ?>
                             <label for="credit_bank_id_fr" class="label-tag">Bank</label>
                         </div>
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_card_4">
@@ -711,7 +711,7 @@
                         <!-- Existing Card 5 -->
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_card_5">
                             <span class="fa-icon fa-bank"></span>
-                            <?php echo get_dropdown('bank_name_','credit_bank_id_fv',$credit_bank_id_fr,'class="ext_card_5"'); ?>
+                            <?php echo get_dropdown('13','credit_bank_id_fv',$credit_bank_id_fr,'class="ext_card_5"'); ?>
                             <label for="credit_bank_id_fv" class="label-tag">Bank</label>
                         </div>
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_card_5">
@@ -778,7 +778,8 @@
                     <?php } ?>
                         <div class="form-group col-xl-2 col-lg-4 col-md-6">
         <span class="fa-icon fa-list-alt"></span>
-        <?php $level_id = 2;echo get_dropdown('status_', 'case_f_stats', '', 'class="required valid" onchange = "case_cng_status(this);" required'); 
+        <?php $level_id = 2;
+        //echo get_dropdown('status_', 'case_f_stats', '', 'class="required valid" onchange = "case_cng_status(this);" required'); 
         $level_id = 1;?>
         <label for="case_f_stats" class="label-tag">Select Status</label>
         </div>
@@ -808,7 +809,7 @@
 
         <div class="form-group col-xl-2 col-lg-4 col-md-6 hidden case_foll_type">
         <span class="fa-icon fa-tty"></span>
-        <?php echo get_dropdown('follow_up_type', 'case_foll_type', '', 'class="valid"'); ?>
+        <?php //echo get_dropdown('follow_up_type', 'case_foll_type', '', 'class="valid"'); ?>
         <label for="case_foll_type" class="label-tag">Select Follow Up Type</label>
         </div>
     <?php
@@ -816,7 +817,7 @@ if (in_array($loan_type, $language_barrier_loan_type)) {?>
     <div class="form-group col-xl-2 col-lg-4 col-md-6 case_languages hidden">
         <span class="fa-icon fa-language"></span>
         <?php
-    echo get_dropdown("languages", "case_languages", $lang_id, "onchange='case_fetch_users_by_lang(this);' class='hidden valid'");?>
+    //echo get_dropdown("languages", "case_languages", $lang_id, "onchange='case_fetch_users_by_lang(this);' class='hidden valid'");?>
     <label for="case_languages" class="label-tag">Select Language</label>
         </div>
         <?php
@@ -971,12 +972,12 @@ while ($language_users_result = mysqli_fetch_array($language_users_execute)) {
                       
                         <div class="form-group col-xl-2 col-lg-4 col-md-6">
                             <span class="fa-icon fa-list-alt"></span>
-                            <?php echo get_dropdown('case_status', 'case_f_stats', '', 'onchange="cng_case_status(this.value);" style="width: 100% !important" required'); ?>
+                            <?php //echo get_dropdown('case_status', 'case_f_stats', '', 'onchange="cng_case_status(this.value);" style="width: 100% !important" required'); ?>
                             <label for="case_f_stats" class="label-tag">Case Status</label>
                         </div>
                         <div class="form-group col-xl-2 col-lg-4 col-md-6">
                             <span class="fa-icon fa-tty"></span>
-                            <?php get_dropdown('follow_up_type', 'case_foll_type', '', 'onchange="cng_followup_type(this.value);" style="width: 100% !important"'); ?>
+                            <?php //get_dropdown('follow_up_type', 'case_foll_type', '', 'onchange="cng_followup_type(this.value);" style="width: 100% !important"'); ?>
                             <label for="case_foll_type" class="label-tag">Follow Up Type</label>
                         </div>
                         <div class="form-group col-xl-2 col-lg-4 col-md-6">
