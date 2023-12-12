@@ -630,7 +630,7 @@
                     <!-- Existing Card 2 -->
                     <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_card_2">
                             <span class="fa-icon fa-bank"></span>
-                            <?php echo get_dropdown('bank_name_','credit_bank_id_tw',$credit_bank_id_tw,'class="ext_card_2"'); ?>
+                            <?php echo get_dropdown('13','credit_bank_id_tw',$credit_bank_id_tw,'class="ext_card_2"'); ?>
                             <label for="credit_bank_id_tw" class="label-tag">Bank</label>
                         </div>
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_card_2">
