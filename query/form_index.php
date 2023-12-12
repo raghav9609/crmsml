@@ -592,11 +592,11 @@
                             <span class="fa-icon fa-credit-card"></span>
                             <!-- <select name="credit_running" id="credit_running">
                                         <option value=''>No. of Cards Running</option>
-                                        <option value="1"<?php if(1 == $credit_running){?>selected="selected"<?php }?>>1</option>
-                                         <option value="2"<?php if(2 == $credit_running){?>selected="selected"<?php }?>>2</option>
-                                          <option value="3"<?php if(3 == $credit_running){?>selected="selected"<?php }?>>3</option>
-                                           <option value="4"<?php if(4 == $credit_running){?>selected="selected"<?php }?>>4</option>
-                                            <option value="5"<?php if(5 == $credit_running){?>selected="selected"<?php }?>>5</option>
+                                        <option value="1"<?php //if(1 == $credit_running){?>selected="selected"<?php //}?>>1</option>
+                                         <option value="2"<?php // if(2 == $credit_running){?>selected="selected"<?php //}?>>2</option>
+                                          <option value="3"<?php //if(3 == $credit_running){?>selected="selected"<?php //}?>>3</option>
+                                           <option value="4"<?php //if(4 == $credit_running){?>selected="selected"<?php //}?>>4</option>
+                                            <option value="5"<?php //if(5 == $credit_running){?>selected="selected"<?php //}?>>5</option>
                                     </select> -->
                             <label for="credit_running" class="label-tag optional-tag">No. of Cards Running</label>
                         </div>
