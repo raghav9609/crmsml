@@ -277,7 +277,7 @@
                           
                                     <div class="col-12 mb-2">
                                         <h4>Saving Accounts WIth</h4>
-                                        <span>
+                                        <span><?php echo "dfdsdsf"; ?>
                                             <input type="checkbox" class="bank_offers_checkbox" name="saving_acc_with_banks[]" id="saving_acc_with_banks25" value="25"
                                                 <?php
                                                     if(in_array(25,$saving_accounts_with)){
