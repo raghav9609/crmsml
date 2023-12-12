@@ -592,30 +592,32 @@ if($tool_type == "Cross Sell - Auto") {
                 $(".tab-2 > .facts > .register > .table_set").html("<h3>No Data Found</h3>");
             }
             loaded_raw_details = true;
-        }else if(e.id == "cases_tab") {
-            var case_id = "<?php echo $case_id; ?>";
-            if(loaded_cases_tab) return;
-            if(case_id) {
-                $.ajax({
-                    type: "POST",
-                    url: "../insert/ajax_insert_cust_query_history.php",
-                    data: "case_id="+case_id+"&type=case",
-                    beforeSend: function () {
-                        $(".tab-3 > .facts > .register > .table_set").html('<div class="img">Please wait while we are fetching the details...</div><div class="img"><img style="width: 10%" src="../../assets/img/common-loader.gif" /></div>');
-                    },
-                    success: function(msg) {
-                        if(msg.trim() == "") {
-                            $(".tab-3 > .facts > .register > .table_set").html("<h3>No Data Found</h3>");
-                        } else {
-                            $(".tab-3 > .facts > .register > .table_set").html(msg);
-                        }
-                    }
-                });
-            } else {
-                $(".tab-3 > .facts > .register > .table_set").html("<h3>No Data Found</h3>");
-            }
-            loaded_cases_tab = true;
-        } else if(e.id == "app_tab") {
+        } 
+        // else if(e.id == "cases_tab") {
+        //     var case_id = "<?php echo $case_id; ?>";
+        //     if(loaded_cases_tab) return;
+        //     if(case_id) {
+        //         $.ajax({
+        //             type: "POST",
+        //             url: "../insert/ajax_insert_cust_query_history.php",
+        //             data: "case_id="+case_id+"&type=case",
+        //             beforeSend: function () {
+        //                 $(".tab-3 > .facts > .register > .table_set").html('<div class="img">Please wait while we are fetching the details...</div><div class="img"><img style="width: 10%" src="../../assets/img/common-loader.gif" /></div>');
+        //             },
+        //             success: function(msg) {
+        //                 if(msg.trim() == "") {
+        //                     $(".tab-3 > .facts > .register > .table_set").html("<h3>No Data Found</h3>");
+        //                 } else {
+        //                     $(".tab-3 > .facts > .register > .table_set").html(msg);
+        //                 }
+        //             }
+        //         });
+        //     } else {
+        //         $(".tab-3 > .facts > .register > .table_set").html("<h3>No Data Found</h3>");
+        //     }
+        //     loaded_cases_tab = true;
+        // } 
+        else if(e.id == "app_tab") {
             var case_id = "<?php echo $case_id; ?>";
             var loan_type = "<?php echo $loan_type; ?>";
             var cust_id = "<?php echo $cust_id; ?>";
@@ -1026,9 +1028,9 @@ if($tool_type == "Cross Sell - Auto") {
                     <li class="resp-tab-item lost tab-view" aria-controls="details_tab_2"  id="raw_details"  role="tab" onclick="callAjaxData(this)">
                         <span>Raw Details</span>
                     </li>
-                        <li class="resp-tab-item lost tab-view" aria-controls="details_tab_3"  id="cases_tab" role="tab" onclick="callAjaxData(this)">
+                        <!-- <li class="resp-tab-item lost tab-view" aria-controls="details_tab_3"  id="cases_tab" role="tab" onclick="callAjaxData(this)">
                             <span>Cases</span>
-                        </li>
+                        </li> -->
                     <li class="resp-tab-item lost tab-view" aria-controls="details_tab_4"  id="app_tab"  role="tab" onclick="callAjaxData(this)">
                         <span>Application</span>
                     </li>
@@ -1057,19 +1059,19 @@ if($tool_type == "Cross Sell - Auto") {
                     <li class="resp-tab-item lost tab-view" aria-controls="details_tab_12"  id="page_summary"  role="tab" onclick="callAjaxData(this)">
                         <span>Summary</span>
                     </li>
-                    <li class="resp-tab-item lost tab-view" aria-controls="details_tab_13"  id="cross_sell"  role="tab" onclick="callAjaxData(this)">
+                    <!-- <li class="resp-tab-item lost tab-view" aria-controls="details_tab_13"  id="cross_sell"  role="tab" onclick="callAjaxData(this)">
                         <span>Cross Sell</span>
-                    </li>
+                    </li> -->
                      <li class="resp-tab-item lost tab-view" aria-controls="details_tab_14"  id="documents"  role="tab" onclick="callAjaxData(this)">
                         <span>Documents</span>
                     </li>
-                    <li class="resp-tab-item lost tab-view" aria-controls="details_tab_15"  id="getdailersms"  role="tab" onclick="callAjaxData(this)">
+                    <!-- <li class="resp-tab-item lost tab-view" aria-controls="details_tab_15"  id="getdailersms"  role="tab" onclick="callAjaxData(this)">
                         <span>Dialer SMS</span>
-                    </li>
-                        <li class="resp-tab-item lost tab-view" aria-controls="details_tab_16"  id="pre_approved_offers" role="tab" onclick="callAjaxData(this)">
+                    </li> -->
+                        <!-- <li class="resp-tab-item lost tab-view" aria-controls="details_tab_16"  id="pre_approved_offers" role="tab" onclick="callAjaxData(this)">
                             <span>PA-PQ Offers</span>
-                        </li>
-                        <li class="resp-tab-item lost tab-view" aria-controls="details_tab_17"  id="cust_whatsapp" role="tab" onclick="callAjaxData(this)">
+                        </li> -->
+                        <!-- <li class="resp-tab-item lost tab-view" aria-controls="details_tab_17"  id="cust_whatsapp" role="tab" onclick="callAjaxData(this)">
                             <span>Whatsapp</span>
                         </li>
                         <li class="resp-tab-item lost tab-view" aria-controls="details_tab_18"  id="missed_call_log" role="tab" onclick="callAjaxData(this)">
@@ -1077,7 +1079,7 @@ if($tool_type == "Cross Sell - Auto") {
                         </li>
                         <li class="resp-tab-item lost tab-view" aria-controls="details_tab_19"  id="dialer_sms" role="tab" onclick="callAjaxData(this)">
                             <span>Dialer SMS</span>
-                        </li>
+                        </li> -->
                         <li class="resp-tab-item lost tab-view" aria-controls="details_tab_20"  id="nearest_pat" role="tab" onclick="callAjaxData(this)">
                             <span>Nearest Pat.</span>
                         </li>
@@ -1108,7 +1110,7 @@ if($tool_type == "Cross Sell - Auto") {
                             </div>
                         </div>
                     </div>
-                    <div class="tab-3 resp-tab-content" aria-labelledby="details_tab_3">
+                    <!-- <div class="tab-3 resp-tab-content" aria-labelledby="details_tab_3">
                         <div class="facts">
                             <div class="register">
                                 <div class="table_set">
@@ -1116,7 +1118,7 @@ if($tool_type == "Cross Sell - Auto") {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="tab-4 resp-tab-content" aria-labelledby="details_tab_4">
                         <div class="facts">
                             <div class="register">
@@ -1199,7 +1201,7 @@ if($tool_type == "Cross Sell - Auto") {
                             </div>
                         </div>
                     </div>
-                    <div class="tab-13 resp-tab-content" aria-labelledby="details_tab_13">
+                    <!-- <div class="tab-13 resp-tab-content" aria-labelledby="details_tab_13">
                         <div class="facts">
                             <div class="register">
                                 <div class="table_set">
@@ -1207,7 +1209,7 @@ if($tool_type == "Cross Sell - Auto") {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="tab-14 resp-tab-content" aria-labelledby="details_tab_14">
                         <div class="facts">
                             <div class="register">
@@ -1217,7 +1219,7 @@ if($tool_type == "Cross Sell - Auto") {
                             </div>
                         </div>
                     </div>
-                    <div class="tab-15 resp-tab-content" aria-labelledby="details_tab_15">
+                    <!-- <div class="tab-15 resp-tab-content" aria-labelledby="details_tab_15">
                         <div class="facts">
                             <div class="register">
                                 <div class="table_set">
@@ -1225,23 +1227,23 @@ if($tool_type == "Cross Sell - Auto") {
                                 </div>
                             </div>
                         </div>
-                    </div>
-                     <div class="tab-16 resp-tab-content" aria-labelledby="details_tab_16">
+                    </div> -->
+                     <!-- <div class="tab-16 resp-tab-content" aria-labelledby="details_tab_16">
                         <div class="facts">
                             <div class="register">
                             
-                                <?php $fetch_axis_offers_api_data =  base64_encode(json_encode(array('mobile'=>base64_encode($mobile),'dob'=>base64_encode($dob),'loan_nature'=>base64_encode($loan_nature),'web_fmd_id'=>base64_encode($web_fmd_id),'main_account'=>base64_encode($main_account),'qry_id'=>base64_encode($qryyy_id),'saving_accounts_with'=>base64_encode($result_cust_data['saving_accounts_with']))));?>
-                                <input type="button" value="Fetch Axis PL Offers" name='fetch_axis_pl_offers' id='fetch_axis_pl_offers' onclick='callAxisPLOffersApi("<?php echo $fetch_axis_offers_api_data; ?>");'>
+                                <?php //$fetch_axis_offers_api_data =  base64_encode(json_encode(array('mobile'=>base64_encode($mobile),'dob'=>base64_encode($dob),'loan_nature'=>base64_encode($loan_nature),'web_fmd_id'=>base64_encode($web_fmd_id),'main_account'=>base64_encode($main_account),'qry_id'=>base64_encode($qryyy_id),'saving_accounts_with'=>base64_encode($result_cust_data['saving_accounts_with']))));?>
+                                <input type="button" value="Fetch Axis PL Offers" name='fetch_axis_pl_offers' id='fetch_axis_pl_offers' onclick='callAxisPLOffersApi("<?php // echo $fetch_axis_offers_api_data; ?>");'>
 
-                                <?php $fetch_offers_api_data =  base64_encode(json_encode(array('cust_id'=>base64_encode($cust_id),'lead_id'=>base64_encode($query_id),'level_type'=>base64_encode('1'),'source'=>base64_encode('2'),'mobile_no'=>base64_encode($mobile),'loan_type_id'=>base64_encode($loan_type))));?>
-                                        <input type="button" value="Fetch Offers" name='fetch_offers' id='fetch_offers' onclick='callOffersApi("<?php echo $fetch_offers_api_data; ?>");'>
+                                <?php //$fetch_offers_api_data =  base64_encode(json_encode(array('cust_id'=>base64_encode($cust_id),'lead_id'=>base64_encode($query_id),'level_type'=>base64_encode('1'),'source'=>base64_encode('2'),'mobile_no'=>base64_encode($mobile),'loan_type_id'=>base64_encode($loan_type))));?>
+                                        <input type="button" value="Fetch Offers" name='fetch_offers' id='fetch_offers' onclick='callOffersApi("<?php //echo $fetch_offers_api_data; ?>");'>
                                 <div class="table_set">
 
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="tab-17 resp-tab-content" aria-labelledby="details_tab_17">
+                    </div> -->
+                    <!-- <div class="tab-17 resp-tab-content" aria-labelledby="details_tab_17">
                        <div class="facts">
                            <div class="register">
 
@@ -1260,8 +1262,8 @@ if($tool_type == "Cross Sell - Auto") {
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="tab-19 resp-tab-content" aria-labelledby="details_tab_19">
+                    </div> -->
+                    <!-- <div class="tab-19 resp-tab-content" aria-labelledby="details_tab_19">
                         <div class="facts">
                             <div class="register">
 
@@ -1270,7 +1272,7 @@ if($tool_type == "Cross Sell - Auto") {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="tab-20 resp-tab-content" aria-labelledby="details_tab_20">
                         <div class="facts">
                             <div class="register">
