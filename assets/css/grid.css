@@ -5201,7 +5201,7 @@ input[disabled] {
 
 .ui-widget-header {
   border: 1px solid #aaa;
-  background: url(/assets/css/smoothness/images/ui-bg_highlight-soft_75_cccccc_1x100.png) 50% 50% repeat-x #ccc;
+  background: url(/assets/ui-bg_highlight-soft_75_cccccc_1x100.png) 50% 50% repeat-x #ccc;
   color: #222;
   font-weight: 700
 }
