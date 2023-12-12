@@ -1141,7 +1141,7 @@ while ($language_users_result = mysqli_fetch_array($language_users_execute)) {
         var one_lead = "<?php echo $_SESSION['one_lead_flag']; ?>";
     </script>
 <script src="../../include/js/common-function.js"></script> 
-<?php if(in_array($user,$user_new_status) || in_array($loan_type,$loan_type_new_status) || new_staus_user_level == 1 ||  new_staus_loan_type_level == 1){ ?>
+<?php if(in_array($user,$user_new_status) || in_array($loan_type,$loan_type_new_status) ){ ?>
 <script src="../../include/js/query-journey-new-status.js?v=15"></script>
 <script src="../../include/js/case-follow-up.js?v=4"></script>
 <?php } else{ ?>
