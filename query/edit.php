@@ -1345,8 +1345,8 @@ if($tool_type == "Cross Sell - Auto") {
 </html>
 <?php
 }
-include("../../include/footer_close.php"); ?>
-<script src="../../assets/js/notepad.js"></script>
+include("../include/footer_close.php"); ?>
+<script src="../assets/js/notepad.js"></script>
 <script>
     function occup_sal(value_get) {
         var pre_fetched_occup = '<?php echo $occup;?>';
