@@ -237,9 +237,7 @@
                                     }
                                     ?>
                                     <div class="bold blue clear f_9"><?php echo ($raw_details_la_nmi != "") ? "Assign on - ".$raw_details_la_nmi." /" : ""; ?> <?php echo ($raw_details_nmi_val != "") ? "NTH in Query - ".$raw_details_nmi_val : ""; ?></div>
-                                    <!-- <small style="font-size: 10px"><?php //echo ($raw_details_nmi_val != "") ? "NTH in current Query - ".$raw_details_nmi_val : ""; ?></small> -->
-                                    <!-- <br /> -->
-                                    <!-- <small style="font-size: 10px"><?php //echo ($raw_details_la_nmi != "") ? "Lead Assign on NTH - ".$raw_details_la_nmi : ""; ?></small> -->
+                            
                                     <div class='word_below orange'><b class='money_format net_month_inc_value_formt'></b></div>
                                     <label for="net_month_inc" class="label-tag">Net Monthly Income</label>
                                 </div>
@@ -253,7 +251,7 @@
                                     <?php echo get_dropdown('13','main_acc',$main_account,'class="main_acc"'); ?>
                                     <label for="main_acc" class="label-tag">Main Account</label>
                                 </div>
-                                <?php if($loan_type == 54){ ?>
+                           
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6 main_acc hidden">
                                     <span class="fa-icon fa-bank"></span>
                                     <input type="text" id="account_no" name="account_no" value="<?php echo $account_no ;?>" placeholder="Account Number" class="form-control alpha-num valid" maxlength="15">
@@ -269,15 +267,14 @@
                                     </select>
                                     <label for="commisioned" class="label-tag optional-tag">Type of Commision</label>
                                 </div>
-                            <?php } ?>
+                            
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6 gar self_emp hidden">
                                     <span class="fa-icon fa-inr"></span>
                                     <input type="tel" class="form-control self_emp loan_net_incm numonly gar" maxlength="10" name="gross_annual_receipt" id="gross_annual_receipt" value="<?php echo $gross_annual_receipt == 0 ? '' : $gross_annual_receipt ;?>" />
                                     <div class='word_below orange'><b class='money_format gross_annual_receipt_value_formt'></b></div>
                                     <label for="gross_annual_receipt" class="label-tag">Gross Annual Receipt</label>
                                 </div>
-                                <?php if($loan_type == 54) { ?>
-
+                          
                                     <div class="col-12 mb-2">
                                         <h4>Saving Accounts WIth</h4>
                                         <span><input type="checkbox" class="bank_offers_checkbox" name="saving_acc_with_banks[]" id="saving_acc_with_banks11" value="11"
@@ -324,7 +321,7 @@
                                     <label for="saving_acc_with_banks78" class="checkbox">DCB Bank</label></span>
                             </div>
 
-                                <?php } } if(in_array($loan_type,array(54))){ ?>
+                                <?php  }  ?>
 
                             <div class="heading-offers">
                                     <div class="exclamatry-text">Office Details</div>
@@ -348,7 +345,7 @@
                                     <span class="fa-icon fa-building"></span>
                                     <textarea name="offce_address" class="text valid form-control" id="offce_address" maxlength="200" <?php if(in_array($loan_type,array(71,11,57,63))){echo "required";} ?>><?php echo $offce_address ;?></textarea>
                                     <label for="offce_address" class="label-tag <?php if(!in_array($loan_type,array(71,11,57,63))){echo "optional-tag";} ?>">Office Address</label>
-                                </div><?php if($loan_type == 54){ ?>
+                                </div>
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
                                     <span class="fa-icon fa-briefcase"></span>
                                     <input type="tel" class="text form-control numonly" name="ccwe" id="ccwe"  maxlength="4" required value="<?php echo (trim($ccwe) == 0) ? "" : $ccwe; ?>" />
@@ -359,7 +356,7 @@
                                     <input type="tel" class="text form-control numonly" name="twe" id="twe" maxlength="4" required value="<?php echo (trim($twe) == 0) ? "" : $twe; ?>" />
                                     <label for="twe" class="label-tag">Total Work Exp (In months))</label>
                                 </div>
-                            <?php } } ?>
+                          
                                 <div class="heading-offers">
                                     <div class="exclamatry-text">Residence Details</div>   
                                 </div>
