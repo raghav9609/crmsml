@@ -43,13 +43,13 @@
     $fname=$name." ".$mname." " .$lname;
     
     $amt = custom_money_format($loan_amt);
-    echo "hello 8";
+   
     $nametext = trim($fname) != '' ? "<li><b class='fw_bold'>".ucfirst($fname)."</b> " : '<li><b class="fw_bold">Customer</b> '  ; 
     $dobtext = ($diff != '') ? " and customer age is&nbsp;&nbsp;<b class='fw_bold'>".$diff."</b>&nbsp;&nbsp;years </li>" : "</li>"  ;
     $citytext = (($city_name != '')? " and residing in <b class='fw_bold'> $city_name </b></li> " : "</li>") ;
-    $occcc = get_display_name('occupation',$occup);
+    $occcc = get_name('master_code_id',$occup);
     $occuptext = (($occup != '' && $occup != 0) ? "<li>Customer is  <b class='fw_bold'>$occcc </b>" : "");
-    $mainbank = get_display_name('bank_name',$main_account);
+    $mainbank = get_name('master_code_id',$main_account);
     $accounttext = (($main_account !='' && $main_account !=0) ? "<li>Customer has account in  <b class='fw_bold'>$mainbank </b></li>" : "");
     $loanamounttext = ($loan_amt != 0 && $loan_amt != '') ? " of <b class='fw_bold'> $amt </b>" : "";
     echo  $nametext." looking for a <b class='fw_bold'>".$loantype_name."</b>".$loanamounttext. $citytext.$occuptext.$dobtext.$accounttext; ?>
@@ -65,7 +65,7 @@
             <br><br> <?php } ?>
         <h2 class="f_14 fw_bold" style='font-size: 15px'>Agent Offered Banks</h2>
         <br>
-        <?php
+        <?php echo "hello 10";
         if (($loan_type == 51 || $loan_type == 52 || $loan_type == 54) && $prop_city != 0) {
             $fil_city_id = $prop_city;
         } else {

@@ -4,7 +4,7 @@ function get_display_name($type,$selected_val){
 	global $Conn1;
     switch ($type) {
     	case "occupation":
-    	    $qry = "select occupation_name from lms_occupation where occupation_id = '".$selected_val."'";
+    	    $qry = "select occupation_name from crm_master where id = '".$selected_val."'";
         break;
         case "city_name":
             $qry = "select city_name from crm_master_city where id = '".$selected_val."'";
