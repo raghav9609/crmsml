@@ -254,16 +254,7 @@
                                     <input type="text" id="account_no" name="account_no" value="<?php echo $account_no ;?>" placeholder="Account Number" class="form-control alpha-num valid" maxlength="15">
                                     <label for="account_no" class="label-tag optional-tag">Account Number</label>
                                 </div>
-                                <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                                    <span class="fa-icon fa-bank"></span>
-                                    <select name="commisioned" id="commisioned">
-                                        <option value="">Select</option>
-                                        <option value="1" <?php if($paramilitary_profile == 1){?> selected <?php } ?>>Long commission</option>
-                                        <option value="2" <?php if($paramilitary_profile == 2){?> selected <?php } ?>>Short commission</option>
-                                        <option value="3" <?php if($paramilitary_profile == 3){?> selected <?php } ?>>Non commission</option>
-                                    </select>
-                                    <label for="commisioned" class="label-tag optional-tag">Type of Commision</label>
-                                </div>
+                         
                             
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6 gar self_emp hidden">
                                     <span class="fa-icon fa-inr"></span>
