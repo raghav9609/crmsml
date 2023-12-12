@@ -369,7 +369,7 @@
                         <div class="row div-width">
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6 hidden">
                                     <span class="fa-icon fa-amnt"></span>
-                                    <?php echo get_dropdown('7','loan_type',$loan_type,'required'); ?>
+                                    <?php echo get_dropdown(7,'loan_type',$loan_type,'required'); ?>
                                     <label for="loan_type" class="label-tag">Loan Type</label>
                                 </div>
                               
