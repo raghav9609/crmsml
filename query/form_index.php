@@ -137,19 +137,11 @@
                             </div>
                             <div class="form-group col-xl-2 col-lg-4 col-md-6">
                                 <span class="fa-icon fa-user"></span>
-                                <input type="text" id="name" name="name" value="<?php echo name_title_case($name) ;?>" placeholder="Enter Your First Name" class="form-control alphaonly" maxlength="20" required>
-                                <label for="name" class="label-tag">First Name</label>
+                                <input type="text" id="name" name="name" value="<?php echo ($name) ;?>" placeholder="Enter Your First Name" class="form-control alphaonly" maxlength="20" required>
+                                <label for="name" class="label-tag"> Name</label>
                             </div>
-                            <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                                <span class="fa-icon fa-user"></span>
-                                <input type="text" id="mname" name="mname" value="<?php echo name_title_case($mname) ;?>" placeholder="Enter Your Middle Name" class="form-control alphaonly" maxlength="20">
-                                <label for="mname" class="label-tag optional-tag">Middle Name</label>
-                            </div>         
-                            <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                                <span class="fa-icon fa-user"></span>
-                                <input type="text" id="lname" name="lname" value="<?php echo name_title_case($lname) ;?>" placeholder="Enter Your Last Name" class="form-control alphaonly" maxlength="20" required>
-                                <label for="lname" class="label-tag">Last Name</label>
-                            </div>
+     
+            
                             <div class="form-group col-xl-2 col-lg-4 col-md-6">
                                 <span class="fa-icon fa-calendar"></span>
                                 <input type="text" class="text form-control" name="dob" id="dob" maxlength="10" value="<?php echo $dob != '0000-00-00'?$dob:'';?>" placeholder="yyyy-mm-dd" <?php if(in_array($loan_type,array(71,11,57,63,56))){?> required <?php }?>/>
