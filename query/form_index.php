@@ -402,7 +402,7 @@
                                 </div>
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6 bt_case">
                                     <span class="fa-icon fa-bank"></span>
-                                    <?php echo get_dropdown('bank_name_','exs_bank_id',$exstn_bank,'class="bt_case"'); ?>
+                                    <?php echo get_dropdown('13','exs_bank_id',$exstn_bank,'class="bt_case"'); ?>
                                     <label for="exs_bank_id" class="label-tag">Existing Bank</label>
                                 </div>
                               
@@ -451,12 +451,12 @@
                     </div>
                     <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_1">
                             <span class="fa-icon fa-amnt"></span>
-                            <?php echo get_dropdown('loan_type_','loan_type_on',$loan_type_on,'class="ext_loan_1"'); ?>
+                            <?php echo get_dropdown('1','loan_type_on',$loan_type_on,'class="ext_loan_1"'); ?>
                             <label for="loan_type_on" class="label-tag">Loan Type</label>
                         </div>
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_1">
                             <span class="fa-icon fa-bank"></span>
-                            <?php echo get_dropdown('bank_name_','ex_bank_id',$ex_bank_id,'class="ext_loan_1"'); ?>
+                            <?php echo get_dropdown('13','ex_bank_id',$ex_bank_id,'class="ext_loan_1"'); ?>
                             <label for="ex_bank_id_fr" class="label-tag">Bank</label>
                         </div>
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_1">
@@ -478,12 +478,12 @@
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_1"></div>
                     <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_2">
                             <span class="fa-icon fa-amnt"></span>
-                            <?php echo get_dropdown('loan_type_','loan_type_tw',$loan_type_tw,'class="ext_loan_2"'); ?>
+                            <?php echo get_dropdown('1','loan_type_tw',$loan_type_tw,'class="ext_loan_2"'); ?>
                             <label for="loan_type_tw" class="label-tag">Loan Type</label>
                         </div>
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_2">
                             <span class="fa-icon fa-bank"></span>
-                            <?php echo get_dropdown('bank_name_','ex_bank_id_tw',$ex_bank_id_tw,'class="ext_loan_2"'); ?>
+                            <?php echo get_dropdown('13','ex_bank_id_tw',$ex_bank_id_tw,'class="ext_loan_2"'); ?>
                             <label for="ex_bank_id_tw" class="label-tag">Bank</label>
                         </div>
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_2">
@@ -505,12 +505,12 @@
                     <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_2"></div>
                     <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_3">
                             <span class="fa-icon fa-amnt"></span>
-                            <?php echo get_dropdown('loan_type_','loan_type_th',$loan_type_th,'class="ext_loan_3"'); ?>
+                            <?php echo get_dropdown('1','loan_type_th',$loan_type_th,'class="ext_loan_3"'); ?>
                             <label for="loan_type_th" class="label-tag">Loan Type</label>
                         </div>
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_3">
                             <span class="fa-icon fa-bank"></span>
-                            <?php echo get_dropdown('bank_name_','ex_bank_id_th',$ex_bank_id_th,'class="ext_loan_3"'); ?>
+                            <?php echo get_dropdown('13','ex_bank_id_th',$ex_bank_id_th,'class="ext_loan_3"'); ?>
                             <label for="ex_bank_id_th" class="label-tag">Bank</label>
                         </div>
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_3">
@@ -532,12 +532,12 @@
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_3"></div>
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_4">
                             <span class="fa-icon fa-amnt"></span>
-                            <?php echo get_dropdown('loan_type_','loan_type_fr',$loan_type_fr,'class="ext_loan_4"'); ?>
+                            <?php echo get_dropdown('1','loan_type_fr',$loan_type_fr,'class="ext_loan_4"'); ?>
                             <label for="loan_type_fr" class="label-tag">Loan Type</label>
                         </div>
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_4">
                             <span class="fa-icon fa-bank"></span>
-                            <?php echo get_dropdown('bank_name_','ex_bank_id_fr',$ex_bank_id_fr,'class="ext_loan_4"'); ?>
+                            <?php echo get_dropdown('13','ex_bank_id_fr',$ex_bank_id_fr,'class="ext_loan_4"'); ?>
                             <label for="ex_bank_id_fr" class="label-tag">Bank</label>
                         </div>
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_4">
@@ -559,12 +559,12 @@
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_4"></div>
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_5">
                             <span class="fa-icon fa-amnt"></span>
-                            <?php echo get_dropdown('loan_type_','loan_type_fv',$loan_type_fv,'class="ext_loan_5"'); ?>
+                            <?php echo get_dropdown('1','loan_type_fv',$loan_type_fv,'class="ext_loan_5"'); ?>
                             <label for="loan_type_fv" class="label-tag">Loan Type</label>
                         </div>
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_5">
                             <span class="fa-icon fa-bank"></span>
-                            <?php echo get_dropdown('bank_name_','ex_bank_id_fv',$ex_bank_id_fv,'class="ext_loan_5"'); ?>
+                            <?php echo get_dropdown('13','ex_bank_id_fv',$ex_bank_id_fv,'class="ext_loan_5"'); ?>
                             <label for="ex_bank_id_fv" class="label-tag">Bank</label>
                         </div>
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_5">
