@@ -182,17 +182,17 @@ textarea {
 }
 .editbtn:hover {background: #c90518;}
 .editbtn_img {
-    background: #2767CE url(../../assets/images/edit-icon.png) 8px 7px no-repeat !important;
+    background: #2767CE url(/crmsml/assets/images/edit-icon.png) 8px 7px no-repeat !important;
     background-size: 16px 16px !important;
 }
 
 .editbtn_img_input {
-    background: #2767CE url(../../assets/images/edit-icon.png) 8px 7px no-repeat !important;
+    background: #2767CE url(/crmsml/assets/images/edit-icon.png) 8px 7px no-repeat !important;
     background-size: 10px 10px !important;
 }
 
 .editbtn_img:hover {
-    background: #194b9b url(../../assets/images/edit-icon.png) 8px 7px no-repeat !important;
+    background: #194b9b url(/crmsml/assets/images/edit-icon.png) 8px 7px no-repeat !important;
 	background-size: 16px 16px !important;
 }
 .formupdatebutton {
@@ -208,20 +208,20 @@ textarea {
 }
 .formupdatebutton:hover {background: #da6f13;}
 .formupdatebutton_img {
-	background: #2767c7 url(../../assets/images/update-icon.png) 8px 7px no-repeat !important;
+	background: #2767c7 url(/crmsml/assets/images/update-icon.png) 8px 7px no-repeat !important;
     background-size: 18px 16px !important;
 	padding-left: 33px !important;
 	width:auto !important;
 }
 
 .formupdatebutton_img_input {
-	background: #2767c7 url(../../assets/images/update-icon.png) 4px 6px no-repeat !important;
+	background: #2767c7 url(/crmsml/assets/images/update-icon.png) 4px 6px no-repeat !important;
     background-size: 14px 12px !important;
 	width:auto !important;
 }
 
 .formupdatebutton_img:hover {
-	background: #194b9b url(../../assets/images/update-icon.png) 8px 7px no-repeat !important;
+	background: #194b9b url(/crmsml/assets/images/update-icon.png) 8px 7px no-repeat !important;
 	background-size: 18px 16px !important;
 	padding-left: 33px !important;
 	width:auto !important;
