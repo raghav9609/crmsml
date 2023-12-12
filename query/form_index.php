@@ -190,7 +190,7 @@
 
                                     <label for="email" class="label-tag <?php if(!in_array($loan_type,array(71,11,57,63,56))){ ?> optional-tag <?php } ?>">Email</label>
                                 </div>
-                                <?php if(!in_array($loan_type,array(60,32))){ ?>
+                              
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
                                 <label for="maritalstatus" class="radio-tag label-tag optional-tag">Marital Status</label>
                                 <div class="radio-button">
@@ -277,42 +277,43 @@
                           
                                     <div class="col-12 mb-2">
                                         <h4>Saving Accounts WIth</h4>
-                                        <span><input type="checkbox" class="bank_offers_checkbox" name="saving_acc_with_banks[]" id="saving_acc_with_banks11" value="11"
+                                        <span>
+                                            <input type="checkbox" class="bank_offers_checkbox" name="saving_acc_with_banks[]" id="saving_acc_with_banks11" value="25"
                                                 <?php
                                                     if(in_array(25,$saving_accounts_with)){
                                                         echo "checked";
                                                     }
                                                  ?> >
                                     <label for="saving_acc_with_banks11" class="checkbox">Axis Bank</label></span>
-                                            <span><input type="checkbox" class="bank_offers_checkbox" name="saving_acc_with_banks[]" id="saving_acc_with_banks12" value="12"
+                                            <span><input type="checkbox" class="bank_offers_checkbox" name="saving_acc_with_banks[]" id="saving_acc_with_banks12" value="33"
                                                 <?php
                                                     if(in_array(33,$saving_accounts_with)){
                                                         echo "checked";
                                                     }
                                                  ?> >
                                     <label for="saving_acc_with_banks12" class="checkbox">ICICI Bank</label></span>
-                                        <span><input type="checkbox" class="bank_offers_checkbox" name="saving_acc_with_banks[]" id="saving_acc_with_banks16" value="16"
+                                        <span><input type="checkbox" class="bank_offers_checkbox" name="saving_acc_with_banks[]" id="saving_acc_with_banks16" value="40"
                                                 <?php
                                                     if(in_array(40,$saving_accounts_with)){
                                                         echo "checked";
                                                     }
                                                  ?> >
                                     <label for="saving_acc_with_banks16" class="checkbox">Kotak Bank</label></span>
-                                        <span><input type="checkbox" class="bank_offers_checkbox" name="saving_acc_with_banks[]" id="saving_acc_with_banks42" value="42"
+                                        <span><input type="checkbox" class="bank_offers_checkbox" name="saving_acc_with_banks[]" id="saving_acc_with_banks42" value="32"
                                                 <?php
                                                     if(in_array(32,$saving_accounts_with)){
                                                         echo "checked";
                                                     }
                                                  ?> >
                                     <label for="saving_acc_with_banks42" class="checkbox">HDFC Bank</label></span>
-                                        <span><input type="checkbox" class="bank_offers_checkbox" name="saving_acc_with_banks[]" id="saving_acc_with_banks127" value="127"
+                                        <span><input type="checkbox" class="bank_offers_checkbox" name="saving_acc_with_banks[]" id="saving_acc_with_banks127" value="35"
                                                 <?php
                                                     if(in_array(35,$saving_accounts_with)){
                                                         echo "checked";
                                                     }
                                                  ?> >
                                     <label for="saving_acc_with_banks127" class="checkbox">IDFC First Bank</label></span>
-                                        <span><input type="checkbox" class="bank_offers_checkbox" name="saving_acc_with_banks[]" id="saving_acc_with_banks78" value="78"
+                                        <span><input type="checkbox" class="bank_offers_checkbox" name="saving_acc_with_banks[]" id="saving_acc_with_banks78" value="29"
                                                 <?php
                                                     if(in_array(29,$saving_accounts_with)){
                                                         echo "checked";
@@ -320,8 +321,6 @@
                                                  ?> >
                                     <label for="saving_acc_with_banks78" class="checkbox">DCB Bank</label></span>
                             </div>
-
-                                <?php  }  ?>
 
                             <div class="heading-offers">
                                     <div class="exclamatry-text">Office Details</div>
