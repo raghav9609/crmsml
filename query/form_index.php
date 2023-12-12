@@ -27,19 +27,7 @@
     <br> 
     <ul>
     <?php 
-    if($loan_type == 57){
-        if($annual_turnover_num == 0){
-            $get_annual_turnover_qry = mysqli_query($Conn1,"select turnover_num from tbl_bussiness_anl_trunover where bus_anl_id =".$bs_anl_turn);
-            $result_annual_turnover_qry = mysqli_fetch_assoc($get_annual_turnover_qry);
-            $annual_turnover_num = $result_annual_turnover_qry['turnover_num'];
-        }
-        if($business_existing_num == 0){
-            $get_ext_bus_qry = mysqli_query($Conn1,"select bus_num from tbl_bussiness_extng_year where bus_ext_year_id  =".$bs_ext_yr);
-            $result_ext_bus_qry = mysqli_fetch_assoc($get_ext_bus_qry);
-           $business_existing_num = $result_ext_bus_qry['bus_num'];
-           //$business_existing_num = $bs_ext_yr;
-        }
-    }
+
     if ($employer_type == 0) {
         $comp_name = $result_cust_data['comp_name_other'];
     }else if($loan_type == 11){

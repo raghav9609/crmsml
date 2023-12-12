@@ -509,7 +509,8 @@ if($tool_type == "Cross Sell - Auto") {
                            echo "hello 6 ";
                            include("js-insert.php");
                            echo "hello 7 ";
-                            include("hl-journey/index.php");
+                            include("form_index.php");
+                            echo "hello 8 ";
                             //include("generate-popup.php");
                               ?>
                             <br>
