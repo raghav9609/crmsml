@@ -1,9 +1,9 @@
 <?php
-$mov_email_exec = mysqli_query($Conn1, "SELECT id, source_type FROM master_data_verification_source WHERE is_active = 1 AND email_flag = 1");
+// $mov_email_exec = mysqli_query($Conn1, "SELECT id, source_type FROM master_data_verification_source WHERE is_active = 1 AND email_flag = 1");
 
-$mov_pancard_exec = mysqli_query($Conn1, "SELECT id, source_type FROM master_data_verification_source WHERE is_active = 1 AND pancard_flag = 1");
+// $mov_pancard_exec = mysqli_query($Conn1, "SELECT id, source_type FROM master_data_verification_source WHERE is_active = 1 AND pancard_flag = 1");
 
-$mov_phone_exec = mysqli_query($Conn1, "SELECT id, source_type FROM master_data_verification_source WHERE is_active = 1 AND phone_flag = 1");
+// $mov_phone_exec = mysqli_query($Conn1, "SELECT id, source_type FROM master_data_verification_source WHERE is_active = 1 AND phone_flag = 1");
 ?>
 <div class="dark-box">
 	<div class="lightinside-box">
@@ -27,9 +27,9 @@ $mov_phone_exec = mysqli_query($Conn1, "SELECT id, source_type FROM master_data_
                 <span class="fa-icon fa-bank"></span>
                 <select name="verify_phone_mode" id="verify_phone_mode">
                     <option value="">Select</option>                    
-                    <?php while($mov_phone_result = mysqli_fetch_array($mov_phone_exec)) { ?>
-                        <option value="<?php echo $mov_phone_result['id']; ?>"><?php echo $mov_phone_result['source_type']; ?></option>
-                    <?php } ?>
+                    <?php //while($mov_phone_result = mysqli_fetch_array($mov_phone_exec)) { ?>
+                        <!-- <option value="<?php // echo $mov_phone_result['id']; ?>"><?php // echo $mov_phone_result['source_type']; ?></option> -->
+                    <?php // } ?>
                 </select>
                 <label for="verify_phone_mode" class="label-tag">Mode of Verification?</label>
             </div>
@@ -49,9 +49,9 @@ $mov_phone_exec = mysqli_query($Conn1, "SELECT id, source_type FROM master_data_
                 <span class="fa-icon fa-bank"></span>
                 <select name="verify_email_mode" id="verify_email_mode">
                     <option value="">Select</option>                    
-                    <?php while($mov_email_result = mysqli_fetch_array($mov_email_exec)) { ?>
-                        <option value="<?php echo $mov_email_result['id']; ?>"><?php echo $mov_email_result['source_type']; ?></option>
-                    <?php } ?>
+                    <?php //while($mov_email_result = mysqli_fetch_array($mov_email_exec)) { ?>
+                        <!-- <option value="<?php // echo $mov_email_result['id']; ?>"><?php // echo $mov_email_result['source_type']; ?></option> -->
+                    <?php //} ?>
                 </select>
                 <label for="verify_email_mode" class="label-tag">Mode of Verification?</label>
             </div>
@@ -80,9 +80,9 @@ $mov_phone_exec = mysqli_query($Conn1, "SELECT id, source_type FROM master_data_
                 <span class="fa-icon fa-bank"></span>
                 <select name="verify_mode" id="verify_mode">
                     <option value="">Select</option>
-                    <?php while($mov_pancard_result = mysqli_fetch_array($mov_pancard_exec)) { ?>
-                        <option value="<?php echo $mov_pancard_result['id']; ?>"><?php echo $mov_pancard_result['source_type']; ?></option>
-                    <?php } ?>
+                    <?php //while($mov_pancard_result = mysqli_fetch_array($mov_pancard_exec)) { ?>
+                        <!-- <option value="<?php // echo $mov_pancard_result['id']; ?>"><?php // echo $mov_pancard_result['source_type']; ?></option> -->
+                    <?php // } ?>
                 </select>
                 <label for="verify_mode" class="label-tag optional-tag">Mode of Verification?</label>
             </div>
