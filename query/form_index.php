@@ -759,7 +759,8 @@
                     } ?>
                     </form>
                     <div class="gray col-12 font-weight-nb pb-2 pt-2 blue-bg font-20 brdr-top-gray" data-toggle="step4">STEP 4 : Add Follow Up</div>   
-                    <?php if(in_array($user,$user_new_status) || in_array($loan_type,$loan_type_new_status)){ $level_id =2; ?>
+                    <?php if(in_array($user,$user_new_status) || in_array($loan_type,$loan_type_new_status)){
+                         $level_id =2; ?>
                         <form action="" class="form-step" id="form_step4" style="display:none">
                         <input type="hidden" name="cust_id" value="<?php echo $cust_id; ?>">
                     <input type="hidden" name="case_id_follow" class="case_id_received" id="case_id_received" value="<?php echo $case_id ?>">
@@ -963,7 +964,7 @@ while ($language_users_result = mysqli_fetch_array($language_users_execute)) {
                 </div>
              </form> 
 
-                    <?php } else{ ?>
+                    <?php } else{ echo "anu"; ?>
                     <form action="" class="form-step" id="form_step4" style="display:none">
                         <input type="hidden" name="cust_id" value="<?php echo $cust_id; ?>">
                     <input type="hidden" name="case_id_follow" class="case_id_received" id="case_id_received" value="<?php echo $case_id ?>">
