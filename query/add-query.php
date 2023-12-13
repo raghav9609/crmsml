@@ -202,12 +202,12 @@ require_once(dirname(__FILE__) . '/../model/queryHelper.php');
                                     <label for="bank_account_type" class="label-tag set-label-pos">Bank Account Type</label>
                                 </div>
 
-                                <div class="form-group col-xl-3 col-lg-4 col-md-6 gross_anl_recpt hidden">
+                                <!-- <div class="form-group col-xl-3 col-lg-4 col-md-6 gross_anl_recpt hidden">
                                     <span class="fa-icon fa-inr"></span>
                                     <input type="text" id="gross_annual_receipt" name="gross_annual_receipt" value="" placeholder="Gross Annual Receipt" class="form-control numonly" maxlength="10" onkeyup="gar_in_words.innerHTML=price_in_words(this.value)">
                                     <label for="gross_annual_receipt" id="gar_label" class="label-tag set-label-pos">Gross Annual Receipt</label>
                                     <div class='word_below set_amt_frmt orange'><b id="gar_in_words" class=' gross_annual_receipt_value_formt'></b></div>
-                                </div>
+                                </div> -->
 
                                 <!-- <div class="form-group col-xl-3 col-lg-4 col-md-6 anl_profit hidden">
                                     <span class="fa-icon fa-inr"></span>
