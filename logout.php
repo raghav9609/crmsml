@@ -19,9 +19,6 @@
     }
 
     session_destroy();
-    // header("location:".$head_url."/");
-    $head_url = rtrim($head_url);
-    var_dump($head_url); // Debugging line
-    header("Location: ".$head_url);
-    exit;
+    header("location:".$head_url."/");
+    
 ?>
