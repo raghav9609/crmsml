@@ -206,23 +206,23 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                 window.location.href = "<?php echo $head_url; ?>/query/";
             }
 
-            // function opn_subsource() {
-            //     var camp_val = $("#source_compign").val();
-            //     if (camp_val != '') {
-            //         var sub_src = '<?php echo $sub_source; ?>';
-            //         var ins = '<?php echo $insurance; ?>';
-            //         var promo = '<?php echo $promo; ?>';
-            //         var ref_phone = '<?php echo $ref_phone; ?>';
-            //         $.ajax({
-            //             data: "camp=" + camp_val + "&sub_src=" + sub_src + "&ins=" + ins + "&promo=" + promo + "&ref_phone=" + ref_phone,
-            //             type: "POST",
-            //             url: "<?php echo $head_url; ?>/include/sub_source.php",
-            //             success: function(data) {
-            //                 $("#sub").html(data);
-            //             }
-            //         })
-            //     }
-            // }
+            function opn_subsource() {
+                var camp_val = $("#source_compign").val();
+                if (camp_val != '') {
+                    var sub_src = '<?php echo $sub_source; ?>';
+                    var ins = '<?php echo $insurance; ?>';
+                    var promo = '<?php echo $promo; ?>';
+                    var ref_phone = '<?php echo $ref_phone; ?>';
+                    $.ajax({
+                        data: "camp=" + camp_val + "&sub_src=" + sub_src + "&ins=" + ins + "&promo=" + promo + "&ref_phone=" + ref_phone,
+                        type: "POST",
+                        url: "<?php echo $head_url; ?>/include/sub_source.php",
+                        success: function(data) {
+                            $("#sub").html(data);
+                        }
+                    })
+                }
+            }
 
             function filter_validation() {
                 if ($("#email_search").val().trim() != "") {
@@ -758,7 +758,7 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                     }, 30000);
                 </script>
             <?php } ?>
-            <script type="text/javascript" src="../../include/js/common-function.js"></script>
+            <script type="text/javascript" src="../include/js/common-function.js"></script>
     </body>
 
     </html>
