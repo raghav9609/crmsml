@@ -21,6 +21,6 @@
     }
     session_destroy();
     // header("Location: https://astechnos.com/crmsml");
-    header("location:".$head_url."/query");
+    header("location:".$head_url);
     exit();
 ?>
