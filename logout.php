@@ -1,11 +1,9 @@
 <?php 
-    error_reporting(E_ALL);
-    ini_set('display_errors', 1);
-    
+    session_start();
     require_once(dirname(__FILE__) . '/include/constant.php');
     require_once(dirname(__FILE__) . '/helpers/common-helper.php');
     require_once(dirname(__FILE__) . '/config/config.php');	
-    session_start();
+    
     $login_ip = ipAddress();
     // echo $_SESSION['userDetails']['user_id'];
     // print_r($_SESSION);
@@ -21,6 +19,7 @@
         $db_handle->insertRows($ins_qry);
     }
     session_destroy();
-    header("location:".$head_url."/");
+    header("location:".$head_url);
+    exit();
     
 ?>
