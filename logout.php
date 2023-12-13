@@ -4,8 +4,8 @@
     require_once(dirname(__FILE__) . '/config/config.php');	
     session_start();
     $login_ip = ipAddress();
-    echo $_SESSION['userDetails']['user_id'];
-    print_r($_SESSION);
+    // echo $_SESSION['userDetails']['user_id'];
+    // print_r($_SESSION);
     // exit;
     if (!empty($_SESSION['userDetails']['user_id'])){
         $insert_arr = array(
@@ -18,5 +18,5 @@
     }
 
     session_destroy();
-    header("location:".$head_url."/");
+    header("location:".$head_url);
 ?>
