@@ -20,8 +20,6 @@
         $db_handle->insertRows($ins_qry);
     }
     session_destroy();
-    echo $head_url;
-    exit();
-    header("location:".$head_url."/");
+    header("location:".$head_url);
     
 ?>
