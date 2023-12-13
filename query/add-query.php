@@ -179,7 +179,6 @@ require_once(dirname(__FILE__) . '/../model/queryHelper.php');
                                     <input type="tel" id="gl_gram" name="gl_gram" value="" placeholder="Weight of Gold" class="form-control numonly" >
                                     <label for="gl_gram" class="label-tag set-label-pos optional-tag">Weight of Gold</label>
                                 </div>
-
                                 <div class="form-group col-xl-3 col-lg-4 col-md-6 gl_fields hidden">
                                     <span class="fa-icon fa-gold-loan"></span>
                                     <input type="tel" id="gl_carat" name="gl_carat" value="" placeholder="Weight of Gold" class="form-control numonly" >
