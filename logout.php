@@ -4,9 +4,10 @@
     require_once(dirname(__FILE__) . '/config/config.php');	
     session_start();
     $login_ip = ipAddress();
-    // echo $_SESSION['userDetails']['user_id'];
-    // print_r($_SESSION);
-    // exit;
+    echo $_SESSION['userDetails']['user_id'];
+    print_r($_SESSION);
+    echo $head_url;
+    exit();
     if (!empty($_SESSION['userDetails']['user_id'])){
         $insert_arr = array(
             "mlc_master_user_id"=>(int)$_SESSION['userDetails']['user_id'],
