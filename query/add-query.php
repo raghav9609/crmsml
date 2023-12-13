@@ -209,12 +209,12 @@ require_once(dirname(__FILE__) . '/../model/queryHelper.php');
                                     <div class='word_below set_amt_frmt orange'><b id="gar_in_words" class=' gross_annual_receipt_value_formt'></b></div>
                                 </div>
 
-                                <div class="form-group col-xl-3 col-lg-4 col-md-6 anl_profit hidden">
+                                <!-- <div class="form-group col-xl-3 col-lg-4 col-md-6 anl_profit hidden">
                                     <span class="fa-icon fa-inr"></span>
                                     <input type="text" id="anl_prof" name="anl_prof" value="" placeholder="Annual Profit" class="form-control numonly " maxlength="10" onkeyup="ap_in_words.innerHTML=price_in_words(this.value)">
                                     <label for="anl_prof" class="label-tag set-label-pos optional-tag">Annual Profit</label>
                                     <div class='word_below set_amt_frmt orange'><b id="ap_in_words" class='anl_prof_value_formt'></b></div>
-                                </div>
+                                </div> -->
 
                                
 
