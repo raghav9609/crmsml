@@ -626,7 +626,7 @@ function card_tocard(){
                 $.ajax({      
                   method:'POST',
                   data:$("#form_step1").serialize(),
-                  url: "hl-journey/update-details.php",
+                  url: "update-details.php",
                   cache: false,
                   timeout: 60000,
                   success: function(response){ 
@@ -645,7 +645,7 @@ function card_tocard(){
                 $.ajax({      
                   method:'POST',
                   data:$("#form_step2").serialize(),
-                  url: "hl-journey/update-details.php",
+                  url: "update-details.php",
                   cache: false,
                   timeout: 60000,
                   success: function(response){
