@@ -6,7 +6,7 @@
     $login_ip = ipAddress();
     echo $_SESSION['userDetails']['user_id'];
     print_r($_SESSION);
-    exit;
+    // exit;
     if (!empty($_SESSION['userDetails']['user_id'])){
         $insert_arr = array(
             "mlc_master_user_id"=>(int)$_SESSION['userDetails']['user_id'],
@@ -18,5 +18,5 @@
     }
 
     session_destroy();
-    header("location:".$head_url);
+    header("location:".$head_url."/");
 ?>
