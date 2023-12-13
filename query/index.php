@@ -758,7 +758,7 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                     }, 30000);
                 </script>
             <?php } ?>
-            <script type="text/javascript" src="/../../include/js/common-function.js"></script>
+            <script type="text/javascript" src="/../include/js/common-function.js"></script>
     </body>
 
     </html>
