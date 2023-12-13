@@ -20,5 +20,6 @@
     session_unset();
     session_destroy();
     header("location:".$head_url."/");
+    exit();
     
 ?>
