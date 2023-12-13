@@ -21,7 +21,7 @@
         $db_handle->insertRows($ins_qry);
     }
     session_destroy();
-    header("location:".$head_url);
+    header("location:https://astechnos.com/crmsml");
     ob_end_flush();
     exit;
 ?>
