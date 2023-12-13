@@ -17,7 +17,7 @@
         $ins_qry = $query_model->insertQueryData('sml_user_login_history',$insert_arr);
         $db_handle->insertRows($ins_qry);
     }
-
+    error_log("Logout script reached");
     session_destroy();
     header("location:".$head_url."/");
     
