@@ -20,6 +20,7 @@
         $db_handle->insertRows($ins_qry);
     }
     session_destroy();
-    header("Location: https://astechnos.com/crmsml");
-    exit;
+    // header("Location: https://astechnos.com/crmsml");
+    header("location:".$head_url);
+    exit();
 ?>
