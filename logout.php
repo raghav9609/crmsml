@@ -4,7 +4,6 @@
     require_once(dirname(__FILE__) . '/include/constant.php');
     require_once(dirname(__FILE__) . '/helpers/common-helper.php');
     require_once(dirname(__FILE__) . '/config/config.php');	
-    ob_start();
     session_start();
     $login_ip = ipAddress();
     // echo $_SESSION['userDetails']['user_id'];
@@ -21,7 +20,6 @@
         $db_handle->insertRows($ins_qry);
     }
     session_destroy();
-    header("location:https://astechnos.com/crmsml");
-    ob_end_flush();
+    header("location: https://astechnos.com/crmsml");
     exit;
 ?>
