@@ -66,7 +66,7 @@ $(document).ready(function() {
         dateFormat: 'yy-mm-dd',
         yearRange: "-65:-20",
         onClose: function( selectedDate) {
-            $("#pl_dob" ).datepicker( "option", "minDate", selectedDate );
+            $("#pl_dob" ).datepicker( "option", "", selectedDate );
         },onSelect: function(value, ui) {
             console.log(ui.selectedYear)
         }
