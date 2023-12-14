@@ -21,7 +21,6 @@ if(preg_match('/^[1-9][0-9]{5}$/',$_REQUEST['city_name'])){
     
   
 $qry = mysqli_query($Conn1,"SELECT pin.city_id as city_id FROM crm_master_pincode as pin WHERE pin.pincode = '".$_REQUEST['city_name']."'");
-
 $result_qry = mysqli_fetch_array($qry);
 $pin_code_id = $_REQUEST['city_name'];
 $city_id = $result_qry['city_id'];
@@ -37,8 +36,7 @@ $city_id = '26';
 $qry = mysqli_query($Conn1,"SELECT id FROM crm_master_city WHERE city_name = '".$_REQUEST['city_name']."'");
 $result_qry = mysqli_fetch_array($qry);
 $city_id_oth = $result_qry['id'];
-echo "hi";
-exit();
+
 if($city_id_oth != '' && $city_id_oth != '0'){
 $city_id = $city_id_oth;
 }else{
@@ -140,10 +138,10 @@ if($bank_account_type != "") {
 }
 
 //echo $qry_edit;
-echo $qry_edit;
-exit();
+
 $res_qry = mysqli_query($Conn1,$qry_edit);
- 
+echo "hi";
+exit();
     // header("Location:add-query.php");
     echo '<script>window.location.href = "'.$head_url.'/query/add-query.php";</script>';
     include("../include/footer_close.php");
