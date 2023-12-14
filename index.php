@@ -30,7 +30,7 @@ require_once(dirname(__FILE__) . '/include/constant.php');
        <style>.loginbox{background: radial-gradient(#ffffff, #fcfdff);width:40%;box-sizing:border-box;border:1px solid #ddd;border-radius:12px;padding:30px 60px;margin:0 auto;min-height:200px;margin-top:40px}.container{padding-left:20px;padding-right:20px}.text-center{text-align:center}label{font-weight:700;display:block;font-size:13px;margin-top:10px}input{margin:0!important;width:100%!important;border:1px solid #ddd;padding-left:10px!important;padding-right:10px!important;height:34px!important;margin-top:4px!important;box-sizing:border-box;background:#fffbf7;border-radius:4px}#rmsg{font-size:12px;padding-top:6px;padding-bottom:16px}.messagelab{font-size:14px;margin-top:0;margin-bottom:28px;color: #a7a7a7;}#err{margin-top:20px;margin-bottom:10px;text-align:left;font-size:12px}#submit{background: #1a3960;height: 40px !important;}@media screen and (max-width:560px){.loginbox{width:100%;padding:20px}}</style>
 		<div class="container">
 			<div class="text-center">
-				<img src="<?php echo $head_url;?>/assets/images/logo_new.png" alt="Logo" style="margin-top:6%;width:10%;height:10%;background-color: #ffffff;" />
+				<img src="<?php echo $head_url;?>/assets/images/logo_new.png" alt="Logo" style="margin-top:6%;width:10%;height:10%" />
 			</div>
 			<div class="loginbox">
 				<div class="text-center">
