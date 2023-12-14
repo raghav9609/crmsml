@@ -69,7 +69,7 @@ $(document).ready(function() {
             $("#pl_dob" ).datepicker( "option", "", selectedDate );
         },onSelect: function(value, ui) {
             console.log(ui.selectedYear)
-            $("#pl_dob").attr("placeholder", ui);
+            $("#pl_dob").attr("placeholder", $.datepicker.formatDate('yy-mm-dd', new Date(ui.selectedYear, ui.selectedMonth, ui.selectedDay)));
         }
     }).val(); 
 
