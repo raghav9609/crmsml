@@ -7,7 +7,8 @@ $user_secnd = replace_special($_REQUEST['user_2nd']);
 $avail_secnd = replace_special($_REQUEST['user_2nd_flag']);
 
 $arr = array('user_ist' => $user_first, 'user_2nd' => $user_secnd);
-
+print_r($arr);
+exit();
 foreach ($arr as $user => $val) {
     if ($user == 'user_ist') {
         $shift = 1;
@@ -32,6 +33,8 @@ foreach ($arr as $user => $val) {
     }
 } 
 
-header("location:https://astechnos.com/crmsml/assignment/index.php?msg=1");
+// header("location:https://astechnos.com/crmsml/assignment/index.php?msg=1");
+
+echo '<script>window.location.href = https://astechnos.com/crmsml/assignment/index.php?msg=1;</script>';
 
 ?>
