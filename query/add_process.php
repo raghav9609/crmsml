@@ -140,9 +140,9 @@ if($bank_account_type != "") {
 //echo $qry_edit;
 
 $res_qry = mysqli_query($Conn1,$qry_edit);
-echo "hi";
-exit();
+
     // header("Location:add-query.php");
     echo '<script>window.location.href = "'.$head_url.'/query/add-query.php";</script>';
     include("../include/footer_close.php");
+    exit;
 ?>
