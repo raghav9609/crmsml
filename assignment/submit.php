@@ -19,16 +19,14 @@ foreach ($arr as $user => $val) {
     if (!empty($val)) {
        
         for ($i = 0; $i < $count; $i++) {
-            echo "hi-";
             $user_id = $val[$i];
-            echo $user_id."-";
-            $qry_search = mysqli_query($Conn1, "select * from crm_lead_assignment where loan_type ='" . replace_special($_REQUEST['loan_type']) . "' and min_loan_amount = '" . replace_special($_REQUEST['loan_frm']) . "' and max_loan_amount ='" . replace_special($_REQUEST['loan_to']) . "' and min_net_income ='" . replace_special($_REQUEST['salry_from']) . "' and max_net_income ='" . replace_special($_REQUEST['salry_to']) . "' and city_sub_group_id ='" . replace_special($_REQUEST['city_sub_group']) . "' and user_id = '".$user_id."' and shift_id ='" . replace_special($shift) . "'");
-            echo $qry_search;
-            echo "hi";
-            $res_search = mysqli_num_rows($qry_search);
-            echo $res_search;
-            echo "hilast";
+            $a = "select * from crm_lead_assignment where loan_type ='" . replace_special($_REQUEST['loan_type']) . "' and min_loan_amount = '" . replace_special($_REQUEST['loan_frm']) . "' and max_loan_amount ='" . replace_special($_REQUEST['loan_to']) . "' and min_net_income ='" . replace_special($_REQUEST['salry_from']) . "' and max_net_income ='" . replace_special($_REQUEST['salry_to']) . "' and city_sub_group_id ='" . replace_special($_REQUEST['city_sub_group']) . "' and user_id = '".$user_id."' and shift_id ='" . replace_special($shift) . "'";
+            echo $a;
             exit();
+
+            $qry_search = mysqli_query($Conn1, "select * from crm_lead_assignment where loan_type ='" . replace_special($_REQUEST['loan_type']) . "' and min_loan_amount = '" . replace_special($_REQUEST['loan_frm']) . "' and max_loan_amount ='" . replace_special($_REQUEST['loan_to']) . "' and min_net_income ='" . replace_special($_REQUEST['salry_from']) . "' and max_net_income ='" . replace_special($_REQUEST['salry_to']) . "' and city_sub_group_id ='" . replace_special($_REQUEST['city_sub_group']) . "' and user_id = '".$user_id."' and shift_id ='" . replace_special($shift) . "'");
+            
+            $res_search = mysqli_num_rows($qry_search);
         
             if ($res_search == '0') {
             
