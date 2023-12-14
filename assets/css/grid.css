@@ -5250,7 +5250,7 @@ input[disabled] {
   margin-top: -8px;
   width: 12px;
   height: 18px;
-  background: url(/assets/images/dob-arrow.png) no-repeat;
+  /* background: url(/assets/images/dob-arrow.png) no-repeat; */
   background-size: 24px;
 }
 .ui-datepicker .ui-icon-circle-triangle-w {
