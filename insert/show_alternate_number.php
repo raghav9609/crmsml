@@ -15,5 +15,5 @@ if($src == 'query'){
 $res_fetch = mysqli_fetch_array($qry_fetch);
 echo $alt_phone = $res_fetch['alt_phone'];
 
-$qry_show_num = mysqli_query($Conn1, "INSERT INTO tbl_show_number_history SET id='".$id."',user_id='".$user."',source='".$src."',datetime=NOW(), phone_number_type = '2' ");
+$qry_show_num = mysqli_query($Conn1, "INSERT INTO crm_show_number_history SET id='".$id."',user_id='".$user."',source='".$src."',datetime=NOW(), phone_number_type = '2' ");
 ?>

@@ -9,7 +9,7 @@ if(isset($_POST)) {
     $get_qry_det = new queryModel();
     $return_html = '';
     $query_id = $_POST['query_id'];
-    $show_no_his_qry = $get_qry_det->getQueryRecord('tbl_show_number_history',$columns_to_fetch = array("user_id,datetime"),array('lead_id = "'.$query_id.'"'),'datetime', 'DESC');
+    $show_no_his_qry = $get_qry_det->getQueryRecord('crm_show_number_history',$columns_to_fetch = array("user_id,datetime"),array('lead_id = "'.$query_id.'"'),'datetime', 'DESC');
     $show_no_his_count = $db_handle->numRows($show_no_his_qry);
     $show_no_his_res = $db_handle->runQuery($show_no_his_qry);
     if($show_no_his_count > 0){

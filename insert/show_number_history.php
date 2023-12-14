@@ -6,9 +6,9 @@ $return_html = "";
 if($type == "query") {
     $qry_id = $_REQUEST['query_id'];
 
-    $number_history_qry = "select id as query_id, user_name, source, datetime, phone_number_type from tbl_show_number_history 
-    inner join tbl_user_assign on tbl_user_assign.user_id = tbl_show_number_history.user_id
-    where source = 'query' and tbl_show_number_history.id = ".$qry_id." order by h_id desc";
+    $number_history_qry = "select id as query_id, user_name, source, datetime, phone_number_type from crm_show_number_history 
+    inner join tbl_user_assign on tbl_user_assign.user_id = crm_show_number_history.user_id
+    where source = 'query' and crm_show_number_history.id = ".$qry_id." order by h_id desc";
     $number_history_res = mysqli_query($Conn1, $number_history_qry);
     $number_result = mysqli_num_rows($number_history_res);
     $sr_no = 0;
@@ -30,11 +30,11 @@ if($type == "query") {
     $qry_id = $_REQUEST['query_id'];
     $case_id = $_REQUEST['case_id'];
 
-    $number_history_qry = "select id as query_id, user_name, source, datetime, phone_number_type, 1 as roworder,h_id from tbl_show_number_history 
-    inner join tbl_user_assign on tbl_user_assign.user_id = tbl_show_number_history.user_id
-    where source = 'query' and tbl_show_number_history.id = ".$qry_id." UNION select id as query_id, user_name, source, datetime, phone_number_type, 2 as roworder,h_id from tbl_show_number_history 
-    inner join tbl_user_assign on tbl_user_assign.user_id = tbl_show_number_history.user_id
-    where source = 'case' and tbl_show_number_history.id = ".$case_id." order by roworder desc, h_id desc";
+    $number_history_qry = "select id as query_id, user_name, source, datetime, phone_number_type, 1 as roworder,h_id from crm_show_number_history 
+    inner join tbl_user_assign on tbl_user_assign.user_id = crm_show_number_history.user_id
+    where source = 'query' and crm_show_number_history.id = ".$qry_id." UNION select id as query_id, user_name, source, datetime, phone_number_type, 2 as roworder,h_id from crm_show_number_history 
+    inner join tbl_user_assign on tbl_user_assign.user_id = crm_show_number_history.user_id
+    where source = 'case' and crm_show_number_history.id = ".$case_id." order by roworder desc, h_id desc";
     
     $number_history_res = mysqli_query($Conn1, $number_history_qry);
     $number_result = mysqli_num_rows($number_history_res);
@@ -63,11 +63,11 @@ if($type == "query") {
         $qry_id = $query_res['query_id'];
     }
 
-    $number_history_qry = "select h_id, id as query_id, user_name, source, datetime, phone_number_type, 1 as roworder from tbl_show_number_history 
-    inner join tbl_user_assign on tbl_user_assign.user_id = tbl_show_number_history.user_id
-    where source = 'query' and tbl_show_number_history.id = ".$qry_id." UNION select h_id, id as query_id, user_name, source, datetime, phone_number_type, 2 as roworder from tbl_show_number_history 
-    inner join tbl_user_assign on tbl_user_assign.user_id = tbl_show_number_history.user_id
-    where source = 'case' and tbl_show_number_history.id = ".$case_id." order by roworder desc, h_id desc";
+    $number_history_qry = "select h_id, id as query_id, user_name, source, datetime, phone_number_type, 1 as roworder from crm_show_number_history 
+    inner join tbl_user_assign on tbl_user_assign.user_id = crm_show_number_history.user_id
+    where source = 'query' and crm_show_number_history.id = ".$qry_id." UNION select h_id, id as query_id, user_name, source, datetime, phone_number_type, 2 as roworder from crm_show_number_history 
+    inner join tbl_user_assign on tbl_user_assign.user_id = crm_show_number_history.user_id
+    where source = 'case' and crm_show_number_history.id = ".$case_id." order by roworder desc, h_id desc";
 
     $number_history_res = mysqli_query($Conn1, $number_history_qry);
     $number_result = mysqli_num_rows($number_history_res);
@@ -90,9 +90,9 @@ if($type == "query") {
 }else if($type == "partner") {
     $qry_id = $_REQUEST['query_id'];
 
-    $number_history_qry = "select id as query_id, user_name, source, datetime, phone_number_type from tbl_show_number_history 
-    inner join tbl_user_assign on tbl_user_assign.user_id = tbl_show_number_history.user_id
-    where source = 'partner' and tbl_show_number_history.id = ".$qry_id." order by h_id desc";
+    $number_history_qry = "select id as query_id, user_name, source, datetime, phone_number_type from crm_show_number_history 
+    inner join tbl_user_assign on tbl_user_assign.user_id = crm_show_number_history.user_id
+    where source = 'partner' and crm_show_number_history.id = ".$qry_id." order by h_id desc";
     $number_history_res = mysqli_query($Conn1, $number_history_qry);
     $number_result = mysqli_num_rows($number_history_res);
     $sr_no = 0;
