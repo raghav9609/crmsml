@@ -1,5 +1,4 @@
 <?php
-
 require_once(dirname(__FILE__) . '/../config/session.php');
 require_once(dirname(__FILE__) . '/../helpers/common-helper.php');
 require_once(dirname(__FILE__) . '/../config/config.php');
@@ -141,11 +140,8 @@ if($bank_account_type != "") {
 //echo $qry_edit;
 
 $res_qry = mysqli_query($Conn1,$qry_edit);
-header("Access-Control-Allow-Credentials: true");
-header("Access-Control-Allow-Origin:https://astechnos.com/crmsml/*");
-header("AMP-Access-Control-Allow-Source-Origin: https://astechnos.com/crmsml/*");
-header("Access-Control-Expose-Headers: AMP-Access-Control-Allow-Source-Origin");
-header("Location:add-query.php");
+ 
+    header("Location:../add-query.php");
     // echo '<script>window.location.href = "'.$head_url.'/query/add-query.php";</script>';
     include("../include/footer_close.php");
 ?>
