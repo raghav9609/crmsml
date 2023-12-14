@@ -1,0 +1,3 @@
+<?php
+$head = "<div style='padding:0; margin:0; font-family:Calibri;color:#1E4D7D;font-size:20px;line-height:32px;font-weight:bold;'><strong><span style='color:#ff6600;'>".$bank_name." ".$loan_type_name."</span> disbursed through<span style='color:#ff6600;'> online loan marketplace</span> <a href='https://myloancareindia.com/gbfhgnjhfijnedsfok/njhiunijhujksdfjlodh/go4home.php'>www.myloancare.in</a>. Share your feedback and claim your assured cashback of Rs. ".$cash_offers_on.".</strong></div>"
+?>
