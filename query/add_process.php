@@ -138,7 +138,8 @@ if($bank_account_type != "") {
 }
 
 //echo $qry_edit;
-
+echo $qry_edit;
+exit();
 $res_qry = mysqli_query($Conn1,$qry_edit);
  
     // header("Location:add-query.php");
