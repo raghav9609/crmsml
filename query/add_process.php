@@ -21,6 +21,8 @@ if(preg_match('/^[1-9][0-9]{5}$/',$_REQUEST['city_name'])){
     
   
 $qry = mysqli_query($Conn1,"SELECT pin.city_id as city_id FROM crm_master_pincode as pin WHERE pin.pincode = '".$_REQUEST['city_name']."'");
+echo "hi";
+exit();
 $result_qry = mysqli_fetch_array($qry);
 $pin_code_id = $_REQUEST['city_name'];
 $city_id = $result_qry['city_id'];
