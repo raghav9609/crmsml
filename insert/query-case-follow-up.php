@@ -31,7 +31,7 @@ $url = 'javascript:void(0);';
     	$result_query_id = mysqli_fetch_assoc($query_id_fup);
     	$lead_id= $result_query_id['qry_id'];
     	$type = 1; 
-    	$url = "../all_query/edit.php?id=".base64_encode($lead_id)."&ut=2";
+    	$url = "../query/edit.php?id=".base64_encode($lead_id)."&ut=2";
     	mysqli_free_result($result_query_id);
     	mysqli_next_result($Conn1);
     }

@@ -43,7 +43,7 @@ $info_loan = mysqli_fetch_array($result_loan);
 $loan_name = $info_loan['loan_type_name'];
 ?>
 <tr><td><?php echo $follow_name; ?></td><td><?php echo $name.$phone; ?></td><td><?php echo $info_follow_query['q_follow_date']."<br>".$follow_time; ?></td><td><?php echo $info_follow_query['loan_amt']."<br>".$loan_name; ?></td>
-<?php if($_GET['id'] == '' or $_GET['id'] == 0){ ?><td><a href="../all_query/update_follow_up.php?id=<?php echo $id?>&page=<?php echo $page?>&user=<?php echo $user?>">Update</a></td><?php } ?></tr>
+<?php if($_GET['id'] == '' or $_GET['id'] == 0){ ?><td><a href="../query/update_follow_up.php?id=<?php echo $id?>&page=<?php echo $page?>&user=<?php echo $user?>">Update</a></td><?php } ?></tr>
 </tr>
 <?php } ?>
 </table>

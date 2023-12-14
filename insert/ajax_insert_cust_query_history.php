@@ -29,7 +29,7 @@ if($type == "query") {
             $enc_id = urlencode(base64_encode($query_history_info['id']));
             $user_by = (trim($query_history_info['user_name']) != "") ? "(By: ".$query_history_info['user_name'].")" : "";
             $loan_amount = (($query_history_info['loan_amt'] > 0) && is_numeric($query_history_info['loan_amt'])) ? "(".custom_money_format($query_history_info['loan_amt']).")" : "";
-            $return_html .= "<tr class='center-align'><td>".$sr_no."</td><td><a href='../all_query/edit.php?id=$enc_id&ut=2' target ='_blank'>".$query_history_info['id']."</a></td><td>".$query_history_info['loan_type_name']."<br><span class='fs-12'>".$loan_amount."</span></td><td>".$query_history_info['qy_status']."<br><span class='fs-12'>".$user_by."</span></td><td>".date('d-m-Y',strtotime($query_history_info['date']))."</td></tr>";
+            $return_html .= "<tr class='center-align'><td>".$sr_no."</td><td><a href='../query/edit.php?id=$enc_id&ut=2' target ='_blank'>".$query_history_info['id']."</a></td><td>".$query_history_info['loan_type_name']."<br><span class='fs-12'>".$loan_amount."</span></td><td>".$query_history_info['qy_status']."<br><span class='fs-12'>".$user_by."</span></td><td>".date('d-m-Y',strtotime($query_history_info['date']))."</td></tr>";
         }
         $return_html .= "</table><br>";
     /*}*/

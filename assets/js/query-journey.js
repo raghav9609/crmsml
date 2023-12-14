@@ -663,7 +663,7 @@ function card_tocard(){
                 $.ajax({      
                   method:'POST',
                   data:"query_id="+$("[name='id']").val()+"&new_journey=1&case_id="+$("#case_id").val(),
-                  url: "/sugar/all_query/create-process.php",
+                  url: "/crmsml/query/create-process.php",
                   cache: false,
                   timeout: 60000,
                   success: function(response){

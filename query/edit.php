@@ -648,7 +648,7 @@ if($tool_type == "Cross Sell - Auto") {
             if(query_id) {
                 $.ajax({
                     type: "POST",
-                    url: "../all_query/query_other_details.php",
+                    url: "../query/query_other_details.php",
                     data: "query_id="+query_id,
                     beforeSend: function () {
                         $(".tab-5 > .facts > .register > .table_set").html('<div class="img">Please wait while we are fetching the details...</div><div class="img"><img style="width: 10%" src="../assets/image/common-loader.gif" /></div>');

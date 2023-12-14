@@ -107,5 +107,5 @@ $(document).ready(function() {
             </div>
         </div>
     </div>
-    <link href="../all_query/hl-journey/assets/css/grid.css?v=1.1" rel="stylesheet">
-    <script src="../../include/js/jquery.validate.min.js"></script>
+    <link href="../assets/css/grid-form.css?v=1.1" rel="stylesheet">
+    <script src="../assets/js/jquery.validate.min.js"></script>

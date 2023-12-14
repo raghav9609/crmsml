@@ -89,9 +89,9 @@ function suggestion_box(get_val,offers_level_type=0){
     var top_loan_amt  = $("#top_loan_amt").val();
     var case_id = $('input[name="case_id"]').val();
 	if(get_val == 1){
-		var url = "<?php echo $head_url; ?>/sugar/all_query/dss.php";	 
+		var url = "<?php echo $head_url; ?>/query/dss.php";	 
     }else{
-    	var url = "<?php echo $head_url; ?>/sugar/offers/index.php";
+    	var url = "<?php echo $head_url; ?>/offers/index.php";
     }
 	$.ajax({
         method:'GET',
@@ -170,7 +170,7 @@ function number_show(id,src){
             beforeSend: function () {
                     $("#show_btn").attr('onclick', '');
                 },
-            url: "/sugar/all_query/show_number_history.php",
+            url: "/crmsml/query/show_number_history.php",
             success:function(data){
                 $("#phone_no").val(data);
                 $('html, body').animate({

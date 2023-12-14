@@ -73,7 +73,7 @@ $result_loan_type = mysqli_fetch_array($query_loan_type);
 $loan_name = $result_loan_type['loan_type_name'];
 
 $enc_id = urlencode(base64_encode($id));
-echo "<tr><td><a href='../all_query/edit.php?id=$enc_id&ut=2' target ='_blank'>".$id."</a></td><td>".$loan_name."<br>".$loan_amt."</td><td>".$query_history_info['user_name']."</td><td>".date('d-m-Y',strtotime($date))."</td></tr>";
+echo "<tr><td><a href='../query/edit.php?id=$enc_id&ut=2' target ='_blank'>".$id."</a></td><td>".$loan_name."<br>".$loan_amt."</td><td>".$query_history_info['user_name']."</td><td>".date('d-m-Y',strtotime($date))."</td></tr>";
 }
 echo "</table>";
 }*/

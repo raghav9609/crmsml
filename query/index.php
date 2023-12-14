@@ -646,7 +646,7 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                                             if ($auto_case_create_v > 0) {
                                                 echo "<br><span class='fs-12'>(Auto)</span>";
                                             } ?></span></td>
-                                        <td><a href="../all_query/edit.php?ut=<?php echo $ut; ?>&id=<?php echo urlencode(base64_encode($id)); ?>&page=<?php echo $page; ?>" class="has_link"><span><?php echo $loan_amt; ?></span>
+                                        <td><a href="../query/edit.php?ut=<?php echo $ut; ?>&id=<?php echo urlencode(base64_encode($id)); ?>&page=<?php echo $page; ?>" class="has_link"><span><?php echo $loan_amt; ?></span>
                                                 <?php if ($tool == 'CREPF_ScoreBased' || $tool == 'CR_ScoreBased') { ?><span> ? </span><?php } ?></span><br /><span class="fs-12"><?php echo $loantype_name; ?></span></a>
                                             <br><?php if ($ttl_experian_record > 0) {
                                                     echo "<span class='fs-12'>$cibil_score</span>";
@@ -683,7 +683,7 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                                         <?php if ($user_role == 1) { ?>
                                             <td><a href="query_status_form.php?query_id=<?php echo urlencode(base64_encode($id)); ?>" class="has_link">Update Status</a></td>
                                         <?php } ?>
-                                        <td><a href="../all_query/edit.php?ut=<?php echo $ut; ?>&id=<?php echo urlencode(base64_encode($id)); ?>&page=<?php echo $page; ?>" class="has_link"><input type="button" class="pointer_n" value="View" style="border-radius: 5px; background-color: #18375f; font-weight: bold;"></a></td>
+                                        <td><a href="../query/edit.php?ut=<?php echo $ut; ?>&id=<?php echo urlencode(base64_encode($id)); ?>&page=<?php echo $page; ?>" class="has_link"><input type="button" class="pointer_n" value="View" style="border-radius: 5px; background-color: #18375f; font-weight: bold;"></a></td>
                                     </tr>
                                 <?php  } ?>
                         </table>

@@ -20,66 +20,7 @@ $max_tenure_qry = mysqli_query($Conn1,"Select max(tenure_max) as tenure_max from
 
 $foir = round((($total_obligations*100)/$net_incm),2);
 $foir_new = round(((($total_obligations+$emi_final_formula)*100)/$net_incm),2);
-/*<--------------*Repeated Customer--------------------->
- $query_history_query = "select qry.query_id as id from tbl_mint_query as qry left JOIN tbl_mint_query_status_detail as stats ON qry.query_id = stats.query_id  
-where qry.cust_id = ".$cust_id." and qry.query_id < '".$q_id."' and stats.query_status != '1'";
-$query_history_result= mysqli_query($Conn1,$query_history_query);
-$query_history = mysqli_num_rows($query_history_result); 
-if($query_history > 0){
-$query_count = "select loan.loan_type_name as loan_type_name,count(loan.loan_type_name) as count from tbl_mint_query as qry left JOIN tbl_mint_query_status_detail as stats ON qry.query_id = stats.query_id left join lms_loan_type as loan on qry.loan_type = loan.loan_type_id
-where qry.cust_id = ".$cust_id." and qry.query_id < '".$q_id."' and stats.query_status != '1' group by qry.loan_type";
-$query_count_result= mysqli_query($Conn1,$query_count);
-while($query_count_fetch = mysqli_fetch_assoc($query_count_result)){
-              $query_count_arr[] = $query_count_fetch['loan_type_name'].'('.$query_count_fetch['count'].')';
-               
-}
 
-
-$query_sts = "select qry.query_id as id, user.user_name as user_name from tbl_mint_query as qry left JOIN tbl_mint_query_status_detail as stats ON qry.query_id = stats.query_id 
-left join tbl_user_assign as user on stats.user_id = user.user_id where qry.cust_id = ".$cust_id." and qry.query_id !='".$q_id."' and stats.query_status IN (7,8,9)";
-$query_sts_result= mysqli_query($Conn1,$query_sts);
-if(mysqli_num_rows($query_sts_result) > 0){
-while($query_sts_fetch = mysqli_fetch_assoc($query_sts_result)){
-
-              $query_sts_arr[] = 'Q- <a href="'.$head_url.'/sugar/all_query/edit.php?id='.urlencode(base64_encode($query_sts_fetch['id'])).'" >'.$query_sts_fetch['id'].'</a>('.$query_sts_fetch['user_name'].')';
-               
-}
-}
-$case_sts = "select cse.case_id as id, user.user_name as user_name from tbl_mint_case as cse left join tbl_user_assign as user on cse.user_id = user.user_id where
-cse.cust_id = ".$cust_id." and cse.query_id !='".$q_id."' and cse.case_status IN (3,4,5)";
-$case_sts_result= mysqli_query($Conn1,$case_sts);
-if(mysqli_num_rows($case_sts_result) > 0){
-while($case_sts_fetch = mysqli_fetch_assoc($case_sts_result)){
-              $case_sts_arr[] = 'C- <a href="'.$head_url.'/sugar/cases/edit.php?case_id='.urlencode(base64_encode($case_sts_fetch['id'])).'" >'.$case_sts_fetch['id'].'</a>('.$case_sts_fetch['user_name'].')';
-               
-}
-}
-
-$app_sts = "select app.app_id as id,app.case_id as case_id, user.user_name as user_name from tbl_mint_app as app left join tbl_mint_case as cse ON cse.case_id = app.case_id 
-left join tbl_user_assign as user on cse.user_id = user.user_id where
-cse.cust_id = ".$cust_id." and cse.query_id !='".$q_id."' and app.pre_login_status = 3";
-$app_sts_result= mysqli_query($Conn1,$app_sts);
-if(mysqli_num_rows($app_sts_result) > 0){
-while($app_sts_fetch = mysqli_fetch_assoc($app_sts_result)){
-              $app_sts_arr[] = 'A- <a href="'.$head_url.'/sugar/app/edit_applicaton.php?case_id='.urlencode(base64_encode($app_sts_fetch['case_id'])).'&cust_id='.urlencode(base64_encode($cust_id)).'&&loan_type='.$loan_type.'" >'.$app_sts_fetch['id'].'</a>('.$app_sts_fetch['user_name'].')';
-               
-}
-}
-$query_last = "select qry.query_id as id,stats.date as date,user.user_name as user_name from tbl_mint_query as qry left JOIN tbl_mint_query_status_detail as stats ON qry.query_id = stats.query_id 
-left join tbl_user_assign as user on stats.user_id = user.user_id where qry.cust_id = ".$cust_id." and qry.query_id < '".$q_id."' and stats.query_status != '1' and qry.loan_type = '".$loan_type."'  order by qry.query_id DESC LIMIT 1";
-$query_last_result= mysqli_query($Conn1,$query_last);
-$query_last_fetch = mysqli_fetch_assoc($query_last_result);
-$query_last_id = $query_last_fetch['id'];
-$query_last_user_name = $query_last_fetch['user_name'];
-$query_last_date = $query_last_fetch['date'];
-$case_last = "select cse.case_id as id,cse.date_created as date,user.user_name as user_name from tbl_mint_case as cse left join tbl_user_assign as user on cse.user_id = user.user_id where cse.cust_id = ".$cust_id." and cse.query_id < '".$q_id."' and cse.loan_type = '".$loan_type."'   order by cse.case_id DESC LIMIT 1";
-$case_last_result= mysqli_query($Conn1,$case_last);
-$case_last_fetch = mysqli_fetch_assoc($case_last_result);
-$case_last_id = $case_last_fetch['id'];
-$case_last_user_name = $case_last_fetch['user_name'];
-$case_last_date = $case_last_fetch['date'];
-
-}*/
 ?>
 <style>
  .li_class {
@@ -87,7 +28,7 @@ $case_last_date = $case_last_fetch['date'];
 }
 
 .accordion {
-  width: 0px
+  width: 0px;
   margin: 0 auto;
 }
 
@@ -279,7 +220,7 @@ Non financial co applicant if having cibil history
         <table class="hist_tbl">
             <tr><td><b>&#9679; Past Query</b>: <?php echo implode(', ',$query_count_arr); ?></td></tr>
              <tr><td><?php if (mysqli_num_rows($query_sts_result) > 0 || mysqli_num_rows($case_sts_result) > 0 || mysqli_num_rows($app_sts_result) > 0){?> <b style="color:red">&#9679; Not Eligible: <?php echo implode('/',$query_sts_arr)." ".implode('/',$case_sts_arr)." ".implode('/',$app_sts_arr); }?></b>
-             <?php if (mysqli_num_rows($query_last_result) > 0){?><br/>&#9679; Last Query: <?php echo '<a href="'.$head_url.'/sugar/all_query/edit.php?id='.urlencode(base64_encode($query_last_id)).'">'.$query_last_id.'</a>('.$query_last_user_name.'/'.$query_last_date.')/'.get_display_name("loan_type",$loan_type);}?>
+             <?php if (mysqli_num_rows($query_last_result) > 0){?><br/>&#9679; Last Query: <?php echo '<a href="'.$head_url.'/query/edit.php?id='.urlencode(base64_encode($query_last_id)).'">'.$query_last_id.'</a>('.$query_last_user_name.'/'.$query_last_date.')/'.get_display_name("loan_type",$loan_type);}?>
             <?php if (mysqli_num_rows($case_last_result) > 0){?><br/>&#9679; Last Case: <?php echo '<a href="'.$head_url.'/sugar/cases/edit.php?case_id='.urlencode(base64_encode($case_last_id)).'">'.$case_last_id.'</a>('.$case_last_user_name.'/'.$case_last_date.')/'.get_display_name("loan_type",$loan_type);}?> </td></tr>
         </table>
      <p></p>
