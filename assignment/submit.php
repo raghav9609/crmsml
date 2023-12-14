@@ -15,7 +15,7 @@ foreach ($arr as $user => $val) {
         $shift = '2';
     }
     $count = count($val);
-    echo $val;
+    print_r($val);
     exit();
     if (!empty($val)) {
         for ($i = 0; $i < $count; $i++) {
