@@ -15,20 +15,23 @@ foreach ($arr as $user => $val) {
         $shift = '2';
     }
     $count = count($val);
-   
+    print_r($val);
+    
     if (!empty($val)) {
        
         for ($i = 0; $i < $count; $i++) {
             $user_id = $val[$i];
-            
+            $a = "select * from crm_lead_assignment where loan_type ='" . replace_special($_REQUEST['loan_type']) . "' and min_loan_amount = '" . replace_special($_REQUEST['loan_frm']) . "' and max_loan_amount ='" . replace_special($_REQUEST['loan_to']) . "' and min_net_income ='" . replace_special($_REQUEST['salry_from']) . "' and max_net_income ='" . replace_special($_REQUEST['salry_to']) . "' and city_sub_group_id ='" . replace_special($_REQUEST['city_sub_group']) . "' and (shift1user_id = '".$user_id."' or shift2_user_id ='" . replace_special($user_id) . "')";
+            echo $a;
+            exit();
 
-            $qry_search = mysqli_query($Conn1, "select * from crm_lead_assignment where loan_type ='" . replace_special($_REQUEST['loan_type']) . "' and min_loan_amount = '" . replace_special($_REQUEST['loan_frm']) . "' and max_loan_amount ='" . replace_special($_REQUEST['loan_to']) . "' and min_net_income ='" . replace_special($_REQUEST['salry_from']) . "' and max_net_income ='" . replace_special($_REQUEST['salry_to']) . "' and city_sub_group_id ='" . replace_special($_REQUEST['city_sub_group']) . "' and user_id = '".$user_id."' and shift_id ='" . replace_special($shift) . "'");
+            $qry_search = mysqli_query($Conn1, "select * from crm_lead_assignment where loan_type ='" . replace_special($_REQUEST['loan_type']) . "' and min_loan_amount = '" . replace_special($_REQUEST['loan_frm']) . "' and max_loan_amount ='" . replace_special($_REQUEST['loan_to']) . "' and min_net_income ='" . replace_special($_REQUEST['salry_from']) . "' and max_net_income ='" . replace_special($_REQUEST['salry_to']) . "' and city_sub_group_id ='" . replace_special($_REQUEST['city_sub_group']) . "' and (shift1user_id = '".$user_id."' or shift2_user_id ='" . replace_special($user_id) . "')");
             
             $res_search = mysqli_num_rows($qry_search);
         
             if ($res_search == '0') {
             
-                $qry_ins = mysqli_query($Conn1, "INSERT into crm_lead_assignment set loan_type='" . replace_special($_REQUEST['loan_type']) . "', min_loan_amount = '" . replace_special($_REQUEST['loan_frm']) . "', max_loan_amount='" . replace_special($_REQUEST['loan_to']) . "',min_net_income ='" . replace_special($_REQUEST['salry_from']) . "', max_net_income ='" . replace_special($_REQUEST['salry_to']) . "', city_sub_group_id='" . replace_special($_REQUEST['city_sub_group']) . "',shift_id ='" . $shift . "',user_id = '".$user_id."'");
+                $qry_ins = mysqli_query($Conn1, "INSERT into crm_lead_assignment set loan_type='" . replace_special($_REQUEST['loan_type']) . "', min_loan_amount = '" . replace_special($_REQUEST['loan_frm']) . "', max_loan_amount='" . replace_special($_REQUEST['loan_to']) . "',min_net_income ='" . replace_special($_REQUEST['salry_from']) . "', max_net_income ='" . replace_special($_REQUEST['salry_to']) . "', city_sub_group_id='" . replace_special($_REQUEST['city_sub_group']) . "',shift1user_id ='" . $shift . "',shift2_user_id = '".$user_id."'");
             
                 $filter = mysqli_insert_id($Conn1);
         
@@ -40,5 +43,5 @@ foreach ($arr as $user => $val) {
 // header("location:https://astechnos.com/crmsml/assignment/index.php?msg=1");
 
 echo '<script>window.location.href = https://astechnos.com/crmsml/assignment/index.php?msg=1;</script>';
-exit;
+exit();
 ?>
