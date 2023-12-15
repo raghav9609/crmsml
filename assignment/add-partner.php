@@ -22,6 +22,8 @@ require_once "../include/helper.functions.php";
 	</form></div>
 <script>
 var counter =0;
+var currentShift = "user_ist";
+
 function user_fun(type,id){
 	var d = $("#"+id).attr("data-id");
   var loan_type = $(".loan_type").val(); 
@@ -39,6 +41,7 @@ function user_fun(type,id){
 			  	d++;
 			      $("."+type).append(data);  
 			     	$("#"+id).attr("data-id",d);
+					 currentShift = (currentShift === "user_ist") ? "use_secnd" : "user_ist";
 			  }
 			});
 	  		}
