@@ -14,7 +14,9 @@ if (!empty($selectedValue1)) {
 if (!empty($selectedValue2)) {
     $seconduserValues[] = $user_secnd;
 }
-
+print_r($firstuserValues);
+echo "-------";
+print_r($seconduserValues);
 // foreach ($arr as $user => $val) {
 //     if ($user == 'user_ist') {
 //         $shift = 1;
