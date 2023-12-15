@@ -15,13 +15,12 @@ foreach ($arr as $user => $val) {
         $shift = '2';
     }
     $count = count($val);
-
+    print_r($val);
+    exit();
     if (!empty($val)) {
        
         for ($i = 0; $i < $count; $i++) {
             $user_id = $val[$i];
-            print_r($user_id);
-            exit();
 
             $qry_search = mysqli_query($Conn1, "select * from crm_lead_assignment where loan_type ='" . replace_special($_REQUEST['loan_type']) . "' and min_loan_amount = '" . replace_special($_REQUEST['loan_frm']) . "' and max_loan_amount ='" . replace_special($_REQUEST['loan_to']) . "' and min_net_income ='" . replace_special($_REQUEST['salry_from']) . "' and max_net_income ='" . replace_special($_REQUEST['salry_to']) . "' and city_sub_group_id ='" . replace_special($_REQUEST['city_sub_group']) . "' and (shift1user_id = '".$user_id."' or shift2_user_id ='" . replace_special($user_id) . "')");
             
