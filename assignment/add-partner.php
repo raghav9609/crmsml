@@ -15,14 +15,13 @@ require_once "../include/helper.functions.php";
 <!-- <tr><th>Occupation</th><td><?php //echo get_dropdown(7,'occupation',"","required");?></td></tr> -->
 
 <!-- <tr><th colspan="2"><input type="button" class=""  name="use_frst" data-id = "1" id="use_frst" style="margin-left:10%;" value="Add Ist Shift Users" onclick="user_fun('user_ist',this.id);"> <input type="button" class=""  data-id = "1" style="margin-left:10%;" name="use_secnd" id="use_secnd" value="Add Second Shift Users" onclick="user_fun('user_2nd',this.id);"></th></tr> -->
-<tr><th colspan="2"><input type="button" class=""  name="use_frst" data-id = "1" id="use_frst" style="margin-left:10%;" value="Add Users" onclick="user_fun('user_ist',this.id);"> </th></tr>
+<tr><th colspan="2"><input type="button" class="" name="use_frst" data-id="1" id="use_frst" style="margin-left:10%;" value="Add Users" onclick="user_fun('user_ist', this.id); user_fun('use_secnd', this.id);"></th></tr>
 <tr><th>Ist Shift User</th><td class="user_ist"> </td></tr>
-<tr><th>IInd Shift User</th><td class="use_secnd"> </td></tr>
+<tr><th>IInd Shift User</th><td class="user_ist"> </td></tr>
 	</table>
 	</form></div>
 <script>
 var counter =0;
-var currentShift = "user_ist";
 
 function user_fun(type,id){
 	var d = $("#"+id).attr("data-id");
@@ -41,7 +40,6 @@ function user_fun(type,id){
 			  	d++;
 			      $("."+type).append(data);  
 			     	$("#"+id).attr("data-id",d);
-					 currentShift = (currentShift === "user_ist") ? "use_secnd" : "user_ist";
 			  }
 			});
 	  		}
