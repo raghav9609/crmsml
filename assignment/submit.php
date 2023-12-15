@@ -7,11 +7,11 @@ $user_secnd = replace_special($_REQUEST['user_2nd']);
 $avail_secnd = replace_special($_REQUEST['user_2nd_flag']);
 
 // $arr = array('user_ist' => $user_first, 'user_2nd' => $user_secnd);
-if (!empty($selectedValue1)) {
+if (!empty($user_first)) {
     $firstuserValues[] = $user_first;
 }
 
-if (!empty($selectedValue2)) {
+if (!empty($user_secnd)) {
     $seconduserValues[] = $user_secnd;
 }
 print_r($firstuserValues);
