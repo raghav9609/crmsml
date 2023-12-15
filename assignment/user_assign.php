@@ -5,8 +5,8 @@ $loan_type = $_REQUEST['loan_type'];
 $type = replace_special($_REQUEST['type']);
 if($type === 'user_ist'){
 	$name = 'user_ist';
-} else if($type === 'user_2nd'){ 
-	$name = 'user_2nd';
+} else if($type === 'use_secnd'){ 
+	$name = 'use_secnd';
 } 
 ?>
 <select name="<?php echo $name;?>[]"><option value="">Select User Name</option>
