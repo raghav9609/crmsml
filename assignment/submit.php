@@ -3,7 +3,7 @@ require_once(dirname(__FILE__) . '/../helpers/common-helper.php');
 require_once(dirname(__FILE__) . '/../config/config.php');
 $user_first = replace_special($_REQUEST['user_ist']);
 $avail_first = replace_special($_REQUEST['user_ist_flag']);
-$user_secnd = replace_special($_REQUEST['user_2nd']);
+$user_secnd = replace_special($_REQUEST['use_secnd']);
 $avail_secnd = replace_special($_REQUEST['user_2nd_flag']);
 
 // $arr = array('user_ist' => $user_first, 'user_2nd' => $user_secnd);
