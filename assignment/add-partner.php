@@ -42,15 +42,7 @@ function user_fun(type,id){
 			     	$("#"+id).attr("data-id",d);
 			  }
 			});
-			$.ajax({
-                type: "GET",
-                data: "loan_type=" + loan_type + "&type=" + otherType,
-                url: "user_assign.php",
-                success: function (data) {
-                    $("." + otherType).append(data);
-                    $("#" + id).attr("data-id", d);
-                }
-            });
+			
 	  		}
 	  }  
 }
