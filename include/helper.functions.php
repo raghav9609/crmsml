@@ -91,4 +91,72 @@ if(!function_exists('get_name')){
 
     }
 }
+
+
+function data_search($key){
+    global $Conn1;
+    $result = array();
+    
+    SWITCH ($key){
+        case 'city':
+            $qry = "select * from crm_master_city order by city_name";
+            break;
+        case "follow_up_type":
+            $qry = "select follow_id,follow_status from tbl_follow_status order by follow_status";
+            break;
+        case "acq_mode":
+            $qry = "select acq_id,acq_name from tbl_acquistion_mode order by acq_name";
+            break;
+        case "state":
+            $qry = "Select id as state_id,state_name from crm_master_state order by state_name";
+            break;
+        case "query_status":
+            $qry = "Select qy_status_id,qy_status from tbl_query_status where display_flag = 1 order by sort_order";
+            break;
+        case "salary_method":
+            $qry = "Select paid_id,paid_type from tbl_salary_py_method";
+            break;
+         case "salutation":
+            $qry = "select salutn_id,salutn_name from tbl_saluation";
+            break;
+        case "residential_type":
+            $qry = "select rented_id,residential_name from tbl_residential_type";
+            break;
+        case "tool_type":
+            $qry = "select tool_type_name from lms_tool_type order by tool_type_name";
+            break;
+
+        case "mlc_user":
+            $qry = "select user_id,user_name from tbl_user_assign where status='1' order by user_name";
+            break;
+        case "company":
+            $qry = "Select comp_id,comp_name from pl_company order by comp_id";
+            break;
+        case "city_sub_group":
+            $qry = "select city_sub_group_id,city_sub_group_name from lms_city_sub_group order by city_sub_group_name";
+            break;
+        default:
+            $qry ="select master.id,master.value,code.value as code_value from crm_masters as master INNER JOIN     crm_masters_code as code ON master.crm_masters_code_id = code.id where crm_masters_code_id = ".$key." and master.is_active = 1";
+            break;
+    }
+        if($qry != '' && $Conn1){
+            $exec = mysqli_query($Conn1,$qry);
+            if(mysqli_num_rows($exec) > 0){
+                while($getresult = mysqli_fetch_assoc($exec)){
+                    $result[] = $getresult;
+                }
+                    // $mem_var->set($key,$result);
+            }
+        }
+     return $result;
+ }
+ function searchValue($valueSearch,$searchKey, $array) {
+    foreach ($array as $key => $val) {
+        if ($val[$searchKey] === $valueSearch) {
+            return $key;
+        }
+    }
+    return null;
+ }
+
 ?>
