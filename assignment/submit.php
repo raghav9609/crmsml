@@ -8,6 +8,7 @@ $avail_secnd = replace_special($_REQUEST['user_2nd_flag']);
 print_r($user_first);
 echo "----";
 print_r($user_secnd);
+exit();
 // $arr = array('user_ist' => $user_first, 'user_2nd' => $user_secnd);
 if (!empty($user_first)) {
     $firstuserValues[] = $user_first;
