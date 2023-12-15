@@ -39,6 +39,6 @@ foreach ($arr as $user => $val) {
 
 // header("location:https://astechnos.com/crmsml/assignment/index.php?msg=1");
 
-echo '<script>window.location.href = https://astechnos.com/crmsml/assignment/index.php?msg=1;</script>';
+echo '<script>window.location.href = "https://astechnos.com/crmsml/assignment/index.php?msg=1";</script>';
 exit();
 ?>
