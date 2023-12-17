@@ -47,7 +47,7 @@ if (!empty($user_secnd)) {
 
 foreach ($firstuserValues as $user_id) {
     print_r($user_id);
-    echo $user_id_get = $user_id[0]['user_id'];
+    echo $user_id_get = $user_id[0];
     exit();
     $qry_search = mysqli_query($Conn1, "SELECT * FROM crm_lead_assignment WHERE loan_type = '" . replace_special($_REQUEST['loan_type']) . "' AND min_loan_amount = '" . replace_special($_REQUEST['loan_frm']) . "' AND max_loan_amount = '" . replace_special($_REQUEST['loan_to']) . "' AND min_net_income = '" . replace_special($_REQUEST['salry_from']) . "' AND max_net_income = '" . replace_special($_REQUEST['salry_to']) . "' AND city_sub_group_id = '" . replace_special($_REQUEST['city_sub_group']) . "' AND shift1user_id = '" . $user_id . "'");
 
