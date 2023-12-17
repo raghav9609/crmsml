@@ -60,7 +60,9 @@ foreach ($firstuserValues as $user_id_array) {
 }
 }
 
-foreach ($seconduserValues as $user_id) {
+foreach ($seconduserValues as $user_id_array) {
+
+    foreach ($user_id_array as $user_id) {   
     $qry_search = mysqli_query($Conn1, "SELECT * FROM crm_lead_assignment WHERE loan_type = '" . replace_special($_REQUEST['loan_type']) . "' AND min_loan_amount = '" . replace_special($_REQUEST['loan_frm']) . "' AND max_loan_amount = '" . replace_special($_REQUEST['loan_to']) . "' AND min_net_income = '" . replace_special($_REQUEST['salry_from']) . "' AND max_net_income = '" . replace_special($_REQUEST['salry_to']) . "' AND city_sub_group_id = '" . replace_special($_REQUEST['city_sub_group']) . "' AND shift2_user_id = '" . $user_id . "'");
 
     $res_search = mysqli_num_rows($qry_search);
@@ -70,6 +72,7 @@ foreach ($seconduserValues as $user_id) {
 
         $filter = mysqli_insert_id($Conn1);
     }
+}
 }
 // header("location:https://astechnos.com/crmsml/assignment/index.php?msg=1");
 
