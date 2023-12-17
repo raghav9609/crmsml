@@ -45,19 +45,19 @@ if (!empty($user_secnd)) {
 // } 
 // 
 
-foreach ($firstuserValues as $user_id) {
-    // print_r($user_id);
-    $user_id_get = $user_id[0];
+foreach ($firstuserValues as $user_id_array) {
+    foreach ($user_id_array as $user_id) {    
     // exit();
-    $qry_search = mysqli_query($Conn1, "SELECT * FROM crm_lead_assignment WHERE loan_type = '" . replace_special($_REQUEST['loan_type']) . "' AND min_loan_amount = '" . replace_special($_REQUEST['loan_frm']) . "' AND max_loan_amount = '" . replace_special($_REQUEST['loan_to']) . "' AND min_net_income = '" . replace_special($_REQUEST['salry_from']) . "' AND max_net_income = '" . replace_special($_REQUEST['salry_to']) . "' AND city_sub_group_id = '" . replace_special($_REQUEST['city_sub_group']) . "' AND shift1user_id = '" . $user_id_get . "'");
+    $qry_search = mysqli_query($Conn1, "SELECT * FROM crm_lead_assignment WHERE loan_type = '" . replace_special($_REQUEST['loan_type']) . "' AND min_loan_amount = '" . replace_special($_REQUEST['loan_frm']) . "' AND max_loan_amount = '" . replace_special($_REQUEST['loan_to']) . "' AND min_net_income = '" . replace_special($_REQUEST['salry_from']) . "' AND max_net_income = '" . replace_special($_REQUEST['salry_to']) . "' AND city_sub_group_id = '" . replace_special($_REQUEST['city_sub_group']) . "' AND shift1user_id = '" . $user_id . "'");
 
     $res_search = mysqli_num_rows($qry_search);
 
     if ($res_search == 0) {
-        $qry_ins = mysqli_query($Conn1, "INSERT INTO crm_lead_assignment SET loan_type = '" . replace_special($_REQUEST['loan_type']) . "', min_loan_amount = '" . replace_special($_REQUEST['loan_frm']) . "', max_loan_amount = '" . replace_special($_REQUEST['loan_to']) . "', min_net_income = '" . replace_special($_REQUEST['salry_from']) . "', max_net_income = '" . replace_special($_REQUEST['salry_to']) . "', city_sub_group_id = '" . replace_special($_REQUEST['city_sub_group']) . "', shift1user_id = '" . $user_id_get . "', shift2_user_id = ''");
+        $qry_ins = mysqli_query($Conn1, "INSERT INTO crm_lead_assignment SET loan_type = '" . replace_special($_REQUEST['loan_type']) . "', min_loan_amount = '" . replace_special($_REQUEST['loan_frm']) . "', max_loan_amount = '" . replace_special($_REQUEST['loan_to']) . "', min_net_income = '" . replace_special($_REQUEST['salry_from']) . "', max_net_income = '" . replace_special($_REQUEST['salry_to']) . "', city_sub_group_id = '" . replace_special($_REQUEST['city_sub_group']) . "', shift1user_id = '" . $user_id . "', shift2_user_id = ''");
 
         $filter = mysqli_insert_id($Conn1);
     }
+}
 }
 
 foreach ($seconduserValues as $user_id) {
