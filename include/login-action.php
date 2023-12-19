@@ -26,22 +26,22 @@ if(requestMethod() != 'POST'){
                 $gettlloanList = array();
                 $getrmPartnerList = array();
                 if($user_data[0]['role_id'] == 2){
-                    $gettluserList = $db_handle->runQuery($get_user->gettlUserList($user_data[0]['id']);
-                    $gettlloanList = $db_handle->runQuery($get_user->gettlloanList($user_data[0]['id']);
+                    $gettluserList = $db_handle->runQuery($get_user->gettlUserList($user_data[0]['id']));
+                    $gettlloanList = $db_handle->runQuery($get_user->gettlloanList($user_data[0]['id']));
                 }else if ($user_data[0]['role_id'] == 4){
-                    $getrmPartnerList = $db_handle->runQuery($get_user->getrmPartnerList($user_data[0]['id'],currentDateTime24()));
+                    $getrmPartnerList = $db_handle->runQuery($get_user->getrmPartnerList($user_data[0]['id']));
                 }
                 session_start();
-
-
-
                 $_SESSION['userDetails'] = array(
                                                 "user_id"=>$user_data[0]['id'],
                                                 "user_name"=>$user_data[0]['name'],
                                                 "email"=>$user_data[0]['email_id'],
                                                 "contact_no"=>$user_data[0]['mobile_no'],
                                                 "role_id"=>$user_data[0]['role_id'],
-                                                "user_login_datetime"=>$user_data[0]['last_login_on']
+                                                "user_login_datetime"=>$user_data[0]['last_login_on'],
+                                                "tluserlist"=>$gettluserList,
+                                                "tlloanlist"=>$gettlloanList,
+                                                "rmpartnerlist"=>$getrmPartnerList
                                             );
                 $status = 'success';
                 $message = 'Details Fetch Successfully';
