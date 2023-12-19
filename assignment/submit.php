@@ -74,10 +74,10 @@ if (!empty($user_secnd)) {
 // }
 // }
 
-$first_user_id = !empty($firstuserValues[0]) ? $firstuserValues[0] : '';
+$first_user_ids = !empty($firstuserValues) ? implode(',', array_map('replace_special', $firstuserValues)) : '';
 
 // Get the second user ID from the array
-$second_user_id = !empty($seconduserValues[0]) ? $seconduserValues[0] : '';
+$second_user_ids = !empty($seconduserValues) ? implode(',', array_map('replace_special', $seconduserValues)) : '';
 print_r($first_user_id);
 echo "-----------";
 print_r($second_user_id);
@@ -97,15 +97,21 @@ $res_search = mysqli_fetch_assoc($qry_search);
 print_r($res_search);
 exit();
 if ($res_search) {
-    // Row already exists, update it
-    $qry_update = mysqli_query($Conn1, "
-        UPDATE crm_lead_assignment 
-        SET shift1user_id = '" . $first_user_id . "', 
-            shift2_user_id = '" . $second_user_id . "'
-        WHERE id = '" . $res_search['id'] . "'
-    ");
+    foreach ($firstuserValues as $first_user_id) {
+        $qry_update_shift1 = mysqli_query($Conn1, "
+            UPDATE crm_lead_assignment 
+            SET shift1_user_id = '" . replace_special($first_user_id) . "'
+            WHERE id = '" . $res_search['id'] . "'
+        ");
+    }
+    foreach ($seconduserValues as $second_user_id) {
+        $qry_update_shift2 = mysqli_query($Conn1, "
+            UPDATE crm_lead_assignment 
+            SET shift2_user_id = '" . replace_special($second_user_id) . "'
+            WHERE id = '" . $res_search['id'] . "'
+        ");
+    }
 } else {
-    // Row doesn't exist, insert a new one
     $qry_ins = mysqli_query($Conn1, "
         INSERT INTO crm_lead_assignment 
         SET loan_type = '" . replace_special($_REQUEST['loan_type']) . "', 
