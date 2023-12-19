@@ -406,14 +406,13 @@ echo $qry_ex;
  <form method = "post" name="frmmain" action ="mask_assign.php">
 <tr>
 <?php if($_SESSION['assign_access_lead'] == 1){?><th width="5%"><div><input type ="checkbox" name ="selectAll[]" id="selectAll">Select</div></th><?php } ?>
-<th width="10%">Case Number & Application No<br> Bank App No.</th>
+<th width="10%">Application No<br> Bank App No.</th>
 <th width="10%">Name & Mobile & City</th>
 <th width="10%">Loan amount & Loan Type</th>
 <th width="10%">Partner</th>
 <th width="10%">Bank Name</th>
 <th width="10%">Application Status</th>
-<?php if($user_role != 3) { ?><th width="10%">Case User</th><?php } ?>
-<?php if($user_role != 3) { ?><th width="10%">Application Created By</th><?php } ?>
+<th width="10%">Application Created By</th>
 <th width="10%">Action</th>
 <th width="6%">View</th>
 </tr>
@@ -428,7 +427,7 @@ while($exe = mysqli_fetch_array($res)){
 	if($record > 10){
 		continue;
 	}
-$case_id = $exe['case_id'];
+
 $app_id  = $exe['app_id'];
 $app_status_on  = $exe['app_status_on'];
 $pre_login_status  = $exe['pre_login_status'];
@@ -437,7 +436,7 @@ $cust_id = $exe['cust_id'];
 $loan_type = $exe['loan_type'];
 $loan_amount = ($exe['required_loan_amt'] > 0) ? custom_money_format($exe['required_loan_amt']) : "";
 $bank_app_no_on  = $exe['bank_app_no_on'];
-$disb_email_flag  = $exe['disb_email_flag'];
+
 $name_bank_on = $exe['bank_name'];
 $loan_name = (trim($exe['loan_type_name']) != "") ? "(".$exe['loan_type_name'].")" : "";
 $assign = $exe['user_name'];
@@ -569,9 +568,7 @@ if ($(this).not(":checked")) {
 
 <td>
     <?php
-    if(in_array($user_role, array(1, 2, 4, 5, 6))) {
-        echo "<span>".$rm_fup_date_on."</span>";
-    }
+
     echo "<span>".$final_pre_status_name.$final_app_status_name.$final_sub_status_name."</span>";
     if($auto_case_create == 1) {
         echo "<br><span class='fs-12'> (Auto)</span>" ; 
