@@ -247,7 +247,7 @@ $qry_ex = "SELECT app.application_status as pre_login_status, city.city_name as 
 // if(trim($bankers_name) != "") {
 //     $qry_ex .= " INNER JOIN banker_email_history on banker_email_history.case_id = c.case_id INNER JOIN banker_sms_history on banker_sms_history.case_id = c.case_id ";
 // }
-$qry_ex .= " where 1 and qry.loan_type IN ($tl_loan_type) and c.user_id = '".$user."'";
+$qry_ex .= " where 1 and qry.loan_type IN ($tl_loan_type) and qry.lead_assign_to = '".$user."'";
 
 if($customer_id_search != "") {
     $default = 1;
@@ -281,9 +281,9 @@ if($app_statussearch != ""){$default = 1;
 
 if($user_role == 2){
 	if($sme_city_sub_group != ''){
-		$qry_e .= " and (city.city_sub_group_id IN ($sme_city_sub_group) or c.user_id IN ($tl_member)) ";
+		$qry_e .= " and (city.city_sub_group_id IN ($sme_city_sub_group) or qry.lead_assign_to IN ($tl_member)) ";
 	}else if($tl_member !=''){
-		$qry_e .= " and c.user_id IN ($tl_member)";
+		$qry_e .= " and qry.lead_assign_to IN ($tl_member)";
 	}
 }
 
