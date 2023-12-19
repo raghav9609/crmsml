@@ -368,6 +368,8 @@ if($default != '1'){
     }
 $qry_ex .= " group by app.id order by app.created_on desc limit ".$offset.",".$max_offset;
 //echo $user == 173?$qry_ex:'';
+echo $qry_ex;
+
 ?>
 <fieldset><legend>Application Filter</legend>
 <form method="post" action="index.php" name="searchfrm" autocomplete="off">
