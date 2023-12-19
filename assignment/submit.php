@@ -67,6 +67,8 @@ foreach ($seconduserValues as $user_id_array) {
 
 
     $res_search = mysqli_num_rows($qry_search);
+    print_r($res_search);
+    exit();
     if (!empty($res_search)){
         echo "
         UPDATE crm_lead_assignment 
