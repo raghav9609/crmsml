@@ -74,10 +74,10 @@ if (!empty($user_secnd)) {
 // }
 // }
 
-$first_user_ids = !empty($firstuserValues) ? implode(',', array_map('replace_special', $firstuserValues)) : '';
+$first_user_ids = !empty($firstuserValues) ? implode(',', $firstuserValues) : '';
 
 // Get the second user ID from the array
-$second_user_ids = !empty($seconduserValues) ? implode(',', array_map('replace_special', $seconduserValues)) : '';
+$second_user_id = !empty($seconduserValues[0]) ? $seconduserValues[0] : '';
 print_r($first_user_id);
 echo "-----------";
 print_r($second_user_id);
