@@ -22,7 +22,19 @@ if(requestMethod() != 'POST'){
                 $login_history_insert = $get_user->loginHistory(array('crm_master_user_id','login_ip'),array($user_data[0]['id'],$_POST['deviceId']));
                 $db_handle->insertRows($login_history_insert);
                 $db_handle->updateRows($login_history_update);
+                $gettluserList = array();
+                $gettlloanList = array();
+                $getrmPartnerList = array();
+                if($user_data[0]['role_id'] == 2){
+                    $gettluserList = $db_handle->runQuery($get_user->gettlUserList($user_data[0]['id']);
+                    $gettlloanList = $db_handle->runQuery($get_user->gettlloanList($user_data[0]['id']);
+                }else if ($user_data[0]['role_id'] == 4){
+                    $getrmPartnerList = $db_handle->runQuery($get_user->getrmPartnerList($user_data[0]['id'],currentDateTime24()));
+                }
                 session_start();
+
+
+
                 $_SESSION['userDetails'] = array(
                                                 "user_id"=>$user_data[0]['id'],
                                                 "user_name"=>$user_data[0]['name'],
