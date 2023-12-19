@@ -68,12 +68,7 @@ foreach ($seconduserValues as $user_id_array) {
     // $res_search = mysqli_num_rows($qry_search);
 
     if (!empty($res_search)){
-        echo "
-        UPDATE crm_lead_assignment 
-        SET shift2_user_id = '" . $user_id . "'
-        WHERE id = '" . $res_search[0]['id'] . "'
-    ";
-    exit();
+        
         $qry_update = mysqli_query($Conn1, "
         UPDATE crm_lead_assignment 
         SET shift2_user_id = '" . $user_id . "'
