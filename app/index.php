@@ -9,6 +9,7 @@ if($_SESSION['one_lead_flag'] == 1  && $_SESSION['sme_flag'] != 1){
     header("/../../logout.php");
     die();
 } 
+echo "as";
 ?>
 <!DOCTYPE html>
 <html>
