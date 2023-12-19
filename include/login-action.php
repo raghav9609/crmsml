@@ -3,9 +3,7 @@ session_start();
 $no_head = 1;
 $btn_txt = '';
 $goto = '';
-
 require_once(dirname(__FILE__) . '/../helpers/common-helper.php');
-
 if(requestMethod() != 'POST'){ 
     $status = 'error';
     $message = 'Not on correct page !!!!!!!';
@@ -25,7 +23,6 @@ if(requestMethod() != 'POST'){
                 $db_handle->insertRows($login_history_insert);
                 $db_handle->updateRows($login_history_update);
                 session_start();
-                //session_regenerate_id();
                 $_SESSION['userDetails'] = array(
                                                 "user_id"=>$user_data[0]['id'],
                                                 "user_name"=>$user_data[0]['name'],
@@ -51,7 +48,5 @@ if(requestMethod() != 'POST'){
         $message = 'Enter a Valid UserName';
     }
 }
-//print_r($_SESSION);
 echo json_encode(array("status" => $status, "message" => $message, "step" => $step, "btn_text" => $btn_txt, "goto" => $goto));
-//session_write_close();
 ?>
