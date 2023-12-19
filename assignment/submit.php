@@ -78,7 +78,10 @@ $first_user_id = !empty($firstuserValues[0]) ? $firstuserValues[0] : '';
 
 // Get the second user ID from the array
 $second_user_id = !empty($seconduserValues[0]) ? $seconduserValues[0] : '';
-
+print_r($first_user_id);
+echo "-----------";
+print_r($second_user_id);
+exit();
 // Check if the row already exists
 $qry_search = mysqli_query($Conn1, "
     SELECT * FROM crm_lead_assignment 
@@ -91,7 +94,8 @@ $qry_search = mysqli_query($Conn1, "
 ");
 
 $res_search = mysqli_fetch_assoc($qry_search);
-
+print_r($res_search);
+exit();
 if ($res_search) {
     // Row already exists, update it
     $qry_update = mysqli_query($Conn1, "
