@@ -78,6 +78,9 @@ foreach ($seconduserValues as $user_id_array) {
     $res_search = $db_handle->runQuery("SELECT * FROM crm_lead_assignment WHERE loan_type = '" . replace_special($_REQUEST['loan_type']) . "' AND min_loan_amount = '" . replace_special($_REQUEST['loan_frm']) . "' AND max_loan_amount = '" . replace_special($_REQUEST['loan_to']) . "' AND min_net_income = '" . replace_special($_REQUEST['salry_from']) . "' AND max_net_income = '" . replace_special($_REQUEST['salry_to']) . "' AND city_sub_group_id = '" . replace_special($_REQUEST['city_sub_group']) . "' AND (shift1user_id != 0 OR shift1user_id = '" . $user_id . "')");
     if ($user_id == 5){
     print_r($res_search);
+    echo "UPDATE crm_lead_assignment 
+    SET shift2_user_id = '" . $user_id . "'
+    WHERE id = '" . $res_search[0]['id'] . "'";
     exit();}
     // $res_search = mysqli_num_rows($qry_search);
  
