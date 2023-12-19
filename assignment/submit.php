@@ -78,10 +78,12 @@ foreach ($seconduserValues as $user_id_array) {
         WHERE id = '" . $res_search[0]['id'] . "'
     ");
     }elseif ($res_search == 0) {
+        if (!empty($user_id)){   
         $qry_ins = mysqli_query($Conn1, "INSERT INTO crm_lead_assignment SET loan_type = '" . replace_special($_REQUEST['loan_type']) . "', min_loan_amount = '" . replace_special($_REQUEST['loan_frm']) . "', max_loan_amount = '" . replace_special($_REQUEST['loan_to']) . "', min_net_income = '" . replace_special($_REQUEST['salry_from']) . "', max_net_income = '" . replace_special($_REQUEST['salry_to']) . "', city_sub_group_id = '" . replace_special($_REQUEST['city_sub_group']) . "', shift1user_id = '', shift2_user_id = '" . $user_id . "'");
 
         $filter = mysqli_insert_id($Conn1);
     }
+}
 }
 }
 
