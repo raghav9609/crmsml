@@ -69,7 +69,7 @@ foreach ($firstuserValues as $user_id_array1) {
 }
 }
 }
-
+$index = 0;
 foreach ($seconduserValues as $user_id_array) {
     
     foreach ($user_id_array as $user_id) {   
@@ -80,7 +80,7 @@ foreach ($seconduserValues as $user_id_array) {
     print_r($res_search);
     echo "UPDATE crm_lead_assignment 
     SET shift2_user_id = '" . $user_id . "'
-    WHERE id = '" . $res_search[$user_id]['id'] . "'";
+    WHERE id = '" . $res_search[0]['id'] . "'";
     exit();}
     // $res_search = mysqli_num_rows($qry_search);
  
@@ -88,7 +88,7 @@ foreach ($seconduserValues as $user_id_array) {
         $qry_update = mysqli_query($Conn1, "
         UPDATE crm_lead_assignment 
         SET shift2_user_id = '" . $user_id . "'
-        WHERE id = '" . $res_search[0]['id'] . "'
+        WHERE id = '" . $res_search[$index]['id'] . "'
     ");
     }elseif ($res_search == 0) {
         if (!empty($user_id)){   
