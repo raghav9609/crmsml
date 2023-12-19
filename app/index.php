@@ -1,8 +1,10 @@
 <?php
+require_once(dirname(__FILE__) . "/../config/session.php");
 //$slave = 1;
-require_once "../../include/crm-header.php";
-require_once "../../include/dropdown.php";
-require_once "../../include/display-name-functions.php";
+require_once(dirname(__FILE__) . "/../config/config.php");
+require_once "../include/crm-header.php";
+require_once "../include/helper.functions.php";
+require_once "../include/display-name-functions.php";
 if($_SESSION['one_lead_flag'] == 1  && $_SESSION['sme_flag'] != 1){
     header("/../../logout.php");
     die();
@@ -486,7 +488,7 @@ $qry_ex .= " group by app.app_id order by app.date_created desc limit ".$offset.
 <form method="post" action="index.php" name="searchfrm" autocomplete="off">
 <input type="text" class="text-input" name="app_no" id="app_no" placeholder="Application No" value="<?php echo $app_no;?>" maxlength="20"/>
 <input type="text" class="text-input" name="case_no" id="case_no" placeholder="Case No" value="<?php echo $case_no;?>" maxlength="15"/>
-<input type="text" class="text-input" name="name_search" id="name_search" placeholder="Name" value="<?php echo name_title_case($name_search);?>" maxlength="30"/>
+<input type="text" class="text-input" name="name_search" id="name_search" placeholder="Name" value="<?php echo ($name_search);?>" maxlength="30"/>
 <?php if($user_role != 2){ ?><input type="text" class="text-input" name="phone" id="phone" placeholder="Phone No" value="<?php echo $phone;?>" maxlength="10"/><?php } ?>
 <input type="text" class="text-input" name="from_loan_amount" id="from_loan_amount" placeholder="From Loan Amount" value="<?php echo $from_loan_amount;?>" maxlength="10"/>
 <input type="text" class="text-input" name="to_loan_amount" id="to_loan_amount" placeholder="To Loan Amount" value="<?php echo $to_loan_amount;?>" maxlength="10"/>
