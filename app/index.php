@@ -1,6 +1,6 @@
 <?php
 echo "as";
-require_once(dirname(__FILE__) . "/../config/session.php");
+//require_once(dirname(__FILE__) . "/../config/session.php");
 require_once(dirname(__FILE__) . "/../config/config.php");
 require_once "../include/crm-header.php";
 require_once "../include/helper.functions.php";
