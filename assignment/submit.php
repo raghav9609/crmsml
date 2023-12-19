@@ -45,34 +45,75 @@ if (!empty($user_secnd)) {
 // } 
 // 
 
-foreach ($firstuserValues as $user_id_array) {
-    foreach ($user_id_array as $user_id) {    
-    // exit();
-    $qry_search = mysqli_query($Conn1, "SELECT * FROM crm_lead_assignment WHERE loan_type = '" . replace_special($_REQUEST['loan_type']) . "' AND min_loan_amount = '" . replace_special($_REQUEST['loan_frm']) . "' AND max_loan_amount = '" . replace_special($_REQUEST['loan_to']) . "' AND min_net_income = '" . replace_special($_REQUEST['salry_from']) . "' AND max_net_income = '" . replace_special($_REQUEST['salry_to']) . "' AND city_sub_group_id = '" . replace_special($_REQUEST['city_sub_group']) . "' AND shift1user_id = '" . $user_id . "'");
+// foreach ($firstuserValues as $user_id_array) {
+//     foreach ($user_id_array as $user_id) {    
+//     $qry_search = mysqli_query($Conn1, "SELECT * FROM crm_lead_assignment WHERE loan_type = '" . replace_special($_REQUEST['loan_type']) . "' AND min_loan_amount = '" . replace_special($_REQUEST['loan_frm']) . "' AND max_loan_amount = '" . replace_special($_REQUEST['loan_to']) . "' AND min_net_income = '" . replace_special($_REQUEST['salry_from']) . "' AND max_net_income = '" . replace_special($_REQUEST['salry_to']) . "' AND city_sub_group_id = '" . replace_special($_REQUEST['city_sub_group']) . "' AND shift1user_id = '" . $user_id . "'");
 
-    $res_search = mysqli_num_rows($qry_search);
+//     $res_search = mysqli_num_rows($qry_search);
 
-    if ($res_search == 0) {
-        $qry_ins = mysqli_query($Conn1, "INSERT INTO crm_lead_assignment SET loan_type = '" . replace_special($_REQUEST['loan_type']) . "', min_loan_amount = '" . replace_special($_REQUEST['loan_frm']) . "', max_loan_amount = '" . replace_special($_REQUEST['loan_to']) . "', min_net_income = '" . replace_special($_REQUEST['salry_from']) . "', max_net_income = '" . replace_special($_REQUEST['salry_to']) . "', city_sub_group_id = '" . replace_special($_REQUEST['city_sub_group']) . "', shift1user_id = '" . $user_id . "', shift2_user_id = '' ON DUPLICATE KEY UPDATE shift2user_id = '" . $user_id . "'");
+//     if ($res_search == 0) {
+//         $qry_ins = mysqli_query($Conn1, "INSERT INTO crm_lead_assignment SET loan_type = '" . replace_special($_REQUEST['loan_type']) . "', min_loan_amount = '" . replace_special($_REQUEST['loan_frm']) . "', max_loan_amount = '" . replace_special($_REQUEST['loan_to']) . "', min_net_income = '" . replace_special($_REQUEST['salry_from']) . "', max_net_income = '" . replace_special($_REQUEST['salry_to']) . "', city_sub_group_id = '" . replace_special($_REQUEST['city_sub_group']) . "', shift1user_id = '" . $user_id . "', shift2_user_id = ''");
 
-        $filter = mysqli_insert_id($Conn1);
-    }
-}
-}
+//         $filter = mysqli_insert_id($Conn1);
+//     }
+// }
+// }
 
-foreach ($seconduserValues as $user_id_array) {
+// foreach ($seconduserValues as $user_id_array) {
 
-    foreach ($user_id_array as $user_id) {   
-    $qry_search = mysqli_query($Conn1, "SELECT * FROM crm_lead_assignment WHERE loan_type = '" . replace_special($_REQUEST['loan_type']) . "' AND min_loan_amount = '" . replace_special($_REQUEST['loan_frm']) . "' AND max_loan_amount = '" . replace_special($_REQUEST['loan_to']) . "' AND min_net_income = '" . replace_special($_REQUEST['salry_from']) . "' AND max_net_income = '" . replace_special($_REQUEST['salry_to']) . "' AND city_sub_group_id = '" . replace_special($_REQUEST['city_sub_group']) . "' AND shift1_user_id = '" . $user_id . "'");
+//     foreach ($user_id_array as $user_id) {   
+//     $qry_search = mysqli_query($Conn1, "SELECT * FROM crm_lead_assignment WHERE loan_type = '" . replace_special($_REQUEST['loan_type']) . "' AND min_loan_amount = '" . replace_special($_REQUEST['loan_frm']) . "' AND max_loan_amount = '" . replace_special($_REQUEST['loan_to']) . "' AND min_net_income = '" . replace_special($_REQUEST['salry_from']) . "' AND max_net_income = '" . replace_special($_REQUEST['salry_to']) . "' AND city_sub_group_id = '" . replace_special($_REQUEST['city_sub_group']) . "' AND shift2_user_id = '" . $user_id . "'");
 
-    $res_search = mysqli_num_rows($qry_search);
+//     $res_search = mysqli_num_rows($qry_search);
 
-    if ($res_search == 0) {
-        $qry_ins = mysqli_query($Conn1, "INSERT INTO crm_lead_assignment SET loan_type = '" . replace_special($_REQUEST['loan_type']) . "', min_loan_amount = '" . replace_special($_REQUEST['loan_frm']) . "', max_loan_amount = '" . replace_special($_REQUEST['loan_to']) . "', min_net_income = '" . replace_special($_REQUEST['salry_from']) . "', max_net_income = '" . replace_special($_REQUEST['salry_to']) . "', city_sub_group_id = '" . replace_special($_REQUEST['city_sub_group']) . "', shift1user_id = '', shift2_user_id = '" . $user_id . " ON DUPLICATE KEY UPDATE shift2_user_id = '" . $user_id . "'");
+//     if ($res_search == 0) {
+//         $qry_ins = mysqli_query($Conn1, "INSERT INTO crm_lead_assignment SET loan_type = '" . replace_special($_REQUEST['loan_type']) . "', min_loan_amount = '" . replace_special($_REQUEST['loan_frm']) . "', max_loan_amount = '" . replace_special($_REQUEST['loan_to']) . "', min_net_income = '" . replace_special($_REQUEST['salry_from']) . "', max_net_income = '" . replace_special($_REQUEST['salry_to']) . "', city_sub_group_id = '" . replace_special($_REQUEST['city_sub_group']) . "', shift1user_id = '', shift2_user_id = '" . $user_id . "'");
 
-        $filter = mysqli_insert_id($Conn1);
-    }
-}
+//         $filter = mysqli_insert_id($Conn1);
+//     }
+// }
+// }
+
+$first_user_id = !empty($firstuserValues[0]) ? $firstuserValues[0] : '';
+
+// Get the second user ID from the array
+$second_user_id = !empty($seconduserValues[0]) ? $seconduserValues[0] : '';
+
+// Check if the row already exists
+$qry_search = mysqli_query($Conn1, "
+    SELECT * FROM crm_lead_assignment 
+    WHERE loan_type = '" . replace_special($_REQUEST['loan_type']) . "' 
+    AND min_loan_amount = '" . replace_special($_REQUEST['loan_frm']) . "' 
+    AND max_loan_amount = '" . replace_special($_REQUEST['loan_to']) . "' 
+    AND min_net_income = '" . replace_special($_REQUEST['salry_from']) . "' 
+    AND max_net_income = '" . replace_special($_REQUEST['salry_to']) . "' 
+    AND city_sub_group_id = '" . replace_special($_REQUEST['city_sub_group']) . "'
+");
+
+$res_search = mysqli_fetch_assoc($qry_search);
+
+if ($res_search) {
+    // Row already exists, update it
+    $qry_update = mysqli_query($Conn1, "
+        UPDATE crm_lead_assignment 
+        SET shift1user_id = '" . $first_user_id . "', 
+            shift2_user_id = '" . $second_user_id . "'
+        WHERE id = '" . $res_search['id'] . "'
+    ");
+} else {
+    // Row doesn't exist, insert a new one
+    $qry_ins = mysqli_query($Conn1, "
+        INSERT INTO crm_lead_assignment 
+        SET loan_type = '" . replace_special($_REQUEST['loan_type']) . "', 
+            min_loan_amount = '" . replace_special($_REQUEST['loan_frm']) . "', 
+            max_loan_amount = '" . replace_special($_REQUEST['loan_to']) . "', 
+            min_net_income = '" . replace_special($_REQUEST['salry_from']) . "', 
+            max_net_income = '" . replace_special($_REQUEST['salry_to']) . "', 
+            city_sub_group_id = '" . replace_special($_REQUEST['city_sub_group']) . "', 
+            shift1user_id = '" . $first_user_id . "', 
+            shift2_user_id = '" . $second_user_id . "'
+    ");
+    $filter = mysqli_insert_id($Conn1);
 }
 // header("location:https://astechnos.com/crmsml/assignment/index.php?msg=1");
 
