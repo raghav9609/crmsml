@@ -1,15 +1,14 @@
 <?php
 require_once(dirname(__FILE__) . "/../config/session.php");
-//$slave = 1;
 require_once(dirname(__FILE__) . "/../config/config.php");
 require_once "../include/crm-header.php";
 require_once "../include/helper.functions.php";
 require_once "../include/display-name-functions.php";
+echo "as";
 if($_SESSION['one_lead_flag'] == 1  && $_SESSION['sme_flag'] != 1){
     header("/../../logout.php");
     die();
 } 
-echo "as";
 ?>
 <!DOCTYPE html>
 <html>
