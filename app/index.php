@@ -483,12 +483,12 @@ $qry_ex .= " group by app.app_id order by app.date_created desc limit ".$offset.
 <!-- <input type="text" class="text-input" name="crm_id_num" id="crm_id_num" placeholder="Bank CRM ID" value="<?php echo $crm_id_num;?>"/> -->
 <input type="text" class="text-input" name="date_from" id="date_from" placeholder="Date From" value="<?php echo $date_from;?>" maxlength="10" readonly="readonly"/>
 <input type="text" class="text-input" name="date_to" id="date_to" placeholder="Date To" value="<?php echo $date_to;?>" maxlength="10" readonly="readonly"/>
-<?php echo get_dropdown('loan_type','loan_type',$search,'');
- echo get_dropdown('app_user', 'app_u_assign', $app_u_assign, '');
+<?php echo get_dropdown(1,'loan_type',$search,'');
+ echo get_dropdown('user', 'app_u_assign', $app_u_assign, '');
 
-	echo get_dropdown('bank_name_','banksearch',$banksearch,'');
+	echo get_dropdown(13,'banksearch',$banksearch,'');
 
-    echo get_dropdown('pre_login', 'pre_status', $pre_statussearch, ''); ?>
+    //echo get_dropdown('pre_login', 'pre_status', $pre_statussearch, ''); ?>
 <input type="text" class="text-input" name="customer_id_search" id="customer_id_search" placeholder="Customer ID" maxlength="30" value="<?php echo $customer_id_search;?>"/>
 <input type="text" class="text-input" name="masked_phone" id="masked_phone" placeholder="Masked Phone No." value="<?php echo $masked_phone ;?>" maxlength="10"/>
 <input type="text" class="text-input alpha-num-hyphen" name="bank_app_no" id="bank_app_no" placeholder="Bank Application No." value="<?php echo $bank_app_no; ?>" maxlength="20"/>
