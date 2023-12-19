@@ -242,12 +242,12 @@ $sub_source = replace_special($_REQUEST['sub_source']);
 $insurance = replace_special($_REQUEST['insurance']);
 $promo = replace_special($_REQUEST['promocode']);
 $ref_phone = replace_special($_REQUEST['ref_phone']);
-$qry_ex = "SELECT app.application_status as pre_login_status, city.city_name as city_name, cust.phone_no as phone, cust.name as name, app.id as app_id, cust.id as cust_id, user.name as user_name, qry.loan_type as loan_type,qry.loan_amount as required_loan_amt, app.login_date_on as login_date_on, app.sanction_date_on as sanction_date_on, app.first_disb_date_on as first_disb_date_on, app.follow_up_date AS fup_date_on from crm_query_application as app JOIN crm_query as qry ON app.crm_query_id = qry.id Inner JOIN crm_customer as cust ON qry.crm_customer_id = cust.id left join crm_master_user as user on qry.lead_assign_to = user.id left join crm_master_city as city on cust.city_id = city.id ";
+$qry_ex = "SELECT app.application_status as pre_login_status, city.city_name as city_name, cust.phone_no as phone, cust.name as name, app.id as app_id, cust.id as cust_id, user.name as user_name, qry.loan_type_id as loan_type,qry.loan_amount as required_loan_amt, app.login_date_on as login_date_on, app.sanction_date_on as sanction_date_on, app.first_disb_date_on as first_disb_date_on, app.follow_up_date AS fup_date_on from crm_query_application as app JOIN crm_query as qry ON app.crm_query_id = qry.id Inner JOIN crm_customer as cust ON qry.crm_customer_id = cust.id left join crm_master_user as user on qry.lead_assign_to = user.id left join crm_master_city as city on cust.city_id = city.id ";
 
 // if(trim($bankers_name) != "") {
 //     $qry_ex .= " INNER JOIN banker_email_history on banker_email_history.case_id = c.case_id INNER JOIN banker_sms_history on banker_sms_history.case_id = c.case_id ";
 // }
-$qry_ex .= " where 1 and qry.loan_type IN ($tl_loan_type) and qry.lead_assign_to = '".$user."'";
+$qry_ex .= " where 1 and qry.lead_assign_to = '".$user."'";
 
 if($customer_id_search != "") {
     $default = 1;
@@ -310,7 +310,7 @@ if($fup_user_type != "" && $fup_date_to == "" && $fup_date_from == "") {
 }
 
 if($search != ""){$default = 1;
-    $qry_ex .= " and qry.loan_type = '".$search."'";
+    $qry_ex .= " and qry.loan_type_id = '".$search."'";
 }if($from_loan_amount != "" && $to_loan_amount != ""){
     $default = 1;
     if($app_statussearch == 28 ){
