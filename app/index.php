@@ -17,9 +17,9 @@ if($_SESSION['one_lead_flag'] == 1  && $_SESSION['sme_flag'] != 1){
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="../../include/css/jquery-ui.css" />
- <script type="text/javascript" src="../../include/js/jquery-1.10.2.js"></script>
-<script type="text/javascript" src="../../include/js/jquery-ui.js"></script>
+<link rel="stylesheet" type="text/css" href="../assets/css/jquery-ui.css" />
+ <script type="text/javascript" src="../assets/js/jquery-1.10.2.js"></script>
+<script type="text/javascript" src="../assets/js/jquery-ui.js"></script>
  <script>
 $(function() {
 jQuery('#date_from').datepicker({
@@ -64,12 +64,12 @@ changeMonth: true,
            $("#query_search").hide();
 });
 $("#city_type").autocomplete({
-		source: "../../include/city_name.php",
+		source: "../include/city_name.php",
 		minLength: 2
 	});
 
     $("#bankers_name").autocomplete({
-		source: "../../include/bankers_name.php",
+		source: "../include/bankers_name.php",
 		minLength: 2
 	});
 
@@ -83,23 +83,7 @@ $("#city_type").autocomplete({
 function resetform() {
 window.location.href = "index.php";
 }
-function opn_subsource(){
-var camp_val = $("#source_compign").val();
-if(camp_val != '' ){
-    var sub_src = '<?php echo $sub_source;?>';
-    var ins = '<?php echo $insurance;?>';
-    var promo = '<?php echo $promo;?>';
-    var ref_phone = '<?php echo $ref_phone;?>';
-    $.ajax({
-    	data: "camp="+camp_val+"&sub_src="+sub_src+"&ins="+ins+"&promo="+promo+"&ref_phone="+ref_phone,
-    	type:"POST",
-    	url:"<?php echo $head_url;?>/include/sub_source.php",
-    	success: function(data){
-    		$("#sub").html(data);
-    	}
-    })
-}
-}
+
 
 function new_qs_change(e, sub_lvl) {
     var level_id = 3;
@@ -491,112 +475,31 @@ $qry_ex .= " group by app.app_id order by app.date_created desc limit ".$offset.
 <fieldset><legend>Application Filter</legend>
 <form method="post" action="index.php" name="searchfrm" autocomplete="off">
 <input type="text" class="text-input" name="app_no" id="app_no" placeholder="Application No" value="<?php echo $app_no;?>" maxlength="20"/>
-<input type="text" class="text-input" name="case_no" id="case_no" placeholder="Case No" value="<?php echo $case_no;?>" maxlength="15"/>
 <input type="text" class="text-input" name="name_search" id="name_search" placeholder="Name" value="<?php echo ($name_search);?>" maxlength="30"/>
 <?php if($user_role != 2){ ?><input type="text" class="text-input" name="phone" id="phone" placeholder="Phone No" value="<?php echo $phone;?>" maxlength="10"/><?php } ?>
 <input type="text" class="text-input" name="from_loan_amount" id="from_loan_amount" placeholder="From Loan Amount" value="<?php echo $from_loan_amount;?>" maxlength="10"/>
 <input type="text" class="text-input" name="to_loan_amount" id="to_loan_amount" placeholder="To Loan Amount" value="<?php echo $to_loan_amount;?>" maxlength="10"/>
 <?php echo get_textbox('city_type',$city_type,'placeholder ="City Name (Enter few words)"'); ?>
-<input type="text" class="text-input" name="crm_id_num" id="crm_id_num" placeholder="Bank CRM ID" value="<?php echo $crm_id_num;?>"/>
+<!-- <input type="text" class="text-input" name="crm_id_num" id="crm_id_num" placeholder="Bank CRM ID" value="<?php echo $crm_id_num;?>"/> -->
 <input type="text" class="text-input" name="date_from" id="date_from" placeholder="Date From" value="<?php echo $date_from;?>" maxlength="10" readonly="readonly"/>
 <input type="text" class="text-input" name="date_to" id="date_to" placeholder="Date To" value="<?php echo $date_to;?>" maxlength="10" readonly="readonly"/>
 <?php echo get_dropdown('loan_type','loan_type',$search,'');
-if($user_role != 3) {  
-    echo get_dropdown('case_user', 'case_u_assign', $case_u_assign, '');
-    echo get_dropdown('app_user', 'app_u_assign', $app_u_assign, '');
-}
-echo get_dropdown('app_pat_list','patnersearch',$patnersearch,'');
-if($user_role != 6){
+ echo get_dropdown('app_user', 'app_u_assign', $app_u_assign, '');
+
 	echo get_dropdown('bank_name_','banksearch',$banksearch,'');
-}else{ ?>
-	<td><select name="banksearch" id="banksearch">
-                    <option value="">Select Bank</option>
-                <?php $bnk_cnt=0;foreach($bank_rm_id as $bnk){ ?>
-                    <option value="<?php echo $bnk;?>"<?php if( $bnk == $banksearch){?>selected="selected"<?php }?>><?php echo  $bank_rm_name[$bnk_cnt];?></option>
-                    <?php $bnk_cnt++; }?>
-                  </select></td>
-<?php }
-// if(in_array($user, $user_new_status) || in_array($loan_type,$loan_type_new_status) || new_staus_user_level == 1 || new_staus_loan_type_level == 1) {
-// if($user == 173) {
-    echo get_dropdown('pre_login', 'pre_status', $pre_statussearch, '');
-    echo get_dropdown('post_login', 'app_statussearch', $app_statussearch, '');
-    echo get_dropdown('app_new_status', 'app_new_status', $app_new_status, 'onchange="new_qs_change(this, 1);"');
-    if($app_new_status != "") {
-        $get_status_query   = mysqli_query($Conn1, "SELECT status_id, description FROM status_master WHERE level_id = 3 AND parent_id = $app_new_status AND is_active_for_filter = 1 ");
-        if(mysqli_num_rows($get_status_query) > 0) {
-            ?>
-            <select name='sub_status' id='sub_status' onchange="new_qs_change(this, 2);">
-                <option value="">Select Sub Status</option>
-            <?php
-            while($get_status_res = mysqli_fetch_array($get_status_query)) {
-                $selected = ($get_status_res['status_id'] == $sub_status) ? "selected" : "";
-            ?>
-                <option value="<?php echo $get_status_res['status_id']; ?>" <?php echo $selected; ?> ><?php echo $get_status_res['description']; ?></option>    
-            <?php
-            }
-            ?>
-            </select>
-            <?php
-        }
 
-        if($sub_status != "") {
-            $get_status_query   = mysqli_query($Conn1, "SELECT status_id, description FROM status_master WHERE level_id = 3 AND parent_id = $sub_status AND is_active_for_filter = 1 ");
-            if(mysqli_num_rows($get_status_query) > 0) {
-                ?>
-                <select name='sub_sub_status' id='sub_sub_status'>
-                    <option value="">Select Sub Sub Status</option>
-                <?php
-                while($get_status_res = mysqli_fetch_array($get_status_query)) {
-                    $selected = ($get_status_res['status_id'] == $sub_sub_status) ? "selected" : "";
-                ?>
-                    <option value="<?php echo $get_status_res['status_id']; ?>" <?php echo $selected; ?> ><?php echo $get_status_res['description']; ?></option>    
-                <?php
-                }
-                ?>
-                </select>
-                <?php
-            }
-        } 
-    }
-// } else {
-//     echo get_dropdown('pre_login','pre_status',$pre_statussearch,'');
-//     echo get_dropdown('post_login','app_statussearch',$app_statussearch,'');
-// }
-
-if($user_role == 6 || $user_role == 1) {
-    echo get_dropdown('loan_nature', 'loan_nature', $loan_nature, '');
-}
-
- if($user_role == '1' || $user_role == '4'){?>
-<select name="source_compign" id="source_compign" onchange="opn_subsource();"><option value="">Campaign Source</option>
-<?php $qry_camp = mysqli_query($Conn1,"select * from campaign");
-while($res_camp = mysqli_fetch_array($qry_camp)){?>
-<option value="<?php echo $res_camp['campaign_val'];?>" <?php if($res_camp['campaign_val'] == $source_compign){?>selected <?php } ?>><?php echo $res_camp['campaign_name'];?></option>
-<?php } ?>
-</select>
-<span id="sub"></span>	<?php } ?>
-<?php echo get_textbox('bankers_name', $bankers_name, 'placeholder ="Bankers Name (Enter few words)"'); ?>
+    echo get_dropdown('pre_login', 'pre_status', $pre_statussearch, ''); ?>
 <input type="text" class="text-input" name="customer_id_search" id="customer_id_search" placeholder="Customer ID" maxlength="30" value="<?php echo $customer_id_search;?>"/>
 <input type="text" class="text-input" name="masked_phone" id="masked_phone" placeholder="Masked Phone No." value="<?php echo $masked_phone ;?>" maxlength="10"/>
 <input type="text" class="text-input alpha-num-hyphen" name="bank_app_no" id="bank_app_no" placeholder="Bank Application No." value="<?php echo $bank_app_no; ?>" maxlength="20"/>
 <input type="text" class="text-input" name="email_search" id="email_search" placeholder="Customer Email" value="<?php echo $email_search;?>" maxlength="100" autocomplete="null"/>
 <?php echo get_dropdown('city_sub_group', 'city_sub_group', $city_sub_group, ''); ?>
 
-<?php echo get_dropdown('refarming_user', 'refarming_user_id', $refarming_user_id, ''); ?>
 
-<?php if(in_array($user_role, array(1, 2, 4, 5, 6))) { ?>
-
-    <select name="fup_user_type" id="fup_user_type">
-        <option value="">--Select Followup For--</option>
-        <option value="1" <?php echo ($fup_user_type == 1) ? "selected" : ""; ?> >Followup for RM</option>
-        <option value="2" <?php echo ($fup_user_type == 2) ? "selected" : ""; ?> >Followup for User</option>
-    </select>
 
     <input type="text" class="text-input" name="fup_date_from" id="fup_date_from" placeholder="FUP Date From" value="<?php echo $fup_date_from; ?>" maxlength="10" readonly="readonly"/>
     <input type="text" class="text-input" name="fup_date_to" id="fup_date_to" placeholder="FUP Date To" value="<?php echo $fup_date_to; ?>" maxlength="10" readonly="readonly"/>
-
-<?php } ?>
-
+    
 <input class="cursor" type="submit" name="searchsubmit" value="Filter">
 <input class="cursor" type="button" onclick="resetform()" value="Clear">
 </td></tr></table>
