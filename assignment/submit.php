@@ -80,7 +80,7 @@ foreach ($seconduserValues as $user_id_array) {
     print_r($res_search);
     echo "UPDATE crm_lead_assignment 
     SET shift2_user_id = '" . $user_id . "'
-    WHERE id = '" . $res_search[0]['id'] . "'";
+    WHERE id = '" . $res_search[$user_id]['id'] . "'";
     exit();}
     // $res_search = mysqli_num_rows($qry_search);
  
