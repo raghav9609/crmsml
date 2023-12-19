@@ -44,6 +44,8 @@ if (!empty($user_secnd)) {
 //     }
 // } 
 // 
+print_r($user_id_array);
+exit();
 
 foreach ($firstuserValues as $user_id_array) {
     if (!empty($user_id_array)){
