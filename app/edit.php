@@ -1438,7 +1438,7 @@ include("../include/footer_close.php"); ?>
     //     }
     // }
 
-    sub_emp_type();
+    // sub_emp_type();
     occup_sal(<?php echo $occup;?>);
 
     function loan_select() {
