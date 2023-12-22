@@ -445,53 +445,53 @@ $name_bank_on = $exe['bank_name'];
 $loan_name = (trim($exe['loan_type_name']) != "") ? "(".$exe['loan_type_name'].")" : "";
 $assign = $exe['user_name'];
 $partner_name = $exe['partner_name'];
-$name_app_statuson = get_display_name('post_login',$app_status_on);
-if($name_app_statuson == ''){
-  $name_app_statuson = get_display_name('snew_status_name',$app_status_on);  
-}
-$name_pre_statuson = get_display_name('pre_login',$pre_login_status);
-if($name_pre_statuson == ''){
-  $name_pre_statuson = get_display_name('snew_status_name',$pre_login_status);  
-}
-if($sub_sub_status > 0){
-  $sub_status_name = get_display_name('snew_status_name',$sub_sub_status);  
-}
+// $name_app_statuson = get_display_name('post_login',$app_status_on);
+// if($name_app_statuson == ''){
+//   $name_app_statuson = get_display_name('snew_status_name',$app_status_on);  
+// }
+// $name_pre_statuson = get_display_name('pre_login',$pre_login_status);
+// if($name_pre_statuson == ''){
+//   $name_pre_statuson = get_display_name('snew_status_name',$pre_login_status);  
+// }
+// if($sub_sub_status > 0){
+//   $sub_status_name = get_display_name('snew_status_name',$sub_sub_status);  
+// }
 
-$final_pre_status_name = (trim($name_pre_statuson) == '') ?'' : $name_pre_statuson;
-$final_app_status_name = (trim($name_app_statuson) == '') ?'' : "/ ".$name_app_statuson;
-$final_sub_status_name = (trim($sub_status_name) == '') ?'' : "/ ".$sub_status_name;
+// $final_pre_status_name = (trim($name_pre_statuson) == '') ?'' : $name_pre_statuson;
+// $final_app_status_name = (trim($name_app_statuson) == '') ?'' : "/ ".$name_app_statuson;
+// $final_sub_status_name = (trim($sub_status_name) == '') ?'' : "/ ".$sub_status_name;
 
-$app_other_status = trim($exe['other_status'], ',');
-if(in_array($app_new_status, array(1013, 1014))) {
-    if($sub_status != "") {
-        $other_status_query = " SELECT group_concat(' ', description) AS new_status FROM status_master WHERE status_id IN ($app_other_status) AND is_active_for_filter = 1 ";
-        $other_status_exe       = mysqli_query($Conn1, $other_status_query);
-        $other_status_res       = mysqli_fetch_array($other_status_exe);
-        $final_pre_status_name  = $final_pre_status_name.", ".$other_status_res['new_status'];
-    }
-}
+// $app_other_status = trim($exe['other_status'], ',');
+// if(in_array($app_new_status, array(1013, 1014))) {
+//     if($sub_status != "") {
+//         $other_status_query = " SELECT group_concat(' ', description) AS new_status FROM status_master WHERE status_id IN ($app_other_status) AND is_active_for_filter = 1 ";
+//         $other_status_exe       = mysqli_query($Conn1, $other_status_query);
+//         $other_status_res       = mysqli_fetch_array($other_status_exe);
+//         $final_pre_status_name  = $final_pre_status_name.", ".$other_status_res['new_status'];
+//     }
+// }
 
-$auto_case_create = $exe['auto_case_create'];
-$name = $exe['name'];
-$phone_no = $exe['phone'];
-$app_user_name        = $exe['app_user_name'];
+// $auto_case_create = $exe['auto_case_create'];
+// $name = $exe['name'];
+// $phone_no = $exe['phone'];
+// $app_user_name        = $exe['app_user_name'];
 
-$fup_date_on = "";
-$rm_fup_date_on = "";
-if($exe['fup_date_on'] != "" && $exe['fup_date_on'] != "1970-01-01" && $exe['fup_date_on'] != "0000-00-00") {
-    $fup_date_on = date("d-m-Y", strtotime($exe['fup_date_on']));
-}
+// $fup_date_on = "";
+// $rm_fup_date_on = "";
+// if($exe['fup_date_on'] != "" && $exe['fup_date_on'] != "1970-01-01" && $exe['fup_date_on'] != "0000-00-00") {
+//     $fup_date_on = date("d-m-Y", strtotime($exe['fup_date_on']));
+// }
 
-if($exe['rm_fup_date_on'] != "" && $exe['rm_fup_date_on'] != "1970-01-01" && $exe['rm_fup_date_on'] != "0000-00-00") {
-    $rm_fup_date_on = date("d-m-Y", strtotime($exe['rm_fup_date_on']))." <b>(FUP - RM)</b><br>";
-}
+// if($exe['rm_fup_date_on'] != "" && $exe['rm_fup_date_on'] != "1970-01-01" && $exe['rm_fup_date_on'] != "0000-00-00") {
+//     $rm_fup_date_on = date("d-m-Y", strtotime($exe['rm_fup_date_on']))." <b>(FUP - RM)</b><br>";
+// }
 
-if($user_role != '1'){
-    $echo_number = substr_replace($phone_no,'XXX',4,3);
-    // $echo_number = "";
-} else {
-   $echo_number =  $phone_no;
-}
+// if($user_role != '1'){
+//     $echo_number = substr_replace($phone_no,'XXX',4,3);
+//     // $echo_number = "";
+// } else {
+//    $echo_number =  $phone_no;
+// }
 
 $city_name = (trim($exe['city_name']) != "") ? "(".$exe['city_name'].")" : "";
 $bank_crm_lead_on  = $exe['bank_crm_lead_on'];
@@ -501,14 +501,14 @@ $app_bank_on  = $exe['app_bank_on'];
 
 $app_partner_on = $exe['partner_on'];
 $digital_verification = "";
-if($app_bank_on == 18 && $loan_type == 56) {
-    $digital_otp_verification = "";
-    $dov_query = "SELECT cases.query_id FROM tbl_mint_case AS cases LEFT JOIN tbl_bank_otp_verification AS verification ON verification.lead_id = cases.query_id WHERE cases.case_id = '".$case_id."' AND otp_flag = 1 ORDER BY case_id DESC";
-    $dov_exec = mysqli_query($Conn1, $dov_query);
-    if(mysqli_num_rows($dov_exec) > 0) {
-        $digital_verification = "<span class='fs-12'> (OTP <span class='green'>&#10003;</span> by customer)</span>";
-    }
-}
+// if($app_bank_on == 18 && $loan_type == 56) {
+//     $digital_otp_verification = "";
+//     $dov_query = "SELECT cases.query_id FROM tbl_mint_case AS cases LEFT JOIN tbl_bank_otp_verification AS verification ON verification.lead_id = cases.query_id WHERE cases.case_id = '".$case_id."' AND otp_flag = 1 ORDER BY case_id DESC";
+//     $dov_exec = mysqli_query($Conn1, $dov_query);
+//     if(mysqli_num_rows($dov_exec) > 0) {
+//         $digital_verification = "<span class='fs-12'> (OTP <span class='green'>&#10003;</span> by customer)</span>";
+//     }
+// }
 
 $cashback_arr = array(); $app_st_date = $cashback_app = "";
 if($app_status_on == 3 || $pre_login_status == 1016){
@@ -560,15 +560,29 @@ if ($(this).not(":checked")) {
 });
 </script>';
 ?>
+<?php echo "jhhoi";
+echo $name;
+echo $phone; ?>
 <tr>
-<?php if($_SESSION['assign_access_lead'] == 1){?><td><input type='hidden' name='url' value='<?php echo 'http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/index.php';?>'/>
+<?php if($_SESSION['assign_access_lead'] == 1){?>
+    <td><input type='hidden' name='url' value='<?php echo 'http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/index.php';?>'/>
 <input type ="checkbox" name ="mask[]" id="<?php echo urlencode(base64_encode($case_id)); ?>" value ="<?php echo $case_id;?>"</td><?php } ?>
-<td><input type='hidden' name='applcation_id_<?php echo $case_id;?>' value='<?php echo base64_encode($app_id);?>'>
-<a href = "../cases/edit.php?case_id=<?php echo urlencode(base64_encode($case_id)) ;?>" class="has_link"><?php echo $case_id;?></a><br/><a href = "edit_applicaton.php?case_id=<?php echo urlencode(base64_encode($case_id)) ;?>&app_id=<?php echo urlencode(base64_encode($app_id)); ?>&cust_id=<?php echo urlencode(base64_encode($cust_id));?>&loan_type=<?php echo $loan_type;?>" class="has_link"><span><?php echo $app_id;?></span></a><br><?php echo $bank_app_no_on; ?></td>
-<td><span><?php echo substr(ucwords(strtolower($name)), 0, 20)."</span><br/><span class='fs-12'>".$echo_number."</span><br/><span class='fs-12'>".$city_name;?></span></td>
-<td><span><?php echo $loan_amount;?></span><br/><span class="fs-12"><?php echo $loan_name;?></span></td>
-<td><?php echo $partner_name;?></td>
-<td><?php echo $name_bank_on; if($count_status > 0){$result_status = mysqli_fetch_array($get_status); echo " <span class='green'>(".$result_status['status']." ".$result_status['description'].")</span>"; }?></td>
+<td>
+    <input type='' name='applcation_id_<?php echo $case_id;?>' value='<?php echo base64_encode($app_id);?>'>
+<a href = "../cases/edit.php?case_id=<?php echo urlencode(base64_encode($case_id)) ;?>" class="has_link"><?php echo $case_id;?></a><br/><a href = "edit_applicaton.php?case_id=<?php echo urlencode(base64_encode($case_id)) ;?>&app_id=<?php echo urlencode(base64_encode($app_id)); ?>&cust_id=<?php echo urlencode(base64_encode($cust_id));?>&loan_type=<?php echo $loan_type;?>" class="has_link"><span><?php echo $app_id;?></span></a><br><?php echo $bank_app_no_on; ?>
+</td>
+<td>
+    <span><?php echo substr(ucwords(strtolower($name)), 0, 20)."</span><br/><span class='fs-12'>".$echo_number."</span><br/><span class='fs-12'>".$city_name;?></span>
+</td>
+<td>
+    <span><?php echo $loan_amount;?></span><br/><span class="fs-12"><?php echo $loan_name;?></span>
+</td>
+<td>
+    <?php echo $partner_name;?>
+</td>
+<td>
+    <?php echo $name_bank_on; if($count_status > 0){$result_status = mysqli_fetch_array($get_status); echo " <span class='green'>(".$result_status['status']." ".$result_status['description'].")</span>"; }?>
+</td>
 
 <td>
     <?php
