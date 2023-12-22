@@ -243,7 +243,7 @@ $insurance = replace_special($_REQUEST['insurance']);
 $promo = replace_special($_REQUEST['promocode']);
 $ref_phone = replace_special($_REQUEST['ref_phone']);
 
-$qry_ex = "SELECT app.application_status as pre_login_status, cust.phone_no as phone, cust.name as name, app.id as app_id, cust.id as cust_id, cust.city_id as city_id, qry.loan_type_id as loan_type,qry.loan_amount as required_loan_amt, app.login_date as login_date_on, app.sanction_date as sanction_date_on, app.disburse_date as first_disb_date_on, app.follow_up_date AS fup_date_on from crm_query_application as app JOIN crm_query as qry ON app.crm_query_id = qry.id Inner JOIN crm_customer as cust ON qry.crm_customer_id = cust.id  ";
+$qry_ex = "SELECT app.application_status as pre_login_status, cust.phone_no as phone, cust.name as name, app.id as app_id, cust.id as cust_id, cust.city_id as city_id,crm_master_city.city_name as city_name, qry.loan_type_id as loan_type,qry.loan_amount as required_loan_amt, app.login_date as login_date_on, app.sanction_date as sanction_date_on, app.disburse_date as first_disb_date_on, app.follow_up_date AS fup_date_on from crm_query_application as app JOIN crm_query as qry ON app.crm_query_id = qry.id Inner JOIN crm_customer as cust ON qry.crm_customer_id = cust.id  Inner JOIN cust.city_id = crm_master_city.id ";
 
 // if(trim($bankers_name) != "") {
 //     $qry_ex .= " INNER JOIN banker_email_history on banker_email_history.case_id = c.case_id INNER JOIN banker_sms_history on banker_sms_history.case_id = c.case_id ";
@@ -560,9 +560,7 @@ if ($(this).not(":checked")) {
 });
 </script>';
 ?>
-<?php echo "jhhoi";
-echo $name;
-echo $phone; ?>
+
 <tr>
 <?php //if($_SESSION['assign_access_lead'] == 1){?>
     <!-- <td><input type='hidden' name='url' value='<?php //echo 'http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/index.php';?>'/> -->
@@ -572,7 +570,7 @@ echo $phone; ?>
 <a href = "../cases/edit.php?case_id=<?php echo urlencode(base64_encode($case_id)) ;?>" class="has_link"><?php echo $case_id;?></a><br/><a href = "edit_applicaton.php?case_id=<?php echo urlencode(base64_encode($case_id)) ;?>&app_id=<?php echo urlencode(base64_encode($app_id)); ?>&cust_id=<?php echo urlencode(base64_encode($cust_id));?>&loan_type=<?php echo $loan_type;?>" class="has_link"><span><?php echo $app_id;?></span></a><br><?php echo $bank_app_no_on; ?> -->
 </td>
 <td>
-    <span><?php echo substr(ucwords(strtolower($cust_name)), 0, 20)."</span><br/><span class='fs-12'>".$phone."</span><br/><span class='fs-12'>".$city_id;?></span>
+    <span><?php echo substr(ucwords(strtolower($cust_name)), 0, 20)."</span><br/><span class='fs-12'>".$phone."</span><br/><span class='fs-12'>".$city_name;?></span>
 </td>
 <td>
     <span><?php echo $loan_amount;?></span><br/><span class="fs-12"><?php echo $loan_name;?></span>
