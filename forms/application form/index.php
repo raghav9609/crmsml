@@ -14,7 +14,7 @@ $filter_data = [];
 <head>
 <link rel="stylesheet" type="text/css" href="../assets/css/style-assignment.css">
 <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'></link>  
-    <style>
+    <!-- <style>
         .new_textbox {
             background: #E6E6E6 none repeat scroll 0% 0%;
             color: #000;
@@ -27,7 +27,7 @@ $filter_data = [];
         .onoffswitch-inner:after {
             content: "IInd" !important;
         }
-    </style>
+    </style> -->
 
 </head>
 <body>
