@@ -432,11 +432,11 @@ while($exe = mysqli_fetch_array($res)){
 		continue;
 	}
 
-$app_id  = $exe['app_id'];
-$app_status_on  = $exe['app_status_on'];
-$pre_login_status  = $exe['pre_login_status'];
-$sub_sub_status  = $exe['sub_sub_status'];
-$cust_id = $exe['cust_id'];
+$cust_name  = $exe['name'];
+$phone  = $exe['phone'];
+// $pre_login_status  = $exe['pre_login_status'];
+// $sub_sub_status  = $exe['sub_sub_status'];
+// $cust_id = $exe['cust_id'];
 $loan_type = $exe['loan_type'];
 $loan_amount = ($exe['required_loan_amt'] > 0) ? custom_money_format($exe['required_loan_amt']) : "";
 $bank_app_no_on  = $exe['bank_app_no_on'];
