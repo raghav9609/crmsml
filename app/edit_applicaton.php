@@ -1,9 +1,16 @@
 <?php
+session_start();
+$dialog_pop_up_disabled_flag = 1;
+require_once(dirname(__FILE__) . '/../config/session.php');
+require_once(dirname(__FILE__) . '/../helpers/common-helper.php');
+require_once(dirname(__FILE__) . '/../include/header.php');
+require_once(dirname(__FILE__) . '/../config/config.php');
+require_once "../include/helper.functions.php";
+require_once "../include/display-name-functions.php";
+
 $dialog_pop_up_disabled_flag = 1;
 $level_id =3;
-require_once "../../include/crm-header.php";
-require_once "../../include/dropdown.php";
-require_once "../../include/display-name-functions.php";
+
 if (isset($_REQUEST['page'])) {
     $page = replace_special($_REQUEST['page']);
 }

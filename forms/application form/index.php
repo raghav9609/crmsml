@@ -7,7 +7,7 @@ require_once(dirname(__FILE__) . '/../../include/helper.functions.php');
 
 $filter_data = [];
 
-// $data_to_display = $db_handle->runQuery($partnerDetailsExport->searchFilter($filter_data));
+$data_to_display = $db_handle->runQuery($formmodelExport->applicationdatafetch($id,$query_id));
 ?>
 <!DOCTYPE html>
 <html>
@@ -79,36 +79,81 @@ $filter_data = [];
                 <?php
                     foreach($data_to_display as $key=>$value){
                         $id = $value['id'];
-                        $partner_id = $value['partner_id'];
-                        $city_id = $value['city_id'];
-                        $name = $value['name'];
-                        $email_id = $value['email_id'];
-                        $mobile_no = $value['mobile_no'];
-                        $is_email_flag_active = $value['is_email_flag_active'];
-                        $is_sms_flag_active = $value['is_sms_flag_active'];
-                        $agent_type = $value['agent_type'];
+                        $bank_name = $value['bank_id'];
+                        $application_status = $value['application_status'];
+                        $applied_amount = $value['applied_amount'];
+                        $sanction_amount = $value['sanction_amount'];
+                        $sanction_date = $value['sanction_date'];
+                        $disbursed_amount = $value['disbursed_amount'];
+                        $disburse_date = $value['disburse_date'];
+                        $login_date = $value['login_date'];
+
+                        $bank_application_no = $value['bank_application_no'];
+                        $tennure = $value['tennure'];
+                        $follow_up_date = $value['follow_up_date'];
+                        $follow_up_time = $value['follow_up_time'];
+                        $follow_up_given_by = $value['follow_up_given_by'];
+                        $description_by_user = $value['description_by_user'];
+                        $description_by_bank = $value['description_by_bank'];
+                        
                         ?>
                 <tr>
                 <td><input type="checkbox" name="ch_edit[]" value="<?php echo $id; ?>" id="<?php echo $id; ?>" class ="all allchecked" onchange="disbaledFields(this);"/>
                 </td>
-                <td >
-                <?php $partner_name  = get_name($partner_id,$partner_id);
-                $city_name  = get_name('city_id',$city_id); 
-                echo $partner_name['value']. "<br><span class='orange'>" .$city_name['city_name']."</span><br>"; ?>
-                </td>
+                <!-- <td > -->
+                <?php 
+                // $partner_name  = get_name($partner_id,$partner_id);
+                // $city_name  = get_name('city_id',$city_id); 
+                // echo $partner_name['value']. "<br><span class='orange'>" .$city_name['city_name']."</span><br>"; 
+                ?>
+                <!-- </td> -->
                     <td>
-                    <?php echo $agent_type == 2 ? "SM":"RM"; ?>
-                        <input name="name_<?php echo $id; ?>" value="<?php echo $name; ?>" class="<?php echo $id; ?>_chng all" disabled="" type="text" maxlength="50"/>
-                        
+                        <input name="bankname_<?php echo $id; ?>" value="<?php echo $bank_name; ?>" class="<?php echo $id; ?>_chng all" disabled="" type="text" maxlength="50"/>
                     </td>
                     <td>
-                        <input name="mobile_no_<?php echo $id; ?>" value="<?php echo $mobile_no; ?>" class="<?php echo $id; ?>_chng all" disabled="" type="text" maxlength="10"/>
-                        <input type="checkbox" name="sms_flag<?php echo $id; ?>" value="1" <?php if($is_sms_flag_active == 1){echo "checked";} ?> class="<?php echo $id; ?>_chng all" disabled=""/>
+                        <input name="application_status_<?php echo $id; ?>" value="<?php echo $application_status; ?>" class="<?php echo $id; ?>_chng all" disabled="" type="text" maxlength="10"/>
                     </td>
                     <td>
-                        <input name="email_id_<?php echo $id; ?>" value="<?php echo $email_id; ?>" class="<?php echo $id; ?>_chng all" disabled="" type="text" maxlength="100"/>
-                        <input type="checkbox" name="email_flag<?php echo $id; ?>" <?php if($is_email_flag_active == 1){echo "checked";} ?> value="1" class="<?php echo $id; ?>_chng all" disabled=""/>
+                        <input name="applied_amount_<?php echo $id; ?>" value="<?php echo $applied_amount; ?>" class="<?php echo $id; ?>_chng all" disabled="" type="text" maxlength="100"/>
                     </td>
+                    <td>
+                        <input name="sanction_amount_<?php echo $id; ?>" value="<?php echo $sanction_amount; ?>" class="<?php echo $id; ?>_chng all" disabled="" type="text" maxlength="100"/>
+                    </td>
+                    <td>
+                        <input name="sanction_date_<?php echo $id; ?>" value="<?php echo $sanction_date; ?>" class="<?php echo $id; ?>_chng all" disabled="" type="text" maxlength="100"/>
+                    </td>
+                    <td>
+                        <input name="disbursed_amount_<?php echo $id; ?>" value="<?php echo $disbursed_amount; ?>" class="<?php echo $id; ?>_chng all" disabled="" type="text" maxlength="100"/>
+                    </td>
+                    <td>
+                        <input name="disburse_date_<?php echo $id; ?>" value="<?php echo $disburse_date; ?>" class="<?php echo $id; ?>_chng all" disabled="" type="text" maxlength="100"/>
+                    </td>
+                    <td>
+                        <input name="login_date<?php echo $id; ?>" value="<?php echo $login_date; ?>" class="<?php echo $id; ?>_chng all" disabled="" type="text" maxlength="100"/>
+                    </td>
+                    <td>
+                        <input name="bank_application_no_<?php echo $id; ?>" value="<?php echo $bank_application_no; ?>" class="<?php echo $id; ?>_chng all" disabled="" type="text" maxlength="100"/>
+                    </td>
+                    <td>
+                        <input name="tennure<?php echo $id; ?>" value="<?php echo $tennure; ?>" class="<?php echo $id; ?>_chng all" disabled="" type="text" maxlength="100"/>
+                    </td>
+                    <td>
+                        <input name="follow_up_date<?php echo $id; ?>" value="<?php echo $follow_up_date; ?>" class="<?php echo $id; ?>_chng all" disabled="" type="text" maxlength="100"/>
+                    </td>
+                    <td>
+                        <input name="follow_up_time_<?php echo $id; ?>" value="<?php echo $follow_up_time; ?>" class="<?php echo $id; ?>_chng all" disabled="" type="text" maxlength="100"/>
+                    </td>
+                    <td>
+                        <input name="follow_up_given_by_<?php echo $id; ?>" value="<?php echo $follow_up_given_by_; ?>" class="<?php echo $id; ?>_chng all" disabled="" type="text" maxlength="100"/>
+                    </td>
+                    <td>
+                        <input name="description_by_user<?php echo $id; ?>" value="<?php echo $description_by_user; ?>" class="<?php echo $id; ?>_chng all" disabled="" type="text" maxlength="100"/>
+                    </td>
+                    <td>
+                        <input name="description_by_bank<?php echo $id; ?>" value="<?php echo $description_by_bank; ?>" class="<?php echo $id; ?>_chng all" disabled="" type="text" maxlength="100"/>
+                    </td>
+
+
                 </tr>
                     <?php } ?>
             </table>
