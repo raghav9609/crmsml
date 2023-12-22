@@ -52,11 +52,11 @@ $filter_data = [];
         <!-- <input class="cursor" type="button" name="add" value="Add" id="add" onclick="add_info();"> -->
     <!-- </fieldset> -->
 <!-- </div> -->
-<div style="margin:0 auto; width:90%; padding:10px; background-color:#fff; height:800px;">
+<div style="margin:0 auto; width:100%; padding:10px; background-color:#fff; height:800px;">
         <form action="" method="POST">
-            <table class="gridtable" width="95%;">
+            <table class="gridtable" width="100%;">
                 <tr>
-                    <th colspan="10"><input type="submit" name="update" class="buttonsub ml10 cursor" value="Edit"/></th>
+                    <th colspan="17"><input type="submit" name="update" class="buttonsub ml10 cursor" value="Edit"/></th>
                 </tr>
                 <tr>
                     <th><input type="checkbox" name="selectAll[]" id="selectAll" onchange="selectallDisabled(this);">Select All</th>
