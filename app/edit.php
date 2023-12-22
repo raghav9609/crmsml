@@ -9,7 +9,7 @@ echo "hi 1";
 require_once(dirname(__FILE__) . '/../include/header.php');
 require_once(dirname(__FILE__) . '/../model/queryHelper.php');
 echo "h2";
-require_once(dirname(__FILE__) . '/../include/loader.php');
+// require_once(dirname(__FILE__) . '/../include/loader.php');
 require_once(dirname(__FILE__) . '/../config/config.php');
 require_once "../include/helper.functions.php";
 require_once "../include/display-name-functions.php";
