@@ -252,126 +252,126 @@ $qry_ex .= " where 1 ";
 echo $qry_ex;
 //and qry.lead_assign_to = '".$user."'";
 
-if($customer_id_search != "") {
-    $default = 1;
-    $qry_ex .= " and cust.id = $customer_id_search ";
-}
-if($masked_phone != "") {
-    $default = 1;
-    if(strpos($masked_phone, 'XXX') !== false) {
-        $initial = explode("XXX", $masked_phone);
-        if(strlen($initial[0]) == 4 && strlen($initial[1]) == 3) {
-            $qry_ex .= " and phone LIKE '".$initial[0]."___".$initial[1]."'";
-        }
-    }
-}
-if(trim($email_search) != "") {
-    $default = 1;
-    $qry_ex .= " AND cust.email = '".trim($email_search)."' ";
-}
-if($city_sub_group != '' && $city_sub_group != '0') {
-    $default = 1;
-    $qry_ex .= " and city.city_sub_group_id = '" . $city_sub_group . "'";
-}
-if($app_no != ""){$default = 1;
-    $qry_ex .= " and app.app_id = '".$app_no."'";
-}
-
-if($app_statussearch != ""){$default = 1;
-    $qry_ex .= " and app.app_status_on = '".$app_statussearch."'";
-}
-
-
-if($user_role == 2){
-	if($sme_city_sub_group != ''){
-		$qry_e .= " and (city.city_sub_group_id IN ($sme_city_sub_group) or qry.lead_assign_to IN ($tl_member)) ";
-	}else if($tl_member !=''){
-		$qry_e .= " and qry.lead_assign_to IN ($tl_member)";
-	}
-}
-
-if($fup_date_from != "") {
-    $default = 1;
-    if($fup_user_type != "") {
-            $qry_ex .= " AND app.follow_up_date_on >= '".$fup_date_from."' ";
-    } else {
-        $qry_ex .= " AND (app.follow_up_date_on >= '".$fup_date_from."') ";
-    }
-}
-if($fup_date_to != "") {
-    $default = 1;
-    if($fup_user_type != "") {
-        $qry_ex .= " AND app.follow_up_date_on <= '".$fup_date_to."' ";
-    } else {
-        $qry_ex .= " AND (app.follow_up_date_on <= '".$fup_date_to."' )  ";
-    }
-}
-
-if($fup_user_type != "" && $fup_date_to == "" && $fup_date_from == "") {
-    $default = 1;
-    $qry_ex .= " AND (app.follow_up_date is not null AND app.follow_up_date != '' AND app.follow_up_date != '0000-00-00')  ";
-}
-
-if($search != ""){$default = 1;
-    $qry_ex .= " and qry.loan_type_id = '".$search."'";
-}if($from_loan_amount != "" && $to_loan_amount != ""){
-    $default = 1;
-    if($app_statussearch == 28 ){
-        $qry_ex .= " and app.disbursed_amount between '".$from_loan_amount."' and '".$to_loan_amount."'";
-    } else if($app_statussearch == 27){
-        $qry_ex .= " and app.sanction_amount between '".$from_loan_amount."' and '".$to_loan_amount."'";
-    } else {
-        $qry_ex .= " and app.applied_amount between '".$from_loan_amount."' and '".$to_loan_amount."'";
-    } 
-}
-
-
-if($pre_statussearch != ""){$default = 1;
-	$qry_ex .= " and app.application_status = '".$pre_statussearch."'";
-}
-
-if($name_search != ""){
-    $default = 1;
-    $qry_ex .= " and cust.name like '%".$name_search."%'";
-}
-if($phone != ""){
-    $default = 1;
-    $qry_ex .= " and cust.phone_no = '".$phone."'";
-}
-if($search_city_id != "" && $search_city_id != 0){$default = 1;
-    $qry_ex .= " and cust.city_id = '".$search_city_id."'";
-}
-
-
-// if(trim($bankers_name) != "") {
-// 	$default = 1;
-//     $qry_ex .= " and ( banker_email_history.banker_name = '".$bankers_name."' OR banker_sms_history.banker_name = '".$bankers_name."' ) ";
+// if($customer_id_search != "") {
+//     $default = 1;
+//     $qry_ex .= " and cust.id = $customer_id_search ";
 // }
-if(trim($bank_app_no) != "") {
-	$default = 1;
-    $qry_ex .= " AND app.bank_application_no = '".$bank_app_no."' ";
-}
+// if($masked_phone != "") {
+//     $default = 1;
+//     if(strpos($masked_phone, 'XXX') !== false) {
+//         $initial = explode("XXX", $masked_phone);
+//         if(strlen($initial[0]) == 4 && strlen($initial[1]) == 3) {
+//             $qry_ex .= " and phone LIKE '".$initial[0]."___".$initial[1]."'";
+//         }
+//     }
+// }
+// if(trim($email_search) != "") {
+//     $default = 1;
+//     $qry_ex .= " AND cust.email = '".trim($email_search)."' ";
+// }
+// if($city_sub_group != '' && $city_sub_group != '0') {
+//     $default = 1;
+//     $qry_ex .= " and city.city_sub_group_id = '" . $city_sub_group . "'";
+// }
+// if($app_no != ""){$default = 1;
+//     $qry_ex .= " and app.app_id = '".$app_no."'";
+// }
 
-if($date_from != "" && $date_to != "" && $date_from != "0000-00-00" && $date_to != "0000-00-00"){
-	$default = 1;
-    if($app_statussearch == 28 ){$default = 1;
-        $qry_ex .= " and app.disburse_date between '".$date_from."' and '".$date_to."'";
-    }else if($app_statussearch == 27 ){$default = 1;
-     $qry_ex .= " and app.sanction_date between '".$date_from."' and '".$date_to."'";
-    }else if($app_statussearch == 26){$default = 1;
-        $qry_ex .= " and app.login_date between '".$date_from."' and '".$date_to."'";
-    }else{
-        if($date_from != "" && $date_to != "" && $date_from != "0000-00-00" && $date_to != "0000-00-00"){$default = 1;
-            $qry_ex .= " and app.created_on between '".$date_from."' and '".$date_to."'";
-    }
-}
-}
-if($default != '1'){
-            $qry_ex .= " and app.created_on between DATE_SUB(CURDATE(), INTERVAL 5 DAY) and CURDATE() ";
-    }
-$qry_ex .= " group by app.id order by app.created_on desc limit ".$offset.",".$max_offset;
-//echo $user == 173?$qry_ex:'';
-echo $qry_ex;
+// if($app_statussearch != ""){$default = 1;
+//     $qry_ex .= " and app.app_status_on = '".$app_statussearch."'";
+// }
+
+
+// if($user_role == 2){
+// 	if($sme_city_sub_group != ''){
+// 		$qry_e .= " and (city.city_sub_group_id IN ($sme_city_sub_group) or qry.lead_assign_to IN ($tl_member)) ";
+// 	}else if($tl_member !=''){
+// 		$qry_e .= " and qry.lead_assign_to IN ($tl_member)";
+// 	}
+// }
+
+// if($fup_date_from != "") {
+//     $default = 1;
+//     if($fup_user_type != "") {
+//             $qry_ex .= " AND app.follow_up_date_on >= '".$fup_date_from."' ";
+//     } else {
+//         $qry_ex .= " AND (app.follow_up_date_on >= '".$fup_date_from."') ";
+//     }
+// }
+// if($fup_date_to != "") {
+//     $default = 1;
+//     if($fup_user_type != "") {
+//         $qry_ex .= " AND app.follow_up_date_on <= '".$fup_date_to."' ";
+//     } else {
+//         $qry_ex .= " AND (app.follow_up_date_on <= '".$fup_date_to."' )  ";
+//     }
+// }
+
+// if($fup_user_type != "" && $fup_date_to == "" && $fup_date_from == "") {
+//     $default = 1;
+//     $qry_ex .= " AND (app.follow_up_date is not null AND app.follow_up_date != '' AND app.follow_up_date != '0000-00-00')  ";
+// }
+
+// if($search != ""){$default = 1;
+//     $qry_ex .= " and qry.loan_type_id = '".$search."'";
+// }if($from_loan_amount != "" && $to_loan_amount != ""){
+//     $default = 1;
+//     if($app_statussearch == 28 ){
+//         $qry_ex .= " and app.disbursed_amount between '".$from_loan_amount."' and '".$to_loan_amount."'";
+//     } else if($app_statussearch == 27){
+//         $qry_ex .= " and app.sanction_amount between '".$from_loan_amount."' and '".$to_loan_amount."'";
+//     } else {
+//         $qry_ex .= " and app.applied_amount between '".$from_loan_amount."' and '".$to_loan_amount."'";
+//     } 
+// }
+
+
+// if($pre_statussearch != ""){$default = 1;
+// 	$qry_ex .= " and app.application_status = '".$pre_statussearch."'";
+// }
+
+// if($name_search != ""){
+//     $default = 1;
+//     $qry_ex .= " and cust.name like '%".$name_search."%'";
+// }
+// if($phone != ""){
+//     $default = 1;
+//     $qry_ex .= " and cust.phone_no = '".$phone."'";
+// }
+// if($search_city_id != "" && $search_city_id != 0){$default = 1;
+//     $qry_ex .= " and cust.city_id = '".$search_city_id."'";
+// }
+
+
+// // if(trim($bankers_name) != "") {
+// // 	$default = 1;
+// //     $qry_ex .= " and ( banker_email_history.banker_name = '".$bankers_name."' OR banker_sms_history.banker_name = '".$bankers_name."' ) ";
+// // }
+// if(trim($bank_app_no) != "") {
+// 	$default = 1;
+//     $qry_ex .= " AND app.bank_application_no = '".$bank_app_no."' ";
+// }
+
+// if($date_from != "" && $date_to != "" && $date_from != "0000-00-00" && $date_to != "0000-00-00"){
+// 	$default = 1;
+//     if($app_statussearch == 28 ){$default = 1;
+//         $qry_ex .= " and app.disburse_date between '".$date_from."' and '".$date_to."'";
+//     }else if($app_statussearch == 27 ){$default = 1;
+//      $qry_ex .= " and app.sanction_date between '".$date_from."' and '".$date_to."'";
+//     }else if($app_statussearch == 26){$default = 1;
+//         $qry_ex .= " and app.login_date between '".$date_from."' and '".$date_to."'";
+//     }else{
+//         if($date_from != "" && $date_to != "" && $date_from != "0000-00-00" && $date_to != "0000-00-00"){$default = 1;
+//             $qry_ex .= " and app.created_on between '".$date_from."' and '".$date_to."'";
+//     }
+// }
+// }
+// if($default != '1'){
+//             $qry_ex .= " and app.created_on between DATE_SUB(CURDATE(), INTERVAL 5 DAY) and CURDATE() ";
+//     }
+// $qry_ex .= " group by app.id order by app.created_on desc limit ".$offset.",".$max_offset;
+// //echo $user == 173?$qry_ex:'';
+// echo $qry_ex;
 
 ?>
 <fieldset><legend>Application Filter</legend>
@@ -423,6 +423,7 @@ echo $qry_ex;
 // echo $qry_ex;
 $res = mysqli_query($Conn1,$qry_ex) or die("Error: ".mysqli_error($Conn1));
 $recordcount = mysqli_num_rows($res);
+echo $recordcount;
 if($recordcount > 0){
 	$record = 0;
 while($exe = mysqli_fetch_array($res)){
