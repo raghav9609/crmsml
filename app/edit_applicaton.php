@@ -2,7 +2,7 @@
 session_start();
 $dialog_pop_up_disabled_flag = 1;
 echo "hi";
-
+exit;
 require_once(dirname(__FILE__) . '/../config/session.php');
 require_once(dirname(__FILE__) . '/../helpers/common-helper.php');
 echo "hi 1";
