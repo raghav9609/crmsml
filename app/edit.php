@@ -16,7 +16,7 @@ require_once "../include/display-name-functions.php";
 require_once "../include/case-query-function-insert.php";
 
 echo "hi 3";
-exit;
+// exit;
 $notepadflag=0;
 $level_id = 1;
 if (isset($_REQUEST['page'])) {
