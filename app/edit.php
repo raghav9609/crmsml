@@ -1,22 +1,17 @@
 <?php
 session_start();
 $dialog_pop_up_disabled_flag = 1;
-echo "hi";
 
 require_once(dirname(__FILE__) . '/../config/session.php');
 require_once(dirname(__FILE__) . '/../helpers/common-helper.php');
-echo "hi 1";
 require_once(dirname(__FILE__) . '/../include/header.php');
 require_once(dirname(__FILE__) . '/../model/queryHelper.php');
-echo "h2";
-// require_once(dirname(__FILE__) . '/../include/loader.php');
+require_once(dirname(__FILE__) . '/../include/loader.php');
 require_once(dirname(__FILE__) . '/../config/config.php');
 require_once "../include/helper.functions.php";
 require_once "../include/display-name-functions.php";
 require_once "../include/case-query-function-insert.php";
 
-echo "hi 3";
-// exit;
 $notepadflag=0;
 $level_id = 1;
 if (isset($_REQUEST['page'])) {
@@ -58,26 +53,8 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
     $tool_type = $exe_form['tool_type'];
 
     $call_button_display = 1;
-    // if($tool_type == 'Cross Sell - Auto'){
-    //     $check_call_connect_cur_day = mysqli_query($Conn1,"select * from tbl_query_click_to_call_history where date(entered_date) = CURDATE() and cust_id = ".$cust_id);
-    //     $cur_day_count = mysqli_num_rows($check_call_connect);
-    //     if($sevel_day_count < $cros_sell_day[0]){
-    //         $check_call_connect_seven_day = mysqli_query($Conn1,"select * from tbl_query_click_to_call_history where date(entered_date) >= DATE_SUB(CURDATE(),INTERVAL 7 DAY)  and cust_id = ".$cust_id);
-    //     $seven_day_count = mysqli_num_rows($check_call_connect_seven_day);
-    //     if($seven_day_count < $cros_sell_day[1]){
-    //         $check_call_connect_thirty_day = mysqli_query($Conn1,"select * from tbl_query_click_to_call_history where date(entered_date) >= DATE_SUB(CURDATE(),INTERVAL 30 DAY)  and cust_id = ".$cust_id);
-    //     $thirty_day_count = mysqli_num_rows($check_call_connect_thirty_day);
-    //     if($thirty_day_count >= $cros_sell_day[2]){
-    //         $call_button_display = 0;
-    //     }
-    //     }else{
-    //         $call_button_display = 0;
-    //     }
-    //     }else{
-    //         $call_button_display = 0;
-    //     }
+ 
 
-    // }
     
     $ver_phone = $exe_form['verify_phone'];
     
