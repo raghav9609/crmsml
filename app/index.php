@@ -568,8 +568,8 @@ echo $phone; ?>
     <!-- <td><input type='hidden' name='url' value='<?php //echo 'http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/index.php';?>'/> -->
 <!-- <input type ="checkbox" name ="mask[]" id="<?php echo urlencode(base64_encode($case_id)); ?>" value ="<?php echo $case_id;?>"</td><?php //} ?> -->
 <td>
-    <input type='' name='applcation_id_<?php echo $case_id;?>' value='<?php echo base64_encode($app_id);?>'>
-<a href = "../cases/edit.php?case_id=<?php echo urlencode(base64_encode($case_id)) ;?>" class="has_link"><?php echo $case_id;?></a><br/><a href = "edit_applicaton.php?case_id=<?php echo urlencode(base64_encode($case_id)) ;?>&app_id=<?php echo urlencode(base64_encode($app_id)); ?>&cust_id=<?php echo urlencode(base64_encode($cust_id));?>&loan_type=<?php echo $loan_type;?>" class="has_link"><span><?php echo $app_id;?></span></a><br><?php echo $bank_app_no_on; ?>
+    <!-- <input type='' name='applcation_id_<?php echo $case_id;?>' value='<?php echo base64_encode($app_id);?>'>
+<a href = "../cases/edit.php?case_id=<?php echo urlencode(base64_encode($case_id)) ;?>" class="has_link"><?php echo $case_id;?></a><br/><a href = "edit_applicaton.php?case_id=<?php echo urlencode(base64_encode($case_id)) ;?>&app_id=<?php echo urlencode(base64_encode($app_id)); ?>&cust_id=<?php echo urlencode(base64_encode($cust_id));?>&loan_type=<?php echo $loan_type;?>" class="has_link"><span><?php echo $app_id;?></span></a><br><?php echo $bank_app_no_on; ?> -->
 </td>
 <td>
     <span><?php echo substr(ucwords(strtolower($cust_name)), 0, 20)."</span><br/><span class='fs-12'>".$phone."</span><br/><span class='fs-12'>".$city_id;?></span>
@@ -598,7 +598,12 @@ echo $phone; ?>
 
 <?php if($user_role != 3) { ?>
     <!-- <td><input type='hidden' name='assign_from_user_<?php echo $case_id;?>' value='<?php echo $assign;?>'><?php echo $assign;?></td><?php } ?> -->
+
+
 <?php if($user_role != 3) { ?><td><input type='hidden' name='app_created_by_<?php echo $app_id;?>' value='<?php echo $app_user_name; ?>'><?php echo $app_user_name; ?></td><?php } ?>
+
+
+
 <!-- <td class="align-center">
     <a href="../email/send-email.php?case_id=<?php echo urlencode(base64_encode($case_id));?>"  class="has_link">Send Email</a></br>
 <a href="feedback.php?app_id=<?php echo base64_encode($app_id);?>" target='_blank' class="has_link">Feedback</a>
@@ -610,6 +615,9 @@ echo $phone; ?>
 }echo $cashback_app; ?>
 <?php if($digital_verification != "") { echo $digital_verification; } ?>
 </td> -->
+
+
+
 <td>
     <a href="edit_applicaton.php?case_id=<?php echo urlencode(base64_encode($case_id)) ;?>&app_id=<?php echo urlencode(base64_encode($app_id)); ?>&cust_id=<?php echo urlencode(base64_encode($cust_id));?>&loan_type=<?php echo $loan_type;?>" class="has_link"><input type="button" class = "pointer_n" value="View" style="border-radius: 5px; background-color: #18375f; font-weight: bold;"></a>
 </td>
