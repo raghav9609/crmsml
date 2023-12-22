@@ -596,7 +596,8 @@ echo $phone; ?>
     <?php echo $app_st_date; ?>
 </td>
 
-<?php if($user_role != 3) { ?><td><input type='hidden' name='assign_from_user_<?php echo $case_id;?>' value='<?php echo $assign;?>'><?php echo $assign;?></td><?php } ?>
+<?php if($user_role != 3) { ?>
+    <!-- <td><input type='hidden' name='assign_from_user_<?php echo $case_id;?>' value='<?php echo $assign;?>'><?php echo $assign;?></td><?php } ?> -->
 <?php if($user_role != 3) { ?><td><input type='hidden' name='app_created_by_<?php echo $app_id;?>' value='<?php echo $app_user_name; ?>'><?php echo $app_user_name; ?></td><?php } ?>
 <!-- <td class="align-center">
     <a href="../email/send-email.php?case_id=<?php echo urlencode(base64_encode($case_id));?>"  class="has_link">Send Email</a></br>
