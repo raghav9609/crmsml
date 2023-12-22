@@ -19,6 +19,12 @@ if(!function_exists('get_dropdown')){
             case "user_id_3":
                 $qry = "select id as id,name as value,'User' as code_value from crm_master_user where is_active = 1 and role_id = 3";
             break;
+            case "query_status":
+                $qry = "select id as id,value as value,'Query Status' as code_value from crm_master_status where is_active = 1 and status_type = 1";
+            break;
+            case "application_status":
+                $qry = "select id as id,value as value,'Application Status' as code_value from crm_master_status where is_active = 1 and status_type = 2";
+            break;
             case "user_id_4":
                 $qry = "select id as id,name as value,'User' as code_value from crm_master_user where is_active = 1 and role_id = 4";
             break;
@@ -69,9 +75,14 @@ if(!function_exists('get_name')){
             case "user_id":
                 $qry = "select * from crm_master_user where id = ".$id;
             break;
-            
             case "user_name":
                 $qry = "select * from crm_master_user where name = '".$id."'";
+            break;
+            case "status_name":
+                $qry = "select * from crm_master_status where id = '".$id."'";
+            break;
+            case "status_id":
+                $qry = "select * from crm_master_status where value = '".$id."'";
             break;
             case "crm_master_city_sub_group_id":
                 $qry = "select * from crm_master_city_sub_group where id = ".$id;
