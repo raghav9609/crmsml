@@ -416,7 +416,7 @@ echo $qry_ex;
 <th width="10%">Bank Name</th>
 <th width="10%">Application Status</th>
 <th width="10%">Application Created By</th>
-<th width="10%">Action</th>
+<!-- <th width="10%">Action</th> -->
 <th width="6%">View</th>
 </tr>
 <?php
@@ -572,7 +572,7 @@ echo $phone; ?>
 <a href = "../cases/edit.php?case_id=<?php echo urlencode(base64_encode($case_id)) ;?>" class="has_link"><?php echo $case_id;?></a><br/><a href = "edit_applicaton.php?case_id=<?php echo urlencode(base64_encode($case_id)) ;?>&app_id=<?php echo urlencode(base64_encode($app_id)); ?>&cust_id=<?php echo urlencode(base64_encode($cust_id));?>&loan_type=<?php echo $loan_type;?>" class="has_link"><span><?php echo $app_id;?></span></a><br><?php echo $bank_app_no_on; ?>
 </td>
 <td>
-    <span><?php echo substr(ucwords(strtolower($name)), 0, 20)."</span><br/><span class='fs-12'>".$echo_number."</span><br/><span class='fs-12'>".$city_name;?></span>
+    <span><?php echo substr(ucwords(strtolower($cust_name)), 0, 20)."</span><br/><span class='fs-12'>".$phone."</span><br/><span class='fs-12'>".$city_id;?></span>
 </td>
 <td>
     <span><?php echo $loan_amount;?></span><br/><span class="fs-12"><?php echo $loan_name;?></span>
