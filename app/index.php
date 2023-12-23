@@ -440,7 +440,7 @@ $loan_type = $exe['loan_type'];
 $loan_amount = ($exe['required_loan_amt'] > 0) ? custom_money_format($exe['required_loan_amt']) : "";
 $bank_app_no_on  = $exe['bank_app_no_on'];
 
-$name_bank_on = $exe['bank_name'];
+$name_bank = $exe['bank_name'];
 $loan_name = (trim($exe['loan_name']) != "") ? "(".$exe['loan_name'].")" : "";
 $assign = $exe['user_name'];
 $partner_name = $exe['partner_name'];
@@ -450,8 +450,9 @@ $case_id = $exe['crm_raw_data_id'];
 $cust_id = $exe['cust_id'];
 $city_id = $exe['city_id'];
 $city_name_get = get_name("city_id",$city_id);
-// print_r($city_name_get);
 $city_name = $city_name_get['city_name'];
+$get_name_bank = get_name("",$name_bank);
+echo $get_name_bank;
 // $name_app_statuson = get_display_name('post_login',$app_status_on);
 // if($name_app_statuson == ''){
 //   $name_app_statuson = get_display_name('snew_status_name',$app_status_on);  
