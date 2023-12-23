@@ -176,17 +176,17 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
  $src_id = "https://www.myloancare.in/credit-score/free-credit-report/?getID=" . base64_encode($cust_id) . "&sorce=crm&cTo=" . base64_encode('Query No@#' . $id . '@#' . $email);
  //include("../../include/short-url.php");
  ?>
- <a href='<?php echo $src_id; ?>' target="_blank"><input type="button" style='background: #1b8c1b;'
+ <!-- <a href='<?php echo $src_id; ?>' target="_blank"><input type="button" style='background: #1b8c1b;'
                                                          class="buttonsub cursor" id='shrt_url'
-                                                         value="Experian SMS"></a> 
+                                                         value="Experian SMS"></a>  -->
 
 <?php //if(!in_array($user, array(445, 448))) { ?>
-    <a href="javascript:void(0);" id='show_btn' onclick="number_show('<?php echo $id; ?>','query');">
+    <!-- <a href="javascript:void(0);" id='show_btn' onclick="number_show('<?php echo $id; ?>','query');">
         <input type="button" style='background: #18375f;' class="buttonsub cursor" value="Show Number">
     </a>
     <a href="javascript:void(0);" id='show_alt_btn' onclick="alt_number_show('<?php echo $id; ?>','query');">
         <input type="button" style='background: #18375f;' class="buttonsub cursor" value="Show Alt. Number">
-    </a>
+    </a> -->
 <?php //} ?>
 
 <?php $level_type = 1; ?>
