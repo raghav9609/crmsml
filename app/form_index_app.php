@@ -134,9 +134,9 @@
                                 </div>
                             </div> -->
                             <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                                <span class="fa-icon fa-user"></span>
-                                <input type="text" id="name" name="name" value="<?php echo ($name) ;?>" placeholder="Enter Your First Name" class="form-control alphaonly" maxlength="20" required>
-                                <label for="name" class="label-tag"> Name</label>
+                                <span class="fas fa-university"></span>
+                                <input type="text" id="bank_name" name="bank_name" value="<?php echo ($name) ;?>" placeholder="Enter Bank Name" class="form-control alphaonly" maxlength="20" required>
+                                <label for="name" class="label-tag"> Bank Name</label>
                             </div>
      
             
