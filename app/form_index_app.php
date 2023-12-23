@@ -124,7 +124,7 @@
                         <?php //} ?>
                         <input type="hidden" name="logged_in_user" id="logged_in_user" value="<?php echo $user; ?>">
                         <div class="row div-width">
-                        <div class="form-group col-xl-2 col-lg-4 col-md-6">
+                        <!-- <div class="form-group col-xl-2 col-lg-4 col-md-6">
                                 <label for="salutation" class="radio-tag label-tag">Salutation</label>
                                 <div class="radio-button error_contain">
                                     <input type="radio" name="salutation" id="salutation1"  value="1" <?php if($salu_id == 1){ ?>checked <?php } ?> required>
@@ -132,7 +132,7 @@
                                     <input type="radio" name="salutation" id="salutation2" value="2" <?php if($salu_id == 2){ ?>checked <?php } ?> required>
                                     <label for="salutation2">Ms.</label> 
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="form-group col-xl-2 col-lg-4 col-md-6">
                                 <span class="fa-icon fa-user"></span>
                                 <input type="text" id="name" name="name" value="<?php echo ($name) ;?>" placeholder="Enter Your First Name" class="form-control alphaonly" maxlength="20" required>
@@ -189,14 +189,14 @@
                                     <label for="email" class="label-tag <?php if(!in_array($loan_type,array(71,11,57,63,56))){ ?> optional-tag <?php } ?>">Email</label>
                                 </div>
                               
-                                <div class="form-group col-xl-2 col-lg-4 col-md-6">
+                                <!-- <div class="form-group col-xl-2 col-lg-4 col-md-6">
                                 <label for="maritalstatus" class="radio-tag label-tag optional-tag">Marital Status</label>
                                 <div class="radio-button">
                                     <input type="radio" name="maritalstatus" id="maritalstatus1"  value="Y" <?php if($maritalstatus == "Y"){ ?>checked <?php } ?>>
                                     <label for="maritalstatus1">Married</label>
                                     <input type="radio" name="maritalstatus" id="maritalstatus2" value="N" <?php if($maritalstatus == "N"){ ?>checked <?php } ?>>
                                     <label for="maritalstatus2">UnMarried</label> 
-                                </div>
+                                </div> -->
                             </div>
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
                                     <span class="fa-icon fa-pan"></span>
