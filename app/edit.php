@@ -4,13 +4,15 @@ session_start();
 $dialog_pop_up_disabled_flag = 1;
 
 require_once(dirname(__FILE__) . '/../config/session.php');
-
+require_once(dirname(__FILE__) . '/../config/config.php');
 require_once(dirname(__FILE__) . '/../helpers/common-helper.php');
 
 require_once(dirname(__FILE__) . '/../include/header.php');
+echo "hi111";
+exit();
 require_once(dirname(__FILE__) . '/../model/queryHelper.php');
 require_once(dirname(__FILE__) . '/../include/loader.php');
-require_once(dirname(__FILE__) . '/../config/config.php');
+
 echo "hi111";
 exit();
 
