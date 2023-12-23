@@ -6,6 +6,8 @@ $dialog_pop_up_disabled_flag = 1;
 require_once(dirname(__FILE__) . '/../config/session.php');
 
 require_once(dirname(__FILE__) . '/../helpers/common-helper.php');
+echo "hi111";
+exit();
 require_once(dirname(__FILE__) . '/../include/header.php');
 require_once(dirname(__FILE__) . '/../model/queryHelper.php');
 require_once(dirname(__FILE__) . '/../include/loader.php');
@@ -13,8 +15,7 @@ require_once(dirname(__FILE__) . '/../config/config.php');
 require_once "../include/helper.functions.php";
 require_once "../include/display-name-functions.php";
 require_once "../include/case-query-function-insert.php";
-echo "hi111";
-exit();
+
 $notepadflag=0;
 $level_id = 1;
 if (isset($_REQUEST['page'])) {
