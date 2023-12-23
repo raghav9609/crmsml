@@ -162,7 +162,16 @@
 
                                     <label for="phone_no" class="label-tag">Applied Amount</label>
                                 </div>
-                                
+                                <?php 
+                                    $alternate_phone = "";
+                                    if(trim($alt_phone) != "") {
+                                    if($_SESSION['show_number_flag'] == 2 || $_SESSION['show_number_flag'] == 3) {
+                                        $alternate_phone = substr_replace($alt_phone, 'XXX', 4, 3);
+                                      } else {
+                                        $alternate_phone = $alt_phone;
+                                      }
+                                    }
+                                ?>
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
                                     <input type="text" class="text form-control" name="dob" id="dob" maxlength="10" value="<?php echo $dob != '0000-00-00'?$dob:'';?>" placeholder="yyyy-mm-dd" <?php if(in_array($loan_type,array(71,11,57,63,56))){?> required <?php }?>/>
                                     <label for="dob" class="label-tag <?php if(!in_array($loan_type,array(71,11,57,63,56))){ ?> optional-tag <?php } ?>">Login Date</label>
