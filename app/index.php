@@ -447,6 +447,7 @@ $partner_name = $exe['partner_name'];
 $crm_query_id = $exe['crm_query_id'];
 $bank_application_no = $exe['bank_application_no'];
 $case_id = $exe['crm_raw_data_id'];
+$cust_id = $exe['cust_id'];
 // $name_app_statuson = get_display_name('post_login',$app_status_on);
 // if($name_app_statuson == ''){
 //   $name_app_statuson = get_display_name('snew_status_name',$app_status_on);  
@@ -622,7 +623,7 @@ if ($(this).not(":checked")) {
 
 
 <td>
-    <a href="edit.php?case_id=<?php echo urlencode(base64_encode($case_id)) ;?>&app_id=<?php echo urlencode(base64_encode($app_id)); ?>&cust_id=<?php echo urlencode(base64_encode($cust_id));?>&loan_type=<?php echo $loan_type;?>" class="has_link"><input type="button" class = "pointer_n" value="View" style="border-radius: 5px; background-color: #18375f; font-weight: bold;"></a>
+    <a href="edit.php?case_id=<?php echo urlencode(base64_encode($case_id)) ;?>&app_id=<?php echo urlencode(base64_encode($crm_query_id)); ?>&cust_id=<?php echo urlencode(base64_encode($cust_id));?>&loan_type=<?php echo $loan_type;?>" class="has_link"><input type="button" class = "pointer_n" value="View" style="border-radius: 5px; background-color: #18375f; font-weight: bold;"></a>
 </td>
 </tr>
 <?php
