@@ -142,8 +142,8 @@
             
                             <div class="form-group col-xl-2 col-lg-4 col-md-6">
                                 <span class="fa-icon fa-briefcase"></span>
-                                    <?php echo get_dropdown('','application_status'); ?>
-                                    <label for="application_status" class="label-tag">Application Status</label>
+                                    <?php //echo get_dropdown('7','occupation_id',$occup,'required'); ?>
+                                    <label for="occupation" class="label-tag">Application Status</label>
                             </div>
                                 <?php 
                                 if($_SESSION['show_number_flag'] == 2 || $_SESSION['show_number_flag'] == 3) {
