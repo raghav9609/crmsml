@@ -192,52 +192,52 @@
 
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
                                     <span class="fa-icon fa-briefcase"></span>
-                                    <?php echo get_dropdown('7','occupation_id',$occup,'required'); ?>
+                                    <?php //echo get_dropdown('7','occupation_id',$occup,'required'); ?>
                                     <label for="occupation" class="label-tag">Sanction Date</label>
                                 </div>
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
                                     <span class="fa-icon fa-briefcase"></span>
-                                    <?php echo get_dropdown('7','occupation_id',$occup,'required'); ?>
+                                    <?php //echo get_dropdown('7','occupation_id',$occup,'required'); ?>
                                     <label for="occupation" class="label-tag">Disbursement Amount</label>
                                 </div>
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
                                     <span class="fa-icon fa-briefcase"></span>
-                                    <?php echo get_dropdown('7','occupation_id',$occup,'required'); ?>
+                                    <?php //echo get_dropdown('7','occupation_id',$occup,'required'); ?>
                                     <label for="occupation" class="label-tag">Disbursement Date</label>
                                 </div>
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
                                     <span class="fa-icon fa-briefcase"></span>
-                                    <?php echo get_dropdown('7','occupation_id',$occup,'required'); ?>
+                                    <?php //echo get_dropdown('7','occupation_id',$occup,'required'); ?>
                                     <label for="occupation" class="label-tag">Remarks By User</label>
                                 </div>
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
                                     <span class="fa-icon fa-briefcase"></span>
-                                    <?php echo get_dropdown('7','occupation_id',$occup,'required'); ?>
+                                    <?php //echo get_dropdown('7','occupation_id',$occup,'required'); ?>
                                     <label for="occupation" class="label-tag">Remarks By Bank</label>
                                 </div>
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
                                     <span class="fa-icon fa-briefcase"></span>
-                                    <?php echo get_dropdown('7','occupation_id',$occup,'required'); ?>
+                                    <?php //echo get_dropdown('7','occupation_id',$occup,'required'); ?>
                                     <label for="occupation" class="label-tag">Bank Application Number</label>
                                 </div>
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
                                     <span class="fa-icon fa-briefcase"></span>
-                                    <?php echo get_dropdown('7','occupation_id',$occup,'required'); ?>
+                                    <?php //echo get_dropdown('7','occupation_id',$occup,'required'); ?>
                                     <label for="occupation" class="label-tag">Follow Up Date</label>
                                 </div>
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
                                     <span class="fa-icon fa-briefcase"></span>
-                                    <?php echo get_dropdown('7','occupation_id',$occup,'required'); ?>
+                                    <?php//echo get_dropdown('7','occupation_id',$occup,'required'); ?>
                                     <label for="occupation" class="label-tag">Follow Up Time</label>
                                 </div>
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
                                     <span class="fa-icon fa-briefcase"></span>
-                                    <?php echo get_dropdown('7','occupation_id',$occup,'required'); ?>
+                                    <?php //echo get_dropdown('7','occupation_id',$occup,'required'); ?>
                                     <label for="occupation" class="label-tag">Follow Up Given By</label>
                                 </div>
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
                                     <span class="fa-icon fa-briefcase"></span>
-                                    <?php echo get_dropdown('7','occupation_id',$occup,'required'); ?>
+                                    <?php //echo get_dropdown('7','occupation_id',$occup,'required'); ?>
                                     <label for="occupation" class="label-tag">Tenure / ROI</label>
                                 </div>
                             </div>
