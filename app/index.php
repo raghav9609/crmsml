@@ -643,7 +643,7 @@ if ($(this).not(":checked")) {
 </form>
 </table>
 <?php } if ($recordcount > 0) { ?>
-<table width="width:90%;margin-left:4%;" border="0" align="center" cellpadding="4" cellspacing="1" class="pagination">
+<table width="width:90%;margin-left:4%;" border="0" align="right" cellpadding="4" cellspacing="1" class="pagination">
             <tr class="sidemain">
                 <td>
                     <?php
