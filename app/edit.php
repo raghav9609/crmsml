@@ -6,17 +6,10 @@ $dialog_pop_up_disabled_flag = 1;
 require_once(dirname(__FILE__) . '/../config/session.php');
 require_once(dirname(__FILE__) . '/../config/config.php');
 require_once(dirname(__FILE__) . '/../helpers/common-helper.php');
-
 require_once(dirname(__FILE__) . '/../include/header.php');
-
 require_once(dirname(__FILE__) . '/../model/queryHelper.php');
 // require_once(dirname(__FILE__) . '/../include/loader.php');
-
-
-
 require_once "../include/helper.functions.php";
-echo "hi111";
-exit();
 require_once "../include/display-name-functions.php";
 require_once "../include/case-query-function-insert.php";
 
@@ -78,11 +71,6 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
    
     $lead_date_time = $exe_form['date'];
 
-    // $experian_fileId_qry = mysqli_query($Conn1, "select history_id from experian_report_pull_history where  cust_id = " . $cust_id . " order by report_created_date desc");
-    // $result_experian_fileId_query = mysqli_fetch_array($experian_fileId_qry);
-
-    // $epf_report_fetch = mysqli_query($Conn1, "select GROUP_CONCAT(id SEPARATOR ',') as id from epf_company_detail where cust_id =" . $cust_id . " group by request_id order by date desc Limit 1");
-    // $res_epf_report_fetch = mysqli_fetch_array($epf_report_fetch);
 
     $new_src = str_replace('', '', $exe_form['page_url']);
     $src_exp = explode("/", $new_src);
@@ -163,48 +151,7 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
         $search_type = $_REQUEST['search_type'];
     }
 
-        //     $insert_one_lead = mysqli_query($Conn1, "insert into one_lead_history set id = '" . $q_id . "', level_id = 1, priority_id = '".$ol_priority_id."', user_id = '".$user."', date = NOW(), search_type = '".$search_type."', url = '".$_SERVER['REQUEST_URI']."', referer_url = '".$_SERVER['HTTP_REFERER']."' ");
-        // $lead_view_id = mysqli_insert_id($Conn1);
-
-    /* $tat = array();
-    $tat_query = "select query_status,gap_maintain_count,attemp_count from call_connect_tat where query_id = '".$id."'";
-    $result_tat_query = mysqli_query($Conn1,$tat_query);
-    while($info_tat_query = mysqli_fetch_array($result_tat_query)){
-        $tat[$info_tat_query['query_status']] = array($info_tat_query['gap_maintain_count'],$info_tat_query['attemp_count']);
-    } */
-
-    // if ($lform_flag > 0 || $loan_type == 32) {
-    //     $opt_bank = explode(",", $bank_apply);
-    //     $fin_opt_bank = implode(",", $opt_bank);
-    //     if ($fin_opt_bank != '') {
-    //         $bnk_app_qry = mysqli_query($Conn1, "select GROUP_CONCAT(partner_name SEPARATOR ', ' ) as partner_name from tbl_mlc_partner where partner_id IN ($fin_opt_bank) ");
-    //         $result_bnk_apply = mysqli_fetch_array($bnk_app_qry);
-    //         $apply_bnk_name = $result_bnk_apply['partner_name'];
-    //     }
-    //     if($lform_flag > 0){
-    //         $frm_type = 'Long Form';
-    //     }
-    // } else {
-    //     $frm_type = 'Short Form';
-    // }
-
-    // if ($frm_type == 'Long Form' && $result_experian_fileId_query['history_id'] != '') {
-    //     $cr_record = ' with CR';
-    // } else {
-    //     $cr_record = '';
-    // }
-
-    // if ($query_status == 18 || $auto_case_create == 2 || $query_status == 19) {
-    //     $action = 'auto_m_case_create.php';
-    // } else {
-    //     $action = 'edit-process.php';
-    // }
-    // if (($asset_type == '' || $asset_type == 0) && $loan_type == 51) {
-    //     $asset_type = 1;
-    // } else {
-    //     $asset_type = $asset_type;
-    // }
-
+    
     if (trim($pan_card) != '') {
         $pan_customer_qry = mysqli_query($Conn1, "select min(id) as cust_pan_id,count(*) as total_count_pan from crm_customer where id > 0 and pan_no = '" . trim($pan_card) . "' order by pan_no");
         $result_customer_qry = mysqli_fetch_array($pan_customer_qry);
@@ -222,51 +169,7 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
     <div class="color-bar-2 color-bg"></div>
     <div style="width:100%;">
                     <div style="padding-left: 1%;padding-right: 1%;">
-                        <div id="fixed_tab">
- <span style="font-weight:bold;font-size:14px;">
-    <a href="#follow_history" class="buttonsub">Follow Up History</a>
-    <?php if ($tool_type == "Cibil Form") { ?><a href="#cibil" class="buttonsub">Cibil History</a><?php } ?>
-    <a href="../email/send-email.php?query_id=<?php echo urlencode(base64_encode($id)); ?>"
-       class="buttonsub">Send Email</a>
-
-
-       <?php $docsrc="../customer-document/upload-document/index.php?cust_id=".base64_encode($cust_id)."&level_id=".urlencode(base64_encode($id))."&level_t=". base64_encode(1)?>
-      <?php if($user_role==1 || $user_role==4){?>
-      <a href="<?php echo $docsrc;?>" target='_blank'  class="buttonsub"> Upload Document</a>
-      <?php } ?>
-
-       <?php if($mobile_status==0){?>
-    <a href="../email/send-sms.php?query_id=<?php echo urlencode(base64_encode($id)); ?>" target='_blank'
-       class="buttonsub"> SMS</a>
-       <?php }?>
-    <a href="<?php echo $head_url; ?>/sugar/calculators/" target="_blank"><input type="button" class="buttonsub cursor"
-                                                                                 value="EMI"></a>
-    <?php if($loan_type == 32) { ?>
-        <a href="<?php echo $head_url; ?>/sugar/calculators/fd-calculator.php" target="_blank"><input type="button" class="buttonsub cursor" value="FD Calculator"></a>
-    <?php } ?>
-
-    <a href="<?php echo $head_url; ?>/sugar/calculators/calculate-eligibility.php" target="_blank">
-        <input type="button" class="buttonsub cursor" value="Eligibility"></a>
-            <a href="javascript:void(0);" onclick="suggestion_box('2','1');"><input type="button" class="buttonsub cursor" value="Offers"></a>
-      <?php //if ($result_experian_fileId_query['history_id'] != '') { ?>
-          <!-- <input type="button" style='background: #1b8c1b;' class="buttonsub cursor" id='experian_buttn'
-                 value="Experian" onclick="cibil_summary('<?php //echo $cibil_score . "','" . $cust_id; ?>');"> -->
-      <?php //}
-      if ($res_epf_report_fetch['id'] != '') { ?>
-          <input type="button" style='background: #1b8c1b;' class="buttonsub cursor" id='epf_buttn' value="EPF"
-                 onclick="cibil_epf_summary('<?php echo $res_epf_report_fetch['id'] . "','" . $cust_id; ?>');">
-      <?php } ?>
-
-        <?php
-        // $cust_id_data = mysqli_query($Conn1, "SELECT id FROM banks_pre_approved_offers WHERE cust_id = '".$cust_id."' AND is_offers = 1 AND DATE(date) >= DATE(NOW()) - INTERVAL 7 DAY");
-        // if(mysqli_num_rows($cust_id_data) > 0) {
-        ?>
-            <!-- <a href="#pre_approved_offers" onclick="trig_pre_approve()" class="buttonsub" style="background-color: #18375f">Pre Approved</a> -->
-        <?php // } ?>
-
-      <a href="<?php echo $head_url; ?>/include/call-structure/<?php echo str_replace(' ', '-', strtolower($loantype_name)); ?>.pdf"
-         target="_blank"><input type="button" style='background: #1b8c1b;' class="buttonsub cursor" id='script_buttn'
-                                value="Script"></a>
+                        
 
 
  <?php
@@ -496,7 +399,7 @@ if($tool_type == "Cross Sell - Auto") {
                            
                            require_once "../include/crm_functions-new.php";
                            include("js-insert.php");
-                            include("form_index.php");
+                            include("form_index_app.php");
                            
                             //include("generate-popup.php");
                               ?>
