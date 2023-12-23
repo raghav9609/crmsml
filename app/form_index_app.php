@@ -141,9 +141,9 @@
      
             
                             <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                                <span class="fa-icon fa-calendar"></span>
+                                <!-- <span class="fa-icon fa-calendar"></span> -->
                                 <input type="text" class="text form-control" name="dob" id="dob" maxlength="10" value="<?php echo $dob != '0000-00-00'?$dob:'';?>" placeholder="yyyy-mm-dd" <?php if(in_array($loan_type,array(71,11,57,63,56))){?> required <?php }?>/>
-                                <label for="dob" class="label-tag <?php if(!in_array($loan_type,array(71,11,57,63,56))){ ?> optional-tag <?php } ?>">Date of Birth</label>
+                                <label for="dob" class="label-tag <?php if(!in_array($loan_type,array(71,11,57,63,56))){ ?> optional-tag <?php } ?>">Application Status</label>
                                 <span class='green' id='age' style="position: absolute;top: 100%;background: transparent;color: green;left: 15px;"></span>
                             </div>
                                 <?php 
@@ -161,7 +161,7 @@
                                         <label class="pointer_n" style="font-weight: bold;width: 25px;height: 18px;text-align: center;color: #1b8c1b;border-radius: 50%;right: 16px;left: auto;">✔</label>
                                     <?php } ?>
 
-                                    <label for="phone_no" class="label-tag">Mobile</label>
+                                    <label for="phone_no" class="label-tag">Applied Amount</label>
                                 </div>
                                 <?php 
                                     $alternate_phone = "";
@@ -176,7 +176,7 @@
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
                                     <span class="fa-icon fa-mobile"></span>
                                     <input type="tel" class="text form-control numonly" name="alt_phone_no" id="alt_phone_no" maxlength="10" value="<?php echo $alternate_phone;?>" />
-                                    <label for="alt_phone_no" class="label-tag optional-tag">Alternate Mob No.</label>
+                                    <label for="alt_phone_no" class="label-tag optional-tag">Login Date </label>
                                 </div> 
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
                                     <span class="fa-icon fa-envelope"></span>
@@ -186,7 +186,7 @@
                                         <label class="pointer_n" style="font-weight: bold;width: 25px;height: 18px;text-align: center;color: #1b8c1b;border-radius: 50%;right: 16px;left: auto;">✔</label>
                                     <?php }  ?>
 
-                                    <label for="email" class="label-tag <?php if(!in_array($loan_type,array(71,11,57,63,56))){ ?> optional-tag <?php } ?>">Email</label>
+                                    <label for="email" class="label-tag <?php if(!in_array($loan_type,array(71,11,57,63,56))){ ?> optional-tag <?php } ?>">Sanction Amount</label>
                                 </div>
                               
                                 <!-- <div class="form-group col-xl-2 col-lg-4 col-md-6">
