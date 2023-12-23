@@ -450,7 +450,8 @@ $case_id = $exe['crm_raw_data_id'];
 $cust_id = $exe['cust_id'];
 $city_id = $exe['city_id'];
 $city_name_get = get_name("city_id",$city_id);
-print_r($city_name_get);
+// print_r($city_name_get);
+$city_name = $city_name_get['city_name'];
 // $name_app_statuson = get_display_name('post_login',$app_status_on);
 // if($name_app_statuson == ''){
 //   $name_app_statuson = get_display_name('snew_status_name',$app_status_on);  
