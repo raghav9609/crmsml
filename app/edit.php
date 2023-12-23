@@ -18,8 +18,8 @@ $level_id = 1;
 if (isset($_REQUEST['page'])) {
     $page = replace_special($_REQUEST['page']);
 }
-if (isset($_REQUEST['id'])) {
-    $id = replace_special(urldecode(base64_decode($_REQUEST['id'])));
+if (isset($_REQUEST['app_id'])) {
+    $id = replace_special(urldecode(base64_decode($_REQUEST['app_id'])));
     $ut = replace_special($_REQUEST['ut']);
 }
 $q_id = $id;
@@ -80,84 +80,84 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
     }
     $final_src = ucwords(implode(" ", $src)) . " (" . $exe_form['tool_type'] . ")";
 
-    $cust_data = mysqli_query($Conn1, "select cust.cibil_score as cibil_score,cust.company_id as comp_id,cust.name as mname,city.city_name as city_name,city.city_sub_group_id as city_sub_group_id, comp.company_name as comp_name,cust.salary_bank_id as bank_id,cust.salutation_id as salu_id,cust.name as name,cust.dob as dob,cust.phone_no as phone, cust.email_id as email,cust.address as res_address,cust.occupation_id as occup_id,cust.net_income as net_incm, cust.company_name as comp_name_other,cust.pan_no as pan_card,cust.city_id city_id,cust.alternate_phone_no as alt_phone, cust.bank_account_no as account_no,cust.ofc_contact as ofc_contact,cust.office_address as offce_address,cust.office_pincode as ofc_pincode, cust.office_email_id as ofc_email,cust.office_city_id as work_city,cust.marital_status_id as maritalstatus,cust.current_work_exp as cur_comp_wrk_exp, cust.total_work_exp as totl_wrk_exp,cust.mode_of_salary AS salary_pay_id,cust.pincode as pincode from crm_customer as cust left join crm_master_city as city on cust.city_id = city.id left join crm_master_company as comp on cust.company_id = comp.id where cust.id = " . $cust_id . "");
+    // $cust_data = mysqli_query($Conn1, "select cust.cibil_score as cibil_score,cust.company_id as comp_id,cust.name as mname,city.city_name as city_name,city.city_sub_group_id as city_sub_group_id, comp.company_name as comp_name,cust.salary_bank_id as bank_id,cust.salutation_id as salu_id,cust.name as name,cust.dob as dob,cust.phone_no as phone, cust.email_id as email,cust.address as res_address,cust.occupation_id as occup_id,cust.net_income as net_incm, cust.company_name as comp_name_other,cust.pan_no as pan_card,cust.city_id city_id,cust.alternate_phone_no as alt_phone, cust.bank_account_no as account_no,cust.ofc_contact as ofc_contact,cust.office_address as offce_address,cust.office_pincode as ofc_pincode, cust.office_email_id as ofc_email,cust.office_city_id as work_city,cust.marital_status_id as maritalstatus,cust.current_work_exp as cur_comp_wrk_exp, cust.total_work_exp as totl_wrk_exp,cust.mode_of_salary AS salary_pay_id,cust.pincode as pincode from crm_customer as cust left join crm_master_city as city on cust.city_id = city.id left join crm_master_company as comp on cust.company_id = comp.id where cust.id = " . $cust_id . "");
    
-    $result_cust_data = mysqli_fetch_array($cust_data);
+    // $result_cust_data = mysqli_fetch_array($cust_data);
 
-    $city_sub_group_id = $result_cust_data['city_sub_group_id'];
-    $city_name = $result_cust_data['city_name'];
-    $employer_type = $comp_id = $result_cust_data['comp_id'];
-    $saving_accounts_with = $main_account = $result_cust_data['bank_id'];
-    $salu_id = $result_cust_data['salu_id'];
-    $name = $result_cust_data['name'];
-    $mname = $result_cust_data['mname'];
-    $dob = $result_cust_data['dob'];
-    $comp_name = $result_cust_data['comp_name'];
+    // $city_sub_group_id = $result_cust_data['city_sub_group_id'];
+    // $city_name = $result_cust_data['city_name'];
+    // $employer_type = $comp_id = $result_cust_data['comp_id'];
+    // $saving_accounts_with = $main_account = $result_cust_data['bank_id'];
+    // $salu_id = $result_cust_data['salu_id'];
+    // $name = $result_cust_data['name'];
+    // $mname = $result_cust_data['mname'];
+    // $dob = $result_cust_data['dob'];
+    // $comp_name = $result_cust_data['comp_name'];
 
-    $phone = $mobile = $result_cust_data['phone'];
-    $email = $result_cust_data['email'];
-    $res_addrs = $result_cust_data['res_address'];
-    $occup = $result_cust_data['occup_id'];
-    $net_incm = $result_cust_data['net_incm'];
-    $cibil_score = $result_cust_data['cibil_score'];
-    if ($employer_type == 0) {
-        $comp_name_other = $result_cust_data['comp_name_other'];
-    }
-    // if ($comp_id == '38665') {
-    //     $comp_name = get_display_name('comp_name', $result_cust_data['comp_id'])." - ".get_display_name('sub_employer', $sub_employer_type);
+    // $phone = $mobile = $result_cust_data['phone'];
+    // $email = $result_cust_data['email'];
+    // $res_addrs = $result_cust_data['res_address'];
+    // $occup = $result_cust_data['occup_id'];
+    // $net_incm = $result_cust_data['net_incm'];
+    // $cibil_score = $result_cust_data['cibil_score'];
+    // if ($employer_type == 0) {
+    //     $comp_name_other = $result_cust_data['comp_name_other'];
     // }
-    $pan_card = $result_cust_data['pan_card'];
-    $city_id = $result_cust_data['city_id'];
-    $alt_phone = $result_cust_data['alt_phone'];
-    $account_no = $result_cust_data['account_no'];
-    $office_landline = $result_cust_data['ofc_contact'];
-    $offce_address = $result_cust_data['offce_address'];
-    $ofc_pincode = $result_cust_data['ofc_pincode'];
-    $ofc_email = $result_cust_data['ofc_email'];
-    $work_city = $result_cust_data['work_city'];
-    $maritalstatus = $result_cust_data['maritalstatus'];
-    $ofc_city_name = get_display_name("city_name", $work_city);
-    $ccwe = $result_cust_data['cur_comp_wrk_exp'];
-    $twe = $result_cust_data['totl_wrk_exp'];
-    $salary_pay_id = $result_cust_data['salary_pay_id'];
-    $pin_code = $result_cust_data['pincode'];
-    //$saving_accounts_with = $result_cust_data['saving_accounts_with'];
-    $check_cibil_val = 1;
-    if(($exis_loans == 0 || $exis_loans == '') && ($credit_running == 0 || $credit_running == '') && $loan_in_past == 2){
-        $check_cibil_val = 0;
-    }
-
-    // if ($state_cust > 0) {
-    //     $state = $state_cust;
-    // } else {
-    //     $state = $result_cust_data['state_id'];
+    // // if ($comp_id == '38665') {
+    // //     $comp_name = get_display_name('comp_name', $result_cust_data['comp_id'])." - ".get_display_name('sub_employer', $sub_employer_type);
+    // // }
+    // $pan_card = $result_cust_data['pan_card'];
+    // $city_id = $result_cust_data['city_id'];
+    // $alt_phone = $result_cust_data['alt_phone'];
+    // $account_no = $result_cust_data['account_no'];
+    // $office_landline = $result_cust_data['ofc_contact'];
+    // $offce_address = $result_cust_data['offce_address'];
+    // $ofc_pincode = $result_cust_data['ofc_pincode'];
+    // $ofc_email = $result_cust_data['ofc_email'];
+    // $work_city = $result_cust_data['work_city'];
+    // $maritalstatus = $result_cust_data['maritalstatus'];
+    // $ofc_city_name = get_display_name("city_name", $work_city);
+    // $ccwe = $result_cust_data['cur_comp_wrk_exp'];
+    // $twe = $result_cust_data['totl_wrk_exp'];
+    // $salary_pay_id = $result_cust_data['salary_pay_id'];
+    // $pin_code = $result_cust_data['pincode'];
+    // //$saving_accounts_with = $result_cust_data['saving_accounts_with'];
+    // $check_cibil_val = 1;
+    // if(($exis_loans == 0 || $exis_loans == '') && ($credit_running == 0 || $credit_running == '') && $loan_in_past == 2){
+    //     $check_cibil_val = 0;
     // }
 
+    // // if ($state_cust > 0) {
+    // //     $state = $state_cust;
+    // // } else {
+    // //     $state = $result_cust_data['state_id'];
+    // // }
 
 
-    // $credit_score_query = "select * from tbl_credit_score where query_id = '" . $id . "'";
-    // $result_credit_score_query = mysqli_query($Conn1, $credit_score_query);
-    // $info_credit_query = mysqli_fetch_array($result_credit_score_query);
 
-    $ol_level_id = 1;
-    $ol_query_id = $q_id;
-    $ol_priority_id = str_replace(array('P','p'),'',$_REQUEST['priority']);
-    $ol_user_id = $user;
-    $ol_date = date("Y-m-d h:i:s");
+    // // $credit_score_query = "select * from tbl_credit_score where query_id = '" . $id . "'";
+    // // $result_credit_score_query = mysqli_query($Conn1, $credit_score_query);
+    // // $info_credit_query = mysqli_fetch_array($result_credit_score_query);
 
-    if($_REQUEST['search_type'] == '' || $_REQUEST['search_type'] == 0){
-        $search_type = 3;
-    }else{
-        $search_type = $_REQUEST['search_type'];
-    }
+    // $ol_level_id = 1;
+    // $ol_query_id = $q_id;
+    // $ol_priority_id = str_replace(array('P','p'),'',$_REQUEST['priority']);
+    // $ol_user_id = $user;
+    // $ol_date = date("Y-m-d h:i:s");
+
+    // if($_REQUEST['search_type'] == '' || $_REQUEST['search_type'] == 0){
+    //     $search_type = 3;
+    // }else{
+    //     $search_type = $_REQUEST['search_type'];
+    // }
 
     
-    if (trim($pan_card) != '') {
-        $pan_customer_qry = mysqli_query($Conn1, "select min(id) as cust_pan_id,count(*) as total_count_pan from crm_customer where id > 0 and pan_no = '" . trim($pan_card) . "' order by pan_no");
-        $result_customer_qry = mysqli_fetch_array($pan_customer_qry);
-        $count_pan = $result_customer_qry['total_count_pan'];
-        $cust_pan_id = $result_customer_qry['cust_pan_id'];
-    }
+    // if (trim($pan_card) != '') {
+    //     $pan_customer_qry = mysqli_query($Conn1, "select min(id) as cust_pan_id,count(*) as total_count_pan from crm_customer where id > 0 and pan_no = '" . trim($pan_card) . "' order by pan_no");
+    //     $result_customer_qry = mysqli_fetch_array($pan_customer_qry);
+    //     $count_pan = $result_customer_qry['total_count_pan'];
+    //     $cust_pan_id = $result_customer_qry['cust_pan_id'];
+    // }
 
     ?>
     <html>
@@ -305,31 +305,31 @@ if($tool_type == "Cross Sell - Auto") {
         //     }
         // }
 
-     if ($ref_mobile != '' && $ref_mobile != 0) {
-        if($refer_form_type == 3){
-             echo "<span class='orange' style='margin-left:20px;'>Referred by : " . $referral_name . "</span>";
-        } else if($refer_form_type == 2) {
-            $part_source = $result_refer_name['source'];
-            $ref_city_name = $result_refer_name['work_city'];
-            $ref_cname = "";
-            if($ref_city_name != "" && $ref_city_name != "0") {
-                $ref_cname = get_display_name("city_name", $ref_city_name);
-            }
-            if($ref_cname != "") {
-                $ref_cname = " - ".$ref_cname;
-            }
-            if($part_source == 1){
-                $partner_source = 'App';
-            }else if($part_source == 2){
-                $partner_source = 'CRM';
-            }else{
-                $partner_source = 'Web';
-            }
-            echo "<span class='orange' style='margin-left:20px;'>Referred by : " . $referral_name . " (" . $referral_phone . "".$ref_cname." - ".$partner_source.")</span>";
-        } else {
-            echo "<span class='orange' style='margin-left:20px;'>Referred by : " . $referral_name . " (" . $referral_phone . ")</span>";
-        }
-    } 
+    //  if ($ref_mobile != '' && $ref_mobile != 0) {
+    //     if($refer_form_type == 3){
+    //          echo "<span class='orange' style='margin-left:20px;'>Referred by : " . $referral_name . "</span>";
+    //     } else if($refer_form_type == 2) {
+    //         $part_source = $result_refer_name['source'];
+    //         $ref_city_name = $result_refer_name['work_city'];
+    //         $ref_cname = "";
+    //         if($ref_city_name != "" && $ref_city_name != "0") {
+    //             $ref_cname = get_display_name("city_name", $ref_city_name);
+    //         }
+    //         if($ref_cname != "") {
+    //             $ref_cname = " - ".$ref_cname;
+    //         }
+    //         if($part_source == 1){
+    //             $partner_source = 'App';
+    //         }else if($part_source == 2){
+    //             $partner_source = 'CRM';
+    //         }else{
+    //             $partner_source = 'Web';
+    //         }
+    //         echo "<span class='orange' style='margin-left:20px;'>Referred by : " . $referral_name . " (" . $referral_phone . "".$ref_cname." - ".$partner_source.")</span>";
+    //     } else {
+    //         echo "<span class='orange' style='margin-left:20px;'>Referred by : " . $referral_name . " (" . $referral_phone . ")</span>";
+    //     }
+    // } 
     ?>
     </span>
 
