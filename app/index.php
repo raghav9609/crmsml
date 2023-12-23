@@ -452,7 +452,7 @@ $city_id = $exe['city_id'];
 $city_name_get = get_name("city_id",$city_id);
 $city_name = $city_name_get['city_name'];
 $get_name_bank = get_name("",$name_bank);
-echo $get_name_bank;
+print_r($get_name_bank);
 // $name_app_statuson = get_display_name('post_login',$app_status_on);
 // if($name_app_statuson == ''){
 //   $name_app_statuson = get_display_name('snew_status_name',$app_status_on);  
