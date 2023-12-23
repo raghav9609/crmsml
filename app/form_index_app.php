@@ -207,7 +207,8 @@
                                         <label class="pointer_n" style="font-weight: bold;width: 25px;height: 18px;text-align: center;color: #1b8c1b;border-radius: 50%;right: 16px;left: auto;">✔</label>
                                     <?php }  ?>
 
-                                    <label for="pan_card" class="label-tag <?php if(!in_array($loan_type,array(71))){ ?> optional-tag <?php } ?>">Pan Card No.<span class='blue f_12'>(Take cibil consent)</span></label>
+                                    <label for="pan_card" class="label-tag <?php if(!in_array($loan_type,array(71))){ ?> optional-tag <?php } ?>">Pan Card No.</label>
+                                    <!-- <span class='blue f_12'>(Take cibil consent)</span> -->
                                 </div>
                                 <div class="heading-offers">
                                     <div class="exclamatry-text">Occupation Details</div>
