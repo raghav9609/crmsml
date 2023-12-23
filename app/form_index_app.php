@@ -141,10 +141,9 @@
      
             
                             <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                                <!-- <span class="fa-icon fa-calendar"></span> -->
-                                <input type="text" class="text form-control" name="dob" id="dob" maxlength="10" value="<?php echo $dob != '0000-00-00'?$dob:'';?>" placeholder="yyyy-mm-dd" <?php if(in_array($loan_type,array(71,11,57,63,56))){?> required <?php }?>/>
-                                <label for="dob" class="label-tag <?php if(!in_array($loan_type,array(71,11,57,63,56))){ ?> optional-tag <?php } ?>">Application Status</label>
-                                <span class='green' id='age' style="position: absolute;top: 100%;background: transparent;color: green;left: 15px;"></span>
+                                <span class="fa-icon fa-briefcase"></span>
+                                    <?php //echo get_dropdown('7','occupation_id',$occup,'required'); ?>
+                                    <label for="occupation" class="label-tag">Application Status</label>
                             </div>
                                 <?php 
                                 if($_SESSION['show_number_flag'] == 2 || $_SESSION['show_number_flag'] == 3) {
@@ -174,9 +173,9 @@
                                     }
                                 ?>
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                                    <span class="fa-icon fa-mobile"></span>
-                                    <input type="tel" class="text form-control numonly" name="alt_phone_no" id="alt_phone_no" maxlength="10" value="<?php echo $alternate_phone;?>" />
-                                    <label for="alt_phone_no" class="label-tag optional-tag">Login Date </label>
+                                    <input type="text" class="text form-control" name="dob" id="dob" maxlength="10" value="<?php echo $dob != '0000-00-00'?$dob:'';?>" placeholder="yyyy-mm-dd" <?php if(in_array($loan_type,array(71,11,57,63,56))){?> required <?php }?>/>
+                                    <label for="dob" class="label-tag <?php if(!in_array($loan_type,array(71,11,57,63,56))){ ?> optional-tag <?php } ?>">Login Date</label>
+                                    <span class='green' id='age' style="position: absolute;top: 100%;background: transparent;color: green;left: 15px;"></span>
                                 </div> 
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
                                     <span class="fa-icon fa-envelope"></span>
