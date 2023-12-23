@@ -22,42 +22,42 @@
 }
 </style>
 <div class="main-crmform col-12">
-    <div class="popup-ctext up-list-box">
+    <!-- <div class="popup-ctext up-list-box">
     <h2 class='f_14 fw_bold'>Query Detail</h2>
     <br> 
     <ul>
     <?php 
 
-    if ($employer_type == 0) {
-        $comp_name = $result_cust_data['comp_name_other'];
-    }else if($loan_type == 11){
-        $comp_name = $hospital_name;
-    }
-    if($dob !='0000-00-00' && $dob != '1970-01-01'){
-        $dob1=$dob;
-        $diff = (date('Y') - date('Y',strtotime($dob1)));
-        $diff;
-    } else {
-        $diff='';
-    } 
-    $fname=$name." ".$mname." " .$lname;
+    // if ($employer_type == 0) {
+    //     $comp_name = $result_cust_data['comp_name_other'];
+    // }else if($loan_type == 11){
+    //     $comp_name = $hospital_name;
+    // }
+    // if($dob !='0000-00-00' && $dob != '1970-01-01'){
+    //     $dob1=$dob;
+    //     $diff = (date('Y') - date('Y',strtotime($dob1)));
+    //     $diff;
+    // } else {
+    //     $diff='';
+    // } 
+    // $fname=$name." ".$mname." " .$lname;
     
-    $amt = custom_money_format($loan_amt);
+    // $amt = custom_money_format($loan_amt);
    
-    $nametext = trim($fname) != '' ? "<li><b class='fw_bold'>".ucfirst($fname)."</b> " : '<li><b class="fw_bold">Customer</b> '  ; 
-    $dobtext = ($diff != '') ? " and customer age is&nbsp;&nbsp;<b class='fw_bold'>".$diff."</b>&nbsp;&nbsp;years </li>" : "</li>"  ;
-    $citytext = (($city_name != '')? " and residing in <b class='fw_bold'> $city_name </b></li> " : "</li>") ;
-    $occcc = get_name('master_code_id',$occup);
-    $occuptext = (($occup != '' && $occup != 0) ? "<li>Customer is  <b class='fw_bold'>$occcc </b>" : "");
-    $mainbank = get_name('master_code_id',$main_account);
-    $accounttext = (($main_account !='' && $main_account !=0) ? "<li>Customer has account in  <b class='fw_bold'>$mainbank </b></li>" : "");
-    $loanamounttext = ($loan_amt != 0 && $loan_amt != '') ? " of <b class='fw_bold'> $amt </b>" : "";
-    echo  $nametext." looking for a <b class='fw_bold'>".$loantype_name."</b>".$loanamounttext. $citytext.$occuptext.$dobtext.$accounttext; ?>
+    // $nametext = trim($fname) != '' ? "<li><b class='fw_bold'>".ucfirst($fname)."</b> " : '<li><b class="fw_bold">Customer</b> '  ; 
+    // $dobtext = ($diff != '') ? " and customer age is&nbsp;&nbsp;<b class='fw_bold'>".$diff."</b>&nbsp;&nbsp;years </li>" : "</li>"  ;
+    // $citytext = (($city_name != '')? " and residing in <b class='fw_bold'> $city_name </b></li> " : "</li>") ;
+    // $occcc = get_name('master_code_id',$occup);
+    // $occuptext = (($occup != '' && $occup != 0) ? "<li>Customer is  <b class='fw_bold'>$occcc </b>" : "");
+    // $mainbank = get_name('master_code_id',$main_account);
+    // $accounttext = (($main_account !='' && $main_account !=0) ? "<li>Customer has account in  <b class='fw_bold'>$mainbank </b></li>" : "");
+    // $loanamounttext = ($loan_amt != 0 && $loan_amt != '') ? " of <b class='fw_bold'> $amt </b>" : "";
+    // echo  $nametext." looking for a <b class='fw_bold'>".$loantype_name."</b>".$loanamounttext. $citytext.$occuptext.$dobtext.$accounttext; ?>
 </ul>
-    </div>
+    </div> -->
 
-    <br>
-    <div class='popup-ctext up-list-box'>
+    <!-- <br> -->
+    <!-- <div class='popup-ctext up-list-box'>
         <?php if ($fin_opt_bank != '') { ?>        
             <h2 class="f_14 fw_bold" style='font-size: 15px'>Customer Applied Banks</h2>
             <br>
@@ -95,17 +95,17 @@
         // }
         
         ?>
-    </div>
+    </div> -->
 
 
 </div>
     <main> 
     <section class="d-flex flex-wrap">
     <div class="pl-md-3 pl-2 pr-md-3 pr-2 col-12">
-        <div class="d-flex flex-wrap gen-box text-center white-bg pe-none">
+        <!-- <div class="d-flex flex-wrap gen-box text-center white-bg pe-none">
             <div class="col-3 tab-click active-tab" data-toggle="step1">Personal Details</div>
             <div class="col-3 tab-click" data-toggle="step2"><?php if($loan_type != 71){ echo "Loan";}else{echo "Card";} ?> Details</div>
-        </div>
+        </div> -->
     <div class="gen-box white-bg">
     <div class="blue-bg col-12 font-weight-nb pb-2 pt-2 white font-20 brdr-top-gray pe-none" data-toggle="step1" id="switch_step1"><span id="text_step1">STEP 1</span> : Personal Details</div>    
         <form action="" class="form-step col-12" autocomplete="off" id="form_step1">
