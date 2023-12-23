@@ -637,7 +637,7 @@ if ($(this).not(":checked")) {
 </tr>
 <tr>
 <td>
-<input type ="hidden" name="page" id ="page" value="<?php echo $page;?>"/>
+<input type ="hidden" name="page" id ="page" value="<?php echo "";?>"/>
 <input type ="submit" name="edit" value ="Assign" id="edit"/></td>
 </tr>
 </form>
