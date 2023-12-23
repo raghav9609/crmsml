@@ -10,7 +10,7 @@ require_once(dirname(__FILE__) . '/../helpers/common-helper.php');
 require_once(dirname(__FILE__) . '/../include/header.php');
 
 require_once(dirname(__FILE__) . '/../model/queryHelper.php');
-require_once(dirname(__FILE__) . '/../include/loader.php');
+// require_once(dirname(__FILE__) . '/../include/loader.php');
 
 echo "hi111";
 exit();
