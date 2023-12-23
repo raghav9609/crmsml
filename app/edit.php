@@ -12,10 +12,11 @@ require_once(dirname(__FILE__) . '/../include/header.php');
 require_once(dirname(__FILE__) . '/../model/queryHelper.php');
 // require_once(dirname(__FILE__) . '/../include/loader.php');
 
-echo "hi111";
-exit();
+
 
 require_once "../include/helper.functions.php";
+echo "hi111";
+exit();
 require_once "../include/display-name-functions.php";
 require_once "../include/case-query-function-insert.php";
 
