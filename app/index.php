@@ -423,7 +423,6 @@ echo $qry_ex;
 // echo $qry_ex;
 $res = mysqli_query($Conn1,$qry_ex) or die("Error: ".mysqli_error($Conn1));
 $recordcount = mysqli_num_rows($res);
-echo $recordcount;
 if($recordcount > 0){
 	$record = 0;
 while($exe = mysqli_fetch_array($res)){
@@ -563,14 +562,13 @@ if ($(this).not(":checked")) {
 });
 </script>';
 ?>
-<?php echo $crm_query_id; ?>
 <tr>
 <?php //if($_SESSION['assign_access_lead'] == 1){?>
     <!-- <td><input type='hidden' name='url' value='<?php //echo 'http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/index.php';?>'/> -->
 <!-- <input type ="checkbox" name ="mask[]" id="<?php echo urlencode(base64_encode($case_id)); ?>" value ="<?php echo $case_id;?>"</td><?php //} ?> -->
 <td>
     <!-- <input type='' name='applcation_id_<?php echo $case_id;?>' value='<?php echo base64_encode($app_id);?>'> -->
-<a href = "../cases/edit.php?case_id=<?php echo urlencode(base64_encode($case_id)) ;?>" class="has_link"><?php echo $case_id;?></a>
+<!-- <a href = "../cases/edit.php?case_id=<?php echo urlencode(base64_encode($case_id)) ;?>" class="has_link"><?php echo $case_id;?></a> -->
 <br/>
 <a href = "edit.php?case_id=<?php echo urlencode(base64_encode($case_id)) ;?>&app_id=<?php echo urlencode(base64_encode($crm_query_id)); ?>&cust_id=<?php echo urlencode(base64_encode($cust_id));?>&loan_type=<?php echo $loan_type;?>" class="has_link">
 <span><?php echo $crm_query_id;?></span></a>
