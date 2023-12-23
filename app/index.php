@@ -435,7 +435,7 @@ $cust_name  = $exe['name'];
 $phone  = $exe['phone'];
 $application_status_get  = $exe['application_status'];
 $get_application_status = get_dropdown('application_status','');
-print_r($get_application_status);
+// print_r($get_application_status);
 // $sub_sub_status  = $exe['sub_sub_status'];
 // $cust_id = $exe['cust_id'];
 $loan_type = $exe['loan_type'];
@@ -592,19 +592,12 @@ if ($(this).not(":checked")) {
     <?php echo $partner_name;?>
 </td>
 <td>
-    <?php echo $name_bank_on; if($count_status > 0){$result_status = mysqli_fetch_array($get_status); echo " <span class='green'>(".$result_status['status']." ".$result_status['description'].")</span>"; }?>
+    <?php echo $name_bank_on;?>
 </td>
 
 <td>
-    <?php
+    <?php echo  $get_application_status;?>
 
-    echo "<span>".$final_pre_status_name.$final_app_status_name.$final_sub_status_name."</span>";
-    if($auto_case_create == 1) {
-        echo "<br><span class='fs-12'> (Auto)</span>" ; 
-    }
-    ?>
-    <br>
-    <?php echo $app_st_date; ?>
 </td>
 
 <?php if($user_role != 3) { ?>
