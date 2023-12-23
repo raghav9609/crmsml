@@ -629,7 +629,7 @@ if ($(this).not(":checked")) {
 <?php
 } ?>
 </table>
-<?php if($_SESSION['assign_access_lead'] != 1){?>
+<?php if($_SESSION['assign_access_lead'] == 1){?>
 <table width="10%" style="float:left">
 <tr >
 <td><input type="radio" id="assign" name="assign">Assigned to</td>
@@ -643,7 +643,7 @@ if ($(this).not(":checked")) {
 </form>
 </table>
 <?php } if ($recordcount > 0) { ?>
-<table width="width:90%;margin-left:4%;" border="0"  cellpadding="4" cellspacing="1" class="pagination">
+<table width="width:90%;margin-left:4%;" border="0" align="center" cellpadding="4" cellspacing="1" class="pagination">
             <tr class="sidemain">
                 <td>
                     <?php
