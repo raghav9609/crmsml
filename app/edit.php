@@ -1,4 +1,6 @@
 <?php
+echo "hi";
+exit();
 session_start();
 $dialog_pop_up_disabled_flag = 1;
 
