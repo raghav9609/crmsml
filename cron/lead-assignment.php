@@ -20,9 +20,8 @@ foreach($fetch_unassign_leads as $key=>$value){
     }
 
     $data = array("city_sub_group_id"=>$city_sub_group_id,"net_income"=>$final_net_income,"loan_amount"=>$loan_amount,"loan_type_id"=>$loan_type_id);
-
-   echo $getLeadAssignemtn =$leadAssignmentClassexport->leadAssignment($data);
-
+    $getLeadAssignemtn = $db_handle->runQuery($leadAssignmentClassexport->leadAssignment($data));
+    preArray($getLeadAssignemtn);
 
 }
 
