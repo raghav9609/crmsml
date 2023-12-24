@@ -211,13 +211,6 @@
                                     <label for="name" class="label-tag">Tenure/ROI</label>
                                 </div>
                             </div>
-                                
-                               
-                                
-                               
-                   
-                    
-                   
                        
     
     <?php
@@ -506,99 +499,99 @@ if (in_array($loan_type, $language_barrier_loan_type)) {?>
 <script src="../assets/js/query-journey.js?v=4"></script>
 <?php } ?>
 <script>
-$(document).ready(function() {
-    $("#slide-tc-script").click(function() {
-        if(!$(".tc_div").hasClass("slider-extra-class")) {
-            $(".tc_div").animate({"right":"1%"}, "slow");   
-            $(".tc_div").addClass("slider-extra-class");
-            $("#slide-tc-script").addClass("hidden");
-        } else {
-            $(".tc_div").animate({"right":"-30%"}, "slow");
-            $(".tc_div").removeClass("slider-extra-class");
-        }
-    });
+// $(document).ready(function() {
+//     $("#slide-tc-script").click(function() {
+//         if(!$(".tc_div").hasClass("slider-extra-class")) {
+//             $(".tc_div").animate({"right":"1%"}, "slow");   
+//             $(".tc_div").addClass("slider-extra-class");
+//             $("#slide-tc-script").addClass("hidden");
+//         } else {
+//             $(".tc_div").animate({"right":"-30%"}, "slow");
+//             $(".tc_div").removeClass("slider-extra-class");
+//         }
+//     });
 
-    $("#close-tc-slider").click(function() {
-        $(".tc_div").animate({"right":"-30%"}, "slow");
-        $(".tc_div").removeClass("slider-extra-class");
-        $("#slide-tc-script").removeClass("hidden");
-    })
-});
+//     $("#close-tc-slider").click(function() {
+//         $(".tc_div").animate({"right":"-30%"}, "slow");
+//         $(".tc_div").removeClass("slider-extra-class");
+//         $("#slide-tc-script").removeClass("hidden");
+//     })
+// });
 </script>
 <?php //if($user == 173 || $user == 83 || $user == 162) { ?>
     <script>
-    function verify_popup(btn_id) {
+    // function verify_popup(btn_id) {
 
-        var email_id_val = $("#email").val().trim();
-        var pan_card_val = ($("#pan_card").length) ? $("#pan_card").val().trim() : "";
-        var phone_no_val = $("#unm_phone_no").val().trim();
+    //     var email_id_val = $("#email").val().trim();
+    //     var pan_card_val = ($("#pan_card").length) ? $("#pan_card").val().trim() : "";
+    //     var phone_no_val = $("#unm_phone_no").val().trim();
 
-        $("#btn_type_id").val(btn_id);
+    //     $("#btn_type_id").val(btn_id);
 
-        //check if already verified
-        $.ajax({
-            type: "POST",
-            url: "/sugar/insert/check-verification.php",
-            data: "phone_no="+phone_no_val+"&email_id="+email_id_val+"&pan_card="+pan_card_val+"&cust_id=<?php echo $cust_id; ?>",
-            success: function(resp) {
-            }
-        }).then(function(resp) {
-            console.log(resp);
-            var json_resp_new = JSON.parse(resp);
-            if(json_resp_new.generic_verify == "0") {
-                if(email_id_val != '' || pan_card_val != '' || phone_no_val != '') {
-                    $("#verify_phone, #verify_phone_mode").val("");
-                    $("#verify_email, #verify_email_mode").val("");
-                    $("#verify_pan_card, #verify_mode").val("");
+    //     //check if already verified
+    //     $.ajax({
+    //         type: "POST",
+    //         url: "/sugar/insert/check-verification.php",
+    //         data: "phone_no="+phone_no_val+"&email_id="+email_id_val+"&pan_card="+pan_card_val+"&cust_id=<?php echo $cust_id; ?>",
+    //         success: function(resp) {
+    //         }
+    //     }).then(function(resp) {
+    //         console.log(resp);
+    //         var json_resp_new = JSON.parse(resp);
+    //         if(json_resp_new.generic_verify == "0") {
+    //             if(email_id_val != '' || pan_card_val != '' || phone_no_val != '') {
+    //                 $("#verify_phone, #verify_phone_mode").val("");
+    //                 $("#verify_email, #verify_email_mode").val("");
+    //                 $("#verify_pan_card, #verify_mode").val("");
 
-                    $(".dark-box").show();
-                    $("#verification_popup").show();
-                    $(".email-popup, #verify_email_div").addClass("hidden");
-                    $(".pancard-popup, #verify_pancard_div").addClass("hidden");
-                    $(".phone-popup, #verify_phone_div").addClass("hidden");
+    //                 $(".dark-box").show();
+    //                 $("#verification_popup").show();
+    //                 $(".email-popup, #verify_email_div").addClass("hidden");
+    //                 $(".pancard-popup, #verify_pancard_div").addClass("hidden");
+    //                 $(".phone-popup, #verify_phone_div").addClass("hidden");
 
-                    if(phone_no_val != '' && json_resp_new.phone_verify == "0") {
-                        $(".phone-popup").removeClass("hidden");
-                    }
+    //                 if(phone_no_val != '' && json_resp_new.phone_verify == "0") {
+    //                     $(".phone-popup").removeClass("hidden");
+    //                 }
 
-                    if(email_id_val != '' && json_resp_new.email_verify == "0") {
-                        $(".email-popup").removeClass("hidden");
-                    }
+    //                 if(email_id_val != '' && json_resp_new.email_verify == "0") {
+    //                     $(".email-popup").removeClass("hidden");
+    //                 }
 
-                    if(pan_card_val != '' && json_resp_new.pancard_verify == "0") {
-                        $(".pancard-popup").removeClass("hidden");
-                    }
-                } else {
-                    $("#sf_flag").val(1);    
-                }
-            } else {
-                $("#sf_flag").val(1);
-            }
-        });
-    }
+    //                 if(pan_card_val != '' && json_resp_new.pancard_verify == "0") {
+    //                     $(".pancard-popup").removeClass("hidden");
+    //                 }
+    //             } else {
+    //                 $("#sf_flag").val(1);    
+    //             }
+    //         } else {
+    //             $("#sf_flag").val(1);
+    //         }
+    //     });
+    // }
 
-    function mov_field(e) {
-        if(e.id == "verify_phone") {
-            if(e.value == 1) {
-                $("#verify_phone_div").removeClass("hidden");
-            } else {
-                $("#verify_phone_div").addClass("hidden");
-            }
-        }
-        if(e.id == "verify_email") {
-            if(e.value == 1) {
-                $("#verify_email_div").removeClass("hidden");
-            } else {
-                $("#verify_email_div").addClass("hidden");
-            }
-        } 
-        if(e.id == "verify_pan_card") {
-            if(e.value == 1) {
-                $("#verify_pancard_div").removeClass("hidden");
-            } else {
-                $("#verify_pancard_div").addClass("hidden");
-            }
-        }
-    }
+    // function mov_field(e) {
+    //     if(e.id == "verify_phone") {
+    //         if(e.value == 1) {
+    //             $("#verify_phone_div").removeClass("hidden");
+    //         } else {
+    //             $("#verify_phone_div").addClass("hidden");
+    //         }
+    //     }
+    //     if(e.id == "verify_email") {
+    //         if(e.value == 1) {
+    //             $("#verify_email_div").removeClass("hidden");
+    //         } else {
+    //             $("#verify_email_div").addClass("hidden");
+    //         }
+    //     } 
+    //     if(e.id == "verify_pan_card") {
+    //         if(e.value == 1) {
+    //             $("#verify_pancard_div").removeClass("hidden");
+    //         } else {
+    //             $("#verify_pancard_div").addClass("hidden");
+    //         }
+    //     }
+    // }
     </script>
 <?php //} ?>
