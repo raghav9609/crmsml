@@ -26,9 +26,7 @@
     <h2 class='f_14 fw_bold'>Query Detail</h2>
     <br> 
     <ul>
-    <?php  echo "hiiiiii";
-
-    echo $applied_amount;
+    <?php  
     
 
     // if ($employer_type == 0) {
@@ -122,7 +120,10 @@
                         <input type="hidden" name="loan_type" value="<?php echo $loan_type; ?>">
                         <input type="hidden" name="unm_phone_no" id="unm_phone_no" value="<?php echo $phone; ?>">
 
-                        <?php //if($user == 173 || $user == 83 || $user == 162) { ?>
+                        <?php //if($user == 173 || $user == 83 || $user == 162) { 
+                            echo "hiiiiii";
+
+                            echo $applied_amount;?>
                             <input type="hidden" name="sf_flag" id="sf_flag" value="0">
                         <?php //} ?>
                         <input type="hidden" name="logged_in_user" id="logged_in_user" value="<?php echo $user; ?>">
