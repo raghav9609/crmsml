@@ -9,10 +9,10 @@ echo "as 2";
 require_once "../include/helper.functions.php";
 require_once "../include/display-name-functions.php";
 
-if($_SESSION['one_lead_flag'] == 1  && $_SESSION['sme_flag'] != 1){
-    header("/../../logout.php");
-    die();
-} 
+// if($_SESSION['one_lead_flag'] == 1  && $_SESSION['sme_flag'] != 1){
+//     header("/../../logout.php");
+//     die();
+// } 
 ?>
 <!DOCTYPE html>
 <html>
