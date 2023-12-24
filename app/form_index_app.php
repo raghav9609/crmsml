@@ -217,27 +217,21 @@
                             <input type="button" class="btn btn-primary valid" name="edit_app" id="edit_app" value="Edit">
                             <input type="button" class="btn btn-primary valid" name="submit_app" id="submit_app" value="SUBMIT">
                        
-                            <script>
+<script>
     document.addEventListener('DOMContentLoaded', function() {
-        // Edit button click event
+        document.getElementById('submit_app').style.display = 'none';
+
         document.getElementById('edit_app').addEventListener('click', function() {
             enableEditing();
         });
-
-        // Submit button click event
         document.getElementById('submit_app').addEventListener('click', function() {
-            // Submit the form directly
             document.getElementById('form_step1').submit();
         });
-
-        // Function to enable editing of fields
         function enableEditing() {
             var fields = document.querySelectorAll('.form-control[readonly]');
             fields.forEach(function(field) {
                 field.removeAttribute('readonly');
             });
-
-            // Show the submit button
             document.getElementById('submit_app').style.display = 'block';
         }
     });
