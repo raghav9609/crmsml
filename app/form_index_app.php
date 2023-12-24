@@ -1,4 +1,4 @@
-<!-- <link href="<?php echo $head_url; ?>/assets/css/grid-form.css?v=1.1" rel="stylesheet">
+<link href="<?php echo $head_url; ?>/assets/css/grid-form.css?v=1.1" rel="stylesheet">
 <style>
 .fa-icon { 
     font-size: 18px;
@@ -20,7 +20,7 @@
       left: -150px;
     width: 241px;
 }
-</style> -->
+</style>
 <div class="main-crmform col-12">
     <!-- <div class="popup-ctext up-list-box">
     <h2 class='f_14 fw_bold'>Query Detail</h2>
