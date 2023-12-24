@@ -233,6 +233,7 @@
                 field.removeAttribute('readonly');
             });
             document.getElementById('submit_app').style.display = 'block';
+            document.getElementById('edit_app').style.display = 'none';
         }
     });
 </script>
