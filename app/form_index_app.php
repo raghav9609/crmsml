@@ -237,23 +237,16 @@
             });
 
             // Show the submit button
-            document.getElementById('submit_app').style.display = 'block';
+            var submitButton = document.getElementById('submit_app');
+            submitButton.style.display = anyFieldNotEmpty ? 'none' : 'block';
+
         }
+        var inputFields = document.querySelectorAll('.form-control');
+        inputFields.forEach(function(field) {
+            field.addEventListener('input', checkFields);
 
         // Function to submit the form data
-        function submitForm() {
-            // Gather form data
-            var formData = new FormData(document.getElementById('app_form'));
-
-            // Create and send AJAX request
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', 'update_app.php', true);
-            xhr.onload = function() {
-                // Handle the response from update_app.php if needed
-                console.log(xhr.responseText);
-            };
-            xhr.send(formData);
-        }
+        
     });
 </script>
 
