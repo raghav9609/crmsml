@@ -71,6 +71,8 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
     $bank_application_no = $exe_form['bank_application_no'];
     $remarks_by_user = $exe_form['description_by_user'];
     $remarks_by_bank=$exe_form['description_by_bank'];
+
+    echo $get_bank_name;
    
     // $lead_date_time = $exe_form['date'];
 
