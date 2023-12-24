@@ -62,6 +62,8 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
     $get_bank_name = get_name("",$name_bank);
 
     $application_status = $exe_form['application_status'];
+    $qry = "Select * from  crm_master_status where status_type = 2 and  id ='".$application_status."'";
+
     $applied_amount = $exe_form['applied_amount'];
     $sanction_amount = $exe_form['sanction_amount'];
     $disbursed_amount = $exe_form['disbursed_amount'];
