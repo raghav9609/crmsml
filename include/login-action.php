@@ -12,7 +12,7 @@ if(requestMethod() != 'POST'){
     require_once(dirname(__FILE__) . '/../config/config.php');
     require_once(dirname(__FILE__) . '/../model/loginHelper.php');
     $get_user = new userModel();
-    $user_query = $get_user->userDetails(array("email_id = '".$_POST['id']."'"));
+    echo $user_query = $get_user->userDetails(array("email_id = '".$_POST['id']."'"));
     $db_handle = new DBController();
     $user_data = $db_handle->runQuery($user_query);
     if(!empty($user_data) && $user_data[0]['is_active'] == 1){
