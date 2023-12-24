@@ -6,7 +6,7 @@ require_once(dirname(__FILE__) . '/../include/header.php');
 require_once(dirname(__FILE__) . '/../config/config.php');
 if($user_role == 4){
     echo "hrlloooooo";
-    header("location:".$head_url."/app/");
+    echo "<script>window.location.href='".$head_url."/app/';</script>";
     exit;
 }    
     if (isset($_REQUEST['u_assign'])) {
