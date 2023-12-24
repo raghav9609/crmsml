@@ -191,54 +191,57 @@
                               
 
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                                    <span class="fa-icon fa-briefcase"></span>
-                                    <?php //echo get_dropdown('7','occupation_id',$occup,'required'); ?>
-                                    <label for="occupation" class="label-tag">Sanction Date</label>
+                                    <input type="text" class="text form-control" name="dob" id="dob" maxlength="10" value="<?php echo $login_date != '0000-00-00'?$login_date:'';?>" placeholder="yyyy-mm-dd" />
+                                    <label for="dob" class="label-tag ">Sanction Date</label>
+                                    <span class='green' id='age' style="position: absolute;top: 100%;background: transparent;color: green;left: 15px;"></span>
+                                </div> 
+
+                                <div class="form-group col-xl-2 col-lg-4 col-md-6">
+                                    <span class="fa-icon fa-building"></span>
+                                    <input type="text" id="bank_name" name="bank_name" value="<?php echo ($name) ;?>" placeholder="Enter Bank Name" class="form-control alphaonly" maxlength="20" required>
+                                    <label for="name" class="label-tag"> Disbursement Amount</label>
                                 </div>
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                                    <span class="fa-icon fa-briefcase"></span>
-                                    <?php //echo get_dropdown('7','occupation_id',$occup,'required'); ?>
-                                    <label for="occupation" class="label-tag">Disbursement Amount</label>
+                                    <input type="text" class="text form-control" name="dob" id="dob" maxlength="10" value="<?php echo $login_date != '0000-00-00'?$login_date:'';?>" placeholder="yyyy-mm-dd" />
+                                    <label for="dob" class="label-tag ">Disbursement Date</label>
+                                    <span class='green' id='age' style="position: absolute;top: 100%;background: transparent;color: green;left: 15px;"></span>
+                                </div> 
+
+                               <div class="form-group col-xl-2 col-lg-4 col-md-6">
+                                    <span class="fa-icon fa-building"></span>
+                                    <input type="text" id="bank_name" name="bank_name" value="<?php echo ($name) ;?>" placeholder="Enter Bank Name" class="form-control alphaonly" maxlength="20" required>
+                                    <label for="name" class="label-tag"> Remarks By User</label>
                                 </div>
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                                    <span class="fa-icon fa-briefcase"></span>
-                                    <?php //echo get_dropdown('7','occupation_id',$occup,'required'); ?>
-                                    <label for="occupation" class="label-tag">Disbursement Date</label>
+                                    <span class="fa-icon fa-building"></span>
+                                    <input type="text" id="bank_name" name="bank_name" value="<?php echo ($name) ;?>" placeholder="Enter Bank Name" class="form-control alphaonly" maxlength="20" required>
+                                    <label for="name" class="label-tag">Remarks By Bank</label>
+                                </div>
+                                
+                                <div class="form-group col-xl-2 col-lg-4 col-md-6">
+                                    <span class="fa-icon fa-building"></span>
+                                    <input type="text" id="bank_name" name="bank_name" value="<?php echo ($name) ;?>" placeholder="Enter Bank Name" class="form-control alphaonly" maxlength="20" required>
+                                    <label for="name" class="label-tag">Bank Application Number</label>
                                 </div>
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                                    <span class="fa-icon fa-briefcase"></span>
-                                    <?php //echo get_dropdown('7','occupation_id',$occup,'required'); ?>
-                                    <label for="occupation" class="label-tag">Remarks By User</label>
-                                </div>
+                                    <input type="text" class="text form-control" name="dob" id="dob" maxlength="10" value="<?php echo $login_date != '0000-00-00'?$login_date:'';?>" placeholder="yyyy-mm-dd" />
+                                    <label for="dob" class="label-tag ">Follow Up Date</label>
+                                    <span class='green' id='age' style="position: absolute;top: 100%;background: transparent;color: green;left: 15px;"></span>
+                                </div> 
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                                    <span class="fa-icon fa-briefcase"></span>
-                                    <?php //echo get_dropdown('7','occupation_id',$occup,'required'); ?>
-                                    <label for="occupation" class="label-tag">Remarks By Bank</label>
-                                </div>
-                                <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                                    <span class="fa-icon fa-briefcase"></span>
-                                    <?php //echo get_dropdown('7','occupation_id',$occup,'required'); ?>
-                                    <label for="occupation" class="label-tag">Bank Application Number</label>
-                                </div>
-                                <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                                    <span class="fa-icon fa-briefcase"></span>
-                                    <?php //echo get_dropdown('7','occupation_id',$occup,'required'); ?>
-                                    <label for="occupation" class="label-tag">Follow Up Date</label>
-                                </div>
-                                <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                                    <span class="fa-icon fa-briefcase"></span>
-                                    <?php//echo get_dropdown('7','occupation_id',$occup,'required'); ?>
-                                    <label for="occupation" class="label-tag">Follow Up Time</label>
-                                </div>
+                                    <input type="text" class="text form-control" name="dob" id="dob" maxlength="10" value="<?php echo $login_date != '0000-00-00'?$login_date:'';?>" placeholder="yyyy-mm-dd" />
+                                    <label for="dob" class="label-tag ">Follow Up Time</label>
+                                    <span class='green' id='age' style="position: absolute;top: 100%;background: transparent;color: green;left: 15px;"></span>
+                                </div> 
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
                                     <span class="fa-icon fa-briefcase"></span>
                                     <?php //echo get_dropdown('7','occupation_id',$occup,'required'); ?>
                                     <label for="occupation" class="label-tag">Follow Up Given By</label>
                                 </div>
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                                    <span class="fa-icon fa-briefcase"></span>
-                                    <?php //echo get_dropdown('7','occupation_id',$occup,'required'); ?>
-                                    <label for="occupation" class="label-tag">Tenure / ROI</label>
+                                    <span class="fa-icon fa-building"></span>
+                                    <input type="text" id="bank_name" name="bank_name" value="<?php echo ($name) ;?>" placeholder="Enter Bank Name" class="form-control alphaonly" maxlength="20" required>
+                                    <label for="name" class="label-tag">Tenure/ROI</label>
                                 </div>
                             </div>
                                 
@@ -247,64 +250,9 @@
                                
                    
                     
-                    <div class="gray col-12 font-weight-nb pb-2 pt-2 blue-bg font-20 brdr-top-gray" data-toggle="step4">STEP 4 : Add Follow Up</div>   
-                    <?php
-                    $user_new_status = [];
-                    $loan_type_new_status = [];
-                     if(in_array($user,$user_new_status) || in_array($loan_type,$loan_type_new_status)){ 
-                         $level_id =2; ?>
-                        <form action="" class="form-step" id="form_step4" style="display:none">
-                        <input type="hidden" name="cust_id" value="<?php echo $cust_id; ?>">
-                    <input type="hidden" name="case_id_follow" class="case_id_received" id="case_id_received" value="<?php echo $case_id ?>">
-                     <input type="hidden" name="lead_view_id" value="<?php echo $lead_view_id; ?>">
-                    <input type="hidden" name="click_to_call_id" id="click_to_call_id" class="click_to_call_id" value="">
-                        <div class="form-group col-xl-2" style="margin-left: -45px;">
-                            <input type="checkbox" name="case_hot_case" class="hot_case" id="case_hot_case" value="1" <?php echo ($hotcase == 1) ? "checked" : ""; ?> >
-                            <label for="case_hot_case" class="checkbox green f_14">Hot Case</label>
-                        </div>
-                        <?php
-                        if(in_array($loan_type, $fos_loan_type)) { ?>
-                        <div class="form-group col-xl-2" style="margin-left: -85px;margin-right: -55px;">
-                            <input type="checkbox" name="fos_check" class="fos_check" id="fos_check" value="1" <?php echo ($is_fos == 1) ? "checked" : ""; ?> >
-                            <label for="fos_check" class="checkbox green f_14">FOS</label>
-                        </div>
-                    <?php } ?>
-                        <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                            <span class="fa-icon fa-list-alt"></span>
-                            <?php $level_id = 2;
-                                //echo get_dropdown('status_', 'case_f_stats', '', 'class="required valid" onchange = "case_cng_status(this);" required'); 
-                             $level_id = 1;?>
-                            <label for="case_f_stats" class="label-tag">Select Status</label>
-                        </div>
-        <div class="form-group col-xl-2 col-lg-4 col-md-6 case_f_sub_stats hidden">
-        <span class="fa-icon fa-list-alt"></span>
-        <select name="case_f_sub_stats" id = "case_f_sub_stats" class="hidden valid" onchange = "case_cng_status(this);"></select>
-        <label for="case_f_sub_stats" class="label-tag">Select Sub Status</label>
-        </div>
-        <div class="form-group col-xl-2 col-lg-4 col-md-6 case_f_sub_sub_stats hidden">
-        <span class="fa-icon fa-list-alt"></span>
-        <select name="case_f_sub_sub_stats" id = "case_f_sub_sub_stats" class="hidden valid" onchange = "case_cng_status(this);"></select>
-        <label for="case_f_sub_sub_stats" class="label-tag">Select Sub Sub Status</label>
-        </div>
-
-        <!-- Check Box New statuses starts -->
-        <div class="new-heading-offers case_sub_status_div hidden">
-            <div class="new-exclamatry-text">Sub Status</div>
-        </div>
-        <div class="row div-width hidden case_sub_status_div ml4" id="case_sub_status_div"></div>
-        <div class="new-heading-offers case_sub_sub_status_div hidden">
-            <div class="new-exclamatry-text">Sub Sub Status</div>
-        </div>
-        <div class="row div-width hidden case_sub_sub_status_div ml4 error_contain" id="case_sub_sub_status_div">
-        </div>
-        <div class="new-heading-offers case_sub_status_div hidden"></div>
-        <!-- Checkbox new statuses ends -->
-
-        <div class="form-group col-xl-2 col-lg-4 col-md-6 hidden case_foll_type">
-        <span class="fa-icon fa-tty"></span>
-        <?php //echo get_dropdown('follow_up_type', 'case_foll_type', '', 'class="valid"'); ?>
-        <label for="case_foll_type" class="label-tag">Select Follow Up Type</label>
-        </div>
+                   
+                       
+    
     <?php
 if (in_array($loan_type, $language_barrier_loan_type)) {?>
     <div class="form-group col-xl-2 col-lg-4 col-md-6 case_languages hidden">
@@ -456,7 +404,7 @@ if (in_array($loan_type, $language_barrier_loan_type)) {?>
                 </div>
              </form> 
 
-                    <?php } else{  ?>
+                    <?php //} else{  ?>
                     <form action="" class="form-step" id="form_step4" style="display:none">
                         <input type="hidden" name="cust_id" value="<?php echo $cust_id; ?>">
                     <input type="hidden" name="case_id_follow" class="case_id_received" id="case_id_received" value="<?php echo $case_id ?>">
@@ -554,7 +502,7 @@ if (in_array($loan_type, $language_barrier_loan_type)) {?>
                             <input type="button" class="btn btn-primary" name="submit" id="step4" value="SUBMIT">
                         </div>
                     </form> 
-                <?php } ?>
+                <?php //} ?>
                 </div>
             </div>
 
