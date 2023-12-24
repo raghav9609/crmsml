@@ -1,5 +1,14 @@
 <?php 
+require_once(dirname(__FILE__) . '/../config/session.php');
+require_once(dirname(__FILE__) . '/../config/config.php');
+require_once(dirname(__FILE__) . '/../helpers/common-helper.php');
+require_once "../include/helper.functions.php";
+require_once "../include/display-name-functions.php";
+
 $bank_name = $_REQUEST['bank_name'];
+$bank_name_get = get_name('master_code_id',$bank_name);
+echo $bank_name_get['id'];
+exit();
 $application_status = $_REQUEST['application_status'];
 
 $applied_amount = $_REQUEST['applied_amount'];
@@ -18,8 +27,18 @@ $follow_up_time = $_REQUEST['follow_up_time'];
 $follow_up_given_by = $_REQUEST['follow_up_given_by'];
 $tenure = $_REQUEST['tenure'];
 
-echo $tenure;
+$final_arr = array(
+    'email_to' => trim($email_to), 
+    'email_cc' => trim($email_cc),
+    'subject' => $subject,
+    'updated_on' => currentDateTime24(),
+);
+$desig_up_qry = $query_model->updateQueryData('mlc_email_data_mis_report',$final_arr,array('id = "'.$value.'"'));
+$res=$db_handle->updateRows($desig_up_qry);
 
+
+$_SESSION['succ_msg'] = "Updated Sucessfully";
+header("Location: index.php");
 
 
 
