@@ -23,13 +23,15 @@ class leadAssignMent{
         $query_to_execute = "select * from crm_lead_assignment where city_sub_group_id = ".$data['city_sub_group_id']." and min_net_income <= ".$data['net_income']." and max_net_income >= ".$data['net_income']." and min_loan_amount <= ".$data['loan_amount']." and max_loan_amount >=".$data['loan_amount']." and loan_type >=".$data['loan_type_id']." and is_active = 1 order by last_lead_assign_on DESC LIMIT 1";
         return $query_to_execute;
     }
-    function updateLeadAssignment($data){
-        $query_to_execute = "update crm_lead_assignment set min_net_income = ".$data['min_net_income'].",max_net_income = ".$data['max_net_income'].", min_loan_amount= ".$data['min_loan_amount']." , max_loan_amount =".$data['max_loan_amount']." , user_id = ".$data['user_id']." where id =".$data['id'];
-        return $query_to_execute;
-    }
     function updateLastLeadAssignDate($data){
         $query_to_execute = "update crm_lead_assignment set last_lead_assign_on = NOW() where id =".$data['id'];
         return $query_to_execute;
+    }
+    function userQueryID($data){
+        return $query_to_execute = "update crm_query set lead_assign_to='".$data['lead_assign_to']."',lead_assign_on=NOW(),is_lead_assign=1 where id = ".$data['query_id'];
+    }
+    function leadAssignmentHistory($data){
+        return $query_to_execute = "insert crm_lead_assignment_history set user_assign_to ='".$data['lead_assign_to']."',assign_by=1,lead_id = ".$data['query_id'];
     }
     function searchRM($data){
         $query_to_execute = "select * from crm_rm_assignment where 1 ";
