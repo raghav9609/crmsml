@@ -61,30 +61,27 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
 
     $get_bank_name = get_name("",$name_bank);
 
-
-    
-    $ver_phone = $exe_form['verify_phone'];
-    
-    $loan_type = $exe_form['loan_type'];
-    $loan_amt = $exe_form['loan_amt'];
-    
-    $purpose_of_loan = $exe_form['purpose_of_loan'];
-    $query_status = $exe_form['query_status'];
-    $description = $exe_form['description'];
-    $user_name = $exe_form['user_name'];
-    $contact_no = $exe_form['contact_no'];
-    $loantype_name = $exe_form['loan_type_name'];
+    $application_status = $exe_form['application_status'];
+    $applied_amount = $exe_form['applied_amount'];
+    $sanction_amount = $exe_form['sanction_amount'];
+    $disbursed_amount = $exe_form['disbursed_amount'];
+    $login_date = $exe_form['login_date'];
+    $sanction_date = $exe_form['sanction_date'];
+    $disburse_date = $exe_form['disburse_date'];
+    $bank_application_no = $exe_form['bank_application_no'];
+    $remarks_by_user = $exe_form['description_by_user'];
+    $remarks_by_bank=$exe_form['description_by_bank'];
    
-    $lead_date_time = $exe_form['date'];
+    // $lead_date_time = $exe_form['date'];
 
 
-    $new_src = str_replace('', '', $exe_form['page_url']);
-    $src_exp = explode("/", $new_src);
-    $count = count($src_exp);
-    for ($i = 0; $i < $count; $i++) {
-        $src[] = str_replace(array('-', '/', '*', '.php'), ' ', $src_exp[$i]);
-    }
-    $final_src = ucwords(implode(" ", $src)) . " (" . $exe_form['tool_type'] . ")";
+    // $new_src = str_replace('', '', $exe_form['page_url']);
+    // $src_exp = explode("/", $new_src);
+    // $count = count($src_exp);
+    // for ($i = 0; $i < $count; $i++) {
+    //     $src[] = str_replace(array('-', '/', '*', '.php'), ' ', $src_exp[$i]);
+    // }
+    // $final_src = ucwords(implode(" ", $src)) . " (" . $exe_form['tool_type'] . ")";
 
     // $cust_data = mysqli_query($Conn1, "select cust.cibil_score as cibil_score,cust.company_id as comp_id,cust.name as mname,city.city_name as city_name,city.city_sub_group_id as city_sub_group_id, comp.company_name as comp_name,cust.salary_bank_id as bank_id,cust.salutation_id as salu_id,cust.name as name,cust.dob as dob,cust.phone_no as phone, cust.email_id as email,cust.address as res_address,cust.occupation_id as occup_id,cust.net_income as net_incm, cust.company_name as comp_name_other,cust.pan_no as pan_card,cust.city_id city_id,cust.alternate_phone_no as alt_phone, cust.bank_account_no as account_no,cust.ofc_contact as ofc_contact,cust.office_address as offce_address,cust.office_pincode as ofc_pincode, cust.office_email_id as ofc_email,cust.office_city_id as work_city,cust.marital_status_id as maritalstatus,cust.current_work_exp as cur_comp_wrk_exp, cust.total_work_exp as totl_wrk_exp,cust.mode_of_salary AS salary_pay_id,cust.pincode as pincode from crm_customer as cust left join crm_master_city as city on cust.city_id = city.id left join crm_master_company as comp on cust.company_id = comp.id where cust.id = " . $cust_id . "");
    
@@ -170,7 +167,7 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
     <head>
     </head>
     <body>
-        <input type="hidden" name="final_query_id" value="<?php echo urlencode(base64_encode($id));?>">
+        <!-- <input type="hidden" name="final_query_id" value="<?php echo urlencode(base64_encode($id));?>"> -->
     <div class="color-bar-1"></div>
     <div class="color-bar-2 color-bg"></div>
     <div style="width:100%;">
@@ -179,7 +176,7 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
 
 
  <?php
- $src_id = "https://www.myloancare.in/credit-score/free-credit-report/?getID=" . base64_encode($cust_id) . "&sorce=crm&cTo=" . base64_encode('Query No@#' . $id . '@#' . $email);
+//  $src_id = "https://www.myloancare.in/credit-score/free-credit-report/?getID=" . base64_encode($cust_id) . "&sorce=crm&cTo=" . base64_encode('Query No@#' . $id . '@#' . $email);
  //include("../../include/short-url.php");
  ?>
  <!-- <a href='<?php echo $src_id; ?>' target="_blank"><input type="button" style='background: #1b8c1b;'
@@ -197,11 +194,11 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
 
 <?php $level_type = 1; ?>
 <?php
-if($tool_type == "Cross Sell - Auto") {
-    $tool_type_filter = 1;
-} else {
-    $tool_type_filter = 0;
-}
+// if($tool_type == "Cross Sell - Auto") {
+//     $tool_type_filter = 1;
+// } else {
+//     $tool_type_filter = 0;
+// }
 
 
 // if($call_button_display == 1){echo common_call_btn($user, $Conn1, $phone, $query_status, $qryyy_id, $ver_phone, $level_type,$mobile_status, $tool_type_filter,$loantype_name,$loan_type); } ?>
