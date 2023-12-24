@@ -63,6 +63,7 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
 
     $application_status = $exe_form['application_status'];
     $qry1 = "Select * from  crm_master_status where status_type = 2 and  id ='".$application_status."'";
+    echo ($qry1);
     $res = mysqli_query($Conn1, $qry1) or die(mysqli_error($Conn1));
     $application_status_get = mysqli_fetch_array($res);
     print_r($application_status_get);
