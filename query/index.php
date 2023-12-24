@@ -5,7 +5,6 @@ require_once(dirname(__FILE__) . '/../helpers/common-helper.php');
 require_once(dirname(__FILE__) . '/../include/header.php');
 require_once(dirname(__FILE__) . '/../config/config.php');
 if($user_role == 4){
-    echo "hrlloooooo";
     echo "<script>window.location.href='".$head_url."/app/';</script>";
     exit;
 }    
