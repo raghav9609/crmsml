@@ -24,7 +24,7 @@ foreach($fetch_unassign_leads as $key=>$value){
 
         preArray($getLeadAssignment);
 
-    $data_to_update = array("lead_assign_to"=>$getLeadAssignment['shift1user_id'],"query_id"=>$query_id);
+    $data_to_update = array("lead_assign_to"=>$getLeadAssignment[0]['shift1user_id'],"query_id"=>$query_id);
 
     echo $leadAssignmentClassexport->userQueryID($data_to_update);
     echo "<br><BR>";
@@ -32,14 +32,14 @@ foreach($fetch_unassign_leads as $key=>$value){
     $updateUserIdQuery = $db_handle->runQuery($leadAssignmentClassexport->userQueryID($data_to_update));
 
 
-    $data_to_insert = array("lead_assign_to"=>$getLeadAssignment['shift1user_id'],"query_id"=>$query_id);
+    $data_to_insert = array("lead_assign_to"=>$getLeadAssignment[0]['shift1user_id'],"query_id"=>$query_id);
 
     echo $leadAssignmentClassexport->leadAssignmentHistory($data_to_insert);
     echo "<br><BR>";
 
 
     $insertHistory = $db_handle->runQuery($leadAssignmentClassexport->leadAssignmentHistory($data_to_insert));
-    $updateLastLeadAssignOn = array("id"=>$getLeadAssignment['id']);
+    $updateLastLeadAssignOn = array("id"=>$getLeadAssignment[0]['id']);
 
     echo $leadAssignmentClassexport->updateLastLeadAssignDate($updateLastLeadAssignOn);
     echo "<br><BR>";
