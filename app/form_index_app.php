@@ -142,7 +142,7 @@
             
                             <div class="form-group col-xl-2 col-lg-4 col-md-6">
                                 <span class="fa-icon fa-briefcase"></span>
-                                    <?php //echo get_dropdown('7','occupation_id',$occup,'required'); ?>
+                                    <?php echo get_dropdown('application_status',''); ?>
                                     <label for="occupation" class="label-tag">Application Status</label>
                             </div>
                                 <?php 
