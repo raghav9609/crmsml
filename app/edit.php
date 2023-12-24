@@ -62,8 +62,10 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
     $get_bank_name = get_name("",$name_bank);
 
     $application_status = $exe_form['application_status'];
-    $qry = "Select * from  crm_master_status where status_type = 2 and  id ='".$application_status."'";
-
+    $qry1 = "Select * from  crm_master_status where status_type = 2 and  id ='".$application_status."'";
+    $res = mysqli_query($Conn1, $qry1) or die(mysqli_error($Conn1));
+    $application_status_get = mysqli_fetch_array($res);
+    print_r($application_status_get);
     $applied_amount = $exe_form['applied_amount'];
     $sanction_amount = $exe_form['sanction_amount'];
     $disbursed_amount = $exe_form['disbursed_amount'];
