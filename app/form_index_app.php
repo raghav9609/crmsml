@@ -217,7 +217,21 @@
                             <input type="button" class="btn btn-primary valid" name="edit_app" id="edit_app" value="Edit">
                             <input type="button" class="btn btn-primary valid" name="submit_app" id="submit_app" value="SUBMIT">
                        
-    
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Edit button click event
+    document.getElementById('edit_app').addEventListener('click', function() {
+        enableEditing();
+    });
+
+    // Function to enable editing of fields
+    function enableEditing() {
+        var fields = document.querySelectorAll('.form-control[readonly]');
+        fields.forEach(function(field) {
+            field.removeAttribute('readonly');
+        });
+    }
+});
     <?php
 if (in_array($loan_type, $language_barrier_loan_type)) {?>
     <div class="form-group col-xl-2 col-lg-4 col-md-6 case_languages hidden">
@@ -601,20 +615,5 @@ if (in_array($loan_type, $language_barrier_loan_type)) {?>
     </script>
 
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Function to enable editing of fields
-    function enableEditing() {
-        var fields = document.querySelectorAll('.form-control[readonly]');
-        fields.forEach(function(field) {
-            field.removeAttribute('readonly');
-        });
-    }
 
-    // Edit button click event
-    document.getElementById('edit_app').addEventListener('click', function() {
-        enableEditing();
-    });
-});
-</script>
 <?php //} ?>
