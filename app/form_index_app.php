@@ -599,4 +599,30 @@ if (in_array($loan_type, $language_barrier_loan_type)) {?>
     //     }
     // }
     </script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Function to enable editing of fields
+    function enableEditing() {
+        var fields = document.querySelectorAll('.form-control[readonly]');
+        fields.forEach(function(field) {
+            field.removeAttribute('readonly');
+        });
+    }
+
+    // Edit button click event
+    document.getElementById('edit_app').addEventListener('click', function() {
+        enableEditing();
+    });
+
+    // Submit button click event
+    document.getElementById('submit_app').addEventListener('click', function() {
+        // Perform any client-side validation if needed
+
+        // Submit the form
+        document.forms["your_form_name"].submit();
+    });
+});
+</script>
 <?php //} ?>
