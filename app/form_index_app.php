@@ -217,21 +217,49 @@
                             <input type="button" class="btn btn-primary valid" name="edit_app" id="edit_app" value="Edit">
                             <input type="button" class="btn btn-primary valid" name="submit_app" id="submit_app" value="SUBMIT">
                        
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Edit button click event
-    document.getElementById('edit_app').addEventListener('click', function() {
-        enableEditing();
-    });
-
-    // Function to enable editing of fields
-    function enableEditing() {
-        var fields = document.querySelectorAll('.form-control[readonly]');
-        fields.forEach(function(field) {
-            field.removeAttribute('readonly');
+                            <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Edit button click event
+        document.getElementById('edit_app').addEventListener('click', function() {
+            enableEditing();
         });
-    }
-});
+
+        // Function to enable editing of fields
+        function enableEditing() {
+            var fields = document.querySelectorAll('.form-control[readonly]');
+            fields.forEach(function(field) {
+                field.removeAttribute('readonly');
+            });
+
+            // Show the submit button
+            document.getElementById('submit_app').style.display = 'block';
+        }
+
+        // Check fields on page load
+        checkFields();
+
+        // Function to check fields and show/hide submit button
+        function checkFields() {
+            var anyFieldNotEmpty = false;
+            var fields = document.querySelectorAll('.form-control');
+            
+            fields.forEach(function(field) {
+                if (field.value.trim() !== '') {
+                    anyFieldNotEmpty = true;
+                }
+            });
+
+            // Show or hide the submit button based on field values
+            var submitButton = document.getElementById('submit_app');
+            submitButton.style.display = anyFieldNotEmpty ? 'none' : 'block';
+        }
+
+        // Attach input event listeners to check fields dynamically
+        var inputFields = document.querySelectorAll('.form-control');
+        inputFields.forEach(function(field) {
+            field.addEventListener('input', checkFields);
+        });
+    });
 </script>
     <?php
 // if (in_array($loan_type, $language_barrier_loan_type)) {?>
@@ -258,7 +286,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // }
     ?>
             </select>
-            <label for="case_lang_users" class="label-tag">Select Users</label>
+            <!-- <label for="case_lang_users" class="label-tag">Select Users</label> -->
         </div>
             <?php //} ?>
     <!-- <div class="form-group col-xl-2 col-lg-4 col-md-6">
