@@ -111,20 +111,20 @@
     <div class="blue-bg col-12 font-weight-nb pb-2 pt-2 white font-20 brdr-top-gray pe-none" data-toggle="step1" id="switch_step1">
         <span id="text_step1"></span> Application Details</div>    
         <form action="edit_app.php" class="form-step col-12" autocomplete="off" id="form_step1">
-                        <input type="hidden" name="step" value="1">
+                        <!-- <input type="hidden" name="step" value="1">
                         <input type="hidden" id="journey_type" value="1">
                         <input type="hidden" name="id" value="<?php echo $id; ?>">
                         <input type="hidden" name="cust_id" value="<?php echo $cust_id; ?>">
                         <input type="hidden" id="cust_iddd" value="<?php echo base64_encode($cust_id); ?>">
                         <input type="hidden" name="filter_status" id="filter_status" value="<?php echo $filter; ?>">
                         <input type="hidden" name="loan_type" value="<?php echo $loan_type; ?>">
-                        <input type="hidden" name="unm_phone_no" id="unm_phone_no" value="<?php echo $phone; ?>">
+                        <input type="hidden" name="unm_phone_no" id="unm_phone_no" value="<?php echo $phone; ?>"> -->
 
                         <?php //if($user == 173 || $user == 83 || $user == 162) { 
                             ?>
-                            <input type="hidden" name="sf_flag" id="sf_flag" value="0">
+                            <!-- <input type="hidden" name="sf_flag" id="sf_flag" value="0"> -->
                         <?php //} ?>
-                        <input type="hidden" name="logged_in_user" id="logged_in_user" value="<?php echo $user; ?>">
+                        <!-- <input type="hidden" name="logged_in_user" id="logged_in_user" value="<?php echo $user; ?>"> -->
                         <div class="row div-width">
                        
                             <div class="form-group col-xl-2 col-lg-4 col-md-6">
@@ -614,14 +614,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Edit button click event
     document.getElementById('edit_app').addEventListener('click', function() {
         enableEditing();
-    });
-
-    // Submit button click event
-    document.getElementById('submit_app').addEventListener('click', function() {
-        // Perform any client-side validation if needed
-
-        // Submit the form
-        document.forms["your_form_name"].submit();
     });
 });
 </script>
