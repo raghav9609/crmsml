@@ -32,16 +32,16 @@ $qryyy_id = $id;
 $qry = "Select * from  crm_query_application where crm_query_id ='".$qryyy_id."'";
 // print_r($qry);
 // exit();
-if ($user_role == 3 && $ut != 2) {
-    $qry .= "  and (qry.lead_assign_to = '" . $user . "')";
-} else if (($user_role == 2 || $user_role == 4) && $ut != 2) {
-    if($user_role == 2){
-        $qry .= " and qry.lead_assign_to IN ($tl_member,0) ";
-    }
-    $qry .= " and qry.loan_type_id IN ($tl_loan_type)";
-}
+// if ($user_role == 3 && $ut != 2) {
+//     $qry .= "  and (qry.lead_assign_to = '" . $user . "')";
+// } else if (($user_role == 2 || $user_role == 4) && $ut != 2) {
+//     if($user_role == 2){
+//         $qry .= " and qry.lead_assign_to IN ($tl_member,0) ";
+//     }
+//     $qry .= " and qry.loan_type_id IN ($tl_loan_type)";
+// }
 $qry .= " order by crm_query_id desc";
-// print_r($qry);
+print_r($qry);
 $res = mysqli_query($Conn1, $qry) or die(mysqli_error($Conn1));
 $exe_form = mysqli_fetch_array($res);
 
