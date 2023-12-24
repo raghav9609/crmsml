@@ -7,6 +7,7 @@ require_once(dirname(__FILE__) . '/../config/config.php');
 if($user_role == 4){
     echo "hrlloooooo";
     header("location:".$head_url."/app/");
+    exit;
 }    
     if (isset($_REQUEST['u_assign'])) {
         $u_assign = replace_special($_REQUEST['u_assign']);
