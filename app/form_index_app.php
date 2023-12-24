@@ -121,9 +121,7 @@
                         <input type="hidden" name="unm_phone_no" id="unm_phone_no" value="<?php echo $phone; ?>">
 
                         <?php //if($user == 173 || $user == 83 || $user == 162) { 
-                            echo "hiiiiii";
-
-                            echo $applied_amount;?>
+                            print_r($get_bank_name);?>
                             <input type="hidden" name="sf_flag" id="sf_flag" value="0">
                         <?php //} ?>
                         <input type="hidden" name="logged_in_user" id="logged_in_user" value="<?php echo $user; ?>">
@@ -209,7 +207,7 @@
                                 </div> 
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
                                     <span class="fa-icon fa-building"></span>
-                                    <input type="text" id="bank_name" name="bank_name" value="<?php echo $tennure / $emi ;?>" placeholder="Enter Bank Name" class="form-control alphaonly" maxlength="20" required>
+                                    <input type="text" id="bank_name" name="bank_name" value="<?php echo $tennure."/".$emi ;?>" placeholder="Enter Bank Name" class="form-control alphaonly" maxlength="20" required>
                                     <label for="name" class="label-tag">Tenure/ROI</label>
                                 </div>
                             </div>
