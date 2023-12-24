@@ -71,6 +71,11 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
     $bank_application_no = $exe_form['bank_application_no'];
     $remarks_by_user = $exe_form['description_by_user'];
     $remarks_by_bank=$exe_form['description_by_bank'];
+    $follow_up_date=$exe_form['follow_up_date'];
+    $follow_up_time=$exe_form['follow_up_time'];
+    $follow_up_given_by=$exe_form['follow_up_given_by'];
+    $tennure=$exe_form['tennure'];
+    $emi=$exe_form['emi'];
 
     // echo $get_bank_name;
    
