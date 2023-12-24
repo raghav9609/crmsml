@@ -124,15 +124,7 @@
                         <?php //} ?>
                         <input type="hidden" name="logged_in_user" id="logged_in_user" value="<?php echo $user; ?>">
                         <div class="row div-width">
-                        <!-- <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                                <label for="salutation" class="radio-tag label-tag">Salutation</label>
-                                <div class="radio-button error_contain">
-                                    <input type="radio" name="salutation" id="salutation1"  value="1" <?php if($salu_id == 1){ ?>checked <?php } ?> required>
-                                    <label for="salutation1">Mr.</label>
-                                    <input type="radio" name="salutation" id="salutation2" value="2" <?php if($salu_id == 2){ ?>checked <?php } ?> required>
-                                    <label for="salutation2">Ms.</label> 
-                                </div>
-                            </div> -->
+                       
                             <div class="form-group col-xl-2 col-lg-4 col-md-6">
                                 <span class="fa-icon fa-building"></span>
                                 <input type="text" id="bank_name" name="bank_name" value="<?php echo ($name) ;?>" placeholder="Enter Bank Name" class="form-control alphaonly" maxlength="20" required>
@@ -145,33 +137,11 @@
                                     <?php echo get_dropdown('application_status',''); ?>
                                     <label for="application_status" class="label-tag">Application Status</label>
                             </div>
-                                <?php 
-                                if($_SESSION['show_number_flag'] == 2 || $_SESSION['show_number_flag'] == 3) {
-                                $phone_number =  substr_replace($phone,'XXX',4,3);
-                                } else {
-                                $phone_number =  $phone;
-                                }
-                                ?>
-                                <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                                    <span class="fa-icon fa-mobile"></span>
-                                    <input type="tel" class="text form-control" name="phone_no" id="phone_no" maxlength="10" value="<?php echo $phone_number; ?>" <?php if($phone_ver_result['phone_ver_date'] != '' && $phone_ver_result['phone_ver_date'] != '1970-01-01' && $phone_ver_result['phone_ver_date'] != '0000-00-00') { ?> title="Verified @ : <?php echo date("d-m-Y", strtotime($phone_ver_result['phone_ver_date']))." ".$phone_ver_result['source']; ?>" <?php } ?> required/>
-
-                                    <?php if($phone_ver_result['phone_ver_date'] != '' && $phone_ver_result['phone_ver_date'] != '1970-01-01' && $phone_ver_result['phone_ver_date'] != '0000-00-00') { ?>
-                                        <label class="pointer_n" style="font-weight: bold;width: 25px;height: 18px;text-align: center;color: #1b8c1b;border-radius: 50%;right: 16px;left: auto;">✔</label>
-                                    <?php } ?>
-
-                                    <label for="phone_no" class="label-tag">Applied Amount</label>
+                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
+                                    <span class="fa-icon fa-building"></span>
+                                    <input type="text" id="bank_name" name="bank_name" value="<?php echo ($name) ;?>" placeholder="Enter Bank Name" class="form-control alphaonly" maxlength="20" required>
+                                    <label for="name" class="label-tag"> Applied Amount</label>
                                 </div>
-                                <?php 
-                                    $alternate_phone = "";
-                                    if(trim($alt_phone) != "") {
-                                    if($_SESSION['show_number_flag'] == 2 || $_SESSION['show_number_flag'] == 3) {
-                                        $alternate_phone = substr_replace($alt_phone, 'XXX', 4, 3);
-                                      } else {
-                                        $alternate_phone = $alt_phone;
-                                      }
-                                    }
-                                ?>
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
                                     <input type="text" class="text form-control" name="dob" id="dob" maxlength="10" value="<?php echo $login_date != '0000-00-00'?$login_date:'';?>" placeholder="yyyy-mm-dd" />
                                     <label for="dob" class="label-tag ">Login Date</label>
@@ -179,14 +149,9 @@
                                 </div> 
 
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                                    <span class="fa-icon fa-envelope"></span>
-                                    <input type="email" class="form-control" name="email" maxlength="50" id="email"  value="<?php echo ($email) ;?>" <?php if(in_array($loan_type,array(71,11,57,63,56))){?> required <?php }?> <?php if($email_ver_result['email_ver_date'] != '' && $email_ver_result['email_ver_date'] != '1970-01-01' && $email_ver_result['email_ver_date'] != '0000-00-00') { ?> title="Verified @ : <?php echo date("d-m-Y", strtotime($email_ver_result['email_ver_date']))." ".$email_ver_result['source']; ?>" <?php }  ?> />
-
-                                    <?php if($email_ver_result['email_ver_date'] != '' && $email_ver_result['email_ver_date'] != '1970-01-01' && $email_ver_result['email_ver_date'] != '0000-00-00' && trim($email) != '') { ?>
-                                        <label class="pointer_n" style="font-weight: bold;width: 25px;height: 18px;text-align: center;color: #1b8c1b;border-radius: 50%;right: 16px;left: auto;">✔</label>
-                                    <?php }  ?>
-
-                                    <label for="email" class="label-tag <?php if(!in_array($loan_type,array(71,11,57,63,56))){ ?> optional-tag <?php } ?>">Sanction Amount</label>
+                                    <span class="fa-icon fa-building"></span>
+                                    <input type="text" id="bank_name" name="bank_name" value="<?php echo ($name) ;?>" placeholder="Enter Bank Name" class="form-control alphaonly" maxlength="20" required>
+                                    <label for="name" class="label-tag"> Sanction Amount</label>
                                 </div>
                               
 
