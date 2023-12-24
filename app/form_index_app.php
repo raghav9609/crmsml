@@ -110,7 +110,7 @@
     <div class="gen-box white-bg">
     <div class="blue-bg col-12 font-weight-nb pb-2 pt-2 white font-20 brdr-top-gray pe-none" data-toggle="step1" id="switch_step1">
         <span id="text_step1"></span> Application Details</div>    
-        <form action="edit_app.php" class="form-step col-12" autocomplete="off" id="form_step1">
+        <form action="update_app.php" class="form-step col-12" autocomplete="off" id="app_form">
                         <!-- <input type="hidden" name="step" value="1">
                         <input type="hidden" id="journey_type" value="1">
                         <input type="hidden" name="id" value="<?php echo $id; ?>">
@@ -217,11 +217,16 @@
                             <input type="button" class="btn btn-primary valid" name="edit_app" id="edit_app" value="Edit">
                             <input type="button" class="btn btn-primary valid" name="submit_app" id="submit_app" value="SUBMIT">
                        
-                            <script>
+<script>
     document.addEventListener('DOMContentLoaded', function() {
         // Edit button click event
         document.getElementById('edit_app').addEventListener('click', function() {
             enableEditing();
+        });
+
+        // Submit button click event
+        document.getElementById('submit_app').addEventListener('click', function() {
+            submitForm();
         });
 
         // Function to enable editing of fields
@@ -235,32 +240,23 @@
             document.getElementById('submit_app').style.display = 'block';
         }
 
-        // Check fields on page load
-        checkFields();
+        // Function to submit the form data
+        function submitForm() {
+            // Gather form data
+            var formData = new FormData(document.getElementById('app_form'));
 
-        // Function to check fields and show/hide submit button
-        function checkFields() {
-            var anyFieldNotEmpty = false;
-            var fields = document.querySelectorAll('.form-control');
-            
-            fields.forEach(function(field) {
-                if (field.value.trim() !== '') {
-                    anyFieldNotEmpty = true;
-                }
-            });
-
-            // Show or hide the submit button based on field values
-            var submitButton = document.getElementById('submit_app');
-            submitButton.style.display = anyFieldNotEmpty ? 'none' : 'block';
+            // Create and send AJAX request
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'update_app.php', true);
+            xhr.onload = function() {
+                // Handle the response from update_app.php if needed
+                console.log(xhr.responseText);
+            };
+            xhr.send(formData);
         }
-
-        // Attach input event listeners to check fields dynamically
-        var inputFields = document.querySelectorAll('.form-control');
-        inputFields.forEach(function(field) {
-            field.addEventListener('input', checkFields);
-        });
     });
 </script>
+
     <?php
 // if (in_array($loan_type, $language_barrier_loan_type)) {?>
     <!-- <div class="form-group col-xl-2 col-lg-4 col-md-6 case_languages hidden">
