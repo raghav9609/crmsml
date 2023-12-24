@@ -136,7 +136,7 @@
             
                             <div class="form-group col-xl-2 col-lg-4 col-md-6">
                                 <span class="fa-icon fa-building"></span>
-                                <input type="text" id="bank_name" name="bank_name" value="<?php echo ($application_status_get['value']) ;?>" placeholder="Enter Bank Name" class="form-control alphaonly"  <?php echo ($application_status_get['value'] != '') ? 'readonly' : ''; ?> maxlength="20" required>
+                                <input type="text" id="application_status" name="application_status" value="<?php echo ($application_status_get['value']) ;?>" placeholder="Enter Application Status" class="form-control alphaonly"  <?php echo ($application_status_get['value'] != '') ? 'readonly' : ''; ?> maxlength="20" required>
                                 <label for="name" class="label-tag"> Application Status</label>
                             </div>
                             <div class="form-group col-xl-2 col-lg-4 col-md-6">
@@ -145,69 +145,69 @@
                                 <label for="applied_amount" class="label-tag"> Applied Amount</label>
                             </div>
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                                    <input type="text" class="text form-control" name="dob" id="dob" maxlength="10" value="<?php echo $login_date != '0000-00-00'?$login_date:'';?>" placeholder="yyyy-mm-dd" <?php echo ($login_date != '') ? 'readonly' : ''; ?> required>
+                                    <input type="text" class="text form-control" name="login_date" id="login_date" maxlength="10" value="<?php echo $login_date != '0000-00-00'?$login_date:'';?>" placeholder="yyyy-mm-dd" <?php echo ($login_date != '') ? 'readonly' : ''; ?> required>
                                     <label for="dob" class="label-tag ">Login Date</label>
                                     <span class='green' id='age' style="position: absolute;top: 100%;background: transparent;color: green;left: 15px;"></span>
                                 </div> 
 
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
                                     <span class="fa-icon fa-building"></span>
-                                    <input type="text" id="bank_name" name="bank_name" value="<?php echo $sanction_amount;?>" placeholder="Enter Bank Name" class="form-control alphaonly" <?php echo ($sanction_amount != '') ? 'readonly' : ''; ?> maxlength="20" required>
+                                    <input type="text" id="sanction_amount" name="sanction_amount" value="<?php echo $sanction_amount;?>" placeholder="Enter Sanction Amount" class="form-control alphaonly" <?php echo ($sanction_amount != '') ? 'readonly' : ''; ?> maxlength="20" required>
                                     <label for="name" class="label-tag"> Sanction Amount</label>
                                 </div>
                               
 
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                                    <input type="text" class="text form-control" name="dob" id="dob" maxlength="10" value="<?php echo $sanction_date; ?>" placeholder="yyyy-mm-dd" required <?php echo ($sanction_date != '') ? 'readonly' : '';  ?> >
+                                    <input type="text" class="text form-control" name="sanction_date" id="sanction_date" maxlength="10" value="<?php echo $sanction_date; ?>" placeholder="yyyy-mm-dd" required <?php echo ($sanction_date != '') ? 'readonly' : '';  ?> >
                                     <label for="dob" class="label-tag ">Sanction Date</label>
                                     <span class='green' id='age' style="position: absolute;top: 100%;background: transparent;color: green;left: 15px;"></span>
                                 </div> 
 
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
                                     <span class="fa-icon fa-building"></span>
-                                    <input type="text" id="bank_name" name="bank_name" value="<?php echo $disbursed_amount;?>" placeholder="Enter Bank Name" class="form-control alphaonly" maxlength="20" <?php echo ($disbursed_amount != '') ? 'readonly' : ''; ?> required>
+                                    <input type="text" id="disbursed_amount" name="disbursed_amount" value="<?php echo $disbursed_amount;?>" placeholder="Enter Disbursement Amount" class="form-control alphaonly" maxlength="20" <?php echo ($disbursed_amount != '') ? 'readonly' : ''; ?> required>
                                     <label for="name" class="label-tag"> Disbursement Amount</label>
                                 </div>
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                                    <input type="text" class="text form-control" name="dob" id="dob" maxlength="10" value="<?php echo $disburse_date;?>" placeholder="yyyy-mm-dd" required  <?php echo ($disburse_date != '') ? 'readonly' : ''; ?>>
+                                    <input type="text" class="text form-control" name="disburse_date" id="disburse_date" maxlength="10" value="<?php echo $disburse_date;?>" placeholder="yyyy-mm-dd" required  <?php echo ($disburse_date != '') ? 'readonly' : ''; ?>>
                                     <label for="dob" class="label-tag ">Disbursement Date</label>
                                     <span class='green' id='age' style="position: absolute;top: 100%;background: transparent;color: green;left: 15px;"></span>
                                 </div> 
 
                                <div class="form-group col-xl-2 col-lg-4 col-md-6">
                                     <span class="fa-icon fa-building"></span>
-                                    <input type="text" id="bank_name" name="bank_name" value="<?php echo $remarks_by_user;?>" placeholder="Enter Bank Name" class="form-control alphaonly" maxlength="20" <?php echo ($remarks_by_user != '') ? 'readonly' : ''; ?> required>
+                                    <input type="text" id="remarks_by_user" name="remarks_by_user" value="<?php echo $remarks_by_user;?>" placeholder="Enter Remarks By User" class="form-control alphaonly" maxlength="20" <?php echo ($remarks_by_user != '') ? 'readonly' : ''; ?> required>
                                     <label for="name" class="label-tag"> Remarks By User</label>
                                 </div>
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
                                     <span class="fa-icon fa-building"></span>
-                                    <input type="text" id="bank_name" name="bank_name" value="<?php echo $remarks_by_bank;?>" placeholder="Enter Bank Name" class="form-control alphaonly" maxlength="20" <?php echo ($remarks_by_bank != '') ? 'readonly' : ''; ?> required>
+                                    <input type="text" id="remarks_by_bank" name="remarks_by_bank" value="<?php echo $remarks_by_bank;?>" placeholder="Enter Remarks By Bank" class="form-control alphaonly" maxlength="20" <?php echo ($remarks_by_bank != '') ? 'readonly' : ''; ?> required>
                                     <label for="name" class="label-tag">Remarks By Bank</label>
                                 </div>
                                 
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
                                     <span class="fa-icon fa-building"></span>
-                                    <input type="text" id="bank_name" name="bank_name" value="<?php echo $bank_application_no;?>" placeholder="Enter Bank Name" class="form-control alphaonly" maxlength="20" <?php echo ($bank_application_no != '') ? 'readonly' : ''; ?> required>
+                                    <input type="text" id="bank_application_no" name="bank_application_no" value="<?php echo $bank_application_no;?>" placeholder="Enter Bank Application Number" class="form-control alphaonly" maxlength="20" <?php echo ($bank_application_no != '') ? 'readonly' : ''; ?> required>
                                     <label for="name" class="label-tag">Bank Application Number</label>
                                 </div>
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                                    <input type="text" class="text form-control" name="dob" id="dob" maxlength="10" value="<?php echo $follow_up_date;?>" placeholder="yyyy-mm-dd" <?php echo ($follow_up_date != '') ? 'readonly' : '';  ?> required>
+                                    <input type="text" class="text form-control" name="follow_up_date" id="follow_up_date" maxlength="10" value="<?php echo $follow_up_date;?>" placeholder="yyyy-mm-dd" <?php echo ($follow_up_date != '') ? 'readonly' : '';  ?> required>
                                     <label for="dob" class="label-tag ">Follow Up Date</label>
                                     <span class='green' id='age' style="position: absolute;top: 100%;background: transparent;color: green;left: 15px;"></span>
                                 </div> 
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                                    <input type="text" class="text form-control" name="dob" id="dob" maxlength="10" value="<?php echo $follow_up_time; ?>" placeholder="yyyy-mm-dd" <?php echo ($follow_up_time != '') ? 'readonly' : '';  ?> required/>
+                                    <input type="text" class="text form-control" name="follow_up_time" id="follow_up_time" maxlength="10" value="<?php echo $follow_up_time; ?>" placeholder="yyyy-mm-dd" <?php echo ($follow_up_time != '') ? 'readonly' : '';  ?> required/>
                                     <label for="dob" class="label-tag ">Follow Up Time</label>
                                     <span class='green' id='age' style="position: absolute;top: 100%;background: transparent;color: green;left: 15px;"></span>
                                 </div> 
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                                    <input type="text" class="text form-control" name="dob" id="dob" maxlength="10" value="<?php echo $follow_up_given_by;?>" placeholder="yyyy-mm-dd" <?php echo ($follow_up_given_by != '') ? 'readonly' : '';  ?> required>
+                                    <input type="text" class="text form-control" name="follow_up_given_by" id="follow_up_given_by" maxlength="10" value="<?php echo $follow_up_given_by;?>" placeholder="yyyy-mm-dd" <?php echo ($follow_up_given_by != '') ? 'readonly' : '';  ?> required>
                                     <label for="dob" class="label-tag ">Follow Up Given BY</label>
                                     <span class='green' id='age' style="position: absolute;top: 100%;background: transparent;color: green;left: 15px;"></span>
                                 </div> 
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
                                     <span class="fa-icon fa-building"></span>
-                                    <input type="text" id="bank_name" name="bank_name" value="<?php echo $tennure."/".$emi ;?>" placeholder="Enter Bank Name" class="form-control alphaonly" <?php echo ($tennure != '' && $emi != '') ? 'readonly' : '';  ?> maxlength="20" required>
+                                    <input type="text" id="tenure" name="tenure" value="<?php echo $tennure."/".$emi ;?>" placeholder="Enter Tenure / EMI" class="form-control alphaonly" <?php echo ($tennure != '' && $emi != '') ? 'readonly' : '';  ?> maxlength="20" required>
                                     <label for="name" class="label-tag">Tenure/ROI</label>
                                 </div>
                             </div>
