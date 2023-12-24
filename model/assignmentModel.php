@@ -15,8 +15,12 @@ class leadAssignMent{
         
         return $query_to_execute;
     }
+    function getUnassignleadData(){
+        $query_to_execute = "select query.id as query_id,query.loan_amount,query.loan_type_id,query.net_income as qnet_income,customer.city_id,customer.net_income as cnet_income,cgroup.city_sub_group_id from crm_query as query INNER JOIN crm_customer as customer ON query.crm_customer_id = customer.id INNER JOIN crm_master_city as cgroup ON customer.city_id = cgroup.id where is_lead_assign = 0 order by query.id DESC limit 50";
+        return $query_to_execute;
+    }
     function leadAssignment($data){
-        $query_to_execute = "select * from crm_lead_assignment where city_sub_group_id = ".$data['city_sub_group_id']." and min_net_income = ".$data['min_net_income']." and max_net_income = ".$data['max_net_income']." and min_loan_amount= ".$data['min_loan_amount']." and max_loan_amount =".$data['max_loan_amount']." and user_id = ".$data['user_id']." and is_active = ".$data['is_active']." and shift_id = ".$data['shift_id']." order by last_lead_assign_on DESC LIMIT 1";
+        $query_to_execute = "select * from crm_lead_assignment where city_sub_group_id = ".$data['city_sub_group_id']." and min_net_income <= ".$data['net_income']." and max_net_income >= ".$data['net_income']." and min_loan_amount <= ".$data['loan_amount']." and max_loan_amount >=".$data['loan_amount']." and loan_type >=".$data['loan_type_id']." and is_active = 1 order by last_lead_assign_on DESC LIMIT 1";
         return $query_to_execute;
     }
     function updateLeadAssignment($data){
