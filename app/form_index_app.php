@@ -213,6 +213,9 @@
                                     <label for="name" class="label-tag">Tenure/ROI</label>
                                 </div>
                             </div>
+
+                            <input type="button" class="btn btn-primary valid" name="edit_app" id="edit_app" value="Edit">
+                            <input type="button" class="btn btn-primary valid" name="submit_app" id="submit_app" value="SUBMIT">
                        
     
     <?php
