@@ -232,6 +232,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+</script>
     <?php
 if (in_array($loan_type, $language_barrier_loan_type)) {?>
     <div class="form-group col-xl-2 col-lg-4 col-md-6 case_languages hidden">
