@@ -26,7 +26,10 @@
     <h2 class='f_14 fw_bold'>Query Detail</h2>
     <br> 
     <ul>
-    <?php 
+    <?php  echo "hiiiiii";
+
+    echo $applied_amount;
+    
 
     // if ($employer_type == 0) {
     //     $comp_name = $result_cust_data['comp_name_other'];
@@ -139,8 +142,8 @@
                             </div>
                                  <div class="form-group col-xl-2 col-lg-4 col-md-6">
                                     <span class="fa-icon fa-building"></span>
-                                    <input type="text" id="applied_amount" name="applied_amount" value="<?php echo $applied_amount ;?>" placeholder="Enter APplied Amount" class="form-control alphaonly" maxlength="20" required>
-                                    <label for="name" class="label-tag"> Applied Amount</label>
+                                    <input type="text" id="applied_amount" name="applied_amount" value="<?php echo $applied_amount ;?>" placeholder="Enter Applied Amount" class="form-control alphaonly" maxlength="20" required>
+                                    <label for="applied_amount" class="label-tag"> Applied Amount</label>
                                 </div>
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
                                     <input type="text" class="text form-control" name="dob" id="dob" maxlength="10" value="<?php echo $login_date != '0000-00-00'?$login_date:'';?>" placeholder="yyyy-mm-dd" />
