@@ -31,7 +31,7 @@ require_once(dirname(__FILE__) . '/../include/helper.functions.php');
         <legend style='color:#2E2EAB;font-weight: bold;'>Search Filter</legend>
         <?php echo get_dropdown('crm_master_city_sub_group', 'city_sub_grp', '', '');
         echo get_dropdown(1, 'loan_type', '', 'onchange="user_tab()"');
-        echo get_dropdown('user', 'u_assign', '', '');
+        echo get_dropdown('user_id_3', 'u_assign', '', '');
         ?>
         <input class="cursor" type='button' value='Search' name='search_btn' id="search_btn" onclick='search_as();'>
         <input class="cursor" type='button' value='Clear' name='clear_btn' onclick='clear_fnc();'>
