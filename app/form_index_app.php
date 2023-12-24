@@ -234,34 +234,34 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
     <?php
-if (in_array($loan_type, $language_barrier_loan_type)) {?>
-    <div class="form-group col-xl-2 col-lg-4 col-md-6 case_languages hidden">
-        <span class="fa-icon fa-language"></span>
+// if (in_array($loan_type, $language_barrier_loan_type)) {?>
+    <!-- <div class="form-group col-xl-2 col-lg-4 col-md-6 case_languages hidden">
+        <span class="fa-icon fa-language"></span> -->
         <?php
     //echo get_dropdown("languages", "case_languages", $lang_id, "onchange='case_fetch_users_by_lang(this);' class='hidden valid'");?>
-    <label for="case_languages" class="label-tag">Select Language</label>
+    <!-- <label for="case_languages" class="label-tag">Select Language</label> -->
         </div>
         <?php
 // $language_users_query = "SELECT tbl_language_user_map.user_id AS user_id, tbl_user_assign.user_name AS user_name FROM tbl_language_user_map INNER JOIN tbl_user_assign ON tbl_user_assign.user_id = tbl_language_user_map.user_id WHERE tbl_language_user_map.status = 1 AND loan_type = $loan_type ";
 //     $language_users_execute = mysqli_query($Conn1, $language_users_query);
     ?>
-    <div class="form-group col-xl-2 col-lg-4 col-md-6 case_lang_users hidden">
+    <!-- <div class="form-group col-xl-2 col-lg-4 col-md-6 case_lang_users hidden">
         <span class="fa-icon fa-user"></span>
             <select name='case_lang_users' id='case_lang_users' class='case_lang_users hidden valid'>
-                <option value=''>Select Users</option>
+                <option value=''>Select Users</option> -->
             <?php
 // while ($language_users_result = mysqli_fetch_array($language_users_execute)) {
 //         $selected_var = ($language_users_result['user_id'] == $lang_user_id) ? "selected" : "";
 //         ?>
-//                 <option value="<?php //echo $language_users_result['user_id']; ?>" <?php //echo $selected_var; ?>><?php //echo $language_users_result['user_name']; ?></option>
-//                 <?php
+               <option value="<?php //echo $language_users_result['user_id']; ?>" <?php //echo $selected_var; ?>><?php //echo $language_users_result['user_name']; ?></option>
+           <?php
 // }
     ?>
             </select>
             <label for="case_lang_users" class="label-tag">Select Users</label>
         </div>
-            <?php } ?>
-    <div class="form-group col-xl-2 col-lg-4 col-md-6">
+            <?php //} ?>
+    <!-- <div class="form-group col-xl-2 col-lg-4 col-md-6">
             <span class="fa-icon fa-user"></span>
         <select name='case_folow_given' id='case_folow_given' class="valid" required>
             <option value="">Feedback Given By</option>
@@ -273,15 +273,15 @@ if (in_array($loan_type, $language_barrier_loan_type)) {?>
             <?php } ?>
         </select>
         <label for="case_folow_given" class="label-tag">Follow Up Given By</label>
-        </div>
-        <div class="form-group col-xl-2 col-lg-4 col-md-6 hidden case_level_type">
-        <span class="fa-icon fa-sitemap"></span>
-        <select name='case_level_type' id='case_level_type' class="hidden valid">
+        </div> -->
+        <!-- <div class="form-group col-xl-2 col-lg-4 col-md-6 hidden case_level_type"> -->
+        <!-- <span class="fa-icon fa-sitemap"></span> -->
+        <!-- <select name='case_level_type' id='case_level_type' class="hidden valid">
             <option value="">Level Type</option>
             <option value='3'>Application</option>
             <option value='2'>Case</option>
-        </select>
-        <label for="case_level_type" class="label-tag">Level Type</label>
+        </select> -->
+        <!-- <label for="case_level_type" class="label-tag">Level Type</label>
         </div>
         <div class="form-group col-xl-2 col-lg-4 col-md-6 case_level_reference_no hidden">
         <span class="fa-icon fa-exclamation-circle"></span>
@@ -306,12 +306,12 @@ if (in_array($loan_type, $language_barrier_loan_type)) {?>
         <div class="form-group col-xl-2 col-lg-4 col-md-6 case_fol_city_id hidden">
         <span class="fa-icon fa-map-marker"></span>
         <input type="text" class="valid alpha-num city_search form-control" name="case_fol_city_id" placeholder="Customer City" maxlength="30" id="case_fol_city_id" value="<?php echo $city_name;?>"/>
-        <label for="case_fol_city_id" class="label-tag">OGL City</label>
-        </div>
+        <label for="case_fol_city_id" class="label-tag">OGL City</label> -->
+        <!-- </div> -->
         <?php
-        if(in_array($loan_type, $fos_loan_type)) {
+        // if(in_array($loan_type, $fos_loan_type)) {
         ?>
-        <div class="form-group col-xl-2 col-lg-4 col-md-6 fos_fol_date hidden">
+        <!-- <div class="form-group col-xl-2 col-lg-4 col-md-6 fos_fol_date hidden">
         <span class="fa-icon fa-calendar"></span>
             <input type="text" class='form-control valid onlybackspace' name="fos_fol_date" id="fos_fol_date" value="<?php echo $fos_fol_date; ?>" maxlength="10" placeholder="Appointment Date (yyyy-mm-dd)">
             <label for="fos_fol_date" class="label-tag">Appointment Date</label>
@@ -320,184 +320,84 @@ if (in_array($loan_type, $language_barrier_loan_type)) {?>
         <span class="fa-icon fa-clock-o"></span>
             <input type="text" class="form-control valid onlybackspace" name="fos_fol_time" id="fos_fol_time" value="<?php echo $fos_fol_time; ?>" placeholder="Appointment Time (h:i:s)" maxlength="8">
             <label for="fos_fol_time" class="label-tag">Appointment Time</label>
-        </div>
+        </div> -->
             <?php
-                $fos_users_query = "SELECT fos_assignment_slab.id as fos_id, fos_assignment_slab.fos_user_id as fos_user_id, tbl_user_assign.user_name as user_name  FROM fos_assignment_slab INNER JOIN tbl_user_assign ON fos_assignment_slab.fos_user_id = tbl_user_assign.user_id WHERE (fos_assignment_slab.min_loan_amount <= $loan_amt and fos_assignment_slab.max_loan_amount >= $loan_amt) and (fos_assignment_slab.min_net_incm <= $net_incm and fos_assignment_slab.max_net_incm >= $net_incm) and fos_assignment_slab.loan_type = $loan_type and fos_assignment_slab.city_id = $prop_city ";
-                $fos_users_exe = mysqli_query($Conn1, $fos_users_query);
-                if(mysqli_num_rows($fos_users_exe) > 0) {
+                // $fos_users_query = "SELECT fos_assignment_slab.id as fos_id, fos_assignment_slab.fos_user_id as fos_user_id, tbl_user_assign.user_name as user_name  FROM fos_assignment_slab INNER JOIN tbl_user_assign ON fos_assignment_slab.fos_user_id = tbl_user_assign.user_id WHERE (fos_assignment_slab.min_loan_amount <= $loan_amt and fos_assignment_slab.max_loan_amount >= $loan_amt) and (fos_assignment_slab.min_net_incm <= $net_incm and fos_assignment_slab.max_net_incm >= $net_incm) and fos_assignment_slab.loan_type = $loan_type and fos_assignment_slab.city_id = $prop_city ";
+                // $fos_users_exe = mysqli_query($Conn1, $fos_users_query);
+               // if(mysqli_num_rows($fos_users_exe) > 0) {
                     ?>
-                    <div class="form-group col-xl-2 col-lg-4 col-md-6 fos_users hidden">
+                    <!-- <div class="form-group col-xl-2 col-lg-4 col-md-6 fos_users hidden">
                     <span class="fa-icon fa-user"></span>
                     <select name="fos_users" id="fos_users" class="fos_users valid">
-                        <option value="">--Select FOS User--</option>
+                        <option value="">--Select FOS User--</option> -->
                         <?php
-                        while($fos_users_res = mysqli_fetch_array($fos_users_exe)) {
+                        //while($fos_users_res = mysqli_fetch_array($fos_users_exe)) {
                             ?>
-                            <option value="<?php echo $fos_users_res['fos_user_id']; ?>" <?php if($fos_users_res['fos_user_id'] == $fos_user_id) { echo "selected"; } ?> ><?php echo $fos_users_res['user_name']; ?></option>
+                            <!-- <option value="<?php echo $fos_users_res['fos_user_id']; ?>" <?php if($fos_users_res['fos_user_id'] == $fos_user_id) { echo "selected"; } ?> ><?php echo $fos_users_res['user_name']; ?></option> -->
                             <?php
-                        }
+                       ///}
                         ?>
-                    </select>
-                    <label for="fos_users" class="label-tag">FOS Users</label>
+                    <!-- </select>
+                    <label for="fos_users" class="label-tag">FOS Users</label> -->
         </div>
                     <?php
-                } else {
-                    $is_fos_users_query = "SELECT user_id, user_name from tbl_user_assign where is_fos = 1 and status = 1";
-                    $is_fos_users_exe = mysqli_query($Conn1, $is_fos_users_query);
-                    if(mysqli_num_rows($is_fos_users_exe) > 0) {
+                //} else {
+                    // $is_fos_users_query = "SELECT user_id, user_name from tbl_user_assign where is_fos = 1 and status = 1";
+                    // $is_fos_users_exe = mysqli_query($Conn1, $is_fos_users_query);
+                    // if(mysqli_num_rows($is_fos_users_exe) > 0) {
                         ?>
-                        <div class="form-group col-xl-2 col-lg-4 col-md-6 fos_users hidden">
+                        <!-- <div class="form-group col-xl-2 col-lg-4 col-md-6 fos_users hidden">
                     <span class="fa-icon fa-user"></span>
                     <select name="fos_users" id="fos_users" class="fos_users valid">
-                            <option value="">--Select FOS User--</option>
+                            <option value="">--Select FOS User--</option> -->
                         <?php
-                         while($is_fos_users_res = mysqli_fetch_array($is_fos_users_exe)) {
+                        //  while($is_fos_users_res = mysqli_fetch_array($is_fos_users_exe)) {
                             ?>
-                            <option value="<?php echo $is_fos_users_res['user_id']; ?>" <?php if($is_fos_users_res['user_id'] == $fos_user_id) { echo "selected"; } ?> ><?php echo $is_fos_users_res['user_name']; ?></option>
+                            <!-- <option value="<?php echo $is_fos_users_res['user_id']; ?>" <?php if($is_fos_users_res['user_id'] == $fos_user_id) { echo "selected"; } ?> ><?php echo $is_fos_users_res['user_name']; ?></option> -->
                             <?php
-                        }
+                        //}
                         ?>
-                        </select>
-                        <label for="fos_users" class="label-tag">FOS Users</label>
+                        <!-- </select>
+                        <label for="fos_users" class="label-tag">FOS Users</label> -->
                     </div>
                         <?php
-                    }
+                   //}
                     ?>
                     <?php
-                }
+               // }
             ?>
-            <div class="form-group col-xl-2 col-lg-4 col-md-6 fos_address hidden">
+            <!-- <div class="form-group col-xl-2 col-lg-4 col-md-6 fos_address hidden">
             <span class="fa-icon fa-home"></span>
             <textarea name="fos_address" id="fos_address" class="form-control valid" autocomplete="off" placeholder="Customer Address"><?php echo $fos_address; ?></textarea>
             <label for="fos_address" class="label-tag">Customer Address</label>
-            </div>
+            </div> -->
         <?php
-        }
+       //}
         ?>
-        <div class="form-group col-xl-2 col-lg-4 col-md-6">
-            <span class="fa-icon fa-commenting"></span>
+        <!-- <div class="form-group col-xl-2 col-lg-4 col-md-6"> -->
+            <!-- <span class="fa-icon fa-commenting"></span>
             <textarea name="case_remark" id="case_remark" placeholder="Remarks" class="form-control valid" autocomplete="off"></textarea>
                   <label for="case_remark" class="label-tag optional-tag">Remarks</label>
-            </div>
-            	<div class="text-center col-12 mb-2">
-                    <input type="button" class="btn btn-primary" name="submit" id="step4" value="SUBMIT">
-                </div>
-             </form> 
+            </div> -->
+            	
+             <!-- </form>  -->
 
-                    <?php //} else{  ?>
-                    <form action="" class="form-step" id="form_step4" style="display:none">
-                        <input type="hidden" name="cust_id" value="<?php echo $cust_id; ?>">
-                    <input type="hidden" name="case_id_follow" class="case_id_received" id="case_id_received" value="<?php echo $case_id ?>">
-                     <input type="hidden" name="lead_view_id" value="<?php echo $lead_view_id; ?>">
-                    <input type="hidden" name="click_to_call_id" id="click_to_call_id" value="">
-                      
-                        <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                            <span class="fa-icon fa-list-alt"></span>
-                            <?php //echo get_dropdown('case_status', 'case_f_stats', '', 'onchange="cng_case_status(this.value);" style="width: 100% !important" required'); ?>
-                            <label for="case_f_stats" class="label-tag">Case Status</label>
-                        </div>
-                        <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                            <span class="fa-icon fa-tty"></span>
-                            <?php //get_dropdown('follow_up_type', 'case_foll_type', '', 'onchange="cng_followup_type(this.value);" style="width: 100% !important"'); ?>
-                            <label for="case_foll_type" class="label-tag">Follow Up Type</label>
-                        </div>
-                        <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                            <span class="fa-icon fa-user"></span>
-                            <select name="fup_user_type" id="case_fup_user_type">
-                                        <option value=''>Follow Up User</option>
-                                        <option value="1"><?php echo $pri_name; ?> (Primary)</option>
-                                        <option value="2"><?php echo $sec_name; ?> (Secondary)</option>
-                                    </select>
-                            <label for="case_fup_user_type" class="label-tag optional-tag">Follow Up User</label>
-                        </div>
-                        <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                            <span class="fa-icon fa-user"></span>
-                            <select name="folow_given" id="case_folow_given" style='width: 100% !important'>
-                                        <option>Feedback Given By</option>
-                                        <option value='1'>Customer</option>
-                                        <option value='2'>MLC User</option>
-                                    </select>
-                            <label for="case_folow_given" class="label-tag optional-tag">Feedback Given By</label>
-                        </div>
-                        <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                            <span class="fa-icon fa-calendar"></span>
-                            <input type="text" class="text form-control" name="fol_date" id="case_fol_date" maxlength="10" placeholder="yyyy-mm-dd" style='width: 100% !important'/>
-                            <label for="case_fol_date" class="label-tag">Follow Up Date</label>
-                        </div>
-                        <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                            <span class="fa-icon fa-clock-o"></span>
-                            <input type="text" class="text form-control" name="fol_time" id="case_fol_time" maxlength="10" placeholder="h:i:s" style='width: 100% !important'/>
-                            <label for="case_fol_time" class="label-tag">Follow Up Time</label>
-                        </div>
-                        <div class="form-group col-xl-2 col-lg-4 col-md-6 residential_pincode">
-                            <span class="fa-icon fa-map-marker"></span>
-                            <input type="text" class="text form-control" name="fol_pin_code" id="case_fol_pin_code" maxlength="10" placeholder="Residenial Pincode" style='width: 100% !important' value="<?php echo $pin_code ;?>"/>
-                            <label for="case_fol_pin_code" class="label-tag optional-tag">Residential Pincode</label>
-                        </div>
-                        <div class="form-group col-xl-2 col-lg-4 col-md-6 customer_city">
-                            <span class="fa-icon fa-map-marker"></span>
-                            <input type="text" class="text form-control city_search" name="fol_city_id" id="case_fol_city_id" maxlength="30" placeholder="Customer City" style='width: 100% !important' value="<?php echo $city_name;?>"/>
-                            <label for="case_fol_city_id" class="label-tag optional-tag">Customer City</label>
-                        </div>
-                        <input type="hidden" id="is_fos" name="is_fos" value="<?php echo $is_fos; ?>" />
-                        <?php
-                       // if(in_array($loan_type, $fos_loan_type)) {
-                        ?>
-                        <!-- <div class="form-group col-xl-2 col-lg-4 col-md-6 fos_flag">
-                            <input type="checkbox" name="fos_checked" class="fos_check" id="fos_check" value="1" <?php echo ($is_fos == 1) ? "checked" : ""; ?> >
-                            <label for="fos_check" class="checkbox green f_14">FOS Flag</label>
-                        </div>
-                        <div class="form-group col-xl-2 col-lg-4 col-md-6 appointment_date">
-                            <span class="fa-icon fa-calendar"></span>
-                            <input type="text" class="text form-control" name="fos_fol_date" id="fos_fol_date" maxlength="10" placeholder="Appointment Date (yyyy-mm-dd)" style='width: 100% !important' value="<?php echo $fos_fol_date; ?>"/>
-                            <label for="fol_date" class="label-tag">Appointment Date</label>
-                        </div>
-                        <div class="form-group col-xl-2 col-lg-4 col-md-6 appointment_time">
-                            <span class="fa-icon fa-clock-o"></span>
-                            <input type="text" class="time text form-control" name="fos_fol_time" id="fos_fol_time" maxlength="10" placeholder="Appointment Time (h:i:s)" style='width: 100% !important' value="<?php echo $fos_fol_time; ?>"/>
-                            <label for="fos_fol_time" class="label-tag">Appointment Time</label>
-                        </div>
-                         <div class="form-group col-xl-2 col-lg-4 col-md-6 fos_user">
-                            <span class="fa-icon fa-user"></span>
-                            <select name="fos_user_id" id="fos_users" class="fos_users" style="100%!important">
-                            </select>
-                            <label for="fos_users" class="label-tag">FOS User</label>
-                        </div>
-                        <div class="form-group col-xl-2 col-lg-4 col-md-6 fos_add">
-                            <span class="fa-icon fa-home"></span>
-                            <textarea class="text valid form-control alpha-num removeSpecial" name="fos_address" id="fos_address" placeholder="Customer Address for FOS" autocomplete="off"><?php echo $fos_address; ?></textarea>
-                            <label for="fos_address" class="label-tag">FOS Address</label>
-                        </div> -->
-                        <?php
-                        // }
-                        
-                        $level_id =1;
-                        ?>
-                        <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                            <span class="fa-icon fa-commenting"></span>
-                            <textarea name="remark" class="text valid form-control removeSpecial" id="case_remark" maxlength="200" placeholder="Remarks" style='width: 100% !important'></textarea>
-                            <label for="remark" class="label-tag optional-tag">Remarks</label>
-                        </div>
-                        <div class="text-center col-12 mb-2">
-                            <input type="button" class="btn btn-primary" name="submit" id="step4" value="SUBMIT">
-                        </div>
-                    </form> 
-                <?php //} ?>
-                </div>
-            </div>
+
+                <!-- </div>
+            </div> -->
 
             <?php
-            $tc_loan_type_arr = array('56', '51', '54', '52', '11', '63', '71', '60');
+            // $tc_loan_type_arr = array('56', '51', '54', '52', '11', '63', '71', '60');
             ?>
-            <?php if(in_array($loan_type, $tc_loan_type_arr)) { ?>
-                <div id="slide-tc-script" class="fabs-telecaller" style="bottom: 66%; position: fixed; margin: 1em; right: 0;">
+            <?php //if(in_array($loan_type, $tc_loan_type_arr)) { ?>
+                <!-- <div id="slide-tc-script" class="fabs-telecaller" style="bottom: 66%; position: fixed; margin: 1em; right: 0;">
                     <a style='display: block; width: 50px; height: 50px; border-radius: 50%; text-align: center; color: white; margin: 0; box-shadow: 0px 5px 11px -2px rgba(0, 0, 0, 0.18), 0px 4px 12px -7px rgba(0, 0, 0, 0.15); cursor: pointer; -webkit-transition: all .1s ease-out; transition: all .1s ease-out; position: relative; background-color: #EB9B42' target="_blank" class="fab" tooltip="Share" title="Telecaller Script"><i style='position: inherit; color: #fff;' class="fa-icon fa-file"></i></a>
-                </div>
+                </div> -->
                 <?php //include("../insert/telecaller_script.php"); ?>
-            <?php } ?>
+            <?php //} ?>
 
-        </section>
-    </main>
+        <!-- </section>
+    </main> -->
     <?php
     //if($user == 173 || $user == 83 || $user == 162) {
         include("../insert/form-popup.php");
@@ -505,12 +405,12 @@ if (in_array($loan_type, $language_barrier_loan_type)) {?>
     ?>
 
     <?php include('../include/loader.php') ?>
-    <script>
+    <!-- <script>
         var negative_ques_val = '<?php echo $property_negative_ques ?>';
         var industry_id = '<?php echo $industry_id; ?>';
         var user_role = "<?php echo $_SESSION['user_role']; ?>";
         var one_lead = "<?php echo $_SESSION['one_lead_flag']; ?>";
-    </script>
+    </script> -->
 <script src="../assets/js/common-function.js"></script> 
 <?php if(in_array($user,$user_new_status) || in_array($loan_type,$loan_type_new_status) ){ ?>
 <script src="../assets/js/query-journey-new-status.js?v=15"></script>
