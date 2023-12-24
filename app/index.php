@@ -1,13 +1,18 @@
 <?php
-echo "as";
-//require_once(dirname(__FILE__) . "/../config/session.php");
-require_once(dirname(__FILE__) . "/../config/config.php");
-echo "as 1";
+// echo "as";
+// //require_once(dirname(__FILE__) . "/../config/session.php");
+// require_once(dirname(__FILE__) . "/../config/config.php");
+// echo "as 1";
+// require_once(dirname(__FILE__) . '/../helpers/common-helper.php');
+// require_once(dirname(__FILE__) . '/../include/header.php');
+// echo "as 2";
+// require_once "../include/helper.functions.php";
+// require_once "../include/display-name-functions.php";
+session_start();
+require_once(dirname(__FILE__) . '/../config/session.php');
 require_once(dirname(__FILE__) . '/../helpers/common-helper.php');
 require_once(dirname(__FILE__) . '/../include/header.php');
-echo "as 2";
-require_once "../include/helper.functions.php";
-require_once "../include/display-name-functions.php";
+require_once(dirname(__FILE__) . '/../config/config.php');
 
 if($_SESSION['one_lead_flag'] == 1  && $_SESSION['sme_flag'] != 1){
     header("/../../logout.php");
