@@ -1,8 +1,10 @@
 <?php
 $dialog_pop_up_disabled_flag = 1;
-require_once "../../include/crm-header.php";
-require_once "../../include/con-config.php";
-require_once "../../include/dropdown.php";
+require_once(dirname(__FILE__) . '/../config/session.php');
+require_once(dirname(__FILE__) . '/../helpers/common-helper.php');
+require_once(dirname(__FILE__) . '/../include/header.php');
+require_once(dirname(__FILE__) . '/../config/config.php');
+
 
 if($_REQUEST['calculate']){
     $loan_type = replace_special($_REQUEST['loan_type']);
@@ -96,9 +98,8 @@ if($_REQUEST['calculate']){
         <span class='f_14 orange fw_bold'>Loan Type:</span>
         <select name="loan_type" id="loan_type" class='' onchange="loan_type_func(this.value)" required>
             <option value="">Select Loan Type</option>
-    <option value="51" <?php if($loan_type == 51){echo "selected";} ?>>Home Loan</option>
-    <option value="56" <?php if($loan_type == 56){echo "selected";} ?>>Personal Loan</option>
-    <option value="60" <?php if($loan_type == 60){echo "selected";} ?>>Gold Loan</option>
+    <option value="51" <?php if($loan_type == 55){echo "selected";} ?>>Home Loan</option>
+    <option value="56" <?php if($loan_type == 54){echo "selected";} ?>>Personal Loan</option>
     </select>
      <span class='f_14 ml20 orange fw_bold 51_loan'>No of Co-borrowers:</span>
     <select name="no_cob" id="no_cob" class="51_loan " onchange="cob_func(this.value);"><option value="">No of Co-Borrowers</option><option value="0" selected>0</option><option value="1">1</option><option value="2">2</option></select>

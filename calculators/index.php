@@ -1,7 +1,9 @@
 <?php
 $dialog_pop_up_disabled_flag = 1;
-require_once "../../include/crm-header.php";
-require_once "../../include/dropdown.php";
+require_once(dirname(__FILE__) . '/../config/session.php');
+require_once(dirname(__FILE__) . '/../helpers/common-helper.php');
+require_once(dirname(__FILE__) . '/../include/header.php');
+require_once(dirname(__FILE__) . '/../config/config.php');
 ?>
 <?php
 if($_REQUEST['calculate']) {
