@@ -384,15 +384,6 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                         $default = 1;
                         $qry .= " and qry.page_url like '%" . $insurance . "%'";
                     }
-                    // if ($promo != '' || $ref_phone != '') {
-                    //     $default = 1;
-                    //     $qry_join .= " left JOIN tbl_mint_partner_info as pat ON qry.ref_mobile=pat.partner_id ";
-                    //     if ($ref_phone != '') {
-                    //         $qry .= " and pat.phone = '" . $ref_phone . "'";
-                    //     } else {
-                    //         $qry .= " and pat.promocode = '" . $promo . "'";
-                    //     }
-                    // } else
                      if ($default != 1) {
                         $qry .= " and date(qry.created_on) between DATE_SUB(CURDATE(), INTERVAL 5 DAY) and CURDATE() ";
                     }
@@ -415,7 +406,6 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                             <input type="text" class="text-input numonly" name="net_incm_to" id="net_incm_to" placeholder="Net Incm To" maxlength="10" value="<?php echo $net_incm_to; ?>" />
                             <input type="text" class="text-input" name="date_from" id="date_from" placeholder="Date From" maxlength="10" value="<?php echo $date_from; ?>" readonly="readonly" />
                             <input type="text" class="text-input" name="date_to" id="date_to" placeholder="Date To" maxlength="10" value="<?php echo $date_to; ?>" readonly="readonly" />
-                            <?php // echo get_dropdown('annual_turnover', 'anl_trn', $bs_anl_turn, ''); ?>
                         </td>
 
                
@@ -426,7 +416,6 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                             if ($user_role != 3) { ?>
                                 <?php echo get_dropdown('user', 'u_assign', $u_assign, ''); ?>
                             <?php } ?>
-                            <?php // echo get_dropdown('tool_type', 'tool', $tool, ''); ?>
                             
                          
                             <input type="text" class="text-input" name="follow_date_from" id="follow_date_from" placeholder="Follow Date From" maxlength="10" value="<?php echo $follow_date_from; ?>" readonly="readonly" />
@@ -442,10 +431,6 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                             <input type="text" class="text-input numonly" name="customer_id_search" id="customer_id_search" placeholder="Customer ID" maxlength="30" value="<?php echo $customer_id_search; ?>" />
                             <input type="text" class="text-input alnum-wo-space" name="masked_phone" id="masked_phone" placeholder="Masked Phone No." value="<?php echo $masked_phone; ?>" maxlength="10" />
                             <input type="text" class="text-input no-space" name="email_search" id="email_search" placeholder="Customer Email" value="<?php echo $email_search; ?>" maxlength="100" autocomplete="null" />
-                            <?php // get_dropdown("ni_user", "ni_user", $ni_user, ""); ?>
-
-                            <?php // get_dropdown("type_of_registration", "type_of_registration", $type_of_registration, ""); ?>
-
                             <input class="cursor" type="submit" name="searchsubmit" value="Filter"><input class="cursor" type="button" onclick="resetform()" value="Clear">
                         </form>
                     </fieldset>
@@ -486,10 +471,7 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                                     $id = $exe_form['id'];
                                     $loan_amt = $exe_form['loan_amt'];
                                     $query_status = $exe_form['query_status'];
-                                   // $mobile_status = $exe_form['mobile_status'];
-                                   // $extng_amt = $exe_form['extng_amt'];
                                     $date = ($exe_form['date'] == '0000-00-00' || $exe_form['date'] == '' || $exe_form['date'] == '1970-01-01') ? '--' : date("d-m-Y", strtotime($exe_form['date']));
-                                  //  $time = $exe_form['time'];
                                     $tool_type = $exe_form['tool_type'];
 
                                     $tool_type_ybl = '';
@@ -510,10 +492,7 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                                             $query_follow_date = $query_follow_date . " " . $query_follow_time;
                                         }
                                     }
-                                   // $query_follow_type = $exe_form['q_follow_type'];
                                     $verify_phone = $exe_form['verify_phone'];
-                                    //$timeindia = $time;
-                                    //$timeindia = date('H:i:s', strtotime($time)+19800);
                                     $name = $exe_form['name'];
                                     $email = ($exe_form['email'] != "") ? "(" . $exe_form['email'] . ")" : "";
                                     $phone_no = $exe_form['phone'];
@@ -526,53 +505,28 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                                   
                                     // $net_incm = custom_money_format($exe_form['net_incm']);
                                     $net_incm = ($exe_form['net_incm'] > 0) ? custom_money_format($exe_form['net_incm']) : "";
-                                  //  $auto_case_create_v = $exe_form['auto_case_create'];
-                                   // $lform_flag = $exe_form['lform_flag'];
-                                   // $description = $exe_form['description'];
                                    $get_loan_name = mysqli_query($Conn1,"select value from crm_masters where crm_masters_code_id = 1 and id = ".$exe_form['loan_type_id']);
                                    $res_loan_name = mysqli_fetch_array($get_loan_name);
-                                //print_r($res_loan_name);
                                    $get_occup_name = mysqli_query($Conn1,"select value as occup_name from crm_masters where crm_masters_code_id = 7 and id = ".$exe_form['occup_id']);
                                    $res_occup_name = mysqli_fetch_array($get_occup_name);
                                 
-                                //    $get_city_name = mysqli_query($Conn1,"select city_name from crm_master_city where id = ".$exe_form['city_id']);
-                                //    $res_city_name = mysqli_fetch_array($get_city_name);
-                                //    print_r($res_city_name);
                                     $loantype_name = ($res_loan_name['value'] != "") ? "(" . $res_loan_name['value'] . ")" : "";
                                     $city_name = ($exe_form['city_name'] != "") ? "(" . $exe_form['city_name'] . ")" : "";
                                     $occupation_name = ($res_occup_name['occup_name']) ? "(" . $res_occup_name['occup_name'] . ")" : "";
-                                    //$qy_status = $exe_form['qy_status'];
                                     $user_name = $exe_form['user_name'];
-                                   // $extension = $exe_form['extension'];
                                     $follow_name = $exe_form['follow_status'];
                                     $qy_status = 'open';
-                                    // $qy_status = get_display_name('query_status', $query_status);
-                                    // if ($qy_status == '') {
-                                    //     $qy_status = get_display_name('new_status_name', $query_status);;
-                                    // }
-                               
-                                    //$stats_other_status = trim($exe_form['other_status'], ',');
-                                
-
+                        
                                     if (in_array($query_status, array(20, 3))) {
                                         $follow_name = $query_follow_date = '';
                                     }
 
                                     $customer_id = $exe_form['customer_id'];
-                                    // $qry_get_experian_rec = mysqli_query($Conn1, "select history_id from experian_report_pull_history where cust_id = '" . $customer_id . "' order by history_id DESC limit 1");
-                                    // $res_get_expeerian_rec = mysqli_fetch_array($qry_get_experian_rec);
-                                    // $ttl_experian_record = $res_get_expeerian_rec['history_id'];
-                                    // $cibil_score = (trim($exe_form['cibil_score']) != "" && $exe_form['cibil_score'] > 0 && is_numeric($exe_form['cibil_score'])) ? "(CR: <span>" . (($user_role == 1) ? "<a target='_blank' href='../report/free-credit-report.php?uid=" . base64_encode($ttl_experian_record) . "&action=view'>" . $exe_form['cibil_score'] . "</a>" : $exe_form['cibil_score']) . "</span>)" : "";
+                                    
                                     $junk_reason = '';
                                     if ($query_status == 2) {
                                         $junk_reason = trim($exe_form['junk_reason']) != '' ? "(" . $exe_form['junk_reason'] . ")" : '';
                                     }
-
-
-                                    // $qry_get_epf_rec = mysqli_query($Conn1, "select count(*) as ttl_epf from epf_company_detail where cust_id = '" . $customer_id . "'");
-                                    // $res_get_epf_rec = mysqli_fetch_array($qry_get_epf_rec);
-                                    // $ttl_epf_record = $res_get_epf_rec['ttl_epf'];
-
                                     if ($tool_type == "Bt Form") {
                                         $loan_amt = $extng_amt;
                                     } else {
@@ -580,15 +534,8 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                                     }
 
                                     $loan_amt = ($loan_amt > 0) ? custom_money_format($loan_amt) : "";
-
-                                    
                                     parse_str($exe_form['page_url'], $get_array);
                                     $utm_campain_name = ucfirst($get_array['utm_campaign']);
-                                    // $obj = new queries($id);
-                                    // $obj->email_count();
-                                    // $resulr_case_mail_count = $obj->execute();
-                                    // $obj->sms_count();
-                                    // $resulr_qry_sms_count = $obj->execute();
                             ?>
                                     <tr>
                                         <?php if ($_SESSION['assign_access_lead'] == 1) { ?>
