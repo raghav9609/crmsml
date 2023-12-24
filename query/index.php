@@ -4,10 +4,9 @@ require_once(dirname(__FILE__) . '/../config/session.php');
 require_once(dirname(__FILE__) . '/../helpers/common-helper.php');
 require_once(dirname(__FILE__) . '/../include/header.php');
 require_once(dirname(__FILE__) . '/../config/config.php');
-
-if ($_SESSION['one_lead_flag'] != 1) {
-    
-    $ut = '';
+if($user_role == 4){
+    header("location:".$head_url."/app/");
+}    
     if (isset($_REQUEST['u_assign'])) {
         $u_assign = replace_special($_REQUEST['u_assign']);
     }
@@ -71,70 +70,25 @@ if ($_SESSION['one_lead_flag'] != 1) {
     if (isset($_REQUEST['follow_date_to'])) {
         $follow_date_to = replace_special($_REQUEST['follow_date_to']);
     }
-    if (isset($_REQUEST['anl_trn'])) {
-        $bs_anl_turn = replace_special($_REQUEST['anl_trn']);
-    }
-    if (isset($_REQUEST['annual_trn_to'])) {
-        $annual_trn_to = replace_special($_REQUEST['annual_trn_to']);
-    }
+
     if (isset($_REQUEST['net_incm_to'])) {
         $net_incm_to = replace_special($_REQUEST['net_incm_to']);
     }
     if (isset($_REQUEST['net_incm_from'])) {
         $net_incm_from = replace_special($_REQUEST['net_incm_from']);
     }
-    if (isset($_REQUEST['auto_case_create'])) {
-        $auto_case_create = replace_special($_REQUEST['auto_case_create']);
-    }
+
     if (isset($_REQUEST['mlc_product'])) {
         $mlc_product = replace_special($_REQUEST['mlc_product']);
     }
-    if (isset($_REQUEST['source_compign'])) {
-        $source_compign = replace_special($_REQUEST['source_compign']);
-    }
+
 
     if (isset($_REQUEST['query_new_status'])) {
         $query_new_status = replace_special($_REQUEST['query_new_status']);
     }
-    if (isset($_REQUEST['sub_status'])) {
-        $sub_status = replace_special($_REQUEST['sub_status']);
-    }
-    if (isset($_REQUEST['sub_sub_status'])) {
-        $sub_sub_status = replace_special($_REQUEST['sub_sub_status']);
-    }
-    if (isset($_REQUEST['hot_lead_query'])) {
-        $hot_lead_query = replace_special($_REQUEST['hot_lead_query']);
-    }
-
-    if (isset($_REQUEST['type_of_registration'])) {
-        $type_of_registration = replace_special($_REQUEST['type_of_registration']);
-    }
-    if (isset($_REQUEST['referee_phone'])) {
-        $referee_phone = replace_special($_REQUEST['referee_phone']);
-    }
-
-
-    if ($source_compign == 'gcl_id') {
-        $source_used = "gclid=";
-    } else if ($source_compign == 'source_campaign') {
-        $source_used = "utm_source=svg";
-    } else if ($source_compign == 'ref_campaign') {
-        $source_used = "refer";
-    } else if ($source_compign == 'mit') {
-        $source_used = "lp-mit.php";
-    } else if ($source_compign == 'utm_source') {
-        $source_used = "utm_source=wunder_cab";
-    }
-    $sub_source = replace_special($_REQUEST['sub_source']);
-    $insurance = replace_special($_REQUEST['insurance']);
-    $promo = replace_special($_REQUEST['promocode']);
-    $ref_phone = replace_special($_REQUEST['ref_phone']);
 require_once(dirname(__FILE__) . '/../include/helper.functions.php');
 require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
 
-
-    // include "../../include/dropdown.php";
-    // include "../../include/display-name-functions.php";
     ?>
     <!DOCTYPE html>
     <html>
@@ -716,48 +670,7 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                 <?php }
                             } ?>
                 </div>
-            <?php include "../include/footer_close.php";
-            // echo "<script>window.onload = opn_subsource();</script>";
-        } else {
-            /* if($_SESSION['tl_loan_type'] != ''){
-    $new_lead_flag = 0;
-    $loan_type_user_assign = explode(',',$_SESSION['tl_loan_type']);
-    if(in_array(56,$loan_type_user_assign) || in_array(60,$loan_type_user_assign) || in_array(71,$loan_type_user_assign)){
-    $new_lead_flag = 1;
-    }
-    }*/
-            include "../include/loader.php";
-            ?>
-                <div id="data_not_found" class="main-text-position"></div>
-                <script>
-                    $(document).ready(function() {
-                        //var new_lead_flag = '<?php echo $new_lead_flag; ?>';
-                        //if(new_lead_flag == 1){
-                        var url = 'one-lead-new.php';
-                        /*}else{
-                         var url = 'one-lead.php';
-                        }*/
-                        $.ajax({
-                            type: 'POST',
-                            url: url,
-                            async: false,
-                            success: function(data) {
-                                var jsonparse = JSON.parse(data);
-                                $("#loader").css("display", "none");
-                                if (jsonparse.id != '' && jsonparse.id > 0) {
-                                    window.location.href = jsonparse.URL;
-                                } else {
-                                    $("#data_not_found").html("Dear User, you do not have any query/case/application.<br><br>Please contact your Team Leader for more queries.");
-                                }
-                            }
-
-                        });
-                    });
-                    setTimeout(function() {
-                        location.reload();
-                    }, 30000);
-                </script>
-            <?php } ?>
+            <?php include "../include/footer_close.php"; ?>
             <script type="text/javascript" src="/crmsml/assets/js/common-function.js"></script>
     </body>
 

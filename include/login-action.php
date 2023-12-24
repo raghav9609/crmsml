@@ -45,7 +45,12 @@ if(requestMethod() != 'POST'){
                                             );
                 $status = 'success';
                 $message = 'Details Fetch Successfully';
-                $goto = $head_url."/query/";               
+                if($user_data[0]['role_id'] == 4){
+                    $goto = $head_url."/app/"; 
+                }else{
+                    $goto = $head_url."/query/"; 
+                }
+                              
             }else{
                 $status = 'error';
                 $message = 'Enter Correct Password';  
