@@ -154,7 +154,7 @@
 
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
                                     <span class="fa-icon fa-building"></span>
-                                    <input type="text" id="bank_name" name="bank_name" value="<?php echo ($name) ;?>" placeholder="Enter Bank Name" class="form-control alphaonly" maxlength="20" required>
+                                    <input type="text" id="bank_name" name="bank_name" value="<?php echo $sanction_amount;?>" placeholder="Enter Bank Name" class="form-control alphaonly" <?php echo ($sanction_amount != '') ? 'readonly' : ''; ?> maxlength="20" required>
                                     <label for="name" class="label-tag"> Sanction Amount</label>
                                 </div>
                               
