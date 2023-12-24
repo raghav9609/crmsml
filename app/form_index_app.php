@@ -143,6 +143,7 @@
                             <div class="form-group col-xl-2 col-lg-4 col-md-6">
                                 <span class="fa-icon fa-briefcase"></span>
                                 <label for="application_status" class="label-tag">Application Status</label>
+                                <br/>
                                  <?php echo get_dropdown('application_status',''); ?>
                                     
                             </div>
