@@ -41,10 +41,10 @@ $qry = "Select * from  crm_query_application where crm_query_id ='".$qryyy_id."'
 //     $qry .= " and qry.loan_type_id IN ($tl_loan_type)";
 // }
 $qry .= " order by crm_query_id desc";
-print_r($qry);
+// print_r($qry);
 $res = mysqli_query($Conn1, $qry) or die(mysqli_error($Conn1));
 $exe_form = mysqli_fetch_array($res);
-print_r($exe_form);
+// print_r($exe_form);
 
 
 if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
@@ -54,12 +54,13 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
         header("location:index.php");
     }
 } else {
-    $cust_id = $exe_form['cust_id'];
+    // $cust_id = $exe_form['cust_id'];
 
-    $tool_type = $exe_form['tool_type'];
+    // $tool_type = $exe_form['tool_type'];
+    echo $name_bank = $exe_form['bank_id'];
 
-    $call_button_display = 1;
- 
+    $get_bank_name = get_name("",$name_bank);
+
 
     
     $ver_phone = $exe_form['verify_phone'];
