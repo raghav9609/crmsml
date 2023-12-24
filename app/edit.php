@@ -44,6 +44,8 @@ $qry .= " order by crm_query_id desc";
 print_r($qry);
 $res = mysqli_query($Conn1, $qry) or die(mysqli_error($Conn1));
 $exe_form = mysqli_fetch_array($res);
+print_r($exe_form);
+
 
 if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
     if ($user_role == 3) {
