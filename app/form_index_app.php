@@ -160,18 +160,18 @@
                               
 
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                                    <input type="text" class="text form-control" name="dob" id="dob" maxlength="10" value="<?php echo $login_date != '0000-00-00'?$login_date:'';?>" placeholder="yyyy-mm-dd" />
+                                    <input type="text" class="text form-control" name="dob" id="dob" maxlength="10" value="<?php echo $sanction_date; ?>" placeholder="yyyy-mm-dd" required <?php echo ($sanction_date != '') ? 'readonly' : '';  ?> >
                                     <label for="dob" class="label-tag ">Sanction Date</label>
                                     <span class='green' id='age' style="position: absolute;top: 100%;background: transparent;color: green;left: 15px;"></span>
                                 </div> 
 
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
                                     <span class="fa-icon fa-building"></span>
-                                    <input type="text" id="bank_name" name="bank_name" value="<?php echo ($name) ;?>" placeholder="Enter Bank Name" class="form-control alphaonly" maxlength="20" required>
+                                    <input type="text" id="bank_name" name="bank_name" value="<?php echo $disbursed_amount;?>" placeholder="Enter Bank Name" class="form-control alphaonly" maxlength="20" <?php echo ($disbursed_amount != '') ? 'readonly' : ''; ?> required>
                                     <label for="name" class="label-tag"> Disbursement Amount</label>
                                 </div>
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                                    <input type="text" class="text form-control" name="dob" id="dob" maxlength="10" value="<?php echo $login_date != '0000-00-00'?$login_date:'';?>" placeholder="yyyy-mm-dd" />
+                                    <input type="text" class="text form-control" name="dob" id="dob" maxlength="10" value="<?php echo $disburse_date != '0000-00-00'?$disburse_date:'';?>" placeholder="yyyy-mm-dd" />
                                     <label for="dob" class="label-tag ">Disbursement Date</label>
                                     <span class='green' id='age' style="position: absolute;top: 100%;background: transparent;color: green;left: 15px;"></span>
                                 </div> 
