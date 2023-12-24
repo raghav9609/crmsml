@@ -44,7 +44,7 @@ $qry .= " order by crm_query_id desc";
 // print_r($qry);
 $res = mysqli_query($Conn1, $qry) or die(mysqli_error($Conn1));
 $exe_form = mysqli_fetch_array($res);
-// print_r($exe_form);
+print_r($exe_form);
 
 
 if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
@@ -57,7 +57,7 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
     // $cust_id = $exe_form['cust_id'];
 
     // $tool_type = $exe_form['tool_type'];
-    echo $name_bank = $exe_form['bank_id'];
+    $name_bank = $exe_form['bank_id'];
 
     $get_bank_name = get_name("",$name_bank);
 
