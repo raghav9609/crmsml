@@ -52,12 +52,15 @@ class userModel {
     }
     function getrmPartnerList($user_id){
         $queryReturn = "select * from crm_rm_assignment where is_active = 1 and rm_user_id = ".$user_id;
+        return $queryReturn;
     }
     function gettlUserList($user_id){
         $queryReturn = "select * from crm_tl_user_mapping where is_active = 1 and tl_user_id = ".$user_id;
+        return $queryReturn;
     }
     function gettlloanList($user_id){
         $queryReturn = "select * from crm_user_loan_type_mapping where is_active = 1 and user_id = ".$user_id;
+        return $queryReturn;
     }
     function attendanceHistory($columns,$values){
         if(!empty($columns) && !empty($values) && count($columns) == count($values)){

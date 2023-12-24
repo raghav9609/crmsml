@@ -12,7 +12,7 @@ if(requestMethod() != 'POST'){
     require_once(dirname(__FILE__) . '/../config/config.php');
     require_once(dirname(__FILE__) . '/../model/loginHelper.php');
     $get_user = new userModel();
-    echo $user_query = $get_user->userDetails(array("email_id = '".$_POST['id']."'"));
+    $user_query = $get_user->userDetails(array("email_id = '".$_POST['id']."'"));
     $db_handle = new DBController();
     $user_data = $db_handle->runQuery($user_query);
     if(!empty($user_data) && $user_data[0]['is_active'] == 1){
@@ -29,8 +29,6 @@ if(requestMethod() != 'POST'){
                     $gettluserList = $db_handle->runQuery($get_user->gettlUserList($user_data[0]['id']));
                     $gettlloanList = $db_handle->runQuery($get_user->gettlloanList($user_data[0]['id']));
                 }else if ($user_data[0]['role_id'] == 4){
-                    echo $get_user->getrmPartnerList($user_data[0]['id']);
-                    exit;
                     $getrmPartnerList = $db_handle->runQuery($get_user->getrmPartnerList($user_data[0]['id']));
                 }
                 session_start();
