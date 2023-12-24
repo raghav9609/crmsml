@@ -82,7 +82,7 @@ if(!function_exists('get_name')){
                 $qry = "select * from crm_master_status where id = '".$id."'";
             break;
             case "status_id":
-                $qry = "select * from crm_master_status where valu= = '".$id."'";
+                $qry = "select * from crm_master_status where value = '".$id."'";
             break;
             case "crm_master_city_sub_group_id":
                 $qry = "select * from crm_master_city_sub_group where id = ".$id;
