@@ -11,8 +11,7 @@ $bank_name_get = get_name('master_code_id',$bank_name);
 // exit();
 $application_status = $_REQUEST['application_status'];
 $application_status_get = get_name('status_id',$application_status);
-echo $application_status_get;
-
+print_r($application_status_get);
 $applied_amount = $_REQUEST['applied_amount'];
 
 $login_date = $_REQUEST['login_date'];
