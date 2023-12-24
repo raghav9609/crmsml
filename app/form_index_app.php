@@ -143,11 +143,11 @@
                             </div>
                             <div class="form-group col-xl-2 col-lg-4 col-md-6">
                                 <span class="fa-icon fa-building"></span>
-                                <input type="text" id="applied_amount" name="applied_amount" value="<?php echo $applied_amount;?>" placeholder="Enter Applied Amount" class="form-control" maxlength="20" <?php echo ($applied_amount != '') ? 'readonly' : ''; ?> required>
+                                <input type="text" id="applied_amount" name="applied_amount" value="<?php echo $applied_amount;?>" placeholder="Enter Applied Amount" class="form-control alphaonly" maxlength="20" <?php echo ($applied_amount != '') ? 'readonly' : ''; ?> required>
                                 <label for="applied_amount" class="label-tag"> Applied Amount</label>
                             </div>
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                                    <input type="text" class="text form-control" name="dob" id="dob" maxlength="10" value="<?php echo $login_date != '0000-00-00'?$login_date:'';?>" placeholder="yyyy-mm-dd" />
+                                    <input type="text" class="text form-control" name="dob" id="dob" maxlength="10" value="<?php echo $login_date != '0000-00-00'?$login_date:'';?>" placeholder="yyyy-mm-dd" <?php echo ($login_date != '') ? 'readonly' : ''; ?> required>
                                     <label for="dob" class="label-tag ">Login Date</label>
                                     <span class='green' id='age' style="position: absolute;top: 100%;background: transparent;color: green;left: 15px;"></span>
                                 </div> 
