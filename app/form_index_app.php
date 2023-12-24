@@ -1,4 +1,4 @@
-<link href="<?php echo $head_url; ?>/assets/css/grid-form.css?v=1.1" rel="stylesheet">
+<!-- <link href="<?php echo $head_url; ?>/assets/css/grid-form.css?v=1.1" rel="stylesheet">
 <style>
 .fa-icon { 
     font-size: 18px;
@@ -20,7 +20,7 @@
       left: -150px;
     width: 241px;
 }
-</style>
+</style> -->
 <div class="main-crmform col-12">
     <!-- <div class="popup-ctext up-list-box">
     <h2 class='f_14 fw_bold'>Query Detail</h2>
@@ -67,7 +67,7 @@
         <h2 class="f_14 fw_bold" style='font-size: 15px'>Agent Offered Banks</h2>
         <br>
         <?php 
-            $fil_city_id = $city_id;
+            // $fil_city_id = $city_id;
         
         // if(in_array($loan_type,array(32,56,60,51,52,54))){
             
@@ -101,16 +101,16 @@
 
 </div>
     <main> 
-    <section class="d-flex flex-wrap">
+    <!-- <section class="d-flex flex-wrap"> -->
     <div class="pl-md-3 pl-2 pr-md-3 pr-2 col-12">
         <!-- <div class="d-flex flex-wrap gen-box text-center white-bg pe-none">
             <div class="col-3 tab-click active-tab" data-toggle="step1">Personal Details</div>
             <div class="col-3 tab-click" data-toggle="step2"><?php if($loan_type != 71){ echo "Loan";}else{echo "Card";} ?> Details</div>
         </div> -->
     <div class="gen-box white-bg">
-    <div class="blue-bg col-12 font-weight-nb pb-2 pt-2 white font-20 brdr-top-gray pe-none" data-toggle="step1" id="switch_step1">
+    <!-- <div class="blue-bg col-12 font-weight-nb pb-2 pt-2 white font-20 brdr-top-gray pe-none" data-toggle="step1" id="switch_step1"> -->
         <span id="text_step1"></span> Application Details</div>    
-        <form action="edit_app.php" class="form-step col-12" autocomplete="off" id="form_step1">
+        <form action="edit_app.php" class="form-step col-12" autocomplete="off" id="edit_app_form">
                         <!-- <input type="hidden" name="step" value="1">
                         <input type="hidden" id="journey_type" value="1">
                         <input type="hidden" name="id" value="<?php echo $id; ?>">
@@ -232,6 +232,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+</script>
     <?php
 if (in_array($loan_type, $language_barrier_loan_type)) {?>
     <div class="form-group col-xl-2 col-lg-4 col-md-6 case_languages hidden">
