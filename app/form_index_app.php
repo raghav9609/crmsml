@@ -171,7 +171,7 @@
                                     <label for="name" class="label-tag"> Disbursement Amount</label>
                                 </div>
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                                    <input type="text" class="text form-control" name="disburse_date" id="disburse_date" maxlength="10" value="<?php echo $disburse_date;?>" placeholder="yyyy-mm-dd" required  <?php echo ($disburse_date != '') ? 'readonly' : ''; ?>>
+                                    <input type="text" class="text form-control hasDatepicker valid" name="disburse_date" id="disburse_date" maxlength="10" value="<?php echo $disburse_date; ?>" placeholder="yyyy-mm-dd" required <?php echo ($disburse_date != '') ? 'readonly' : '';  ?>>
                                     <label for="dob" class="label-tag ">Disbursement Date</label>
                                     <span class='green' id='age' style="position: absolute;top: 100%;background: transparent;color: green;left: 15px;"></span>
                                 </div> 
@@ -193,17 +193,17 @@
                                     <label for="name" class="label-tag">Bank Application Number</label>
                                 </div>
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                                    <input type="text" class="text form-control" name="follow_up_date" id="follow_up_date" maxlength="10" value="<?php echo $follow_up_date;?>" placeholder="yyyy-mm-dd" <?php echo ($follow_up_date != '') ? 'readonly' : '';  ?> required>
+                                    <input type="text" class="text form-control hasDatepicker valid" name="follow_up_date" id="follow_up_date" maxlength="10" value="<?php echo $follow_up_date; ?>" placeholder="yyyy-mm-dd" required <?php echo ($follow_up_date != '') ? 'readonly' : '';  ?>>
                                     <label for="dob" class="label-tag ">Follow Up Date</label>
                                     <span class='green' id='age' style="position: absolute;top: 100%;background: transparent;color: green;left: 15px;"></span>
                                 </div> 
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                                    <input type="text" class="text form-control" name="follow_up_time" id="follow_up_time" maxlength="10" value="<?php echo $follow_up_time; ?>" placeholder="yyyy-mm-dd" <?php echo ($follow_up_time != '') ? 'readonly' : '';  ?> required/>
+                                    <input type="text" class="text form-control hasDatepicker valid" name="follow_up_time" id="follow_up_time" maxlength="10" value="<?php echo $follow_up_time; ?>" placeholder="yyyy-mm-dd" required <?php echo ($follow_up_time != '') ? 'readonly' : '';  ?>>
                                     <label for="dob" class="label-tag ">Follow Up Time</label>
                                     <span class='green' id='age' style="position: absolute;top: 100%;background: transparent;color: green;left: 15px;"></span>
                                 </div> 
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                                    <input type="text" class="text form-control" name="follow_up_given_by" id="follow_up_given_by" maxlength="10" value="<?php echo $follow_up_given_by;?>" placeholder="yyyy-mm-dd" <?php echo ($follow_up_given_by != '') ? 'readonly' : '';  ?> required>
+                                    <input type="text" id="follow_up_given_by" name="follow_up_given_by" value="<?php echo $follow_up_given_by;?>" placeholder="Enter Follow Up Given By" class="form-control alphaonly valid" maxlength="20" <?php echo ($follow_up_given_by != '') ? 'readonly' : ''; ?> required>
                                     <label for="dob" class="label-tag ">Follow Up Given BY</label>
                                     <span class='green' id='age' style="position: absolute;top: 100%;background: transparent;color: green;left: 15px;"></span>
                                 </div> 
