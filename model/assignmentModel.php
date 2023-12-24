@@ -16,7 +16,7 @@ class leadAssignMent{
         return $query_to_execute;
     }
     function getUnassignleadData(){
-        $query_to_execute = "select query.id as query_id,query.loan_amount,query.loan_type_id,query.net_income as qnet_income,customer.city_id,customer.net_income as cnet_income,cgroup.city_sub_group_id from crm_query as query INNER JOIN crm_customer as customer ON query.crm_customer_id = customer.id INNER JOIN crm_master_city as cgroup ON customer.city_id = cgroup.id where is_lead_assign = 0 order by id DESC limit 50";
+        $query_to_execute = "select query.id as query_id,query.loan_amount,query.loan_type_id,query.net_income as qnet_income,customer.city_id,customer.net_income as cnet_income,cgroup.city_sub_group_id from crm_query as query INNER JOIN crm_customer as customer ON query.crm_customer_id = customer.id INNER JOIN crm_master_city as cgroup ON customer.city_id = cgroup.id where is_lead_assign = 0 order by query.id DESC limit 50";
         return $query_to_execute;
     }
     function leadAssignment($data){
