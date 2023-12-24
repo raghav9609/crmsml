@@ -29,7 +29,9 @@ if ($ch_pcity == 1) {
 }
 
 $qryyy_id = $id;
-$qry = "SELECT qry.purpose_of_loan as purpose_of_loan,qry.query_status as query_status,qry.follow_date as fup_date,qry.follow_time as fup_time,qry.query_status_desc as query_status_desc,qry.lead_assign_on as assign_time,qry.old_form_id as old_form_id,qry.page_url as page_url,qry.device_type as device_type,qry.created_on as date,qry.user_ip as user_ip,qry.id as id,qry.crm_customer_id as cust_id,qry.lead_assign_to as user_id,qry.tool_type as tool_type, qry.verify_phone as verify_phone, qry.loan_type_id as loan_type, qry.loan_amount as loan_amt, qry.query_status_desc as description, user.name as user_name, user.mobile_no as contact_no from crm_query as qry left join crm_master_user as user on qry.lead_assign_to = user.id where qry.id  = '" . $id . "'";
+$qry = "Select * from  crm_query_application where crm_query_id ='".$qryyy_id."'";
+print_r($qry);
+exit();
 if ($user_role == 3 && $ut != 2) {
     $qry .= "  and (qry.lead_assign_to = '" . $user . "')";
 } else if (($user_role == 2 || $user_role == 4) && $ut != 2) {
