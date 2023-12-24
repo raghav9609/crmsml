@@ -161,24 +161,6 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                 window.location.href = "<?php echo $head_url; ?>/query/";
             }
 
-            function opn_subsource() {
-                var camp_val = $("#source_compign").val();
-                if (camp_val != '') {
-                    var sub_src = '<?php echo $sub_source; ?>';
-                    var ins = '<?php echo $insurance; ?>';
-                    var promo = '<?php echo $promo; ?>';
-                    var ref_phone = '<?php echo $ref_phone; ?>';
-                    $.ajax({
-                        data: "camp=" + camp_val + "&sub_src=" + sub_src + "&ins=" + ins + "&promo=" + promo + "&ref_phone=" + ref_phone,
-                        type: "POST",
-                        url: "<?php echo $head_url; ?>/include/sub_source.php",
-                        success: function(data) {
-                            $("#sub").html(data);
-                        }
-                    })
-                }
-            }
-
             function filter_validation() {
                 if ($("#email_search").val().trim() != "") {
                     var email_regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -187,41 +169,6 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                         return false;
                     }
                 }
-            }
-
-            function new_qs_change(e, sub_lvl) {
-                var level_id = 1;
-                var parent_id = e.value;
-                var sub_level = sub_lvl;
-                var new_status_id = e.id;
-
-                if (parent_id == "") {
-                    if (new_status_id == "sub_status") {
-                        $("#sub_sub_status").remove();
-                    } else if (new_status_id == "query_new_status") {
-                        $("#sub_status").remove();
-                        $("#sub_sub_status").remove();
-                    }
-                    return;
-                }
-
-                $.ajax({
-                    type: 'POST',
-                    url: "../insert/sub_status_dropdown.php",
-                    data: "level_id=" + level_id + "&parent_id=" + parent_id + "&sub_level=" + sub_level,
-                    async: false,
-                    success: function(data) {
-                        console.log(data);
-                        if (sub_level == 1) {
-                            $("#sub_status").remove();
-                            $("#sub_sub_status").remove();
-                            $("#query_new_status").after(data);
-                        } else if (sub_level == 2) {
-                            $("#sub_sub_status").remove();
-                            $("#sub_status").after(data);
-                        }
-                    }
-                });
             }
         </script>
     </head>
@@ -357,17 +304,6 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                             $qry .= " AND qry.follow_given_by != 1 ";
                         }
                     }
-
-                    // if (is_numeric($referee_phone) && strlen($referee_phone) == 10 && $referee_phone > 0) {
-                    //     $default = 1;
-                    //     $check_partner_id = mysqli_query($Conn1, "SELECT partner_id FROM tbl_mint_partner_info WHERE phone = '" . $referee_phone . "' ORDER BY partner_id DESC LIMIT 0, 1 ");
-                    //     $referee_pat_id =  mysqli_fetch_array($check_partner_id)['partner_id'];
-
-                    //     if ($referee_pat_id != "") {
-                    //         $qry .= " AND qry.ref_mobile = '" . $referee_pat_id . "' ";
-                    //     }
-                    // }
-
                     if ($source_compign != "") {
                         $default = 1;
                         if ($source_compign == 'ref_campaign') {
@@ -408,13 +344,11 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                             <input type="text" class="text-input" name="date_to" id="date_to" placeholder="Date To" maxlength="10" value="<?php echo $date_to; ?>" readonly="readonly" />
                         </td>
 
-               
-
                             <?php if ($user_role == 1 || $user_role == 4 || $user_role == 2 || $user_role == 5 || $user_role == 9) { ?>
                                 <?php echo get_dropdown(1, 'loan_type', $search, ''); ?>
                             <?php }
                             if ($user_role != 3) { ?>
-                                <?php echo get_dropdown('user', 'u_assign', $u_assign, ''); ?>
+                                <?php echo get_dropdown('user_id_3', 'u_assign', $u_assign, ''); ?>
                             <?php } ?>
                             
                          
