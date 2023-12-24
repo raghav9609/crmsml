@@ -140,7 +140,7 @@
                             </div>
      
             
-                            <div class="form-group col-xl-2 col-lg-4 col-md-6">
+                            <div class="form-group ">
                                 <span class="fa-icon fa-briefcase"></span>
                                 <label for="application_status" class="label-tag">Application Status</label>
                                 <br/>
