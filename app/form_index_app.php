@@ -110,7 +110,7 @@
     <div class="gen-box white-bg">
     <div class="blue-bg col-12 font-weight-nb pb-2 pt-2 white font-20 brdr-top-gray pe-none" data-toggle="step1" id="switch_step1">
         <span id="text_step1"></span> Application Details</div>    
-        <form action="update_app.php" class="form-step col-12" autocomplete="off" id="app_form">
+        <form action="update_app.php" class="form-step col-12" autocomplete="off" id="form_step1">
                         <!-- <input type="hidden" name="step" value="1">
                         <input type="hidden" id="journey_type" value="1">
                         <input type="hidden" name="id" value="<?php echo $id; ?>">
@@ -217,7 +217,7 @@
                             <input type="button" class="btn btn-primary valid" name="edit_app" id="edit_app" value="Edit">
                             <input type="button" class="btn btn-primary valid" name="submit_app" id="submit_app" value="SUBMIT">
                        
-<script>
+                            <script>
     document.addEventListener('DOMContentLoaded', function() {
         // Edit button click event
         document.getElementById('edit_app').addEventListener('click', function() {
@@ -226,7 +226,8 @@
 
         // Submit button click event
         document.getElementById('submit_app').addEventListener('click', function() {
-            submitForm();
+            // Submit the form directly
+            document.getElementById('form_step1').submit();
         });
 
         // Function to enable editing of fields
@@ -237,19 +238,10 @@
             });
 
             // Show the submit button
-            var submitButton = document.getElementById('submit_app');
-            submitButton.style.display = anyFieldNotEmpty ? 'none' : 'block';
-
+            document.getElementById('submit_app').style.display = 'block';
         }
-        var inputFields = document.querySelectorAll('.form-control');
-        inputFields.forEach(function(field) {
-            field.addEventListener('input', checkFields);
-
-        // Function to submit the form data
-        
     });
 </script>
-
     <?php
 // if (in_array($loan_type, $language_barrier_loan_type)) {?>
     <!-- <div class="form-group col-xl-2 col-lg-4 col-md-6 case_languages hidden">
