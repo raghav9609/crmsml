@@ -231,7 +231,11 @@
             enableEditing();
         });
         document.getElementById('submit_app').addEventListener('click', function() {
-            document.getElementById('form_step1').submit();
+            if (validateForm()) {
+                    document.getElementById('form_step1').submit();
+                } else {
+                    alert('Disbursement date must not be greater than Sanction date or Login date.');
+                }
         });
         function enableEditing() {
             var fields = document.querySelectorAll('.form-control[readonly]');
@@ -241,6 +245,11 @@
             document.getElementById('submit_app').style.display = 'block';
             document.getElementById('edit_app').style.display = 'none';
         }
+        function validateForm() {
+                var sanctionDate = new Date(document.getElementById('sanction_date').value);
+                var disburseDate = new Date(document.getElementById('disburse_date').value);
+                return disburseDate <= sanctionDate;
+            }
     });
 </script>
 </form>

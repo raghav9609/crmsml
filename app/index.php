@@ -372,8 +372,7 @@ if($date_from != "" && $date_to != "" && $date_from != "0000-00-00" && $date_to 
 //             $qry_ex .= " and app.created_on between DATE_SUB(CURDATE(), INTERVAL 5 DAY) and CURDATE() ";
 //     }
 $qry_ex .= " group by app.id order by app.created_on desc limit ".$offset.",".$max_offset;
-// //echo $user == 173?$qry_ex:'';
-// echo $qry_ex;
+
 
 ?>
 <fieldset><legend>Application Filter</legend>
