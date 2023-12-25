@@ -7,7 +7,7 @@ require_once(dirname(__FILE__) . '/../model/queryHelper.php');
 require_once "../include/helper.functions.php";
 require_once "../include/display-name-functions.php";
 
-echo $_REQUEST['crm_query_id'];
+echo "id =".$_REQUEST['crm_query_id'];
 $bank_name = $_REQUEST['bank_name'];
 $bank_name_get = get_name('master_code_id',$bank_name);
 // echo $bank_name_get['id'];
