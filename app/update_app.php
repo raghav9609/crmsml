@@ -14,15 +14,10 @@ $loan_type = $_REQUEST['loan_type'];
 
 $bank_name = $_REQUEST['bank_name'];
 $bank_name_get = get_name('master_code_id',$bank_name);
-// echo $bank_name_get['id'];
-// exit();
 $application_status = $_REQUEST['application_status'];
 $application_status_get = get_name('status_id',$application_status);
-// print_r($application_status_get['id']);
 $applied_amount = $_REQUEST['applied_amount'];
-
 $login_date = $_REQUEST['login_date'];
-
 $sanction_amount = $_REQUEST['sanction_amount'];
 $sanction_date = $_REQUEST['sanction_date'];
 $disbursed_amount = $_REQUEST['disbursed_amount'];
@@ -55,35 +50,20 @@ $final_arr = array(
     'tennure' => $tenure,
     'emi '=> $emi
 );
-print_r($final_arr);
-// $query = $query_model->updateQueryData('crm_query_application', $final_arr, array('crm_query_id = "' . $query_id . '"'));
-// echo $query;
-// print_r($query);
-// // $res=$db_handle->updateRows($desig_up_qry);
-
 $where_condition = 'crm_query_id = "' . $app_id . '"';
 $update_query = "UPDATE crm_query_application SET ";
-// echo $update_query;
-// $set_values = array();
 
 foreach ($final_arr as $key => $val) {
     $update_query .= $comma . $key . " = '" . $val . "'";
     $comma = ", ";
 }
-// $update_query .= implode(', ', $set_values);
 $update_query .= " WHERE " . $where_condition;
-echo $update_query;
 $res_qry = mysqli_query($Conn1,$update_query);
-// echo $res_qry;
 if ($res_qry) {
     $_SESSION['succ_msg'] = "Updated Sucessfully";
 } else {
     echo "Update failed: " . mysqli_error($your_database_connection);
 }
-
-
-// $_SESSION['succ_msg'] = "Updated Sucessfully";
-// header("Location: index.php");
 
 echo '<script>window.location.href = "'.$head_url.'/app/edit.php?case_id='.urlencode(base64_encode($case_id)).'%3D%3D&app_id='.urlencode(base64_encode($app_id)).'%3D%3D&cust_id='.urlencode(base64_encode($cust_id)).'%3D%3D&loan_type='.urlencode(base64_encode($loan_type)).'";</script>';
     include("../include/footer_close.php");
