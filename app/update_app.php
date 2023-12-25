@@ -59,6 +59,7 @@ print_r($final_arr);
 
 $where_condition = 'crm_query_id = "' . $query_id . '"';
 $update_query = "UPDATE crm_query_application SET ";
+// echo $update_query;
 $set_values = array();
 
 foreach ($final_arr as $column => $value) {
@@ -66,8 +67,9 @@ foreach ($final_arr as $column => $value) {
 }
 $update_query .= implode(', ', $set_values);
 $update_query .= " WHERE " . $where_condition;
+echo $update_query;
 $res_qry = mysqli_query($Conn1,$update_query);
-echo $res_qry;
+// echo $res_qry;
 if ($res_qry) {
     $_SESSION['succ_msg'] = "Updated Sucessfully";
 } else {
