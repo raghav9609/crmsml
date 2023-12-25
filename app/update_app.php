@@ -48,7 +48,7 @@ $final_arr = array(
     'follow_up_date' => trim($follow_up_date),
     'follow_up_time' => trim($follow_up_time),
     'follow_up_given_by' => trim($follow_up_given_by),
-    'tenure' => $tenure,
+    'tennure' => $tenure,
     'emi '=> $emi
 );
 print_r($final_arr);
