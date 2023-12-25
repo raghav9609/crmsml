@@ -258,7 +258,7 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
         <?php echo is_numeric($case_id)? $case_id:' -'; ?>
     </span>
    <?php echo "<span class='ml10 fs-13' style='font-weight: normal; color: #000'>Query Date: </span>";
-    echo "<span style='font-weight: 600; color: #000;'>".date("d-m-Y", strtotime($exe_form['date']))." ".$timeindia."</span>";
+    echo "<span style='font-weight: 600; color: #000;'>".date("d-m-Y", strtotime($exe_form['created_onSS']))." ".$timeindia."</span>";
     if($_REQUEST['priority']){
         echo "<span class='ml10 fs-13' style='font-weight: normal; color: #000'>Priority: </span>";
         echo "<span style='font-weight: 600; color: #000;'>".$_REQUEST['priority']."</span>";
