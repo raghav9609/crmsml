@@ -82,7 +82,7 @@ if ($res_qry) {
 // header("Location: index.php");
 
 echo '<script>window.location.href = "'.$head_url.'/app/form_index_app.php";</script>';
-    // include("../include/footer_close.php");
+    include("../include/footer_close.php");
     exit;
 
 
