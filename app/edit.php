@@ -22,7 +22,17 @@ if (isset($_REQUEST['app_id'])) {
     $id = replace_special(urldecode(base64_decode($_REQUEST['app_id'])));
     $ut = replace_special($_REQUEST['ut']);
 }
-$q_id = $id;
+// $q_id = $id;
+if (isset($_REQUEST['cust_id'])) {
+    $cust_id = replace_special(urldecode(base64_decode($_REQUEST['cust_id'])));
+}
+
+if (isset($_REQUEST['loan_type'])) {
+    $loan_type = replace_special(urldecode(base64_decode($_REQUEST['loan_type'])));
+}
+if (isset($_REQUEST['case_id'])) {
+    $case_id = replace_special(urldecode(base64_decode($_REQUEST['case_id'])));
+}
 $ch_pcity = replace_special($_REQUEST['ch_pcity']);
 if ($ch_pcity == 1) {
     echo "<script>alert('Enter Valid City');</script>";

@@ -27,6 +27,9 @@
     <br> 
     <ul>
     <?php  
+
+    echo $case_id;
+    echo "hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii";
     
 
     // if ($employer_type == 0) {

@@ -7,7 +7,11 @@ require_once(dirname(__FILE__) . '/../model/queryHelper.php');
 require_once "../include/helper.functions.php";
 require_once "../include/display-name-functions.php";
 
-$query_id =$_REQUEST['crm_query_id'];
+$app_id =$_REQUEST['crm_query_id'];
+$case_id = $_REQUEST['case_id'];
+$cust_id = $_REQUEST['cust_id'];
+$loan_type = $_REQUEST['loan_type'];
+
 $bank_name = $_REQUEST['bank_name'];
 $bank_name_get = get_name('master_code_id',$bank_name);
 // echo $bank_name_get['id'];
@@ -57,7 +61,7 @@ print_r($final_arr);
 // print_r($query);
 // // $res=$db_handle->updateRows($desig_up_qry);
 
-$where_condition = 'crm_query_id = "' . $query_id . '"';
+$where_condition = 'crm_query_id = "' . $app_id . '"';
 $update_query = "UPDATE crm_query_application SET ";
 // echo $update_query;
 // $set_values = array();
@@ -81,7 +85,7 @@ if ($res_qry) {
 // $_SESSION['succ_msg'] = "Updated Sucessfully";
 // header("Location: index.php");
 
-echo '<script>window.location.href = "'.$head_url.'/app/form_index_app.php";</script>';
+echo '<script>window.location.href = "'.$head_url.'/app/edit.php?case_id='.urlencode(base64_encode($case_id)).'%3D%3D&app_id='.urlencode(base64_encode($app_id)).'%3D%3D&cust_id='.urlencode(base64_encode($cust_id)).'%3D%3D&loan_type='.urlencode(base64_encode($loan_type)).'";</script>';
     include("../include/footer_close.php");
     exit;
 
