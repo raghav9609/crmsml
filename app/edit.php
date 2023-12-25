@@ -38,7 +38,7 @@ if ($ch_pcity == 1) {
     echo "<script>alert('Enter Valid City');</script>";
 }
 
-echo $case_id."ghghg".$loan_type."dfgdfgf".$cust_id;
+// echo $case_id."ghghg".$loan_type."dfgdfgf".$cust_id;
 $qryyy_id = $id;
 $qry = "Select * from  crm_query_application where crm_query_id ='".$qryyy_id."'";
 // print_r($qry);
