@@ -267,17 +267,17 @@ $qry_ex .= " where 1 ";
 //         }
 //     }
 // }
-// if(trim($email_search) != "") {
-//     $default = 1;
-//     $qry_ex .= " AND cust.email = '".trim($email_search)."' ";
-// }
-// if($city_sub_group != '' && $city_sub_group != '0') {
-//     $default = 1;
-//     $qry_ex .= " and city.city_sub_group_id = '" . $city_sub_group . "'";
-// }
-// if($app_no != ""){$default = 1;
-//     $qry_ex .= " and app.app_id = '".$app_no."'";
-// }
+if(trim($email_search) != "") {
+    $default = 1;
+    $qry_ex .= " AND cust.email = '".trim($email_search)."' ";
+}
+if($city_sub_group != '' && $city_sub_group != '0') {
+    $default = 1;
+    $qry_ex .= " and city.city_sub_group_id = '" . $city_sub_group . "'";
+}
+if($app_no != ""){$default = 1;
+    $qry_ex .= " and app.app_id = '".$app_no."'";
+}
 
 // if($app_statussearch != ""){$default = 1;
 //     $qry_ex .= " and app.app_status_on = '".$app_statussearch."'";
@@ -292,14 +292,14 @@ $qry_ex .= " where 1 ";
 // 	}
 // }
 
-// if($fup_date_from != "") {
-//     $default = 1;
-//     if($fup_user_type != "") {
-//             $qry_ex .= " AND app.follow_up_date_on >= '".$fup_date_from."' ";
-//     } else {
-//         $qry_ex .= " AND (app.follow_up_date_on >= '".$fup_date_from."') ";
-//     }
-// }
+if($fup_date_from != "") {
+    $default = 1;
+    if($fup_user_type != "") {
+            $qry_ex .= " AND app.follow_up_date_on >= '".$fup_date_from."' ";
+    } else {
+        $qry_ex .= " AND (app.follow_up_date_on >= '".$fup_date_from."') ";
+    }
+}
 if($fup_date_to != "") {
     $default = 1;
     if($fup_user_type != "") {
