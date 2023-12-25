@@ -52,13 +52,30 @@ $final_arr = array(
     'emi '=> $emi
 );
 print_r($final_arr);
-$query = $query_model->updateQueryData('crm_query_application', $final_arr, array('crm_query_id = "' . $query_id . '"'));
-echo $query;
-print_r($query);
-// $res=$db_handle->updateRows($desig_up_qry);
+// $query = $query_model->updateQueryData('crm_query_application', $final_arr, array('crm_query_id = "' . $query_id . '"'));
+// echo $query;
+// print_r($query);
+// // $res=$db_handle->updateRows($desig_up_qry);
+
+$where_condition = 'crm_query_id = "' . $query_id . '"';
+$update_query = "UPDATE crm_query_application SET ";
+$set_values = array();
+
+foreach ($final_arr as $column => $value) {
+    $set_values[] = $column . " = '" . mysqli_real_escape_string($your_database_connection, $value) . "'";
+}
+$update_query .= implode(', ', $set_values);
+$update_query .= " WHERE " . $where_condition;
+$res_qry = mysqli_query($Conn1,$update_query);
+echo $res_qry;
+if ($res_qry) {
+    $_SESSION['succ_msg'] = "Updated Sucessfully";
+} else {
+    echo "Update failed: " . mysqli_error($your_database_connection);
+}
 
 
-$_SESSION['succ_msg'] = "Updated Sucessfully";
+// $_SESSION['succ_msg'] = "Updated Sucessfully";
 header("Location: index.php");
 
 
