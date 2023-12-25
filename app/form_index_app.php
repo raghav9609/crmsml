@@ -29,9 +29,6 @@
     <br> 
     <ul>
     <?php  
-
-    echo $case_id;
-    echo "hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii";
     
 
     // if ($employer_type == 0) {
@@ -253,6 +250,27 @@
                 return disburseDate <= sanctionDate;
             }
     });
+
+    $(function() {
+    $( ".disburse_date" ).datepicker({
+      changeMonth: true, 
+      changeYear: true,
+      dateFormat: 'yy-mm-dd',
+      yearRange: "-3:+1",
+      onClose: function( selectedDate ) {
+      $("#disburse_date" ).datepicker( "option", "maxDate", selectedDate );
+      }
+    }).val();
+  });
+  $(function () {
+                $('.disburse_date').timepicker(
+                    {                       
+                        minTime: '09:30:00', 
+                        maxTime: '20:00:00',
+                        step: 30 
+
+                });
+            });
 </script>
 </form>
     <?php
