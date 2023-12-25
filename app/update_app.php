@@ -29,7 +29,9 @@ $bank_application_no = $_REQUEST['bank_application_no'];
 $follow_up_date = $_REQUEST['follow_up_date'];
 $follow_up_time = $_REQUEST['follow_up_time'];
 $follow_up_given_by = $_REQUEST['follow_up_given_by'];
-$tenure = $_REQUEST['tenure'];
+$values = explode('/',$_REQUEST['tenure']);
+$tenure = isset($values[0]) ? $values[0] : '';
+$emi = isset($values[1]) ? $values[1] : '';
 
 $final_arr = array(
     'bank_id' => $bank_name_get['id'], 
@@ -46,7 +48,8 @@ $final_arr = array(
     'follow_up_date' => trim($follow_up_date),
     'follow_up_time' => trim($follow_up_time),
     'follow_up_given_by' => trim($follow_up_given_by),
-    'tenure' => trim($tenure),
+    'tenure' => $tenure,
+    'emi '=> $emi
 );
 print_r($final_arr);
 $desig_up_qry = $query_model->updateQueryData('crm_query_application',$final_arr,array('crm_query_id = "'.$query_id.'"'));
