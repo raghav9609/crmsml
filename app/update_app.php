@@ -62,7 +62,7 @@ $update_query = "UPDATE crm_query_application SET ";
 // echo $update_query;
 // $set_values = array();
 
-foreach ($update_query as $key => $val) {
+foreach ($final_arr as $key => $val) {
     $query .= $comma . $key . " = '" . $val . "'";
     $comma = ", ";
 }
