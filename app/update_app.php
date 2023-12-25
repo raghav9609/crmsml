@@ -60,12 +60,13 @@ print_r($final_arr);
 $where_condition = 'crm_query_id = "' . $query_id . '"';
 $update_query = "UPDATE crm_query_application SET ";
 // echo $update_query;
-$set_values = array();
+// $set_values = array();
 
-foreach ($final_arr as $column => $value) {
-    $set_values[] = $column . " = '" . mysqli_real_escape_string($your_database_connection, $value) . "'";
+foreach ($update_query as $key => $val) {
+    $query .= $comma . $key . " = '" . $val . "'";
+    $comma = ", ";
 }
-$update_query .= implode(', ', $set_values);
+// $update_query .= implode(', ', $set_values);
 $update_query .= " WHERE " . $where_condition;
 echo $update_query;
 $res_qry = mysqli_query($Conn1,$update_query);
