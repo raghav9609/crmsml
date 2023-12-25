@@ -259,7 +259,7 @@
         });
         $(document).ready(function() {
        $('.timepicker').timepicker({
-           timeFormat: 'hh:mm TT', // Set the time format to 12-hour with AM/PM
+           timeFormat: 'HH:mm', // Set the time format to 24-hour with minutes
            interval: 15, // Set the time interval in minutes
            scrollbar: true
        });
