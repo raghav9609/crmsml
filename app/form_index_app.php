@@ -262,15 +262,15 @@
       }
     }).val();
   });
-  $(function () {
-                $('.disburse_date').timepicker(
-                    {                       
-                        minTime: '09:30:00', 
-                        maxTime: '20:00:00',
-                        step: 30 
+//   $(function () {
+//                 $('.disburse_date').timepicker(
+//                     {                       
+//                         minTime: '09:30:00', 
+//                         maxTime: '20:00:00',
+//                         step: 30 
 
-                });
-            });
+//                 });
+//             });
 </script>
 </form>
     <?php
