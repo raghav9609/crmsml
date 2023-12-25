@@ -250,27 +250,66 @@
                 return disburseDate <= sanctionDate;
             }
     });
+    $(document).ready(function () {
+            $('#submit_app').hide();
 
-    $(function() {
-    $( ".disburse_date" ).datepicker({
-      changeMonth: true, 
-      changeYear: true,
-      dateFormat: 'yy-mm-dd',
-      yearRange: "-3:+1",
-      onClose: function( selectedDate ) {
-      $("#disburse_date" ).datepicker( "option", "maxDate", selectedDate );
-      }
-    }).val();
-  });
-//   $(function () {
-//                 $('.disburse_date').timepicker(
-//                     {                       
-//                         minTime: '09:30:00', 
-//                         maxTime: '20:00:00',
-//                         step: 30 
+            // Initialize Bootstrap datepicker
+            $('.dat').datepicker({
+                changeMonth: true,
+                changeYear: true,
+                dateFormat: 'yy-mm-dd',
+                yearRange: "-3:+1",
+                onClose: function (selectedDate) {
+                    $(".dat").not(this).datepicker("option", "maxDate", selectedDate);
+                }
+            });
 
-//                 });
-//             });
+            // Initialize Bootstrap timepicker
+            $('.fol_time').timepicker({
+                minTime: '09:30:00',
+                maxTime: '20:00:00',
+                step: 30
+            });
+
+            $('#edit_app').click(function () {
+                enableEditing();
+            });
+
+            $('#submit_app').click(function () {
+                if (validateForm()) {
+                    $('#form_step1').submit();
+                } else {
+                    alert('Disbursement date must not be greater than Sanction date or Login date.');
+                }
+            });
+
+            function enableEditing() {
+                $('.form-control[readonly]').prop('readonly', false);
+
+                // Destroy and reinitialize datepicker for the edited fields
+                $('.dat').datepicker('destroy');
+                $('.dat').datepicker({
+                    changeMonth: true,
+                    changeYear: true,
+                    dateFormat: 'yy-mm-dd',
+                    yearRange: "-3:+1",
+                    onClose: function (selectedDate) {
+                        $(".dat").not(this).datepicker("option", "maxDate", selectedDate);
+                    }
+                });
+
+                $('#submit_app').show();
+                $('#edit_app').hide();
+            }
+
+            function validateForm() {
+                var sanctionDate = new Date($('#sanction_date').val());
+                var disburseDate = new Date($('#disburse_date').val());
+                var loginDate = new Date($('#login_date').val());
+
+                return disburseDate <= sanctionDate && disburseDate <= loginDate;
+            }
+        });
 </script>
 </form>
     <?php
