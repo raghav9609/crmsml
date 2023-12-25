@@ -314,18 +314,18 @@ if($fup_date_to != "") {
 //     $qry_ex .= " AND (app.follow_up_date is not null AND app.follow_up_date != '' AND app.follow_up_date != '0000-00-00')  ";
 // }
 
-// if($search != ""){$default = 1;
-//     $qry_ex .= " and qry.loan_type_id = '".$search."'";
-// }if($from_loan_amount != "" && $to_loan_amount != ""){
-//     $default = 1;
-//     if($app_statussearch == 28 ){
-//         $qry_ex .= " and app.disbursed_amount between '".$from_loan_amount."' and '".$to_loan_amount."'";
-//     } else if($app_statussearch == 27){
-//         $qry_ex .= " and app.sanction_amount between '".$from_loan_amount."' and '".$to_loan_amount."'";
-//     } else {
-//         $qry_ex .= " and app.applied_amount between '".$from_loan_amount."' and '".$to_loan_amount."'";
-//     } 
-// }
+if($search != ""){$default = 1;
+    $qry_ex .= " and qry.loan_type_id = '".$search."'";
+}if($from_loan_amount != "" && $to_loan_amount != ""){
+    $default = 1;
+    if($app_statussearch == 28 ){
+        $qry_ex .= " and app.disbursed_amount between '".$from_loan_amount."' and '".$to_loan_amount."'";
+    } else if($app_statussearch == 27){
+        $qry_ex .= " and app.sanction_amount between '".$from_loan_amount."' and '".$to_loan_amount."'";
+    } else {
+        $qry_ex .= " and app.applied_amount between '".$from_loan_amount."' and '".$to_loan_amount."'";
+    } 
+}
 
 
 // if($pre_statussearch != ""){$default = 1;
