@@ -21,10 +21,9 @@
     width: 241px;
 }
 </style>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
-
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <div class="main-crmform col-12">
     <!-- <div class="popup-ctext up-list-box">
     <h2 class='f_14 fw_bold'>Query Detail</h2>
@@ -32,7 +31,8 @@
     <ul>
     <?php  
 
-
+    echo $case_id;
+    echo "hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii";
     
 
     // if ($employer_type == 0) {
@@ -152,7 +152,7 @@
                                 <label for="applied_amount" class="label-tag"> Applied Amount</label>
                             </div>
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                                    <input type="text" class="text form-control valid" name="login_date" id="login_date" maxlength="10" value="<?php echo $login_date != '0000-00-00'?$login_date:'';?>" placeholder="yyyy-mm-dd" <?php echo ($login_date != '') ? 'readonly' : ''; ?> required>
+                                    <input type="text" class="text form-control valid datepicker" name="login_date" id="login_date" maxlength="10" value="<?php echo $login_date != '0000-00-00'?$login_date:'';?>" placeholder="yyyy-mm-dd" <?php echo ($login_date != '') ? 'readonly' : ''; ?> required>
                                     <label for="dob" class="label-tag ">Login Date</label>
                                     <span class='green' id='age' style="position: absolute;top: 100%;background: transparent;color: green;left: 15px;"></span>
                                 </div> 
@@ -166,7 +166,7 @@
 
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
                                     
-                                    <input type="text" class="text form-control hasDatepicker valid" name="sanction_date" id="sanction_date" maxlength="10" value="<?php echo $sanction_date; ?>" placeholder="yyyy-mm-dd" required <?php echo ($sanction_date != '') ? 'readonly' : '';  ?>>
+                                    <input type="text" class="text form-control hasDatepicker valid datepicker" name="sanction_date" id="sanction_date" maxlength="10" value="<?php echo $sanction_date; ?>" placeholder="yyyy-mm-dd" required <?php echo ($sanction_date != '') ? 'readonly' : '';  ?>>
                                     <label for="dob" class="label-tag ">Sanction Date</label>
                                     <span class='green' id='age' style="position: absolute;top: 100%;background: transparent;color: green;left: 15px;"></span>
                                 </div> 
@@ -177,7 +177,7 @@
                                     <label for="name" class="label-tag"> Disbursement Amount</label>
                                 </div>
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                                    <input type="text" class="text form-control hasDatepicker valid" name="disburse_date" id="disburse_date" maxlength="10" value="<?php echo $disburse_date; ?>" placeholder="yyyy-mm-dd" required <?php echo ($disburse_date != '') ? 'readonly' : '';  ?>>
+                                    <input type="text" class="text form-control hasDatepicker valid datepicker" name="disburse_date" id="disburse_date" maxlength="10" value="<?php echo $disburse_date; ?>" placeholder="yyyy-mm-dd" required <?php echo ($disburse_date != '') ? 'readonly' : '';  ?>>
                                     <label for="dob" class="label-tag ">Disbursement Date</label>
                                     <span class='green' id='age' style="position: absolute;top: 100%;background: transparent;color: green;left: 15px;"></span>
                                 </div> 
@@ -199,7 +199,7 @@
                                     <label for="name" class="label-tag">Bank Application Number</label>
                                 </div>
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                                    <input type="text" class="text form-control hasDatepicker valid" name="follow_up_date" id="follow_up_date" maxlength="10" value="<?php echo $follow_up_date; ?>" placeholder="yyyy-mm-dd" required <?php echo ($follow_up_date != '') ? 'readonly' : '';  ?>>
+                                    <input type="text" class="text form-control hasDatepicker valid datepicker" name="follow_up_date" id="follow_up_date" maxlength="10" value="<?php echo $follow_up_date; ?>" placeholder="yyyy-mm-dd" required <?php echo ($follow_up_date != '') ? 'readonly' : '';  ?>>
                                     <label for="dob" class="label-tag ">Follow Up Date</label>
                                     <span class='green' id='age' style="position: absolute;top: 100%;background: transparent;color: green;left: 15px;"></span>
                                 </div> 
@@ -234,11 +234,7 @@
             enableEditing();
         });
         document.getElementById('submit_app').addEventListener('click', function() {
-            if (validateForm()) {
-                    document.getElementById('form_step1').submit();
-                } else {
-                    alert('Disbursement date must not be greater than Sanction date or Login date.');
-                }
+            document.getElementById('form_step1').submit();
         });
         function enableEditing() {
             var fields = document.querySelectorAll('.form-control[readonly]');
@@ -248,72 +244,15 @@
             document.getElementById('submit_app').style.display = 'block';
             document.getElementById('edit_app').style.display = 'none';
         }
-        function validateForm() {
-                var sanctionDate = new Date(document.getElementById('sanction_date').value);
-                var disburseDate = new Date(document.getElementById('disburse_date').value);
-                return disburseDate <= sanctionDate;
-            }
-    });
-    $(document).ready(function () {
-            $('#submit_app').hide();
-
-            // Initialize Bootstrap datepicker
-            $('.dat').datepicker({
+       
+        $(document).ready(function() {
+            $('.datepicker').datepicker({
+                dateFormat: 'yy-mm-dd', // Set the desired date format
                 changeMonth: true,
-                changeYear: true,
-                dateFormat: 'yy-mm-dd',
-                yearRange: "-3:+1",
-                onClose: function (selectedDate) {
-                    $(".dat").not(this).datepicker("option", "maxDate", selectedDate);
-                }
+                changeYear: true
             });
-
-            // Initialize Bootstrap timepicker
-            $('.fol_time').timepicker({
-                minTime: '09:30:00',
-                maxTime: '20:00:00',
-                step: 30
-            });
-
-            $('#edit_app').click(function () {
-                enableEditing();
-            });
-
-            $('#submit_app').click(function () {
-                if (validateForm()) {
-                    $('#form_step1').submit();
-                } else {
-                    alert('Disbursement date must not be greater than Sanction date or Login date.');
-                }
-            });
-
-            function enableEditing() {
-                $('.form-control[readonly]').prop('readonly', false);
-
-                // Destroy and reinitialize datepicker for the edited fields
-                $('.dat').datepicker('destroy');
-                $('.dat').datepicker({
-                    changeMonth: true,
-                    changeYear: true,
-                    dateFormat: 'yy-mm-dd',
-                    yearRange: "-3:+1",
-                    onClose: function (selectedDate) {
-                        $(".dat").not(this).datepicker("option", "maxDate", selectedDate);
-                    }
-                });
-
-                $('#submit_app').show();
-                $('#edit_app').hide();
-            }
-
-            function validateForm() {
-                var sanctionDate = new Date($('#sanction_date').val());
-                var disburseDate = new Date($('#disburse_date').val());
-                var loginDate = new Date($('#login_date').val());
-
-                return disburseDate <= sanctionDate && disburseDate <= loginDate;
-            }
         });
+            });
 </script>
 </form>
     <?php
