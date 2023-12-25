@@ -48,6 +48,7 @@ $final_arr = array(
     'follow_up_given_by' => trim($follow_up_given_by),
     'tenure' => trim($tenure),
 );
+print_r($final_arr);
 $desig_up_qry = $query_model->updateQueryData('crm_query_application',$final_arr,array('crm_query_id = "'.$query_id.'"'));
 echo $desig_up_qry;
 // $res=$db_handle->updateRows($desig_up_qry);
