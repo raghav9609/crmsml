@@ -438,7 +438,7 @@ $phone  = $exe['phone'];
 $application_status_get  = $exe['application_status'];
 $get_application_status = get_name('status_name',$application_status_get);
 // echo $get_application_status;
-print_r($get_application_status);
+// print_r($get_application_status);
 // $sub_sub_status  = $exe['sub_sub_status'];
 // $cust_id = $exe['cust_id'];
 $loan_type = $exe['loan_type'];
@@ -599,7 +599,7 @@ if ($(this).not(":checked")) {
 </td>
 
 <td>
-    <?php echo  $get_application_status;?>
+    <?php echo  $get_application_status['value'];?>
 
 </td>
 
