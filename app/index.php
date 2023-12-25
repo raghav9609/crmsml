@@ -251,7 +251,7 @@ $qry_ex = "SELECT app.application_status, cust.phone_no as phone, cust.name as n
 //     $qry_ex .= " INNER JOIN banker_email_history on banker_email_history.case_id = c.case_id INNER JOIN banker_sms_history on banker_sms_history.case_id = c.case_id ";
 // }
 $qry_ex .= " where 1 ";
-echo $qry_ex;
+// echo $qry_ex;
 //and qry.lead_assign_to = '".$user."'";
 
 // if($customer_id_search != "") {
@@ -300,14 +300,14 @@ echo $qry_ex;
 //         $qry_ex .= " AND (app.follow_up_date_on >= '".$fup_date_from."') ";
 //     }
 // }
-// if($fup_date_to != "") {
-//     $default = 1;
-//     if($fup_user_type != "") {
-//         $qry_ex .= " AND app.follow_up_date_on <= '".$fup_date_to."' ";
-//     } else {
-//         $qry_ex .= " AND (app.follow_up_date_on <= '".$fup_date_to."' )  ";
-//     }
-// }
+if($fup_date_to != "") {
+    $default = 1;
+    if($fup_user_type != "") {
+        $qry_ex .= " AND app.follow_up_date_on <= '".$fup_date_to."' ";
+    } else {
+        $qry_ex .= " AND (app.follow_up_date_on <= '".$fup_date_to."' )  ";
+    }
+}
 
 // if($fup_user_type != "" && $fup_date_to == "" && $fup_date_from == "") {
 //     $default = 1;
@@ -332,48 +332,48 @@ echo $qry_ex;
 // 	$qry_ex .= " and app.application_status = '".$pre_statussearch."'";
 // }
 
-// if($name_search != ""){
-//     $default = 1;
-//     $qry_ex .= " and cust.name like '%".$name_search."%'";
-// }
-// if($phone != ""){
-//     $default = 1;
-//     $qry_ex .= " and cust.phone_no = '".$phone."'";
-// }
-// if($search_city_id != "" && $search_city_id != 0){$default = 1;
-//     $qry_ex .= " and cust.city_id = '".$search_city_id."'";
-// }
+if($name_search != ""){
+    $default = 1;
+    $qry_ex .= " and cust.name like '%".$name_search."%'";
+}
+if($phone != ""){
+    $default = 1;
+    $qry_ex .= " and cust.phone_no = '".$phone."'";
+}
+if($search_city_id != "" && $search_city_id != 0){$default = 1;
+    $qry_ex .= " and cust.city_id = '".$search_city_id."'";
+}
 
 
 // // if(trim($bankers_name) != "") {
 // // 	$default = 1;
 // //     $qry_ex .= " and ( banker_email_history.banker_name = '".$bankers_name."' OR banker_sms_history.banker_name = '".$bankers_name."' ) ";
 // // }
-// if(trim($bank_app_no) != "") {
-// 	$default = 1;
-//     $qry_ex .= " AND app.bank_application_no = '".$bank_app_no."' ";
-// }
+if(trim($bank_app_no) != "") {
+	$default = 1;
+    $qry_ex .= " AND app.bank_application_no = '".$bank_app_no."' ";
+}
 
-// if($date_from != "" && $date_to != "" && $date_from != "0000-00-00" && $date_to != "0000-00-00"){
-// 	$default = 1;
-//     if($app_statussearch == 28 ){$default = 1;
-//         $qry_ex .= " and app.disburse_date between '".$date_from."' and '".$date_to."'";
-//     }else if($app_statussearch == 27 ){$default = 1;
-//      $qry_ex .= " and app.sanction_date between '".$date_from."' and '".$date_to."'";
-//     }else if($app_statussearch == 26){$default = 1;
-//         $qry_ex .= " and app.login_date between '".$date_from."' and '".$date_to."'";
-//     }else{
-//         if($date_from != "" && $date_to != "" && $date_from != "0000-00-00" && $date_to != "0000-00-00"){$default = 1;
-//             $qry_ex .= " and app.created_on between '".$date_from."' and '".$date_to."'";
-//     }
-// }
-// }
+if($date_from != "" && $date_to != "" && $date_from != "0000-00-00" && $date_to != "0000-00-00"){
+	$default = 1;
+    if($app_statussearch == 28 ){$default = 1;
+        $qry_ex .= " and app.disburse_date between '".$date_from."' and '".$date_to."'";
+    }else if($app_statussearch == 27 ){$default = 1;
+     $qry_ex .= " and app.sanction_date between '".$date_from."' and '".$date_to."'";
+    }else if($app_statussearch == 26){$default = 1;
+        $qry_ex .= " and app.login_date between '".$date_from."' and '".$date_to."'";
+    }else{
+        if($date_from != "" && $date_to != "" && $date_from != "0000-00-00" && $date_to != "0000-00-00"){$default = 1;
+            $qry_ex .= " and app.created_on between '".$date_from."' and '".$date_to."'";
+    }
+}
+}
 // if($default != '1'){
 //             $qry_ex .= " and app.created_on between DATE_SUB(CURDATE(), INTERVAL 5 DAY) and CURDATE() ";
 //     }
-// $qry_ex .= " group by app.id order by app.created_on desc limit ".$offset.",".$max_offset;
+$qry_ex .= " group by app.id order by app.created_on desc limit ".$offset.",".$max_offset;
 // //echo $user == 173?$qry_ex:'';
-// echo $qry_ex;
+echo $qry_ex;
 
 ?>
 <fieldset><legend>Application Filter</legend>
@@ -437,10 +437,7 @@ $cust_name  = $exe['name'];
 $phone  = $exe['phone'];
 $application_status_get  = $exe['application_status'];
 $get_application_status = get_name('status_name',$application_status_get);
-// echo $get_application_status;
-// print_r($get_application_status);
-// $sub_sub_status  = $exe['sub_sub_status'];
-// $cust_id = $exe['cust_id'];
+
 $loan_type = $exe['loan_type'];
 $loan_amount = ($exe['required_loan_amt'] > 0) ? custom_money_format($exe['required_loan_amt']) : "";
 $bank_app_no_on  = $exe['bank_app_no_on'];
