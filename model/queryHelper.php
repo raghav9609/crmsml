@@ -54,21 +54,22 @@ class queryModel {
         return $queryReturn;
     }
 
-    function updateQueryData ($table_name, $upd_arr, $where=array()){
-        $queryReturn = "Update  ".$table_name." SET " ;
-        $comma = " ";
-        foreach($upd_arr as $key => $val) {
-            $query .= $comma . $key . " = '" . $val. "'";
-            $comma = ", ";
+    function updateQueryData($table_name, $upd_arr, $where = array())
+        {
+            $query = "UPDATE " . $table_name . " SET ";
+            $comma = " ";
+            
+            foreach ($upd_arr as $key => $val) {
+                $query .= $comma . $key . " = '" . $val . "'";
+                $comma = ", ";
+            }
+            
+            if (!empty($where)) {
+                $query .= " WHERE " . implode(' AND ', $where);
+            }
+            
+            return $query;
         }
-        if(!empty($query)){
-            $queryReturn .= $query;
-        }
-        if(!empty($where)){
-            $queryReturn .= " where ".implode(' and ',$where);
-        }
-        return $queryReturn;
-    }
 
     function insertQueryData ($table_name, $insert_arr){
         $queryReturn = "Insert  ".$table_name." SET " ;

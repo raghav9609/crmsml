@@ -52,8 +52,9 @@ $final_arr = array(
     'emi '=> $emi
 );
 print_r($final_arr);
-$desig_up_qry = $query_model->updateQueryData('crm_query_application',$final_arr,array('crm_query_id = "'.$query_id.'"'));
-echo $desig_up_qry;
+$query = $query_model->updateQueryData('crm_query_application', $final_arr, array('crm_query_id = "' . $query_id . '"'));
+echo $query;
+print_r($query);
 // $res=$db_handle->updateRows($desig_up_qry);
 
 
