@@ -260,7 +260,7 @@
         $('.timepicker').timepicker({
             timeFormat: 'HH:mm',
             interval: 15, // Set the time interval in minutes
-            scrollbar: true
+            scrollbar: false
         });
     });
             });
