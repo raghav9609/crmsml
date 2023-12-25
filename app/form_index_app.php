@@ -25,6 +25,8 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.3.5/jquery.timepicker.min.js"></script>
+
 </head>
 <div class="main-crmform col-12">
     <!-- <div class="popup-ctext up-list-box">
@@ -206,7 +208,7 @@
                                     <span class='green' id='age' style="position: absolute;top: 100%;background: transparent;color: green;left: 15px;"></span>
                                 </div> 
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                                    <input type="text" class="text form-control valid" name="follow_up_time" id="follow_up_time" maxlength="10" value="<?php echo $follow_up_time; ?>" placeholder="yyyy-mm-dd" required <?php echo ($follow_up_time != '') ? 'readonly' : '';  ?>>
+                                    <input type="text" class="text form-control valid timepicker" name="follow_up_time" id="follow_up_time" maxlength="10" value="<?php echo $follow_up_time; ?>" placeholder="yyyy-mm-dd" required <?php echo ($follow_up_time != '') ? 'readonly' : '';  ?>>
                                     <label for="dob" class="label-tag ">Follow Up Time</label>
                                     <span class='green' id='age' style="position: absolute;top: 100%;background: transparent;color: green;left: 15px;"></span>
                                 </div> 
@@ -254,6 +256,13 @@
                 changeYear: true
             });
         });
+        $(document).ready(function() {
+        $('.timepicker').timepicker({
+            timeFormat: 'HH:mm',
+            interval: 15, // Set the time interval in minutes
+            scrollbar: true
+        });
+    });
             });
 </script>
 </form>
