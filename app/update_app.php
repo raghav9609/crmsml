@@ -7,7 +7,7 @@ require_once(dirname(__FILE__) . '/../model/queryHelper.php');
 require_once "../include/helper.functions.php";
 require_once "../include/display-name-functions.php";
 
-echo "id =".$_REQUEST['crm_query_id'];
+$query_id =$_REQUEST['crm_query_id'];
 $bank_name = $_REQUEST['bank_name'];
 $bank_name_get = get_name('master_code_id',$bank_name);
 // echo $bank_name_get['id'];
@@ -48,8 +48,9 @@ $final_arr = array(
     'follow_up_given_by' => trim($follow_up_given_by),
     'tenure' => trim($tenure),
 );
-$desig_up_qry = $query_model->updateQueryData('crm_query_application',$final_arr,array('crm_query_id = "'.$value.'"'));
-$res=$db_handle->updateRows($desig_up_qry);
+$desig_up_qry = $query_model->updateQueryData('crm_query_application',$final_arr,array('crm_query_id = "'.$query_id.'"'));
+echo $desig_up_qry;
+// $res=$db_handle->updateRows($desig_up_qry);
 
 
 $_SESSION['succ_msg'] = "Updated Sucessfully";
