@@ -37,8 +37,8 @@ if($_REQUEST['calculate']) {
 <html>
 <head>
     <title>Calculate Part-Payment EMI</title>
-    <link rel="stylesheet" type="text/css" href="../../include/style.css">
-    <script type="text/javascript" src="../../include/js/jquery-1.10.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="<?php echo $head_url; ?>/assets/css/style.css">
+    <script type="text/javascript" src="<?php echo $head_url; ?>/assets/js/jquery-1.10.1.min.js"></script>
 </head>
 <body>
     <div style="margin-left: 25px; margin-top: 25px;"><a href="<?php echo $head_url; ?>/calculators/rate-comparison.php"><input type="button" class="buttonsub cursor" value="Go To - Rate Comparison Calculator"></a></div>
