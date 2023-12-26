@@ -34,6 +34,9 @@
         left: -150px;
         width: 241px;
     }
+    .error-message {
+        color: red;
+    }
     </style>
 </head>
 
@@ -87,7 +90,7 @@
                     </div> 
 
                     <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                        <span class="fa-icon fa-building"></span>
+                        <span class="fa-icon fa-money"></span>
                         <input type="text" id="disbursed_amount" name="disbursed_amount" value="<?php echo $disbursed_amount;?>" placeholder="Enter Disbursement Amount" class="form-control numonly valid" maxlength="20" <?php echo ($disbursed_amount != '') ? 'readonly' : ''; ?> required>
                         <label for="name" class="label-tag"> Disbursement Amount</label>
                     </div>
