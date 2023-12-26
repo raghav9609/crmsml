@@ -126,9 +126,10 @@ $(document).ready(function(){
     }
     
     function occupation(){
-      alert("dfdsfds");
+     
       var occupation = $('[name="occupation_id"] option:selected').val();
       var loan_type = $("#loan_type").val();
+      alert(occupation);
       if(occupation == 2 || occupation == 3){
         $(".self_emp").removeClass('hidden').attr('required','true');
         $(".salaried").addClass('hidden').val('').removeAttr('required');
