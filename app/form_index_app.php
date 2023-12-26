@@ -60,17 +60,13 @@
                 <?php //$get_application_satus = get_dropdown('application_status','') ?>
                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
                     <span class="fa-icon fa-building"></span>
-                    <?php
-                    $get_application_satus = get_dropdown('application_status','') ;
-                     if ($application_status_get['value'] != '') { ?>
-                        <input type="text" id="application_status" name="application_status" value="<?php echo $application_status_get['value']; ?>" readonly placeholder="Enter Application Status" class="form-control alphaonly valid" maxlength="20" required>
-                    <?php } else { ?>
-                        <select id="application_status" name="application_status" class="form-control alphaonly valid" required>
-                            <?php foreach ($get_application_satus as $status) { ?>
-                                <option value="<?php echo $status; ?>" <?php echo ($application_status_get['value'] == $status) ? 'selected' : ''; ?>><?php echo $status; ?></option>
-                            <?php } ?>
-                        </select>
-                    <?php } ?>
+                   
+                    <input type="text" id="application_status" name="application_status" value="<?php 
+                    $get_application_satus = get_dropdown('application_status', '');
+                    foreach ($get_application_satus as $status) {
+                        echo ($application_status_get['value'] == $status) ? $status : '';
+                    } ?>" readonly placeholder="Enter Application Status" class="form-control alphaonly valid" maxlength="20" required>
+                  
                     <label for="name" class="label-tag">Application Status</label>
                 </div>
 
