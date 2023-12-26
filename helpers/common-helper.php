@@ -222,4 +222,52 @@ if (!function_exists('curl_get_helper')) {
         return $response;
     }
 }
+
+if (!function_exists('calculate_emi')) {
+function calculate_emi($loan_amt, $intt, $ten_max)
+{
+    $emi_sem = ($loan_amt * $intt * pow((1 + $intt), $ten_max)) / (pow((1 + $intt), $ten_max) - 1);
+    $emi_final = round(($emi_sem * 100) / 100);
+    return $emi_final;
+}
+}
+if (!function_exists('calculate_pmt')) {
+function calculate_pmt($ir, $np, $pv, $fv, $type)
+{
+    /*
+     * ir   - interest rate per month
+     * np   - number of periods (months)
+     * pv   - present value
+     * fv   - future value
+     * type - when the payments are due:
+     *        0: end of the period, e.g. end of month (default)
+     *        1: beginning of period
+     */
+    $pmt = $pvif = 0;
+
+    $fv || ($fv = 0);
+    $type || ($type = 0);
+
+    if ($ir === 0) {
+        return -($pv + $fv) / $np;
+    }
+
+    $pvif = pow(1 + $ir, $np);
+    $pmt = -$ir * $pv * ($pvif + $fv) / ($pvif - 1);
+
+    if ($type === 1) {
+        $pmt /= (1 + $ir);
+    }
+
+    return $pmt;
+}
+}
+if (!function_exists('calculate_flat_from_reduce')) {
+function calculate_flat_from_reduce($reducing_rate, $emi, $loan_tenure)
+{
+    $years = $loan_tenure / 12;
+    $calculated_flat_rate = ((-(calculate_pmt(floor($reducing_rate) / 1200, $years * 12, 100, 0, 0.1) * $years * 12) - 100) / $years / 100 * 100);
+    return number_format($calculated_flat_rate, 2);
+}
+}
 ?>
