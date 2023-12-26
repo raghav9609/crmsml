@@ -70,7 +70,7 @@ require_once "../include/helper.functions.php";
     	$net_income = $_REQUEST['net_month_inc'];
 		echo "<br>".$curexp = $_REQUEST['ccwe'];
 		$ttlexp = $_REQUEST['twe'];
-		echo $detcur = "-'.$curexp.' Months";
+		echo $detcur = "-.$curexp. Months";
 		$curwrkexp = date("Y-m-d",strtotime("-'.$curexp.' Months"));
 		$ttlwrkexp = date("Y-m-d",strtotime("-'.$ttlexp.' Months"));
         $fieds_array = array(
