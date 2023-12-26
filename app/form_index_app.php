@@ -199,7 +199,7 @@
         var disbursementAmount = parseFloat(disbursementInput.value) || 0;
 
         if (appliedAmount >= disbursementAmount || sanctionAmount >= disbursementAmount) {
-            messageElement.textContent = 'Applied Amount and Sanction Amount should be smaller than Disbursement Amount.';
+            messageElement.textContent = ' Disbursement Amount should not be smaller than Applied Amount and Sanction Amount.';
         } else {
             messageElement.textContent = '';
         }
