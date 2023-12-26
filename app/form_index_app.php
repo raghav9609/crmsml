@@ -198,16 +198,13 @@
             var disbursementAmount = parseFloat(disbursementInput.value) || 0;
 
             if (disbursementAmount < appliedAmount || disbursementAmount < sanctionAmount) {
-                messageElement.textContent = 'Disbursement amount should not be smaller than Applied Amount or Sanction Amount.';
-            } 
-            else if(appliedAmount > disbursementAmount || sanctionAmount > disbursementAmount ){
-                messageElement.textContent = 'Disbursement amount should not be smaller than Applied Amount or Sanction Amount.';
-            }else {
+            messageElement.textContent = 'Disbursement amount should not be smaller than Applied Amount or Sanction Amount.';
+            } else if (appliedAmount > disbursementAmount || sanctionAmount > disbursementAmount) {
+                messageElement.textContent = 'Disbursement amount should not be greater than Applied Amount or Sanction Amount.';
+            } else {
                 messageElement.textContent = '';
             }
-        });
-
-       
+        }); 
     });
     document.addEventListener('DOMContentLoaded', function () {
         var loginDate = new Date(document.getElementById('login_date').value);
