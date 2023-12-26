@@ -62,7 +62,7 @@
                     <label for="name" class="label-tag"> Application Status</label>
                 </div>
                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                    <span class="fa-icon fa-building"></span>
+                    <span class="fa-icon fa-money"></span>
                     <input type="text" id="applied_amount" name="applied_amount" value="<?php echo $applied_amount;?>" placeholder="Enter Applied Amount" class="form-control numonly valid" maxlength="20" <?php echo ($applied_amount != '') ? 'readonly' : ''; ?> required>
                     <label for="applied_amount" class="label-tag"> Applied Amount</label>
                 </div>
