@@ -65,16 +65,16 @@
                     <div class="form-group col-xl-2 col-lg-4 col-md-6">
                         <span class="fa-icon fa-building"></span>
 
-                        <?php if (empty($selected_value)) { ?>
+                        <?php //if (empty($selected_value)) { ?>
                             <select id="application_status" name="application_status" class="form-control alphaonly valid" required>
                                 <option value="">Select Application Status</option>
                                 <?php foreach (get_dropdown('application_status', '') as $status) { ?>
                                     <option value="<?php echo $status; ?>"><?php echo $status; ?></option>
                                 <?php } ?>
                             </select>
-                        <?php } else { ?>
-                            <input type="text" id="application_status" name="application_status" value="<?php echo $selected_value; ?>" readonly placeholder="Enter Application Status" class="form-control alphaonly valid" maxlength="20" required>
-                        <?php } ?>
+                        <?php// } else { ?>
+                            <!-- <input type="text" id="application_status" name="application_status" value="<?php echo $selected_value; ?>" readonly placeholder="Enter Application Status" class="form-control alphaonly valid" maxlength="20" required> -->
+                        <?php// } ?>
 
                         <label for="name" class="label-tag">Application Status</label>
                     </div>
