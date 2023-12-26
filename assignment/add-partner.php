@@ -16,6 +16,8 @@ require_once "../include/helper.functions.php";
 <tr><th>IInd Shift User</th><td class="use_secnd"> </td></tr>
 	</table>
 	</form></div>
+	<script src="https://astechnos.com/crmsml/assets/js/jquery-1.10.2.js"></script>
+<script src="https://astechnos.com/crmsml/assets/js/jquery-ui.js"></script>
 <script>
 var counter =0;
 
