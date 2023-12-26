@@ -130,12 +130,12 @@ $(document).ready(function(){
       var occupation = $('[name="occupation_id"] option:selected').val();
       var loan_type = $("#loan_type").val();
       alert(occupation);
-      if(occupation == 2 || occupation == 3){
+      if(occupation == 47 || occupation == 48){
         $(".self_emp").removeClass('hidden').attr('required','true');
         $(".salaried").addClass('hidden').val('').removeAttr('required');
         $(".net_month_inc_value_formt").text('');
         slry_paid();
-      } else if(occupation == 1){
+      } else if(occupation == 46){
         $(".salaried").removeClass('hidden').attr('required','true');
         $(".self_emp").addClass('hidden').val('').removeAttr('required');
         $(".gross_annual_receipt_value_formt").text('');
@@ -143,11 +143,6 @@ $(document).ready(function(){
         $(".salaried,.self_emp").addClass('hidden').val('').removeAttr('required');
         slry_paid();
         $(".net_month_inc_value_formt,.gross_annual_receipt_value_formt").text('');
-      }
-      if(loan_type == 11){
-        dl();
-      }else if(loan_type == 63 || loan_type == 57){
-        professional_loan();
       }
     }
     function loan_type(){
