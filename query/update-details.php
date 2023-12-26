@@ -68,11 +68,11 @@ require_once "../include/helper.functions.php";
 	// }
 
     	$net_income = $_REQUEST['net_month_inc'];
-		echo "<br>".$curexp = $_REQUEST['ccwe'];
-		$ttlexp = $_REQUEST['twe'];
-		echo $detcur = "-'.$curexp.' Months";
-		$curwrkexp = date("Y-m-d",strtotime("-'.$curexp.' Months"));
-		$ttlwrkexp = date("Y-m-d",strtotime("-'.$ttlexp.' Months"));
+		$curexp = $_REQUEST['ccwe'];
+		$ttlexp = "-".$_REQUEST['twe']." Months";
+		$detcur = "-".$curexp." Months";
+		$curwrkexp = date("Y-m-d",strtotime($detcur));
+		$ttlwrkexp = date("Y-m-d",strtotime($ttlexp));
         $fieds_array = array(
             'salutation_id' => $_REQUEST['salutation'],
             'name' => $_REQUEST['name'],
