@@ -193,14 +193,16 @@
         var messageElement = document.createElement('span');
         messageElement.className = 'error-message';
         disbursementInput.parentNode.appendChild(messageElement);
-        // disbursementDateInput.parentNode.appendChild(messageElement);
 
         disbursementInput.addEventListener('input', function() {
             var disbursementAmount = parseFloat(disbursementInput.value) || 0;
 
             if (disbursementAmount < appliedAmount || disbursementAmount < sanctionAmount) {
                 messageElement.textContent = 'Disbursement amount should not be smaller than Applied Amount or Sanction Amount.';
-            } else {
+            } 
+            else if(appliedAmount > disbursementAmount || sanctionAmount > disbursementAmount ){
+                messageElement.textContent = 'Disbursement amount should not be smaller than Applied Amount or Sanction Amount.';
+            }else {
                 messageElement.textContent = '';
             }
         });
