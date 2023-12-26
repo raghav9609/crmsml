@@ -73,6 +73,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     validatesalary();
+
+    // Your existing code for user_fun can go here
+
 });
 
 </script>
