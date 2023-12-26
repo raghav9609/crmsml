@@ -225,7 +225,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     var errormessageElement = document.createElement('span');
     errormessageElement.className = 'error-message';
-    disbursementInputdate.parentNode.appendChild(errormessageElement);
+    disbursementdateInputdate.parentNode.appendChild(errormessageElement);
 
     function validateDisbursementDate() {
         var login_date = new Date(logindateInput.value);
@@ -248,7 +248,7 @@ document.addEventListener('DOMContentLoaded', function () {
         validateDisbursementDate();
     });
 
-    disburse_date.addEventListener('input', function() {
+    disbursementInputdate.addEventListener('input', function() {
         validateDisbursementDate();
     });
 });
