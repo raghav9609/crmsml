@@ -254,11 +254,15 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function parseDateString(dateString) {
+    if (!dateString || dateString.trim() === '') {
+        return null; // Or handle the case when the date string is empty or undefined
+    }
+
     var parts = dateString.split(' ');
     var monthNames = [
         'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
     ];
-    
+
     var month = monthNames.indexOf(parts[1]);
     var day = parseInt(parts[2]);
     var year = parseInt(parts[3]);
@@ -268,6 +272,7 @@ function parseDateString(dateString) {
 
     return new Date(year, month, day, hours, minutes);
 }
+
 //////
 // document.addEventListener('DOMContentLoaded', function () {
 //     var loginDate = new Date(document.getElementById('login_date').value);
