@@ -3,13 +3,13 @@ session_start();
 require_once(dirname(__FILE__) . '/../config/session.php');
 require_once(dirname(__FILE__) . "/../config/config.php");
 require_once(dirname(__FILE__) . '/../helpers/common-helper.php');
-echo "asasas";
 
 //require_once(dirname(__FILE__) . "/../../../include/class.memcache.php");
 require_once(dirname(__FILE__) . "/../include/display-name-functions.php");
 require_once "../include/helper.functions.php";
 echo "as";
 	if($_REQUEST['step'] == 1){
+		echo "asnu";
 		$get_company_name = $_REQUEST['comp_name'];
 		$get_city_id = data_search('city');
 
