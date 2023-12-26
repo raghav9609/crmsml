@@ -188,6 +188,7 @@
     var appliedAmountInput = document.getElementById('applied_amount');
     var sanctionAmountInput = document.getElementById('sanction_amount');
     var disbursementInput = document.getElementById('disbursed_amount');
+    var form = document.getElementById('form_step1'); 
 
     var messageElement = document.createElement('span');
     messageElement.className = 'error-message';
@@ -216,6 +217,18 @@
     disbursementInput.addEventListener('input', function() {
         validateDisbursement();
     });
+    form.addEventListener('submit', function(event) {
+        var appliedAmount = parseFloat(appliedAmountInput.value) || 0;
+        var sanctionAmount = parseFloat(sanctionAmountInput.value) || 0;
+        var disbursementAmount = parseFloat(disbursementInput.value) || 0;
+
+        if (appliedAmount >= disbursementAmount || sanctionAmount >= disbursementAmount) {
+            messageElement.textContent = ' Disbursement Amount should not be smaller than Applied Amount and Sanction Amount.';
+            event.preventDefault(); // Prevent form submission
+        } else {
+            messageElement.textContent = '';
+        }
+    });
 });//////
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -228,14 +241,10 @@ document.addEventListener('DOMContentLoaded', function () {
     disbursementInputdate.parentNode.appendChild(errormessageElement);
 
     function validateDisbursementDate() {
-        var login_date = parseDateString(logindateInput.value);
-        var sanction_date = parseDateString(sanctiondateInput.value);
-        var disburse_date = parseDateString(disbursementInputdate.value);
-
-        // if (!login_date || !sanction_date || !disburse_date) {
-        //     errormessageElement.textContent = 'Invalid date format';
-        //     return;
-        // }
+        var login_date = new Date(logindateInput.value);
+        var sanction_date = new Date(sanctiondateInput.value);
+        var disburse_date = new Date(disbursementInputdate.value);
+        alert(login_date);
 
         if (disburse_date < login_date || disburse_date < sanction_date) {
             errormessageElement.textContent = 'Disbursement Date should not be smaller than Login Date and Sanction Date.';
@@ -244,11 +253,11 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    logindateInput.addEventListener('input', function() {
+    login_date.addEventListener('input', function() {
         validateDisbursementDate();
     });
 
-    sanctiondateInput.addEventListener('input', function() {
+    sanction_date.addEventListener('input', function() {
         validateDisbursementDate();
     });
 
@@ -257,32 +266,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     validateDisbursementDate();
 });
-
-function parseDateString(dateString) {
-    if (!dateString) {
-        return null; // or handle accordingly if dateString is not defined
-    }
-
-    var parts = dateString.split(' ');
-    if (parts.length !== 6) {
-        return null; // or handle accordingly if the date string is not in the expected format
-    }
-
-    var monthNames = [
-        'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
-    ];
-
-    var month = monthNames.indexOf(parts[1]);
-    var day = parseInt(parts[2]);
-    var year = parseInt(parts[3]);
-    var time = parts[4].split(':');
-    var hours = parseInt(time[0]);
-    var minutes = parseInt(time[1]);
-
-    return new Date(year, month, day, hours, minutes);
-}
-
-
 //////
 // document.addEventListener('DOMContentLoaded', function () {
 //     var loginDate = new Date(document.getElementById('login_date').value);
