@@ -215,9 +215,7 @@
                                 </div>
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
                                     <span class="fa-icon fa-briefcase"></span>
-                                    <?php echo $occup;
-                                     
-                                    echo get_dropdown('7','occupation_id',$occup,'required'); ?>
+                                    <?php echo get_dropdown('7','occupation_id',$occup,'required'); ?>
                                     <label for="occupation" class="label-tag">Employment Type</label>
                                 </div>
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6 salaried company_name_input">

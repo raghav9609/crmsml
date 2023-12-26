@@ -126,6 +126,7 @@ $(document).ready(function(){
     }
     
     function occupation(){
+      alert("dfdsfds");
       var occupation = $('[name="occupation_id"] option:selected').val();
       var loan_type = $("#loan_type").val();
       if(occupation == 2 || occupation == 3){
@@ -133,7 +134,7 @@ $(document).ready(function(){
         $(".salaried").addClass('hidden').val('').removeAttr('required');
         $(".net_month_inc_value_formt").text('');
         slry_paid();
-      }else if(occupation == 1){
+      } else if(occupation == 1){
         $(".salaried").removeClass('hidden').attr('required','true');
         $(".self_emp").addClass('hidden').val('').removeAttr('required');
         $(".gross_annual_receipt_value_formt").text('');
