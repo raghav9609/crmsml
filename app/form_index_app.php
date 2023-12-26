@@ -227,45 +227,26 @@
 });//////
 
 // document.addEventListener('DOMContentLoaded', function () {
-function datevalidate(){
-    var logindateInput = document.getElementById('login_date');
-    var sanctiondateInput = document.getElementById('sanction_date');
-    var disbursementInputdate = document.getElementById('disburse_date');
-    var submit_app = document.getElementById('submit_app');
+    function datevalidate() {
+      var logindateInput = document.getElementById('login_date');
+      var sanctiondateInput = document.getElementById('sanction_date');
+      var disbursementInputdate = document.getElementById('disburse_date');
+      var submit_app = document.getElementById('submit_app');
+      var errormessageElement = document.getElementById('error-message');
 
-    var errormessageElement = document.createElement('span');
-    errormessageElement.className = 'error-message';
-    disbursementInputdate.parentNode.appendChild(errormessageElement);
+      // Validate Disbursement Date
+      var login_date = new Date(logindateInput.value);
+      var sanction_date = new Date(sanctiondateInput.value);
+      var disburse_date = new Date(disbursementInputdate.value);
 
-    function validateDisbursementDate() {
-        var login_date = new Date(logindateInput.value);
-        var sanction_date = new Date(sanctiondateInput.value);
-        var disburse_date = new Date(disbursementInputdate.value);
-        // alert(login_date);
-
-        if (disburse_date < login_date|| disburse_date< sanction_date) {
-            errormessageElement.textContent = 'Disbursement Date should not be smaller than Login Date and Sanction Date.';
-            submit_app.setAttribute('disabled', 'disabled');
-        } else {
-            errormessageElement.textContent = '';
-            submit_app.removeAttribute('disabled');
-        }
+      if (disburse_date < login_date || disburse_date < sanction_date) {
+        errormessageElement.textContent = 'Disbursement Date should not be smaller than Login Date and Sanction Date.';
+        submit_app.setAttribute('disabled', 'disabled');
+      } else {
+        errormessageElement.textContent = '';
+        submit_app.removeAttribute('disabled');
+      }
     }
-
-    // login_date.addEventListener('input', function() {
-    //     validateDisbursementDate();
-    // });
-
-    // sanction_date.addEventListener('input', function() {
-    //     validateDisbursementDate();
-    // });
-
-    // disbursementInputdate.addEventListener('input', function() {
-    //     validateDisbursementDate();
-    // });
-    // validateDisbursementDate();
-}
-//////
 // document.addEventListener('DOMContentLoaded', function () {
 //     var loginDate = new Date(document.getElementById('login_date').value);
 //     var sanctionDate = new Date(document.getElementById('sanction_date').value);
