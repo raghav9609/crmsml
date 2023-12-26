@@ -225,7 +225,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     var errormessageElement = document.createElement('span');
     errormessageElement.className = 'error-message';
-    disbursementdateInputdate.parentNode.appendChild(errormessageElement);
+    disbursementInputdate.parentNode.appendChild(errormessageElement);
 
     function validateDisbursementDate() {
         var login_date = new Date(logindateInput.value);
