@@ -375,22 +375,14 @@
                                         <label for="loan_in_past2" class="no">No</label> 
                                     </div>
                                 </div>
-                                <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                                    <label for="loan_in_past" class="radio-tag label-tag">Availed EMI moratorium?</label>
-                                    <div class="boolean-button error_contain">
-                                        <input type="radio" id="emi_moritorium1" name="emi_moritorium" required <?php if($emi_moritorium == 1){echo "checked";} ?> value="1" >
-                                        <label for="emi_moritorium1" class="yes">Yes</label>
-                                        <input type="radio" id="emi_moritorium2" name="emi_moritorium" required <?php if($emi_moritorium == 2){echo "checked";} ?> value="2" >
-                                        <label for="emi_moritorium2" class="no">No</label> 
-                                    </div>
-                                </div>
+                          
                           
                                 <div class="heading-offers bt_case">
                                     <div class="exclamatry-text">Existing Loan Details</div>
                                 </div>
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6 bt_case">
                                     <span class="fa-icon fa-bank"></span>
-                                    <?php echo get_dropdown('13','exs_bank_id',$exstn_bank,'class="bt_case"'); ?>
+                                    <?php echo get_dropdown(13,'exs_bank_id',$exstn_bank,'class="bt_case"'); ?>
                                     <label for="exs_bank_id" class="label-tag">Existing Bank</label>
                                 </div>
                               
