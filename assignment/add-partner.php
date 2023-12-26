@@ -6,7 +6,7 @@ require_once "../include/helper.functions.php";
 <div style="margin:0 auto; width:90%; padding:10px; background-color:#fff; height:800px;">
 <form method="POST" name="add_partner_form" action="submit.php">
 <table class="gridtable" style='margin-left:2%;width:80%;'>
-<tr><th colspan="2"><input type="submit" name="add" class="buttonsub" style="margin-left:10%;" value="Add"> </th></tr>
+<tr><th colspan="2"><input type="submit" name="add" class="buttonsub" style="margin-left:10%;" value="Add" onclick="return validateForm()"> </th></tr>
 <tr><th>City Group: </th><td><?php echo get_dropdown('crm_master_city_sub_group','city_sub_group',"","required");?></td></tr>
 <tr><th>Loan Type: </th><td><?php echo get_dropdown(1,'loan_type',"","class='loan_type'");?></td></tr>
 <tr><th>Salary Range</td><td><input type="tel" name="salry_from" >  <input type="tel" name="salry_to" ></td></tr>
@@ -42,5 +42,35 @@ function user_fun(type,id){
 	  		}
 	  }  
 }
+
+function validateForm() {
+    var salry_from = parseFloat(document.getElementById('salry_from').value) || 0;
+    var salry_to = parseFloat(document.getElementById('salry_to').value) || 0;
+    var loan_frm = parseFloat(document.getElementById('loan_frm').value) || 0;
+    var loan_to = parseFloat(document.getElementById('loan_to').value) || 0;
+	var salry_messageElement = document.createElement('span');
+    salry_messageElement.className = 'error-message';
+    document.getElementById('salry_from').parentNode.appendChild(salry_messageElement);
+
+    var loan_messageElement = document.createElement('span');
+    loan_messageElement.className = 'error-message';
+    document.getElementById('loan_frm').parentNode.appendChild(loan_messageElement);
+
+    if (salry_from >= salry_to) {
+        salry_messageElement.textContent = 'Salary From should be less than Salary To';
+    } else {
+        salry_messageElement.textContent = '';
+    }
+
+    if (loan_frm >= loan_to) {
+        loan_messageElement.textContent = 'Loan From should be less than Loan To';
+    } else {
+        loan_messageElement.textContent = '';
+    }
+
+    // Determine whether the form should be submitted based on the conditions
+    return salry_from < salry_to && loan_frm < loan_to;
+}
+
 </script>
 
