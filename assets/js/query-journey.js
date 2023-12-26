@@ -156,7 +156,7 @@ $(document).ready(function(){
     }
     function slry_paid(){
       var slry_paid = $('[name="slry_paid"] option:selected').val();
-      if(slry_paid == 1){
+      if(slry_paid == 6){
         $(".main_acc").removeClass('hidden').attr('required',true);
       }else{
         $(".main_acc").addClass('hidden').removeAttr('required').val('');
