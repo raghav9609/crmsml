@@ -224,11 +224,13 @@
        
         var loginDate = new Date(document.getElementById('login_date').value);
         var sanctionDate = new Date(document.getElementById('sanction_date').value);
+        alert(loginDate);
 
         var disbursementDateInput = document.getElementById('disburse_date');
+        alert(disbursementDateInput);
 
         disbursementDateInput.addEventListener('change', function () {
-            alert(loginDate);
+            
             var disbursementDate = new Date(disbursementDateInput.value);
 
             var dateMessageElement = document.createElement('span');
