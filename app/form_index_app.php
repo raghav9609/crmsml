@@ -221,41 +221,31 @@
         // });
     });
     document.addEventListener('DOMContentLoaded', function () {
-       
-       var loginDate = new Date(document.getElementById('login_date').value);
-       var sanctionDate = new Date(document.getElementById('sanction_date').value);
+        var loginDate = new Date(document.getElementById('login_date').value);
+        var sanctionDate = new Date(document.getElementById('sanction_date').value);
 
-       var disbursementDateInput = document.getElementById('disburse_date');
+        var disbursementDateInput = document.getElementById('disburse_date');
+        var errorMessageElement = document.createElement('span');
+        errorMessageElement.className = 'error-message';
+        disbursementDateInput.parentNode.appendChild(errorMessageElement);
 
-       // Variable to check if the event listener has been attached
-       var eventListenerAttached = false;
+        function validateDisbursementDate() {
+            var disbursementDate = new Date(disbursementDateInput.value);
 
-       // Function to handle the input event
-       function handleInputEvent() {
-           var disbursementDate = new Date(disbursementDateInput.value);
+            if (disbursementDate < loginDate || disbursementDate < sanctionDate) {
+                errorMessageElement.textContent = 'Disbursement Date should not be smaller than Login Date or Sanction Date.';
+            } else {
+                errorMessageElement.textContent = '';
+            }
+        }
 
-           var dateMessageElement = document.createElement('span');
-           dateMessageElement.className = 'error-message';
-           
-           var existingErrorMessage = disbursementDateInput.parentNode.querySelector('.error-message');
-           if (existingErrorMessage) {
-               existingErrorMessage.remove();
-           }
+        disbursementDateInput.addEventListener('input', function () {
+            validateDisbursementDate();
+        });
 
-           disbursementDateInput.parentNode.appendChild(dateMessageElement);
-
-           if (disbursementDate < loginDate || disbursementDate < sanctionDate) {
-               dateMessageElement.textContent = 'Disbursement Date should not be smaller than Login Date or Sanction Date.';
-           } else {
-               dateMessageElement.textContent = '';
-           }
-       }
-
-       // Attach the input event listener
-       disbursementDateInput.addEventListener('input', function () {
-           handleInputEvent();
-       });
-   });
+        // Call the validation on page load
+        validateDisbursementDate();
+    });
     
 </script>
 </form>
