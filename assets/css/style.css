@@ -19,6 +19,9 @@ body{
 .field{
 	padding: 10px;
 }
+.hidden{
+	display: none;
+}
 .blue{
 color: rgb(15, 0, 255);
 font-size: 18px;
