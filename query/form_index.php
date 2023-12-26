@@ -50,7 +50,7 @@
    // echo $occup;
     $occcc = get_name('master_code_id',$occup);
     print_r($occcc);
-    $occuptext = (($occup != '' && $occup != 0) ? "<li>Customer is  <b class='fw_bold'>$occcc </b>" : "");
+    $occuptext = (($occup != '' && $occup != 0) ? "<li>Customer is  <b class='fw_bold'>".$occcc['value']." </b>" : "");
     $mainbank = get_name('master_code_id',$main_account);
     $accounttext = (($main_account !='' && $main_account !=0) ? "<li>Customer has account in  <b class='fw_bold'>$mainbank </b></li>" : "");
     $loanamounttext = ($loan_amt != 0 && $loan_amt != '') ? " of <b class='fw_bold'> $amt </b>" : "";
