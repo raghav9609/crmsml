@@ -19,34 +19,8 @@ require_once "../include/helper.functions.php";
 	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
 <script>
-var counter =0;
 
-function user_fun(type,id){
-	var d = $("#"+id).attr("data-id");
-  var loan_type = $(".loan_type").val(); 
-  if(loan_type == ''){
-    alert("Please Select Loan Type !!");
-	  } else { 
-	  		if(d > 4){
-	  			alert("Only 4 Users Can Add in One Shift");
-	  		}else{
-	  			$.ajax({
-			  type: "GET",
-			  data: "loan_type="+loan_type+"&type="+type,
-			  url: "user_assign.php",
-			  success:function(data){
-			  	d++;
-			      $("."+type).append(data);  
-			     	$("#"+id).attr("data-id",d);
-			  }
-			});
-			
-	  		}
-	  }  
-}
 document.addEventListener('DOMContentLoaded', function() {
-	alert("hi");
-
     var salry_fromInput = document.getElementById('salry_from');
     var salry_toInput = document.getElementById('salry_to');
     var add_app = document.getElementById('add_app');
@@ -79,6 +53,32 @@ document.addEventListener('DOMContentLoaded', function() {
 
     validatesalary();
 });
+var counter =0;
+
+function user_fun(type,id){
+	var d = $("#"+id).attr("data-id");
+  var loan_type = $(".loan_type").val(); 
+  if(loan_type == ''){
+    alert("Please Select Loan Type !!");
+	  } else { 
+	  		if(d > 4){
+	  			alert("Only 4 Users Can Add in One Shift");
+	  		}else{
+	  			$.ajax({
+			  type: "GET",
+			  data: "loan_type="+loan_type+"&type="+type,
+			  url: "user_assign.php",
+			  success:function(data){
+			  	d++;
+			      $("."+type).append(data);  
+			     	$("#"+id).attr("data-id",d);
+			  }
+			});
+			
+	  		}
+	  }  
+}
+
 
 </script>
 
