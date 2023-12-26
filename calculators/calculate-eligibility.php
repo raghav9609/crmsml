@@ -6,18 +6,14 @@ require_once(dirname(__FILE__) . '/../config/config.php');
 
 
 if($_REQUEST['calculate']){
-    echo "hello2";
     $loan_type = replace_special($_REQUEST['loan_type']);
     $net_incm = replace_special($_REQUEST['net_incm']);
-    echo "hello3";
     $foir = replace_special($_REQUEST['foir'])/100;
     $loan_emi = replace_special($_REQUEST['ext_emi']);
     $cur_rate_emi = replace_special($_REQUEST['cur_rate_emi']);
     $rate = replace_special($cur_rate_emi)/1200;
     $nth_pl = replace_special($_REQUEST['nth_multiplier']);
-    echo "hello4";
     $elig_msg = array();
-    echo "hello5";
     if($loan_type == 54){
         $tennure_get = array('2','3','4','5');
         foreach($tennure_get as $tennure){
@@ -34,48 +30,35 @@ if($_REQUEST['calculate']){
                 $elig_msg[] = $cal_gen_final;
         }
     }else if($loan_type == 55){
-        echo "hello6";
         $net_incm_on = replace_special($_REQUEST['cob_nth_1']);
         $net_incm_tw = replace_special($_REQUEST['cob_nth_2']);
         $cur_emi_on = replace_special($_REQUEST['cob_emi_1']);
         $cur_emi_tw = replace_special($_REQUEST['cob_emi_2']);
-        echo "hello7";
         $tennure_get = array('15','20','25');
         foreach($tennure_get as $tennure){
         $calculation_gen = ($net_incm  * $foir) - $loan_emi;
-        echo "hello8";
         if($calculation_gen < '0'){$calculation_gen = '0';}
-        echo "hello10";
+        if($net_incm_on > 0 and  $cur_emi_on > 0){
             $calculation_gen_double = ($net_incm_on  * $foir) - $cur_emi_on;
-            echo "hello101";
+        }
             if($net_incm_tw > 0 and  $cur_emi_tw > 0){
                 $calculation_gen_three = ($net_incm_tw  * $foir) - $cur_emi_tw;
             }
             
-            echo "hello102";
 			$cal_gen = 1 - pow(1 + $rate, - ($tennure*12));
-            echo "hello113";
         if($coborrower =='1'){   
-            echo "hello9";
             $cal_gen_final_pre = round(($calculation_gen + $calculation_gen_double) * ($cal_gen / $rate));
             $cal_gen_final_pre1 = round($calculation_gen_double * ($cal_gen / $rate));
-            echo "hello13";
         }else if($coborrower =='2'){
-            echo "hello12";
             $cal_gen_final_pre = round(($calculation_gen + $calculation_gen_double + $calculation_gen_three) * ($cal_gen / $rate));
             $cal_gen_final_pre2 = round(($calculation_gen + $calculation_gen_three) * ($cal_gen / $rate));
-            echo "hello14";
             $cal_gen_final_pre1 = round($calculation_gen_three * ($cal_gen / $rate));
             $cal_gen_final_pre3 = round(($calculation_gen_three + $calculation_gen_double) * ($cal_gen / $rate));
-            echo "hello15";
         }else{
             $cal_gen_final_pre = round($calculation_gen * ($cal_gen / $rate));
-            echo "hello16";
         }
             $head_elig_calc = max($cal_gen_final_pre,$cal_gen_final_pre1,$cal_gen_final_pre2,$cal_gen_final_pre3);
-            echo "hello17";
             $elig_msg[] = $head_elig_calc;
-            echo "hello18";
         }    
         $msg = '';
     }
@@ -103,17 +86,6 @@ if($_REQUEST['calculate']){
     </select>
      <span class='f_14 ml20 orange fw_bold 51_loan'>No of Co-borrowers:</span>
     <select name="no_cob" id="no_cob" class="51_loan " onchange="cob_func(this.value);"><option value="">No of Co-Borrowers</option><option value="0" selected>0</option><option value="1">1</option><option value="2">2</option></select>
-    <span class='f_14 ml20 orange fw_bold 60_loan'>Check Eligibility for:</span>
-    <select name="gl_elig_for" id="gl_elig_for" class='60_loan ' onchange="gl_func(this.value)"><option value="">Check Eligibility for</option>
-    <option value="1" <?php if($_REQUEST['gl_elig_for'] == 1){echo "selected";} ?>>Check Loan Eligibility for your gold</option>
-    <option value="2" <?php if($_REQUEST['gl_elig_for'] == 2){echo "selected";} ?>>Gold Needed to avail loan amount</option></select>
-    <span class='f_14 orange fw_bold loan_amt'>Desired Loan Amount:</span>
-    <input type="tel" name="loan_amt" id="loan_amt" class="loan_amt" placeholder="Loan Amount" maxlength='10' value="<?php echo $loan_amt; ?>">
-    <span class='f_14 ml20 orange fw_bold weight_gold'>Weight of Gold (In Grams):</span>
-    <input type="tel" name="weight_gold" class="weight_gold" id="weight_gold" placeholder="Weight of Gold (In Grams)" maxlength='10' value="<?php echo $gl_weight; ?>">
-     <span class='f_14 orange fw_bold 60_loan'>Purity of Gold:</span>
-    <input type="tel" name="purity_gold" id="purity_gold" class="60_loan " placeholder="Purity of Gold" maxlength='3' value="<?php echo $gl_purity; ?>">
-
     <span class='f_14 orange fw_bold hl_pl_loan'>Net Income:</span>
     <input type="tel" name="net_incm" id="net_incm" placeholder="Net Income" class='hl_pl_loan ' maxlength='10' value="<?php echo $net_incm; ?>">
     <span class='f_14 ml20 orange fw_bold hl_pl_loan'>Existing EMI:</span>
@@ -144,7 +116,7 @@ if($_REQUEST['calculate']){
 
 </form>
 </fieldset>
-<?php if(!empty($elig_msg)){ echo "hello1";?>
+<?php if(!empty($elig_msg)){?>
 <table class="gridtable ml50" width="70%">
     <tr><th>Tennure</th><?php foreach($tennure_get as $get_tennure){?><th><?php echo $get_tennure." years"; ?></th><?php } ?></tr>
     <tr><th>Eligible Amount</th><?php foreach($elig_msg as $elig){?><td><?php echo number_format($elig); ?></td><?php } ?></tr>
