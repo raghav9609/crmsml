@@ -6,7 +6,7 @@ require_once "../include/helper.functions.php";
 <div style="margin:0 auto; width:90%; padding:10px; background-color:#fff; height:800px;">
 <form method="POST" name="add_partner_form" action="submit.php">
 <table class="gridtable" style='margin-left:2%;width:80%;'>
-<tr><th colspan="2"><input type="submit" name="add" class="buttonsub" style="margin-left:10%;" value="Add" onclick="return validateForm()"> </th></tr>
+<tr><th colspan="2"><input type="submit" name="add" id = "add_app" class="buttonsub" style="margin-left:10%;" value="Add"> </th></tr>
 <tr><th>City Group: </th><td><?php echo get_dropdown('crm_master_city_sub_group','city_sub_group',"","required");?></td></tr>
 <tr><th>Loan Type: </th><td><?php echo get_dropdown(1,'loan_type',"","class='loan_type'");?></td></tr>
 <tr><th>Salary Range</td><td><input type="tel" name="salry_from" >  <input type="tel" name="salry_to" ></td></tr>
@@ -42,44 +42,41 @@ function user_fun(type,id){
 	  		}
 	  }  
 }
+document.addEventListener('DOMContentLoaded', function() {
+    var salry_from = document.getElementById('salry_from');
+    var salry_to = document.getElementById('salry_to');
+    var add_app = document.getElementById('add_app');
+    // var loan_to = document.getElementById('loan_to');
 
-function validateForm() {
-    var salry_from = parseFloat(document.getElementById('salry_from').value) || 0;
-    var salry_to = parseFloat(document.getElementById('salry_to').value) || 0;
-    var loan_frm = parseFloat(document.getElementById('loan_frm').value) || 0;
-    var loan_to = parseFloat(document.getElementById('loan_to').value) || 0;
-
-    // Remove existing error messages
-    removeErrorMessage('salry_from');
-    removeErrorMessage('loan_frm');
-
-    // Create and append error messages
-    if (salry_from >= salry_to) {
-        appendErrorMessage('salry_from', 'Salary From should be less than Salary To');
-    }
-
-    if (loan_frm >= loan_to) {
-        appendErrorMessage('loan_frm', 'Loan From should be less than Loan To');
-    }
-
-    // Determine whether the form should be submitted based on the conditions
-    return salry_from < salry_to && loan_frm < loan_to;
-}
-
-function appendErrorMessage(elementId, message) {
     var messageElement = document.createElement('span');
     messageElement.className = 'error-message';
-    messageElement.textContent = message;
-    document.getElementById(elementId).parentNode.appendChild(messageElement);
-}
+    salry_from.parentNode.appendChild(messageElement);
 
-function removeErrorMessage(elementId) {
-    var parentElement = document.getElementById(elementId).parentNode;
-    var existingMessage = parentElement.querySelector('.error-message');
-    if (existingMessage) {
-        parentElement.removeChild(existingMessage);
+    function validateDisbursement() {
+        var salry_from = parseFloat(salry_from.value) || 0;
+        var salry_to = parseFloat(salry_to.value) || 0;
+        // var disbursementAmount = parseFloat(disbursementInput.value) || 0;
+
+        if (salry_from >= salry_to ) {
+            messageElement.textContent = 'Salary from should not be smaller than salary to.';
+            add_app.setAttribute('disabled', 'disabled');
+        } else {
+            messageElement.textContent = '';
+            add_app.removeAttribute('disabled');
+        }
     }
-}
+
+    salry_from.addEventListener('input', function() {
+        validateDisbursement();
+    });
+
+    salry_to.addEventListener('input', function() {
+        validateDisbursement();
+    });
+
+
+});
+
 
 </script>
 
