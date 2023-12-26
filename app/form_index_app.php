@@ -251,6 +251,7 @@ document.addEventListener('DOMContentLoaded', function () {
     disbursementInputdate.addEventListener('input', function() {
         validateDisbursementDate();
     });
+    validateDisbursementDate();
 });
 //////
 // document.addEventListener('DOMContentLoaded', function () {
