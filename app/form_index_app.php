@@ -232,18 +232,16 @@ document.addEventListener('DOMContentLoaded', function () {
         var sanction_date = new Date(sanctiondateInput.value);
         var disburse_date = new Date(disbursementInputdate.value);
 
-        if (!isNaN(login_date) && !isNaN(sanction_date) && !isNaN(disburse_date)) {
-            if (disburse_date < login_date || disburse_date < sanction_date) {
-                errormessageElement.textContent = 'Disbursement Date should not be smaller than Login Date and Sanction Date.';
-            } else {
-                errormessageElement.textContent = '';
-            }
+        if (disburse_date < login_date || disburse_date < sanction_date) {
+            errormessageElement.textContent = 'Disbursement Date should not be smaller than Login Date and Sanction Date.';
+        } else {
+            errormessageElement.textContent = '';
         }
     }
 
-    logindateInput.addEventListener('input', validateDisbursement);
-    sanctiondateInput.addEventListener('input', validateDisbursement);
-    disbursementInputdate.addEventListener('input', validateDisbursement);
+    logindateInput.addEventListener('change', validateDisbursement);
+    sanctiondateInput.addEventListener('change', validateDisbursement);
+    disbursementInputdate.addEventListener('change', validateDisbursement);
 });
 //////
 // document.addEventListener('DOMContentLoaded', function () {
