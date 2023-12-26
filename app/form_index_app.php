@@ -247,6 +247,16 @@ document.addEventListener('DOMContentLoaded', function () {
         validateDisbursementDate();
     });
 
+    // Prevent form submission if the disbursement date is not valid
+    document.getElementById('form_step1').addEventListener('submit', function (event) {
+        validateDisbursementDate();  // Validate the disbursement date before submitting
+
+        var errorMessage = errorMessageElement.textContent;
+        if (errorMessage) {
+            event.preventDefault();  // Prevent form submission if there's an error
+        }
+    });
+
     // Call the validation on page load
     validateDisbursementDate();
 });
