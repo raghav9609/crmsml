@@ -247,20 +247,11 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    disbursementDateInput.addEventListener('change', function () {
+    disbursementDateInput.addEventListener('input', function () {
         validateDisbursementDate();
     });
 
-    document.getElementById('form_step1').addEventListener('submit', function (event) {
-        validateDisbursementDate();
-
-        var errorMessage = errorMessageElement.textContent;
-        if (errorMessage) {
-            event.preventDefault();
-        }
-    });
-
-    validateDisbursementDate();
+    validateDisbursementDate(); // Call the validation on page load
 });
     
 </script>
