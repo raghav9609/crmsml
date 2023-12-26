@@ -11,7 +11,7 @@ require_once "../include/helper.functions.php";
 <div style="margin:0 auto; width:90%; padding:10px; background-color:#fff; height:800px;">
 <form method="POST" name="add_partner_form" action="submit.php">
 <table class="gridtable" style='margin-left:2%;width:80%;'>
-<tr><th colspan="2"><input type="submit" name="add" id = "add_app" class="buttonsub" style="margin-left:10%;" value="Add" onclick="validateSalaryRange()" disabled> </th></tr>
+<tr><th colspan="2"><input type="submit" name="add" id = "add_app" class="buttonsub" style="margin-left:10%;" value="Add" onclick="validateSalaryRange()" > </th></tr>
 <tr><th>City Group: </th><td><?php echo get_dropdown('crm_master_city_sub_group','city_sub_group',"","required");?></td></tr>
 <tr><th>Loan Type: </th><td><?php echo get_dropdown(1,'loan_type',"","class='loan_type'");?></td></tr>
 <div id="error-message" class="error-message"></div>
@@ -35,10 +35,10 @@ function validateSalaryRange() {
       // Check if salary from is greater than salary to
       if (isNaN(salaryFrom) || isNaN(salaryTo) || salaryFrom >= salaryTo) {
         errorMessage.textContent = 'Error: Salary from must be less than Salary to';
-		add_app.disabled = true;
+		add_app.setAttribute('disabled', 'disabled');
       } else {
         errorMessage.textContent = '';
-		add_app.disabled = false;
+		add_app.removeAttribute('disabled');
      
       }
     }
