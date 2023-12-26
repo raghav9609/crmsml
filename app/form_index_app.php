@@ -230,14 +230,18 @@ document.addEventListener('DOMContentLoaded', function () {
         var disbursementDateValue = disbursementDateInput.value.trim();
 
         if (!disbursementDateValue) {
-            errorMessageElement.textContent = '';  // Clear the error message if the field is empty
+            errorMessageElement.textContent = '';
             return;
         }
 
         var disbursementDate = new Date(disbursementDateValue);
 
+        console.log('Disbursement Date:', disbursementDate);
+        console.log('Login Date:', loginDate);
+        console.log('Sanction Date:', sanctionDate);
+
         if (disbursementDate >= loginDate && disbursementDate >= sanctionDate) {
-            errorMessageElement.textContent = '';  // Clear the error message
+            errorMessageElement.textContent = '';
         } else {
             errorMessageElement.textContent = 'Disbursement Date should be greater than or equal to Login Date and Sanction Date.';
         }
@@ -247,17 +251,15 @@ document.addEventListener('DOMContentLoaded', function () {
         validateDisbursementDate();
     });
 
-    // Prevent form submission if the disbursement date is not valid
     document.getElementById('form_step1').addEventListener('submit', function (event) {
-        validateDisbursementDate();  // Validate the disbursement date before submitting
+        validateDisbursementDate();
 
         var errorMessage = errorMessageElement.textContent;
         if (errorMessage) {
-            event.preventDefault();  // Prevent form submission if there's an error
+            event.preventDefault();
         }
     });
 
-    // Call the validation on page load
     validateDisbursementDate();
 });
     
