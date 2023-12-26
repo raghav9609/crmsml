@@ -219,7 +219,7 @@
 });//////
 
 document.addEventListener('DOMContentLoaded', function () {
-    alert(logindateInput);
+    
     var logindateInput = document.getElementById('login_date');
     var sanctiondateInput = document.getElementById('sanction_date');
     var disbursementInputdate = document.getElementById('disburse_date');
@@ -227,7 +227,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var errormessageElement = document.createElement('span');
     errormessageElement.className = 'error-message';
     disbursementInputdate.parentNode.appendChild(errormessageElement);
-
+    alert(logindateInput);
     function validateDisbursement() {
         var login_date = new Date(logindateInput.value);
         var sanction_date = new Date(sanctiondateInput.value);
