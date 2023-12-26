@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
     messageElement.className = 'error-message';
     salry_from.parentNode.appendChild(messageElement);
 
-    function validateDisbursement() {
+    function validatesalary() {
         var salry_from = parseFloat(salry_from.value) || 0;
         var salry_to = parseFloat(salry_to.value) || 0;
         // var disbursementAmount = parseFloat(disbursementInput.value) || 0;
@@ -67,14 +67,14 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     salry_from.addEventListener('input', function() {
-        validateDisbursement();
+        validatesalary();
     });
 
     salry_to.addEventListener('input', function() {
-        validateDisbursement();
+        validatesalary();
     });
 
-
+	validatesalary();
 });
 
 
