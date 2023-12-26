@@ -241,9 +241,9 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    logindateInput.addEventListener('change', validateDisbursement);
-    sanctiondateInput.addEventListener('change', validateDisbursement);
-    disbursementInputdate.addEventListener('change', validateDisbursement);
+    logindateInput.addEventListener('input', validateDisbursement);
+    sanctiondateInput.addEventListener('input', validateDisbursement);
+    disbursementInputdate.addEventListener('input', validateDisbursement);
 });
 //////
 // document.addEventListener('DOMContentLoaded', function () {
