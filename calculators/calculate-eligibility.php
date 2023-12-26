@@ -123,7 +123,7 @@ if($_REQUEST['calculate']){
 
 </form>
 </fieldset>
-<?php if(!empty(array_filter($elig_msg))){ ?>
+<?php if(!empty($elig_msg)){ ?>
 <table class="gridtable ml50" width="70%">
     <tr><th>Tennure</th><?php foreach($tennure_get as $get_tennure){?><th><?php echo $get_tennure." years"; ?></th><?php } ?></tr>
     <tr><th>Eligible Amount</th><?php foreach($elig_msg as $elig){?><td><?php echo number_format($elig); ?></td><?php } ?></tr>
