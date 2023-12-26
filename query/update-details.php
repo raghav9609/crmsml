@@ -6,7 +6,7 @@ require_once(dirname(__FILE__) . "/../config/config.php");
 require_once(dirname(__FILE__) . "/../include/display-name-functions.php");
 require_once(dirname(__FILE__) . '/../include/lead-score-helper.php');
 require_once "../include/helper.functions.php";
-
+echo "as";
 	if($_REQUEST['step'] == 1){
 		$get_company_name = $_REQUEST['comp_name'];
 		$get_city_id = data_search('city');
