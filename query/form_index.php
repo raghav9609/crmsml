@@ -181,13 +181,13 @@
                                 </div> 
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
                                     <span class="fa-icon fa-envelope"></span>
-                                    <input type="email" class="form-control" name="email" maxlength="50" id="email"  value="<?php echo ($email) ;?>" <?php if(in_array($loan_type,array(71,11,57,63,56))){?> required <?php }?> <?php if($email_ver_result['email_ver_date'] != '' && $email_ver_result['email_ver_date'] != '1970-01-01' && $email_ver_result['email_ver_date'] != '0000-00-00') { ?> title="Verified @ : <?php echo date("d-m-Y", strtotime($email_ver_result['email_ver_date']))." ".$email_ver_result['source']; ?>" <?php }  ?> />
+                                    <input type="email" class="form-control" name="email" maxlength="50" id="email"  value="<?php echo ($email) ;?>"  required <?php if($email_ver_result['email_ver_date'] != '' && $email_ver_result['email_ver_date'] != '1970-01-01' && $email_ver_result['email_ver_date'] != '0000-00-00') { ?> title="Verified @ : <?php echo date("d-m-Y", strtotime($email_ver_result['email_ver_date']))." ".$email_ver_result['source']; ?>" <?php }  ?> />
 
                                     <?php if($email_ver_result['email_ver_date'] != '' && $email_ver_result['email_ver_date'] != '1970-01-01' && $email_ver_result['email_ver_date'] != '0000-00-00' && trim($email) != '') { ?>
                                         <label class="pointer_n" style="font-weight: bold;width: 25px;height: 18px;text-align: center;color: #1b8c1b;border-radius: 50%;right: 16px;left: auto;">✔</label>
                                     <?php }  ?>
 
-                                    <label for="email" class="label-tag <?php if(!in_array($loan_type,array(71,11,57,63,56))){ ?> optional-tag <?php } ?>">Email</label>
+                                    <label for="email" class="label-tag optional-tag ">Email</label>
                                 </div>
                               
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
@@ -202,13 +202,13 @@
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
                                     <span class="fa-icon fa-pan"></span>
                                     <input type="text" class="form-control" id="pan_card" name="pan_card" maxlength="10" placeholder="Pan Card" value="<?php echo ($pan_card); ?>"
-                                    <?php if(in_array($loan_type,array(71))){?> required <?php }?> <?php  if($pan_card_ver_result['pan_ver_date'] != '' && $pan_card_ver_result['pan_ver_date'] != '1970-01-01' && $pan_card_ver_result['pan_ver_date'] != '0000-00-00') { ?> title="Verified @ : <?php echo date("d-m-Y", strtotime($pan_card_ver_result['pan_ver_date']))." ".$pan_card_ver_result['source']; ?>" <?php }  ?> >
+                                    <?php if($pan_card_ver_result['pan_ver_date'] != '' && $pan_card_ver_result['pan_ver_date'] != '1970-01-01' && $pan_card_ver_result['pan_ver_date'] != '0000-00-00') { ?> title="Verified @ : <?php echo date("d-m-Y", strtotime($pan_card_ver_result['pan_ver_date']))." ".$pan_card_ver_result['source']; ?>" <?php }  ?> >
 
-                                    <?php  if($pan_card_ver_result['pan_ver_date'] != '' && $pan_card_ver_result['pan_ver_date'] != '1970-01-01' && $pan_card_ver_result['pan_ver_date'] != '0000-00-00' && trim($pan_card) != '') { ?>
+                                    <?php if($pan_card_ver_result['pan_ver_date'] != '' && $pan_card_ver_result['pan_ver_date'] != '1970-01-01' && $pan_card_ver_result['pan_ver_date'] != '0000-00-00' && trim($pan_card) != '') { ?>
                                         <label class="pointer_n" style="font-weight: bold;width: 25px;height: 18px;text-align: center;color: #1b8c1b;border-radius: 50%;right: 16px;left: auto;">✔</label>
                                     <?php }  ?>
 
-                                    <label for="pan_card" class="label-tag <?php if(!in_array($loan_type,array(71))){ ?> optional-tag <?php } ?>">Pan Card No.<span class='blue f_12'>(Take cibil consent)</span></label>
+                                    <label for="pan_card" class="label-tag optional-tag ">Pan Card No.<span class='blue f_12'>(Take cibil consent)</span></label>
                                 </div>
                                 <div class="heading-offers">
                                     <div class="exclamatry-text">Occupation Details</div>
@@ -230,7 +230,7 @@
                                     $raw_details_nmi = mysqli_query($Conn1, "SELECT cust.net_income as r_nmi, qry.net_income AS lan_incm FROM crm_query As qry Inner JOIN crm_customer As cust ON qry.crm_customer_id = cust.id WHERE qry.id = '".$q_id."' order by cust.id ");
                                     if(mysqli_num_rows($raw_details_nmi) > 0)  {
                                         $raw_details_result = mysqli_fetch_array($raw_details_nmi);
-                                        
+                                        print_r($raw_details_result);
                                         $raw_details_nmi_val = custom_money_format($raw_details_result['r_nmi']);
                                         $raw_details_la_nmi  = ($raw_details_result['lan_incm'] != 0 && $raw_details_result['lan_incm'] != "") ? custom_money_format($raw_details_result['lan_incm']) : "";
                                     }
