@@ -225,7 +225,7 @@
         var sanctionDate = new Date(document.getElementById('sanction_date').value);
 
         var disbursementDateInput = document.getElementById('disburse_date');
-        alert(disbursementDateInput);
+        alert(sanctionDate);
         var disbursementMessageElement = document.createElement('span');
         disbursementMessageElement.className = 'error-message';
         disbursementDateInput.parentNode.appendChild(disbursementMessageElement);
