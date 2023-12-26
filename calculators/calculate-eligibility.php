@@ -77,8 +77,8 @@ if($_REQUEST['calculate']){
         <span class='f_14 orange fw_bold'>Loan Type:</span>
         <select name="loan_type" id="loan_type" class='' onchange="loan_type_func(this.value)" required>
             <option value="">Select Loan Type</option>
-    <option value="51" <?php if($loan_type == 55){echo "selected";} ?>>Home Loan</option>
-    <option value="56" <?php if($loan_type == 54){echo "selected";} ?>>Personal Loan</option>
+    <option value="55" <?php if($loan_type == 55){echo "selected";} ?>>Home Loan</option>
+    <option value="54" <?php if($loan_type == 54){echo "selected";} ?>>Personal Loan</option>
     </select>
      <span class='f_14 ml20 orange fw_bold 51_loan'>No of Co-borrowers:</span>
     <select name="no_cob" id="no_cob" class="51_loan " onchange="cob_func(this.value);"><option value="">No of Co-Borrowers</option><option value="0" selected>0</option><option value="1">1</option><option value="2">2</option></select>
