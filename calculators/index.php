@@ -41,7 +41,7 @@ if($_REQUEST['calculate']) {
     <script type="text/javascript" src="../../include/js/jquery-1.10.1.min.js"></script>
 </head>
 <body>
-    <div style="margin-left: 25px; margin-top: 25px;"><a href="<?php echo $head_url; ?>calculators/rate_comparison.php"><input type="button" class="buttonsub cursor" value="Go To - Rate Comparison Calculator"></a> <a href="<?php echo $head_url; ?>/calculators/index.php"><input type="button" class="buttonsub cursor" value="Go To - Simple Calculator"></a> </div>
+    <div style="margin-left: 25px; margin-top: 25px;"><a href="<?php echo $head_url; ?>/calculators/rate_comparison.php"><input type="button" class="buttonsub cursor" value="Go To - Rate Comparison Calculator"></a> <a href="<?php echo $head_url; ?>/calculators/index.php"><input type="button" class="buttonsub cursor" value="Go To - Simple Calculator"></a> </div>
     <fieldset class='mall_30' style="height:100px;">
         <legend>Calculate Part-Payment EMI</legend>
         <form method="POST" action ="" autocomplete="off">
