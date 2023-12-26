@@ -66,14 +66,19 @@
                         <span class="fa-icon fa-building"></span>
 
                         <?php //if (empty($selected_value)) { ?>
-                            <select id="application_status" name="application_status" class="form-control alphaonly valid" required>
+                            <!-- <select id="application_status" name="application_status" class="form-control alphaonly valid" required>
                                 <option value="">Select Application Status</option>
                                 <?php foreach (get_dropdown('application_status', '') as $status) { ?>
                                     <option value="<?php echo $status; ?>" <?php echo ($selected_value == $status) ? 'selected' : ''; ?>><?php echo $status; ?></option>
                                 <?php } ?>
-                            </select>
+                            </select> -->
                         <?php// } else { ?>
-                            <!-- <input type="text" id="application_status" name="application_status" value="<?php echo $selected_value; ?>" readonly placeholder="Enter Application Status" class="form-control alphaonly valid" maxlength="20" required> -->
+                            <input type="text" id="application_status" name="application_status" value="<?php
+                             foreach (get_dropdown('application_status', '') as $status) {
+                                if($selected_value == $status){
+                                    echo $status;
+                                }
+                            } ?>" readonly placeholder="Enter Application Status" class="form-control alphaonly valid" maxlength="20" required>
                         <?php// } ?>
 
                         <label for="name" class="label-tag">Application Status</label>
