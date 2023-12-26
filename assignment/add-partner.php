@@ -3,10 +3,15 @@ require_once "../config/session.php";
 require_once "../config/config.php";
 require_once "../include/helper.functions.php";
 ?>
+<style>
+    .error-message {
+      color: red;
+    }
+  </style>
 <div style="margin:0 auto; width:90%; padding:10px; background-color:#fff; height:800px;">
 <form method="POST" name="add_partner_form" action="submit.php">
 <table class="gridtable" style='margin-left:2%;width:80%;'>
-<tr><th colspan="2"><input type="submit" name="add" id = "add_app" class="buttonsub" style="margin-left:10%;" value="Add" onclick="validateSalaryRange()"> </th></tr>
+<tr><th colspan="2"><input type="submit" name="add" id = "add_app" class="buttonsub" style="margin-left:10%;" value="Add" onclick="validateSalaryRange()" disabled> </th></tr>
 <tr><th>City Group: </th><td><?php echo get_dropdown('crm_master_city_sub_group','city_sub_group',"","required");?></td></tr>
 <tr><th>Loan Type: </th><td><?php echo get_dropdown(1,'loan_type',"","class='loan_type'");?></td></tr>
 <div id="error-message" class="error-message"></div>
@@ -24,15 +29,17 @@ require_once "../include/helper.functions.php";
 function validateSalaryRange() {
       var salaryFrom = parseFloat(document.getElementById('salry_from').value);
       var salaryTo = parseFloat(document.getElementById('salry_to').value);
-      var errorMessage = document.getElementById('error-message');
+      var errorMessage = document.getElementById('error-message');\
+	  var add_app = document.getElementById('add_app');
 
       // Check if salary from is greater than salary to
       if (isNaN(salaryFrom) || isNaN(salaryTo) || salaryFrom >= salaryTo) {
         errorMessage.textContent = 'Error: Salary from must be less than Salary to';
+		add_app.disabled = true;
       } else {
         errorMessage.textContent = '';
-        // Continue with your form submission logic here
-        // For example: document.getElementById('salaryForm').submit();
+		add_app.disabled = false;
+     
       }
     }
 var counter =0;
