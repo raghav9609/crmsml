@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var salry_fromInput = document.getElementById('salry_from');
     var salry_toInput = document.getElementById('salry_to');
     var add_app = document.getElementById('add_app');
-
+	alert(salry_fromInput);
     // Create the error message span
     var messageElement = document.createElement('span');
     messageElement.className = 'error-message';
