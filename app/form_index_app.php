@@ -233,10 +233,10 @@
         function validateDisbursementDate() {
             var disbursementDate = new Date(disbursementDateInput.value);
 
-            if (disbursementDate < loginDate || disbursementDate < sanctionDate) {
-            errorMessageElement.textContent = 'Disbursement Date should not be smaller than Login Date or Sanction Date.';
+            if (disbursementDate >= loginDate && disbursementDate >= sanctionDate) {
+                dateMessageElement.textContent = '';
             } else {
-                errorMessageElement.textContent = '';
+                dateMessageElement.textContent = 'Disbursement Date should not be smaller than Login Date or Sanction Date.';
             }
         }
 
