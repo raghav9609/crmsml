@@ -244,11 +244,11 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    login_date.addEventListener('input', function() {
+    logindateInput.addEventListener('input', function() {
         validateDisbursementDate();
     });
 
-    sanction_date.addEventListener('input', function() {
+    sanctiondateInput.addEventListener('input', function() {
         validateDisbursementDate();
     });
 
