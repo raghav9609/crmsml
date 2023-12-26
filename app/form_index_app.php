@@ -248,7 +248,7 @@ document.addEventListener('DOMContentLoaded', function() {
         validateDisbursement();
     });
 
-    disbursedateInput.addEventListener('input', function() {
+    disbursementInputdate.addEventListener('input', function() {
         validateDisbursement();
     });
 });
