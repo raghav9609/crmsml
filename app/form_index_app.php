@@ -229,11 +229,18 @@
 
         var disbursementDateInput = document.getElementById('disburse_date');
 
-        disbursementDateInput.addEventListener('input', function () {
+        disbursementDateInput.addEventListener('change', function () {
             var disbursementDate = new Date(disbursementDateInput.value);
 
             var dateMessageElement = document.createElement('span');
             dateMessageElement.className = 'error-message';
+            
+            // Remove any existing error message
+            var existingErrorMessage = disbursementDateInput.parentNode.querySelector('.error-message');
+            if (existingErrorMessage) {
+                existingErrorMessage.remove();
+            }
+
             disbursementDateInput.parentNode.appendChild(dateMessageElement);
 
             if (disbursementDate < loginDate || disbursementDate < sanctionDate) {
