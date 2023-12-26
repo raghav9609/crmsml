@@ -182,7 +182,9 @@
             });
         });
     });
-
+    document.getElementById('add_app').addEventListener('click', function() {
+    window.location.href = 'add_app.php';
+    });
     document.addEventListener('DOMContentLoaded', function() {
     //amount 
     var appliedAmountInput = document.getElementById('applied_amount');
