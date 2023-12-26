@@ -105,9 +105,9 @@ require_once "../include/helper.functions.php";
 				$query_to_update .= ",";
 			}
 		}
-		$query_to_update .= ",date_modified=CURDATE(),pan_card='".replace_special(trim($_REQUEST['pan_card']))."'";
+		$query_to_update .= ",updated_on=CURDATE(),pan_no='".replace_special(trim($_REQUEST['pan_card']))."'";
 		if(is_numeric($_REQUEST['alt_phone_no'])){
-			$query_to_update .= ",alt_phone=".$_REQUEST['alt_phone_no'];
+			$query_to_update .= ",alternate_phone_no=".$_REQUEST['alt_phone_no'];
 		}
 
 		echo $query_to_update .= " where id ='".replace_special($_REQUEST['cust_id'])."'";
