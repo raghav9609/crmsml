@@ -131,7 +131,6 @@ if($_REQUEST['calculate']){
 <?php } ?>
 </body></html>
 <script>
-$(".51_loan,.hl_pl_loan,.56_loan,.60_loan,.cob_2,.cob_1,.weight_gold,.loan_amt").addClass("hidden");
 
 function dots(){
 var dateBox = document.getElementsByClassName("cur_rate_emi")[0];
@@ -173,7 +172,6 @@ function loan_type_func(loan){
             $(".hl_pl_loan,.51_loan,.56_loan,.60_loan,.cob_2,.cob_1,.weight_gold,.loan_amt").val("").addClass("hidden").removeAttr("required");
         }
 }
-loan_type_func('<?php echo $loan_type; ?>');
 function cob_func(cob){
         if(cob == 1){
             $(".cob_1").removeClass("hidden").attr("required","required");
@@ -185,7 +183,11 @@ function cob_func(cob){
             $(".cob_1").addClass("hidden").removeAttr("required");
         }
 }
+$( document ).ready(function() {
+    $(".51_loan,.hl_pl_loan,.56_loan,.60_loan,.cob_2,.cob_1,.weight_gold,.loan_amt").addClass("hidden");
+    loan_type_func('<?php echo $loan_type; ?>');
 
+});
 </script>
 
 
