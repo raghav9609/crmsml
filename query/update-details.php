@@ -19,7 +19,12 @@ require_once "../include/helper.functions.php";
 		if($_REQUEST['work_city'] != ''){
 			$work_city = searchValue($_REQUEST['work_city'],'city_name', $get_city_id);
 		}
-	
+		echo $_REQUEST['work_city']."<br>";
+		print_r($get_city_id);
+
+
+		//print_r($work_city);
+
 		$comp_name_other = $comp_id = $hospital_name = $main_comp_category = $sub_comp_category = $sub_sub_comp_category = $state_comp_category = '';
 		
 	// $comp_id_qry = mysqli_query($Conn1,"select comp_id,group_id,main_company_id from pl_company where comp_name = '".mysqli_real_escape_string($Conn1,$get_company_name)."'  and is_removed = 0");

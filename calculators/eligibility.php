@@ -76,7 +76,7 @@ if($_REQUEST['calculate']){
 <legend>Calculate Eligibility</legend>
 <div class="f_14 center red error hidden">All fields are mandatory!</div>
 <div class="f_14 center green"><?php echo $msg; ?></div>
-<form action="calculate-eligibility.php" name="eligibility_form" id="eligibility_form" method="POST" >
+<form action="eligibility.php" name="eligibility_form" id="eligibility_form" method="POST" >
     
         <span class='f_14 orange fw_bold'>Loan Type:</span>
         <select name="loan_type" id="loan_type" class='' onchange="loan_type_func(this.value)" required>
