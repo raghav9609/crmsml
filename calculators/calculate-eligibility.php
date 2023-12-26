@@ -64,7 +64,7 @@ if($_REQUEST['calculate']){
 <html>
 <head>
      <title>Calculate Eligibility</title>
-     <link rel="stylesheet" type="text/css" href="<?php echo $head_url; ?>/assets/css/style.css">
+     <link rel="stylesheet" type="text/css" href="<?php echo $head_url; ?>/assets/css/style.css?v=1">
 </head>
 <body>
 <fieldset class='mall_30' style="height:200px;">
