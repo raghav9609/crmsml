@@ -11,8 +11,9 @@
     <link rel="stylesheet" type="text/css" href="<?php echo $head_url; ?>/assets/css/jquery-ui.css" />
 </head>
 <body>
-<div class="container-fluid">
-	<div class="row">
+<div class="pl-md-3 pl-2 pr-md-3 pr-2 col-12">
+    
+    <div class="gen-box white-bg">
 		<div class="col-md-12">
 			<a href="form_index_app.php"><input type="button" class="buttonsub cursor" value="Back"></a>
 			<h3>Add APplication </h3>
