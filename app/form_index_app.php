@@ -227,16 +227,23 @@ document.addEventListener('DOMContentLoaded', function () {
     disbursementDateInput.parentNode.appendChild(errorMessageElement);
 
     function validateDisbursementDate() {
-        var disbursementDate = new Date(disbursementDateInput.value);
+        var disbursementDateValue = disbursementDateInput.value.trim();
+
+        if (!disbursementDateValue) {
+            errorMessageElement.textContent = '';  // Clear the error message if the field is empty
+            return;
+        }
+
+        var disbursementDate = new Date(disbursementDateValue);
 
         if (disbursementDate > loginDate && disbursementDate > sanctionDate) {
             errorMessageElement.textContent = '';  // Clear the error message
         } else {
-            errorMessageElement.textContent = 'Disbursement Date should not be smaller than Login Date and Sanction Date.';
+            errorMessageElement.textContent = 'Disbursement Date should be greater than Login Date and Sanction Date.';
         }
     }
 
-    disbursementDateInput.addEventListener('input', function () {
+    disbursementDateInput.addEventListener('change', function () {
         validateDisbursementDate();
     });
 
