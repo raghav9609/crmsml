@@ -218,7 +218,7 @@
     });
 });//////
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     var logindateInput = document.getElementById('login_date');
     var sanctiondateInput = document.getElementById('sanction_date');
     var disbursementInputdate = document.getElementById('disburse_date');
@@ -227,30 +227,23 @@ document.addEventListener('DOMContentLoaded', function() {
     errormessageElement.className = 'error-message';
     disbursementInputdate.parentNode.appendChild(errormessageElement);
 
-    function validateDisbursementDate() {
-        alert(logindateInput);
-        var login_date = new Date(logindateInput.value) || 0;
-        var sanction_date = new Date(sanctiondateInput.value) || 0;
-        var disburse_date = new Date(disbursementInputdate.value) || 0;
+    function validateDisbursement() {
+        var login_date = new Date(logindateInput.value);
+        var sanction_date = new Date(sanctiondateInput.value);
+        var disburse_date = new Date(disbursementInputdate.value);
 
-        if (disburse_date < login_date || disburse_date < sanction_date) {
-            errormessageElement.textContent = 'Disbursement Date should not be smaller than Login Date and Sanction Date.';
-        } else {
-            errormessageElement.textContent = '';
+        if (!isNaN(login_date) && !isNaN(sanction_date) && !isNaN(disburse_date)) {
+            if (disburse_date < login_date || disburse_date < sanction_date) {
+                errormessageElement.textContent = 'Disbursement Date should not be smaller than Login Date and Sanction Date.';
+            } else {
+                errormessageElement.textContent = '';
+            }
         }
     }
 
-    logindateInput.addEventListener('change', function() {
-        validateDisbursementDate();
-    });
-
-    sanctiondateInput.addEventListener('change', function() {
-        validateDisbursementDate();
-    });
-
-    disbursementInputdate.addEventListener('change', function() {
-        validateDisbursementDate();
-    });
+    logindateInput.addEventListener('change', validateDisbursement);
+    sanctiondateInput.addEventListener('change', validateDisbursement);
+    disbursementInputdate.addEventListener('change', validateDisbursement);
 });
 //////
 // document.addEventListener('DOMContentLoaded', function () {
