@@ -170,7 +170,7 @@
                 dateFormat: 'yy-mm-dd', 
                 changeMonth: true,
                 changeYear: true,
-                yearRange: 'c-100:c+10'
+                yearRange: 'c-100:2050'
             });
 
             flatpickr('.flatpickr', {
