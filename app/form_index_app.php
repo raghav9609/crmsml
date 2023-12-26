@@ -229,12 +229,12 @@
 
         var disbursementDateInput = document.getElementById('disburse_date');
 
-        var dateMessageElement = document.createElement('span');
-        dateMessageElement.className = 'error-message';
-        disbursementDateInput.parentNode.appendChild(dateMessageElement);
-
         disbursementDateInput.addEventListener('input', function () {
             var disbursementDate = new Date(disbursementDateInput.value);
+
+            var dateMessageElement = document.createElement('span');
+            dateMessageElement.className = 'error-message';
+            disbursementDateInput.parentNode.appendChild(dateMessageElement);
 
             if (disbursementDate < loginDate || disbursementDate < sanctionDate) {
                 dateMessageElement.textContent = 'Disbursement Date should not be smaller than Login Date or Sanction Date.';
