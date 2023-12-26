@@ -68,7 +68,7 @@ require_once "../include/helper.functions.php";
 	// }
 
     	$net_income = $_REQUEST['net_month_inc'];
-		echo "asnu";
+		
         $fieds_array = array(
             'salu_id' => $_REQUEST['salutation'],
             'name' => $_REQUEST['name'],
@@ -93,13 +93,14 @@ require_once "../include/helper.functions.php";
             'ofc_email' => trim($_REQUEST['ofc_email'])
 	    );
 		echo "<br>asnu";
+		$bankimp =  implode(',',$_REQUEST['saving_acc_with_banks']);
 		$fieds_array_intt = array(
 			'salary_pay_id' => $_REQUEST['slry_paid'],
 			'pincode' => $_REQUEST['pin_code'],
 			'profession_id' => $_REQUEST['profession'],
 			'cur_comp_wrk_exp'=> $_REQUEST['ccwe'],
 			'totl_wrk_exp'=> $_REQUEST['twe'],
-			'saving_accounts_with' => implode(',',$_REQUEST['saving_acc_with_banks'])
+			'saving_accounts_with' => $bankimp
 		);
 		echo "<br>asnu";
 		$count = count($fieds_array);
