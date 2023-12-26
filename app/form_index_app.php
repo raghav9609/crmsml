@@ -228,25 +228,30 @@
 
 // document.addEventListener('DOMContentLoaded', function () {
     function datevalidate() {
-      var logindateInput = document.getElementById('login_date');
-      var sanctiondateInput = document.getElementById('sanction_date');
-      var disbursementInputdate = document.getElementById('disburse_date');
-      var submit_app = document.getElementById('submit_app');
-      var errormessageElement = document.getElementById('error-message');
+  var logindateInput = document.getElementById('login_date');
+  var sanctiondateInput = document.getElementById('sanction_date');
+  var disbursementInputdate = document.getElementById('disburse_date');
+  var submit_app = document.getElementById('submit_app');
+  var errormessageElement = document.getElementById('error-message');
 
-      // Validate Disbursement Date
-      var login_date = new Date(logindateInput.value);
-      var sanction_date = new Date(sanctiondateInput.value);
-      var disburse_date = new Date(disbursementInputdate.value);
+  // Validate Disbursement Date
+  var login_date = new Date(logindateInput.value);
+  var sanction_date = new Date(sanctiondateInput.value);
+  var disburse_date = new Date(disbursementInputdate.value);
 
-      if (disburse_date < login_date || disburse_date < sanction_date) {
-        errormessageElement.textContent = 'Disbursement Date should not be smaller than Login Date and Sanction Date.';
-        submit_app.setAttribute('disabled', 'disabled');
-      } else {
-        errormessageElement.textContent = '';
-        submit_app.removeAttribute('disabled');
-      }
-    }
+  // Set hours, minutes, seconds, and milliseconds to 0 for date-only comparison
+  login_date.setHours(0, 0, 0, 0);
+  sanction_date.setHours(0, 0, 0, 0);
+  disburse_date.setHours(0, 0, 0, 0);
+
+  if (disburse_date < login_date || disburse_date < sanction_date) {
+    errormessageElement.textContent = 'Disbursement Date should not be smaller than Login Date and Sanction Date.';
+    submit_app.setAttribute('disabled', 'disabled');
+  } else {
+    errormessageElement.textContent = '';
+    submit_app.removeAttribute('disabled');
+  }
+}
 // document.addEventListener('DOMContentLoaded', function () {
 //     var loginDate = new Date(document.getElementById('login_date').value);
 //     var sanctionDate = new Date(document.getElementById('sanction_date').value);
