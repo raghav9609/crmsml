@@ -222,16 +222,16 @@ document.addEventListener('DOMContentLoaded', function() {
     //amount 
     var logindateInput = document.getElementById('login_date');
     var sanctiondateInput = document.getElementById('sanction_date');
-    var disbursedateInput = document.getElementById('disburse_date');
+    var disbursementInputdate = document.getElementById('disburse_date');
 
     var errormessageElement = document.createElement('span');
     errormessageElement.className = 'error-message';
-    disbursementInput.parentNode.appendChild(errormessageElement);
+    disbursementInputdate.parentNode.appendChild(errormessageElement);
 
     function validateDisbursementDate() {
         var login_date = parseFloat(logindateInput.value) || 0;
         var sanction_date = parseFloat(sanctiondateInput.value) || 0;
-        var disburse_date = parseFloat(disbursedateInput.value) || 0;
+        var disburse_date = parseFloat(disbursementInputdate.value) || 0;
 
         if (login_date >= disburse_date || sanction_date >= disburse_date) {
             errormessageElement.textContent = ' Disbursement Date should not be smaller than Login Date and Sanction Date.';
