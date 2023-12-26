@@ -54,6 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function validatesalary() {
         var salry_from = parseFloat(salry_fromInput.value) || 0;
         var salry_to = parseFloat(salry_toInput.value) || 0;
+		alert(salry_to);
 
         if (salry_from >= salry_to) {
             messageElement.textContent = 'Salary from should not be smaller than salary to.';
