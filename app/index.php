@@ -414,7 +414,7 @@ $qry_ex .= " group by app.id order by app.created_on desc limit ".$offset.",".$m
 <th width="10%">Name & Mobile & City</th>
 <th width="10%">Loan amount & Loan Type</th>
 <th width="10%">Partner</th>
-<th width="10%">Bank Name</th>
+<!-- <th width="10%">Bank Name</th> -->
 <th width="10%">Application Status</th>
 <th width="10%">Application Created By</th>
 <!-- <th width="10%">Action</th> -->
@@ -587,9 +587,9 @@ if ($(this).not(":checked")) {
 <td>
     <span><?php echo $loan_amount;?></span><br/><span class="fs-12"><?php echo $loan_name;?></span>
 </td>
-<td>
+<!-- <td>
     <?php echo $partner_name;?>
-</td>
+</td> -->
 <td>
     <?php echo $name_bank_on;?>
 </td>
