@@ -58,7 +58,7 @@
                     <label for="name" class="label-tag"> Bank Name</label>
                 </div>
                 <?php
-                        $get_application_status = get_dropdown('application_status', '');
+                    
                         $selected_value = $application_status_get['value'];
                     ?>
 
@@ -68,7 +68,7 @@
                         <?php if (empty($selected_value)) { ?>
                             <select id="application_status" name="application_status" class="form-control alphaonly valid" required>
                                 <option value="">Select Application Status</option>
-                                <?php foreach ($get_application_status as $status) { ?>
+                                <?php foreach (get_dropdown('application_status', '') as $status) { ?>
                                     <option value="<?php echo $status; ?>"><?php echo $status; ?></option>
                                 <?php } ?>
                             </select>
