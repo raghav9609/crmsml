@@ -221,24 +221,27 @@
         // });
     });
     document.addEventListener('DOMContentLoaded', function() {
-        var loginDate = new Date(document.getElementById('login_date').value);
-        var sanctionDate = new Date(document.getElementById('sanction_date').value);
+        function validateDisbursementDate() {
+            var loginDate = new Date(document.getElementById('login_date').value);
+            var sanctionDate = new Date(document.getElementById('sanction_date').value);
 
-        var disbursementDateInput = document.getElementById('disburse_date');
-        alert(sanctionDate);
-        var disbursementMessageElement = document.createElement('span');
-        disbursementMessageElement.className = 'error-message';
-        disbursementDateInput.parentNode.appendChild(disbursementMessageElement);
+            var disbursementDateInput = document.getElementById('disburse_date');
+            var disbursementMessageElement = document.createElement('span');
+            disbursementMessageElement.className = 'error-message';
+            disbursementDateInput.parentNode.appendChild(disbursementMessageElement);
 
-        disbursementDateInput.addEventListener('input', function() {
-            var disbursementDate = new Date(disbursementDateInput.value);
+            disbursementDateInput.addEventListener('input', function() {
+                var disbursementDate = new Date(disbursementDateInput.value);
 
-            if (disbursementDate < loginDate || disbursementDate < sanctionDate) {
-                disbursementMessageElement.textContent = 'Disbursement date should not be smaller than Login Date or Sanction Date.';
-            } else {
-                disbursementMessageElement.textContent = '';
-            }
-        });
+                if (disbursementDate < loginDate || disbursementDate < sanctionDate) {
+                    disbursementMessageElement.textContent = 'Disbursement date should not be smaller than Login Date or Sanction Date.';
+                } else {
+                    disbursementMessageElement.textContent = '';
+                }
+            });
+        }
+
+        validateDisbursementDate(); // Call the function to initialize the validation
     });
 </script>
 </form>
