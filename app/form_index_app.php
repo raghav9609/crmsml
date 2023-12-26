@@ -194,7 +194,7 @@
     messageElement.className = 'error-message';
     disbursementInput.parentNode.appendChild(messageElement);
 
-    disbursementInput.addEventListener('input', function() {
+    function validateDisbursement() {
         var disbursementAmount = parseFloat(disbursementInput.value) || 0;
 
         if (disbursementAmount < appliedAmount || disbursementAmount < sanctionAmount) {
@@ -204,6 +204,21 @@
         } else {
             messageElement.textContent = '';
         }
+    }
+
+    disbursementInput.addEventListener('input', function() {
+        validateDisbursement();
+    });
+
+    var appliedAmountInput = document.getElementById('applied_amount');
+    var sanctionAmountInput = document.getElementById('sanction_amount');
+
+    appliedAmountInput.addEventListener('input', function() {
+        validateDisbursement();
+    });
+
+    sanctionAmountInput.addEventListener('input', function() {
+        validateDisbursement();
     });
 });
     document.addEventListener('DOMContentLoaded', function () {
