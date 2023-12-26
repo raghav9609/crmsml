@@ -58,7 +58,7 @@ if($_REQUEST['calculate']) {
 <link rel="stylesheet" type="text/css" href="../../include/style.css"> 
 </head>
 <body>
-    <div style="margin-left: 25px; margin-top: 25px;"><a href="/sugar/calculators/"><input type="button" class="buttonsub cursor" value="Go To - Simple Calculator"></a></div>
+    <div style="margin-left: 25px; margin-top: 25px;"><a href="<?php echo $head_url; ?>/calculators/"><input type="button" class="buttonsub cursor" value="Go To - Simple Calculator"></a></div>
     <fieldset class='mall_30' style="height: 100px;">
     <legend>Rate Comparison</legend>
         <form method="POST" action ="" autocomplete="off">
@@ -80,20 +80,6 @@ if($_REQUEST['calculate']) {
             </div> 
         </form>
     </fieldset>
-    <!-- <center> -->
-        <!-- <div> -->
-            <?php //echo $success; ?>
-        <!-- </div> -->
-        <!-- <div> -->
-            <?php //echo $success_2; ?>
-        <!-- </div> -->
-        <!-- <div> -->
-            <?php //echo $additional_info; ?>
-        <!-- </div> -->
-        <!-- <div> -->
-            <?php //echo $additional_info_2; ?>
-        <!-- </div> -->
-    <!-- </center><br> -->
     <?php if($cur_rate_emi != "" && $emi != "") { ?>
     <table class="gridtable ml50" width="90%">
         <tr>
@@ -110,27 +96,6 @@ if($_REQUEST['calculate']) {
         </tr>
     </table>
     <?php } ?>
-    <?php //if(!empty($array)) { ?>
-    <!-- <table class="gridtable ml50" width="90%"> -->
-        <!-- <tr> -->
-            <!-- <th>Months</th> -->
-            <!-- <th>Princ b/f</th> -->
-            <!-- <th>EMI</th> -->
-            <!-- <th>Intt payable</th> -->
-            <!-- <th>Principal repaid</th> -->
-            <!-- <th>Principal c/f</th> -->
-        <!-- </tr> -->
-        <?php
-            //foreach($array as $arr_key => $arr_val) {
-            //    echo "<tr><td>".$arr_key."</td>";
-            //    foreach($arr_val as $val) {
-            //        echo "<td>".number_format($val)."</td>";
-            //   }
-            //   echo "</tr>";
-            //}
-        ?>
-    <!-- </table> -->
-<?php //} ?>
 <br><br>
 </body>
 </html>
@@ -169,4 +134,3 @@ else {
     }
 }
 </script>
-<?php require_once "../../include/footer_close.php"; ?>
