@@ -185,9 +185,8 @@
 
     document.addEventListener('DOMContentLoaded', function() {
     //amount 
-    var appliedAmount = parseFloat(document.getElementById('applied_amount').value) || 0;
-    var sanctionAmount = parseFloat(document.getElementById('sanction_amount').value) || 0;
-
+    var appliedAmountInput = document.getElementById('applied_amount');
+    var sanctionAmountInput = document.getElementById('sanction_amount');
     var disbursementInput = document.getElementById('disbursed_amount');
 
     var messageElement = document.createElement('span');
@@ -195,27 +194,26 @@
     disbursementInput.parentNode.appendChild(messageElement);
 
     function validateDisbursement() {
+        var appliedAmount = parseFloat(appliedAmountInput.value) || 0;
+        var sanctionAmount = parseFloat(sanctionAmountInput.value) || 0;
         var disbursementAmount = parseFloat(disbursementInput.value) || 0;
 
-        if (disbursementAmount < appliedAmount || disbursementAmount < sanctionAmount) {
-            messageElement.textContent = 'Disbursement amount should not be smaller than Applied Amount or Sanction Amount.';
+        if (appliedAmount >= disbursementAmount || sanctionAmount >= disbursementAmount) {
+            messageElement.textContent = 'Applied Amount and Sanction Amount should be smaller than Disbursement Amount.';
         } else {
             messageElement.textContent = '';
         }
     }
-
-    disbursementInput.addEventListener('input', function() {
-        validateDisbursement();
-    });
-
-    var appliedAmountInput = document.getElementById('applied_amount');
-    var sanctionAmountInput = document.getElementById('sanction_amount');
 
     appliedAmountInput.addEventListener('input', function() {
         validateDisbursement();
     });
 
     sanctionAmountInput.addEventListener('input', function() {
+        validateDisbursement();
+    });
+
+    disbursementInput.addEventListener('input', function() {
         validateDisbursement();
     });
 });
