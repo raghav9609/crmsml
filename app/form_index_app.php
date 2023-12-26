@@ -233,8 +233,8 @@ document.addEventListener('DOMContentLoaded', function() {
         var sanction_date = new Date(sanctiondateInput.value) || 0;
         var disburse_date = new Date(disbursementInputdate.value) || 0;
 
-        if (login_date >= disburse_date || sanction_date >= disburse_date) {
-            errormessageElement.textContent = ' Disbursement Date should not be smaller than Login Date and Sanction Date.';
+        if (disburse_date < login_date || disburse_date < sanction_date) {
+            errormessageElement.textContent = 'Disbursement Date should not be smaller than Login Date and Sanction Date.';
         } else {
             errormessageElement.textContent = '';
         }
