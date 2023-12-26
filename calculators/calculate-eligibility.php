@@ -1,5 +1,4 @@
 <?php
-$dialog_pop_up_disabled_flag = 1;
 require_once(dirname(__FILE__) . '/../config/session.php');
 require_once(dirname(__FILE__) . '/../helpers/common-helper.php');
 require_once(dirname(__FILE__) . '/../include/header.php');
@@ -7,14 +6,18 @@ require_once(dirname(__FILE__) . '/../config/config.php');
 
 
 if($_REQUEST['calculate']){
+    echo "hello2"
     $loan_type = replace_special($_REQUEST['loan_type']);
     $net_incm = replace_special($_REQUEST['net_incm']);
+    echo "hello3"
     $foir = replace_special($_REQUEST['foir'])/100;
     $loan_emi = replace_special($_REQUEST['ext_emi']);
     $cur_rate_emi = replace_special($_REQUEST['cur_rate_emi']);
     $rate = replace_special($cur_rate_emi)/1200;
     $nth_pl = replace_special($_REQUEST['nth_multiplier']);
+    echo "hello4"
     $elig_msg = array();
+    echo "hello5"
     if($loan_type == 54){
         $tennure_get = array('2','3','4','5');
         foreach($tennure_get as $tennure){
@@ -31,30 +34,43 @@ if($_REQUEST['calculate']){
                 $elig_msg[] = $cal_gen_final;
         }
     }else if($loan_type == 55){
+        echo "hello6"
         $net_incm_on = replace_special($_REQUEST['cob_nth_1']);
         $net_incm_tw = replace_special($_REQUEST['cob_nth_2']);
         $cur_emi_on = replace_special($_REQUEST['cob_emi_1']);
         $cur_emi_tw = replace_special($_REQUEST['cob_emi_2']);
+        echo "hello7"
         $tennure_get = array('15','20','25');
         foreach($tennure_get as $tennure){
         $calculation_gen = ($net_incm  * $foir) - $loan_emi;
+        echo "hello8"
         if($calculation_gen < '0'){$calculation_gen = '0';}
+        echo "hello10"
             $calculation_gen_double = ($net_incm_on  * $foir) - $cur_emi_on;
             $calculation_gen_three = ($net_incm_tw  * $foir) - $cur_emi_tw;
 			$cal_gen = 1 - pow(1 + $rate, - ($tennure*12));
+            echo "hello11"
         if($coborrower =='1'){   
+            echo "hello9"
             $cal_gen_final_pre = round(($calculation_gen + $calculation_gen_double) * ($cal_gen / $rate));
             $cal_gen_final_pre1 = round($calculation_gen_double * ($cal_gen / $rate));
+            echo "hello13"
         }else if($coborrower =='2'){
+            echo "hello12"
             $cal_gen_final_pre = round(($calculation_gen + $calculation_gen_double + $calculation_gen_three) * ($cal_gen / $rate));
             $cal_gen_final_pre2 = round(($calculation_gen + $calculation_gen_three) * ($cal_gen / $rate));
+            echo "hello14"
             $cal_gen_final_pre1 = round($calculation_gen_three * ($cal_gen / $rate));
             $cal_gen_final_pre3 = round(($calculation_gen_three + $calculation_gen_double) * ($cal_gen / $rate));
+            echo "hello15"
         }else{
             $cal_gen_final_pre = round($calculation_gen * ($cal_gen / $rate));
+            echo "hello16"
         }
             $head_elig_calc = max($cal_gen_final_pre,$cal_gen_final_pre1,$cal_gen_final_pre2,$cal_gen_final_pre3);
+            echo "hello17"
             $elig_msg[] = $head_elig_calc;
+            echo "hello18"
         }    
         $msg = '';
     }
@@ -123,7 +139,7 @@ if($_REQUEST['calculate']){
 
 </form>
 </fieldset>
-<?php if(!empty($elig_msg)){ ?>
+<?php if(!empty($elig_msg)){ echo "hello1";?>
 <table class="gridtable ml50" width="70%">
     <tr><th>Tennure</th><?php foreach($tennure_get as $get_tennure){?><th><?php echo $get_tennure." years"; ?></th><?php } ?></tr>
     <tr><th>Eligible Amount</th><?php foreach($elig_msg as $elig){?><td><?php echo number_format($elig); ?></td><?php } ?></tr>
@@ -160,7 +176,6 @@ else{
 }
 
 function loan_type_func(loan){
-    alert(loan);
         if(loan == 54){
             $(".hl_pl_loan,.56_loan").removeClass("hidden").attr("required","required");
             $(".51_loan,.60_loan,.cob_1,.cob_2,.weight_gold,.loan_amt").val("").addClass("hidden").removeAttr("required");
