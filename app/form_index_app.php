@@ -229,9 +229,9 @@ document.addEventListener('DOMContentLoaded', function() {
     disbursementInputdate.parentNode.appendChild(errormessageElement);
 
     function validateDisbursementDate() {
-        var login_date = parseFloat(logindateInput.value) || 0;
-        var sanction_date = parseFloat(sanctiondateInput.value) || 0;
-        var disburse_date = parseFloat(disbursementInputdate.value) || 0;
+        var login_date = new Date(logindateInput.value) || 0;
+        var sanction_date = new Date(sanctiondateInput.value) || 0;
+        var disburse_date = new Date(disbursementInputdate.value) || 0;
 
         if (login_date >= disburse_date || sanction_date >= disburse_date) {
             errormessageElement.textContent = ' Disbursement Date should not be smaller than Login Date and Sanction Date.';
