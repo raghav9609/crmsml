@@ -60,7 +60,14 @@
 
                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
                     <span class="fa-icon fa-building"></span>
-                    <input type="text" id="application_status" name="application_status" value="<?php echo ($application_status_get['value']) ;?>" placeholder="Enter Application Status" class="form-control alphaonly valid"  <?php echo ($application_status_get['value'] != '') ? 'readonly' : ''; ?> maxlength="20" required>
+                    <input type="text" id="application_status" name="application_status" value="<?php
+                     foreach(get_dropdown('application_status','') as $status){
+                            if($application_status_get['value'] == $status){
+                                echo $status;
+                            }
+                     }
+                      
+                     ?>" placeholder="Enter Application Status" class="form-control alphaonly valid"  <?php echo ($application_status_get['value'] != '') ? 'readonly' : ''; ?> maxlength="20" required>
                     <label for="name" class="label-tag"> Application Status</label>
                 </div>
                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
