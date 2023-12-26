@@ -217,32 +217,32 @@
         validateDisbursement();
     });
 });
-    document.addEventListener('DOMContentLoaded', function () {
-        var loginDate = new Date(document.getElementById('login_date').value);
-        var sanctionDate = new Date(document.getElementById('sanction_date').value);
+document.addEventListener('DOMContentLoaded', function () {
+    var loginDate = new Date(document.getElementById('login_date').value);
+    var sanctionDate = new Date(document.getElementById('sanction_date').value);
 
-        var disbursementDateInput = document.getElementById('disburse_date');
-        var errorMessageElement = document.createElement('span');
-        errorMessageElement.className = 'error-message';
-        disbursementDateInput.parentNode.appendChild(errorMessageElement);
+    var disbursementDateInput = document.getElementById('disburse_date');
+    var errorMessageElement = document.createElement('span');
+    errorMessageElement.className = 'error-message';
+    disbursementDateInput.parentNode.appendChild(errorMessageElement);
 
-        function validateDisbursementDate() {
-            var disbursementDate = new Date(disbursementDateInput.value);
+    function validateDisbursementDate() {
+        var disbursementDate = new Date(disbursementDateInput.value);
 
-            if (disbursementDate >= loginDate && disbursementDate >= sanctionDate) {
-                errorMessageElement.textContent = '';
-            } else {
-                errorMessageElement.textContent = 'Disbursement Date should not be smaller than Login Date or Sanction Date.';
-            }
+        if (disbursementDate > loginDate && disbursementDate > sanctionDate) {
+            errorMessageElement.textContent = '';  // Clear the error message
+        } else {
+            errorMessageElement.textContent = 'Disbursement Date should be greater than Login Date and Sanction Date.';
         }
+    }
 
-        disbursementDateInput.addEventListener('input', function () {
-            validateDisbursementDate();
-        });
-
-        // Call the validation on page load
+    disbursementDateInput.addEventListener('input', function () {
         validateDisbursementDate();
     });
+
+    // Call the validation on page load
+    validateDisbursementDate();
+});
     
 </script>
 </form>
