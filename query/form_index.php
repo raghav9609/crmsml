@@ -323,11 +323,11 @@
                                     <div class="exclamatry-text">Residence Details</div>   
                                 </div>
                         
-                                    <div class="form-group col-xl-2 col-lg-4 col-md-6">
+                                    <!-- <div class="form-group col-xl-2 col-lg-4 col-md-6">
                                     <span class="fa-icon fa-home"></span>
                                     <?php //echo get_dropdown('residential_type', 'residential_type', $rented_id, 'required'); ?>
                                     <label for="residential_type" class="label-tag">Type of Residence</label>
-                                </div>
+                                </div> -->
                             
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
                                     <span class="fa-icon fa-map-marker"></span>
