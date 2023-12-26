@@ -244,6 +244,8 @@ document.addEventListener('DOMContentLoaded', function () {
     logindateInput.addEventListener('change', validateDisbursementDate());
     sanctiondateInput.addEventListener('change', validateDisbursementDate());
     disbursementInputdate.addEventListener('change', validateDisbursementDate());
+
+    validateDisbursementDate();
 });
 //////
 // document.addEventListener('DOMContentLoaded', function () {
