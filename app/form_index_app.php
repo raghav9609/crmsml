@@ -232,10 +232,10 @@ document.addEventListener('DOMContentLoaded', function () {
         var sanction_date = parseDateString(sanctiondateInput.value);
         var disburse_date = parseDateString(disbursementInputdate.value);
 
-        if (!login_date || !sanction_date || !disburse_date) {
-            errormessageElement.textContent = 'Invalid date format';
-            return;
-        }
+        // if (!login_date || !sanction_date || !disburse_date) {
+        //     errormessageElement.textContent = 'Invalid date format';
+        //     return;
+        // }
 
         if (disburse_date < login_date || disburse_date < sanction_date) {
             errormessageElement.textContent = 'Disbursement Date should not be smaller than Login Date and Sanction Date.';
