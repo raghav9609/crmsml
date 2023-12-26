@@ -700,7 +700,5 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
 </div>
 </body>
 </html>
-<?php
-}
-include("../include/footer_close.php"); ?>
+<?php } ?>
 

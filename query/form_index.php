@@ -1078,10 +1078,10 @@ if (in_array($loan_type, $language_barrier_loan_type)) {?>
     </script>
 <script src="../assets/js/common-function.js"></script> 
 <?php if(in_array($user,$user_new_status) || in_array($loan_type,$loan_type_new_status) ){ ?>
-<script src="../assets/js/query-journey-new-status.js?v=15"></script>
+<script src="../assets/js/query-journey-new-status.js?v=16"></script>
 <script src="../assets/js/case-follow-up.js?v=4"></script>
 <?php } else{ ?>
-<script src="../assets/js/query-journey.js?v=4"></script>
+<script src="../assets/js/query-journey.js?v=5"></script>
 <?php } ?>
 <script>
 $(document).ready(function() {
