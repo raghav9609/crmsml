@@ -230,8 +230,8 @@
        // Variable to check if the event listener has been attached
        var eventListenerAttached = false;
 
-       // Function to handle the focus event
-       function handleFocusEvent() {
+       // Function to handle the input event
+       function handleInputEvent() {
            var disbursementDate = new Date(disbursementDateInput.value);
 
            var dateMessageElement = document.createElement('span');
@@ -251,12 +251,9 @@
            }
        }
 
-       // Attach the focus event listener on the first focus
-       disbursementDateInput.addEventListener('focus', function () {
-           if (!eventListenerAttached) {
-               handleFocusEvent();
-               eventListenerAttached = true;
-           }
+       // Attach the input event listener
+       disbursementDateInput.addEventListener('input', function () {
+           handleInputEvent();
        });
    });
     
