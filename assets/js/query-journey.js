@@ -126,10 +126,8 @@ $(document).ready(function(){
     }
     
     function occupation(){
-     
       var occupation = $('[name="occupation_id"] option:selected').val();
       var loan_type = $("#loan_type").val();
-      alert(occupation);
       if(occupation == 47 || occupation == 48){
         $(".self_emp").removeClass('hidden').attr('required','true');
         $(".salaried").addClass('hidden').val('').removeAttr('required');
