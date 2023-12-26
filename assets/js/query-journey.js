@@ -409,7 +409,7 @@ function card_tocard(){
           $.ajax({      
             method:'POST',
             data:'nature_of_business='+nature_of_business+'&val='+industry_id,
-              url: "../../include/get-industry-id.php",
+              url: "/../include/get-industry-id.php",
               success: function(response) {                                          
                         $("#industry_type").html(response)
               }                                                                                 
