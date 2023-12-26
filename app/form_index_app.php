@@ -232,7 +232,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (disbursementDate > loginDate && disbursementDate > sanctionDate) {
             errorMessageElement.textContent = '';  // Clear the error message
         } else {
-            errorMessageElement.textContent = 'Disbursement Date should be greater than Login Date and Sanction Date.';
+            errorMessageElement.textContent = 'Disbursement Date should not be smaller than Login Date and Sanction Date.';
         }
     }
 
