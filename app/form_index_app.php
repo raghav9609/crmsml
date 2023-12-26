@@ -193,6 +193,7 @@
         var messageElement = document.createElement('span');
         messageElement.className = 'error-message';
         disbursementInput.parentNode.appendChild(messageElement);
+        // disbursementDateInput.parentNode.appendChild(messageElement);
 
         disbursementInput.addEventListener('input', function() {
             var disbursementAmount = parseFloat(disbursementInput.value) || 0;
@@ -203,6 +204,8 @@
                 messageElement.textContent = '';
             }
         });
+
+       
     });
     document.addEventListener('DOMContentLoaded', function () {
         var loginDate = new Date(document.getElementById('login_date').value);
