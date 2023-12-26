@@ -68,7 +68,10 @@ require_once "../include/helper.functions.php";
 	// }
 
     	$net_income = $_REQUEST['net_month_inc'];
-		
+		$curexp = $_REQUEST['ccwe'];
+		$ttlexp = $_REQUEST['twe'];
+		$curwrkexp = date("Y-m-d",strtotime("-'.$curexp.' Months"));
+		$ttlwrkexp = date("Y-m-d",strtotime("-'.$ttlexp.' Months"));
         $fieds_array = array(
             'salutation_id' => $_REQUEST['salutation'],
             'name' => $_REQUEST['name'],
@@ -89,8 +92,8 @@ require_once "../include/helper.functions.php";
             'office_email_id' => trim($_REQUEST['ofc_email']),
 			'mode_of_salary' => $_REQUEST['slry_paid'],
 			'pincode' => $_REQUEST['pin_code'],
-			'current_work_exp'=> $_REQUEST['ccwe'],
-			'total_work_exp'=> $_REQUEST['twe']
+			'current_work_exp'=> $curwrkexp,
+			'total_work_exp'=> $ttlwrkexp
 	    );
 
 		echo "<br>asnu";
