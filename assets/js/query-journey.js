@@ -382,40 +382,40 @@ function card_tocard(){
      $('[name="exis_loans"]').on('change',function (){
       existing_loan();
     });
-    $('[name="nature_of_business"]').on('change',function (){
-      industry_type();
-    });
-    $('[name="type_of_registration"]').on('change',function (){
-      type_of_registration();
-    });
-    function bank_process_insert(){
-      if($("#case_id").val() != '' && $("#case_id").val() != '0' && $('#form_step3').valid()){
-        $.ajax({      
-                  method:'POST',
-                  data:$("#form_step3").serialize(),
-                  url: "/sugar/cases/sent-to-bank-new.php",
-                  success: function(data){
-                    if($.trim(data) != ''){
-                      window.open(data,'BAJAJ',config='height=1200,width=1200,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,directories=no,status=no');
-                    }
-                    console.log("success from step 3");                                    
-                  }                                                                                 
-                });
-      }
-    }
-    function industry_type(){
-      var nature_of_business = $("#nature_of_business option:selected").val();
-      if(nature_of_business != ''){
-          $.ajax({      
-            method:'POST',
-            data:'nature_of_business='+nature_of_business+'&val='+industry_id,
-              url: "/../include/get-industry-id.php",
-              success: function(response) {                                          
-                        $("#industry_type").html(response)
-              }                                                                                 
-            });
-        }
-    }
+    // $('[name="nature_of_business"]').on('change',function (){
+    //   industry_type();
+    // });
+    // $('[name="type_of_registration"]').on('change',function (){
+    //   type_of_registration();
+    // });
+    // function bank_process_insert(){
+    //   if($("#case_id").val() != '' && $("#case_id").val() != '0' && $('#form_step3').valid()){
+    //     $.ajax({      
+    //               method:'POST',
+    //               data:$("#form_step3").serialize(),
+    //               url: "/sugar/cases/sent-to-bank-new.php",
+    //               success: function(data){
+    //                 if($.trim(data) != ''){
+    //                   window.open(data,'BAJAJ',config='height=1200,width=1200,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,directories=no,status=no');
+    //                 }
+    //                 console.log("success from step 3");                                    
+    //               }                                                                                 
+    //             });
+    //   }
+    // }
+    // function industry_type(){
+    //   var nature_of_business = $("#nature_of_business option:selected").val();
+    //   if(nature_of_business != ''){
+    //       $.ajax({      
+    //         method:'POST',
+    //         data:'nature_of_business='+nature_of_business+'&val='+industry_id,
+    //           url: "/../include/get-industry-id.php",
+    //           success: function(response) {                                          
+    //                     $("#industry_type").html(response)
+    //           }                                                                                 
+    //         });
+    //     }
+    // }
     
     loan_type();
     occupation();
@@ -429,8 +429,8 @@ function card_tocard(){
     card_tocard();
     credit_running();
     existing_loan();
-    industry_type();
-    type_of_registration();
+    // industry_type();
+    // type_of_registration();
 
     function verticalToggle(btnid){
       $('#form_'+btnid).prev('.brdr-top-gray').addClass('step-green').removeClass('blue-bg');
