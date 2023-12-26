@@ -49,10 +49,10 @@
     $citytext = (($city_name != '')? " and residing in <b class='fw_bold'> $city_name </b></li> " : "</li>") ;
    // echo $occup;
     $occcc = get_name('master_code_id',$occup);
-    print_r($occcc);
+    
     $occuptext = (($occup != '' && $occup != 0) ? "<li>Customer is  <b class='fw_bold'>".$occcc['value']." </b>" : "");
     $mainbank = get_name('master_code_id',$main_account);
-    $accounttext = (($main_account !='' && $main_account !=0) ? "<li>Customer has account in  <b class='fw_bold'>$mainbank </b></li>" : "");
+    $accounttext = (($main_account !='' && $main_account !=0) ? "<li>Customer has account in  <b class='fw_bold'>".$mainbank['value']." </b></li>" : "");
     $loanamounttext = ($loan_amt != 0 && $loan_amt != '') ? " of <b class='fw_bold'> $amt </b>" : "";
     echo  $nametext." looking for a <b class='fw_bold'>".$loantype_name."</b>".$loanamounttext. $citytext.$occuptext.$dobtext.$accounttext; ?>
 </ul>
@@ -215,7 +215,9 @@
                                 </div>
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
                                     <span class="fa-icon fa-briefcase"></span>
-                                    <?php echo get_dropdown('7','occupation_id',$occup,'required'); ?>
+                                    <?php echo $occup;
+                                     
+                                    echo get_dropdown('7','occupation_id',$occup,'required'); ?>
                                     <label for="occupation" class="label-tag">Employment Type</label>
                                 </div>
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6 salaried company_name_input">
