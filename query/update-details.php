@@ -106,7 +106,7 @@ require_once "../include/helper.functions.php";
 		$count = count($fieds_array);
 		$count_intt = count($fieds_array_intt);
 		$main_array = $intt_array = 0;
-		$query_to_update = "update tbl_mint_customer_info set ";
+		$query_to_update = "update crm_customer set ";
 		foreach($fieds_array as $key => $value){
 			++$main_array;
 			$query_to_update .= $key ." = '".replace_special($value)."'";
