@@ -197,7 +197,7 @@
         var messageElement = document.createElement('span');
         messageElement.className = 'error-message';
         disbursementInput.parentNode.appendChild(messageElement);
-        disbursementDateInput.parentNode.appendChild(messageElement);
+        // disbursementDateInput.parentNode.appendChild(messageElement);
 
         disbursementInput.addEventListener('input', function() {
             var disbursementAmount = parseFloat(disbursementInput.value) || 0;
@@ -225,7 +225,7 @@
         var sanctionDate = new Date(document.getElementById('sanction_date').value);
 
         var disbursementDateInput = document.getElementById('disburse_date');
-        alert(loginDate,sanctionDate,disbursementDateInput);
+        alert(disbursementDateInput);
         var disbursementMessageElement = document.createElement('span');
         disbursementMessageElement.className = 'error-message';
         disbursementDateInput.parentNode.appendChild(disbursementMessageElement);
