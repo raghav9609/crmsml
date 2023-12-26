@@ -68,7 +68,7 @@ require_once "../include/helper.functions.php";
 	// }
 
     	$net_income = $_REQUEST['net_month_inc'];
-		$curexp = $_REQUEST['ccwe'];
+		echo "<br>".$curexp = $_REQUEST['ccwe'];
 		$ttlexp = $_REQUEST['twe'];
 		echo strtotime("-'.$curexp.' Months");
 		$curwrkexp = date("Y-m-d",strtotime("-'.$curexp.' Months"));
