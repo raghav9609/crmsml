@@ -243,9 +243,8 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    disbursementDateInput.addEventListener('input', function () {
-        // Introduce a 300ms delay before validating the date
-        setTimeout(validateDisbursementDate, 300);
+    disbursementDateInput.addEventListener('change', function () {
+        validateDisbursementDate();
     });
 
     // Call the validation on page load
