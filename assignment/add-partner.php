@@ -9,15 +9,13 @@ require_once "../include/helper.functions.php";
 <tr><th colspan="2"><input type="submit" name="add" id = "add_app" class="buttonsub" style="margin-left:10%;" value="Add"> </th></tr>
 <tr><th>City Group: </th><td><?php echo get_dropdown('crm_master_city_sub_group','city_sub_group',"","required");?></td></tr>
 <tr><th>Loan Type: </th><td><?php echo get_dropdown(1,'loan_type',"","class='loan_type'");?></td></tr>
-<tr><th>Salary Range</td><td><input type="tel" name="salry_from" >  <input type="tel" name="salry_to" ><span id="salry_error" class="error-message"></span></td></tr>
-<tr><th>Loan Amount</th><td><input type="tel" name="loan_frm" >  <input type="tel" name="loan_to" ></td></tr>
+<tr><th>Salary Range</td><td><input type="tel" id = "salry_from" name="salry_from" >  <input type="tel" id = "salry_to" name="salry_to" ><span id="salry_error" class="error-message"></span></td></tr>
+<tr><th>Loan Amount</th><td><input type="tel" id = "loan_frm"  name="loan_frm" >  <input type="tel" id = "loan_to" name="loan_to" ></td></tr>
 <tr><th colspan="2"><input type="button" class="" name="use_frst" data-id="1" id="use_frst" style="margin-left:10%;" value="Add Users" onclick="user_fun('user_ist', this.id); user_fun('use_secnd', this.id);"></th></tr>
 <tr><th>Ist Shift User</th><td class="user_ist"> </td></tr>
 <tr><th>IInd Shift User</th><td class="use_secnd"> </td></tr>
 	</table>
 	</form></div>
-	<script src="https://astechnos.com/crmsml/assets/js/jquery-1.10.2.js"></script>
-<script src="https://astechnos.com/crmsml/assets/js/jquery-ui.js"></script>
 <script>
 var counter =0;
 
