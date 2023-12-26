@@ -16,6 +16,8 @@ require_once "../include/helper.functions.php";
 <tr><th>IInd Shift User</th><td class="use_secnd"> </td></tr>
 	</table>
 	</form></div>
+	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
 <script>
 var counter =0;
 
