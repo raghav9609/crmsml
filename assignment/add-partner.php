@@ -43,21 +43,19 @@ function user_fun(type,id){
 	  }  
 }
 document.addEventListener('DOMContentLoaded', function() {
-    var salry_from = document.getElementById('salry_from');
-    var salry_to = document.getElementById('salry_to');
+    var salry_fromInput = document.getElementById('salry_from');
+    var salry_toInput = document.getElementById('salry_to');
     var add_app = document.getElementById('add_app');
-    // var loan_to = document.getElementById('loan_to');
 
     var messageElement = document.createElement('span');
     messageElement.className = 'error-message';
-    salry_from.parentNode.appendChild(messageElement);
+    salry_fromInput.parentNode.appendChild(messageElement);
 
     function validatesalary() {
-        var salry_from = parseFloat(salry_from.value) || 0;
-        var salry_to = parseFloat(salry_to.value) || 0;
-        // var disbursementAmount = parseFloat(disbursementInput.value) || 0;
+        var salry_from = parseFloat(salry_fromInput.value) || 0;
+        var salry_to = parseFloat(salry_toInput.value) || 0;
 
-        if (salry_from >= salry_to ) {
+        if (salry_from >= salry_to) {
             messageElement.textContent = 'Salary from should not be smaller than salary to.';
             add_app.setAttribute('disabled', 'disabled');
         } else {
@@ -66,17 +64,16 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    salry_from.addEventListener('input', function() {
+    salry_fromInput.addEventListener('input', function() {
         validatesalary();
     });
 
-    salry_to.addEventListener('input', function() {
+    salry_toInput.addEventListener('input', function() {
         validatesalary();
     });
 
-	validatesalary();
+    validatesalary();
 });
-
 
 </script>
 
