@@ -70,7 +70,7 @@ require_once "../include/helper.functions.php";
     	$net_income = $_REQUEST['net_month_inc'];
 		
         $fieds_array = array(
-            'salu_id' => $_REQUEST['salutation'],
+            'salutation_id' => $_REQUEST['salutation'],
             'name' => $_REQUEST['name'],
             'dob' => $_REQUEST['dob'],
             'comp_category'=>$comp_category,
