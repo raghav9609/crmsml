@@ -16,7 +16,7 @@ require_once "../include/helper.functions.php";
 <tr><th>Loan Type: </th><td><?php echo get_dropdown(1,'loan_type',"","class='loan_type'");?></td></tr>
 <div id="error-message" class="error-message"></div>
 <tr><th>Salary Range</td><td><input type="tel" id = "salry_from" name="salry_from" oninput="validateSalaryRange()">  <input type="tel" id = "salry_to" name="salry_to" oninput="validateSalaryRange()"></td></tr>
-<tr><th>Loan Amount</th><td><input type="tel" id = "loan_frm"  name="loan_frm" oninput="validateSalaryRange()">  <input type="tel" id = "loan_to" name="loan_to" oninput="validateSalaryRange()"></td></tr>
+<tr><th>Loan Amount</th><td><input type="tel" id = "loan_frm"  name="loan_frm" oninput="validateLoanRange()">  <input type="tel" id = "loan_to" name="loan_to" oninput="validateLoanRange()"></td></tr>
 <tr><th colspan="2"><input type="button" class="" name="use_frst" data-id="1" id="use_frst" style="margin-left:10%;" value="Add Users" onclick="user_fun('user_ist', this.id); user_fun('use_secnd', this.id);"></th></tr>
 <tr><th>Ist Shift User</th><td class="user_ist"> </td></tr>
 <tr><th>IInd Shift User</th><td class="use_secnd"> </td></tr>
