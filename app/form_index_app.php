@@ -57,18 +57,27 @@
                     <input type="text" id="bank_name" name="bank_name" value="<?php echo ($get_bank_name['value']) ;?>" placeholder="Enter Bank Name" class="form-control alphaonly valid" maxlength="20" <?php echo ($get_bank_name['value'] != '') ? 'disabled' : 'disabled'; ?>  required >
                     <label for="name" class="label-tag"> Bank Name</label>
                 </div>
-                <?php //$get_application_satus = get_dropdown('application_status','') ?>
-                <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                    <span class="fa-icon fa-building"></span>
-                   
-                    <input type="text" id="application_status" name="application_status" value="<?php 
-                    $get_application_satus = get_dropdown('application_status', '');
-                    foreach ($get_application_satus as $status) {
-                        echo ($application_status_get['value'] == $status) ? $status : '';
-                    } ?>" readonly placeholder="Enter Application Status" class="form-control alphaonly valid" maxlength="20" required>
-                  
-                    <label for="name" class="label-tag">Application Status</label>
-                </div>
+                <?php
+                        $get_application_status = get_dropdown('application_status', '');
+                        $selected_value = $application_status_get['value'];
+                    ?>
+
+                    <div class="form-group col-xl-2 col-lg-4 col-md-6">
+                        <span class="fa-icon fa-building"></span>
+
+                        <?php if (empty($selected_value)) { ?>
+                            <select id="application_status" name="application_status" class="form-control alphaonly valid" required>
+                                <option value="">Select Application Status</option>
+                                <?php foreach ($get_application_status as $status) { ?>
+                                    <option value="<?php echo $status; ?>"><?php echo $status; ?></option>
+                                <?php } ?>
+                            </select>
+                        <?php } else { ?>
+                            <input type="text" id="application_status" name="application_status" value="<?php echo $selected_value; ?>" readonly placeholder="Enter Application Status" class="form-control alphaonly valid" maxlength="20" required>
+                        <?php } ?>
+
+                        <label for="name" class="label-tag">Application Status</label>
+                    </div>
 
                 <!-- <div class="form-group col-xl-2 col-lg-4 col-md-6">
                     <span class="fa-icon fa-building"></span>
