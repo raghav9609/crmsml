@@ -70,12 +70,12 @@
                      ?>" placeholder="Enter Application Status" class="form-control alphaonly valid"  <?php echo ($application_status_get['value'] != '') ? 'readonly' : ''; ?> maxlength="20" required> -->
                     <select id="application_status" name="application_status" class="form-control valid" <?php echo ($application_status_get['value'] != '') ? 'disabled' : ''; ?> required>
                         <?php
-                        foreach (get_dropdown('application_status', '') as $status) {
-                            echo '<option value="' . $status . '"';
+                         foreach (get_dropdown('application_status', '') as $status) {
+                            echo '<option value="' . htmlspecialchars($status) . '"';
                             if ($application_status_get['value'] == $status) {
                                 echo ' selected';
                             }
-                            echo '>' . $status . '</option>';
+                            echo '>' . htmlspecialchars($status) . '</option>';
                         }
                         ?>
                     </select>
