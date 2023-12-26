@@ -231,9 +231,9 @@ document.addEventListener('DOMContentLoaded', function () {
         var login_date = new Date(logindateInput.value);
         var sanction_date = new Date(sanctiondateInput.value);
         var disburse_date = new Date(disbursementInputdate.value);
-        alert(login_date);
-        alert(sanction_date);
-        alert(disburse_date);
+        // alert(login_date);
+        // alert(sanction_date);
+        // alert(disburse_date);
         if (disburse_date < login_date || disburse_date < sanction_date) {
             errormessageElement.textContent = 'Disbursement Date should not be smaller than Login Date and Sanction Date.';
         } else {
