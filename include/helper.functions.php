@@ -91,7 +91,7 @@ if(!function_exists('get_name')){
                 $qry = "select * from crm_master_city_sub_group where city_sub_group_name = '".$id."'";
             break;
             case "master_code_id":
-                $qry = "select * from crm_masters where value = '".$id."'";
+                $qry = "select * from crm_masters where id = '".$id."'";
             break;
             default:
             $qry = "select * from crm_masters as master where id = ".$id;
