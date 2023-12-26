@@ -47,6 +47,7 @@
     $nametext = trim($fname) != '' ? "<li><b class='fw_bold'>".ucfirst($fname)."</b> " : '<li><b class="fw_bold">Customer</b> '  ; 
     $dobtext = ($diff != '') ? " and customer age is&nbsp;&nbsp;<b class='fw_bold'>".$diff."</b>&nbsp;&nbsp;years </li>" : "</li>"  ;
     $citytext = (($city_name != '')? " and residing in <b class='fw_bold'> $city_name </b></li> " : "</li>") ;
+    echo $occup;
     $occcc = get_name('master_code_id',$occup);
     $occuptext = (($occup != '' && $occup != 0) ? "<li>Customer is  <b class='fw_bold'>$occcc </b>" : "");
     $mainbank = get_name('master_code_id',$main_account);
@@ -217,7 +218,7 @@
                                     <label for="occupation" class="label-tag">Employment Type</label>
                                 </div>
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6 salaried company_name_input">
-                                    <span class="fa-icon <?php echo $loan_type == 11 ? 'fa-hospital-o' : 'fa-industry'; ?>"></span>
+                                    <span class="fa-icon fa-industry"></span>
                                     <input type="text" class="form-control alpha-num salaried" name="comp_name" id="comp_name" onfocusout="check_comp_name(this.value);" Placeholder="Company Name" maxlength="100" autocomplete="off" value="<?php echo $comp_name;?>" />
                                     <label for="comp_name" class="label-tag">Company Name</label>
                                 </div>
