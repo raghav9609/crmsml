@@ -227,7 +227,8 @@
 });//////
 
 // document.addEventListener('DOMContentLoaded', function () {
-    function datevalidate() {
+function datevalidate() {
+    alert("hbi");
   var logindateInput = document.getElementById('login_date');
   var sanctiondateInput = document.getElementById('sanction_date');
   var disbursementInputdate = document.getElementById('disburse_date');
@@ -238,7 +239,7 @@
   var login_date = new Date(logindateInput.value);
   var sanction_date = new Date(sanctiondateInput.value);
   var disburse_date = new Date(disbursementInputdate.value);
-alert(login_date)
+// alert(login_date)
   // Set hours, minutes, seconds, and milliseconds to 0 for date-only comparison
   login_date.setHours(0, 0, 0, 0);
   sanction_date.setHours(0, 0, 0, 0);
