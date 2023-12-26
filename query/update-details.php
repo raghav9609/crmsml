@@ -1,13 +1,15 @@
 <?php 
 session_start();
-require_once(dirname(__FILE__) . "/../config/session.php");
+require_once(dirname(__FILE__) . '/../config/session.php');
 require_once(dirname(__FILE__) . "/../config/config.php");
+require_once(dirname(__FILE__) . '/../helpers/common-helper.php');
+
 //require_once(dirname(__FILE__) . "/../../../include/class.memcache.php");
 require_once(dirname(__FILE__) . "/../include/display-name-functions.php");
-require_once(dirname(__FILE__) . '/../include/lead-score-helper.php');
 require_once "../include/helper.functions.php";
-echo "as";
+
 	if($_REQUEST['step'] == 1){
+		
 		$get_company_name = $_REQUEST['comp_name'];
 		$get_city_id = data_search('city');
 
@@ -17,7 +19,9 @@ echo "as";
 		if($_REQUEST['work_city'] != ''){
 			$work_city = searchValue($_REQUEST['work_city'],'city_name', $get_city_id);
 		}
+		echo "asnu";
 		$comp_name_other = $comp_id = $hospital_name = $main_comp_category = $sub_comp_category = $sub_sub_comp_category = $state_comp_category = '';
+		echo "asnu";
 	// $comp_id_qry = mysqli_query($Conn1,"select comp_id,group_id,main_company_id from pl_company where comp_name = '".mysqli_real_escape_string($Conn1,$get_company_name)."'  and is_removed = 0");
     // if(mysqli_num_rows($comp_id_qry) > 0){
 	// 	$result_comp_id = mysqli_fetch_assoc($comp_id_qry);
