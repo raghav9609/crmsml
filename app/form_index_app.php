@@ -222,34 +222,43 @@
     });
     document.addEventListener('DOMContentLoaded', function () {
        
-        var loginDate = new Date(document.getElementById('login_date').value);
-        var sanctionDate = new Date(document.getElementById('sanction_date').value);
-        alert(loginDate);
+       var loginDate = new Date(document.getElementById('login_date').value);
+       var sanctionDate = new Date(document.getElementById('sanction_date').value);
 
-        var disbursementDateInput = document.getElementById('disburse_date');
-        alert(disbursementDateInput);
+       var disbursementDateInput = document.getElementById('disburse_date');
 
-        disbursementDateInput.addEventListener('change', function () {
-            
-            var disbursementDate = new Date(disbursementDateInput.value);
+       // Variable to check if the event listener has been attached
+       var eventListenerAttached = false;
 
-            var dateMessageElement = document.createElement('span');
-            dateMessageElement.className = 'error-message';
-            
-            var existingErrorMessage = disbursementDateInput.parentNode.querySelector('.error-message');
-            if (existingErrorMessage) {
-                existingErrorMessage.remove();
-            }
+       // Function to handle the focus event
+       function handleFocusEvent() {
+           var disbursementDate = new Date(disbursementDateInput.value);
 
-            disbursementDateInput.parentNode.appendChild(dateMessageElement);
+           var dateMessageElement = document.createElement('span');
+           dateMessageElement.className = 'error-message';
+           
+           var existingErrorMessage = disbursementDateInput.parentNode.querySelector('.error-message');
+           if (existingErrorMessage) {
+               existingErrorMessage.remove();
+           }
 
-            if (disbursementDate < loginDate || disbursementDate < sanctionDate) {
-                dateMessageElement.textContent = 'Disbursement Date should not be smaller than Login Date or Sanction Date.';
-            } else {
-                dateMessageElement.textContent = '';
-            }
-        });
-    });
+           disbursementDateInput.parentNode.appendChild(dateMessageElement);
+
+           if (disbursementDate < loginDate || disbursementDate < sanctionDate) {
+               dateMessageElement.textContent = 'Disbursement Date should not be smaller than Login Date or Sanction Date.';
+           } else {
+               dateMessageElement.textContent = '';
+           }
+       }
+
+       // Attach the focus event listener on the first focus
+       disbursementDateInput.addEventListener('focus', function () {
+           if (!eventListenerAttached) {
+               handleFocusEvent();
+               eventListenerAttached = true;
+           }
+       });
+   });
     
 </script>
 </form>
