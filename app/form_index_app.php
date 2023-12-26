@@ -57,13 +57,26 @@
                     <input type="text" id="bank_name" name="bank_name" value="<?php echo ($get_bank_name['value']) ;?>" placeholder="Enter Bank Name" class="form-control alphaonly valid" maxlength="20" <?php echo ($get_bank_name['value'] != '') ? 'disabled' : 'disabled'; ?>  required >
                     <label for="name" class="label-tag"> Bank Name</label>
                 </div>
-
-
+                <?php $get_application_satus = get_dropdown('application_status','') ?>
                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
+                    <span class="fa-icon fa-building"></span>
+                    <?php if ($application_status_get['value'] != '') { ?>
+                        <input type="text" id="application_status" name="application_status" value="<?php echo $application_status_get['value']; ?>" readonly placeholder="Enter Application Status" class="form-control alphaonly valid" maxlength="20" required>
+                    <?php } else { ?>
+                        <select id="application_status" name="application_status" class="form-control alphaonly valid" required>
+                            <?php foreach ($get_application_satus as $status) { ?>
+                                <option value="<?php echo $status; ?>" <?php echo ($application_status_get['value'] == $status) ? 'selected' : ''; ?>><?php echo $status; ?></option>
+                            <?php } ?>
+                        </select>
+                    <?php } ?>
+                    <label for="name" class="label-tag">Application Status</label>
+                </div>
+
+                <!-- <div class="form-group col-xl-2 col-lg-4 col-md-6">
                     <span class="fa-icon fa-building"></span>
                     <input type="text" id="application_status" name="application_status" value="<?php echo ($application_status_get['value']) ;?>" placeholder="Enter Application Status" class="form-control alphaonly valid"  <?php echo ($application_status_get['value'] != '') ? 'readonly' : ''; ?> maxlength="20" required>
                     <label for="name" class="label-tag"> Application Status</label>
-                </div>
+                </div> -->
                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
                     <span class="fa-icon fa-money"></span>
                     <input type="text" id="applied_amount" name="applied_amount" value="<?php echo $applied_amount;?>" placeholder="Enter Applied Amount" class="form-control numonly valid" maxlength="20" <?php echo ($applied_amount != '') ? 'readonly' : ''; ?> required>
