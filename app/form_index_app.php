@@ -224,9 +224,9 @@ document.addEventListener('DOMContentLoaded', function () {
     var sanctiondateInput = document.getElementById('sanction_date');
     var disbursementInputdate = document.getElementById('disburse_date');
 
-    var errormessageElement = document.createElement('span');
-    errormessageElement.className = 'error-message';
-    disbursementInputdate.parentNode.appendChild(errormessageElement);
+    var messageElement = document.createElement('span');
+    messageElement.className = 'error-message';
+    disbursementInputdate.parentNode.appendChild(messageElement);
     function validateDisbursementDate() {
         var login_date = new Date(logindateInput.value);
         var sanction_date = new Date(sanctiondateInput.value);
@@ -235,9 +235,9 @@ document.addEventListener('DOMContentLoaded', function () {
         // alert(sanction_date);
         // alert(disburse_date);
         if (disburse_date < login_date || disburse_date < sanction_date) {
-            errormessageElement.textContent = 'Disbursement Date should not be smaller than Login Date and Sanction Date.';
+            messageElement.textContent = 'Disbursement Date should not be smaller than Login Date and Sanction Date.';
         } else {
-            errormessageElement.textContent = '';
+            messageElement.textContent = '';
         }
     }
 
