@@ -239,9 +239,17 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    logindateInput.addEventListener('input', validateDisbursementDate);
-    sanctiondateInput.addEventListener('input', validateDisbursementDate);
-    disbursementInputdate.addEventListener('input', validateDisbursementDate);
+    login_date.addEventListener('input', function() {
+        validateDisbursementDate();
+    });
+
+    sanction_date.addEventListener('input', function() {
+        validateDisbursementDate();
+    });
+
+    disburse_date.addEventListener('input', function() {
+        validateDisbursementDate();
+    });
 });
 //////
 // document.addEventListener('DOMContentLoaded', function () {
