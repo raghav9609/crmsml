@@ -240,15 +240,15 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    logindateInput.addEventListener('input', function() {
+    logindateInput.addEventListener('change', function() {
         validateDisbursementDate();
     });
 
-    sanctiondateInput.addEventListener('input', function() {
+    sanctiondateInput.addEventListener('change', function() {
         validateDisbursementDate();
     });
 
-    disbursementInputdate.addEventListener('input', function() {
+    disbursementInputdate.addEventListener('change', function() {
         validateDisbursementDate();
     });
 });
