@@ -47,6 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var salry_toInput = document.getElementById('salry_to');
     var add_app = document.getElementById('add_app');
 
+    // Create the error message span
     var messageElement = document.createElement('span');
     messageElement.className = 'error-message';
     salry_fromInput.parentNode.appendChild(messageElement);
@@ -54,10 +55,9 @@ document.addEventListener('DOMContentLoaded', function() {
     function validatesalary() {
         var salry_from = parseFloat(salry_fromInput.value) || 0;
         var salry_to = parseFloat(salry_toInput.value) || 0;
-		alert(salry_to);
 
         if (salry_from >= salry_to) {
-            messageElement.textContent = 'Salary from should not be smaller than salary to.';
+            messageElement.textContent = 'Salary from should not be greater than or equal to salary to.';
             add_app.setAttribute('disabled', 'disabled');
         } else {
             messageElement.textContent = '';
@@ -74,9 +74,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     validatesalary();
-
-    // Your existing code for user_fun can go here
-
 });
 
 </script>
