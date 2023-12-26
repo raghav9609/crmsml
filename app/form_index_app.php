@@ -70,7 +70,7 @@
                     <label for="applied_amount" class="label-tag"> Applied Amount</label>
                 </div>
                     <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                        <input type="text" class="text form-control valid datepicker" name="login_date" id="login_date" maxlength="10" value="<?php echo $login_date != '0000-00-00'?$login_date:'';?>" placeholder="yyyy-mm-dd" <?php echo ($login_date != '') ? 'readonly' : ''; ?> oninput="datevalidate()" required>
+                        <input type="text" class="text form-control valid datepicker" name="login_date" id="login_date" maxlength="10" value="<?php echo $login_date != '0000-00-00'?$login_date:'';?>" placeholder="yyyy-mm-dd" <?php echo ($login_date != '') ? 'readonly' : ''; ?> onchange="datevalidate()" required>
                         <label for="dob" class="label-tag ">Login Date</label>
                         <span class='green' id='age' style="position: absolute;top: 100%;background: transparent;color: green;left: 15px;"></span>
                     </div> 
@@ -84,7 +84,7 @@
 
                     <div class="form-group col-xl-2 col-lg-4 col-md-6">
                         
-                        <input type="text" class="text form-control valid datepicker" name="sanction_date" id="sanction_date" maxlength="10" value="<?php echo $sanction_date; ?>" placeholder="yyyy-mm-dd" required <?php echo ($sanction_date != '') ? 'readonly' : '';  ?> oninput="datevalidate()">
+                        <input type="text" class="text form-control valid datepicker" name="sanction_date" id="sanction_date" maxlength="10" value="<?php echo $sanction_date; ?>" placeholder="yyyy-mm-dd" required <?php echo ($sanction_date != '') ? 'readonly' : '';  ?> onchange="datevalidate()">
                         <label for="dob" class="label-tag ">Sanction Date</label>
                         <span class='green' id='age' style="position: absolute;top: 100%;background: transparent;color: green;left: 15px;"></span>
                     </div> 
@@ -95,7 +95,7 @@
                         <label for="name" class="label-tag"> Disbursement Amount</label>
                     </div>
                     <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                        <input type="text" class="text form-control valid datepicker" name="disburse_date" id="disburse_date" maxlength="10" value="<?php echo $disburse_date; ?>" placeholder="yyyy-mm-dd" required <?php echo ($disburse_date != '') ? 'readonly' : '';  ?> oninput="datevalidate()">
+                        <input type="text" class="text form-control valid datepicker" name="disburse_date" id="disburse_date" maxlength="10" value="<?php echo $disburse_date; ?>" placeholder="yyyy-mm-dd" required <?php echo ($disburse_date != '') ? 'readonly' : '';  ?> onchange="datevalidate()">
                         <label for="dob" class="label-tag ">Disbursement Date</label>
                         <span class='green' id='age' style="position: absolute;top: 100%;background: transparent;color: green;left: 15px;"></span>
                     </div> 
