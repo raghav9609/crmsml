@@ -221,21 +221,19 @@
         // });
     });
     document.addEventListener('DOMContentLoaded', function () {
-        // Your existing code...
-
-        // Date validation
+       
         var loginDate = new Date(document.getElementById('login_date').value);
         var sanctionDate = new Date(document.getElementById('sanction_date').value);
 
         var disbursementDateInput = document.getElementById('disburse_date');
 
         disbursementDateInput.addEventListener('change', function () {
+            alert(loginDate);
             var disbursementDate = new Date(disbursementDateInput.value);
 
             var dateMessageElement = document.createElement('span');
             dateMessageElement.className = 'error-message';
             
-            // Remove any existing error message
             var existingErrorMessage = disbursementDateInput.parentNode.querySelector('.error-message');
             if (existingErrorMessage) {
                 existingErrorMessage.remove();
