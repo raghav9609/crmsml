@@ -218,15 +218,11 @@
         validateDisbursement();
     });
     form.addEventListener('submit', function(event) {
-        var appliedAmount = parseFloat(appliedAmountInput.value) || 0;
-        var sanctionAmount = parseFloat(sanctionAmountInput.value) || 0;
-        var disbursementAmount = parseFloat(disbursementInput.value) || 0;
+        validateDisbursement(); // Validate before submission
 
-        if (appliedAmount >= disbursementAmount || sanctionAmount >= disbursementAmount) {
-            messageElement.textContent = ' Disbursement Amount should not be smaller than Applied Amount and Sanction Amount.';
-            event.preventDefault(); // Prevent form submission
-        } else {
-            messageElement.textContent = '';
+        var errorMessage = messageElement.textContent;
+        if (errorMessage) {
+            event.preventDefault(); // Prevent form submission if there's an error
         }
     });
 });//////
