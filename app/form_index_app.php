@@ -69,7 +69,7 @@
                             <select id="application_status" name="application_status" class="form-control alphaonly valid" required>
                                 <option value="">Select Application Status</option>
                                 <?php foreach (get_dropdown('application_status', '') as $status) { ?>
-                                    <option value="<?php echo $status; ?>"><?php echo $status; ?></option>
+                                    <option value="<?php echo $status; ?>" <?php echo ($selected_value == $status) ? 'selected' : ''; ?>><?php echo $status; ?></option>
                                 <?php } ?>
                             </select>
                         <?php// } else { ?>
