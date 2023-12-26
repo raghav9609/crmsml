@@ -12,8 +12,8 @@ $case_id = $_REQUEST['case_id'];
 $cust_id = $_REQUEST['cust_id'];
 $loan_type = $_REQUEST['loan_type'];
 
-$bank_name = $_REQUEST['bank_name'];
-$bank_name_get = get_name('master_code_id',$bank_name);
+// $bank_name = $_REQUEST['bank_name'];
+// $bank_name_get = get_name('master_code_id',$bank_name);
 $application_status = $_REQUEST['application_status'];
 $application_status_get = get_name('status_id',$application_status);
 $applied_amount = $_REQUEST['applied_amount'];
@@ -33,7 +33,7 @@ $tenure = isset($values[0]) ? $values[0] : '';
 $emi = isset($values[1]) ? $values[1] : '';
 
 $final_arr = array(
-    'bank_id' => $bank_name_get['id'], 
+    // 'bank_id' => $bank_name_get['id'], 
     'application_status' => $application_status_get['id'],
     'applied_amount' => trim($applied_amount),
     'login_date' => trim($login_date),
