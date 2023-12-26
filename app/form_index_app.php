@@ -65,30 +65,13 @@
                     <div class="form-group col-xl-2 col-lg-4 col-md-6">
                         <span class="fa-icon fa-building"></span>
 
-                        <?php //if (empty($selected_value)) { ?>
-                            <!-- <select id="application_status" name="application_status" class="form-control alphaonly valid" required>
-                                <option value="">Select Application Status</option>
-                                <?php foreach (get_dropdown('application_status', '') as $status) { ?>
-                                    <option value="<?php echo $status; ?>" <?php echo ($selected_value == $status) ? 'selected' : ''; ?>><?php echo $status; ?></option>
-                                <?php } ?>
-                            </select> -->
-                        <?php// } else { ?>
-                            <input type="text" id="application_status" name="application_status" value="<?php
-                             foreach (get_dropdown('application_status', '') as $status) {
-                                if($selected_value == $status){
-                                    echo $status;
-                                }
-                            } ?>" readonly placeholder="Enter Application Status" class="form-control alphaonly valid" maxlength="20" required>
-                        <?php// } ?>
+                        
 
-                        <label for="name" class="label-tag">Application Status</label>
-                    </div>
-
-                <!-- <div class="form-group col-xl-2 col-lg-4 col-md-6">
+                <div class="form-group col-xl-2 col-lg-4 col-md-6">
                     <span class="fa-icon fa-building"></span>
                     <input type="text" id="application_status" name="application_status" value="<?php echo ($application_status_get['value']) ;?>" placeholder="Enter Application Status" class="form-control alphaonly valid"  <?php echo ($application_status_get['value'] != '') ? 'readonly' : ''; ?> maxlength="20" required>
                     <label for="name" class="label-tag"> Application Status</label>
-                </div> -->
+                </div>
                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
                     <span class="fa-icon fa-money"></span>
                     <input type="text" id="applied_amount" name="applied_amount" value="<?php echo $applied_amount;?>" placeholder="Enter Applied Amount" class="form-control numonly valid" maxlength="20" <?php echo ($applied_amount != '') ? 'readonly' : ''; ?> required>
