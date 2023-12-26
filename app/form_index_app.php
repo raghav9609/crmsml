@@ -219,33 +219,29 @@
 });//////
 
 document.addEventListener('DOMContentLoaded', function () {
-    
     var logindateInput = document.getElementById('login_date');
     var sanctiondateInput = document.getElementById('sanction_date');
     var disbursementInputdate = document.getElementById('disburse_date');
 
-    var messageElement = document.createElement('span');
-    messageElement.className = 'error-message';
-    disbursementInputdate.parentNode.appendChild(messageElement);
+    var errormessageElement = document.createElement('span');
+    errormessageElement.className = 'error-message';
+    disbursementInputdate.parentNode.appendChild(errormessageElement);
+
     function validateDisbursementDate() {
         var login_date = new Date(logindateInput.value);
         var sanction_date = new Date(sanctiondateInput.value);
         var disburse_date = new Date(disbursementInputdate.value);
-        // alert(login_date);
-        // alert(sanction_date);
-        // alert(disburse_date);
+
         if (disburse_date < login_date || disburse_date < sanction_date) {
-            messageElement.textContent = 'Disbursement Date should not be smaller than Login Date and Sanction Date.';
+            errormessageElement.textContent = 'Disbursement Date should not be smaller than Login Date and Sanction Date.';
         } else {
-            messageElement.textContent = '';
+            errormessageElement.textContent = '';
         }
     }
 
     logindateInput.addEventListener('input', validateDisbursementDate);
     sanctiondateInput.addEventListener('input', validateDisbursementDate);
     disbursementInputdate.addEventListener('input', validateDisbursementDate);
-
-    validateDisbursementDate();
 });
 //////
 // document.addEventListener('DOMContentLoaded', function () {
