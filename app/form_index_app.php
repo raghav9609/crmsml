@@ -169,7 +169,8 @@
             $('.datepicker').datepicker({
                 dateFormat: 'yy-mm-dd', 
                 changeMonth: true,
-                changeYear: true
+                changeYear: true,
+                yearRange: 'c-100:c+10'
             });
 
             flatpickr('.flatpickr', {
@@ -244,7 +245,7 @@
         });
 
         // Call the validation on page load
-        // validateDisbursementDate();
+        validateDisbursementDate();
     });
     
 </script>
