@@ -236,15 +236,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
         var disbursementDate = new Date(disbursementDateValue);
 
-        if (disbursementDate > loginDate && disbursementDate > sanctionDate) {
+        if (disbursementDate >= loginDate && disbursementDate >= sanctionDate) {
             errorMessageElement.textContent = '';  // Clear the error message
         } else {
-            errorMessageElement.textContent = 'Disbursement Date should be greater than Login Date and Sanction Date.';
+            errorMessageElement.textContent = 'Disbursement Date should be greater than or equal to Login Date and Sanction Date.';
         }
     }
 
-    disbursementDateInput.addEventListener('change', function () {
-        validateDisbursementDate();
+    disbursementDateInput.addEventListener('input', function () {
+        // Introduce a 300ms delay before validating the date
+        setTimeout(validateDisbursementDate, 300);
     });
 
     // Call the validation on page load
