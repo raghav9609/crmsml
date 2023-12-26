@@ -1,12 +1,12 @@
 <?php 
 session_start();
 require_once(dirname(__FILE__) . '/../config/session.php');
+require_once(dirname(__FILE__) . "/../config/config.php");
 require_once(dirname(__FILE__) . '/../helpers/common-helper.php');
 echo "asasas";
-require_once(dirname(__FILE__) . "/../config/config.php");
+
 //require_once(dirname(__FILE__) . "/../../../include/class.memcache.php");
 require_once(dirname(__FILE__) . "/../include/display-name-functions.php");
-require_once(dirname(__FILE__) . '/../include/lead-score-helper.php');
 require_once "../include/helper.functions.php";
 echo "as";
 	if($_REQUEST['step'] == 1){
