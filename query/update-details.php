@@ -6,25 +6,17 @@ require_once(dirname(__FILE__) . "/../include/display-name-functions.php");
 require_once(dirname(__FILE__) . '/../include/lead-score-helper.php');
 require_once "../include/helper.functions.php";
 
-// mysqli_query($Conn1,"insert into level_update_request set level_id =1,lead_id='".replace_special($_REQUEST['id'])."',request='".base64_encode(json_encode($_REQUEST))."',user_id=".$user.",date=NOW(),source='Query Update'");
 	if($_REQUEST['step'] == 1){
 		$get_company_name = $_REQUEST['comp_name'];
-		if(in_array($_REQUEST['loan_type'],array(63,57)) && $_REQUEST['occupation_id'] == 3){
-		$get_company_name = $_REQUEST['firm_name'];
-	}
-	$get_city_id = data_search('city');
-	//$company_array = data_search('company',1);
-	$city = searchValue($_REQUEST['city_name'],'city_name', $get_city_id);
-	$final_city_id = $get_city_id[$city]['id'];
-	// $get_city_id_qry = mysqli_query($Conn1,"select main_city_id from lms_city where city_name  = '".$_REQUEST['city_name']."'");
-	// $result_city_id_qry = mysqli_fetch_assoc($get_city_id_qry);
-	// if($result_city_id_qry['main_city_id'] && is_numeric($result_city_id_qry['main_city_id'])){
-	// 	$final_city_id = $result_city_id_qry['main_city_id'];
-	// }
-	if($_REQUEST['work_city'] != ''){
-		$work_city = searchValue($_REQUEST['work_city'],'city_name', $get_city_id);
-	}
-	$comp_name_other = $comp_id = $hospital_name = $main_comp_category = $sub_comp_category = $sub_sub_comp_category = $state_comp_category = '';
+		$get_city_id = data_search('city');
+
+		$city = searchValue($_REQUEST['city_name'],'city_name', $get_city_id);
+		$final_city_id = $get_city_id[$city]['id'];
+	
+		if($_REQUEST['work_city'] != ''){
+			$work_city = searchValue($_REQUEST['work_city'],'city_name', $get_city_id);
+		}
+		$comp_name_other = $comp_id = $hospital_name = $main_comp_category = $sub_comp_category = $sub_sub_comp_category = $state_comp_category = '';
 	// $comp_id_qry = mysqli_query($Conn1,"select comp_id,group_id,main_company_id from pl_company where comp_name = '".mysqli_real_escape_string($Conn1,$get_company_name)."'  and is_removed = 0");
     // if(mysqli_num_rows($comp_id_qry) > 0){
 	// 	$result_comp_id = mysqli_fetch_assoc($comp_id_qry);
@@ -70,7 +62,7 @@ require_once "../include/helper.functions.php";
 	// 	}
 	// }
 
-    $net_income = $_REQUEST['net_month_inc'];
+    	$net_income = $_REQUEST['net_month_inc'];
 
         $fieds_array = array(
             'salu_id' => $_REQUEST['salutation'],
@@ -95,33 +87,34 @@ require_once "../include/helper.functions.php";
             'offce_address' => trim($_REQUEST['offce_address']),
             'ofc_email' => trim($_REQUEST['ofc_email'])
 	    );
-	$fieds_array_intt = array(
-		'salary_pay_id' => $_REQUEST['slry_paid'],
-		'pincode' => $_REQUEST['pin_code'],
-		'profession_id' => $_REQUEST['profession'],
-		'cur_comp_wrk_exp'=> $_REQUEST['ccwe'],
-		'totl_wrk_exp'=> $_REQUEST['twe'],
-		'saving_accounts_with' => implode(',',$_REQUEST['saving_acc_with_banks'])
-	);
+		$fieds_array_intt = array(
+			'salary_pay_id' => $_REQUEST['slry_paid'],
+			'pincode' => $_REQUEST['pin_code'],
+			'profession_id' => $_REQUEST['profession'],
+			'cur_comp_wrk_exp'=> $_REQUEST['ccwe'],
+			'totl_wrk_exp'=> $_REQUEST['twe'],
+			'saving_accounts_with' => implode(',',$_REQUEST['saving_acc_with_banks'])
+		);
 	
-	$count = count($fieds_array);
-	$count_intt = count($fieds_array_intt);
-	$main_array = $intt_array = 0;
-	$query_to_update = "update tbl_mint_customer_info set ";
-	foreach($fieds_array as $key => $value){
-		++$main_array;
-		$query_to_update .= $key ." = '".replace_special($value)."'";
-		if($main_array != $count){
-			$query_to_update .= ",";
+		$count = count($fieds_array);
+		$count_intt = count($fieds_array_intt);
+		$main_array = $intt_array = 0;
+		$query_to_update = "update tbl_mint_customer_info set ";
+		foreach($fieds_array as $key => $value){
+			++$main_array;
+			$query_to_update .= $key ." = '".replace_special($value)."'";
+			if($main_array != $count){
+				$query_to_update .= ",";
+			}
 		}
-	}
-	$query_to_update .= ",date_modified=CURDATE(),pan_card='".replace_special(trim($_REQUEST['pan_card']))."'";
-	if(is_numeric($_REQUEST['alt_phone_no'])){
-		$query_to_update .= ",alt_phone=".$_REQUEST['alt_phone_no'];
-	}
+		$query_to_update .= ",date_modified=CURDATE(),pan_card='".replace_special(trim($_REQUEST['pan_card']))."'";
+		if(is_numeric($_REQUEST['alt_phone_no'])){
+			$query_to_update .= ",alt_phone=".$_REQUEST['alt_phone_no'];
+		}
 
-	$query_to_update .= " where id ='".replace_special($_REQUEST['cust_id'])."'";
-	$update_qry = mysqli_query($Conn1,$query_to_update) or die(mysqli_error($Conn1));
+		echo $query_to_update .= " where id ='".replace_special($_REQUEST['cust_id'])."'";
+		$update_qry = mysqli_query($Conn1,$query_to_update) or die(mysqli_error($Conn1));
+		die();
 	$query_to_update_intt = "update tbl_mint_cust_info_intt set ";
 	foreach($fieds_array_intt as $key => $value){
 		++$intt_array;
@@ -142,37 +135,6 @@ require_once "../include/helper.functions.php";
 	
 		$update_query_data = mysqli_query($Conn1,"update tbl_mint_query_status_detail set is_nstp = 1 where query_id = 
 		'".replace_special($_REQUEST['id'])."'");
-
-		if($_REQUEST['loan_type'] == 56){
-			$get_cust_qry = mysqli_query($Conn1,"select cibil_score from tbl_mint_customer_info where id = ".$_REQUEST['cust_id']);
-			$result_cibil_score = mysqli_fetch_assoc($get_cust_qry);
-			$get_hdfc_bank_cat = mysqli_query($Conn1,"select hdfc_bank_cat from pl_company where comp_id = ".$comp_id);
-			$result_hdfc_bank_cat = mysqli_fetch_assoc($get_hdfc_bank_cat);
-			$get_bank_cat = mysqli_query($Conn1,"select bank_type_id from tbl_bank where bank_id = ".$_REQUEST['main_acc']);
-			$result_bank_cat = mysqli_fetch_assoc($get_bank_cat);
-        $data_for_pl_score = data_for_lead_score(replace_special($_REQUEST['cust_id']));
-        $decode_customer_data_for_pl = json_decode($data_for_pl_score,true);
-        $lead_score_array = array(
-                'comp_id' => $comp_id,
-                'comp_cat' => $result_hdfc_bank_cat['hdfc_bank_cat'],
-                'bank_type' => $result_bank_cat['bank_type_id'],
-                'cibil_score' => $result_cibil_score['cibil_score'],
-                'bank_id' => $_REQUEST['main_acc'],
-                'slry_mode' => $_REQUEST['slry_paid'],
-                'net_incm' => $net_income,
-                'dpd' => $decode_customer_data_for_pl['dpd'],
-                'query_in_mlc' => $decode_customer_data_for_pl['ni_ne_query'],
-                'loan_through_mlc' => $decode_customer_data_for_pl['rejected']
-            );
-        $lead_data_update = pl_lead_score($lead_score_array);
-        $final_lead_score =  $lead_data_update['lead_score'];
-        $final_lead_score_array = $lead_data_update['score_array'];
-        $score_calculate_criteria = json_encode(array('lead_rank'=>$lead_rank_array,'lead_score'=>$lead_score_array));
-    $return_data = array('return_score'=>$final_lead_score_array,'return_rank'=>$final_lead_score_array);
-    mysqli_query($Conn1,"update tbl_mint_query set crm_lead_score = ".($final_lead_score*100)." where query_id = ".replace_special($_REQUEST['id']));
-	$insert_lead_score_criteria  = mysqli_query($Conn1,"INSERT INTO lead_score_criteria set query_id =".replace_special($_REQUEST['id']).",json_data='".$score_calculate_criteria."',
-        return_data = '".json_encode($return_data)."',lead_score='".($final_lead_score*100)."',source=2,date=NOW()");
-    }
     	
 } else if($_REQUEST['step'] == 2){
     $property_identified = $_REQUEST['prop_identified'];
