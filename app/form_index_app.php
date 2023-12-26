@@ -241,9 +241,9 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    logindateInput.addEventListener('input', validateDisbursementDate());
-    sanctiondateInput.addEventListener('input', validateDisbursementDate());
-    disbursementInputdate.addEventListener('input', validateDisbursementDate());
+    logindateInput.addEventListener('input', validateDisbursementDate);
+    sanctiondateInput.addEventListener('input', validateDisbursementDate);
+    disbursementInputdate.addEventListener('input', validateDisbursementDate);
 
     validateDisbursementDate();
 });
