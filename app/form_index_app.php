@@ -219,6 +219,7 @@
 });//////
 
 document.addEventListener('DOMContentLoaded', function () {
+    alert(logindateInput);
     var logindateInput = document.getElementById('login_date');
     var sanctiondateInput = document.getElementById('sanction_date');
     var disbursementInputdate = document.getElementById('disburse_date');
