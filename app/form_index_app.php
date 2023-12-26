@@ -54,7 +54,7 @@
                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
                     <span class="fa-icon fa-building"></span>
                     
-                    <input type="text" id="bank_name" name="bank_name" value="<?php echo ($get_bank_name['value']) ;?>" placeholder="Enter Bank Name" class="form-control alphaonly valid" maxlength="20" <?php echo ($get_bank_name['value'] != '') ? 'readonly' : ''; ?>  required="">
+                    <input type="text" id="bank_name" name="bank_name" value="<?php echo ($get_bank_name['value']) ;?>" placeholder="Enter Bank Name" class=" valid" maxlength="20" <?php echo ($get_bank_name['value'] != '') ? 'readonly' : ''; ?>  required="">
                     <label for="name" class="label-tag"> Bank Name</label>
                 </div>
 
@@ -221,33 +221,24 @@
         // });
     });
     document.addEventListener('DOMContentLoaded', function() {
-        function validateDisbursementDate() {
-            var loginDate = new Date(document.getElementById('login_date').value);
-            var sanctionDate = new Date(document.getElementById('sanction_date').value);
+        var loginDate = new Date(document.getElementById('login_date').value);
+        var sanctionDate = new Date(document.getElementById('sanction_date').value);
 
-            var checkExist = setInterval(function() {
-                var disbursementDateInput = document.getElementById('disburse_date');
-                if (disbursementDateInput) {
-                    clearInterval(checkExist);
+        var disbursementDateInput = document.getElementById('disburse_date');
+        // alert(sanctionDate);
+        var disbursementMessageElement = document.createElement('span');
+        disbursementMessageElement.className = 'error-message';
+        disbursementDateInput.parentNode.appendChild(disbursementMessageElement);
 
-                    var disbursementMessageElement = document.createElement('span');
-                    disbursementMessageElement.className = 'error-message';
-                    disbursementDateInput.parentNode.appendChild(disbursementMessageElement);
+        disbursementDateInput.addEventListener('input', function() {
+            var disbursementDate = new Date(disbursementDateInput.value);
 
-                    disbursementDateInput.addEventListener('input', function() {
-                        var disbursementDate = new Date(disbursementDateInput.value);
-
-                        if (disbursementDate < loginDate || disbursementDate < sanctionDate) {
-                            disbursementMessageElement.textContent = 'Disbursement date should not be smaller than Login Date or Sanction Date.';
-                        } else {
-                            disbursementMessageElement.textContent = '';
-                        }
-                    });
-                }
-            }, 100);
-        }
-
-        validateDisbursementDate(); // Call the function to initialize the validation
+            if (disbursementDate < loginDate || disbursementDate < sanctionDate) {
+                disbursementMessageElement.textContent = 'Disbursement date should not be smaller than Login Date or Sanction Date.';
+            } else {
+                disbursementMessageElement.textContent = '';
+            }
+        });
     });
 </script>
 </form>
