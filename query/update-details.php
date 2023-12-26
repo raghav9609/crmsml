@@ -93,7 +93,7 @@ require_once "../include/helper.functions.php";
             'ofc_email' => trim($_REQUEST['ofc_email'])
 	    );
 		echo "<br>asnu";
-		$bankimp =  implode(',',$_REQUEST['saving_acc_with_banks']);
+		$bankimp = $_REQUEST['saving_acc_with_banks'];
 		$fieds_array_intt = array(
 			'salary_pay_id' => $_REQUEST['slry_paid'],
 			'pincode' => $_REQUEST['pin_code'],
