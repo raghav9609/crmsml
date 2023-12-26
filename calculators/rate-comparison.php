@@ -55,7 +55,7 @@ if($_REQUEST['calculate']) {
 <html>
 <head>
 <title>Rate Comparison Calculator</title>
-<link rel="stylesheet" type="text/css" href="../../include/style.css"> 
+<link rel="stylesheet" type="text/css" href="<?php echo $head_url; ?>/assets/css/style.css">
 </head>
 <body>
     <div style="margin-left: 25px; margin-top: 25px;"><a href="<?php echo $head_url; ?>/calculators/"><input type="button" class="buttonsub cursor" value="Go To - Simple Calculator"></a></div>
