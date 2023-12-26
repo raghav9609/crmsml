@@ -210,6 +210,7 @@
         });
 
         disbursementDateInput.addEventListener('input', function() {
+            alert(disbursementDateInput);
             var disbursementDateInput = parseFloat(disbursementDateInput.value) || 0;
 
             if (disbursementDateInput < loginDate || disbursementDateInput < sanctionDate) {
