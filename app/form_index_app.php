@@ -227,7 +227,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var errormessageElement = document.createElement('span');
     errormessageElement.className = 'error-message';
     disbursementInputdate.parentNode.appendChild(errormessageElement);
-    function validateDisbursement() {
+    function validateDisbursementDate() {
         var login_date = new Date(logindateInput.value);
         var sanction_date = new Date(sanctiondateInput.value);
         var disburse_date = new Date(disbursementInputdate.value);
@@ -241,9 +241,9 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    logindateInput.addEventListener('change', validateDisbursement);
-    sanctiondateInput.addEventListener('change', validateDisbursement);
-    disbursementInputdate.addEventListener('change', validateDisbursement);
+    logindateInput.addEventListener('change', validateDisbursementDate());
+    sanctiondateInput.addEventListener('change', validateDisbursementDate());
+    disbursementInputdate.addEventListener('change', validateDisbursementDate());
 });
 //////
 // document.addEventListener('DOMContentLoaded', function () {
