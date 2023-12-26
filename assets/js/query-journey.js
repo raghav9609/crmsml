@@ -785,59 +785,17 @@ function card_tocard(){
         var selected_values = $("#case_f_stats").val();
         if(selected_values == "9") {
           var loan_type=$("#loan_type").val()
-          if(loan_type==51 ){
-            mindval=30;
-            maxdval=120;
-          } else if(loan_type==54){
-            mindval=30;
-            maxdval=210; 
-          } else if(loan_type==56) {
+          if(loan_type==54) {
             mindval=7;
             maxdval=90;  
-          } else if(loan_type==57) {
-            mindval=7;
-            maxdval=90;  
-          } else if(loan_type==60){
-            mindval=5;
-            maxdval=90;  
-          } else if(loan_type==71){
-            mindval=7;
-            maxdval=90;  
-          } else{
-            mindval=0;
-            maxdval=90; 
           }
       } else if( selected_values == "1") {
         var loan_type=$("#loan_type").val()
-        if(loan_type==51 ){
-          mindval=0;
-          maxdval=30;
-
-        } else if(loan_type==54) {
-              mindval=0;
-              maxdval=30; 
-              }
-            else if(loan_type==56){
-              mindval=0;
-              maxdval=7;  
-              }
-              else if(loan_type==57){
-                  mindval=0;
-                  maxdval=7;  
-              }
-              else if(loan_type==60){
-                  mindval=0;
-                  maxdval=5;  
-              }
-              else if(loan_type==71){
-                  mindval=0;
-                  maxdval=7;  
-              }
-              else{
-                  mindval=0;
-                  maxdval=7; 
-              }
-          }
+        if(loan_type==54){
+            mindval=0;
+            maxdval=7;  
+        }
+      }
           else {
             mindval=0;
             maxdval=90;
