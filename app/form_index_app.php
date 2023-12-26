@@ -241,15 +241,15 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     logindateInput.addEventListener('input', function() {
-        validateDisbursement();
+        validateDisbursementDate();
     });
 
     sanctiondateInput.addEventListener('input', function() {
-        validateDisbursement();
+        validateDisbursementDate();
     });
 
     disbursementInputdate.addEventListener('input', function() {
-        validateDisbursement();
+        validateDisbursementDate();
     });
 });
 //////
