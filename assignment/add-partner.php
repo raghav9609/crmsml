@@ -45,6 +45,8 @@ function user_fun(type,id){
 	  }  
 }
 document.addEventListener('DOMContentLoaded', function() {
+	alert("hi");
+
     var salry_fromInput = document.getElementById('salry_from');
     var salry_toInput = document.getElementById('salry_to');
     var add_app = document.getElementById('add_app');
