@@ -180,19 +180,21 @@
     });
 
     document.addEventListener('DOMContentLoaded', function() {
-        // Assuming applied amount and sanction amount are numeric, you may need to adjust the selector accordingly
         var appliedAmount = parseFloat(document.getElementById('applied_amount').value) || 0;
         var sanctionAmount = parseFloat(document.getElementById('sanction_amount').value) || 0;
 
-        document.getElementById('disbursed_amount').addEventListener('input', function() {
-            var disbursementInput = this;
+        var disbursementInput = document.getElementById('disbursed_amount');
+        var messageElement = document.createElement('span');
+        messageElement.className = 'error-message';
+        disbursementInput.parentNode.appendChild(messageElement);
+
+        disbursementInput.addEventListener('input', function() {
             var disbursementAmount = parseFloat(disbursementInput.value) || 0;
 
             if (disbursementAmount < appliedAmount || disbursementAmount < sanctionAmount) {
-                // Display an error message or handle the validation as needed
-                alert('Disbursement amount should not be smaller than Applied Amount or Sanction Amount.');
-                // You can also clear the input or take other actions to correct the input
-                disbursementInput.value = '';
+                messageElement.textContent = 'Disbursement amount should not be smaller than Applied Amount or Sanction Amount.';
+            } else {
+                messageElement.textContent = '';
             }
         });
     });
