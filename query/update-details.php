@@ -19,11 +19,6 @@ require_once "../include/helper.functions.php";
 		if($_REQUEST['work_city'] != ''){
 			$work_city = searchValue($_REQUEST['work_city'],'city_name', $get_city_id);
 		}
-		echo $_REQUEST['work_city']."<br>";
-		print_r($get_city_id);
-
-
-		//print_r($work_city);
 
 		$comp_name_other = $comp_id = $hospital_name = $main_comp_category = $sub_comp_category = $sub_sub_comp_category = $state_comp_category = '';
 		
@@ -93,7 +88,7 @@ require_once "../include/helper.functions.php";
             'city_id' => $final_city_id,
             'address' => trim($_REQUEST['address']),
             'office_pincode' => trim($_REQUEST['ofc_pincode']),
-            'office_city_id' => $get_city_id[$work_city]['city_id'],
+            'office_city_id' => $get_city_id[$work_city]['id'],
             'office_address' => trim($_REQUEST['offce_address']),
             'office_email_id' => trim($_REQUEST['ofc_email']),
 			'mode_of_salary' => $_REQUEST['slry_paid'],
