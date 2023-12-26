@@ -15,7 +15,7 @@ if($_REQUEST['calculate']){
     $rate = replace_special($cur_rate_emi)/1200;
     $nth_pl = replace_special($_REQUEST['nth_multiplier']);
     $elig_msg = array();
-    if($loan_type == 56){
+    if($loan_type == 54){
         $tennure_get = array('2','3','4','5');
         foreach($tennure_get as $tennure){
             $calculation_gen = ($net_incm  * $foir) - $loan_emi;
@@ -30,7 +30,7 @@ if($_REQUEST['calculate']){
             }
                 $elig_msg[] = $cal_gen_final;
         }
-    }else if($loan_type == 51){
+    }else if($loan_type == 55){
         $net_incm_on = replace_special($_REQUEST['cob_nth_1']);
         $net_incm_tw = replace_special($_REQUEST['cob_nth_2']);
         $cur_emi_on = replace_special($_REQUEST['cob_emi_1']);
@@ -57,28 +57,6 @@ if($_REQUEST['calculate']){
             $elig_msg[] = $head_elig_calc;
         }    
         $msg = '';
-    }else if($loan_type == 60){
-        $gl_purity = replace_special($_REQUEST['purity_gold']);
-        $purity = $gl_purity/24;
-        $gl_weight = replace_special($_REQUEST['weight_gold']);
-        $query_ratio= mysqli_query($Conn1,"select min_range,max_range from tbl_gold_loan_elgibility");
-                $result_ratio_query = mysqli_fetch_array($query_ratio);
-                $loan_val_ratio_min = $result_ratio_query['min_range'];
-                $loan_val_ratio_max = $result_ratio_query['max_range'];
-        $query_price = mysqli_query($Conn1,"select 24_carat from gold_silver_rate where 24_carat != '0' and city_id = 0 order by date desc");
-                $result_price_query = mysqli_fetch_array($query_price);
-                $gold_price = $result_price_query['24_carat'];
-                $max_price = $gold_price/10;
-        if($_REQUEST['gl_elig_for'] == 1){
-                $min_gl_elig = $gl_weight*$purity*$max_price*$loan_val_ratio_min;
-                $max_gl_elig = $min_gl_elig*($loan_val_ratio_max/$loan_val_ratio_min);
-                $msg = "Eligible amount will be: Rs. ".number_format($min_gl_elig)." - Rs. ".number_format($max_gl_elig);
-        }else{
-            $loan_amt = replace_special($_REQUEST['loan_amt']);
-            $min_gold = $loan_amt/($max_price*$loan_val_ratio_max*$purity);
-            $max_gold = ($loan_amt/($max_price*$loan_val_ratio_min)*24/$gl_purity);
-            $msg = "Gold needed: ".round($min_gold)."grams - ".round($max_gold)." grams";
-        }  
     }
 }
 ?>
@@ -86,7 +64,7 @@ if($_REQUEST['calculate']){
 <html>
 <head>
      <title>Calculate Eligibility</title>
-<link rel="stylesheet" type="text/css" href="../../include/style.css"> 
+     <link rel="stylesheet" type="text/css" href="<?php echo $head_url; ?>/assets/css/style.css">
 </head>
 <body>
 <fieldset class='mall_30' style="height:200px;">
@@ -182,17 +160,13 @@ else{
 }
 
 function loan_type_func(loan){
-        if(loan == 56){
+        if(loan == 54){
             $(".hl_pl_loan,.56_loan").removeClass("hidden").attr("required","required");
             $(".51_loan,.60_loan,.cob_1,.cob_2,.weight_gold,.loan_amt").val("").addClass("hidden").removeAttr("required");
-        }else if(loan == 51){
+        }else if(loan == 55){
             $(".hl_pl_loan,.51_loan").removeClass("hidden").attr("required","required");
             $(".56_loan,.cob_2,.cob_1,.60_loan,.weight_gold,.loan_amt").val("").addClass("hidden").removeAttr("required");
             $("#no_cob").val("0");
-        }else if(loan == 60){
-             $(".hl_pl_loan,.51_loan,.56_loan,.cob_2,.cob_1,.weight_gold,.loan_amt").addClass("hidden").removeAttr("required");
-             $(".hl_pl_loan,.51_loan,.56_loan,.cob_2,.cob_1").val("");
-             $(".60_loan").removeClass("hidden").attr("required","required");
         }else{
             $(".hl_pl_loan,.51_loan,.56_loan,.60_loan,.cob_2,.cob_1,.weight_gold,.loan_amt").val("").addClass("hidden").removeAttr("required");
         }
@@ -209,24 +183,9 @@ function cob_func(cob){
             $(".cob_1").addClass("hidden").removeAttr("required");
         }
 }
-function gl_func(gl_val){
-        if(gl_val == 1){
-            $(".weight_gold").removeClass("hidden").attr("required","required");
-            $(".loan_amt").addClass("hidden").removeAttr("required");
-        }else if(gl_val == 2){
-            $(".loan_amt").removeClass("hidden").attr("required","required");
-            $(".weight_gold").addClass("hidden").removeAttr("required");
-        }else{
-             $(".weight_gold").addClass("hidden").removeAttr("required");
-            $(".loan_amt").addClass("hidden").removeAttr("required");
-        }
-}
-gl_func('<?php echo replace_special($_REQUEST['gl_elig_for']); ?>');
+
 </script>
-<?php
-require_once "../../include/footer_close.php";
-mysqli_error($mlc);
- ?>
+
 
 
 
