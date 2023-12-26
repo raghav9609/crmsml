@@ -199,8 +199,6 @@
 
         if (disbursementAmount < appliedAmount || disbursementAmount < sanctionAmount) {
             messageElement.textContent = 'Disbursement amount should not be smaller than Applied Amount or Sanction Amount.';
-        } else if (disbursementAmount > appliedAmount || disbursementAmount > sanctionAmount) {
-            messageElement.textContent = 'Disbursement amount should not be greater than Applied Amount or Sanction Amount.';
         } else {
             messageElement.textContent = '';
         }
