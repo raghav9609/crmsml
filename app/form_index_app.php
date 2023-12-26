@@ -216,43 +216,87 @@
     disbursementInput.addEventListener('input', function() {
         validateDisbursement();
     });
-});
-document.addEventListener('DOMContentLoaded', function () {
-    var loginDate = new Date(document.getElementById('login_date').value);
-    var sanctionDate = new Date(document.getElementById('sanction_date').value);
+});//////
 
-    var disbursementDateInput = document.getElementById('disburse_date');
-    var errorMessageElement = document.createElement('span');
-    errorMessageElement.className = 'error-message';
-    disbursementDateInput.parentNode.appendChild(errorMessageElement);
+document.addEventListener('DOMContentLoaded', function() {
+    //amount 
+    var logindateInput = document.getElementById('login_date');
+    var sanctiondateInput = document.getElementById('sanction_date');
+    var disbursedateInput = document.getElementById('disburse_date');
+
+    var errormessageElement = document.createElement('span');
+    errormessageElement.className = 'error-message';
+    disbursementInput.parentNode.appendChild(errormessageElement);
 
     function validateDisbursementDate() {
-        var disbursementDateValue = disbursementDateInput.value.trim();
+        var login_date = parseFloat(logindateInput.value) || 0;
+        var sanction_date = parseFloat(sanctiondateInput.value) || 0;
+        var disburse_date = parseFloat(disbursedateInput.value) || 0;
 
-        if (!disbursementDateValue) {
-            errorMessageElement.textContent = '';
-            return;
-        }
-
-        var disbursementDate = new Date(disbursementDateValue);
-
-        console.log('Disbursement Date:', disbursementDate);
-        console.log('Login Date:', loginDate);
-        console.log('Sanction Date:', sanctionDate);
-
-        if (disbursementDate >= loginDate && disbursementDate >= sanctionDate) {
-            errorMessageElement.textContent = '';
+        if (login_date >= disburse_date || sanction_date >= disburse_date) {
+            errormessageElement.textContent = ' Disbursement Date should not be smaller than Login Date and Sanction Date.';
         } else {
-            errorMessageElement.textContent = 'Disbursement Date should be greater than or equal to Login Date and Sanction Date.';
+            errormessageElement.textContent = '';
         }
     }
 
-    disbursementDateInput.addEventListener('input', function () {
-        validateDisbursementDate();
+    logindateInput.addEventListener('input', function() {
+        validateDisbursement();
     });
 
-    validateDisbursementDate(); // Call the validation on page load
+    sanctiondateInput.addEventListener('input', function() {
+        validateDisbursement();
+    });
+
+    disbursedateInput.addEventListener('input', function() {
+        validateDisbursement();
+    });
 });
+//////
+// document.addEventListener('DOMContentLoaded', function () {
+//     var loginDate = new Date(document.getElementById('login_date').value);
+//     var sanctionDate = new Date(document.getElementById('sanction_date').value);
+
+//     var disbursementDateInput = document.getElementById('disburse_date');
+//     var errorMessageElement = document.createElement('span');
+//     errorMessageElement.className = 'error-message';
+//     disbursementDateInput.parentNode.appendChild(errorMessageElement);
+
+//     function validateDisbursementDate() {
+//         var disbursementDateValue = disbursementDateInput.value.trim();
+
+//         // if (!disbursementDateValue) {
+//         //     errorMessageElement.textContent = '';
+//         //     return;
+//         // }
+
+//         var disbursementDate = new Date(disbursementDateValue);
+
+//         console.log('Disbursement Date:', disbursementDate);
+//         console.log('Login Date:', loginDate);
+//         console.log('Sanction Date:', sanctionDate);
+
+//         if (disbursementDate >= loginDate && disbursementDate >= sanctionDate) {
+//             errorMessageElement.textContent = '';
+//         } else {
+//             errorMessageElement.textContent = 'Disbursement Date should be greater than or equal to Login Date and Sanction Date.';
+//         }
+//     }
+
+//     disbursementDateInput.addEventListener('input', function () {
+//         validateDisbursementDate();
+//     });
+
+//     sanctionAmountInput.addEventListener('input', function() {
+//         validateDisbursement();
+//     });
+
+//     disbursementInput.addEventListener('input', function() {
+//         validateDisbursement();
+//     });
+
+//     validateDisbursementDate(); // Call the validation on page load
+// });
     
 </script>
 </form>
