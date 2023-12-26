@@ -69,7 +69,7 @@
                     <label for="applied_amount" class="label-tag"> Applied Amount</label>
                 </div>
                     <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                        <input type="text" class="text form-control valid datepicker" name="login_date" id="login_date" maxlength="10" value="<?php echo $login_date != '0000-00-00'?$login_date:'';?>" placeholder="yyyy-mm-dd" <?php echo ($login_date != '') ? 'readonly' : ''; ?> required>
+                        <input type="text" class="text form-control valid datepicker" name="login_date" id="login_date" maxlength="10" value="<?php echo $login_date != '0000-00-00'?$login_date:'';?>" placeholder="yyyy-mm-dd" <?php echo ($login_date != '') ? 'readonly' : ''; ?> oninput="datevalidate()" required>
                         <label for="dob" class="label-tag ">Login Date</label>
                         <span class='green' id='age' style="position: absolute;top: 100%;background: transparent;color: green;left: 15px;"></span>
                     </div> 
@@ -83,7 +83,7 @@
 
                     <div class="form-group col-xl-2 col-lg-4 col-md-6">
                         
-                        <input type="text" class="text form-control valid datepicker" name="sanction_date" id="sanction_date" maxlength="10" value="<?php echo $sanction_date; ?>" placeholder="yyyy-mm-dd" required <?php echo ($sanction_date != '') ? 'readonly' : '';  ?>>
+                        <input type="text" class="text form-control valid datepicker" name="sanction_date" id="sanction_date" maxlength="10" value="<?php echo $sanction_date; ?>" placeholder="yyyy-mm-dd" required <?php echo ($sanction_date != '') ? 'readonly' : '';  ?> oninput="datevalidate()">
                         <label for="dob" class="label-tag ">Sanction Date</label>
                         <span class='green' id='age' style="position: absolute;top: 100%;background: transparent;color: green;left: 15px;"></span>
                     </div> 
@@ -94,7 +94,7 @@
                         <label for="name" class="label-tag"> Disbursement Amount</label>
                     </div>
                     <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                        <input type="text" class="text form-control valid datepicker" name="disburse_date" id="disburse_date" maxlength="10" value="<?php echo $disburse_date; ?>" placeholder="yyyy-mm-dd" required <?php echo ($disburse_date != '') ? 'readonly' : '';  ?>>
+                        <input type="text" class="text form-control valid datepicker" name="disburse_date" id="disburse_date" maxlength="10" value="<?php echo $disburse_date; ?>" placeholder="yyyy-mm-dd" required <?php echo ($disburse_date != '') ? 'readonly' : '';  ?> oninput="datevalidate()">
                         <label for="dob" class="label-tag ">Disbursement Date</label>
                         <span class='green' id='age' style="position: absolute;top: 100%;background: transparent;color: green;left: 15px;"></span>
                     </div> 
@@ -225,10 +225,12 @@
 
 });//////
 
-document.addEventListener('DOMContentLoaded', function () {
+// document.addEventListener('DOMContentLoaded', function () {
+    function datevalidate(){
     var logindateInput = document.getElementById('login_date');
     var sanctiondateInput = document.getElementById('sanction_date');
     var disbursementInputdate = document.getElementById('disburse_date');
+    var submit_app = document.getElementById('submit_app');
 
     var errormessageElement = document.createElement('span');
     errormessageElement.className = 'error-message';
@@ -240,26 +242,28 @@ document.addEventListener('DOMContentLoaded', function () {
         var disburse_date = new Date(disbursementInputdate.value);
         // alert(login_date);
 
-        if (disburse_date.date() < login_date.date() || disburse_date.date() < sanction_date.date()) {
+        if (disburse_date < login_date|| disburse_date< sanction_date) {
             errormessageElement.textContent = 'Disbursement Date should not be smaller than Login Date and Sanction Date.';
+            submit_app.setAttribute('disabled', 'disabled');
         } else {
             errormessageElement.textContent = '';
+            submit_app.removeAttribute('disabled');
         }
     }
 
-    login_date.addEventListener('input', function() {
-        validateDisbursementDate();
-    });
+    // login_date.addEventListener('input', function() {
+    //     validateDisbursementDate();
+    // });
 
-    sanction_date.addEventListener('input', function() {
-        validateDisbursementDate();
-    });
+    // sanction_date.addEventListener('input', function() {
+    //     validateDisbursementDate();
+    // });
 
-    disbursementInputdate.addEventListener('input', function() {
-        validateDisbursementDate();
-    });
-    validateDisbursementDate();
-});
+    // disbursementInputdate.addEventListener('input', function() {
+    //     validateDisbursementDate();
+    // });
+    // validateDisbursementDate();
+}
 //////
 // document.addEventListener('DOMContentLoaded', function () {
 //     var loginDate = new Date(document.getElementById('login_date').value);
