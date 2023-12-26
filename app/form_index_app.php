@@ -50,6 +50,7 @@
         <form action="update_app.php" class="form-step col-12" autocomplete="off" id="form_step1">
                       
             <div class="row div-width">
+            <div id="error-message" class="error-message"></div>
             
                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
                     <span class="fa-icon fa-building"></span>
@@ -226,7 +227,7 @@
 });//////
 
 // document.addEventListener('DOMContentLoaded', function () {
-    function datevalidate(){
+function datevalidate(){
     var logindateInput = document.getElementById('login_date');
     var sanctiondateInput = document.getElementById('sanction_date');
     var disbursementInputdate = document.getElementById('disburse_date');
