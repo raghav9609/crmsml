@@ -244,7 +244,7 @@
         });
 
         // Call the validation on page load
-        validateDisbursementDate();
+        // validateDisbursementDate();
     });
     
 </script>
