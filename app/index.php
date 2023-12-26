@@ -588,7 +588,7 @@ if ($(this).not(":checked")) {
     <span><?php echo $loan_amount;?></span><br/><span class="fs-12"><?php echo $loan_name;?></span>
 </td>
 <!-- <td>
-    <?php echo $partner_name;?>
+    <?php //echo $partner_name;?>
 </td> -->
 <td>
     <?php echo $name_bank_on;?>

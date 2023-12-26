@@ -235,40 +235,43 @@
                             <input type="button" class="btn btn-primary valid" name="edit_app" id="edit_app" value="Edit">
                             <input type="button" class="btn btn-primary valid" name="submit_app" id="submit_app" value="SUBMIT">
                        
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
+                            <script>
+    document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('submit_app').style.display = 'none';
 
-        document.getElementById('edit_app').addEventListener('click', function() {
+        document.getElementById('edit_app').addEventListener('click', function () {
             enableEditing();
         });
-        document.getElementById('submit_app').addEventListener('click', function() {
+
+        document.getElementById('submit_app').addEventListener('click', function () {
             document.getElementById('form_step1').submit();
         });
+
         function enableEditing() {
             var fields = document.querySelectorAll('.form-control[readonly]');
-            fields.forEach(function(field) {
+            fields.forEach(function (field) {
                 field.removeAttribute('readonly');
             });
             document.getElementById('submit_app').style.display = 'block';
             document.getElementById('edit_app').style.display = 'none';
         }
-       
-        $(document).ready(function() {
+
+        $(document).ready(function () {
             $('.datepicker').datepicker({
                 dateFormat: 'yy-mm-dd', // Set the desired date format
                 changeMonth: true,
                 changeYear: true
             });
-        });
-        flatpickr('.flatpickr', {
-        enableTime: true,
-        noCalendar: true,
-        dateFormat: "H:i",
-        time_24hr: true,
-        minuteIncrement: 15
-    });
+
+            flatpickr('.flatpickr', {
+                enableTime: true,
+                noCalendar: true,
+                dateFormat: "H:i",
+                time_24hr: true,
+                minuteIncrement: 15
             });
+        });
+    });
 </script>
 </form>
     <?php
