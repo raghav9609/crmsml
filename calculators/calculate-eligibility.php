@@ -160,7 +160,6 @@ else{
 }
 
 function loan_type_func(loan){
-    alert("hellooooo");
         if(loan == 54){
             $(".hl_pl_loan,.56_loan").removeClass("hidden").attr("required","required");
             $(".51_loan,.60_loan,.cob_1,.cob_2,.weight_gold,.loan_amt").val("").addClass("hidden").removeAttr("required");
