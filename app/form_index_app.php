@@ -210,9 +210,9 @@
         });
 
         disbursementDateInput.addEventListener('input', function() {
-            var disbursementAmount = parseFloat(disbursementDateInput.value) || 0;
+            var disbursementDateInput = parseFloat(disbursementDateInput.value) || 0;
 
-            if (disbursementAmount < loginDate || disbursementAmount < sanctionDate) {
+            if (disbursementDateInput < loginDate || disbursementDateInput < sanctionDate) {
                 messageElement.textContent = 'Disbursement Date should not be smaller than Login Date or Sanction Date.';
             } else {
                 messageElement.textContent = '';
