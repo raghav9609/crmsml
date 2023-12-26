@@ -73,38 +73,29 @@ require_once "../include/helper.functions.php";
             'salutation_id' => $_REQUEST['salutation'],
             'name' => $_REQUEST['name'],
             'dob' => $_REQUEST['dob'],
-            'comp_category'=>$comp_category,
-            'sub_comp_category'=>$sub_comp_category,
-            'sub_sub_comp_category'=>$sub_sub_comp_category,
-            'govt_cat_state_id'=>$state_comp_category,
-            'account_no' =>  $_REQUEST['account_no'],
-            'email' => $_REQUEST['email'],
-            'maritalstatus' => $_REQUEST['maritalstatus'],
-            'occup_id' => $_REQUEST['occupation_id'],
-            'comp_id' => $comp_id,
-            'comp_name_other' => $comp_name_other,
-            'net_incm' => $net_income,
-            'bank_id' => $_REQUEST['main_acc'],
+            'bank_account_no' =>  $_REQUEST['account_no'],
+            'email_id' => $_REQUEST['email'],
+            'marital_status_id' => $_REQUEST['maritalstatus'],
+            'occupation_id' => $_REQUEST['occupation_id'],
+            'company_id' => $comp_id,
+            'company_name' => $comp_name_other,
+            'net_income' => $net_income,
+            'salary_bank_id' => $_REQUEST['main_acc'],
             'city_id' => $final_city_id,
-            'res_address' => trim($_REQUEST['address']),
-            'ofc_pincode' => trim($_REQUEST['ofc_pincode']),
-            'work_city' => $get_city_id[$work_city]['city_id'],
-            'offce_address' => trim($_REQUEST['offce_address']),
-            'ofc_email' => trim($_REQUEST['ofc_email'])
-	    );
-		echo "<br>asnu";
-		$bankimp = $_REQUEST['saving_acc_with_banks'];
-		$fieds_array_intt = array(
-			'salary_pay_id' => $_REQUEST['slry_paid'],
+            'address' => trim($_REQUEST['address']),
+            'office_pincode' => trim($_REQUEST['ofc_pincode']),
+            'office_city_id' => $get_city_id[$work_city]['city_id'],
+            'office_address' => trim($_REQUEST['offce_address']),
+            'office_email_id' => trim($_REQUEST['ofc_email']),
+			'mode_of_salary' => $_REQUEST['slry_paid'],
 			'pincode' => $_REQUEST['pin_code'],
-			'profession_id' => $_REQUEST['profession'],
-			'cur_comp_wrk_exp'=> $_REQUEST['ccwe'],
-			'totl_wrk_exp'=> $_REQUEST['twe'],
-			'saving_accounts_with' => $bankimp
-		);
+			'current_work_exp'=> $_REQUEST['ccwe'],
+			'total_work_exp'=> $_REQUEST['twe']
+	    );
+
 		echo "<br>asnu";
 		$count = count($fieds_array);
-		$count_intt = count($fieds_array_intt);
+		//$count_intt = count($fieds_array_intt);
 		$main_array = $intt_array = 0;
 		$query_to_update = "update crm_customer set ";
 		foreach($fieds_array as $key => $value){
@@ -122,16 +113,9 @@ require_once "../include/helper.functions.php";
 		echo $query_to_update .= " where id ='".replace_special($_REQUEST['cust_id'])."'";
 		$update_qry = mysqli_query($Conn1,$query_to_update) or die(mysqli_error($Conn1));
 		die();
-	$query_to_update_intt = "update tbl_mint_cust_info_intt set ";
-	foreach($fieds_array_intt as $key => $value){
-		++$intt_array;
-		$query_to_update_intt .= $key ." = '".replace_special($value)."'";
-		if($intt_array != $count_intt){
-			$query_to_update_intt .= ",";
-		}
-	}
-	$query_to_update_intt .= " where cust_id ='".replace_special($_REQUEST['cust_id'])."'";
-	$update_qry_intt = mysqli_query($Conn1,$query_to_update_intt) or die(mysqli_error($Conn1));
+	
+	
+	
 	if($_REQUEST['loan_type'] == 11 && $_REQUEST['occupation_id'] == 1){
 		$hospital_name = $get_company_name;
 	}
