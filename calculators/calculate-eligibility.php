@@ -48,7 +48,10 @@ if($_REQUEST['calculate']){
         echo "hello10";
             $calculation_gen_double = ($net_incm_on  * $foir) - $cur_emi_on;
             echo "hello101";
-            $calculation_gen_three = ($net_incm_tw  * $foir) - $cur_emi_tw;
+            if($net_incm_tw > 0 and  $cur_emi_tw > 0){
+                $calculation_gen_three = ($net_incm_tw  * $foir) - $cur_emi_tw;
+            }
+            
             echo "hello102";
 			$cal_gen = 1 - pow(1 + $rate, - ($tennure*12));
             echo "hello113";
