@@ -40,10 +40,14 @@ if(!function_exists('get_dropdown')){
             $i=0;
             while($get_data = mysqli_fetch_array($data)){
                 $i++;
+                $selected_valtext = '';
+                if ($get_data['id'] == $selected_val){
+                    $selected_valtext = 'selected';
+                }
                 if($i == 1){
                     echo "<select name='".$name."' id='".$name."' $func_call><option value= ''>Select ".$get_data['code_value']."</option>";
                 }
-                echo "<option value='".$get_data['id']."'>".$get_data['value']."</option>";
+                echo "<option value='".$get_data['id']."' ".$selected_valtext.">".$get_data['value']."</option>";
             }
             echo "</select>";
         }
@@ -91,7 +95,7 @@ if(!function_exists('get_name')){
                 $qry = "select * from crm_master_city_sub_group where city_sub_group_name = '".$id."'";
             break;
             case "master_code_id":
-                $qry = "select * from crm_masters where value = '".$id."'";
+                $qry = "select * from crm_masters where id = '".$id."'";
             break;
             default:
             $qry = "select * from crm_masters as master where id = ".$id;

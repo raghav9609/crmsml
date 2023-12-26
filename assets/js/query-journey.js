@@ -78,62 +78,62 @@ $(document).ready(function(){
     });
     //Changes - FDFieldsOnCRM - Akash - Ends
 
-    function dl(){
-        var occup_id = $('[name="occupation_id"] option:selected').val();
-        if(occup_id == 1){
-          $(".dl_salaried").removeClass('hidden').attr('required',true);
-          $(".dl_senp").addClass('hidden').removeAttr('required').val('');
-          $("input[name='place_of_business']").addClass('hidden').removeAttr('required').val('');
-          $("#dl_work_on").text("Private Clinic");
-        }else if(occup_id == 2){
-          $(".dl_senp").removeClass('hidden').attr('required',true);
-          $("input[name='place_of_business']").removeClass('hidden').attr('required',true);
-          $(".dl_salaried").addClass('hidden').removeAttr('required').val('');
-          $("#dl_work_on").text("Hospital");
-        }else{
-           $(".dl_senp,.dl_salaried,input[name='place_of_business']").addClass('hidden').removeAttr('required').val('');
-           $("#dl_work_on").text("Private Clinic");
-        }
-    }
+    // function dl(){
+    //     var occup_id = $('[name="occupation_id"] option:selected').val();
+    //     if(occup_id == 1){
+    //       $(".dl_salaried").removeClass('hidden').attr('required',true);
+    //       $(".dl_senp").addClass('hidden').removeAttr('required').val('');
+    //       $("input[name='place_of_business']").addClass('hidden').removeAttr('required').val('');
+    //       $("#dl_work_on").text("Private Clinic");
+    //     }else if(occup_id == 2){
+    //       $(".dl_senp").removeClass('hidden').attr('required',true);
+    //       $("input[name='place_of_business']").removeClass('hidden').attr('required',true);
+    //       $(".dl_salaried").addClass('hidden').removeAttr('required').val('');
+    //       $("#dl_work_on").text("Hospital");
+    //     }else{
+    //        $(".dl_senp,.dl_salaried,input[name='place_of_business']").addClass('hidden').removeAttr('required').val('');
+    //        $("#dl_work_on").text("Private Clinic");
+    //     }
+    // }
 
-    function professional_loan(){
-        var occup_id = $('[name="occupation_id"] option:selected').val();
-        if(occup_id == 2){
-          $(".dl_senp,.pl_senp,.gar").removeClass('hidden').attr('required',true);
-          $("input[name='place_of_business']").removeClass('hidden').attr('required',true);
-          $(".bl_sep").addClass('hidden').removeAttr('required').val('');
-          $(".annual_turnover_value_formt,.annual_profit_value_formt").text('');
+    // function professional_loan(){
+    //     var occup_id = $('[name="occupation_id"] option:selected').val();
+    //     if(occup_id == 2){
+    //       $(".dl_senp,.pl_senp,.gar").removeClass('hidden').attr('required',true);
+    //       $("input[name='place_of_business']").removeClass('hidden').attr('required',true);
+    //       $(".bl_sep").addClass('hidden').removeAttr('required').val('');
+    //       $(".annual_turnover_value_formt,.annual_profit_value_formt").text('');
 
-        }else if(occup_id == 3){
-          $(".dl_senp,.bl_sep").removeClass('hidden').attr('required',true);
-          $("input[name='place_of_business']").removeClass('hidden').attr('required',true);
-          $(".pl_senp,.gar").addClass('hidden').removeAttr('required').val('');
-          industry_type();
-          type_of_registration();
-        }else{
-          $(".dl_senp,.pl_senp,.bl_sep,.gar").addClass('hidden').removeAttr('required').val('');
-          $("input[name='place_of_business']").addClass('hidden').removeAttr('required').val('');
-          $(".annual_turnover_value_formt,.annual_profit_value_formt").text('');
-        }
-    }
-    function type_of_registration(){
-      var val = $("#type_of_registration option:selected").val();
-      if(val == 6 || val == 7 || val == 8){
-        $("#bank_account_type").children("option[value='4']").hide();
-      }else{
-        $("#bank_account_type").children("option[value='4']").show();
-      }
-    }
+    //     }else if(occup_id == 3){
+    //       $(".dl_senp,.bl_sep").removeClass('hidden').attr('required',true);
+    //       $("input[name='place_of_business']").removeClass('hidden').attr('required',true);
+    //       $(".pl_senp,.gar").addClass('hidden').removeAttr('required').val('');
+    //       industry_type();
+    //       type_of_registration();
+    //     }else{
+    //       $(".dl_senp,.pl_senp,.bl_sep,.gar").addClass('hidden').removeAttr('required').val('');
+    //       $("input[name='place_of_business']").addClass('hidden').removeAttr('required').val('');
+    //       $(".annual_turnover_value_formt,.annual_profit_value_formt").text('');
+    //     }
+    // }
+    // function type_of_registration(){
+    //   var val = $("#type_of_registration option:selected").val();
+    //   if(val == 6 || val == 7 || val == 8){
+    //     $("#bank_account_type").children("option[value='4']").hide();
+    //   }else{
+    //     $("#bank_account_type").children("option[value='4']").show();
+    //   }
+    // }
     
     function occupation(){
       var occupation = $('[name="occupation_id"] option:selected').val();
       var loan_type = $("#loan_type").val();
-      if(occupation == 2 || occupation == 3){
+      if(occupation == 47 || occupation == 48){
         $(".self_emp").removeClass('hidden').attr('required','true');
         $(".salaried").addClass('hidden').val('').removeAttr('required');
         $(".net_month_inc_value_formt").text('');
         slry_paid();
-      }else if(occupation == 1){
+      } else if(occupation == 46){
         $(".salaried").removeClass('hidden').attr('required','true');
         $(".self_emp").addClass('hidden').val('').removeAttr('required');
         $(".gross_annual_receipt_value_formt").text('');
@@ -142,38 +142,13 @@ $(document).ready(function(){
         slry_paid();
         $(".net_month_inc_value_formt,.gross_annual_receipt_value_formt").text('');
       }
-      if(loan_type == 11){
-        dl();
-      }else if(loan_type == 63 || loan_type == 57){
-        professional_loan();
-      }
     }
     function loan_type(){
       var loan_type_id = $("#loan_type").val();
-      if(loan_type_id == 56){
+      if(loan_type_id == 54){
         $("#occupation_id").children("option[value='2']").hide();
         $("#occupation_id").children("option[value='3']").hide();
         if( $("#occupation_id").val() == 2 || $("#occupation_id").val() == 3){
-            $("#occupation_id").val('1');
-            occupation();
-        }
-      }else if(loan_type_id == 63 || loan_type_id == 57){
-        $("#occupation_id").children("option[value='1']").hide();
-        if(loan_type_id == 63 || loan_type_id == 57 ){
-          professional_loan();
-          if( $("#occupation_id").val() == 1){
-            if(loan_type_id == 63){
-              $("#occupation_id").val('2');
-            }else{
-              $("#occupation_id").val('3');
-            }
-            occupation();
-        }
-        }
-      }else if(loan_type_id == 11){
-        $("#occupation_id").children("option[value='3']").hide();
-        dl();
-        if($("#occupation_id").val() == 3){
             $("#occupation_id").val('1');
             occupation();
         }
@@ -181,7 +156,7 @@ $(document).ready(function(){
     }
     function slry_paid(){
       var slry_paid = $('[name="slry_paid"] option:selected').val();
-      if(slry_paid == 1){
+      if(slry_paid == 6){
         $(".main_acc").removeClass('hidden').attr('required',true);
       }else{
         $(".main_acc").addClass('hidden').removeAttr('required').val('');
@@ -382,40 +357,40 @@ function card_tocard(){
      $('[name="exis_loans"]').on('change',function (){
       existing_loan();
     });
-    $('[name="nature_of_business"]').on('change',function (){
-      industry_type();
-    });
-    $('[name="type_of_registration"]').on('change',function (){
-      type_of_registration();
-    });
-    function bank_process_insert(){
-      if($("#case_id").val() != '' && $("#case_id").val() != '0' && $('#form_step3').valid()){
-        $.ajax({      
-                  method:'POST',
-                  data:$("#form_step3").serialize(),
-                  url: "/sugar/cases/sent-to-bank-new.php",
-                  success: function(data){
-                    if($.trim(data) != ''){
-                      window.open(data,'BAJAJ',config='height=1200,width=1200,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,directories=no,status=no');
-                    }
-                    console.log("success from step 3");                                    
-                  }                                                                                 
-                });
-      }
-    }
-    function industry_type(){
-      var nature_of_business = $("#nature_of_business option:selected").val();
-      if(nature_of_business != ''){
-          $.ajax({      
-            method:'POST',
-            data:'nature_of_business='+nature_of_business+'&val='+industry_id,
-              url: "../../include/get-industry-id.php",
-              success: function(response) {                                          
-                        $("#industry_type").html(response)
-              }                                                                                 
-            });
-        }
-    }
+    // $('[name="nature_of_business"]').on('change',function (){
+    //   industry_type();
+    // });
+    // $('[name="type_of_registration"]').on('change',function (){
+    //   type_of_registration();
+    // });
+    // function bank_process_insert(){
+    //   if($("#case_id").val() != '' && $("#case_id").val() != '0' && $('#form_step3').valid()){
+    //     $.ajax({      
+    //               method:'POST',
+    //               data:$("#form_step3").serialize(),
+    //               url: "/sugar/cases/sent-to-bank-new.php",
+    //               success: function(data){
+    //                 if($.trim(data) != ''){
+    //                   window.open(data,'BAJAJ',config='height=1200,width=1200,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,directories=no,status=no');
+    //                 }
+    //                 console.log("success from step 3");                                    
+    //               }                                                                                 
+    //             });
+    //   }
+    // }
+    // function industry_type(){
+    //   var nature_of_business = $("#nature_of_business option:selected").val();
+    //   if(nature_of_business != ''){
+    //       $.ajax({      
+    //         method:'POST',
+    //         data:'nature_of_business='+nature_of_business+'&val='+industry_id,
+    //           url: "/../include/get-industry-id.php",
+    //           success: function(response) {                                          
+    //                     $("#industry_type").html(response)
+    //           }                                                                                 
+    //         });
+    //     }
+    // }
     
     loan_type();
     occupation();
@@ -429,8 +404,8 @@ function card_tocard(){
     card_tocard();
     credit_running();
     existing_loan();
-    industry_type();
-    type_of_registration();
+    // industry_type();
+    // type_of_registration();
 
     function verticalToggle(btnid){
       $('#form_'+btnid).prev('.brdr-top-gray').addClass('step-green').removeClass('blue-bg');
@@ -810,59 +785,17 @@ function card_tocard(){
         var selected_values = $("#case_f_stats").val();
         if(selected_values == "9") {
           var loan_type=$("#loan_type").val()
-          if(loan_type==51 ){
-            mindval=30;
-            maxdval=120;
-          } else if(loan_type==54){
-            mindval=30;
-            maxdval=210; 
-          } else if(loan_type==56) {
+          if(loan_type==54) {
             mindval=7;
             maxdval=90;  
-          } else if(loan_type==57) {
-            mindval=7;
-            maxdval=90;  
-          } else if(loan_type==60){
-            mindval=5;
-            maxdval=90;  
-          } else if(loan_type==71){
-            mindval=7;
-            maxdval=90;  
-          } else{
-            mindval=0;
-            maxdval=90; 
           }
       } else if( selected_values == "1") {
         var loan_type=$("#loan_type").val()
-        if(loan_type==51 ){
-          mindval=0;
-          maxdval=30;
-
-        } else if(loan_type==54) {
-              mindval=0;
-              maxdval=30; 
-              }
-            else if(loan_type==56){
-              mindval=0;
-              maxdval=7;  
-              }
-              else if(loan_type==57){
-                  mindval=0;
-                  maxdval=7;  
-              }
-              else if(loan_type==60){
-                  mindval=0;
-                  maxdval=5;  
-              }
-              else if(loan_type==71){
-                  mindval=0;
-                  maxdval=7;  
-              }
-              else{
-                  mindval=0;
-                  maxdval=7; 
-              }
-          }
+        if(loan_type==54){
+            mindval=0;
+            maxdval=7;  
+        }
+      }
           else {
             mindval=0;
             maxdval=90;

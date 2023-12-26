@@ -47,10 +47,12 @@
     $nametext = trim($fname) != '' ? "<li><b class='fw_bold'>".ucfirst($fname)."</b> " : '<li><b class="fw_bold">Customer</b> '  ; 
     $dobtext = ($diff != '') ? " and customer age is&nbsp;&nbsp;<b class='fw_bold'>".$diff."</b>&nbsp;&nbsp;years </li>" : "</li>"  ;
     $citytext = (($city_name != '')? " and residing in <b class='fw_bold'> $city_name </b></li> " : "</li>") ;
+   // echo $occup;
     $occcc = get_name('master_code_id',$occup);
-    $occuptext = (($occup != '' && $occup != 0) ? "<li>Customer is  <b class='fw_bold'>$occcc </b>" : "");
+    
+    $occuptext = (($occup != '' && $occup != 0) ? "<li>Customer is  <b class='fw_bold'>".$occcc['value']." </b>" : "");
     $mainbank = get_name('master_code_id',$main_account);
-    $accounttext = (($main_account !='' && $main_account !=0) ? "<li>Customer has account in  <b class='fw_bold'>$mainbank </b></li>" : "");
+    $accounttext = (($main_account !='' && $main_account !=0) ? "<li>Customer has account in  <b class='fw_bold'>".$mainbank['value']." </b></li>" : "");
     $loanamounttext = ($loan_amt != 0 && $loan_amt != '') ? " of <b class='fw_bold'> $amt </b>" : "";
     echo  $nametext." looking for a <b class='fw_bold'>".$loantype_name."</b>".$loanamounttext. $citytext.$occuptext.$dobtext.$accounttext; ?>
 </ul>
@@ -179,13 +181,13 @@
                                 </div> 
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
                                     <span class="fa-icon fa-envelope"></span>
-                                    <input type="email" class="form-control" name="email" maxlength="50" id="email"  value="<?php echo ($email) ;?>" <?php if(in_array($loan_type,array(71,11,57,63,56))){?> required <?php }?> <?php if($email_ver_result['email_ver_date'] != '' && $email_ver_result['email_ver_date'] != '1970-01-01' && $email_ver_result['email_ver_date'] != '0000-00-00') { ?> title="Verified @ : <?php echo date("d-m-Y", strtotime($email_ver_result['email_ver_date']))." ".$email_ver_result['source']; ?>" <?php }  ?> />
+                                    <input type="email" class="form-control" name="email" maxlength="50" id="email"  value="<?php echo ($email) ;?>"  required <?php if($email_ver_result['email_ver_date'] != '' && $email_ver_result['email_ver_date'] != '1970-01-01' && $email_ver_result['email_ver_date'] != '0000-00-00') { ?> title="Verified @ : <?php echo date("d-m-Y", strtotime($email_ver_result['email_ver_date']))." ".$email_ver_result['source']; ?>" <?php }  ?> />
 
                                     <?php if($email_ver_result['email_ver_date'] != '' && $email_ver_result['email_ver_date'] != '1970-01-01' && $email_ver_result['email_ver_date'] != '0000-00-00' && trim($email) != '') { ?>
                                         <label class="pointer_n" style="font-weight: bold;width: 25px;height: 18px;text-align: center;color: #1b8c1b;border-radius: 50%;right: 16px;left: auto;">✔</label>
                                     <?php }  ?>
 
-                                    <label for="email" class="label-tag <?php if(!in_array($loan_type,array(71,11,57,63,56))){ ?> optional-tag <?php } ?>">Email</label>
+                                    <label for="email" class="label-tag optional-tag ">Email</label>
                                 </div>
                               
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
@@ -200,13 +202,13 @@
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
                                     <span class="fa-icon fa-pan"></span>
                                     <input type="text" class="form-control" id="pan_card" name="pan_card" maxlength="10" placeholder="Pan Card" value="<?php echo ($pan_card); ?>"
-                                    <?php if(in_array($loan_type,array(71))){?> required <?php }?> <?php  if($pan_card_ver_result['pan_ver_date'] != '' && $pan_card_ver_result['pan_ver_date'] != '1970-01-01' && $pan_card_ver_result['pan_ver_date'] != '0000-00-00') { ?> title="Verified @ : <?php echo date("d-m-Y", strtotime($pan_card_ver_result['pan_ver_date']))." ".$pan_card_ver_result['source']; ?>" <?php }  ?> >
+                                    <?php if($pan_card_ver_result['pan_ver_date'] != '' && $pan_card_ver_result['pan_ver_date'] != '1970-01-01' && $pan_card_ver_result['pan_ver_date'] != '0000-00-00') { ?> title="Verified @ : <?php echo date("d-m-Y", strtotime($pan_card_ver_result['pan_ver_date']))." ".$pan_card_ver_result['source']; ?>" <?php }  ?> >
 
-                                    <?php  if($pan_card_ver_result['pan_ver_date'] != '' && $pan_card_ver_result['pan_ver_date'] != '1970-01-01' && $pan_card_ver_result['pan_ver_date'] != '0000-00-00' && trim($pan_card) != '') { ?>
+                                    <?php if($pan_card_ver_result['pan_ver_date'] != '' && $pan_card_ver_result['pan_ver_date'] != '1970-01-01' && $pan_card_ver_result['pan_ver_date'] != '0000-00-00' && trim($pan_card) != '') { ?>
                                         <label class="pointer_n" style="font-weight: bold;width: 25px;height: 18px;text-align: center;color: #1b8c1b;border-radius: 50%;right: 16px;left: auto;">✔</label>
                                     <?php }  ?>
 
-                                    <label for="pan_card" class="label-tag <?php if(!in_array($loan_type,array(71))){ ?> optional-tag <?php } ?>">Pan Card No.<span class='blue f_12'>(Take cibil consent)</span></label>
+                                    <label for="pan_card" class="label-tag optional-tag ">Pan Card No.<span class='blue f_12'>(Take cibil consent)</span></label>
                                 </div>
                                 <div class="heading-offers">
                                     <div class="exclamatry-text">Occupation Details</div>
@@ -217,18 +219,16 @@
                                     <label for="occupation" class="label-tag">Employment Type</label>
                                 </div>
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6 salaried company_name_input">
-                                    <span class="fa-icon <?php echo $loan_type == 11 ? 'fa-hospital-o' : 'fa-industry'; ?>"></span>
-                                    <input type="text" class="form-control alpha-num salaried" name="comp_name" id="comp_name" <?php if($loan_type != 11){?>  onfocusout="check_comp_name(this.value);" <?php } ?> Placeholder="<?php echo $loan_type == 11 ?'Hospital':'Company';?> Name" maxlength="100" autocomplete="off" value="<?php echo $comp_name;?>" />
-                                    <label for="comp_name" class="label-tag"><?php echo $loan_type == 11 ?'Hospital':'Company';?> Name</label>
+                                    <span class="fa-icon fa-industry"></span>
+                                    <input type="text" class="form-control alpha-num salaried" name="comp_name" id="comp_name" onfocusout="check_comp_name(this.value);" Placeholder="Company Name" maxlength="100" autocomplete="off" value="<?php echo $comp_name;?>" />
+                                    <label for="comp_name" class="label-tag">Company Name</label>
                                 </div>
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6 salaried">
                                     <span class="fa-icon fa-inr"></span>
                                     <input type="tel" class="text form-control loan_net_incm numonly salaried" name="net_month_inc" id="net_month_inc" maxlength="9" value="<?php echo $net_incm ;?>" data-rule-min="10000" required/>
-                                    <?php
-                                    $raw_details_nmi = mysqli_query($Conn1, "SELECT cust.net_income as r_nmi, qry.net_income AS lan_incm FROM crm_query As qry Inner JOIN crm_customer As cust ON qry.crm_customer_id = cust.id WHERE qry.id = '".$q_id."' order by cust.id ");
+                                    <?php $raw_details_nmi = mysqli_query($Conn1, "SELECT cust.net_income as r_nmi, qry.net_income AS lan_incm FROM crm_query As qry Inner JOIN crm_customer As cust ON qry.crm_customer_id = cust.id WHERE qry.id = '".$q_id."' order by cust.id ");
                                     if(mysqli_num_rows($raw_details_nmi) > 0)  {
                                         $raw_details_result = mysqli_fetch_array($raw_details_nmi);
-                                        
                                         $raw_details_nmi_val = custom_money_format($raw_details_result['r_nmi']);
                                         $raw_details_la_nmi  = ($raw_details_result['lan_incm'] != 0 && $raw_details_result['lan_incm'] != "") ? custom_money_format($raw_details_result['lan_incm']) : "";
                                     }
@@ -245,7 +245,7 @@
                                 </div>
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6 main_acc hidden">
                                     <span class="fa-icon fa-bank"></span>
-                                    <?php echo get_dropdown('13','main_acc',$main_account,'class="main_acc"'); ?>
+                                    <?php echo get_dropdown('2','main_acc',$main_account,'class="main_acc"'); ?>
                                     <label for="main_acc" class="label-tag">Main Account</label>
                                 </div>
                            
@@ -1076,10 +1076,10 @@ if (in_array($loan_type, $language_barrier_loan_type)) {?>
     </script>
 <script src="../assets/js/common-function.js"></script> 
 <?php if(in_array($user,$user_new_status) || in_array($loan_type,$loan_type_new_status) ){ ?>
-<script src="../assets/js/query-journey-new-status.js?v=15"></script>
+<script src="../assets/js/query-journey-new-status.js?v=16"></script>
 <script src="../assets/js/case-follow-up.js?v=4"></script>
 <?php } else{ ?>
-<script src="../assets/js/query-journey.js?v=4"></script>
+<script src="../assets/js/query-journey.js?v=5"></script>
 <?php } ?>
 <script>
 $(document).ready(function() {
