@@ -1,6 +1,7 @@
 <?php 
 session_start();
-require_once(dirname(__FILE__) . "/../config/session.php");
+require_once(dirname(__FILE__) . "../config/session.php");
+echo "asasas";
 require_once(dirname(__FILE__) . "/../config/config.php");
 //require_once(dirname(__FILE__) . "/../../../include/class.memcache.php");
 require_once(dirname(__FILE__) . "/../include/display-name-functions.php");
