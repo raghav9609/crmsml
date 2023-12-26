@@ -48,28 +48,37 @@ function validateForm() {
     var salry_to = parseFloat(document.getElementById('salry_to').value) || 0;
     var loan_frm = parseFloat(document.getElementById('loan_frm').value) || 0;
     var loan_to = parseFloat(document.getElementById('loan_to').value) || 0;
-	var salry_messageElement = document.createElement('span');
-    salry_messageElement.className = 'error-message';
-    document.getElementById('salry_from').parentNode.appendChild(salry_messageElement);
 
-    var loan_messageElement = document.createElement('span');
-    loan_messageElement.className = 'error-message';
-    document.getElementById('loan_frm').parentNode.appendChild(loan_messageElement);
+    // Remove existing error messages
+    removeErrorMessage('salry_from');
+    removeErrorMessage('loan_frm');
 
+    // Create and append error messages
     if (salry_from >= salry_to) {
-        salry_messageElement.textContent = 'Salary From should be less than Salary To';
-    } else {
-        salry_messageElement.textContent = '';
+        appendErrorMessage('salry_from', 'Salary From should be less than Salary To');
     }
 
     if (loan_frm >= loan_to) {
-        loan_messageElement.textContent = 'Loan From should be less than Loan To';
-    } else {
-        loan_messageElement.textContent = '';
+        appendErrorMessage('loan_frm', 'Loan From should be less than Loan To');
     }
 
     // Determine whether the form should be submitted based on the conditions
     return salry_from < salry_to && loan_frm < loan_to;
+}
+
+function appendErrorMessage(elementId, message) {
+    var messageElement = document.createElement('span');
+    messageElement.className = 'error-message';
+    messageElement.textContent = message;
+    document.getElementById(elementId).parentNode.appendChild(messageElement);
+}
+
+function removeErrorMessage(elementId) {
+    var parentElement = document.getElementById(elementId).parentNode;
+    var existingMessage = parentElement.querySelector('.error-message');
+    if (existingMessage) {
+        parentElement.removeChild(existingMessage);
+    }
 }
 
 </script>
