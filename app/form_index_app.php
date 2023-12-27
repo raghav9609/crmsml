@@ -91,6 +91,8 @@
 
                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
                     <span class="fa-icon fa-building"></span>
+                    <div class="form-group col-xl-2 col-lg-4 col-md-6">
+                    <span class="fa-icon fa-building"></span>
                     <div class="custom-dropdown">
                         <select name="application_status" id="application_status" style="height: auto !important;">
                         <?php 
@@ -108,7 +110,7 @@
                         <?php }?>
                         </div>
                     </div>
-                    <!-- <input type="text" id="application_status" name="application_status" value="<?php echo ($application_status_get['value']) ;?>" placeholder="Enter Application Status" class="form-control alphaonly valid"  <?php echo ($application_status_get['value'] != '') ? 'readonly' : ''; ?> maxlength="20" required>
+                                        <!-- <input type="text" id="application_status" name="application_status" value="<?php echo ($application_status_get['value']) ;?>" placeholder="Enter Application Status" class="form-control alphaonly valid"  <?php echo ($application_status_get['value'] != '') ? 'readonly' : ''; ?> maxlength="20" required>
                     <label for="name" class="label-tag"> Application Status</label> -->
                 </div>
                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
@@ -302,29 +304,17 @@ function datevalidate() {
 function selectOption(optionId) {
     var dropdown = document.getElementById('application_status');
     dropdown.value = optionId;
-    closeDropdown();
   }
 
-  function openDropdown() {
-    var dropdownOptions = document.getElementById('dropdownOptions');
-    dropdownOptions.style.display = 'block';
-  }
-
-  function closeDropdown() {
-    var dropdownOptions = document.getElementById('dropdownOptions');
-    dropdownOptions.style.display = 'none';
-  }
+  var dropdownOptions = document.getElementById('dropdownOptions');
 
   var customDropdown = document.querySelector('.custom-dropdown');
-  customDropdown.addEventListener('click', function() {
-    openDropdown();
+  customDropdown.addEventListener('mouseenter', function() {
+    dropdownOptions.style.display = 'block';
   });
 
-  document.addEventListener('click', function(event) {
-    var isClickInside = customDropdown.contains(event.target);
-    if (!isClickInside) {
-      closeDropdown();
-    }
+  customDropdown.addEventListener('mouseleave', function() {
+    dropdownOptions.style.display = 'none';
   });
 </script>
 </form>
