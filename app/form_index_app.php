@@ -59,16 +59,17 @@
                     <input type="text" id="bank_name" name="bank_name" value="<?php echo ($get_bank_name['value']) ;?>" placeholder="Enter Bank Name" class="form-control alphaonly valid" maxlength="20" <?php echo ($get_bank_name['value'] != '') ? 'disabled' : 'disabled'; ?>  required >
                     <label for="name" class="label-tag"> Bank Name</label>
                 </div>   
+                <div class="form-group col-xl-2 col-lg-4 col-md-6 main_acc hidden">
+                        <span class="fa-icon fa-bank"></span>
+                        <?php echo get_dropdown('application_status','main_acc',$main_account,'class="main_acc"'); ?>
+                        <label for="main_acc" class="label-tag">Application Status</label>
+                    </div>
 <!-- 
                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
                     <span class="fa-icon fa-building"></span> -->
                     
                     <!-- <input type="text" id="application_status" name="application_status" value="<?php echo ($application_status_get['value']) ;?>" placeholder="Enter Application Status" class="form-control alphaonly valid"  <?php echo ($application_status_get['value'] != '') ? 'readonly' : ''; ?> maxlength="20" required> -->
-                    <div class="form-group col-xl-2 col-lg-4 col-md-6 main_acc hidden">
-                        <span class="fa-icon fa-bank"></span>
-                        <?php echo get_dropdown('application_status','main_acc',$main_account,'class="main_acc"'); ?>
-                        <label for="main_acc" class="label-tag">Application Status</label>
-                    </div>
+                   
                     <!-- <label for="name" class="label-tag"> Application Status</label>
                 </div> -->
                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
