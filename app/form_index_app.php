@@ -62,20 +62,20 @@
 
                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
                     <!-- <span class="fa-icon fa-building"></span> -->
-                    <select  name = 'application_status' id ='application_status'   > 
+                    <select name='application_status' id='application_status'>
                         <?php 
-                        $cam_ques = get_dropdown("application_status","");
-                        // echo '<option value="0" selected>Select</option>';
-                        foreach($cam_ques as $ques){
+                        $cam_ques = get_dropdown("application_status", "");
+
+                        foreach ($cam_ques as $ques) {
+                            $optionValue = $ques['id'];
+                            $optionText = $ques['value'];
+                            ?>
+                            <option value='<?php echo $optionValue; ?>' <?php echo ($optionValue == $application_status) ? 'selected' : ''; ?>>
+                                <?php echo $optionText; ?>
+                            </option>
+                            <?php
+                        }
                         ?>
-                        <option value = '<?php echo $ques['id']; ?>'><?php echo $ques['value'];  ?></option>
-                        <?php echo  $application_status = $application_status_get['value'];
-                        if( is_array($application_status)){
-                            while (list ($key, $val) = each ($application_status)) {
-                            echo "$val <br>";
-                            }
-                            }?>
-                        <?php }?>
                     </select>
                     <!-- <input type="text" id="application_status" name="application_status" value="<?php echo ($application_status_get['value']) ;?>" placeholder="Enter Application Status" class="form-control alphaonly valid"  <?php echo ($application_status_get['value'] != '') ? 'readonly' : ''; ?> maxlength="20" required> -->
                     <label for="name" class="label-tag"> Application Status</label>
