@@ -89,7 +89,7 @@
                 </div>   
                 <div class="application_status col-xl-2 col-lg-4 col-md-6 main_acc ">
                     <span class="fa-icon fa-bank"></span>
-                    <label for="name" class="label-tag required"  >Application Status</label>
+                    <label for="name" class="label-tag required" >Application Status</label>
                     <?php echo get_dropdown('application_status','application_status'); ?>
                     
                 </div>
@@ -199,6 +199,10 @@
             fields.forEach(function (field) {
                 field.removeAttribute('readonly');
             });
+            var applicationStatusField = document.getElementById('application_status');
+            if (applicationStatusField) {
+                applicationStatusField.removeAttribute('readonly');
+            }
             document.getElementById('submit_app').style.display = 'block';
             document.getElementById('edit_app').style.display = 'none';
         }
