@@ -62,7 +62,7 @@
 
                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
                     <!-- <span class="fa-icon fa-building"></span> -->
-                    <select  name = 'parent_id' id ='parent_id'   style="height:auto !important;" > 
+                    <select  name = 'application_status' id ='application_status'   > 
                         <?php 
                         $cam_ques = get_dropdown("application_status","");
                         // echo '<option value="0" selected>Select</option>';
