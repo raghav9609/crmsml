@@ -69,11 +69,11 @@
                         foreach ($cam_ques as $ques) {
                             $optionValue = $ques['id'];
                             $optionText = $ques['value'];
-                            ?>
-                            <option value='<?php echo $optionValue; ?>' <?php echo ($optionValue == $application_status) ? 'selected' : ''; ?>>
-                                <?php echo $optionText; ?>
-                            </option>
-                            <?php
+                            echo "<option value='$optionValue'";
+                            if ($optionValue == $application_status) {
+                                echo " selected";
+                            }
+                            echo ">$optionText</option>";
                         }
                         ?>
                     </select>
