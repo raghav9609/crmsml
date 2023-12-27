@@ -68,9 +68,10 @@ require_once "../include/helper.functions.php";
 						<tr>
 							<td>Application Status</td>
 							<td>
-                            <select class="" name="application_status" id="application_status" required>
+                            <div class="dropdown-container">
+                                <span class="fa-icon fa-bank"></span>
                                 <?php echo get_dropdown('application_status', ''); ?>
-                            </select>
+                            </div>
                             </td>
 						</tr> 						
 						<tr>
