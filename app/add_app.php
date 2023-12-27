@@ -14,9 +14,11 @@ require_once "../include/helper.functions.php";
     <link rel="stylesheet" href="<?php echo $head_url; ?>/assets/css/multiselect.css">
     <link rel="stylesheet" type="text/css" href="<?php echo $head_url; ?>/assets/css/style.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo $head_url; ?>/assets/css/jquery-ui.css" />
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <style>
     .fa-icon { 
         font-size: 18px;
