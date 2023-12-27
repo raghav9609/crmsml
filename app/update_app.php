@@ -45,7 +45,7 @@ if ($update == 'Add'){
         'emi '=> $emi
     );
     // print_r($final_arr);
-    $insert_qry =  "INSERT INTO crm_query_application ";
+    $insert_qry =  "INSERT INTO crm_query_application set";
     foreach ($final_arr as $key => $val) {
         $insert_qry .= $comma . $key . " = '" . $val . "'";
         $comma = ", ";
