@@ -42,11 +42,12 @@ require_once "../include/helper.functions.php";
 </head>
 <body>
 <div class="pl-md-3 pl-2 pr-md-3 pr-2 col-12">
-<section class="d-flex flex-wrap">
-<div class="gen-box white-bg">
-    <div class="blue-bg col-12 font-weight-nb pb-2 pt-2 white font-20 brdr-top-gray pe-none" data-toggle="step1" id="switch_step1"><span id="text_step1">STEP 1</span> : Personal Details</div> 
+    
+    <div class="gen-box white-bg">
+    <div class="blue-bg col-12 font-weight-nb pb-2 pt-2 white font-20 brdr-top-gray pe-none" data-toggle="step23" id="switch_step23">Add Application</div>
+    <!-- <h3 class>Add Application </h3> -->
 			<a href="form_index_app.php"><input type="button" class="buttonsub cursor" value="Back"></a>
-			<!-- <h3>Add Application </h3> -->
+			
 			<form name="add_application" action="update.php" method="POST" autocomplete="OFF" enctype="multipart/form-data">
 				<table class="gridtable" style="margin-left:2%;width:50%;" id="maintable">
 					<tbody>
