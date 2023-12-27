@@ -55,6 +55,10 @@
         border: 1px solid #ccc;
         border-radius: 5px;
     }
+    .application_status label.required:after {
+        content: ' *';
+        color: red; /* Adjust the color as needed */
+    }
 
     .fa-icon {
         /* Add your FontAwesome styling here */
