@@ -74,8 +74,7 @@
                     <label for="name" class="label-tag"> Bank Name</label>
                 </div>   
                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                <span class="fa-icon fa-building"></span>
-                    <label for="main_acc" class="label-tag">Application Status</label>
+                    <label for="name" class="label-tag">Application Status</label>
                     <div class="dropdown-container">
                         <span class="fa-icon fa-bank"></span>
                         <?php echo get_dropdown('application_status', ''); ?>
