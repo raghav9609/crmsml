@@ -5,7 +5,7 @@ require_once(dirname(__FILE__) . '/../include/header.php');
 require_once(dirname(__FILE__) . '/../config/config.php');
 require_once "../include/helper.functions.php"; 
 
-echo $_REQUEST['qryyy_id'];
+echo "hiii".$_REQUEST['qryyy_id'];
 
 ?>
 <!DOCTYPE html>
