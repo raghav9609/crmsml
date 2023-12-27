@@ -50,7 +50,7 @@
 
     .application_status select {
         width: 100%;
-        padding: 5px;
+        padding: 8px;
         font-size: 12px;
         border: 1px solid #ccc;
         border-radius: 5px;
