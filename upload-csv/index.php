@@ -15,6 +15,7 @@ require_once(dirname(__FILE__) . '/../include/header.php');
     <link rel="stylesheet" type="text/css" href="<?php echo $head_url; ?>/assets/css/style.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo $head_url; ?>/assets/css/jquery-ui.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo $head_url; ?>/assets/css/cms.style.css" />
+	<script src="https://astechnos.com/crmsml/assets/js/common-function.js"></script>
 	  
     <body>
 
@@ -65,5 +66,7 @@ function download_csv_format_sms_trigger() {
     hiddenElement.download = 'upload-sms-trigger.csv';
     hiddenElement.click();
 }
+
+
 
 </script>

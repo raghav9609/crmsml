@@ -211,3 +211,7 @@ $('.get_roi_rate').keypress(function(event) {
     event.preventDefault();
    
 });
+
+function resetform(path) {
+    window.location.href = path;
+}
