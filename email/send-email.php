@@ -66,7 +66,7 @@ function new_myMail_function(e) {
 </script>
 </head>
 <body>
-<div align="center">
+<div class="mall_40" align="center">
 <div class="wrapper">
 <form name="sendemail" method="post" action="send-email-process.php">
 <table class="adminbox admintext" width="100%">
