@@ -3,8 +3,9 @@ require_once(dirname(__FILE__) . '/../config/session.php');
 require_once(dirname(__FILE__) . '/../config/config.php');
 require_once(dirname(__FILE__) . '/../helpers/common-helper.php');
 require_once(dirname(__FILE__) . '/../model/queryHelper.php');
+require_once(dirname(__FILE__) . '/../include/helper.functions.php');
 
-require_once "../include/helper.functions.php";
+// require_once "../include/helper.functions.php";
 require_once "../include/display-name-functions.php";
 
 $app_id =$_REQUEST['crm_query_id'];
