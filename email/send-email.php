@@ -96,32 +96,6 @@ function new_myMail_function(e) {
           <td> <input type="text" readonly name="name" id="name" value="<?php echo ($source_furl != "custdoc") ? $name : ""; ?>" /></td>
  
   </tr>
-  
-  <tr>
-    	<td><span class="bodytext">Loan Amount </span> </td>
-         <td><input type = "text" readonly name= "loan_amount" id="loan_amount" value="<?php echo $required_loan_amt;?>"></td>
-       	
-         <td><span class="bodytext"> Loan Type </span> </td>
-         <td> <input type="text" readonly name="loan_type" id="loan_type" value="<?php echo $loan_name; ?>" /></td>
- 
-  </tr>
-   <tr>
-         <td><span class="bodytext"> City  </span></td>
-         <td> <input type="text" name="city_name" id="city_name" readonly value="<?php echo $city_name; ?>" /></td>
-        
-       <?php if($case_id != ""){ ?>
-  <td><span class="bodytext">Select App Id:</span> </td>
-<td><select name="cust_app_id" id="cust_app_id" onchange="myMail_function(this.value);">
-                    <option value="">Select Application</option>
-                <?php $cust_app_qry = "select app.app_id as app_id,bank.bank_name as bank_name from tbl_mint_app as app left join tbl_bank as bank on app.app_bank_on = bank.bank_id where case_id = ".$case_id."";
-               $app_cust_bank = mysqli_query($Conn1,$cust_app_qry) or die("Error :".mysqli_error($Conn1));
-               while($cust_bank_app = mysqli_fetch_array($app_cust_bank)){
-               $appl_no= $cust_bank_app['app_id'];
-               ?>
-                    <option value="<?php echo $appl_no ;?>"><?php echo $appl_no." (".$cust_bank_app['bank_name'].")";?></option>
-                    <?php }?>
-                  </select></td>	
-<?php } ?>
 </tr> 
 <tr>
 <td><span class="bodytext">Select Template:</span> </td>
