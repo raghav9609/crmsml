@@ -174,14 +174,15 @@ require_once "../include/helper.functions.php";
                 yearRange: 'c-100:2050',
                 // maxDate: '0' // Restrict to today and the past
             });
-
+        });
+        $(document).ready(function () {
             flatpickr('.flatpickr', {
-                enableTime: true,
-                noCalendar: true,
-                dateFormat: "H:i",
-                time_24hr: true,
-                minuteIncrement: 15
-            });
+                    enableTime: true,
+                    noCalendar: true,
+                    dateFormat: "H:i",
+                    time_24hr: true,
+                    minuteIncrement: 15
+                });
         });
     </script>
     
