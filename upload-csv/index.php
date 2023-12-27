@@ -24,7 +24,7 @@ require_once(dirname(__FILE__) . '/../include/header.php');
 			<!-- <h2><?php //if($message){echo "<span class='".$class."'>".$message ."</span>";} else { echo "";}?></h2> -->
 		<!-- </div> -->
 			<div class="color-bar-2 color-bg"></div>
-			<h3>Upload File</h3>
+			<h3 style = "background-color: #18375f;color:#ffffff;text-align:center;">Upload File</h3>
 				<div class="boxview">
 					<div class="tablebox">
 						<div class="tablecolum">
