@@ -135,7 +135,7 @@ require_once "../include/helper.functions.php";
                         <tr>
 							<td>Follow Up Time:</td>
 							<td>
-                                <input type = "text" class="" name="follow_up_time" id="follow_up_time" required>
+                                <input type = "text" class="flatpickr" name="follow_up_time" id="follow_up_time" required>
                             </td>
 						</tr> 
                         <tr>
@@ -173,6 +173,14 @@ require_once "../include/helper.functions.php";
                 changeYear: true,
                 yearRange: 'c-100:2050',
                 // maxDate: '0' // Restrict to today and the past
+            });
+
+            flatpickr('.flatpickr', {
+                enableTime: true,
+                noCalendar: true,
+                dateFormat: "H:i",
+                time_24hr: true,
+                minuteIncrement: 15
             });
         });
     </script>
