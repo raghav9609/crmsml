@@ -72,7 +72,7 @@ require_once "../include/helper.functions.php";
 						<tr>
 							<td>Applied Amount:</td>
 							<td>
-                                <input type = "text" class="" name="applied_amount" id="applied_amount" pattern="\d+" required>
+                                <input type = "text" class="" name="applied_amount" id="applied_amount" oninput="validateNumberInput(this)" required>
                             </td>
 						</tr> 
                         <tr>
@@ -154,6 +154,11 @@ require_once "../include/helper.functions.php";
 		</div>
 	</div>
 </div>
+<script>
+        function validateNumberInput(input) {
+            input.value = input.value.replace(/[^0-9]/g, '');
+        }
+    </script>
     
 </body>
 </html>
