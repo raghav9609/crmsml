@@ -84,7 +84,7 @@ require_once "../include/helper.functions.php";
                         <tr>
 							<td>Sanction Amount:</td>
 							<td>
-                                <input type = "text" class="" name="sanction_amount" id="sanction_amount" required>
+                                <input type = "text" class="" name="sanction_amount" id="sanction_amount" oninput="validateNumberInput(this)" required>
                             </td>
 						</tr> 
                         <tr>
@@ -96,7 +96,7 @@ require_once "../include/helper.functions.php";
                         <tr>
 							<td>Disbursement Amount:</td>
 							<td>
-                                <input type = "text" class="" name="disbursement_amount" id="disbursement_amount" required>
+                                <input type = "text" class="" name="disbursement_amount" id="disbursement_amount" oninput="validateNumberInput(this)" required>
                             </td>
 						</tr> 
                         <tr>
@@ -144,7 +144,7 @@ require_once "../include/helper.functions.php";
                         <tr>
 							<td>Tenure/ROI:</td>
 							<td>
-                                <input type = "text" class="" name="tenure_roi" id="tenure_roi" required>
+                                <input type = "text" class="" name="tenure_roi" id="tenure_roi" oninput="validateNumberInput(this)" required>
                             </td>
 						</tr> 
                         
@@ -156,7 +156,7 @@ require_once "../include/helper.functions.php";
 </div>
 <script>
         function validateNumberInput(input) {
-            input.value = input.value.replace(/[^0-9]/g, '');
+            input.value = input.value.replace(/[^0-9/]/g, '');
         }
     </script>
     
