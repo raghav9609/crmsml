@@ -27,6 +27,7 @@ if ($update == 'Add'){
     $emi = $_REQUEST['roi'];
 
     $final_arr = array(
+        'crm_query_id'=> $crm_query,
         'bank_id' =>$bank_name, 
         'application_status' => $application_status,
         'applied_amount' => trim($applied_amount),
@@ -42,18 +43,19 @@ if ($update == 'Add'){
         'follow_up_time' => trim($follow_up_time),
         'follow_up_given_by' => trim($follow_up_given_by),
         'tennure' => $tenure,
-        'emi '=> $emi
+        'roi '=> $emi
     );
     // print_r($final_arr);
-    $insert_qry =  "INSERT INTO crm_query_application set";
+    $insert_qry =  "INSERT INTO crm_query_application set ";
     foreach ($final_arr as $key => $val) {
         $insert_qry .= $comma . $key . " = '" . $val . "'";
         $comma = ", ";
         }
-    echo $insert_qry;
+    $insert_qry.= ";";
 
-        // $res_qry = mysqli_query($Conn1,$update_query);
-
+    $res_qry = mysqli_query($Conn1,$insert_qry);
+    echo '<script>window.location.href = "'.$head_url.'/app/";</script>';
+    exit;
 
 }else{
 $app_id =$_REQUEST['crm_query_id'];
