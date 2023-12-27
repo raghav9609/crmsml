@@ -48,7 +48,7 @@ require_once "../include/helper.functions.php";
 			<!-- <a href="form_index_app.php"><input type="button" class="buttonsub cursor" value="Back"></a> -->
 			<h2 style = "background-color: #18375f;color:#ffffff;text-align:center;">Add Application </h2>
 			<form name="add_application" action="update_app.php" method="POST" autocomplete="OFF" enctype="multipart/form-data">
-            <input type="button" class="btn btn-primary valid" name="submit_add" id="submit_add" value="SUBMIT">
+            <input type="submit" class="btn btn-primary valid" name="submit_add" id="submit_add" value="Add">
 				<table class="gridtable" style="margin-left:2%;width:80%;"aid="maintable">
 					<tbody>
 						<tr>
