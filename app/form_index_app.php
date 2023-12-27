@@ -201,7 +201,7 @@
             });
             var applicationStatusField = document.getElementById('application_status');
             if (applicationStatusField) {
-                applicationStatusField.removeAttribute('readonly');
+                applicationStatusField.removeAttribute('disabled');
             }
             document.getElementById('submit_app').style.display = 'block';
             document.getElementById('edit_app').style.display = 'none';
