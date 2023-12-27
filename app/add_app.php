@@ -151,11 +151,14 @@ require_once "../include/helper.functions.php";
 							<td>
                                 <input type = "text" class="" name="tenure" id="tenure" oninput="validateNumberInput(this)" required>
                             </td>
+						</tr> 
+
+                        <tr>
                             <td>ROI:</td>
 							<td>
                                 <input type = "text" class="" name="roi" id="roi" oninput="validateNumberInput(this)" required>
                             </td>
-						</tr> 
+                        </tr>
                         
 					</tbody>
 				</table>
