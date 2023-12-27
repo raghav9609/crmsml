@@ -90,7 +90,7 @@
                 <div class="application_status col-xl-2 col-lg-4 col-md-6 main_acc ">
                     <span class="fa-icon fa-bank"></span>
                     <label for="name" class="label-tag required" >Application Status</label>
-                    <?php echo get_dropdown('application_status','application_status','','disabled'); ?>
+                    <?php echo get_dropdown('application_status','application_status',$application_status_get['value'],'disabled'); ?>
                     
                 </div>
 <!-- 
