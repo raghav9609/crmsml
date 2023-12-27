@@ -4,6 +4,9 @@ require_once(dirname(__FILE__) . '/../helpers/common-helper.php');
 require_once(dirname(__FILE__) . '/../include/header.php');
 require_once(dirname(__FILE__) . '/../config/config.php');
 require_once "../include/helper.functions.php"; 
+
+echo $_REQUEST['qryyy_id'];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -159,6 +162,8 @@ require_once "../include/helper.functions.php";
                                 <input type = "text" class="" name="roi" id="roi" oninput="validateNumberInput(this)" required>
                             </td>
                         </tr>
+
+                        <input type = "hidden" class="" name="login_date" id="login_date" required>
                         
 					</tbody>
 				</table>
