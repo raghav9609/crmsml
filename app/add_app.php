@@ -14,6 +14,9 @@ require_once "../include/helper.functions.php";
     <link rel="stylesheet" href="<?php echo $head_url; ?>/assets/css/multiselect.css">
     <link rel="stylesheet" type="text/css" href="<?php echo $head_url; ?>/assets/css/style.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo $head_url; ?>/assets/css/jquery-ui.css" />
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <style>
     .fa-icon { 
         font-size: 18px;
@@ -162,17 +165,16 @@ require_once "../include/helper.functions.php";
         function validateNumberInput(input) {
             input.value = input.value.replace(/[^0-9]/g, '');
         }
-        document.addEventListener('DOMContentLoaded', function () {
 
         $(document).ready(function () {
             $('.datepicker').datepicker({
-                dateFormat: 'yy-mm-dd', 
+                dateFormat: 'yy-mm-dd',
                 changeMonth: true,
                 changeYear: true,
-                yearRange: 'c-100:2050'
+                yearRange: 'c-100:2050',
+                maxDate: '0' // Restrict to today and the past
             });
         });
-    });
     </script>
     
 </body>
