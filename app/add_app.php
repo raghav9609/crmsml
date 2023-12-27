@@ -61,7 +61,7 @@ require_once "../include/helper.functions.php";
 							<td>
                             <div class="form-group col-xl-2 col-lg-4 col-md-6 main_acc">
                                     <span class="fa-icon fa-bank"></span>
-                                    <?php echo get_dropdown('2',''); ?>
+                                    <?php echo get_dropdown('2','bank_name'); ?>
                                 </div>
                             </td>
 						</tr> 
@@ -70,7 +70,7 @@ require_once "../include/helper.functions.php";
 							<td>
                             <div class="dropdown-container">
                                 <span class="fa-icon fa-bank"></span>
-                                <?php echo get_dropdown('application_status', ''); ?>
+                                <?php echo get_dropdown('application_status', 'application_status'); ?>
                             </div>
                             </td>
 						</tr> 						

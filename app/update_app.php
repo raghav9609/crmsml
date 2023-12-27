@@ -9,7 +9,44 @@ require_once(dirname(__FILE__) . '/../include/helper.functions.php');
 require_once "../include/display-name-functions.php";
 $update = $_POST['submit_add'];
 if ($update == 'Add'){
-    echo "hi";
+    $application_status = $_REQUEST['application_status'];
+    $bank_name = $_REQUEST['bank_name'];
+    $applied_amount = $_REQUEST['applied_amount'];
+    $login_date = $_REQUEST['login_date'];
+    $sanction_amount = $_REQUEST['sanction_amount'];
+    $sanction_date = $_REQUEST['sanction_date'];
+    $disbursed_amount = $_REQUEST['disbursed_amount'];
+    $disburse_date = $_REQUEST['disburse_date'];
+    $remarks_by_user = $_REQUEST['remarks_by_user'];
+    $remarks_by_bank = $_REQUEST['remarks_by_bank'];
+    $bank_application_no = $_REQUEST['bank_application_no'];
+    $follow_up_date = $_REQUEST['follow_up_date'];
+    $follow_up_time = $_REQUEST['follow_up_time'];
+    $follow_up_given_by = $_REQUEST['follow_up_given_by'];
+    $tenure = $_REQUEST['tenure'];
+    $emi = $_REQUEST['roi'];
+
+    $final_arr = array(
+        'bank_id' =>$bank_name, 
+        'application_status' => $application_status_num,
+        'applied_amount' => trim($applied_amount),
+        'login_date' => trim($login_date),
+        'sanction_amount' => trim($sanction_amount),
+        'sanction_date' => trim($sanction_date),
+        'disbursed_amount' => trim($disbursed_amount),
+        'disburse_date' => trim($disburse_date),
+        'description_by_user' => trim($remarks_by_user),
+        'description_by_bank' => trim($remarks_by_bank),
+        'bank_application_no' => trim($bank_application_no),
+        'follow_up_date' => trim($follow_up_date),
+        'follow_up_time' => trim($follow_up_time),
+        'follow_up_given_by' => trim($follow_up_given_by),
+        'tennure' => $tenure,
+        'emi '=> $emi
+    );
+    print_r($final_arr);
+
+
 }else{
 $app_id =$_REQUEST['crm_query_id'];
 $case_id = $_REQUEST['case_id'];
