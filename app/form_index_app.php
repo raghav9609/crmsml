@@ -37,6 +37,35 @@
     .error-message {
         color: red;
     }
+
+
+    .custom-dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-options {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      z-index: 1;
+      width: 100%;
+    }
+
+    .dropdown-options a {
+      display: block;
+      padding: 10px;
+      text-decoration: none;
+      color: #333;
+    }
+
+    .dropdown-options a:hover {
+      background-color: #f5f5f5;
+    }
     </style>
 </head>
 
@@ -62,21 +91,23 @@
 
                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
                     <span class="fa-icon fa-building"></span>
-                    <select  name = 'application_status' id ='application_status'   style="height:auto !important;" > 
+                    <div class="custom-dropdown">
+                        <select name="application_status" id="application_status" style="height: auto !important;">
                         <?php 
-                        $cam_ques =  get_dropdown("application_status","");
-                        echo '<option value="0" selected>Select</option>';
+                        $cam_ques = get_dropdown("application_status", "");
                         foreach($cam_ques as $ques){
                         ?>
-                        <option value = '<?php echo $ques['id']; ?>'><?php echo $ques['value'];  ?></option>
-                        <?php $application_status = $_POST['value'];
-                        if( is_array($application_status)){
-                            while (list ($key, $val) = each ($application_status)) {
-                            echo "$val <br>";
-                            }
-                            }?>
+                        <option value='<?php echo $ques['id']; ?>'><?php echo $ques['value']; ?></option>
                         <?php }?>
-                    </select>
+                        </select>
+                        <div class="dropdown-options" id="dropdownOptions">
+                        <?php 
+                        foreach($cam_ques as $ques){
+                        ?>
+                        <a href="#" onclick="selectOption(<?php echo $ques['id']; ?>)"><?php echo $ques['value']; ?></a>
+                        <?php }?>
+                        </div>
+                    </div>
                     <!-- <input type="text" id="application_status" name="application_status" value="<?php echo ($application_status_get['value']) ;?>" placeholder="Enter Application Status" class="form-control alphaonly valid"  <?php echo ($application_status_get['value'] != '') ? 'readonly' : ''; ?> maxlength="20" required>
                     <label for="name" class="label-tag"> Application Status</label> -->
                 </div>
@@ -268,51 +299,33 @@ function datevalidate() {
     submit_app.removeAttribute('disabled');
   }
 }
-// document.addEventListener('DOMContentLoaded', function () {
-//     var loginDate = new Date(document.getElementById('login_date').value);
-//     var sanctionDate = new Date(document.getElementById('sanction_date').value);
+function selectOption(optionId) {
+    var dropdown = document.getElementById('application_status');
+    dropdown.value = optionId;
+    closeDropdown();
+  }
 
-//     var disbursementDateInput = document.getElementById('disburse_date');
-//     var errorMessageElement = document.createElement('span');
-//     errorMessageElement.className = 'error-message';
-//     disbursementDateInput.parentNode.appendChild(errorMessageElement);
+  function openDropdown() {
+    var dropdownOptions = document.getElementById('dropdownOptions');
+    dropdownOptions.style.display = 'block';
+  }
 
-//     function validateDisbursementDate() {
-//         var disbursementDateValue = disbursementDateInput.value.trim();
+  function closeDropdown() {
+    var dropdownOptions = document.getElementById('dropdownOptions');
+    dropdownOptions.style.display = 'none';
+  }
 
-//         // if (!disbursementDateValue) {
-//         //     errorMessageElement.textContent = '';
-//         //     return;
-//         // }
+  var customDropdown = document.querySelector('.custom-dropdown');
+  customDropdown.addEventListener('click', function() {
+    openDropdown();
+  });
 
-//         var disbursementDate = new Date(disbursementDateValue);
-
-//         console.log('Disbursement Date:', disbursementDate);
-//         console.log('Login Date:', loginDate);
-//         console.log('Sanction Date:', sanctionDate);
-
-//         if (disbursementDate >= loginDate && disbursementDate >= sanctionDate) {
-//             errorMessageElement.textContent = '';
-//         } else {
-//             errorMessageElement.textContent = 'Disbursement Date should be greater than or equal to Login Date and Sanction Date.';
-//         }
-//     }
-
-//     disbursementDateInput.addEventListener('input', function () {
-//         validateDisbursementDate();
-//     });
-
-//     sanctionAmountInput.addEventListener('input', function() {
-//         validateDisbursement();
-//     });
-
-//     disbursementInput.addEventListener('input', function() {
-//         validateDisbursement();
-//     });
-
-//     validateDisbursementDate(); // Call the validation on page load
-// });
-    
+  document.addEventListener('click', function(event) {
+    var isClickInside = customDropdown.contains(event.target);
+    if (!isClickInside) {
+      closeDropdown();
+    }
+  });
 </script>
 </form>
 
