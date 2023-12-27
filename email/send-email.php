@@ -1,8 +1,10 @@
 <?php
 $dialog_pop_up_disabled_flag = 1;
 iconv_set_encoding("internal_encoding", "UTF-8");
-require_once "../../include/crm-header.php";
-$case_id = urldecode(base64_decode($_REQUEST['case_id'])); 
+require_once(dirname(__FILE__) . '/../config/session.php');
+require_once(dirname(__FILE__) . '/../helpers/common-helper.php');
+require_once(dirname(__FILE__) . '/../include/header.php');
+require_once(dirname(__FILE__) . '/../include/helper.functions.php');
 $query_id = urldecode(base64_decode($_REQUEST['query_id'])); 
 $source_furl     = $_REQUEST['source'];
 $cust_id_furl    = $_REQUEST['cust_id'];
@@ -69,24 +71,16 @@ if ($query_id != "")
 {
 $qrycase = "select qry.cust_id as cust_id, qry.loan_type as loan_type, stats.user_id as user_id, qry.loan_amt as loan_amt, qry.loan_emi as loan_emi from tbl_mint_query as qry left JOIN tbl_mint_query_status_detail as stats ON qry.query_id = stats.query_id where qry.query_id = ".$query_id."";
 }
-else{
-$qrycase = "select * from tbl_mint_case where case_id = ".$case_id."";
-}
+
 $rescase = mysqli_query($Conn1,$qrycase);
 $execase = mysqli_fetch_array($rescase); 
 $cust_id = $execase['cust_id'];
 $loan_type = $execase['loan_type'];
 $user_id = $execase['user_id'];
-if ($case_id != "")
-{
-$ext_emi = $execase['ext_emi'];
-$required_loan_amt = $execase['required_loan_amt'];
-$secd_user_id = $execase['secd_user_id'];
-}
-else{
+
 $required_loan_amt = $execase['loan_amt'];
 $ext_emi = $execase['loan_emi'];
-}
+
 $qrycust = "select * from tbl_mint_customer_info where id = ".$cust_id."";
 $rescust = mysqli_query($Conn1,$qrycust);
 $execust = mysqli_fetch_array($rescust);
@@ -159,7 +153,6 @@ $maile_send =  $user_email ;
              	<input type =  "hidden" name= "salu_name" id="salu_name" value="<?php echo $salutn_name;?>">
             	<input type = "hidden" name= "page" id="page" value="<?php echo $page;?>">
              	<input type = "hidden" name= "ext_emi" id="ext_emi" value="<?php echo $ext_emi;?>">
-               	<input type = "hidden" name= "case_id" id="case_id" value="<?php echo $case_id;?>">
                	 <input type = "hidden" name= "query_id" id="query_id" value="<?php echo $query_id;?>">
                	<input type = "hidden" name= "cust_id" id="cust_id" value="<?php echo $cust_id;?>">
                	<input type="hidden"  name="user_email" id="user_email" value="<?php echo $user_email; ?>"/>
@@ -270,4 +263,3 @@ $ty_temp_loan_arr = array(51, 54, 56);
 <br/><br/><br/><br/><br/>
 </body>
 </html>
-<?php include("../../include/footer_close.php"); ?>
