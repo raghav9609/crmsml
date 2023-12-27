@@ -54,7 +54,11 @@ require_once "../include/helper.functions.php";
 						<tr>
 							<td>Bank Name:</td>
 							<td>
-                                <input type = "text" class="" name="bank_name" id="bank_name" required>
+                            <div class="form-group col-xl-2 col-lg-4 col-md-6 main_acc hidden">
+                                    <span class="fa-icon fa-bank"></span>
+                                    <?php echo get_dropdown('2',''); ?>
+                                </div>
+                                <!-- <input type = "text" class="" name="bank_name" id="bank_name" required> -->
                             </td>
 						</tr> 
 						<tr>
