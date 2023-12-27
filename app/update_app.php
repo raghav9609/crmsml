@@ -8,8 +8,9 @@ require_once(dirname(__FILE__) . '/../include/helper.functions.php');
 // require_once "../include/helper.functions.php";
 require_once "../include/display-name-functions.php";
 $update = $_POST['submit_add'];
-echo $update;
-exit();
+if ($update == 'Add'){
+    echo "hi";
+}else{
 $app_id =$_REQUEST['crm_query_id'];
 $case_id = $_REQUEST['case_id'];
 $cust_id = $_REQUEST['cust_id'];
@@ -74,6 +75,6 @@ if ($res_qry) {
 
 echo '<script>window.location.href = "'.$head_url.'/app/edit.php?case_id='.urlencode(base64_encode($case_id)).'%3D%3D&app_id='.urlencode(base64_encode($app_id)).'%3D%3D&cust_id='.urlencode(base64_encode($cust_id)).'%3D%3D&loan_type='.urlencode(base64_encode($loan_type)).'";</script>';
     exit;
-
+}
 
 ?>
