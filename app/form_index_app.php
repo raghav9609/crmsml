@@ -44,14 +44,14 @@
 
     .application_status label {
         display: block;
-        font-weight: bold;
+        font-weight: 500;
         margin-bottom: 5px;
     }
 
     .application_status select {
         width: 100%;
         padding: 10px;
-        font-size: 16px;
+        font-size: 12px;
         border: 1px solid #ccc;
         border-radius: 5px;
     }
