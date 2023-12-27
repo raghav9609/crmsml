@@ -5,7 +5,10 @@ require_once(dirname(__FILE__) . '/../include/header.php');
 require_once(dirname(__FILE__) . '/../config/config.php');
 require_once "../include/helper.functions.php"; 
 
-echo "hiii".$_REQUEST['qryyy_id'];
+echo $crmQueryId = isset($_POST['crm_query_id']) ? $_POST['crm_query_id'] : '';
+echo $caseId = isset($_POST['case_id']) ? $_POST['case_id'] : '';
+echo $custId = isset($_POST['cust_id']) ? $_POST['cust_id'] : '';
+echo $loanType = isset($_POST['loan_type']) ? $_POST['loan_type'] : '';
 
 ?>
 <!DOCTYPE html>
