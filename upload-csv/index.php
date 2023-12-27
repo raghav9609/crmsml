@@ -37,7 +37,7 @@ require_once(dirname(__FILE__) . '/../include/header.php');
 								
 							<input type="submit" class="cursor buttonsub" name="upload_sms" id="upload_sms" value="upload">		
 							
-							<input class="cursor buttonsub" type="button" onclick="resetform('<?php echo $head_url; ?>upload-csv/')" value="Clear">
+							<input class="cursor buttonsub" type="button" onclick="resetform('<?php echo $head_url; ?>/upload-csv/')" value="Clear">
 						
 							<input type='button' name='download_format' value='Download Format' id='download_format' class='buttonsub ml10 cursor'  onclick="download_csv_format_sms_trigger()"/>
 							<!-- <a href="trigger-variable.php"><input type="button" class="cursor buttonsub " name="Variables" id="Variable" value="variable"></a> -->
