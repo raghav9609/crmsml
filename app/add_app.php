@@ -51,18 +51,18 @@ require_once "../include/helper.functions.php";
 				<table class="table" id="maintable">
 					<tbody>
 						<tr>
-							<th colspan="2" class="align-center">
+							<!-- <th colspan="2" class="align-center">
 							<input type="submit" class="cursor buttonsub" name="update" id="submit" value="Add">
 								<a href="orm_index_app.php">
 									<input class="cursor buttonsub" type="button" name="searchsubmit" value="List">
 								</a>
-							</th>
+							</th> -->
 						</tr>
 						
 						<tr>
 							<td>Bank Name:</td>
 							<td>
-                                <input type = "text" class="" name="bank_name" id="bank_name" required>
+                                <input type = "text" class="form-control" name="bank_name" id="bank_name" required>
                             </td>
 						</tr> 
 						<tr>
