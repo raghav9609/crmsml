@@ -51,15 +51,6 @@ require_once "../include/helper.functions.php";
 				<table class="gridtable" style="margin-left:2%;width:80%;"aid="maintable">
 					<tbody>
 						<tr>
-							<!-- <th colspan="2" class="align-center">
-							<input type="submit" class="cursor buttonsub" name="update" id="submit" value="Add">
-								<a href="orm_index_app.php">
-									<input class="cursor buttonsub" type="button" name="searchsubmit" value="List">
-								</a>
-							</th> -->
-						</tr>
-						
-						<tr>
 							<td>Bank Name:</td>
 							<td>
                                 <input type = "text" class="" name="bank_name" id="bank_name" required>
@@ -86,6 +77,73 @@ require_once "../include/helper.functions.php";
                                 <input type = "text" class="" name="login_date" id="login_date" required>
                             </td>
 						</tr> 
+                        <tr>
+							<td>Sanction Amount:</td>
+							<td>
+                                <input type = "text" class="" name="sanction_amount" id="sanction_amount" required>
+                            </td>
+						</tr> 
+                        <tr>
+							<td>Sanction Date:</td>
+							<td>
+                                <input type = "text" class="" name="sanction_date" id="sanction_date" required>
+                            </td>
+						</tr> 
+                        <tr>
+							<td>Disbursement Amount:</td>
+							<td>
+                                <input type = "text" class="" name="disbursement_amount" id="disbursement_amount" required>
+                            </td>
+						</tr> 
+                        <tr>
+							<td>Disbursement Date:</td>
+							<td>
+                                <input type = "text" class="" name="disbursement_date" id="disbursement_date" required>
+                            </td>
+						</tr> 
+                        <tr>
+							<td>Remarks By User:</td>
+							<td>
+                                <input type = "text" class="" name="description_by_user" id="description_by_user" required>
+                            </td>
+						</tr> 
+                        <tr>
+							<td>Remarks By Bank:</td>
+							<td>
+                                <input type = "text" class="" name="description_by_bank" id="description_by_bank" required>
+                            </td>
+						</tr> 
+                        <tr>
+							<td>Bank Application Number:</td>
+							<td>
+                                <input type = "text" class="" name="bank_application_no" id="bank_application_no" required>
+                            </td>
+						</tr> 
+                        <tr>
+							<td>Follow Up Date:</td>
+							<td>
+                                <input type = "text" class="" name="follow_up_date" id="follow_up_date" required>
+                            </td>
+						</tr> 
+                        <tr>
+							<td>Follow Up Time:</td>
+							<td>
+                                <input type = "text" class="" name="follow_up_time" id="follow_up_time" required>
+                            </td>
+						</tr> 
+                        <tr>
+							<td>Follow Up Given By:</td>
+							<td>
+                                <input type = "text" class="" name="follow_up_given_by" id="follow_up_given_by" required>
+                            </td>
+						</tr> 
+                        <tr>
+							<td>Tenure/ROI:</td>
+							<td>
+                                <input type = "text" class="" name="tenure_roi" id="tenure_roi" required>
+                            </td>
+						</tr> 
+                        
 					</tbody>
 				</table>
 			</form>
