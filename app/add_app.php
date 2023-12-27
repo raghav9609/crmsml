@@ -172,7 +172,7 @@ require_once "../include/helper.functions.php";
                 changeMonth: true,
                 changeYear: true,
                 yearRange: 'c-100:2050',
-                maxDate: '0' // Restrict to today and the past
+                // maxDate: '0' // Restrict to today and the past
             });
         });
     </script>
