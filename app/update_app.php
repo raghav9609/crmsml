@@ -17,9 +17,9 @@ $loan_type = $_REQUEST['loan_type'];
 // $bank_name_get = get_name('master_code_id',$bank_name);
 $application_status_num = $_REQUEST['application_status'];
 
-$application_status_get_up = get_name('status_id',$application_status_num);
-print_r($application_status_get_up);
-exit();
+// $application_status_get_up = get_name('status_id',$application_status_num);
+// print_r($application_status_get_up);
+// exit();
 $applied_amount = $_REQUEST['applied_amount'];
 $login_date = $_REQUEST['login_date'];
 $sanction_amount = $_REQUEST['sanction_amount'];
@@ -38,7 +38,7 @@ $emi = isset($values[1]) ? $values[1] : '';
 
 $final_arr = array(
     // 'bank_id' => $bank_name_get['id'], 
-    'application_status' => $application_status_get_up['id'],
+    'application_status' => $application_status_num,
     'applied_amount' => trim($applied_amount),
     'login_date' => trim($login_date),
     'sanction_amount' => trim($sanction_amount),
@@ -54,6 +54,7 @@ $final_arr = array(
     'tennure' => $tenure,
     'emi '=> $emi
 );
+print_r($final_arr);
 $where_condition = 'crm_query_id = "' . $app_id . '"';
 $update_query = "UPDATE crm_query_application SET ";
 
