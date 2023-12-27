@@ -57,7 +57,7 @@ require_once(dirname(__FILE__) . '/../include/header.php');
 
 <script>
 function download_csv_format_sms_trigger() {
-    var csv = 'mobile_no,email_id,var1,var2,var3,var4,var5,var6,var7,var8,var9,var10,sms_trigger_on,is_sms_triggered,transaction_id,sms_text,url,var_url,source,sms_type,purpose,temp_name,communication_type,mlc_master_communication_trigger_instant_id,status_from_api,api_request,api_response,cli,callstatus,callstarttime,Campaignname,callduration,msisdn,callreferenceid,callendtime,param1,image_url,statusdescription,send_type,schedule_date_from,schedule_date_to,whatsapp_type,trigger_type,mlc_campaign_send_sms_id,schedule_datetime,handsetTime,failed_code' ;
+    var csv = 'Name,Email_id,Phone_no,Pincode,Loan_Amount,Dob,Net_Income' ;
     var hiddenElement = document.createElement('a');
     hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(csv);
     hiddenElement.target = '_blank';
@@ -65,7 +65,7 @@ function download_csv_format_sms_trigger() {
     hiddenElement.click();
 }
 
-function resetform(path) {
+function resetform(path){
     window.location.href = path;
 }
 
