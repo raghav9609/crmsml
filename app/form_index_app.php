@@ -69,7 +69,7 @@
                         foreach($cam_ques as $ques){
                         ?>
                         <option value = '<?php echo $ques['id']; ?>'><?php echo $ques['value'];  ?></option>
-                        <?php $application_status = $application_status_get['value'];
+                        <?php echo  $application_status = $application_status_get['value'];
                         if( is_array($application_status)){
                             while (list ($key, $val) = each ($application_status)) {
                             echo "$val <br>";
