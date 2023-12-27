@@ -38,7 +38,7 @@
         color: red;
     }
     .application_status {
-        margin-bottom: 20px;
+        margin-bottom: 10px;
         position: relative;
     }
 
