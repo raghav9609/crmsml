@@ -58,7 +58,6 @@ require_once "../include/helper.functions.php";
                                     <span class="fa-icon fa-bank"></span>
                                     <?php echo get_dropdown('2',''); ?>
                                 </div>
-                                <!-- <input type = "text" class="" name="bank_name" id="bank_name" required> -->
                             </td>
 						</tr> 
 						<tr>
@@ -73,7 +72,7 @@ require_once "../include/helper.functions.php";
 						<tr>
 							<td>Applied Amount:</td>
 							<td>
-                                <input type = "text" class="" name="applied_amount" id="applied_amount" required>
+                                <input type = "text" class="" name="applied_amount" id="applied_amount" pattern="\d+" required>
                             </td>
 						</tr> 
                         <tr>
