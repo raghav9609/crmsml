@@ -17,12 +17,12 @@ require_once(dirname(__FILE__) . '/../include/header.php');
 	  
     <body>
 
-		<div class="container-fluid">
-		<div class="row">
-		<div class="col-md-48">			
-		<div class="color-bar-1">
+	<div class="pl-md-3 pl-2 pr-md-3 pr-2 col-12">
+    
+    <div class="gen-box white-bg">
+    <div class="blue-bg col-12 font-weight-nb pb-2 pt-2 white font-20 brdr-top-gray pe-none" data-toggle="step1" id="switch_step1">
 			<!-- <h2><?php //if($message){echo "<span class='".$class."'>".$message ."</span>";} else { echo "";}?></h2> -->
-		</div>
+		<!-- </div> -->
 			<div class="color-bar-2 color-bg"></div>
 			<h3>Upload File</h3>
 				<div class="boxview">
