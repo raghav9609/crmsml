@@ -9,7 +9,7 @@ require_once(dirname(__FILE__) . '/../include/helper.functions.php');
 require_once "../include/display-name-functions.php";
 $update = $_POST['submit_add'];
 if ($update == 'Add'){
-    $application_status = $_REQUEST['application_status'];
+    echo "hiii".$application_status = $_REQUEST['application_status'];
     $bank_name = $_REQUEST['bank_name'];
     $applied_amount = $_REQUEST['applied_amount'];
     $login_date = $_REQUEST['login_date'];
