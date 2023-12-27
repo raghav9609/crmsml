@@ -134,13 +134,12 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
     <head>
     </head>
     <body>
-        <input type="hidden" name="final_query_id" value="<?php echo urlencode(base64_encode($id));?>">
+    <input type="hidden" name="final_query_id" value="<?php echo urlencode(base64_encode($id));?>">
     <div class="color-bar-1"></div>
     <div class="color-bar-2 color-bg"></div>
-    <div style="width:100%;">
-                    <div style="padding-left: 1%;padding-right: 1%;">
-                        <div id="fixed_tab">
- <span style="font-weight:bold;font-size:14px;">
+    <div style="width:100%;"><div style="padding-left: 1%;padding-right: 1%;">
+    <div id="fixed_tab">
+    <span style="font-weight:bold;font-size:14px;">
     <a href="#follow_history" class="buttonsub">Follow Up History</a>
     <?php if ($tool_type == "Cibil Form") { ?><a href="#cibil" class="buttonsub">Cibil History</a><?php } ?>
     <a href="../email/send-email.php?query_id=<?php echo urlencode(base64_encode($id)); ?>"
@@ -156,13 +155,9 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
     <a href="../email/send-sms.php?query_id=<?php echo urlencode(base64_encode($id)); ?>" target='_blank'
        class="buttonsub"> SMS</a>
        <?php }?>
-    <a href="<?php echo $head_url; ?>/sugar/calculators/" target="_blank"><input type="button" class="buttonsub cursor"
+    <a href="<?php echo $head_url; ?>/calculators/" target="_blank"><input type="button" class="buttonsub cursor"
                                                                                  value="EMI"></a>
-    <?php if($loan_type == 32) { ?>
-        <a href="<?php echo $head_url; ?>/sugar/calculators/fd-calculator.php" target="_blank"><input type="button" class="buttonsub cursor" value="FD Calculator"></a>
-    <?php } ?>
-
-    <a href="<?php echo $head_url; ?>/sugar/calculators/calculate-eligibility.php" target="_blank">
+    <a href="<?php echo $head_url; ?>/calculators/eligibility.php" target="_blank">
         <input type="button" class="buttonsub cursor" value="Eligibility"></a>
             <a href="javascript:void(0);" onclick="suggestion_box('2','1');"><input type="button" class="buttonsub cursor" value="Offers"></a>
       <?php 
