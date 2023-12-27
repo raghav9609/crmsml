@@ -78,7 +78,7 @@ require_once "../include/helper.functions.php";
                         <tr>
 							<td>Login Date:</td>
 							<td>
-                                <input type = "text" class="" name="login_date" id="login_date" required>
+                                <input type = "text" class="datepicker" name="login_date" id="login_date" required>
                             </td>
 						</tr> 
                         <tr>
@@ -90,7 +90,7 @@ require_once "../include/helper.functions.php";
                         <tr>
 							<td>Sanction Date:</td>
 							<td>
-                                <input type = "text" class="" name="sanction_date" id="sanction_date" required>
+                                <input type = "text" class="datepicker" name="sanction_date" id="sanction_date" required>
                             </td>
 						</tr> 
                         <tr>
@@ -102,7 +102,7 @@ require_once "../include/helper.functions.php";
                         <tr>
 							<td>Disbursement Date:</td>
 							<td>
-                                <input type = "text" class="" name="disbursement_date" id="disbursement_date" required>
+                                <input type = "text" class="datepicker" name="disbursement_date" id="disbursement_date" required>
                             </td>
 						</tr> 
                         <tr>
@@ -126,7 +126,7 @@ require_once "../include/helper.functions.php";
                         <tr>
 							<td>Follow Up Date:</td>
 							<td>
-                                <input type = "text" class="" name="follow_up_date" id="follow_up_date" required>
+                                <input type = "text" class="datepicker" name="follow_up_date" id="follow_up_date" required>
                             </td>
 						</tr> 
                         <tr>
@@ -142,9 +142,13 @@ require_once "../include/helper.functions.php";
                             </td>
 						</tr> 
                         <tr>
-							<td>Tenure/ROI:</td>
+							<td>Tenure:</td>
 							<td>
-                                <input type = "text" class="" name="tenure_roi" id="tenure_roi" oninput="validateNumberInput(this)" required>
+                                <input type = "text" class="" name="tenure" id="tenure" oninput="validateNumberInput(this)" required>
+                            </td>
+                            <td>ROI:</td>
+							<td>
+                                <input type = "text" class="" name="roi" id="roi" oninput="validateNumberInput(this)" required>
                             </td>
 						</tr> 
                         
@@ -156,8 +160,17 @@ require_once "../include/helper.functions.php";
 </div>
 <script>
         function validateNumberInput(input) {
-            input.value = input.value.replace(/[^0-9/]/g, '');
+            input.value = input.value.replace(/[^0-9]/g, '');
         }
+
+        $(document).ready(function () {
+            $('.datepicker').datepicker({
+                dateFormat: 'yy-mm-dd', 
+                changeMonth: true,
+                changeYear: true,
+                yearRange: 'c-100:2050'
+            });
+        });
     </script>
     
 </body>
