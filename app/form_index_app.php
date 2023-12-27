@@ -62,8 +62,23 @@
 
                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
                     <span class="fa-icon fa-building"></span>
-                    <input type="text" id="application_status" name="application_status" value="<?php echo ($application_status_get['value']) ;?>" placeholder="Enter Application Status" class="form-control alphaonly valid"  <?php echo ($application_status_get['value'] != '') ? 'readonly' : ''; ?> maxlength="20" required>
-                    <label for="name" class="label-tag"> Application Status</label>
+                    <select  name = 'application_status' id ='application_status'   style="height:auto !important;" > 
+                        <?php 
+                        $cam_ques =  get_dropdown("application_status","");
+                        echo '<option value="0" selected>Select</option>';
+                        foreach($cam_ques as $ques){
+                        ?>
+                        <option value = '<?php echo $ques['id']; ?>'><?php echo $ques['value'];  ?></option>
+                        <?php $application_status = $_POST['value'];
+                        if( is_array($application_status)){
+                            while (list ($key, $val) = each ($application_status)) {
+                            echo "$val <br>";
+                            }
+                            }?>
+                        <?php }?>
+                    </select>
+                    <!-- <input type="text" id="application_status" name="application_status" value="<?php echo ($application_status_get['value']) ;?>" placeholder="Enter Application Status" class="form-control alphaonly valid"  <?php echo ($application_status_get['value'] != '') ? 'readonly' : ''; ?> maxlength="20" required>
+                    <label for="name" class="label-tag"> Application Status</label> -->
                 </div>
                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
                     <span class="fa-icon fa-money"></span>

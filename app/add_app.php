@@ -62,7 +62,7 @@ require_once "../include/helper.functions.php";
 						<tr>
 							<td>Bank Name:</td>
 							<td>
-                                <input type = "text" class="form-control" name="bank_name" id="bank_name" required>
+                                <input type = "text" class="" name="bank_name" id="bank_name" required>
                             </td>
 						</tr> 
 						<tr>
