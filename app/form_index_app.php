@@ -45,6 +45,7 @@
     .application_status label {
         display: block;
         font-weight: 300;
+        margin-bottom: -2px;
         
     }
 
