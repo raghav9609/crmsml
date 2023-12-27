@@ -61,23 +61,9 @@
                 </div>   
 
                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                    <!-- <span class="fa-icon fa-building"></span> -->
-                    <select name='application_status' id='application_status'>
-                        <?php 
-                        $cam_ques = get_dropdown("application_status", "");
-
-                        foreach ($cam_ques as $ques) {
-                            $optionValue = $ques['id'];
-                            $optionText = $ques['value'];
-                            echo "<option value='$optionValue'";
-                            if ($optionValue == $application_status) {
-                                echo " selected";
-                            }
-                            echo ">$optionText</option>";
-                        }
-                        ?>
-                    </select>
-                    <!-- <input type="text" id="application_status" name="application_status" value="<?php echo ($application_status_get['value']) ;?>" placeholder="Enter Application Status" class="form-control alphaonly valid"  <?php echo ($application_status_get['value'] != '') ? 'readonly' : ''; ?> maxlength="20" required> -->
+                    <span class="fa-icon fa-building"></span>
+                    
+                    <input type="text" id="application_status" name="application_status" value="<?php echo ($application_status_get['value']) ;?>" placeholder="Enter Application Status" class="form-control alphaonly valid"  <?php echo ($application_status_get['value'] != '') ? 'readonly' : ''; ?> maxlength="20" required>
                     <label for="name" class="label-tag"> Application Status</label>
                 </div>
                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
