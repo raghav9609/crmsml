@@ -60,10 +60,9 @@
                     <label for="name" class="label-tag"> Bank Name</label>
                 </div>   
                 <div class="form-group col-xl-2 col-lg-4 col-md-6 main_acc ">
-                    
                     <span class="fa-icon fa-bank"></span>
-                    <?php echo get_dropdown('application_status',''); ?>
-                    <label for="main_acc" class="label-tag">Application Status</label>
+                    <?php echo get_dropdown('application_status','application_status'); ?>
+                    <label for="name" class="label-tag">Application Status</label>
                 </div>
 <!-- 
                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
