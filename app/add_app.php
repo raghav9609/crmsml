@@ -48,7 +48,7 @@ require_once "../include/helper.functions.php";
 			<a href="form_index_app.php"><input type="button" class="buttonsub cursor" value="Back"></a>
 			<h3>Add Application </h3>
 			<form name="add_application" action="update.php" method="POST" autocomplete="OFF" enctype="multipart/form-data">
-				<table class="gridtable" style="margin-left:2%;width:80%;" id="maintable">
+				<table class="gridtable" style="margin-left:2%;width:50%;" id="maintable">
 					<tbody>
 						<tr>
 							<!-- <th colspan="2" class="align-center">
