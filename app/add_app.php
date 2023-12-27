@@ -44,7 +44,7 @@ require_once "../include/helper.functions.php";
 <div class="pl-md-3 pl-2 pr-md-3 pr-2 col-12">
     
     <div class="gen-box white-bg">
-    <div class="blue-bg col-12 font-weight-nb pb-2 pt-2 white font-20 brdr-top-gray pe-none" data-toggle="step1" id="switch_step1"> Add Application </div>  
+    <div class="blue-bg col-12 font-weight-nb pb-2 pt-2 white font-20 brdr-top-gray pe-none" data-toggle="step1" id="switch_step1"><span id="text_step1"></span> Add Application </div>  
 			<a href="form_index_app.php"><input type="button" class="buttonsub cursor" value="Back"></a>
 			<!-- <h3>Add Application </h3> -->
 			<form name="add_application" action="update.php" method="POST" autocomplete="OFF" enctype="multipart/form-data">
