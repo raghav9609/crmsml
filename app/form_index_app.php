@@ -45,7 +45,7 @@
     .application_status label {
         display: block;
         font-weight: 500;
-        margin-bottom: 5px;
+        margin-bottom: 1px;
     }
 
     .application_status select {
