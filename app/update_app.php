@@ -16,8 +16,8 @@ $loan_type = $_REQUEST['loan_type'];
 // $bank_name_get = get_name('master_code_id',$bank_name);
 echo $application_status = $_REQUEST['application_status'];
 
-$application_status_get = get_name('status_id',$application_status);
-print_r($application_status_get);
+$application_status_get_up = get_name('status_id',$application_status);
+print_r($application_status_get_up);
 exit();
 $applied_amount = $_REQUEST['applied_amount'];
 $login_date = $_REQUEST['login_date'];
@@ -37,7 +37,7 @@ $emi = isset($values[1]) ? $values[1] : '';
 
 $final_arr = array(
     // 'bank_id' => $bank_name_get['id'], 
-    'application_status' => $application_status_get['id'],
+    'application_status' => $application_status_get_up['id'],
     'applied_amount' => trim($applied_amount),
     'login_date' => trim($login_date),
     'sanction_amount' => trim($sanction_amount),
