@@ -37,6 +37,29 @@
     .error-message {
         color: red;
     }
+    .application_status {
+        margin-bottom: 20px;
+        position: relative;
+    }
+
+    .application_status label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .application_status select {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .fa-icon {
+        /* Add your FontAwesome styling here */
+        margin-right: 10px; /* Adjust as needed */
+    }
     </style>
 </head>
 
@@ -59,7 +82,7 @@
                     <input type="text" id="bank_name" name="bank_name" value="<?php echo ($get_bank_name['value']) ;?>" placeholder="Enter Bank Name" class="form-control alphaonly valid" maxlength="20" <?php echo ($get_bank_name['value'] != '') ? 'disabled' : 'disabled'; ?>  required >
                     <label for="name" class="label-tag"> Bank Name</label>
                 </div>   
-                <div class="form-group col-xl-2 col-lg-4 col-md-6 main_acc ">
+                <div class="application_status col-xl-2 col-lg-4 col-md-6 main_acc ">
                     <span class="fa-icon fa-bank"></span>
                     <?php echo get_dropdown('application_status','application_status'); ?>
                     <label for="name" class="label-tag" style = "margin-bottom:10px;">Application Status</label>
