@@ -162,6 +162,7 @@ require_once "../include/helper.functions.php";
         function validateNumberInput(input) {
             input.value = input.value.replace(/[^0-9]/g, '');
         }
+        document.addEventListener('DOMContentLoaded', function () {
 
         $(document).ready(function () {
             $('.datepicker').datepicker({
@@ -171,6 +172,7 @@ require_once "../include/helper.functions.php";
                 yearRange: 'c-100:2050'
             });
         });
+    });
     </script>
     
 </body>
