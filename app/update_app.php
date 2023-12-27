@@ -7,7 +7,9 @@ require_once(dirname(__FILE__) . '/../include/helper.functions.php');
 
 // require_once "../include/helper.functions.php";
 require_once "../include/display-name-functions.php";
-
+$update = $_POST['update'];
+echo $update;
+exit();
 $app_id =$_REQUEST['crm_query_id'];
 $case_id = $_REQUEST['case_id'];
 $cust_id = $_REQUEST['cust_id'];
