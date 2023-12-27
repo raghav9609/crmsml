@@ -15,8 +15,10 @@ $loan_type = $_REQUEST['loan_type'];
 // $bank_name = $_REQUEST['bank_name'];
 // $bank_name_get = get_name('master_code_id',$bank_name);
 echo $application_status = $_REQUEST['application_status'];
-exit();
+
 $application_status_get = get_name('status_id',$application_status);
+print_r($application_status_get);
+exit();
 $applied_amount = $_REQUEST['applied_amount'];
 $login_date = $_REQUEST['login_date'];
 $sanction_amount = $_REQUEST['sanction_amount'];
