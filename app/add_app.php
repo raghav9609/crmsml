@@ -68,7 +68,9 @@ require_once "../include/helper.functions.php";
 						<tr>
 							<td>Application Status</td>
 							<td>
-                                <input type = "text" class="" name="application_status" id="application_status" required>
+                            <select class="" name="application_status" id="application_status" required>
+                                <?php echo get_dropdown('application_status', ''); ?>
+                            </select>
                             </td>
 						</tr> 						
 						<tr>
