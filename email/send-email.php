@@ -14,7 +14,7 @@ $cust_id_furl    = $_REQUEST['cust_id'];
 <head>
 <title></title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<script src="<?php echo $head_url; ?>/include/js/jquery-1.3.2.min.js" type="text/javascript" type="text/javascript"></script>
+<script src="<?php echo $head_url; ?>/assets/js/jquery-1.3.2.min.js" type="text/javascript" type="text/javascript"></script>
 <script type="text/javascript" src="ckeditor/ckeditor.js"></script>
 <script language="javascript">
 function myMail_function(){
@@ -65,82 +65,6 @@ function new_myMail_function(e) {
 }
 </script>
 </head>
-<?php 
-
-if ($query_id != "")
-{
-$qrycase = "select qry.cust_id as cust_id, qry.loan_type as loan_type, stats.user_id as user_id, qry.loan_amt as loan_amt, qry.loan_emi as loan_emi from tbl_mint_query as qry left JOIN tbl_mint_query_status_detail as stats ON qry.query_id = stats.query_id where qry.query_id = ".$query_id."";
-}
-
-$rescase = mysqli_query($Conn1,$qrycase);
-$execase = mysqli_fetch_array($rescase); 
-$cust_id = $execase['cust_id'];
-$loan_type = $execase['loan_type'];
-$user_id = $execase['user_id'];
-
-$required_loan_amt = $execase['loan_amt'];
-$ext_emi = $execase['loan_emi'];
-
-$qrycust = "select * from tbl_mint_customer_info where id = ".$cust_id."";
-$rescust = mysqli_query($Conn1,$qrycust);
-$execust = mysqli_fetch_array($rescust);
-$name = $execust['name'];
-$email = $execust['email'];
-$city_id = $execust['city_id'];
-$salu_id = $execust['salu_id'];
-$gold_city = $execust['gold_city'];
-$phone = $execust['phone'];
-
-$qrycity = "select * from lms_city where city_id = '".$city_id."'";
-$rescity = mysqli_query($Conn1,$qrycity);
-$execity = mysqli_fetch_array($rescity);
-$city_name = $execity['city_name']; 
-
-$qryuser = "select * from tbl_user_assign where user_id = '".$user_id."'";
-$resuser = mysqli_query($Conn1,$qryuser);
-$exeuser = mysqli_fetch_array($resuser);
-$username = $exeuser['user_name'];
-$contact_no = $exeuser['contact_no'];
-$user_email = $exeuser['email'];
-
-
-$qryuser = "select email from tbl_user_assign where user_id = '".$secd_user_id."'";
-$resuser = mysqli_query($Conn1,$qryuser);
-$exeuser = mysqli_fetch_array($resuser);
-$secd_user_email = $exeuser['email'];
-
-$qrysalu = "select * from tbl_saluation where salutn_id = '".$salu_id."'";
-$ressalu = mysqli_query($Conn1,$qrysalu);
-$exesalu = mysqli_fetch_array($ressalu);
-$salutn_name = $exesalu['salutn_name'];
-
-$qryloan = "select * from lms_loan_type where loan_type_id = '".$loan_type."'";
-$resloan = mysqli_query($Conn1,$qryloan);
-$exeloan = mysqli_fetch_array($resloan);
-$loan_name = $exeloan['loan_type_name'];
-
-$qryapp = "select * from tbl_mint_app where case_id = ".$case_id." and (app_status_on = '6' or app_status_on = '7') ";
-$resapp = mysqli_query($Conn1,$qryapp);
-$exeapp = mysqli_fetch_array($resapp);
-$bank_id = $exeapp['app_bank_on'];
-
-$qrybank = "select * from tbl_bank where bank_id = '".$bank_id."'";
-$resbank = mysqli_query($Conn1,$qrybank);
-$exebank = mysqli_fetch_assoc($resbank);
-$bank_name = $exebank['bank_name'];
-
-$qryemail = "select email from tbl_mint_email where id = '2'";
-$resultemail = mysqli_query($Conn1,$qryemail);
-$rsemail = mysqli_fetch_array($resultemail);
-$semail = $rsemail['email'];
-$sender_mail = 'MyLoanCare<'.$semail.'>';
-
-if($secd_user_email != '' && $secd_user_email != 0){
-$maile_send =  $user_email.','.$secd_user_email ;
-}else{
-$maile_send =  $user_email ;
-}
-?>
 <body>
 <div align="center">
 <div class="wrapper">
