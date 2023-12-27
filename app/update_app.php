@@ -54,7 +54,7 @@ $final_arr = array(
     'tennure' => $tenure,
     'emi '=> $emi
 );
-print_r($final_arr);
+// print_r($final_arr);
 $where_condition = 'crm_query_id = "' . $app_id . '"';
 $update_query = "UPDATE crm_query_application SET ";
 
