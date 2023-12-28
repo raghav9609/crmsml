@@ -70,6 +70,7 @@ function resetform(path){
 }
 
 $('#upload_csv').on('click', function(event){
+	alert("hiiiii");
 	event.preventDefault();
     $(this).prop("disabled", true);
 	var formdata = new FormData();
