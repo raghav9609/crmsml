@@ -145,7 +145,7 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
     <span style="font-weight:bold;font-size:14px;">
     <a href="#follow_history" class="buttonsub">Follow Up History</a>
     <?php if ($tool_type == "Cibil Form") { ?><a href="#cibil" class="buttonsub">Cibil History</a><?php } ?>
-    <a href="../email/email.php?query_id=<?php echo urlencode(base64_encode($id)); ?>"
+    <a href="../email/?query_id=<?php echo urlencode(base64_encode($id)); ?>"
        class="buttonsub">Send Email</a>
 
 
