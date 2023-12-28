@@ -107,7 +107,8 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
     $work_city = $result_cust_data['work_city'];
     $maritalstatus = $result_cust_data['maritalstatus'];
     $ofc_city_name = get_display_name("city_name", $work_city);
-    $curDate = currentDate();
+    echo $curDate = currentDate();
+    echo $result_cust_data['cur_comp_wrk_exp'];
     echo $ccwe = dateDiff($curDate,$result_cust_data['cur_comp_wrk_exp'],1);
     $ccwe = $result_cust_data['cur_comp_wrk_exp'];
     $twe = $result_cust_data['totl_wrk_exp'];
