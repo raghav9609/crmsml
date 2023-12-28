@@ -34,31 +34,13 @@ var temp_id = $( "#template" ).val() ;
 <div class="wrapper">
 <form name="sendemail" method="post" action="send-email-process.php">
 <table class="adminbox admintext" width="100%">
-
-	 	<input type = "hidden" name= "user" id="user" value="<?php echo $user;?>">
-	 	<input type = "hidden" name= "user_name" id="user_name" value="<?php echo $username;?>">
-            	<input type =  "hidden" name= "contact_no" id="contact_no" value="<?php echo $contact_no;?>">
-             	<input type =  "hidden" name= "salu_name" id="salu_name" value="<?php echo $salutn_name;?>">
-            	<input type = "hidden" name= "page" id="page" value="<?php echo $page;?>">
-             	<input type = "hidden" name= "ext_emi" id="ext_emi" value="<?php echo $ext_emi;?>">
-               	 <input type = "hidden" name= "query_id" id="query_id" value="<?php echo $query_id;?>">
-               	<input type = "hidden" name= "cust_id" id="cust_id" value="<?php echo $cust_id;?>">
-               	<input type="hidden"  name="user_email" id="user_email" value="<?php echo $user_email; ?>"/>
-               	
-  <tr>
-    <td><span class="bodytext">Sender Email-id </span></td>
-    <td><input type="text" readonly name="sender_email" id="sender_email" value="<?php echo $sender_mail ; ?>"/></td>
-
+  <input type = "hidden" name= "query_id" id="query_id" value="<?php echo $query_id;?>">
+    <tr>
+    
      <td><span class="bodytext">Recipient Email-id  </span> </td>
       <td> <input type="text"  name="recipient_email" id="recipient_email" value="<?php echo ($source_furl != "custdoc") ? $email : ""; ?>"/></td>
-  </tr>
-  
-   <tr>
-    	<td><span class="bodytext">CC Email-id </span> </td>
+      <td><span class="bodytext">CC Email-id </span> </td>
          <td> <input type="text" name="cc_recipient_email" id="cc_recipient_email" value="<?php echo ($source_furl != "custdoc") ? $maile_send : "";  ?>" /></td>
-          <td><span class="bodytext"> Name </span> </td>
-          <td> <input type="text" readonly name="name" id="name" value="<?php echo ($source_furl != "custdoc") ? $name : ""; ?>" /></td>
- 
   </tr>
 </tr> 
 <tr>
