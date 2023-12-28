@@ -70,6 +70,105 @@ function resetform(path){
     window.location.href = path;
 }
 
+$('#upload_csv').on('click', function(event){
+	event.preventDefault();
+    $(this).prop("disabled", true);
+	var formdata = new FormData();
+	formdata.append('upload_files', $('#upload_files').get(0).files[0]);
+	var filelist = document.getElementById("upload_files").files;
+	if(filelist.length == 0){
+		Swal.fire({
+            title: 'Please Select a file',
+            timer: 3000,
+            icon:"error"
+            }),
+        $(this).prop("disabled", false);
+        return false;
+	}else{
+		for (var i = 0; i < filelist.length; i++) {
+			var ext = $('#upload_files').val().split('.').pop().toLowerCase();
+			if($.inArray(ext, ['csv']) == -1) {
+                Swal.fire({
+                    title: 'Select only CSV File',
+                    timer: 3000,
+                    icon:"error"
+                    }).then(
+                    function () {
+                        window.location = '';
+                    },
+            )
+				return false;
+			}
+		}
+	}
+	$.ajax({
+	url: "upload-sms-csv.php",
+	method: "POST",
+   
+	data: formdata,
+	dataType: 'json',
+	contentType: false,
+	cache: false,
+	processData: false,
+	
+	success: function(data) {
+        if(data !== null){
+            if (data.hasOwnProperty('status') && data.status === 'Error') {
+                Swal.fire({
+                    title: 'Error',
+                    text: data.message,
+                    icon: 'error'
+                }).then(function() {
+                    window.location.href = '';
+                });
+            } else if ((data.length)>0) {
+                html = updateTable(currentPage, data.length, data);	
+
+                $('#heading').css('display', 'block');
+                $('#csv_file_data').css('display', 'block');
+                $('#csv_file_data').html(html);
+            
+            } 
+        }else{
+            Swal.fire({
+                title: 'Error',
+                text: "File is empty",
+                icon: 'error'
+            }).then(function() {
+                window.location.href = '';
+            });
+    
+            }
+		}
+	})
+	});
+
+
+	function toggle(source) {
+		checkboxes = document.getElementsByName("chkbox");
+		for(var i=0, n=checkboxes.length;i<n;i++) {
+		checkboxes[i].checked = source.checked;
+		}
+
+		$('.checkbox').change(function(){
+				if($('.checkbox:checked').length == $('.checkbox').length){
+						$('.checked_all').prop('checked',true);
+				}else{
+						$('.checked_all').prop('checked',false);
+				}
+			});
+		}
+	function toggle1(){
+		$('.checkbox').change(function(){
+			if($('.checkbox:checked').length == $('.checkbox').length){
+					$('.checked_all').prop('checked',true);
+			}else{
+					$('.checked_all').prop('checked',false);
+			}
+		});
+		}
+    
+
 
 $(document).on('click', '#import_data', function () {
 		if ($('.checkbox:checked').length > 0) {
