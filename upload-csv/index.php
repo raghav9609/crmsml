@@ -15,6 +15,8 @@ require_once(dirname(__FILE__) . '/../include/header.php');
     <link rel="stylesheet" type="text/css" href="<?php echo $head_url; ?>/assets/css/style.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo $head_url; ?>/assets/css/jquery-ui.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo $head_url; ?>/assets/css/cms.style.css" />
+	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
     <body>
 
 	<div class="pl-md-3 pl-2 pr-md-3 pr-2 col-12">
@@ -53,7 +55,6 @@ require_once(dirname(__FILE__) . '/../include/header.php');
 </html>
 <?php// include('../main-js-css-insert.php');?>	
 
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
 <script>
 function download_csv_format_sms_trigger() {
