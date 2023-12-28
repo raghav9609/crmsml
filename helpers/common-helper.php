@@ -126,8 +126,8 @@
         function dateDiff($date1, $date2,$format=0)
         {
             $d1 = new DateTime($date1);
-            echo $d2 = new DateTime($date2);
-            echo $interval = $d2->diff($d1);
+             $d2 = new DateTime($date2);
+             $interval = $d2->diff($d1);
             if($format == 1){
                 return $interval->format('%m');
             } else {
