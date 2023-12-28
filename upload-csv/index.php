@@ -72,7 +72,7 @@ function resetform(path){
 $('#upload_csv').on('click', function(event){
 	alert("hiiiii");
 	event.preventDefault();
-    $(this).prop("disabled", true);
+    // $(this).prop("disabled", true);
 	var formdata = new FormData();
 	formdata.append('upload_files', $('#upload_files').get(0).files[0]);
 	var filelist = document.getElementById("upload_files").files;
