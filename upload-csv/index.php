@@ -48,11 +48,12 @@ require_once(dirname(__FILE__) . '/../include/header.php');
 		</div>
 	</div>
 	</div>
-	<?php include("../../include/footer.php");?>
+	<?php// include("../../include/footer.php");?>
 	</body>
 </html>
-<?php include('../main-js-css-insert.php');?>	
+<?php// include('../main-js-css-insert.php');?>	
 
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
 <script>
 function download_csv_format_sms_trigger() {
