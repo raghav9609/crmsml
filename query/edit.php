@@ -107,6 +107,9 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
     $work_city = $result_cust_data['work_city'];
     $maritalstatus = $result_cust_data['maritalstatus'];
     $ofc_city_name = get_display_name("city_name", $work_city);
+    echo $curDate = currentDate();
+    echo $result_cust_data['cur_comp_wrk_exp'];
+    echo $ccwe = dateDiff($curDate,$result_cust_data['cur_comp_wrk_exp'],1);
     $ccwe = $result_cust_data['cur_comp_wrk_exp'];
     $twe = $result_cust_data['totl_wrk_exp'];
     $salary_pay_id = $result_cust_data['salary_pay_id'];
@@ -142,7 +145,7 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
     <span style="font-weight:bold;font-size:14px;">
     <a href="#follow_history" class="buttonsub">Follow Up History</a>
     <?php if ($tool_type == "Cibil Form") { ?><a href="#cibil" class="buttonsub">Cibil History</a><?php } ?>
-    <a href="../email/send-email.php?query_id=<?php echo urlencode(base64_encode($id)); ?>"
+    <a href="../email/?query_id=<?php echo urlencode(base64_encode($id)); ?>"
        class="buttonsub">Send Email</a>
 
 

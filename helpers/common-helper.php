@@ -123,12 +123,17 @@
         }
     }
     if(!function_exists('dateDiff')){
-        function dateDiff($date1, $date2)
+        function dateDiff($date1, $date2,$format=0)
         {
             $d1 = new DateTime($date1);
-            echo $d2 = new DateTime($date2);
-            echo $interval = $d2->diff($d1);
-            return $interval->format('%m months');
+             $d2 = new DateTime($date2);
+             $interval = $d2->diff($d1);
+            if($format == 1){
+                return $interval->format('%m');
+            } else {
+                return $interval->format('%m months');
+            }
+            
         }
     }
 if (!function_exists('date_filteration')) {

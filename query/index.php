@@ -319,9 +319,9 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                         $default = 1;
                         $qry .= " and qry.page_url like '%" . $insurance . "%'";
                     }
-                     if ($default != 1) {
-                        $qry .= " and date(qry.created_on) between DATE_SUB(CURDATE(), INTERVAL 5 DAY) and CURDATE() ";
-                    }
+                    //  if ($default != 1) {
+                    //     $qry .= " and date(qry.created_on) between DATE_SUB(CURDATE(), INTERVAL 5 DAY) and CURDATE() ";
+                    // }
                     $qry .= " order by qry.id desc limit " . $offset . "," . $max_offset;
                 
                     ?>
