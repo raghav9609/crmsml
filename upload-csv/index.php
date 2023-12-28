@@ -71,7 +71,7 @@ function resetform(path){
     window.location.href = path;
 }
 
-$('#upload_csv').on('click', function(event){
+$('.upload_csv').on('click', function(event){
 	alert("hiiiii");
 	event.preventDefault();
     // $(this).prop("disabled", true);
