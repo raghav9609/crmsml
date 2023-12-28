@@ -68,7 +68,7 @@ function resetform(path){
     window.location.href = path;
 }
 
-$('#upload_sms').on('click', function(event){
+$('#upload_csv').on('click', function(event){
 	event.preventDefault();
     $(this).prop("disabled", true);
 	var formdata = new FormData();
