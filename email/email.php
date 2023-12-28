@@ -1,13 +1,10 @@
 <?php
-$dialog_pop_up_disabled_flag = 1;
 iconv_set_encoding("internal_encoding", "UTF-8");
 require_once(dirname(__FILE__) . '/../config/session.php');
 require_once(dirname(__FILE__) . '/../helpers/common-helper.php');
 require_once(dirname(__FILE__) . '/../include/header.php');
 require_once(dirname(__FILE__) . '/../include/helper.functions.php');
 $query_id = urldecode(base64_decode($_REQUEST['query_id'])); 
-$source_furl     = $_REQUEST['source'];
-$cust_id_furl    = $_REQUEST['cust_id'];
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -21,48 +18,15 @@ function myMail_function(){
 var temp_id = $( "#template" ).val() ;
  $.ajax({
 			type: "GET",
-			data: "temp=" + temp_id+ "&app_id=" + $( "#cust_app_id" ).val()  +"&case_id=<?php echo $case_id; ?>&query_id=<?php echo $query_id; ?>",
-			url: "email_query.php",
+			data: "temp=" + temp_id+ "&query_id=<?php echo $query_id; ?>",
+			url: "fetch-template.php",
 			success: function(html)
 			{
 			var data = JSON.parse(html);
                 CKEDITOR.instances['email_query'].setData(atob(data.html_temp));
-                $("#bank_option").html(data.bank_opt);
-
-                $('.bank_option').click(function (){
-                    var id = this.value;
-                    document.getElementById(id).disabled = true;
-                    CKEDITOR.instances['email_query'].document.$.getElementById(id).remove();
-
-                });
 			}
  });   		
-  $.ajax({
-			type: "POST",
-			data: "temp=" + temp_id,
-			url: "email_subject.php",
-			success: function(html)
-			{
-			$( "#subject" ).val(html);
-			}
- });
 }  
-
-function new_myMail_function(e) {
-  // CKEDITOR.instances['email_query'].setData(e);
-  var cust_id_furl  = "<?php echo base64_decode($cust_id_furl); ?>";
-  var cust_query_id = "<?php echo $query_id; ?>";
-  var cust_case_id  = "<?php echo $case_id; ?>";
-
-  $.ajax({
-		type: "POST",
-		data: "type=" + e + "&cust_id=" + cust_id_furl + "&query_id=" + cust_query_id + "&case_id=" + cust_case_id,
-		url: "banker_agent_template.php",
-		success: function(response) {
-		  CKEDITOR.instances['email_query'].setData(response);
-		}
-  });
-}
 </script>
 </head>
 <body>
