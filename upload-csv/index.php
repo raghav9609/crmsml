@@ -79,22 +79,24 @@ $('#upload_csv').on('click', function(event){
 	formdata.append('upload_files', $('#upload_files').get(0).files[0]);
 	var filelist = document.getElementById("upload_files").files;
 	if(filelist.length == 0){
-		Swal.fire({
-            title: 'Please Select a file',
-            timer: 3000,
-            icon:"error"
-            }),
+		// Swal.fire({
+        //     title: 'Please Select a file',
+        //     timer: 3000,
+        //     icon:"error"
+        //     }),
+		alert("Please Select a file"),
         $(this).prop("disabled", false);
         return false;
 	}else{
 		for (var i = 0; i < filelist.length; i++) {
 			var ext = $('#upload_files').val().split('.').pop().toLowerCase();
 			if($.inArray(ext, ['csv']) == -1) {
-                Swal.fire({
-                    title: 'Select only CSV File',
-                    timer: 3000,
-                    icon:"error"
-                    }).then(
+                // Swal.fire({
+                //     title: 'Select only CSV File',
+                //     timer: 3000,
+                //     icon:"error"
+                //     }).then(
+					alert('Select only CSV File').then(
                     function () {
                         window.location = '';
                     },
@@ -116,11 +118,13 @@ $('#upload_csv').on('click', function(event){
 	success: function(data) {
         if(data !== null){
             if (data.hasOwnProperty('status') && data.status === 'Error') {
-                Swal.fire({
-                    title: 'Error',
-                    text: data.message,
-                    icon: 'error'
-                }).then(function() {
+                // Swal.fire({
+                //     title: 'Error',
+                //     text: data.message,
+                //     icon: 'error'
+                // }).then(function() {
+					alert(data.message).then(
+                    function () {
                     window.location.href = '';
                 });
             } else if ((data.length)>0) {
@@ -132,11 +136,13 @@ $('#upload_csv').on('click', function(event){
             
             } 
         }else{
-            Swal.fire({
-                title: 'Error',
-                text: "File is empty",
-                icon: 'error'
-            }).then(function() {
+            // Swal.fire({
+            //     title: 'Error',
+            //     text: "File is empty",
+            //     icon: 'error'
+            // }).then(function() {
+				alert('File is empty').then(
+                    function () {
                 window.location.href = '';
             });
     
@@ -221,11 +227,13 @@ $(document).on('click', '#import_data', function () {
                         const insertData = data.insert_Data || "";
                        
                         data_show = data.message+" "+ "Total Row Insert (" + insertData +")";
-                        Swal.fire({
-                            title: 'Error',
-                            text: data_show,
-                            icon: 'error'
-                        }).then(function() {
+                        // Swal.fire({
+                        //     title: 'Error',
+                        //     text: data_show,
+                        //     icon: 'error'
+                        // }).then(function() {
+							alert(data_show).then(
+                    		function () {
                             window.location.href = '';
                         });
                     } else if (data && data.status === 'success' ) {
@@ -233,21 +241,25 @@ $(document).on('click', '#import_data', function () {
                         const insertData = data.insert_Data || "";
 
                         data_show = message +" "+ "Total Row Insert (" + insertData +")";
-                        Swal.fire({
-                            title: 'Success',
-                            text: data_show,
-                            icon: 'success',
-                            timer: 5000
-                        }).then(function() {
+                        // Swal.fire({
+                        //     title: 'Success',
+                        //     text: data_show,
+                        //     icon: 'success',
+                        //     timer: 5000
+                        // }).then(function() {
+							alert(data_show).then(
+                    		function () {
                             window.location.href = '';
                         });
                     }else {
-                        Swal.fire({
-                            title: 'error',
-                            text: data,
-                            icon: 'error',
-                            timer: 5000
-                        }).then(function() {
+                        // Swal.fire({
+                        //     title: 'error',
+                        //     text: data,
+                        //     icon: 'error',
+                        //     timer: 5000
+                        // }).then(function() {
+							alert(data).then(
+                    		function () {
                             window.location.href = '';
                         });
                         
@@ -256,12 +268,13 @@ $(document).on('click', '#import_data', function () {
 				}
 				});
         }else{
-                Swal.fire({
-                    title: 'error',
-                    text: "Please select any checkbox",
-                    icon: 'error',
-                    timer: 5000
-                })
+                // Swal.fire({
+                //     title: 'error',
+                //     text: "Please select any checkbox",
+                //     icon: 'error',
+                //     timer: 5000
+                // })
+				alert("Please select any checkbox")
                 }
 	});
 
