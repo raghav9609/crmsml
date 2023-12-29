@@ -16,6 +16,8 @@ require_once(dirname(__FILE__) . '/../include/header.php');
     <link rel="stylesheet" type="text/css" href="<?php echo $head_url; ?>/assets/css/jquery-ui.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo $head_url; ?>/assets/css/cms.style.css" />
 	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+	<script src="path/to/sweetalert2.all.min.js"></script>
+
 </head>
     <body>
 
