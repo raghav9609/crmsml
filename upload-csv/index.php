@@ -204,7 +204,7 @@ $(document).on('click', '#import_data', function () {
 				}
 				var chkvalue=$("input[name='checkbox']:checked").val();
 
-				// alert(temp_name+"abc"+purpose)
+				alert(name+"abc"+phone_no)
 				$.ajax({
 				url:"add.php",
 				method:"POST",
