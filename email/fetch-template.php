@@ -10,7 +10,7 @@ $query_id = replace_special($_REQUEST['query_id']);
 $queryModelExport = new queryModel();
 echo $getQueryData = $queryModelExport->fetchDetails($query_id);
 
-echo json_encode(array('html_temp'=>base64_encode($template_body),"subject"=>$subject));
+//echo json_encode(array('html_temp'=>base64_encode($template_body),"subject"=>$subject));
 ?>
 
  
