@@ -25,6 +25,8 @@ var temp_id = $( "#template" ).val() ;
 			var data = JSON.parse(html);
                 CKEDITOR.instances['email_query'].setData(atob(data.html_temp));
                 $("#subject").val(data.subject);
+                $("#recipient_email").val(data.customer_email_id);
+                $("#cc_recipient_email").val(data.cc_email_id);
 			}
  });   		
 }  
@@ -36,14 +38,6 @@ var temp_id = $( "#template" ).val() ;
 <form name="sendemail" method="post" action="send-email-process.php">
 <table class="adminbox admintext" width="100%">
   <input type = "hidden" name= "query_id" id="query_id" value="<?php echo $query_id;?>">
-    <tr>
-    
-     <td><span class="bodytext">Recipient Email-id  </span> </td>
-      <td> <input type="text"  name="recipient_email" id="recipient_email" value="<?php echo ($source_furl != "custdoc") ? $email : ""; ?>"/></td>
-      <td><span class="bodytext">CC Email-id </span> </td>
-         <td> <input type="text" name="cc_recipient_email" id="cc_recipient_email" value="<?php echo ($source_furl != "custdoc") ? $maile_send : "";  ?>" /></td>
-  </tr>
-</tr> 
 <tr>
 <td><span class="bodytext">Select Template:</span> </td>
 
@@ -62,6 +56,14 @@ var temp_id = $( "#template" ).val() ;
 <td>Subject:- </td><td colspan="5" width="26%">
   <input type="text" name="subject" id="subject" Placeholder="Subject" size="50" value=""/>
 </td></tr>
+<tr>
+    
+    <td><span class="bodytext">Recipient Email-id  </span> </td>
+     <td> <input type="text"  name="recipient_email" id="recipient_email" value=""/></td>
+     <td><span class="bodytext">CC Email-id </span> </td>
+        <td> <input type="text" name="cc_recipient_email" id="cc_recipient_email" value="" /></td>
+ </tr>
+</tr> 
 <tr>
 <td>Description:- </td>
 <td colspan="5">
