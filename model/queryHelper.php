@@ -97,10 +97,10 @@ class queryModel {
         }
         return $queryReturn;
     }
-    
-   
 
-   
+    function getQueryData($queryId){
+        return "select * from crm_query as query INNER JOIN crm_customer as customer on query.crm_customer_id = customer.id where id = ".$queryId;
+    }
 }
     
 ?>

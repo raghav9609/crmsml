@@ -65,7 +65,6 @@ var temp_id = $( "#template" ).val() ;
 <td>Description:- </td>
 <td colspan="5">
 <textarea name="description" id="email_query" class="CKeditor" cols="80" rows="10"></textarea>
-
 <?php require_once(dirname(__FILE__) . '/../include/ckeditor.php');?>
 </td>    
 </tr>
