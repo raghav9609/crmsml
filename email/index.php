@@ -24,6 +24,7 @@ var temp_id = $( "#template" ).val() ;
 			{
 			var data = JSON.parse(html);
                 CKEDITOR.instances['email_query'].setData(atob(data.html_temp));
+                $("#subject").val(data.subject);
 			}
  });   		
 }  
