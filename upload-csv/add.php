@@ -23,7 +23,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $rows = array();
     
     $get_data  = 'select count(id) as total_count from crm_raw_data';
+    echo $get_data;
     $row_count_before_insert = mysqli_query($Conn1,$get_data);
+    print_r($row_count_before_insert);
+    exit();
     for ($i = 0; $i < $count; $i++) {
         if ($dob[$i] != "" && $dob[$i] != null && $dob[$i] != "null"){
             $dob_get = dateformatymd($dob[$i]);
