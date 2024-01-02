@@ -1,13 +1,17 @@
 <?php
+echo "hiiiii1";
 $no_head=1;
 require_once(dirname(__FILE__) . '/../config/session.php');
+echo "hiiiii2";
 require_once(dirname(__FILE__) . '/../config/config.php');
+echo "hiiiii3";
 require_once(dirname(__FILE__) . '/../model/smsModel.php');
+echo "hiiiii4";
 require_once(dirname(__FILE__) . '/../model/queryHelper.php');
+echo "hiiiii5";
 require_once(dirname(__FILE__) . '/../helpers/common-helper.php');
+echo "hiiiii6";
 
-echo "hiiiiiiiii";
-exit();
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $name  = $_POST['name'];
