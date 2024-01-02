@@ -76,10 +76,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $rows = array('status' => 'error', 'message' => 'Duplicate entry','insert_Data' => $insert_row);
         }
     }
-    $row_count  = $queryModel->getrowcount(); 
+    // $row_count  = $queryModel->getrowcount(); 
+    $row_count  = "select count(id) as total_count from crm_raw_data";
 
     $row_count_after_insert =  mysqli_query($Conn1,$row_count);
-    $countAfterInsert = $row_count_after_insert[0]['total_count'];
+    $countAfterInsert = $row_count_after_insert['total_count'];
     $countBeforeInsert = $row_count_before_insert['total_count'];
     $insert_row = $countAfterInsert - $countBeforeInsert;
 
