@@ -7,13 +7,13 @@ require_once(dirname(__FILE__) . '/../include/helper.functions.php');
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $name  = $_POST['name'];
-   echo  $phone_no  = $_POST['phone_no'];
+   $phone_no  = $_POST['phone_no'];
     $email_id = $_POST['email_id'];
     $pincode = $_POST['pincode'];
     $dob = $_POST['dob'];
     $net_income = $_POST['net_income'];
     
-    // print_r( $temp_name);
+    print_r( $phone_no);
     $count = count($phone_no);
     echo $count;
     exit();
