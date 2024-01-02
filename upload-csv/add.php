@@ -11,6 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
    $phone_no  = $_POST['phone_no'];
     $email_id = $_POST['email_id'];
     $pincode = $_POST['pincode'];
+    $loan_amount = $_POST['loan_amount'];
     $dob = $_POST['dob'];
     $net_income = $_POST['net_income'];
     
@@ -38,6 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'phone_no' => $phone_no[$i],
             'email_id' => $email_id[$i],
             'pincode' => $pincode[$i],
+            'loan_amount' => $loan_amount[$i],
             'dob' => $dob_get,
             'net_income' => $net_income[$i]
         );

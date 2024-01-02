@@ -20,8 +20,9 @@ $message = "";
             "phone_no" => $row[1],
             "email_id" => $row[2],
             "pincode" => $row[3],
-            "dob" => $row[4],
-            "net_income" => $row[5],
+            "loan_amount" => $row[4],
+            "dob" => $row[5],
+            "net_income" => $row[6],
         );
         }
     }

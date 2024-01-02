@@ -190,6 +190,7 @@ $(document).on('click', '#import_data', function () {
 				var phone_no        =  [];
 				var email_id        =  [];
 				var pincode        =  [];
+				var loan_amount        =  [];
 				var dob           =  [];
 				var net_income         =  [];
 				
@@ -199,6 +200,7 @@ $(document).on('click', '#import_data', function () {
 					phone_no[i] =$('.phone_no'+arr[i]).val();
 					email_id[i] =$('.email_id'+arr[i]).val();
 					pincode[i] =$('.pincode'+arr[i]).val();
+					loan_amount[i] = $('.loan_amount'+arr[i]).val()
 					dob[i] =$('.dob'+arr[i]).val();
 					net_income[i] =$('.net_income'+arr[i]).val();
 				}
@@ -208,7 +210,7 @@ $(document).on('click', '#import_data', function () {
 				$.ajax({
 				url:"add.php",
 				method:"POST",
-				data: {name :name,phone_no :phone_no,email_id :email_id,pincode:pincode,dob:dob,net_income:net_income},
+				data: {name :name,phone_no :phone_no,email_id :email_id,pincode:pincode,loan_amount:loan_amount,dob:dob,net_income:net_income},
                 beforeSend: function () {
                     $("#import_data").val('processing....');
                     $("#import_data").attr('disabled','disabled');
@@ -289,17 +291,18 @@ $(document).on('click', '#import_data', function () {
 
 		html = '<div class="row"><div class="col-md-48 "><table class="table"><tbody><tr class="blue-bg"><th colspan="48-48" class="align:center" style="text-align:center;"><button type="button" id="import_data" class="cursor buttonsub"  >Add</button></tr></tbody></table</div>';
 		html += '<table class="table">';
-		html += '<tr><th><input name="product_all" class="checked_all" type="checkbox" value="as" onClick="toggle(this)"> Select All</th><th>Name</th><th>Phone No</th><th>Email Id</th><th>Pincode</th><th>DOB</th><th>Net Income</th></tr>';
+		html += '<tr><th><input name="product_all" class="checked_all" type="checkbox" value="as" onClick="toggle(this)"> Select All</th><th>Name</th><th>Phone No</th><th>Email Id</th><th>Pincode</th><th>Loan Amount</th><th>DOB</th><th>Net Income</th></tr>';
 
 		for (let count = start; count < end; count++) {
 			let row = data[count];
-            html += '<tr><td><input type="checkbox" value="'+count+'" id="'+count+'" name="chkbox" class="checkbox" onClick="toggle1()"><input type="hidden" value="'+row.name+'" class="name'+count+'"><input type="hidden" value="'+row.phone_no+'" class="phone_no'+count+'"><input type="hidden" value="'+row.email_id+'" class="email_id'+count+'"><input type="hidden" value="'+row.pincode+'" class="pincode'+count+'"><input type="hidden" value="'+row.dob+'" class="dob'+count+'"><input type="hidden" value="'+row.net_income+'" class="net_income'+count+'"></td>';
+            html += '<tr><td><input type="checkbox" value="'+count+'" id="'+count+'" name="chkbox" class="checkbox" onClick="toggle1()"><input type="hidden" value="'+row.name+'" class="name'+count+'"><input type="hidden" value="'+row.phone_no+'" class="phone_no'+count+'"><input type="hidden" value="'+row.email_id+'" class="email_id'+count+'"><input type="hidden" value="'+row.pincode+'" class="pincode'+count+'"><input type="hidden" value="'+row.loan_amount+'" class="loan_amount'+count+'"><input type="hidden" value="'+row.dob+'" class="dob'+count+'"><input type="hidden" value="'+row.net_income+'" class="net_income'+count+'"></td>';
 
 
 			html += '<td>' + row.name + '</td>';
 			html += '<td>' + row.phone_no + '</td>';
 			html += '<td>' + row.email_id + '</td>';
 			html += '<td>' + row.pincode + '</td>';
+			html += '<td>' + row.loan_amount + '</td>';
 			html += '<td>' + row.dob + '</td>';
 			html += '<td>' + row.net_income + '</td>';
 			html += '</tr>';
