@@ -72,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $comma = ", ";
                 } 
             $insert_qry.= ";";
-            echo $insert_data;
+            echo $insert_qry;
             exit();
             $insert_data = mysqli_query($Conn1,$insert_qry);
             // echo "sucess";
