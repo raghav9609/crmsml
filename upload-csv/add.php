@@ -15,20 +15,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     // print_r( $temp_name);
     $count = count($phone_no);
-    echo $count;
+    // echo $count;
     $rows = array();
     
     $get_data  = 'select count(id) as total_count from crm_raw_data';
     $result_app_qry = mysqli_query($Conn1,$get_data);
     $row_count_before_insert = mysqli_fetch_array($result_app_qry);
 
-    for ($i = 0; $i < $count; $i++) {
-        if ($dob[$i] != "" && $dob[$i] != null && $dob[$i] != "null"){
-            $dob_get = dateformatymd($dob[$i]);
-            if ($dob_get == "") {
-                $dob_get = "1000-01-01";
-            }
-        };
+    // for ($i = 0; $i < $count; $i++) {
+    //     if ($dob[$i] != "" && $dob[$i] != null && $dob[$i] != "null"){
+    //         $dob_get = dateformatymd($dob[$i]);
+    //         if ($dob_get == "") {
+    //             $dob_get = "1000-01-01";
+    //         }
+    //     };
        
         
 
