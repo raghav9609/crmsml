@@ -293,7 +293,7 @@ $(document).on('click', '#import_data', function () {
 		html += '<table class="table">';
 		html += '<tr><th><input name="product_all" class="checked_all" type="checkbox" value="as" onClick="toggle(this)"> Select All</th><th>Name</th><th>Phone No</th><th>Email Id</th><th>Pincode</th><th>Loan Amount</th><th>DOB</th><th>Net Income</th></tr>';
 
-		for (let count = start; count < end; count++) {
+		for (let count = start+1; count < end; count++) {
 			let row = data[count];
             html += '<tr><td><input type="checkbox" value="'+count+'" id="'+count+'" name="chkbox" class="checkbox" onClick="toggle1()"><input type="hidden" value="'+row.name+'" class="name'+count+'"><input type="hidden" value="'+row.phone_no+'" class="phone_no'+count+'"><input type="hidden" value="'+row.email_id+'" class="email_id'+count+'"><input type="hidden" value="'+row.pincode+'" class="pincode'+count+'"><input type="hidden" value="'+row.loan_amount+'" class="loan_amount'+count+'"><input type="hidden" value="'+row.dob+'" class="dob'+count+'"><input type="hidden" value="'+row.net_income+'" class="net_income'+count+'"></td>';
 
