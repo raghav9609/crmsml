@@ -17,6 +17,32 @@ require_once(dirname(__FILE__) . '/../include/header.php');
 	<link rel="stylesheet" type="text/css" href="<?php echo $head_url; ?>/assets/css/cms.style.css" />
 	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 	<!-- <script src="path/to/sweetalert2.all.min.js"></script> -->
+	<style>
+		.table_new {
+			width: 100%;
+			border-collapse: collapse;
+			font-size:12px;
+			margin-bottom:10px;
+		}
+		.table_new, .table_new td, .table_new th {
+			padding: 6px;
+			border: 1px solid #ddd;
+			position:relative;
+		}
+		.table_new-bodered, .table_new-bodered td, .table_new-bodered th {
+			border: 1px solid #ddd;
+			padding: 10px;
+		}
+		.table_new th, table_new th {
+			font-weight:bold;
+			background: #18375f !important;
+			color: #fff;
+			text-align: left;
+		}
+		.table_new tr td a {
+			margin: 0 10px;
+		}
+	</style>
 
 </head>
     <body>
@@ -269,8 +295,8 @@ $(document).on('click', '#import_data', function () {
     	let end = Math.min(start + display_count, data.length);
         
 
-		html = '<div class="" ><div class="col-md-48 "><table class="" style = "background-color: #18375f;color:#ffffff;text-align:center;width:100%;"><tbody><tr class="blue-bg"><th colspan="48-48" class="align:center" style="text-align:center;"><button type="button" id="import_data" class="cursor buttonsub"  >Add</button></tr></tbody></table</div>';
-		html += '<table class="" >';
+		html = '<div class="" ><div class="col-md-48 "><table class="table_new"><tbody><tr class="blue-bg"><th colspan="48-48" class="align:center" style="text-align:center;"><button type="button" id="import_data" class="cursor buttonsub"  >Add</button></tr></tbody></table</div>';
+		html += '<table class="table_new" >';
 		html += '<tr ><th><input name="product_all" class="checked_all" type="checkbox" value="as" onClick="toggle(this)"> Select All</th><th>Name</th><th>Phone No</th><th>Email Id</th><th>Pincode</th><th>Loan Amount</th><th>DOB</th><th>Net Income</th></tr>';
 
 		for (let count = start; count < end; count++) {
