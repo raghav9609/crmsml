@@ -1,7 +1,7 @@
 <?php
 echo "hiiiii1";
 $no_head=1;
-require_once(dirname(__FILE__) . '/../config/session.php');
+// require_once(dirname(__FILE__) . '/../config/session.php');
 echo "hiiiii2";
 // require_once(dirname(__FILE__) . '/../config/config.php');
 echo "hiiiii3";
