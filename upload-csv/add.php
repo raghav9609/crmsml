@@ -51,14 +51,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // } else if ($communication_type[$i] == 6) {
         //     $array_where[] = "email_id =" . $email_id[$i];
         // }
-        echo "hihi";
-        $chek_data = $queryModel->get_rawdata($array_where,10);
-        echo $chek_data;
-        echo "jjiiii";
-        exit();
+        // echo "hihi";
+        // $chek_data = $queryModel->get_rawdata($array_where,10);
+        // echo $chek_data;
+        // echo "jjiiii";
+        // exit();
+        $chek_data  = 'select count(id) as total_count from crm_raw_data where phone_no = "'.$phone_no[$i]."'";
         // $chek_data1 = $db_handle->runQuery($chek_data);
         $res_qry_get = mysqli_query($Conn1,$chek_data);
         $res_qry = mysqli_fetch_array($res_qry_get);
+        print_r($res_qry);
+        exit();
         if(empty($res_qry)){
             $insert_qry =  "INSERT INTO crm_raw_data set ";
             foreach ($row as $key => $val) {
