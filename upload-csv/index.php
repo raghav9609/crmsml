@@ -60,7 +60,7 @@ require_once(dirname(__FILE__) . '/../include/header.php');
 
 <script>
 function download_csv_format_sms_trigger() {
-    var csv = 'Name,Email_id,Phone_no,Pincode,Loan_Amount,Dob,Net_Income' ;
+    var csv = 'name,email_id,phone_no,pincode,loan_amount,dob,net_income' ;
     var hiddenElement = document.createElement('a');
     hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(csv);
     hiddenElement.target = '_blank';

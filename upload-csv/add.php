@@ -73,9 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $insert_qry .= $comma . $key . " = '" . $val . "'";
                 $comma = ", ";
                 } 
-            $insert_qry.= ";";
-            echo $insert_qry;
-            
+            $insert_qry.= ";";            
             $insert_data = mysqli_query($Conn1,$insert_qry);
             // echo "sucess";
             // $insert_qry = $query_model->insertQueryData('mlc_trigger_sms',$row);
