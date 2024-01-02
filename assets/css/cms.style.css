@@ -118,13 +118,13 @@ strong.width100 {display:block;}strong.width100 textarea {width: 100% !important
 	border: 1px solid #ddd;
 	padding: 10px;
 }
-/* .table th, table th {
+.table th, table th {
 	font-weight:bold;
 	background: #18375f !important;
 	color: #fff;
 	text-align: left;
-} */
-.table th, table th {
+}
+.table_new{
 	font-weight:bold;
 	background: #18375f !important;
 	color: #fff;
