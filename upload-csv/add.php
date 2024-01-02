@@ -40,11 +40,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'dob' => $dob[$i],
             'net_income' => $net_income[$i]
         );
-        print_r($row);
-        exit();
         // $todayDate = date('Y-m-d');
         $array_where = array(
-            "phone_no = '".$phone_no[$i]['phone_no']."'"
+            "phone_no = '".$phone_no[$i]."'"
         );
         print_r($array_where);
         exit();
