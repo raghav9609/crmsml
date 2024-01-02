@@ -70,6 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 } 
             $insert_qry.= ";";
             $res_qry = mysqli_query($Conn1,$insert_qry);
+            echo "sucess";
             // $insert_qry = $query_model->insertQueryData('mlc_trigger_sms',$row);
             // $insert_data = $db_handle->insertRows($insert_qry);   
         }else{
@@ -78,7 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     // $row_count  = $queryModel->getrowcount(); 
     $row_count  = "select count(id) as total_count from crm_raw_data";
-
+    echo $row_count;
     $row_count_after_insert =  mysqli_query($Conn1,$row_count);
     $countAfterInsert = $row_count_after_insert['total_count'];
     $countBeforeInsert = $row_count_before_insert['total_count'];
