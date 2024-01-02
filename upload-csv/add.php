@@ -90,6 +90,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $rows = array('status' => 'error', 'message' => $insert_data,'insert_Data' => $insert_row);
     }
 }
+echo $row;
+exit();
 header('Content-Type: application/json');
 echo json_encode($rows);
 ?>
