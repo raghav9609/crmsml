@@ -80,6 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // $row_count  = $queryModel->getrowcount(); 
     $row_count  = "select count(id) as total_count from crm_raw_data";
     echo $row_count;
+    exit();
     $row_count_after_insert =  mysqli_query($Conn1,$row_count);
     $countAfterInsert = $row_count_after_insert['total_count'];
     $countBeforeInsert = $row_count_before_insert['total_count'];
