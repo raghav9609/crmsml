@@ -40,8 +40,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'dob' => $dob[$i],
             'net_income' => $net_income[$i]
         );
-        print_r($row);
-        exit();
+        // print_r($row);
+        // exit();
         // $todayDate = date('Y-m-d');
         $array_where = array(
             "phone_no = '".$phone_no[$i]."'"
@@ -54,7 +54,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // }
         $chek_data = $queryModel->get_rawdata($array_where,10);
         // $chek_data1 = $db_handle->runQuery($chek_data);
-        $res_qry = mysqli_query($Conn1,$chek_data);
+        $res_qry_get = mysqli_query($Conn1,$chek_data);
+        $res_qry = mysqli_fetch_array($res_qry_get);
+        print_r($res_qry);
+        echo"h9i";
         if(empty($res_qry)){
             $insert_qry =  "INSERT INTO crm_raw_data set ";
             foreach ($row as $key => $val) {
