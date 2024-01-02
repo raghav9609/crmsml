@@ -218,54 +218,7 @@ $(document).on('click', '#import_data', function () {
 				success:function(data)
                 
 				{
-                    console.log(data);
-                    // alert(data);
-                    // if (data && data.status === 'error') {
-                    //     if (data && data.message === null ) {
-                    //         data.message = "Duplicate Entry";
-                    //     } else {
-                    //         data.message = data.message;
-                    //     }
-                    //     const insertData = data.insert_Data || "";
-                       
-                    //     data_show = data.message+" "+ "Total Row Insert (" + insertData +")";
-                    //     // Swal.fire({
-                    //     //     title: 'Error',
-                    //     //     text: data_show,
-                    //     //     icon: 'error'
-                    //     // }).then(function() {
-					// 		alert(data_show).then(
-                    // 		function () {
-                    //         window.location.href = '/index.php';
-                    //     });
-                    // } else if (data && data.status === 'success' ) {
-                    //     const message = data.message || "";
-                    //     const insertData = data.insert_Data || "";
-
-                    //     data_show = message +" "+ "Total Row Insert (" + insertData +")";
-                    //     // Swal.fire({
-                    //     //     title: 'Success',
-                    //     //     text: data_show,
-                    //     //     icon: 'success',
-                    //     //     timer: 5000
-                    //     // }).then(function() {
-					// 		alert(data_show).then(
-                    // 		function () {
-                    //         window.location.href = '/index.php';
-                    //     });
-                    // }else {
-                    //     // Swal.fire({
-                    //     //     title: 'error',
-                    //     //     text: data,
-                    //     //     icon: 'error',
-                    //     //     timer: 5000
-                    //     // }).then(function() {
-					// 		alert(data).then(
-                    // 		function () {
-                    //         window.location.href = '/index.php';
-                    //     });
-                        
-                    // }
+                  
 					if (data && data.status === 'error') {
 						if (data && data.message === null) {
 							data.message = "Duplicate Entry";
@@ -316,7 +269,7 @@ $(document).on('click', '#import_data', function () {
     	let end = Math.min(start + display_count, data.length);
         
 
-		html = '<div class="row"><div class="col-md-48 "><table class="table"><tbody><tr class="blue-bg"><th colspan="48-48" class="align:center" style="text-align:center;"><button type="button" id="import_data" class="cursor buttonsub"  >Add</button></tr></tbody></table</div>';
+		html = '<div class="row" style = "background-color: #18375f;color:#ffffff;><div class="col-md-48 " style = "background-color: #18375f;color:#ffffff;><table class="table"><tbody><tr class="blue-bg" style = "background-color: #18375f;color:#ffffff;><th colspan="48-48" class="align:center" style="text-align:center;"><button type="button" id="import_data" class="cursor buttonsub"  >Add</button></tr></tbody></table</div>';
 		html += '<table class="table">';
 		html += '<tr><th><input name="product_all" class="checked_all" type="checkbox" value="as" onClick="toggle(this)"> Select All</th><th>Name</th><th>Phone No</th><th>Email Id</th><th>Pincode</th><th>Loan Amount</th><th>DOB</th><th>Net Income</th></tr>';
 
