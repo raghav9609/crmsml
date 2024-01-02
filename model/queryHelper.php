@@ -113,7 +113,9 @@ class queryModel {
     
    
 
-   
+    function fetchQueryData($queryId){
+        return "select query.id as query_id,query.loan_amount,user.name as user_name,customer.name as customer_name,city.city_name,user.mobile_no as agent_no,user.email_id as cc_email_id,customer.email_id as customer_email_id from crm_query as query INNER JOIN crm_customer as customer on query.crm_customer_id = customer.id INNER JOIN crm_master_city as city ON customer.city_id = city.id INNER JOIN crm_master_user as user ON query.lead_assign_to = user.id where query.id = ".$queryId;
+    }
 }
     
 ?>
