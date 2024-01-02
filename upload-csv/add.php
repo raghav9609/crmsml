@@ -61,8 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // $chek_data1 = $db_handle->runQuery($chek_data);
         $res_qry_get = mysqli_query($Conn1,$chek_data);
         $res_qry = mysqli_fetch_array($res_qry_get);
-        print_r($res_qry);
-        exit();
+     
         if(empty($res_qry)){
             $insert_qry =  "INSERT INTO crm_raw_data set ";
             foreach ($row as $key => $val) {
