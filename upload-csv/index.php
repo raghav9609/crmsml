@@ -1,6 +1,4 @@
 <?php
-$no_head=1;
-
 require_once(dirname(__FILE__) . '/../config/session.php');
 require_once(dirname(__FILE__) . '/../config/config.php');
 require_once(dirname(__FILE__) . '/../include/constant.php');
@@ -16,7 +14,6 @@ require_once(dirname(__FILE__) . '/../include/header.php');
     <link rel="stylesheet" type="text/css" href="<?php echo $head_url; ?>/assets/css/jquery-ui.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo $head_url; ?>/assets/css/cms.style.css" />
 	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-	<!-- <script src="path/to/sweetalert2.all.min.js"></script> -->
 	<style>
 		.table_new {
 			width: 100%;
@@ -52,7 +49,6 @@ require_once(dirname(__FILE__) . '/../include/header.php');
     <div class="gen-box white-bg">
     <div class="blue-bg col-12 font-weight-nb pb-2 pt-2 white font-20 brdr-top-gray pe-none" data-toggle="step1" id="switch_step1">
 			<h2><?php if($message){echo "<span class='".$class."'>".$message ."</span>";} else { echo "";}?></h2>
-		<!-- </div> -->
 			<div class="color-bar-2 color-bg"></div>
 			<h3 style = "background-color: #18375f;color:#ffffff;text-align:center;">Upload File</h3>
 				<div class="boxview">
@@ -69,7 +65,7 @@ require_once(dirname(__FILE__) . '/../include/header.php');
 							<input class="cursor buttonsub" type="button" onclick="resetform('<?php echo $head_url; ?>/upload-csv/')" value="Clear">
 						
 							<input type='button' name='download_format' value='Download Format' id='download_format' class='buttonsub ml10 cursor'  onclick="download_csv_format_sms_trigger()"/>
-							<!-- <a href="trigger-variable.php"><input type="button" class="cursor buttonsub " name="Variables" id="Variable" value="variable"></a> -->
+							
 						</div>
 					</div>							
 				</div>
@@ -105,11 +101,6 @@ $('#upload_csv').on('click', function(event){
 	formdata.append('upload_files', $('#upload_files').get(0).files[0]);
 	var filelist = document.getElementById("upload_files").files;
 	if(filelist.length == 0){
-		// Swal.fire({
-        //     title: 'Please Select a file',
-        //     timer: 3000,
-        //     icon:"error"
-        //     }),
 		alert("Please Select a file"),
         $(this).prop("disabled", false);
         return false;
@@ -117,11 +108,6 @@ $('#upload_csv').on('click', function(event){
 		for (var i = 0; i < filelist.length; i++) {
 			var ext = $('#upload_files').val().split('.').pop().toLowerCase();
 			if($.inArray(ext, ['csv']) == -1) {
-                // Swal.fire({
-                //     title: 'Select only CSV File',
-                //     timer: 3000,
-                //     icon:"error"
-                //     }).then(
 					alert('Select only CSV File').then(
                     function () {
                         window.location = '';
@@ -144,11 +130,6 @@ $('#upload_csv').on('click', function(event){
 	success: function(data) {
         if(data !== null){
             if (data.hasOwnProperty('status') && data.status === 'Error') {
-                // Swal.fire({
-                //     title: 'Error',
-                //     text: data.message,
-                //     icon: 'error'
-                // }).then(function() {
 					alert(data.message).then(
                     function () {
                     window.location.href = '';
@@ -162,11 +143,6 @@ $('#upload_csv').on('click', function(event){
             
             } 
         }else{
-            // Swal.fire({
-            //     title: 'Error',
-            //     text: "File is empty",
-            //     icon: 'error'
-            // }).then(function() {
 				alert('File is empty').then(
                     function () {
                 window.location.href = '';
@@ -204,7 +180,7 @@ $('#upload_csv').on('click', function(event){
     
 
 
-$(document).on('click', '#import_data', function () {
+	$(document).on('click', '#import_data', function () {
 		if ($('.checkbox:checked').length > 0) {
 			var arr =[];
         
@@ -232,7 +208,6 @@ $(document).on('click', '#import_data', function () {
 				}
 				var chkvalue=$("input[name='checkbox']:checked").val();
 
-				// alert(name+"abc"+phone_no)
 				$.ajax({
 				url:"add.php",
 				method:"POST",
@@ -242,9 +217,7 @@ $(document).on('click', '#import_data', function () {
                     $("#import_data").attr('disabled','disabled');
                 },
 				success:function(data)
-                
 				{
-                  
 					if (data && data.status === 'error') {
 						if (data && data.message === null) {
 							data.message = "Duplicate Entry";
@@ -283,7 +256,6 @@ $(document).on('click', '#import_data', function () {
 	let currentPage = 1;
 	let display_count = 50;
     function updateTable(page, dataLength, data) {
-        
 		$('#csv_file_data').html("");
 		let start = (page - 1) * display_count;
     	let end = Math.min(start + display_count, data.length);
