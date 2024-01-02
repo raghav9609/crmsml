@@ -3,6 +3,7 @@ require_once(dirname(__FILE__) . '/../config/session.php');
 require_once(dirname(__FILE__) . '/../config/config.php');
 require_once(dirname(__FILE__) . '/../model/queryHelper.php');
 require_once(dirname(__FILE__) . '/../include/helper.functions.php');
+require_once(dirname(__FILE__) . '/../helpers/common-helper.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
