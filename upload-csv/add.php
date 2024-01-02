@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     // print_r( $temp_name);
     $count = count($phone_no);
-
+    echo $count;
     $rows = array();
     
     $get_data  = 'select count(id) as total_count from crm_raw_data';
