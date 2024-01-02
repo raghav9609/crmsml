@@ -124,11 +124,29 @@ strong.width100 {display:block;}strong.width100 textarea {width: 100% !important
 	color: #fff;
 	text-align: left;
 }
-.table_new{
+.table_new {
+	width: 100%;
+	border-collapse: collapse;
+	font-size:12px;
+	margin-bottom:10px;
+}
+.table_new, .table_new td, .table_new th {
+	padding: 6px;
+	border: 1px solid #ddd;
+	position:relative;
+}
+.table_new-bodered, .table_new-bodered td, .table_new-bodered th {
+	border: 1px solid #ddd;
+	padding: 10px;
+}
+.table_new th, .table_new th {
 	font-weight:bold;
 	background: #18375f !important;
 	color: #fff;
 	text-align: left;
+}
+.table_new tr td a {
+	margin: 0 10px;
 }
 .table tr td a {
 	margin: 0 10px;
