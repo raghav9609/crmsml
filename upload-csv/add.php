@@ -56,8 +56,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // $chek_data1 = $db_handle->runQuery($chek_data);
         $res_qry_get = mysqli_query($Conn1,$chek_data);
         $res_qry = mysqli_fetch_array($res_qry_get);
-        print_r($res_qry);
-        echo"h9i";
         if(empty($res_qry)){
             $insert_qry =  "INSERT INTO crm_raw_data set ";
             foreach ($row as $key => $val) {
@@ -65,6 +63,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $comma = ", ";
                 }
             $insert_qry.= ";";
+            echo $insert_qry;
+            exit();
             $res_qry = mysqli_query($Conn1,$insert_qry);
             // $insert_qry = $query_model->insertQueryData('mlc_trigger_sms',$row);
             // $insert_data = $db_handle->insertRows($insert_qry);   
