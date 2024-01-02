@@ -57,6 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // echo "jjiiii";
         // exit();
         $chek_data  = 'select count(id) as total_count from crm_raw_data where phone_no = "'.$phone_no[$i]."'";
+        echo $chek_data;
         // $chek_data1 = $db_handle->runQuery($chek_data);
         $res_qry_get = mysqli_query($Conn1,$chek_data);
         $res_qry = mysqli_fetch_array($res_qry_get);
