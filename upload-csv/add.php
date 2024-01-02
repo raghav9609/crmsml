@@ -68,6 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // exit();
         // if(empty($res_qry)){
             $insert_qry =  "INSERT INTO crm_raw_data set ";
+            $comma ="";
             foreach ($row as $key => $val) {
                 $insert_qry .= $comma . $key . " = '" . $val . "'";
                 $comma = ", ";
