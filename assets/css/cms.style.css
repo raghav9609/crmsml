@@ -118,6 +118,12 @@ strong.width100 {display:block;}strong.width100 textarea {width: 100% !important
 	border: 1px solid #ddd;
 	padding: 10px;
 }
+/* .table th, table th {
+	font-weight:bold;
+	background: #18375f !important;
+	color: #fff;
+	text-align: left;
+} */
 .table th, table th {
 	font-weight:bold;
 	background: #18375f !important;
@@ -1132,7 +1138,7 @@ span.right.risknew3 {
 	color: #fff !important;
 }
 .bg-blue {
-	background-color: #18375f !important;
+	background-color: #2767c7 !important;
 }
 .swal-wide{
 	width:60% !important;
