@@ -76,8 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $insert_qry.= ";";            
             $insert_data = mysqli_query($Conn1,$insert_qry);
             // echo "sucess";
-            // $insert_qry = $query_model->insertQueryData('mlc_trigger_sms',$row);
-            // $insert_data = $db_handle->insertRows($insert_qry);   
+            
         // }else{
         //     $rows = array('status' => 'error', 'message' => 'Duplicate entry','insert_Data' => $insert_row);
         // }

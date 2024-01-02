@@ -64,7 +64,7 @@ require_once(dirname(__FILE__) . '/../include/header.php');
 							
 							<input class="cursor buttonsub" type="button" onclick="resetform('<?php echo $head_url; ?>/upload-csv/')" value="Clear">
 						
-							<input type='button' name='download_format' value='Download Format' id='download_format' class='buttonsub ml10 cursor'  onclick="download_csv_format_sms_trigger()"/>
+							<input type='button' name='download_format' value='Download Format' id='download_format' class='buttonsub ml10 cursor'  onclick="download_csv_format_file()"/>
 							
 						</div>
 					</div>							
@@ -74,14 +74,12 @@ require_once(dirname(__FILE__) . '/../include/header.php');
 		</div>
 	</div>
 	</div>
-	<?php include("../../include/footer.php");?>
 	</body>
 </html>
-<?php include('../main-js-css-insert.php');?>	
 
 
 <script>
-function download_csv_format_sms_trigger() {
+function download_csv_format_file() {
     var csv = 'name,email_id,phone_no,pincode,loan_amount,dob,net_income' ;
     var hiddenElement = document.createElement('a');
     hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(csv);
@@ -118,7 +116,7 @@ $('#upload_csv').on('click', function(event){
 		}
 	}
 	$.ajax({
-	url: "upload-sms-csv.php",
+	url: "upload-csv.php",
 	method: "POST",
    
 	data: formdata,
