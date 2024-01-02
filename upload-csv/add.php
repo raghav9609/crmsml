@@ -18,9 +18,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $count = count($phone_no);
     $rows = array();
     
-    $get_data  = 'select count(id) as total_count from crm_raw_data';
-    $result_app_qry = mysqli_query($Conn1,$get_data);
-    $row_count_before_insert = mysqli_fetch_array($result_app_qry);
+    // $get_data  = 'select count(id) as total_count from crm_raw_data';
+    // $result_app_qry = mysqli_query($Conn1,$get_data);
+    // $row_count_before_insert = mysqli_fetch_array($result_app_qry);
 
     for ($i = 0; $i < $count; $i++) {
         if ($dob[$i] != "" && $dob[$i] != null && $dob[$i] != "null"){
@@ -57,37 +57,37 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // echo $chek_data;
         // echo "jjiiii";
         // exit();
-        $chek_data  = "select * from crm_raw_data where phone_no = '".$phone_no[$i]."'";
-        // echo $chek_data;
-        // $chek_data1 = $db_handle->runQuery($chek_data);
-        $res_qry_get = mysqli_query($Conn1,$chek_data);
-        // print_r($res_qry_get); 
-        $res_qry1 = mysqli_fetch_array($res_qry_get);
-        print_r($res_qry1);
-        exit();
-        if(empty($res_qry)){
+        // $chek_data  = "select * from crm_raw_data where phone_no = '".$phone_no[$i]."'";
+        // // echo $chek_data;
+        // // $chek_data1 = $db_handle->runQuery($chek_data);
+        // $res_qry_get = mysqli_query($Conn1,$chek_data);
+        // // print_r($res_qry_get); 
+        // $res_qry1 = mysqli_fetch_array($res_qry_get);
+        // print_r($res_qry1);
+        // exit();
+        // if(empty($res_qry)){
             $insert_qry =  "INSERT INTO crm_raw_data set ";
             foreach ($row as $key => $val) {
                 $insert_qry .= $comma . $key . " = '" . $val . "'";
                 $comma = ", ";
                 } 
             $insert_qry.= ";";
-            $res_qry = mysqli_query($Conn1,$insert_qry);
-            echo "sucess";
+            $insert_data = mysqli_query($Conn1,$insert_qry);
+            // echo "sucess";
             // $insert_qry = $query_model->insertQueryData('mlc_trigger_sms',$row);
             // $insert_data = $db_handle->insertRows($insert_qry);   
-        }else{
-            $rows = array('status' => 'error', 'message' => 'Duplicate entry','insert_Data' => $insert_row);
-        }
+        // }else{
+        //     $rows = array('status' => 'error', 'message' => 'Duplicate entry','insert_Data' => $insert_row);
+        // }
     }
     // $row_count  = $queryModel->getrowcount(); 
-    $row_count  = "select count(id) as total_count from crm_raw_data";
-    echo $row_count;
-    exit();
-    $row_count_after_insert =  mysqli_query($Conn1,$row_count);
-    $countAfterInsert = $row_count_after_insert['total_count'];
-    $countBeforeInsert = $row_count_before_insert['total_count'];
-    $insert_row = $countAfterInsert - $countBeforeInsert;
+    // $row_count  = "select count(id) as total_count from crm_raw_data";
+    // // echo $row_count;
+    // // exit();
+    // $row_count_after_insert =  mysqli_query($Conn1,$row_count);
+    // $countAfterInsert = $row_count_after_insert['total_count'];
+    // $countBeforeInsert = $row_count_before_insert['total_count'];
+    // $insert_row = $countAfterInsert - $countBeforeInsert;
 
     if ($insert_data != false) {
         $rows =array('status' => 'success', 'message' => 'Data Uploaded Successfully','insert_Data' => $insert_row);
@@ -95,8 +95,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $rows = array('status' => 'error', 'message' => $insert_data,'insert_Data' => $insert_row);
     }
 }
-echo $rows;
-exit();
+// echo $rows;
+// exit();
 header('Content-Type: application/json');
 echo json_encode($rows);
 ?>
