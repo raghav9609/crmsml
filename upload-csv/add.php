@@ -47,8 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $array_where = array(
             "phone_no = '".$phone_no[$i]."'"
         );
-        print_r($row);
-        exit();
+        
         // if ($communication_type[$i] == 1 || $communication_type[$i] == 2) {
         //     $array_where[] = "mobile_no =" . $mobile_no[$i];
         // } else if ($communication_type[$i] == 6) {
