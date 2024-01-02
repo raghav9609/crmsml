@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $dob_get = "1000-01-01";
             }
         };
-       
+        print_r($phone_no[$i]);
         
 
         
