@@ -19,11 +19,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $rows = array();
     
     $get_data  = 'select count(id) as total_count from crm_raw_data';
-    echo $get_data;
     $result_app_qry = mysqli_query($Conn1,$get_data);
     $row_count_before_insert = mysqli_fetch_array($result_app_qry);
-    print_r($row_count_before_insert['total_count']);
-    exit();
+
     for ($i = 0; $i < $count; $i++) {
         if ($dob[$i] != "" && $dob[$i] != null && $dob[$i] != "null"){
             $dob_get = dateformatymd($dob[$i]);
@@ -43,6 +41,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'dob' => $dob[$i],
             'net_income' => $net_income[$i]
         );
+        print_r($row);
+        exit();
         // $todayDate = date('Y-m-d');
         $array_where = array(
             "phone_no = '".$phone_no[$i]."'"
@@ -74,7 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $row_count_after_insert =  mysqli_query($Conn1,$row_count);
     $countAfterInsert = $row_count_after_insert[0]['total_count'];
-    $countBeforeInsert = $row_count_before_insert[0]['total_count'];
+    $countBeforeInsert = $row_count_before_insert['total_count'];
     $insert_row = $countAfterInsert - $countBeforeInsert;
 
     if ($insert_data != false) {
