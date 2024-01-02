@@ -13,10 +13,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $dob = $_POST['dob'];
     $net_income = $_POST['net_income'];
     
-    print_r( $phone_no);
+    // print_r( $phone_no);
     $count = count($phone_no);
-    echo $count;
-    exit();
     $rows = array();
     
     $get_data  = 'select count(id) as total_count from crm_raw_data';
