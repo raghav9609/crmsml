@@ -220,92 +220,92 @@ $(document).on('click', '#import_data', function () {
 				{
                     console.log(data);
                     // alert(data);
-    //                 if (data && data.status === 'error') {
-    //                     if (data && data.message === null ) {
-    //                         data.message = "Duplicate Entry";
-    //                     } else {
-    //                         data.message = data.message;
-    //                     }
-    //                     const insertData = data.insert_Data || "";
+                    // if (data && data.status === 'error') {
+                    //     if (data && data.message === null ) {
+                    //         data.message = "Duplicate Entry";
+                    //     } else {
+                    //         data.message = data.message;
+                    //     }
+                    //     const insertData = data.insert_Data || "";
                        
-    //                     data_show = data.message+" "+ "Total Row Insert (" + insertData +")";
-    //                     // Swal.fire({
-    //                     //     title: 'Error',
-    //                     //     text: data_show,
-    //                     //     icon: 'error'
-    //                     // }).then(function() {
-	// 						alert(data_show).then(
-    //                 		function () {
-    //                         window.location.href = '/index.php';
-    //                     });
-    //                 } else if (data && data.status === 'success' ) {
-    //                     const message = data.message || "";
-    //                     const insertData = data.insert_Data || "";
+                    //     data_show = data.message+" "+ "Total Row Insert (" + insertData +")";
+                    //     // Swal.fire({
+                    //     //     title: 'Error',
+                    //     //     text: data_show,
+                    //     //     icon: 'error'
+                    //     // }).then(function() {
+					// 		alert(data_show).then(
+                    // 		function () {
+                    //         window.location.href = '/index.php';
+                    //     });
+                    // } else if (data && data.status === 'success' ) {
+                    //     const message = data.message || "";
+                    //     const insertData = data.insert_Data || "";
 
-    //                     data_show = message +" "+ "Total Row Insert (" + insertData +")";
-    //                     // Swal.fire({
-    //                     //     title: 'Success',
-    //                     //     text: data_show,
-    //                     //     icon: 'success',
-    //                     //     timer: 5000
-    //                     // }).then(function() {
-	// 						alert(data_show).then(
-    //                 		function () {
-    //                         window.location.href = '/index.php';
-    //                     });
-    //                 }else {
-    //                     // Swal.fire({
-    //                     //     title: 'error',
-    //                     //     text: data,
-    //                     //     icon: 'error',
-    //                     //     timer: 5000
-    //                     // }).then(function() {
-	// 						alert(data).then(
-    //                 		function () {
-    //                         window.location.href = '/index.php';
-    //                     });
+                    //     data_show = message +" "+ "Total Row Insert (" + insertData +")";
+                    //     // Swal.fire({
+                    //     //     title: 'Success',
+                    //     //     text: data_show,
+                    //     //     icon: 'success',
+                    //     //     timer: 5000
+                    //     // }).then(function() {
+					// 		alert(data_show).then(
+                    // 		function () {
+                    //         window.location.href = '/index.php';
+                    //     });
+                    // }else {
+                    //     // Swal.fire({
+                    //     //     title: 'error',
+                    //     //     text: data,
+                    //     //     icon: 'error',
+                    //     //     timer: 5000
+                    //     // }).then(function() {
+					// 		alert(data).then(
+                    // 		function () {
+                    //         window.location.href = '/index.php';
+                    //     });
                         
-    //                 }
+                    // }
+					if (data && data.status === 'error') {
+						if (data && data.message === null) {
+							data.message = "Duplicate Entry";
+						} else {
+							data.message = data.message;
+						}
+						const insertData = data.insert_Data || "";
 
-	// 			}
-	// 			});
-    //     }else{
-    //             // Swal.fire({
-    //             //     title: 'error',
-    //             //     text: "Please select any checkbox",
-    //             //     icon: 'error',
-    //             //     timer: 5000
-    //             // })
-	// 			alert("Please select any checkbox")
-    //             }
-	// });
-	if (data && data.status === 'error') {
-    if (data && data.message === null) {
-        data.message = "Duplicate Entry";
-    } else {
-        data.message = data.message;
-    }
-    const insertData = data.insert_Data || "";
+						data_show = data.message + " " + "Total Row Insert (" + insertData + ")";
+						
+						if (window.confirm(data_show)) {
+							window.location.href = '/index.php';
+						}
+					} else if (data && data.status === 'success') {
+						const message = data.message || "";
+						const insertData = data.insert_Data || "";
 
-    data_show = data.message + " " + "Total Row Insert (" + insertData + ")";
-    
-    if (window.confirm(data_show)) {
-        window.location.href = '/index.php';
-    }
-} else if (data && data.status === 'success') {
-    const message = data.message || "";
-    const insertData = data.insert_Data || "";
+						data_show = message + " " + "Total Row Insert (" + insertData + ")";
+						
+						if (window.confirm(data_show)) {
+							window.location.href = '/index.php';
+						}
+					} else {
+						if (window.confirm(data)) {
+							window.location.href = '/index.php';
+						}
+					}
 
-    data_show = message + " " + "Total Row Insert (" + insertData + ")";
-    
-    if (window.confirm(data_show)) {
-        window.location.href = '/index.php';
-    }
-} else {
-    if (window.confirm(data)) {
-        window.location.href = '/index.php';
-    }
-}
+				}
+				});
+        }else{
+                // Swal.fire({
+                //     title: 'error',
+                //     text: "Please select any checkbox",
+                //     icon: 'error',
+                //     timer: 5000
+                // })
+				alert("Please select any checkbox")
+                }
+	});
 
 	let currentPage = 1;
 	let display_count = 50;
