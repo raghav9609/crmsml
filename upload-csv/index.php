@@ -232,7 +232,7 @@ $(document).on('click', '#import_data', function () {
 				}
 				var chkvalue=$("input[name='checkbox']:checked").val();
 
-				alert(name+"abc"+phone_no)
+				// alert(name+"abc"+phone_no)
 				$.ajax({
 				url:"add.php",
 				method:"POST",
