@@ -218,8 +218,8 @@ $(document).on('click', '#import_data', function () {
 				success:function(data)
                 
 				{
-                    console.log(data);
-                    alert(data);
+                    // console.log(data);
+                    // alert(data);
                     if (data && data.status === 'error') {
                         if (data && data.message === null ) {
                             data.message = "Duplicate Entry";
