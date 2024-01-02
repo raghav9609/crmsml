@@ -236,7 +236,7 @@ $(document).on('click', '#import_data', function () {
                         // }).then(function() {
 							alert(data_show).then(
                     		function () {
-                            window.location.href = '';
+                            window.location.href = '/index.php';
                         });
                     } else if (data && data.status === 'success' ) {
                         const message = data.message || "";
@@ -251,7 +251,7 @@ $(document).on('click', '#import_data', function () {
                         // }).then(function() {
 							alert(data_show).then(
                     		function () {
-                            window.location.href = '';
+                            window.location.href = '/index.php';
                         });
                     }else {
                         // Swal.fire({
@@ -262,7 +262,7 @@ $(document).on('click', '#import_data', function () {
                         // }).then(function() {
 							alert(data).then(
                     		function () {
-                            window.location.href = '';
+                            window.location.href = '/index.php';
                         });
                         
                     }
