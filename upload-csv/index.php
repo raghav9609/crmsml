@@ -269,7 +269,7 @@ $(document).on('click', '#import_data', function () {
     	let end = Math.min(start + display_count, data.length);
         
 
-		html = '<div class="" ><div class="col-md-48 "><table class="table"><tbody><tr class="blue-bg"><th colspan="48-48" class="align:center" style="text-align:center;"><button type="button" id="import_data" class="cursor buttonsub"  >Add</button></tr></tbody></table</div>';
+		html = '<div class="" ><div class="col-md-48 "><table class="table th"><tbody><tr class="blue-bg"><th colspan="48-48" class="align:center" style="text-align:center;"><button type="button" id="import_data" class="cursor buttonsub"  >Add</button></tr></tbody></table</div>';
 		html += '<table class="table" >';
 		html += '<tr ><th><input name="product_all" class="checked_all" type="checkbox" value="as" onClick="toggle(this)"> Select All</th><th>Name</th><th>Phone No</th><th>Email Id</th><th>Pincode</th><th>Loan Amount</th><th>DOB</th><th>Net Income</th></tr>';
 
