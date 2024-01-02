@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         $row = array(
             'name' => $name[$i],
-            'phone_no' => $phone_no[$i] ? $phone_no : 0,
+            'phone_no' => $phone_no[$i]['phone_no'],
             'email_id' => $email_id[$i],
             'pincode' => $pincode[$i],
             'dob' => $dob[$i],
@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // exit();
         // $todayDate = date('Y-m-d');
         $array_where = array(
-            "phone_no = '".$phone_no[$i]."'"
+            "phone_no = '".$phone_no[$i]['phone_no']."'"
         );
         print_r($array_where);
         exit();
