@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     echo $get_data;
     $result_app_qry = mysqli_query($Conn1,$get_data);
     $row_count_before_insert = mysqli_fetch_array($result_app_qry);
-    print_r($row_count_before_insert[0]['total_count']);
+    print_r($row_count_before_insert['total_count']);
     exit();
     for ($i = 0; $i < $count; $i++) {
         if ($dob[$i] != "" && $dob[$i] != null && $dob[$i] != "null"){
