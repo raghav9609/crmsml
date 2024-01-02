@@ -20,7 +20,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     $get_data  = 'select count(id) as total_count from crm_raw_data';
     echo $get_data;
-    $row_count_before_insert = mysqli_query($Conn1,$get_data);
+    $result_app_qry = mysqli_query($Conn1,$get_data);
+    $row_count_before_insert = mysqli_fetch_array($result_app_qry);
     print_r($row_count_before_insert);
     exit();
     for ($i = 0; $i < $count; $i++) {
