@@ -28,20 +28,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $dob_get = "1000-01-01";
             }
         };
-        print_r($phone_no[$i]);
+        // print_r($phone_no[$i]);
         
 
         
         $row = array(
             'name' => $name[$i],
-            'phone_no' => $phone_no[$i]['phone_no'],
+            'phone_no' => $phone_no[$i],
             'email_id' => $email_id[$i],
             'pincode' => $pincode[$i],
             'dob' => $dob[$i],
             'net_income' => $net_income[$i]
         );
-        // print_r($row);
-        // exit();
+        print_r($row);
+        exit();
         // $todayDate = date('Y-m-d');
         $array_where = array(
             "phone_no = '".$phone_no[$i]['phone_no']."'"
