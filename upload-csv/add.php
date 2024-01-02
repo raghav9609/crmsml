@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'phone_no' => $phone_no[$i],
             'email_id' => $email_id[$i],
             'pincode' => $pincode[$i],
-            'dob' => $dob[$i],
+            'dob' => $dob_get,
             'net_income' => $net_income[$i]
         );
         // $todayDate = date('Y-m-d');
