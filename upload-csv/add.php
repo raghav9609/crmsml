@@ -68,12 +68,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // exit();
         // if(empty($res_qry)){
             $insert_qry =  "INSERT INTO crm_raw_data set ";
-            foreach ($row as $key => $val) {
-                $comma = "";
-                $insert_qry .= $comma . $key . " = '" . $val . "'";
-                $comma = ", ";
-                } 
-            $insert_qry.= ";";
+            foreach ($row as $row1) {
+                foreach ($row1 as $key => $val) {
+                    $comma = "";
+                    $insert_qry .= $comma . $key . " = '" . $val . "'";
+                    $comma = ", ";
+                    } 
+                $insert_qry.= ";";
+            }
+            
             echo $insert_qry;
             
             $insert_data = mysqli_query($Conn1,$insert_qry);
