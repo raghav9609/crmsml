@@ -51,7 +51,7 @@ require_once(dirname(__FILE__) . '/../include/header.php');
     
     <div class="gen-box white-bg">
     <div class="blue-bg col-12 font-weight-nb pb-2 pt-2 white font-20 brdr-top-gray pe-none" data-toggle="step1" id="switch_step1">
-			<!-- <h2><?php //if($message){echo "<span class='".$class."'>".$message ."</span>";} else { echo "";}?></h2> -->
+			<h2><?php if($message){echo "<span class='".$class."'>".$message ."</span>";} else { echo "";}?></h2>
 		<!-- </div> -->
 			<div class="color-bar-2 color-bg"></div>
 			<h3 style = "background-color: #18375f;color:#ffffff;text-align:center;">Upload File</h3>
@@ -212,13 +212,13 @@ $(document).on('click', '#import_data', function () {
                 arr.push($(this).val());
 				});
 				var count          = arr.length;
-				var name     =  [];
-				var phone_no        =  [];
-				var email_id        =  [];
+				var name     	   =  [];
+				var phone_no       =  [];
+				var email_id       =  [];
 				var pincode        =  [];
-				var loan_amount        =  [];
-				var dob           =  [];
-				var net_income         =  [];
+				var loan_amount    =  [];
+				var dob            =  [];
+				var net_income     =  [];
 				
 
 				for(i=0; i<arr.length; i++){
@@ -276,12 +276,6 @@ $(document).on('click', '#import_data', function () {
 				}
 				});
         }else{
-                // Swal.fire({
-                //     title: 'error',
-                //     text: "Please select any checkbox",
-                //     icon: 'error',
-                //     timer: 5000
-                // })
 				alert("Please select any checkbox")
                 }
 	});
