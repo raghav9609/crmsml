@@ -67,7 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             foreach ($row as $key => $val) {
                 $insert_qry .= $comma . $key . " = '" . $val . "'";
                 $comma = ", ";
-                }
+                } 
             $insert_qry.= ";";
             echo $insert_qry;
             exit();
