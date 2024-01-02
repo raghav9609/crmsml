@@ -44,15 +44,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $array_where = array(
             "phone_no = '".$phone_no[$i]."'"
         );
-        print_r($array_where);
-        exit();
+        // print_r($array_where);
+        // exit();
         // if ($communication_type[$i] == 1 || $communication_type[$i] == 2) {
         //     $array_where[] = "mobile_no =" . $mobile_no[$i];
         // } else if ($communication_type[$i] == 6) {
         //     $array_where[] = "email_id =" . $email_id[$i];
         // }
+        echo "hihi";
         $chek_data = $queryModel->get_rawdata($array_where,10);
         echo $chek_data;
+        echo "jjiiii";
         exit();
         // $chek_data1 = $db_handle->runQuery($chek_data);
         $res_qry_get = mysqli_query($Conn1,$chek_data);
