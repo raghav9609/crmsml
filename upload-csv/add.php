@@ -7,7 +7,7 @@ require_once(dirname(__FILE__) . '/../include/helper.function.php');
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $name  = $_POST['name'];
-    $phone_no  = $_POST['phone_no'];
+   echo  $phone_no  = $_POST['phone_no'];
     $email_id = $_POST['email_id'];
     $pincode = $_POST['pincode'];
     $dob = $_POST['dob'];
@@ -15,20 +15,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     // print_r( $temp_name);
     $count = count($phone_no);
-    // echo $count;
+    echo $count;
+    exit();
     $rows = array();
     
     $get_data  = 'select count(id) as total_count from crm_raw_data';
     $result_app_qry = mysqli_query($Conn1,$get_data);
     $row_count_before_insert = mysqli_fetch_array($result_app_qry);
 
-    // for ($i = 0; $i < $count; $i++) {
-    //     if ($dob[$i] != "" && $dob[$i] != null && $dob[$i] != "null"){
-    //         $dob_get = dateformatymd($dob[$i]);
-    //         if ($dob_get == "") {
-    //             $dob_get = "1000-01-01";
-    //         }
-    //     };
+    for ($i = 0; $i < $count; $i++) {
+        if ($dob[$i] != "" && $dob[$i] != null && $dob[$i] != "null"){
+            $dob_get = dateformatymd($dob[$i]);
+            if ($dob_get == "") {
+                $dob_get = "1000-01-01";
+            }
+        };
        
         
 
@@ -82,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         $rows = array('status' => 'error', 'message' => $insert_data,'insert_Data' => $insert_row);
     }
-//}
+}
 header('Content-Type: application/json');
 echo json_encode($rows);
 ?>
