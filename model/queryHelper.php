@@ -97,6 +97,19 @@ class queryModel {
         }
         return $queryReturn;
     }
+
+    function get_rawdata($where=array(),$limit){
+        $queryReturn = "select * from crm_raw_data";
+        if(!empty($where)){
+            $queryReturn .=  " where ".implode(' and ',$where);
+        }
+        $queryReturn .= " limit " .$limit;
+        return $queryReturn;
+    }
+
+    function getrowcount(){
+        return $queryReturn = "select count(id) as total_count from crm_raw_data";
+    }
     
    
 

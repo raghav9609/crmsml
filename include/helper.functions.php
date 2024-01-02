@@ -174,4 +174,12 @@ function data_search($key){
     return null;
  }
 
+ if(!function_exists('dateformatymd')){
+    function dateformatymd($date_time) {
+        $timestamp = strtotime($date_time);
+        $new_date = date("Y-m-d H:i:s", $timestamp);
+        return $new_date;
+    }
+}
+
 ?>
