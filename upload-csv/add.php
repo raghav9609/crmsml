@@ -54,6 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // }
         $chek_data = $queryModel->get_rawdata($array_where,10);
         echo $chek_data;
+        exit();
         // $chek_data1 = $db_handle->runQuery($chek_data);
         $res_qry_get = mysqli_query($Conn1,$chek_data);
         $res_qry = mysqli_fetch_array($res_qry_get);
