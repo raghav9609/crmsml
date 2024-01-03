@@ -73,6 +73,7 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
     // $qry1 = "Select value from  crm_master_status where status_type = 2 and  id ='".$application_status."'";
     // $res = mysqli_query($Conn1, $qry1) or die(mysqli_error($Conn1));
     // $application_status_get = mysqli_fetch_array($res);
+    $app_u_assign = $exe_form['user_id'];
     $applied_amount = $exe_form['applied_amount'];
     $sanction_amount = $exe_form['sanction_amount'];
     $disbursed_amount = $exe_form['disbursed_amount'];

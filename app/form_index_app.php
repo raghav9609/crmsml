@@ -173,7 +173,7 @@
                         <input type="text" id="tenure" name="tenure" value="<?php echo $tennure."/".$emi ;?>" placeholder="Enter Tenure / EMI" class="form-control numonly valid" <?php echo ($tennure != '' && $emi != '') ? 'readonly' : '';  ?> maxlength="20" required>
                         <label for="name" class="label-tag">Tenure/ROI</label>
                     </div>
-                    <div class="application_status col-xl-2 col-lg-4 col-md-6 main_acc ">
+                    <div class="user_id col-xl-2 col-lg-4 col-md-6 main_acc ">
                         <span class="fa-icon fa-bank"></span>
                         <label for="name" class="label-tag required" >User</label>
                         <?php echo get_dropdown('user','app_u_assign',$app_u_assign,'disabled'); ?>
@@ -209,6 +209,10 @@
             if (applicationStatusField) {
                 applicationStatusField.removeAttribute('disabled');
             }
+            var user_idField = document.getElementById('user_id');
+            if (user_idField) {
+                user_idField.removeAttribute('disabled');
+            }
             document.getElementById('submit_app').style.display = 'block';
             document.getElementById('edit_app').style.display = 'none';
         }
@@ -233,10 +237,9 @@
     document.getElementById('add_app').addEventListener('click', function() {
         // Create a form element
         var form = document.createElement('form');
-        form.action = 'add_app.php'; // Set the form action to add_app.php
-        form.method = 'post'; // Set the form method to post
+        form.action = 'add_app.php'; 
+        form.method = 'post'; 
 
-        // Add hidden input fields with the required values
         var crmQueryIdInput = document.createElement('input');
         crmQueryIdInput.type = 'hidden';
         crmQueryIdInput.name = 'crm_query_id';
@@ -261,7 +264,6 @@
         loanTypeInput.value = '<?php echo $loan_type; ?>';
         form.appendChild(loanTypeInput);
 
-        // Append the form to the document body and submit it
         document.body.appendChild(form);
         form.submit();
     });
@@ -331,50 +333,7 @@ function datevalidate() {
     submit_app.removeAttribute('disabled');
   }
 }
-// document.addEventListener('DOMContentLoaded', function () {
-//     var loginDate = new Date(document.getElementById('login_date').value);
-//     var sanctionDate = new Date(document.getElementById('sanction_date').value);
 
-//     var disbursementDateInput = document.getElementById('disburse_date');
-//     var errorMessageElement = document.createElement('span');
-//     errorMessageElement.className = 'error-message';
-//     disbursementDateInput.parentNode.appendChild(errorMessageElement);
-
-//     function validateDisbursementDate() {
-//         var disbursementDateValue = disbursementDateInput.value.trim();
-
-//         // if (!disbursementDateValue) {
-//         //     errorMessageElement.textContent = '';
-//         //     return;
-//         // }
-
-//         var disbursementDate = new Date(disbursementDateValue);
-
-//         console.log('Disbursement Date:', disbursementDate);
-//         console.log('Login Date:', loginDate);
-//         console.log('Sanction Date:', sanctionDate);
-
-//         if (disbursementDate >= loginDate && disbursementDate >= sanctionDate) {
-//             errorMessageElement.textContent = '';
-//         } else {
-//             errorMessageElement.textContent = 'Disbursement Date should be greater than or equal to Login Date and Sanction Date.';
-//         }
-//     }
-
-//     disbursementDateInput.addEventListener('input', function () {
-//         validateDisbursementDate();
-//     });
-
-//     sanctionAmountInput.addEventListener('input', function() {
-//         validateDisbursement();
-//     });
-
-//     disbursementInput.addEventListener('input', function() {
-//         validateDisbursement();
-//     });
-
-//     validateDisbursementDate(); // Call the validation on page load
-// });
     
 </script>
 </form>
