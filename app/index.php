@@ -4,10 +4,6 @@ require_once(dirname(__FILE__) . '/../config/session.php');
 require_once(dirname(__FILE__) . '/../helpers/common-helper.php');
 require_once(dirname(__FILE__) . '/../include/header.php');
 require_once(dirname(__FILE__) . '/../config/config.php');
-// echo "as";
-// //require_once(dirname(__FILE__) . "/../config/session.php");
-// require_once(dirname(__FILE__) . "/../config/config.php");
-// echo "as 1";
 require_once "../include/helper.functions.php";
 
 
@@ -247,26 +243,9 @@ $ref_phone = replace_special($_REQUEST['ref_phone']);
 
 $qry_ex = "SELECT app.application_status, cust.phone_no as phone, cust.name as name, app.id as app_id, cust.id as cust_id, cust.city_id as city_id,loan.value as loan_name,qry.crm_raw_data_id,app.crm_query_id,app.bank_id ,app.bank_application_no,qry.loan_type_id as loan_type,qry.loan_amount as required_loan_amt, app.login_date as login_date_on, app.sanction_date as sanction_date_on, app.disburse_date as first_disb_date_on, app.follow_up_date AS fup_date_on from crm_query_application as app JOIN crm_query as qry ON app.crm_query_id = qry.id Inner JOIN crm_customer as cust ON qry.crm_customer_id = cust.id INNER JOIN crm_masters as loan ON loan.id =  qry.loan_type_id INNER JOIN crm_master_city AS city ";
 
-// if(trim($bankers_name) != "") {
-//     $qry_ex .= " INNER JOIN banker_email_history on banker_email_history.case_id = c.case_id INNER JOIN banker_sms_history on banker_sms_history.case_id = c.case_id ";
-// }
-$qry_ex .= " where 1 ";
-// echo $qry_ex;
-//and qry.lead_assign_to = '".$user."'";
 
-// if($customer_id_search != "") {
-//     $default = 1;
-//     $qry_ex .= " and cust.id = $customer_id_search ";
-// }
-// if($masked_phone != "") {
-//     $default = 1;
-//     if(strpos($masked_phone, 'XXX') !== false) {
-//         $initial = explode("XXX", $masked_phone);
-//         if(strlen($initial[0]) == 4 && strlen($initial[1]) == 3) {
-//             $qry_ex .= " and phone LIKE '".$initial[0]."___".$initial[1]."'";
-//         }
-//     }
-// }
+$qry_ex .= " where 1 ";
+
 if(trim($email_search) != "") {
     $default = 1;
     $qry_ex .= " AND cust.email = '".trim($email_search)."' ";
@@ -278,19 +257,6 @@ if($city_sub_group != '' && $city_sub_group != '0') {
 if($app_no != ""){$default = 1;
     $qry_ex .= " and app.app_id = '".$app_no."'";
 }
-
-// if($app_statussearch != ""){$default = 1;
-//     $qry_ex .= " and app.app_status_on = '".$app_statussearch."'";
-// }
-
-
-// if($user_role == 2){
-// 	if($sme_city_sub_group != ''){
-// 		$qry_e .= " and (city.city_sub_group_id IN ($sme_city_sub_group) or qry.lead_assign_to IN ($tl_member)) ";
-// 	}else if($tl_member !=''){
-// 		$qry_e .= " and qry.lead_assign_to IN ($tl_member)";
-// 	}
-// }
 
 if($fup_date_from != "") {
     $default = 1;
@@ -309,11 +275,6 @@ if($fup_date_to != "") {
     }
 }
 
-// if($fup_user_type != "" && $fup_date_to == "" && $fup_date_from == "") {
-//     $default = 1;
-//     $qry_ex .= " AND (app.follow_up_date is not null AND app.follow_up_date != '' AND app.follow_up_date != '0000-00-00')  ";
-// }
-
 if($search != ""){$default = 1;
     $qry_ex .= " and qry.loan_type_id = '".$search."'";
 }if($from_loan_amount != "" && $to_loan_amount != ""){
@@ -327,11 +288,6 @@ if($search != ""){$default = 1;
     } 
 }
 
-
-// if($pre_statussearch != ""){$default = 1;
-// 	$qry_ex .= " and app.application_status = '".$pre_statussearch."'";
-// }
-
 if($name_search != ""){
     $default = 1;
     $qry_ex .= " and cust.name like '%".$name_search."%'";
@@ -343,12 +299,6 @@ if($phone != ""){
 if($search_city_id != "" && $search_city_id != 0){$default = 1;
     $qry_ex .= " and cust.city_id = '".$search_city_id."'";
 }
-
-
-// // if(trim($bankers_name) != "") {
-// // 	$default = 1;
-// //     $qry_ex .= " and ( banker_email_history.banker_name = '".$bankers_name."' OR banker_sms_history.banker_name = '".$bankers_name."' ) ";
-// // }
 if(trim($bank_app_no) != "") {
 	$default = 1;
     $qry_ex .= " AND app.bank_application_no = '".$bank_app_no."' ";
@@ -368,9 +318,6 @@ if($date_from != "" && $date_to != "" && $date_from != "0000-00-00" && $date_to 
     }
 }
 }
-// if($default != '1'){
-//             $qry_ex .= " and app.created_on between DATE_SUB(CURDATE(), INTERVAL 5 DAY) and CURDATE() ";
-//     }
 $qry_ex .= " group by app.id order by app.created_on desc limit ".$offset.",".$max_offset;
 
 
@@ -383,7 +330,6 @@ $qry_ex .= " group by app.id order by app.created_on desc limit ".$offset.",".$m
 <input type="text" class="text-input" name="from_loan_amount" id="from_loan_amount" placeholder="From Loan Amount" value="<?php echo $from_loan_amount;?>" maxlength="10"/>
 <input type="text" class="text-input" name="to_loan_amount" id="to_loan_amount" placeholder="To Loan Amount" value="<?php echo $to_loan_amount;?>" maxlength="10"/>
 <?php echo get_textbox('city_type',$city_type,'placeholder ="City Name (Enter few words)"'); ?>
-<!-- <input type="text" class="text-input" name="crm_id_num" id="crm_id_num" placeholder="Bank CRM ID" value="<?php echo $crm_id_num;?>"/> -->
 <input type="text" class="text-input" name="date_from" id="date_from" placeholder="Date From" value="<?php echo $date_from;?>" maxlength="10" readonly="readonly"/>
 <input type="text" class="text-input" name="date_to" id="date_to" placeholder="Date To" value="<?php echo $date_to;?>" maxlength="10" readonly="readonly"/>
 <?php echo get_dropdown(1,'loan_type',$search,'');
@@ -414,14 +360,11 @@ $qry_ex .= " group by app.id order by app.created_on desc limit ".$offset.",".$m
 <th width="10%">Name & Mobile & City</th>
 <th width="10%">Loan amount & Loan Type</th>
 <th width="10%">Partner</th>
-<!-- <th width="10%">Bank Name</th> -->
 <th width="10%">Application Status</th>
 <th width="10%">Application Created By</th>
-<!-- <th width="10%">Action</th> -->
 <th width="6%">View</th>
 </tr>
 <?php
-// echo $qry_ex;
 $res = mysqli_query($Conn1,$qry_ex) or die("Error: ".mysqli_error($Conn1));
 $recordcount = mysqli_num_rows($res);
 if($recordcount > 0){
@@ -454,70 +397,10 @@ $city_name_get = get_name("city_id",$city_id);
 $city_name = $city_name_get['city_name'];
 $get_name_bank = get_name("",$name_bank);
 $name_bank_on = $get_name_bank['value'];
-// $name_app_statuson = get_display_name('post_login',$app_status_on);
-// if($name_app_statuson == ''){
-//   $name_app_statuson = get_display_name('snew_status_name',$app_status_on);  
-// }
-// $name_pre_statuson = get_display_name('pre_login',$pre_login_status);
-// if($name_pre_statuson == ''){
-//   $name_pre_statuson = get_display_name('snew_status_name',$pre_login_status);  
-// }
-// if($sub_sub_status > 0){
-//   $sub_status_name = get_display_name('snew_status_name',$sub_sub_status);  
-// }
 
-// $final_pre_status_name = (trim($name_pre_statuson) == '') ?'' : $name_pre_statuson;
-// $final_app_status_name = (trim($name_app_statuson) == '') ?'' : "/ ".$name_app_statuson;
-// $final_sub_status_name = (trim($sub_status_name) == '') ?'' : "/ ".$sub_status_name;
-
-// $app_other_status = trim($exe['other_status'], ',');
-// if(in_array($app_new_status, array(1013, 1014))) {
-//     if($sub_status != "") {
-//         $other_status_query = " SELECT group_concat(' ', description) AS new_status FROM status_master WHERE status_id IN ($app_other_status) AND is_active_for_filter = 1 ";
-//         $other_status_exe       = mysqli_query($Conn1, $other_status_query);
-//         $other_status_res       = mysqli_fetch_array($other_status_exe);
-//         $final_pre_status_name  = $final_pre_status_name.", ".$other_status_res['new_status'];
-//     }
-// }
-
-// $auto_case_create = $exe['auto_case_create'];
-// $name = $exe['name'];
-// $phone_no = $exe['phone'];
-// $app_user_name        = $exe['app_user_name'];
-
-// $fup_date_on = "";
-// $rm_fup_date_on = "";
-// if($exe['fup_date_on'] != "" && $exe['fup_date_on'] != "1970-01-01" && $exe['fup_date_on'] != "0000-00-00") {
-//     $fup_date_on = date("d-m-Y", strtotime($exe['fup_date_on']));
-// }
-
-// if($exe['rm_fup_date_on'] != "" && $exe['rm_fup_date_on'] != "1970-01-01" && $exe['rm_fup_date_on'] != "0000-00-00") {
-//     $rm_fup_date_on = date("d-m-Y", strtotime($exe['rm_fup_date_on']))." <b>(FUP - RM)</b><br>";
-// }
-
-// if($user_role != '1'){
-//     $echo_number = substr_replace($phone_no,'XXX',4,3);
-//     // $echo_number = "";
-// } else {
-//    $echo_number =  $phone_no;
-// }
-
-// $city_name = (trim($exe['city_name']) != "") ? "(".$exe['city_name'].")" : "";
-// $bank_crm_lead_on  = $exe['bank_crm_lead_on'];
-// $app_bank_on  = $exe['app_bank_on'];
-//$partner_on  = $exe['partner_on'];
-//$user_id = $exe['user_id'];
 
 $app_partner_on = $exe['partner_on'];
 $digital_verification = "";
-// if($app_bank_on == 18 && $loan_type == 56) {
-//     $digital_otp_verification = "";
-//     $dov_query = "SELECT cases.query_id FROM tbl_mint_case AS cases LEFT JOIN tbl_bank_otp_verification AS verification ON verification.lead_id = cases.query_id WHERE cases.case_id = '".$case_id."' AND otp_flag = 1 ORDER BY case_id DESC";
-//     $dov_exec = mysqli_query($Conn1, $dov_query);
-//     if(mysqli_num_rows($dov_exec) > 0) {
-//         $digital_verification = "<span class='fs-12'> (OTP <span class='green'>&#10003;</span> by customer)</span>";
-//     }
-// }
 
 $cashback_arr = array(); $app_st_date = $cashback_app = "";
 if($app_status_on == 3 || $pre_login_status == 1016){
@@ -570,13 +453,7 @@ if ($(this).not(":checked")) {
 </script>';
 ?>
 <tr>
-<?php //if($_SESSION['assign_access_lead'] == 1){?>
-    <!-- <td><input type='hidden' name='url' value='<?php //echo 'http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/index.php';?>'/> -->
-<!-- <input type ="checkbox" name ="mask[]" id="<?php echo urlencode(base64_encode($case_id)); ?>" value ="<?php echo $case_id;?>"</td><?php //} ?> -->
-<td>
-    <!-- <input type='' name='applcation_id_<?php echo $case_id;?>' value='<?php echo base64_encode($app_id);?>'> -->
-<!-- <a href = "../cases/edit.php?case_id=<?php echo urlencode(base64_encode($case_id)) ;?>" class="has_link"><?php echo $case_id;?></a> -->
-<!-- <br/> -->
+
 <a href = "edit.php?case_id=<?php echo urlencode(base64_encode($case_id)) ;?>&app_id=<?php echo urlencode(base64_encode($crm_query_id)); ?>&cust_id=<?php echo urlencode(base64_encode($cust_id));?>&loan_type=<?php echo $loan_type;?>" class="has_link">
 <span><?php echo $crm_query_id;?></span></a>
 <br><?php echo $bank_application_no; ?>
@@ -587,9 +464,7 @@ if ($(this).not(":checked")) {
 <td>
     <span><?php echo $loan_amount;?></span><br/><span class="fs-12"><?php echo $loan_name;?></span>
 </td>
-<!-- <td>
-    <?php //echo $partner_name;?>
-</td> -->
+
 <td>
     <?php echo $name_bank_on;?>
 </td>
@@ -604,21 +479,6 @@ if ($(this).not(":checked")) {
 
 
 <?php if($user_role != 3) { ?><td><input type='hidden' name='app_created_by_<?php echo $app_id;?>' value='<?php echo $app_user_name; ?>'><?php echo $app_user_name; ?></td><?php } ?>
-
-
-
-<!-- <td class="align-center">
-    <a href="../email/send-email.php?case_id=<?php echo urlencode(base64_encode($case_id));?>"  class="has_link">Send Email</a></br>
-<a href="feedback.php?app_id=<?php echo base64_encode($app_id);?>" target='_blank' class="has_link">Feedback</a>
-<?php if($exe['fb_id'] > 0){ ?><span class="green"><b> (&#10003;)</b></span><?php } ?></br>
-<?php if((($app_bank_on == 29 && $loan_type == 56) || ($app_bank_on == 40 && $loan_type == 71) || ($app_bank_on == 81 && $loan_type == 56) || $app_bank_on == 18)  && ($bank_crm_lead_on != '' || $bank_app_no_on != '')){?><br>
-<a href="../lead/auto_insert/check-api-status.php?app_id=<?php echo base64_encode($app_id);?>&prospectno=<?php echo base64_encode($bank_crm_lead_on); ?>&case_id=<?php echo base64_encode($case_id);?>&bank_app_no=<?php echo base64_encode($bank_app_no_on);?>&bnk=<?php echo base64_encode($app_bank_on); ?>&loan_type=<?php echo base64_encode($loan_type); ?>"  class="has_link">Check Status</a><br><?php } ?>
-<?php if($disb_email_flag == 1){
-	echo "<span class='fs-12'>(Disb. mail <span class='green'> &#10003;</span>)</span><br>";
-}echo $cashback_app; ?>
-<?php if($digital_verification != "") { echo $digital_verification; } ?>
-</td> -->
-
 
 
 <td>
@@ -642,7 +502,7 @@ if ($(this).not(":checked")) {
 </form>
 </table>
 <?php } if ($recordcount > 0) { ?>
-<table width="width:90%;margin-left:4%;" border="0" align="center" cellpadding="4" cellspacing="1" class="pagination">
+<table width="width:90%;margin-left:4%;" border="0" align="right" cellpadding="4" cellspacing="1" class="pagination">
             <tr class="sidemain">
                 <td>
                     <?php
