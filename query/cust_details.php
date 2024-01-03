@@ -4,7 +4,6 @@ require_once(dirname(__FILE__) . '/../config/config.php');
 require_once(dirname(__FILE__) . '/../helpers/common-helper.php');
 require_once(dirname(__FILE__) . '/../include/header.php');
 require_once(dirname(__FILE__) . '/../model/queryHelper.php');
-// require_once(dirname(__FILE__) . '/../include/loader.php');
 require_once "../include/helper.functions.php";
 require_once "../include/display-name-functions.php";
 require_once "../include/case-query-function-insert.php";
@@ -29,6 +28,12 @@ require_once "../include/case-query-function-insert.php";
             <span id="text_step1"></span> Customer Details<div id="error-message" class="error-message"></div></div>    
                 <form action="" class="form-step col-12" autocomplete="off" id="form_step1">        
                     <div class="row div-width">
+                        <table>
+                            <tr>
+                                <th>Lead Id <br>Application Id<th>
+                                <th></th>
+                            </tr>
+                        </table>
 
                     </div>
                 </form>
