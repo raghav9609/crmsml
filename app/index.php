@@ -8,7 +8,7 @@ require_once "../include/helper.functions.php";
 
 
 if($_SESSION['one_lead_flag'] == 1  && $_SESSION['sme_flag'] != 1){
-    header("/../logout.php");
+    header("/../../logout.php");
     die();
 } 
 ?>
@@ -453,7 +453,13 @@ if ($(this).not(":checked")) {
 </script>';
 ?>
 <tr>
-
+<?php //if($_SESSION['assign_access_lead'] == 1){?>
+    <!-- <td><input type='hidden' name='url' value='<?php //echo 'http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/index.php';?>'/> -->
+<!-- <input type ="checkbox" name ="mask[]" id="<?php echo urlencode(base64_encode($case_id)); ?>" value ="<?php echo $case_id;?>"</td><?php //} ?> -->
+<td>
+    <!-- <input type='' name='applcation_id_<?php echo $case_id;?>' value='<?php echo base64_encode($app_id);?>'> -->
+<!-- <a href = "../cases/edit.php?case_id=<?php echo urlencode(base64_encode($case_id)) ;?>" class="has_link"><?php echo $case_id;?></a> -->
+<!-- <br/> -->
 <a href = "edit.php?case_id=<?php echo urlencode(base64_encode($case_id)) ;?>&app_id=<?php echo urlencode(base64_encode($crm_query_id)); ?>&cust_id=<?php echo urlencode(base64_encode($cust_id));?>&loan_type=<?php echo $loan_type;?>" class="has_link">
 <span><?php echo $crm_query_id;?></span></a>
 <br><?php echo $bank_application_no; ?>
@@ -464,7 +470,9 @@ if ($(this).not(":checked")) {
 <td>
     <span><?php echo $loan_amount;?></span><br/><span class="fs-12"><?php echo $loan_name;?></span>
 </td>
-
+<!-- <td>
+    <?php //echo $partner_name;?>
+</td> -->
 <td>
     <?php echo $name_bank_on;?>
 </td>
@@ -479,6 +487,21 @@ if ($(this).not(":checked")) {
 
 
 <?php if($user_role != 3) { ?><td><input type='hidden' name='app_created_by_<?php echo $app_id;?>' value='<?php echo $app_user_name; ?>'><?php echo $app_user_name; ?></td><?php } ?>
+
+
+
+<!-- <td class="align-center">
+    <a href="../email/send-email.php?case_id=<?php echo urlencode(base64_encode($case_id));?>"  class="has_link">Send Email</a></br>
+<a href="feedback.php?app_id=<?php echo base64_encode($app_id);?>" target='_blank' class="has_link">Feedback</a>
+<?php if($exe['fb_id'] > 0){ ?><span class="green"><b> (&#10003;)</b></span><?php } ?></br>
+<?php if((($app_bank_on == 29 && $loan_type == 56) || ($app_bank_on == 40 && $loan_type == 71) || ($app_bank_on == 81 && $loan_type == 56) || $app_bank_on == 18)  && ($bank_crm_lead_on != '' || $bank_app_no_on != '')){?><br>
+<a href="../lead/auto_insert/check-api-status.php?app_id=<?php echo base64_encode($app_id);?>&prospectno=<?php echo base64_encode($bank_crm_lead_on); ?>&case_id=<?php echo base64_encode($case_id);?>&bank_app_no=<?php echo base64_encode($bank_app_no_on);?>&bnk=<?php echo base64_encode($app_bank_on); ?>&loan_type=<?php echo base64_encode($loan_type); ?>"  class="has_link">Check Status</a><br><?php } ?>
+<?php if($disb_email_flag == 1){
+	echo "<span class='fs-12'>(Disb. mail <span class='green'> &#10003;</span>)</span><br>";
+}echo $cashback_app; ?>
+<?php if($digital_verification != "") { echo $digital_verification; } ?>
+</td> -->
+
 
 
 <td>
@@ -502,7 +525,7 @@ if ($(this).not(":checked")) {
 </form>
 </table>
 <?php } if ($recordcount > 0) { ?>
-<table width="width:90%;margin-left:4%;" border="0" align="right" cellpadding="4" cellspacing="1" class="pagination">
+<table width="width:90%;margin-left:4%;" border="0" align="center" cellpadding="4" cellspacing="1" class="pagination">
             <tr class="sidemain">
                 <td>
                     <?php
