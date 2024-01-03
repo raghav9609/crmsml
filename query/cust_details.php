@@ -31,6 +31,11 @@ require_once "../include/case-query-function-insert.php";
                             <tr>
                                 <th>Lead Id <br>Application Id<th>
                                 <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                
                             </tr>
                         </table>
 
