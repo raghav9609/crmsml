@@ -180,7 +180,9 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
     //     $count_pan = $result_customer_qry['total_count_pan'];
     //     $cust_pan_id = $result_customer_qry['cust_pan_id'];
     // }
-
+    $currentDateTime = date("Y-m-d H:i:s");
+    $insert_query = "INSERT into crm_lead_summary_history (lead_id,user_id,type,created_on)values($qryyy_id,$user_id,2,'$currentDateTime')";
+    $res_qry = mysqli_query($Conn1,$insert_query);
     ?>
     <html>
     <head>
