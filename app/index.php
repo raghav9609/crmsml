@@ -488,17 +488,6 @@ if ($(this).not(":checked")) {
 
 
 
-<!-- <td class="align-center">
-    <a href="../email/send-email.php?case_id=<?php echo urlencode(base64_encode($case_id));?>"  class="has_link">Send Email</a></br>
-<a href="feedback.php?app_id=<?php echo base64_encode($app_id);?>" target='_blank' class="has_link">Feedback</a>
-<?php if($exe['fb_id'] > 0){ ?><span class="green"><b> (&#10003;)</b></span><?php } ?></br>
-<?php if((($app_bank_on == 29 && $loan_type == 56) || ($app_bank_on == 40 && $loan_type == 71) || ($app_bank_on == 81 && $loan_type == 56) || $app_bank_on == 18)  && ($bank_crm_lead_on != '' || $bank_app_no_on != '')){?><br>
-<a href="../lead/auto_insert/check-api-status.php?app_id=<?php echo base64_encode($app_id);?>&prospectno=<?php echo base64_encode($bank_crm_lead_on); ?>&case_id=<?php echo base64_encode($case_id);?>&bank_app_no=<?php echo base64_encode($bank_app_no_on);?>&bnk=<?php echo base64_encode($app_bank_on); ?>&loan_type=<?php echo base64_encode($loan_type); ?>"  class="has_link">Check Status</a><br><?php } ?>
-<?php if($disb_email_flag == 1){
-	echo "<span class='fs-12'>(Disb. mail <span class='green'> &#10003;</span>)</span><br>";
-}echo $cashback_app; ?>
-<?php if($digital_verification != "") { echo $digital_verification; } ?>
-</td> -->
 
 
 
