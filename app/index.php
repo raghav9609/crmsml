@@ -403,7 +403,7 @@ $get_name_bank = get_name("",$name_bank);
 $name_bank_on = $get_name_bank['value'];
 $app_user = $exe['user_id'];
 $get_user_name = get_name("user_id",$app_user);
-
+echo $get_user_name;
 
 $app_partner_on = $exe['partner_on'];
 $digital_verification = "";
