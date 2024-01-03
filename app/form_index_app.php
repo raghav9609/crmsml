@@ -173,7 +173,7 @@
                         <input type="text" id="tenure" name="tenure" value="<?php echo $tennure."/".$emi ;?>" placeholder="Enter Tenure / EMI" class="form-control numonly valid" <?php echo ($tennure != '' && $emi != '') ? 'readonly' : '';  ?> maxlength="20" required>
                         <label for="name" class="label-tag">Tenure/ROI</label>
                     </div>
-                    <div class="user_id application_status col-xl-2 col-lg-4 col-md-6 main_acc " id = "user_id">
+                    <div class="app_u_assign application_status col-xl-2 col-lg-4 col-md-6 main_acc " >
                         <span class="fa-icon fa-bank"></span>
                         <label for="name" class="label-tag required" >User</label>
                         <?php echo get_dropdown('user','app_u_assign',$app_u_assign,'disabled'); ?>
@@ -209,7 +209,7 @@
             if (applicationStatusField) {
                 applicationStatusField.removeAttribute('disabled');
             }
-            var user_idField = document.getElementById('user_id');
+            var user_idField = document.getElementById('app_u_assign');
             if (user_idField) {
                 user_idField.removeAttribute('disabled');
             }
