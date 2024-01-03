@@ -402,6 +402,7 @@ $city_name = $city_name_get['city_name'];
 $get_name_bank = get_name("",$name_bank);
 $name_bank_on = $get_name_bank['value'];
 echo $app_user = $exe['user_id'];
+echo "hiiii";
 $get_user_name = get_name("user_id",$app_user);
 print_r($get_user_name);
 
