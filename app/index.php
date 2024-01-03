@@ -8,7 +8,7 @@ require_once "../include/helper.functions.php";
 
 
 if($_SESSION['one_lead_flag'] == 1  && $_SESSION['sme_flag'] != 1){
-    header("/../../logout.php");
+    header("/../logout.php");
     die();
 } 
 ?>
