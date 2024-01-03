@@ -488,7 +488,7 @@ if ($(this).not(":checked")) {
 
 <?php if($user_role != 3) { ?>
     <td>
-    <input type='' name='app_created_by_<?php echo $app_id;?>' value='<?php echo $get_user_name['name']; ?>'><?php echo $get_user_name['name'];; ?>
+    <input type='' name='app_created_by_<?php echo $app_id;?>' value='<?php echo $get_user_name['name']; ?>'><?php echo $get_user_name['name'];?>
     <td><?php } ?>
 
 
