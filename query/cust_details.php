@@ -24,8 +24,8 @@ require_once "../include/case-query-function-insert.php";
 <body>
     <div class="pl-md-3 pl-2 pr-md-3 pr-2 col-12">
         <div class="gen-box white-bg">
-        <div class="blue-bg col-12 font-weight-nb pb-2 pt-2 white font-20 brdr-top-gray pe-none" data-toggle="step1" id="switch_step1">
-            <span id="text_step1" style = "align:center;"></span> Customer Details<div id="error-message" class="error-message"></div></div>    
+        <div class="blue-bg col-12 font-weight-nb pb-2 pt-2 white font-20 brdr-top-gray pe-none" style = "align:center;" data-toggle="step1" id="switch_step1">
+            <span id="text_step1" ></span> Customer Details<div id="error-message" class="error-message"></div></div>    
                 <form method="POST" name="frmmain" action="mask_assign.php">
                         <table width="100%" class="gridtable">
                             <tr>
