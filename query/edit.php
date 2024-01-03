@@ -132,8 +132,8 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
         $count_pan = $result_customer_qry['total_count_pan'];
         $cust_pan_id = $result_customer_qry['cust_pan_id'];
     }
-
-    $insert_query = "INSERT into crm_lead_summary_history (lead_id,user_id,type,created_on) values ($id,$user_id,1,$curDate)";
+    $currentDateTime = date("Y-m-d H:i:s");
+    $insert_query = "INSERT into crm_lead_summary_history (lead_id,user_id,type,created_on) values ($id,$user_id,1,$currentDateTime)";
     echo $insert_query;
     ?>
     <html>
