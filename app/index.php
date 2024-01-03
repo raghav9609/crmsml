@@ -241,7 +241,7 @@ $insurance = replace_special($_REQUEST['insurance']);
 $promo = replace_special($_REQUEST['promocode']);
 $ref_phone = replace_special($_REQUEST['ref_phone']);
 
-$qry_ex = "SELECT app.application_status, cust.phone_no as phone, cust.name as name, app.id as app_id , app.user_id, cust.id as cust_id, cust.city_id as city_id,loan.value as loan_name,qry.crm_raw_data_id,app.crm_query_id,app.bank_id ,app.bank_application_no,qry.loan_type_id as loan_type,qry.loan_amount as required_loan_amt, app.login_date as login_date_on, app.sanction_date as sanction_date_on, app.disburse_date as first_disb_date_on, app.follow_up_date AS fup_date_on from crm_query_application as app JOIN crm_query as qry ON app.crm_query_id = qry.id Inner JOIN crm_customer as cust ON qry.crm_customer_id = cust.id INNER JOIN crm_masters as loan ON loan.id =  qry.loan_type_id INNER JOIN crm_master_city AS city ";
+$qry_ex = "SELECT app.application_status, cust.phone_no as phone, cust.name as name, app.id as app_id, cust.id as cust_id, cust.city_id as city_id,loan.value as loan_name,qry.crm_raw_data_id,app.crm_query_id,app.bank_id ,app.bank_application_no,qry.loan_type_id as loan_type,qry.loan_amount as required_loan_amt, app.login_date as login_date_on, app.sanction_date as sanction_date_on, app.disburse_date as first_disb_date_on, app.follow_up_date AS fup_date_on from crm_query_application as app JOIN crm_query as qry ON app.crm_query_id = qry.id Inner JOIN crm_customer as cust ON qry.crm_customer_id = cust.id INNER JOIN crm_masters as loan ON loan.id =  qry.loan_type_id INNER JOIN crm_master_city AS city ";
 
 
 $qry_ex .= " where 1 ";
@@ -324,7 +324,7 @@ if($date_from != "" && $date_to != "" && $date_from != "0000-00-00" && $date_to 
 }
 $qry_ex .= " group by app.id order by app.created_on desc limit ".$offset.",".$max_offset;
 
-echo $qry_ex;
+echo $qry_ex
 ?>
 <fieldset><legend>Application Filter</legend>
 <form method="post" action="index.php" name="searchfrm" autocomplete="off">
@@ -403,6 +403,7 @@ $get_name_bank = get_name("",$name_bank);
 $name_bank_on = $get_name_bank['value'];
 $app_user = $exe['user_id'];
 $get_user_name = get_name("user_id",$app_user);
+
 
 $app_partner_on = $exe['partner_on'];
 $digital_verification = "";
@@ -488,9 +489,15 @@ if ($(this).not(":checked")) {
 </td>
 
 
-<td>
-    <?php echo $get_user_name['name'];?>
-<td>
+
+<?php if($user_role != 3) { ?>
+    <td>
+    <input type='' name='app_created_by_<?php echo $app_id;?>' value='<?php echo $get_user_name['name']; ?>'><?php echo $get_user_name['name'];?>
+    <td><?php } ?>
+
+
+
+
 
 
 <td>
