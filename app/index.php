@@ -303,6 +303,10 @@ if(trim($bank_app_no) != "") {
 	$default = 1;
     $qry_ex .= " AND app.bank_application_no = '".$bank_app_no."' ";
 }
+if($app_u_assign != ""){
+    $qry_ex .= " and app.user_id = '".$app_u_assign."' ";
+}
+
 
 if($date_from != "" && $date_to != "" && $date_from != "0000-00-00" && $date_to != "0000-00-00"){
 	$default = 1;
