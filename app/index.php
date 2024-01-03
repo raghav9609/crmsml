@@ -401,9 +401,8 @@ $city_name_get = get_name("city_id",$city_id);
 $city_name = $city_name_get['city_name'];
 $get_name_bank = get_name("",$name_bank);
 $name_bank_on = $get_name_bank['value'];
-echo $app_user = $exe['user_id'];
+$app_user = $exe['user_id'];
 $get_user_name = get_name("user_id",$app_user);
-print_r($get_user_name);
 
 $app_partner_on = $exe['partner_on'];
 $digital_verification = "";
@@ -489,11 +488,9 @@ if ($(this).not(":checked")) {
 </td>
 
 
-
-<?php if($user_role != 3) { ?>
-    <td>
-    <input type='' name='app_created_by_<?php echo $app_id;?>' value='<?php echo $get_user_name['name']; ?>'><?php echo $get_user_name['name'];?>
-    <td><?php } ?>
+<td>
+    <?php echo $get_user_name['name'];?>
+<td>
 
 
 
