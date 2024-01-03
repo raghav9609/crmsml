@@ -186,7 +186,7 @@
                 <input type="hidden" id="loan_type" name="loan_type" value="<?php echo $loan_type; ?>">
                 <input type="button" class="btn btn-primary valid" name="edit_app" id="edit_app" value="Edit">
                 <input type="button" class="btn btn-primary valid" name="submit_app" id="submit_app" value="SUBMIT">
-                <input type="button" class="btn btn-primary valid" name="add_app" id="add_app" value="Add">
+                <!-- <input type="button" class="btn btn-primary valid" name="add_app" id="add_app" value="Add"> -->
                        
 <script>
     document.addEventListener('DOMContentLoaded', function () {
