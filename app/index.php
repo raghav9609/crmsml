@@ -255,7 +255,7 @@ if($city_sub_group != '' && $city_sub_group != '0') {
     $qry_ex .= " and city.city_sub_group_id = '" . $city_sub_group . "'";
 }
 if($app_no != ""){$default = 1;
-    $qry_ex .= " and app.app_id = '".$app_no."'";
+    $qry_ex .= " and app.id = '".$app_no."'";
 }
 
 if($fup_date_from != "") {
