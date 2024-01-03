@@ -476,9 +476,7 @@ if ($(this).not(":checked")) {
 <td>
     <span><?php echo $loan_amount;?></span><br/><span class="fs-12"><?php echo $loan_name;?></span>
 </td>
-<!-- <td>
-    <?php //echo $partner_name;?>
-</td> -->
+
 <td>
     <?php echo $name_bank_on;?>
 </td>
@@ -490,15 +488,10 @@ if ($(this).not(":checked")) {
 
 
 
-<?php if($user_role != 3) { ?>
-    <td>
-    <input type='' name='app_created_by_<?php echo $app_id;?>' value='<?php echo $get_user_name['name']; ?>'><?php echo $get_user_name['name'];?>
-    <td><?php } ?>
 
-
-
-
-
+<td>
+    <?php echo $get_user_name['name'];?>
+</td>
 
 <td>
     <a href="edit.php?case_id=<?php echo urlencode(base64_encode($case_id)) ;?>&app_id=<?php echo urlencode(base64_encode($crm_query_id)); ?>&cust_id=<?php echo urlencode(base64_encode($cust_id));?>&loan_type=<?php echo urlencode(base64_encode($loan_type));?>" class="has_link"><input type="button" class = "pointer_n" value="View" style="border-radius: 5px; background-color: #18375f; font-weight: bold;"></a>
