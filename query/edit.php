@@ -146,15 +146,10 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
     <div style="width:100%;"><div style="padding-left: 1%;padding-right: 1%;">
     <div id="fixed_tab">
     <span style="font-weight:bold;font-size:14px;">
-    <a href="../email/?query_id=<?php echo urlencode(base64_encode($id)); ?>"
-       class="buttonsub" target='_blank'><input type="button" class="buttonsub cursor"
-                                                                                 value="Email"></a>
+    <a href="../email/?query_id=<?php echo urlencode(base64_encode($id)); ?>" target='_blank'><input type="button" class="buttonsub cursor" value="Email"></a>
 
-    <a href="../email/send-sms.php?query_id=<?php echo urlencode(base64_encode($id)); ?>" target='_blank'
-       class="buttonsub"> <input type="button" class="buttonsub cursor"
-                                                                                 value="SMS"></a>
-    <a href="<?php echo $head_url; ?>/calculators/" target="_blank"><input type="button" class="buttonsub cursor"
-                                                                                 value="EMI"></a>
+    <a href="../email/send-sms.php?query_id=<?php echo urlencode(base64_encode($id)); ?>" target='_blank' class="buttonsub"> <input type="button" class="buttonsub cursor" value="SMS"></a>
+    <a href="<?php echo $head_url; ?>/calculators/" target="_blank"><input type="button" class="buttonsub cursor" value="EMI"></a>
     <a href="<?php echo $head_url; ?>/calculators/eligibility.php" target="_blank">
         <input type="button" class="buttonsub cursor" value="Eligibility"></a>
             <a href="javascript:void(0);" onclick="suggestion_box('2','1');"><input type="button" class="buttonsub cursor" value="Offers"></a>
