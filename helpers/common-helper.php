@@ -129,7 +129,7 @@
              $d2 = new DateTime($date2);
              $interval = $d2->diff($d1);
             if($format == 1){
-                return $interval->format('%m');
+                return $interval->format('%m ');
             } else {
                 return $interval->format('%m months');
             }

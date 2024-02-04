@@ -109,7 +109,7 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
     $ofc_city_name = get_display_name("city_name", $work_city);
     echo $curDate = currentDate();
     echo $result_cust_data['cur_comp_wrk_exp'];
-    echo $ccwe = dateDiff($curDate,$result_cust_data['cur_comp_wrk_exp'],1);
+    echo $ccweget = dateDiff($curDate,$result_cust_data['cur_comp_wrk_exp'],1);
     $ccwe = $result_cust_data['cur_comp_wrk_exp'];
     $twe = $result_cust_data['totl_wrk_exp'];
     $salary_pay_id = $result_cust_data['salary_pay_id'];
@@ -146,42 +146,22 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
     <div style="width:100%;"><div style="padding-left: 1%;padding-right: 1%;">
     <div id="fixed_tab">
     <span style="font-weight:bold;font-size:14px;">
-    <a href="#follow_history" class="buttonsub">Follow Up History</a>
-    <?php if ($tool_type == "Cibil Form") { ?><a href="#cibil" class="buttonsub">Cibil History</a><?php } ?>
     <a href="../email/?query_id=<?php echo urlencode(base64_encode($id)); ?>"
-       class="buttonsub">Send Email</a>
+       class="buttonsub" target='_blank'><input type="button" class="buttonsub cursor"
+                                                                                 value="Email"></a>
 
-
-       <?php $docsrc="../customer-document/upload-document/index.php?cust_id=".base64_encode($cust_id)."&level_id=".urlencode(base64_encode($id))."&level_t=". base64_encode(1)?>
-      <?php if($user_role==1 || $user_role==4){?>
-      <a href="<?php echo $docsrc;?>" target='_blank'  class="buttonsub"> Upload Document</a>
-      <?php } ?>
-
-       <?php if($mobile_status==0){?>
     <a href="../email/send-sms.php?query_id=<?php echo urlencode(base64_encode($id)); ?>" target='_blank'
-       class="buttonsub"> SMS</a>
-       <?php }?>
+       class="buttonsub"> <input type="button" class="buttonsub cursor"
+                                                                                 value="SMS"></a>
     <a href="<?php echo $head_url; ?>/calculators/" target="_blank"><input type="button" class="buttonsub cursor"
                                                                                  value="EMI"></a>
     <a href="<?php echo $head_url; ?>/calculators/eligibility.php" target="_blank">
         <input type="button" class="buttonsub cursor" value="Eligibility"></a>
             <a href="javascript:void(0);" onclick="suggestion_box('2','1');"><input type="button" class="buttonsub cursor" value="Offers"></a>
-      <?php 
-      if ($res_epf_report_fetch['id'] != '') { ?>
-          <input type="button" style='background: #1b8c1b;' class="buttonsub cursor" id='epf_buttn' value="EPF"
-                 onclick="cibil_epf_summary('<?php echo $res_epf_report_fetch['id'] . "','" . $cust_id; ?>');">
-      <?php } ?>
-
-       
-
-      <a href="<?php echo $head_url; ?>/include/call-structure/<?php echo str_replace(' ', '-', strtolower($loantype_name)); ?>.pdf"
-         target="_blank"><input type="button" style='background: #1b8c1b;' class="buttonsub cursor" id='script_buttn'
-                                value="Script"></a>
-
 
  <a href='<?php echo $src_id; ?>' target="_blank"><input type="button" style='background: #1b8c1b;'
                                                          class="buttonsub cursor" id='shrt_url'
-                                                         value="Experian SMS"></a> 
+                                                         value="Fetch Experian"></a> 
 
 <?php if($user_role != 1) { ?>
     <a href="javascript:void(0);" id='show_btn' onclick="number_show('<?php echo $id; ?>','query');">
