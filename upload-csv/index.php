@@ -277,7 +277,7 @@ $('#upload_csv').on('click', function(event){
 			html += '<td>' + row.loan_amount + '</td>';
 			html += '<td>' + row.dob + '</td>';
 			html += '<td>' + row.net_income + '</td>';
-			html += '<td>' + row.net_income + '</td>';
+			html += '<td>' + row.loan_type + '</td>';
 			html += '</tr>';
 			
 	}
