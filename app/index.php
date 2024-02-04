@@ -361,6 +361,7 @@ echo $qry_ex
 <tr>
 <?php if($_SESSION['assign_access_lead'] == 1){?><th width="5%"><div><input type ="checkbox" name ="selectAll[]" id="selectAll">Select</div></th><?php } ?>
 <th width="10%">Application No<br> Bank App No.</th>
+<th width="10%">Tool Type</th>
 <th width="10%">Name & Mobile & City</th>
 <th width="10%">Loan amount & Loan Type</th>
 <th width="10%">Partner</th>
@@ -470,6 +471,7 @@ if ($(this).not(":checked")) {
 <span><?php echo $crm_query_id;?></span></a>
 <br><?php echo $bank_application_no; ?>
 </td>
+<td></td>
 <td>
     <span><?php echo substr(ucwords(strtolower($cust_name)), 0, 20)."</span><br/><span class='fs-12'>".$phone."</span><br/><span class='fs-12'>".$city_name;?></span>
 </td>
