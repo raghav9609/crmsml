@@ -80,7 +80,7 @@ require_once(dirname(__FILE__) . '/../include/header.php');
 
 <script>
 function download_csv_format_file() {
-    var csv = 'name,email_id,phone_no,pincode,loan_amount,dob,net_income' ;
+    var csv = 'name,email_id,phone_no,pincode,loan_amount,dob,net_income,loan_type' ;
     var hiddenElement = document.createElement('a');
     hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(csv);
     hiddenElement.target = '_blank';
@@ -193,6 +193,7 @@ $('#upload_csv').on('click', function(event){
 				var loan_amount    =  [];
 				var dob            =  [];
 				var net_income     =  [];
+				var loan_type     =  [];
 				
 
 				for(i=0; i<arr.length; i++){
@@ -203,13 +204,14 @@ $('#upload_csv').on('click', function(event){
 					loan_amount[i] = $('.loan_amount'+arr[i]).val()
 					dob[i] =$('.dob'+arr[i]).val();
 					net_income[i] =$('.net_income'+arr[i]).val();
+					loan_type[i] =$('.loan_type'+arr[i]).val();
 				}
 				var chkvalue=$("input[name='checkbox']:checked").val();
 
 				$.ajax({
 				url:"add.php",
 				method:"POST",
-				data: {name :name,phone_no :phone_no,email_id :email_id,pincode:pincode,loan_amount:loan_amount,dob:dob,net_income:net_income},
+				data: {name :name,phone_no :phone_no,email_id :email_id,pincode:pincode,loan_amount:loan_amount,dob:dob,net_income:net_income,loan_type:loan_type},
                 beforeSend: function () {
                     $("#import_data").val('processing....');
                     $("#import_data").attr('disabled','disabled');
@@ -261,11 +263,11 @@ $('#upload_csv').on('click', function(event){
 
 		html = '<div class="" ><div class="col-md-48 "><table class="table_new"><tbody><tr class="blue-bg"><th colspan="48-48" class="align:center" style="text-align:center;"><button type="button" id="import_data" class="cursor buttonsub"  >Add</button></tr></tbody></table</div>';
 		html += '<table class="table_new" >';
-		html += '<tr ><th><input name="product_all" class="checked_all" type="checkbox" value="as" onClick="toggle(this)"> Select All</th><th>Name</th><th>Phone No</th><th>Email Id</th><th>Pincode</th><th>Loan Amount</th><th>DOB</th><th>Net Income</th></tr>';
+		html += '<tr ><th><input name="product_all" class="checked_all" type="checkbox" value="as" onClick="toggle(this)"> Select All</th><th>Name</th><th>Phone No</th><th>Email Id</th><th>Pincode</th><th>Loan Amount</th><th>DOB</th><th>Net Income</th><th>Loan Type</th></tr>';
 
 		for (let count = start; count < end; count++) {
 			let row = data[count];
-            html += '<tr><td><input type="checkbox" value="'+count+'" id="'+count+'" name="chkbox" class="checkbox" onClick="toggle1()"><input type="hidden" value="'+row.name+'" class="name'+count+'"><input type="hidden" value="'+row.phone_no+'" class="phone_no'+count+'"><input type="hidden" value="'+row.email_id+'" class="email_id'+count+'"><input type="hidden" value="'+row.pincode+'" class="pincode'+count+'"><input type="hidden" value="'+row.loan_amount+'" class="loan_amount'+count+'"><input type="hidden" value="'+row.dob+'" class="dob'+count+'"><input type="hidden" value="'+row.net_income+'" class="net_income'+count+'"></td>';
+            html += '<tr><td><input type="checkbox" value="'+count+'" id="'+count+'" name="chkbox" class="checkbox" onClick="toggle1()"><input type="hidden" value="'+row.name+'" class="name'+count+'"><input type="hidden" value="'+row.phone_no+'" class="phone_no'+count+'"><input type="hidden" value="'+row.email_id+'" class="email_id'+count+'"><input type="hidden" value="'+row.pincode+'" class="pincode'+count+'"><input type="hidden" value="'+row.loan_amount+'" class="loan_amount'+count+'"><input type="hidden" value="'+row.dob+'" class="dob'+count+'"><input type="hidden" value="'+row.net_income+'" class="net_income'+count+'"><input type="hidden" value="54" class="loan_type'+count+'"></td>';
 
 
 			html += '<td>' + row.name + '</td>';
@@ -274,6 +276,7 @@ $('#upload_csv').on('click', function(event){
 			html += '<td>' + row.pincode + '</td>';
 			html += '<td>' + row.loan_amount + '</td>';
 			html += '<td>' + row.dob + '</td>';
+			html += '<td>' + row.net_income + '</td>';
 			html += '<td>' + row.net_income + '</td>';
 			html += '</tr>';
 			
