@@ -387,8 +387,6 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                                     <th width="10%">Query Status & Desc</th>
                                     <th width="10%">Follow up date & Type</th>
                                     <th width="10%">Assign To</th>
-                                    <th width="10%">Action</th>
-                                    <?php if ($user_role == 1) { ?><th width="10%">Query Status Update</th><?php } ?>
                                     <th width="10%">View</th>
                             </tr>
                             <?php
@@ -506,18 +504,6 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                                                                                 if ($extension > 0) {
                                                                                     echo "<br><span class='fs-12'>(" . $extension . ")</span>";
                                                                                 } ?><?php } ?></td>
-                                        <td>Email<?php if ($resulr_case_mail_count['total_mail_count'] > 0) {
-                                                        echo '<span class="orange"> (&#10003;)</span>';
-                                                    } ?>
-                                            <br>
-                                            <?php if ($mobile_status == 0) { ?>
-                                                <a href='../email/send-sms.php?query_id=<?php echo urlencode(base64_encode($id)); ?>' target='_blank' class='has_link'><span>SMS</span></a>
-                                            <?php } ?>
-                                            <?php if ($resulr_qry_sms_count['total_sms_count'] > 0) { ?><span class="orange"> (&#10003;)</span><?php } ?>
-                                        </td>
-                                        <?php if ($user_role == 1) { ?>
-                                            <td><a href="query_status_form.php?query_id=<?php echo urlencode(base64_encode($id)); ?>" class="has_link">Update Status</a></td>
-                                        <?php } ?>
                                         <td><a href="../query/edit.php?ut=<?php echo $ut; ?>&id=<?php echo urlencode(base64_encode($id)); ?>&page=<?php echo $page; ?>" class="has_link"><input type="button" class="pointer_n" value="View" style="border-radius: 5px; background-color: #18375f; font-weight: bold;"></a></td>
                                     </tr>
                                 <?php  } ?>
