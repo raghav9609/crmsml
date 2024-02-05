@@ -1,5 +1,7 @@
 <?php
 $php_mailer_added = 1;
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 require_once(dirname(__FILE__) . '/PHPMailer/src/Exception.php');
 require_once(dirname(__FILE__) . '/PHPMailer/src/PHPMailer.php');
 require_once(dirname(__FILE__) . '/PHPMailer/src/SMTP.php');
