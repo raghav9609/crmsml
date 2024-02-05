@@ -9,12 +9,12 @@ require_once(dirname(__FILE__) . "/../include/display-name-functions.php");
 require_once "../include/helper.functions.php";
 
 	if($_REQUEST['step'] == 1){
+		
 		$comp_name_other = $comp_id = $hospital_name = $main_comp_category = $sub_comp_category = $sub_sub_comp_category = $state_comp_category = '';
-		
-		$get_company_name = $_REQUEST['comp_name'];
-		
-		$get_city_id = data_search('city');
 
+		$get_company_name = $_REQUEST['comp_name'];
+
+		$get_city_id = data_search('city');
 		$city = searchValue($_REQUEST['city_name'],'city_name', $get_city_id);
 		$final_city_id = $get_city_id[$city]['id'];
 	
@@ -75,7 +75,6 @@ require_once "../include/helper.functions.php";
 		$detcur = "-".$curexp." Months";
 		$curwrkexp = date("Y-m-d",strtotime($detcur));
 		$ttlwrkexp = date("Y-m-d",strtotime($ttlexp));
-		// echo ":hiiiiiiii".$_REQUEST['address'];
         $fieds_array = array(
             'salutation_id' => $_REQUEST['salutation'],
             'name' => $_REQUEST['name'],
@@ -98,10 +97,8 @@ require_once "../include/helper.functions.php";
 			'pincode' => $_REQUEST['pin_code'],
 			'current_work_exp'=> $curwrkexp,
 			'total_work_exp'=> $ttlwrkexp,
-			'address'=> $_REQUEST['address']
+			"address" => $_REQUEST['address']
 	    );
-
-		// print_r($fieds_array);
 
 		echo "<br>asnu";
 		$count = count($fieds_array);
