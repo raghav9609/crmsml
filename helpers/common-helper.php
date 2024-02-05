@@ -128,10 +128,15 @@
             $d1 = new DateTime($date1);
              $d2 = new DateTime($date2);
              $interval = $d2->diff($d1);
-            if($format == 1){
-                return $interval->format('%m ');
+            // if($format == 1){
+            //     return $interval->format('%m ');
+            // } else {
+            //     return $interval->format('%m months');
+            // }
+            if ($format == 1) {
+                return $interval->format('%y years, %m months, %d date');
             } else {
-                return $interval->format('%m months');
+                return $interval->format('%y years, %m months, %d date');
             }
             
         }
