@@ -1,6 +1,6 @@
 <?php
-require_once(dirname(__FILE__) . '/../config/session.php');
-require_once(dirname(__FILE__) . '/../config/config.php');
+//require_once(dirname(__FILE__) . '/../config/session.php');
+//require_once(dirname(__FILE__) . '/../config/config.php');
 require_once "../include/class.mailer.php";
 echo "Hellllloooooooo";      
 $email = array("raghav9609@gmail.com"); //explode(",",$_REQUEST['recipient_email']);
