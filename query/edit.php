@@ -330,7 +330,7 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
     function callAjaxData(e) {
        if(e.id == "raw_details") {
             var query_id = "<?php echo $qryyy_id; ?>";
-            if(loaded_raw_details) return;
+            // if(loaded_raw_details) return;
             if(query_id) {
                 $.ajax({
                     type: "POST",
