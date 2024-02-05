@@ -5,7 +5,7 @@ require_once(dirname(__FILE__) . '/../config/config.php');
 require_once(dirname(__FILE__) . '/../include/class.mailer.php');
 
 
-$email = array("raghav9609@gmail.com") //explode(",",$_REQUEST['recipient_email']);
+$email = array("raghav9609@gmail.com"); //explode(",",$_REQUEST['recipient_email']);
 $cc_email = explode(",",$_REQUEST['cc_recipient_email']);
 $sender_email = $_REQUEST['sender_email'];
 $subject = $_REQUEST['subject'];									
