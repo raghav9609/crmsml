@@ -46,7 +46,7 @@ function mailSend($recepitientMail,$ccMail,$replyMail,$subject,$body){
 			$message = "Not sent";
 		}
 		$recpemail = implode(',',$recepitientMail);
-		echo $qry = "INSERT INTO crm_communication_history SET type = 1, communication_id = '".$recpemail."', cc_communication = '".implode(',',$ccMail)."', response='".$message."',subject = '".base64_encode($subject)."', description = '".base64_encode($body)."'";
+		 $qry = "INSERT INTO crm_communication_history SET type = 1, communication_id = '".$recpemail."', cc_communication = '".implode(',',$ccMail)."', response='".$message."',subject = '".base64_encode($subject)."', description = '".base64_encode($body)."'";
 		$insert_comm = mysqli_query($Conn1,$qry);
 		return $message;
 		
