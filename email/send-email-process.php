@@ -1,6 +1,12 @@
 <?php
+echo "Hellllloooooooo";      
+
 require_once(dirname(__FILE__) . '/../config/session.php');
+echo "Hellllloooooooo";      
+
 require_once(dirname(__FILE__) . '/../config/config.php');
+echo "Hellllloooooooo";      
+
 require_once(dirname(__FILE__) . '/../include/class.mailer.php');
 
 echo "Hellllloooooooo";      
