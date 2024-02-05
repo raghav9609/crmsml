@@ -10,12 +10,13 @@ $subject = $_REQUEST['subject'];
 $description = $_REQUEST['description'];
 $temp_id = $_REQUEST['template'];											
 $query_id = $_REQUEST['query_id']; 
-if($email != ''){
+// if($email != ''){
 $recep_mail = $email;
 $replytomail = array();
 $cctomail = $cc_email;
+echo "sumi";
 mailSend($recep_mail,$cctomail,$replytomail,$subject,htmlspecialchars_decode($description));
-}
+// }
 
 
 // $qrysenddet = "INSERT INTO tbl_mint_mail_detail set mail_id ='".$mail_id."',subject='".$subject."',description='".htmlspecialchars_decode($description)."',cc_mail='".$cc_email."',sender_mail='info@myloancareindia.in'";
