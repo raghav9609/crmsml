@@ -195,9 +195,9 @@
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
                                 <label for="maritalstatus" class="radio-tag label-tag optional-tag">Marital Status</label>
                                 <div class="radio-button">
-                                    <input type="radio" name="maritalstatus" id="maritalstatus1"  value="Y" <?php if($maritalstatus == "Y"){ ?>checked <?php } ?>>
+                                    <input type="radio" name="maritalstatus" id="maritalstatus1"  value="1" <?php if($maritalstatus == "1"){ ?>checked <?php } ?>>
                                     <label for="maritalstatus1">Married</label>
-                                    <input type="radio" name="maritalstatus" id="maritalstatus2" value="N" <?php if($maritalstatus == "N"){ ?>checked <?php } ?>>
+                                    <input type="radio" name="maritalstatus" id="maritalstatus2" value="0" <?php if($maritalstatus == "0"){ ?>checked <?php } ?>>
                                     <label for="maritalstatus2">UnMarried</label> 
                                 </div>
                             </div>
