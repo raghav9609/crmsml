@@ -136,9 +136,9 @@
             $totalMonths = $interval->y * 12 + $interval->m;
 
             if ($format == 1) {
-                return $totalMonths . ' months';
+                return $totalMonths ;
             } else {
-                return $interval->format('%y years, %m months, %d date') . ' (' . $totalMonths . ' months)';
+                return $interval->format('%y years, %m months, %d date') . ' (' . $totalMonths . '';
             }
             
         }
