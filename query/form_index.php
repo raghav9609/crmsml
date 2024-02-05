@@ -312,7 +312,7 @@
                                 </div>
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
                                     <span class="fa-icon fa-briefcase"></span>
-                                    <input type="tel" class="text form-control numonly" name="ccwe" id="ccwe"  maxlength="4" required value="<?php echo (trim($ccwe) == 0) ? "" : $ccwe; ?>" />
+                                    <input type="tel" class="text form-control numonly" name="ccwe" id="ccwe"  maxlength="4" required value="<?php echo (trim($ccwe) == 0) ? "" : $ccweget; ?>" />
                                     <label for="ccwe" class="label-tag">Current Work Exp (In months)</label>
                                 </div>
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
