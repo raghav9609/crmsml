@@ -48,11 +48,11 @@ function mailSend($recepitientMail,$ccMail,$replyMail,$subject,$body){
 		}
 		return $message;
 }
-echo "hiii11";
 
 	$recpemail = explode(',',$recepitientMail);
-	
-	echo $qry = "INSERT INTO crm_communication_histoy ('type','communication_id','cc_communication','subject','description') values (1,$recpemail,$ccMail,$subject,$body)";
+
+	$qry = "INSERT INTO crm_communication_history SET type = 1, communication_id = '".$recpemail."', cc_communication = '".$ccMail."', subject = '".$subject."', description = '".$body."'";
+
 	$insert_comm = mysqli_query($Conn1,$qry);
 	echo $insert_comm;
 ?>
