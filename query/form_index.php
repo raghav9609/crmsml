@@ -318,7 +318,7 @@
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
                                     <span class="fa-icon fa-briefcase"></span>
                                     <input type="tel" class="text form-control numonly" name="twe" id="twe" maxlength="4" required value="<?php echo (trim($twe) == 0) ? "" : $tweget; ?>" />
-                                    <label for="twe" class="label-tag">Total Work Exp (In months))</label>
+                                    <label for="twe" class="label-tag">Total Work Exp (In months)</label>
                                 </div>
                           
                                 <div class="heading-offers">
