@@ -50,8 +50,8 @@ function mailSend($recepitientMail,$ccMail,$replyMail,$subject,$body){
 }
 echo "hiii11";
 
-	echo "gifj".$recpemail = explode(',',$recepitientMail);
+	$recpemail = explode(',',$recepitientMail);
 	
-	$qry = "INSERT INTO crm_communication_histoy ('type','communication_id','cc_communication','subject','description') values (1,$recpemail,$ccMail,$subject,$body)";
+	echo $qry = "INSERT INTO crm_communication_histoy ('type','communication_id','cc_communication','subject','description') values (1,$recpemail,$ccMail,$subject,$body)";
 	$insert_comm = mysqli_query($Conn1,$qry);
 ?>
