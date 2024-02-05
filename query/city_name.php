@@ -4,7 +4,8 @@ $city_id = 0;
 if($_REQUEST['term'] != ''){
     require_once(dirname(__FILE__) . '/../config/config.php');
 	require_once(dirname(__FILE__) . '/../model/queryHelper.php');
-    $searchTerm = $_REQUEST['term'];
+    echo $searchTerm = $_REQUEST['term'];
+    exit();
     $get_query   = new queryModel();
     $qry        = $get_query->getCityRecord($searchTerm);
     echo $qry;
