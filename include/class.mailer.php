@@ -5,6 +5,7 @@ require_once(dirname(__FILE__) . '/PHPMailer/src/PHPMailer.php');
 require_once(dirname(__FILE__) . '/PHPMailer/src/SMTP.php');
 echo "anu";
 function mailSend($recepitientMail,$ccMail,$replyMail,$subject,$body){
+	echo "11113";
 		$mail = new PHPMailer(true);
 		echo "1";
 		// 	$mail->SMTPOptions = array(
