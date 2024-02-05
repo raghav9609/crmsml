@@ -1,9 +1,9 @@
 <?php
 require_once(dirname(__FILE__) . '/../config/session.php');
-require_once(dirname(__FILE__) . '/../helpers/common-helper.php');
 require_once(dirname(__FILE__) . '/../config/config.php');
 require_once(dirname(__FILE__) . '/../include/class.mailer.php');
 
+echo "Hellllloooooooo";      
 
 $email = array("raghav9609@gmail.com"); //explode(",",$_REQUEST['recipient_email']);
 $cc_email = explode(",",$_REQUEST['cc_recipient_email']);
@@ -12,7 +12,6 @@ $subject = $_REQUEST['subject'];
 $description = $_REQUEST['description'];
 $temp_id = $_REQUEST['template'];											
 $query_id = $_REQUEST['query_id']; 
-echo "Hellllloooooooo";      
 if($email != ''){
 
     
