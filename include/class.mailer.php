@@ -39,6 +39,6 @@ function mailSend($recepitientMail,$ccMail,$replyMail,$subject,$body){
 		}else{
 			echo $message = "Not sent";
 		}
-		return $message;
+		echo $message;
 }
 ?>
