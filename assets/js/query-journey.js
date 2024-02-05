@@ -615,7 +615,10 @@ function card_tocard(){
                       $('#loader').css("display","none");
                       verticalToggle('step1');
                     }, 2000);                        
-                  }                                                                                 
+                  },
+                  error: function (xhr, status, error) {
+                    console.error("AJAX Error:", status, error);
+                  }                                                                           
                 }); 
       }else if((this.id=='step2' && $('#form_step2').valid()) || this.id=='step2-temp'){
         $('#loader').css("display","block");
