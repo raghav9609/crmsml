@@ -73,7 +73,7 @@ require_once "../include/helper.functions.php";
 		$detcur = "-".$curexp." Months";
 		$curwrkexp = date("Y-m-d",strtotime($detcur));
 		$ttlwrkexp = date("Y-m-d",strtotime($ttlexp));
-		
+		echo ":hiiiiiiii".$_REQUEST['address'];
         $fieds_array = array(
             'salutation_id' => $_REQUEST['salutation'],
             'name' => $_REQUEST['name'],
