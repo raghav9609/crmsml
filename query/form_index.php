@@ -341,6 +341,13 @@
                                     <input type="text" class="text city_search form-control alpha-num" name="city_name" maxlength="30" id="city_id" value="<?php echo $city_name;?>" required/>
                                     <label for="city_id" class="label-tag">Residential City </label>
                                 </div>
+
+                                <div class="form-group col-xl-2 col-lg-4 col-md-6">
+                                    <span class="fa-icon fa-building"></span>
+                                    <textarea name="residence_address" class="text valid form-control" id="residence_address" maxlength="200" <?php if(in_array($loan_type,array(71,11,57,63))){echo "required";} ?>><?php echo $residence_address ;?></textarea>
+                                    <label for="residence_address" class="label-tag <?php if(!in_array($loan_type,array(71,11,57,63))){echo "optional-tag";} ?>">Residence Address</label>
+                                </div>
+
                             
                             </div>
                   
