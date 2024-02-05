@@ -15,9 +15,11 @@ $replytomail = array();
 $cctomail = $cc_email;
 mailSend($recep_mail,$cctomail,$replytomail,$subject,htmlspecialchars_decode($description));
 }
-header("Location:query/index.php");
 ?>       
- 
+ <script>
+window.location.href = head_url+"/query";
+
+ </script>
         
                                          
 	
