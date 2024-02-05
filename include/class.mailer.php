@@ -1,6 +1,7 @@
 <?php
 echo $php_mailer_added = 1;
 require_once(dirname(__FILE__) . '/PHPMailer/PHPMailerAutoload.php');
+echo "2";
 function mailSend($recepitientMail,$ccMail,$replyMail,$subject,$body){
 		$mail = new PHPMailer();
 			$mail->SMTPOptions = array(
@@ -39,4 +40,6 @@ function mailSend($recepitientMail,$ccMail,$replyMail,$subject,$body){
 		}
 		echo $message;
 }
+
+echo "sdfsdf";
 ?>
