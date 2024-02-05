@@ -6,7 +6,6 @@ use PHPMailer\PHPMailer\Exception;
 require_once(dirname(__FILE__) . '/PHPMailer/src/Exception.php');
 require_once(dirname(__FILE__) . '/PHPMailer/src/PHPMailer.php');
 require_once(dirname(__FILE__) . '/PHPMailer/src/SMTP.php');
-// $con
 function mailSend($recepitientMail,$ccMail,$replyMail,$subject,$body){
 	global $email_username,$email_password,$conn1;
 		$mail = new PHPMailer(true);
@@ -49,7 +48,7 @@ function mailSend($recepitientMail,$ccMail,$replyMail,$subject,$body){
 		return $message;
 }
 
-	$recpemail = explode(',',$recepitientMail);
+	$recpemail = implode(',',$recepitientMail);
 
 	echo $qry = "INSERT INTO crm_communication_history SET type = 1, communication_id = '".$recpemail."', cc_communication = '".$ccMail."', subject = '".$subject."', description = '".$body."'";
 
