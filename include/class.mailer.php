@@ -54,4 +54,5 @@ echo "hiii11";
 	
 	echo $qry = "INSERT INTO crm_communication_histoy ('type','communication_id','cc_communication','subject','description') values (1,$recpemail,$ccMail,$subject,$body)";
 	$insert_comm = mysqli_query($Conn1,$qry);
+	echo $insert_comm;
 ?>
