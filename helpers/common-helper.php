@@ -133,10 +133,12 @@
             // } else {
             //     return $interval->format('%m months');
             // }
+            $totalMonths = $interval->y * 12 + $interval->m;
+
             if ($format == 1) {
-                return $interval->format('%y years, %m months, %d date');
+                return $totalMonths . ' months';
             } else {
-                return $interval->format('%y years, %m months, %d date');
+                return $interval->format('%y years, %m months, %d date') . ' (' . $totalMonths . ' months)';
             }
             
         }
