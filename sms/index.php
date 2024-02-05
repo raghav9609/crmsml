@@ -43,7 +43,7 @@ var temp_id = $( "#template" ).val() ;
 
          <td><select name="template" id="template" onchange="myMail_function(this.value);">
                     <option value="">Select template</option>
-                <?php $sql_mail = "Select id,template_name from crm_communication_template where is_active = 1 and type =1 order by id";
+                <?php $sql_mail = "Select id,template_name from crm_communication_template where is_active = 1 and type =2 order by id";
                $qry_mail = mysqli_query($Conn1,$sql_mail) or die("Error :".mysqli_error($Conn1));
                while($res_mail = mysqli_fetch_array($qry_mail)){
                $temp_id = $res_mail['id'];
@@ -53,16 +53,8 @@ var temp_id = $( "#template" ).val() ;
               } ?>
             </select>       
     </td>
-<td>Subject:- </td><td colspan="5" width="26%">
-  <input type="text" name="subject" id="subject" Placeholder="Subject" size="50" value=""/>
-</td></tr>
+</tr>
 <tr>
-    
-    <td><span class="bodytext">Recipient Email-id  </span> </td>
-     <td> <input type="text"  name="recipient_email" id="recipient_email" value=""/></td>
-     <td><span class="bodytext">CC Email-id </span> </td>
-        <td> <input type="text" name="cc_recipient_email" id="cc_recipient_email" value="" /></td>
- </tr>
 </tr> 
 <tr>
 <td>Description:- </td>

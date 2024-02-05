@@ -23,8 +23,8 @@ function mailSend($recepitientMail,$ccMail,$replyMail,$subject,$body){
 		$mail->Host = 'smtp.gmail.com';
 		//$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
 		$mail->Port = 465;
-		$mail->Username = 'care@switchmyloan.in';
-			$mail->Password = 'SML2023@123';
+		$mail->Username = 'mycrm@switchmyloan.in';
+			$mail->Password = 'ulri evon jayg hxem';
 		foreach($recepitientMail as $recptomail){
 			$mail->AddAddress($recptomail);
 		} 
