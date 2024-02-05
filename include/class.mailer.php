@@ -35,11 +35,10 @@ function mailSend($recepitientMail,$ccMail,$replyMail,$subject,$body){
         $mail->Body = $body;
         $mail->IsHTML(true);	
 		if($mail->Send()){
-			$message = "Message has been sent";
+			echo $message = "Message has been sent";
 		}else{
-			$message = "Not sent";
+			echo $message = "Not sent";
 		}
-		$insert = mysqli_query($Conn1,"insert into crm_mail_send_history set email_to = '".implode(',',$recepitientMail)."',cc_email='".implode(',',$ccMail)."',reply_email='".implode(',',$replyMail)."',subject='".base64_encode($subject)."',mail_body='".base64_encode($body)."',sender_email='info@myloancareindia.in',date=NOW(),status_from_mailer='".$message."'");
 		return $message;
 }
 ?>
