@@ -1,17 +1,12 @@
 <?php
-echo "hiii";
-exit();
 $no_head = 1;
 $city_id = 0;
 if($_REQUEST['term'] != ''){
-    echo $searchTerm = $_REQUEST['term'];
-    exit();
     require_once(dirname(__FILE__) . '/../config/config.php');
 	require_once(dirname(__FILE__) . '/../model/queryHelper.php');
-    echo $searchTerm = $_REQUEST['term'];
+    $searchTerm = $_REQUEST['term'];
     $get_query   = new queryModel();
-    $qry        = $get_query->getCityRecord($searchTerm);
-    echo $qry;
+    echo $qry        = $get_query->getCityRecord($searchTerm);
     $db_handle  = new DBController();
     $data       = $db_handle->runQuery($qry);
 
