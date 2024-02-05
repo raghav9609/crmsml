@@ -1,6 +1,4 @@
 <?php
-echo "Hellllloooooooo";      
-
 require_once(dirname(__FILE__) . '/../config/session.php');
 echo "Hellllloooooooo";      
 
