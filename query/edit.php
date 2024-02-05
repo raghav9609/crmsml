@@ -112,6 +112,7 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
     $ccweget = dateDiff($curDate,$result_cust_data['cur_comp_wrk_exp'],1);
     $ccwe = $result_cust_data['cur_comp_wrk_exp'];
     $twe = $result_cust_data['totl_wrk_exp'];
+    $tweget = dateDiff($curDate,$result_cust_data['totl_wrk_exp'],1);
     $salary_pay_id = $result_cust_data['salary_pay_id'];
     $pin_code = $result_cust_data['pincode'];
 
