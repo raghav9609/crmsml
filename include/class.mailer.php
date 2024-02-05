@@ -17,7 +17,7 @@ function mailSend($recepitientMail,$ccMail,$replyMail,$subject,$body){
         $mail->SMTPSecure = 'tls'; // secure transfer enabled REQUIRED for GMail
 			$mail->Host = 'smtp.gmail.com';
 			$mail->Port = 465;
-			$mail->Username = 'Care@switchmyloan.in';
+			$mail->Username = 'care@switchmyloan.in';
 			$mail->Password = 'SML2023@123';
 		
 		foreach($recepitientMail as $recptomail){
