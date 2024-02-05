@@ -1,6 +1,6 @@
 <?php
 $php_mailer_added = 1;
-require_once "PHPMailer/PHPMailerAutoload.php";
+require_once(dirname(__FILE__) . '/PHPMailer/PHPMailerAutoload.php');
 function mailSend($recepitientMail,$ccMail,$replyMail,$subject,$body){
 	global $Conn1;
 		$mail = new PHPMailer();
