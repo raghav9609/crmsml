@@ -1,5 +1,5 @@
 <?php
-//require_once(dirname(__FILE__) . '/../config/session.php');
+require_once(dirname(__FILE__) . '/../config/session.php');
 //require_once(dirname(__FILE__) . '/../config/config.php');
 require_once "../include/class.mailer.php";
 echo "Hellllloooooooo";      
@@ -14,7 +14,7 @@ if($email != ''){
 $recep_mail = $email;
 $replytomail = array();
 $cctomail = $cc_email;
-mailSend($recep_mail,$cctomail,$replytomail,$subject,htmlspecialchars_decode($description));
+//mailSend($recep_mail,$cctomail,$replytomail,$subject,htmlspecialchars_decode($description));
 }
 
 
