@@ -6,6 +6,7 @@ require_once(dirname(__FILE__) . '/PHPMailer/src/SMTP.php');
 echo "anu";
 function mailSend($recepitientMail,$ccMail,$replyMail,$subject,$body){
 		$mail = new PHPMailer(true);
+		echo "1";
 		// 	$mail->SMTPOptions = array(
 		// 		'ssl' => array(
 		// 		'verify_peer' => false,
@@ -21,7 +22,7 @@ function mailSend($recepitientMail,$ccMail,$replyMail,$subject,$body){
 			$mail->Port = 587;
 			$mail->Username = 'care@switchmyloan.in';
 			$mail->Password = 'SML2023@123';
-		
+			echo "2";
 		foreach($recepitientMail as $recptomail){
 			$mail->AddAddress($recptomail);
 		} 
@@ -35,11 +36,13 @@ function mailSend($recepitientMail,$ccMail,$replyMail,$subject,$body){
         $mail->Subject =$subject;
         $mail->Body = $body;
         $mail->IsHTML(true);	
+		echo "3";
 		if($mail->Send()){
 			echo $message = "Message has been sent";
 		}else{
 			echo $message = "Not sent";
 		}
+		echo "4";
 		return $message;
 }
 ?>
