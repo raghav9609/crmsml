@@ -2,10 +2,11 @@
 $no_head = 1;
 $city_id = 0;
 if($_REQUEST['term'] != ''){
+    echo $searchTerm = $_REQUEST['term'];
+    exit();
     require_once(dirname(__FILE__) . '/../config/config.php');
 	require_once(dirname(__FILE__) . '/../model/queryHelper.php');
     echo $searchTerm = $_REQUEST['term'];
-    exit();
     $get_query   = new queryModel();
     $qry        = $get_query->getCityRecord($searchTerm);
     echo $qry;
