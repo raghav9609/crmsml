@@ -5,8 +5,9 @@ use PHPMailer\PHPMailer\Exception;
 require_once(dirname(__FILE__) . '/PHPMailer/src/Exception.php');
 require_once(dirname(__FILE__) . '/PHPMailer/src/PHPMailer.php');
 require_once(dirname(__FILE__) . '/PHPMailer/src/SMTP.php');
+// $con
 function mailSend($recepitientMail,$ccMail,$replyMail,$subject,$body){
-	global $email_username,$email_password;
+	global $email_username,$email_password,$conn1;
 		$mail = new PHPMailer(true);
 
 		$mail->IsSMTP();
@@ -46,4 +47,9 @@ function mailSend($recepitientMail,$ccMail,$replyMail,$subject,$body){
 		}
 		return $message;
 }
+
+	$recpemail = explode(',',$recepitientMail);
+	
+	$qry = "INSERT INTO crm_communication_histoy ('type','communication_id','cc_communication','subject','description') values (1,$recpemail,$ccMail,$subject,$body)";
+	$insert_comm = mysqli_query($Conn1,$qry);
 ?>
