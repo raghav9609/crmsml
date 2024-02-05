@@ -342,11 +342,11 @@
                                     <label for="city_id" class="label-tag">Residential City </label>
                                 </div>
 
-                                <div class="form-group col-xl-2 col-lg-4 col-md-6">
+                                <!-- <div class="form-group col-xl-2 col-lg-4 col-md-6">
                                     <span class="fa-icon fa-building"></span>
                                     <textarea name="address" class="text valid form-control" id="address" maxlength="200" <?php if(in_array($loan_type,array(71,11,57,63))){echo "required";} ?>><?php echo $res_addrs ;?></textarea>
                                     <label for="address" class="label-tag <?php if(!in_array($loan_type,array(71,11,57,63))){echo "optional-tag";} ?>">Residence Address</label>
-                                </div>
+                                </div> -->
 
                             
                             </div>
