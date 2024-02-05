@@ -37,8 +37,6 @@ function mailSend($recepitientMail,$ccMail,$replyMail,$subject,$body){
 		}else{
 			echo $message = "Not sent";
 		}
-		echo $message;
+		return $message;
 }
-
-echo "sdfsdf";
 ?>
