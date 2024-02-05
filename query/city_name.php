@@ -1,4 +1,6 @@
 <?php
+echo "hiii";
+exit();
 $no_head = 1;
 $city_id = 0;
 if($_REQUEST['term'] != ''){
