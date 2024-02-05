@@ -1,4 +1,5 @@
 <?php
+echo "hiii";
 $php_mailer_added = 1;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
