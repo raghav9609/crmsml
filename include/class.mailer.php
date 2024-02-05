@@ -12,7 +12,7 @@ function mailSend($recepitientMail,$ccMail,$replyMail,$subject,$body){
 		$mail->CharSet = "utf-8";// set charset to utf8
         $mail->SMTPDebug = 2; 
         $mail->SMTPAuth = true; // authentication enabled
-        $mail->SMTPSecure = 'tls'; // secure transfer enabled REQUIRED for GMail
+        $mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for GMail
 		$mail->SMTPOptions = array(
 			'ssl' => array(
 			'verify_peer' => false,
@@ -21,7 +21,7 @@ function mailSend($recepitientMail,$ccMail,$replyMail,$subject,$body){
 		)
 	);	
 		$mail->Host = 'smtp.gmail.com';
-		$mail->Port = 465;
+		$mail->Port = 587;
 		$mail->Username = 'raghav9609@gmail.com';
 			$mail->Password = 'SMedia@2076';
 		foreach($recepitientMail as $recptomail){
