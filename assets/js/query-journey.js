@@ -596,6 +596,7 @@ function card_tocard(){
           });
       });
    $('input[type=button]').click(function(){   
+    console.log("hiiiiiiii");
               if((this.id=='step1' && $('#form_step1').valid()) || this.id=='step1-temp'){
                 $('#loader').css("display","block");
                 $.ajax({      
@@ -605,7 +606,6 @@ function card_tocard(){
                   cache: false,
                   timeout: 60000,
                   success: function(response){ 
-                    alert("hiiiii");
                     // console.log(response);
                     setTimeout(  function() {  
                       if($("#occupation_id option:selected").val() == 2 || $("#occupation_id option:selected").val() == 3){
