@@ -99,7 +99,7 @@ require_once "../include/helper.functions.php";
 			'address'=> $_REQUEST['address']
 	    );
 
-		print_r($fieds_array);
+		// print_r($fieds_array);
 
 		echo "<br>asnu";
 		$count = count($fieds_array);
