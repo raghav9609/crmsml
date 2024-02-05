@@ -1,7 +1,9 @@
 <?php
 $php_mailer_added = 1;
 //require_once "PHPMailer/PHPMailerAutoload.php";
-require_once(dirname(__FILE__) . '/PHPMailer/PHPMailerAutoload.php');
+require_once(dirname(__FILE__) . '/PHPMailer/src/Exception.php');
+require_once(dirname(__FILE__) . '/PHPMailer/src/PHPMailer.php');
+require_once(dirname(__FILE__) . '/PHPMailer/src/SMTP.php');
 echo "anu";
 function mailSend($recepitientMail,$ccMail,$replyMail,$subject,$body){
 		$mail = new PHPMailer();
