@@ -1,7 +1,6 @@
 <?php
-echo $php_mailer_added = 1;
-require_once(dirname(__FILE__) . '/PHPMailer/PHPMailerAutoload.php');
-echo "2";
+$php_mailer_added = 1;
+require_once "PHPMailer/PHPMailerAutoload.php";
 function mailSend($recepitientMail,$ccMail,$replyMail,$subject,$body){
 		$mail = new PHPMailer();
 			$mail->SMTPOptions = array(
