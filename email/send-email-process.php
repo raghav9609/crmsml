@@ -1,4 +1,5 @@
 <?php
+require_once(dirname(__FILE__) . '/../include/constant.php');
 require_once(dirname(__FILE__) . '/../config/session.php');
 require_once(dirname(__FILE__) . '/../config/config.php');
 require_once(dirname(__FILE__) . '/../include/class.mailer.php');
