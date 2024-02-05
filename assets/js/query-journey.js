@@ -605,12 +605,13 @@ function card_tocard(){
                   cache: false,
                   timeout: 60000,
                   success: function(response){ 
-                    alert(response);
-                    console.log(response);
+                    // alert(response);
+                    // console.log(response);
                     setTimeout(  function() {  
                       if($("#occupation_id option:selected").val() == 2 || $("#occupation_id option:selected").val() == 3){
                         $("#net_month_inc").val(($("#gross_annual_receipt").val()/12));
-                      }                                    
+                      }          
+                      console.log(response);                          
                       console.log("success from step 1");
                       $('#loader').css("display","none");
                       verticalToggle('step1');
