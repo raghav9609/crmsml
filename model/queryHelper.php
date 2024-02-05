@@ -45,7 +45,7 @@ class queryModel {
     }
 
     function getCityRecord($city_name){
-        $queryReturn = "SELECT * FROM lms_city WHERE city_name LIKE '".$city_name."%' ORDER BY city_name ASC LIMIT 0, 10";
+        $queryReturn = "SELECT * FROM crm_master_city WHERE city_name LIKE '".$city_name."%' ORDER BY city_name ASC LIMIT 0, 10";
         return $queryReturn;
     }
 
