@@ -7,6 +7,7 @@ if($_REQUEST['term'] != ''){
     $searchTerm = $_REQUEST['term'];
     $get_query   = new queryModel();
     $qry        = $get_query->getCityRecord($searchTerm);
+    echo $qry;
     $db_handle  = new DBController();
     $data       = $db_handle->runQuery($qry);
 
