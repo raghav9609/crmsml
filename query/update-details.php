@@ -73,6 +73,7 @@ require_once "../include/helper.functions.php";
 		$detcur = "-".$curexp." Months";
 		$curwrkexp = date("Y-m-d",strtotime($detcur));
 		$ttlwrkexp = date("Y-m-d",strtotime($ttlexp));
+		// echo ":hiiiiiiii".$_REQUEST['address'];
         $fieds_array = array(
             'salutation_id' => $_REQUEST['salutation'],
             'name' => $_REQUEST['name'],
@@ -94,8 +95,11 @@ require_once "../include/helper.functions.php";
 			'mode_of_salary' => $_REQUEST['slry_paid'],
 			'pincode' => $_REQUEST['pin_code'],
 			'current_work_exp'=> $curwrkexp,
-			'total_work_exp'=> $ttlwrkexp
+			'total_work_exp'=> $ttlwrkexp,
+			'address'=> $_REQUEST['address']
 	    );
+
+		print_r($fieds_array);
 
 		echo "<br>asnu";
 		$count = count($fieds_array);
