@@ -596,7 +596,7 @@ function card_tocard(){
           });
       });
    $('input[type=button]').click(function(){   
-    console.log("hiiiiiiii");
+    // console.log("hiiiiiiii");
               if((this.id=='step1' && $('#form_step1').valid()) || this.id=='step1-temp'){
                 $('#loader').css("display","block");
                 $.ajax({      

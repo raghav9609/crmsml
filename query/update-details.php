@@ -12,7 +12,7 @@ require_once "../include/helper.functions.php";
 		$comp_name_other = $comp_id = $hospital_name = $main_comp_category = $sub_comp_category = $sub_sub_comp_category = $state_comp_category = '';
 		
 		$get_company_name = $_REQUEST['comp_name'];
-		$get_comp_id = get_name('company',$get_company_name);
+		
 		$get_city_id = data_search('city');
 
 		$city = searchValue($_REQUEST['city_name'],'city_name', $get_city_id);
@@ -84,7 +84,7 @@ require_once "../include/helper.functions.php";
             'email_id' => $_REQUEST['email'],
             'marital_status_id' => $_REQUEST['maritalstatus'],
             'occupation_id' => $_REQUEST['occupation_id'],
-            'company_id' => $get_comp_id,
+            'company_id' => $comp_id,
             'company_name' => $get_company_name,
             'net_income' => $net_income,
             'salary_bank_id' => $_REQUEST['main_acc'],
