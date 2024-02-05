@@ -25,12 +25,11 @@ function mailSend($recepitientMail,$ccMail,$replyMail,$subject,$body){
 		} 
 		foreach($ccMail as $cctomail){
 			$mail->AddCC($cctomail);
-		}$mail->AddBCC("dump@myloancareindia.in");
+		}
 		foreach($replyMail as $replytomail){
 			$mail->AddReplyTO($replytomail);
 		}
-		//$mail->AddBCC("sumit@myloancareindia.in");
-		$mail->SetFrom('info@myloancaremail.in', 'MyLoanCare');
+		$mail->SetFrom('care@switchmyloan.in', 'SwitchMyLoan');
         $mail->Subject =$subject;
         $mail->Body = $body;
         $mail->IsHTML(true);	
