@@ -11,10 +11,11 @@ $sender_email = $_REQUEST['sender_email'];
 $subject = $_REQUEST['subject'];									
 $description = $_REQUEST['description'];
 $temp_id = $_REQUEST['template'];											
-$query_id = $_REQUEST['query_id'];       
+$query_id = $_REQUEST['query_id']; 
+echo "Hellllloooooooo";      
 if($email != ''){
 
-    echo "Hellllloooooooo";
+    
 $recep_mail = $email;
 $replytomail = array();
 $cctomail = $cc_email;
