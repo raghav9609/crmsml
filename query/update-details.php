@@ -73,7 +73,7 @@ require_once "../include/helper.functions.php";
 		$detcur = "-".$curexp." Months";
 		$curwrkexp = date("Y-m-d",strtotime($detcur));
 		$ttlwrkexp = date("Y-m-d",strtotime($ttlexp));
-		echo ":hiiiiiiii".$_REQUEST['address'];
+		// echo ":hiiiiiiii".$_REQUEST['address'];
         $fieds_array = array(
             'salutation_id' => $_REQUEST['salutation'],
             'name' => $_REQUEST['name'],
@@ -98,6 +98,8 @@ require_once "../include/helper.functions.php";
 			'total_work_exp'=> $ttlwrkexp,
 			'address'=> $_REQUEST['address']
 	    );
+
+		print_r($fieds_array);
 
 		echo "<br>asnu";
 		$count = count($fieds_array);
