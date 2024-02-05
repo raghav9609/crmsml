@@ -9,6 +9,7 @@ require_once(dirname(__FILE__) . "/../include/display-name-functions.php");
 require_once "../include/helper.functions.php";
 
 	if($_REQUEST['step'] == 1){
+		$comp_name_other = $comp_id = $hospital_name = $main_comp_category = $sub_comp_category = $sub_sub_comp_category = $state_comp_category = '';
 		
 		$get_company_name = $_REQUEST['comp_name'];
 		$get_city_id = data_search('city');
@@ -20,7 +21,7 @@ require_once "../include/helper.functions.php";
 			$work_city = searchValue($_REQUEST['work_city'],'city_name', $get_city_id);
 		}
 
-		$comp_name_other = $comp_id = $hospital_name = $main_comp_category = $sub_comp_category = $sub_sub_comp_category = $state_comp_category = '';
+		
 		
 	// $comp_id_qry = mysqli_query($Conn1,"select comp_id,group_id,main_company_id from pl_company where comp_name = '".mysqli_real_escape_string($Conn1,$get_company_name)."'  and is_removed = 0");
     // if(mysqli_num_rows($comp_id_qry) > 0){
