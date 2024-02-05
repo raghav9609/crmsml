@@ -13,6 +13,8 @@ $description = $_REQUEST['description'];
 $temp_id = $_REQUEST['template'];											
 $query_id = $_REQUEST['query_id'];       
 if($email != ''){
+
+    echo "Hellllloooooooo";
 $recep_mail = $email;
 $replytomail = array();
 $cctomail = $cc_email;
