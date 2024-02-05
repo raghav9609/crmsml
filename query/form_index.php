@@ -95,6 +95,18 @@
         // }else{
         //     $loan_obj = new loan_filtering($phone, $loan_type, $occup, $net_incm, $loan_amt, $fil_city_id, $pin_code, $annual_turnover_num,$comp_id,$loan_in_past,$main_account,$loan_in_past,$comp_name,$diff,$cibil_score);
         // }
+        $ccwe = isset($_POST['ccwe']) ? $_POST['ccwe'] : '';
+
+        if (!empty($ccwe)) {
+            $startDate = new DateTime($ccwe);
+            $endDate = new DateTime(); // current date
+            $interval = $startDate->diff($endDate);
+            
+            // Display the difference in months
+            $monthsDiff = $interval->y * 12 + $interval->m;
+            
+            // echo "Current Work Experience: " . $monthsDiff . " months";
+        }
         
         ?>
     </div>
@@ -310,7 +322,7 @@
                                 </div>
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
                                     <span class="fa-icon fa-briefcase"></span>
-                                    <input type="tel" class="text form-control numonly" name="ccwe" id="ccwe"  maxlength="4" required value="<?php echo (trim($ccwe) == 0) ? "" : $ccwe; ?>" />
+                                    <input type="tel" class="text form-control numonly" name="ccwe" id="ccwe"  maxlength="4" required value="<?php echo (trim($ccwe) == 0) ? "" : $monthsDiff; ?>" />
                                     <label for="ccwe" class="label-tag">Current Work Exp (In months)</label>
                                 </div>
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
