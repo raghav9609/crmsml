@@ -105,8 +105,8 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
     $ofc_pincode = $result_cust_data['ofc_pincode'];
     $ofc_email = $result_cust_data['ofc_email'];
     $work_city = $result_cust_data['work_city'];
-    $maritalstatus = $result_cust_data['maritalstatus'];
-   echo "hii".$ofc_city_name = get_display_name("city_name", $work_city);
+    echo "hii".$maritalstatus = $result_cust_data['maritalstatus'];
+    $ofc_city_name = get_display_name("city_name", $work_city);
     $curDate = currentDate();
     $result_cust_data['cur_comp_wrk_exp'];
     $ccweget = dateDiff($curDate,$result_cust_data['cur_comp_wrk_exp'],1);
