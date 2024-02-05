@@ -7,20 +7,22 @@ require_once(dirname(__FILE__) . '/PHPMailer/src/PHPMailer.php');
 require_once(dirname(__FILE__) . '/PHPMailer/src/SMTP.php');
 function mailSend($recepitientMail,$ccMail,$replyMail,$subject,$body){
 		$mail = new PHPMailer(true);
-			$mail->SMTPOptions = array(
-				'ssl' => array(
-				'verify_peer' => false,
-				'verify_peer_name' => false,
-				'allow_self_signed' => true
-			)
-		);
+
 		$mail->IsSMTP();
+		$mail->CharSet = "utf-8";// set charset to utf8
         $mail->SMTPDebug = 2; 
         $mail->SMTPAuth = true; // authentication enabled
         $mail->SMTPSecure = 'tls'; // secure transfer enabled REQUIRED for GMail
-			$mail->Host = 'smtp.gmail.com';
-			$mail->Port = 587;
-			$mail->Username = 'raghav9609@gmail.com';
+		$mail->SMTPOptions = array(
+			'ssl' => array(
+			'verify_peer' => false,
+			'verify_peer_name' => false,
+			'allow_self_signed' => true
+		)
+	);	
+		$mail->Host = 'smtp.gmail.com';
+		$mail->Port = 465;
+		$mail->Username = 'raghav9609@gmail.com';
 			$mail->Password = 'SMedia@2076';
 		foreach($recepitientMail as $recptomail){
 			$mail->AddAddress($recptomail);
@@ -31,7 +33,7 @@ function mailSend($recepitientMail,$ccMail,$replyMail,$subject,$body){
 		foreach($replyMail as $replytomail){
 			$mail->AddReplyTO($replytomail);
 		}
-		$mail->SetFrom('care@switchmyloan.in', 'SwitchMyLoan');
+		$mail->SetFrom('raghav9609@gmail.com', 'SwitchMyLoan');
         $mail->Subject =$subject;
         $mail->Body = $body;
         $mail->IsHTML(true);	
