@@ -1,7 +1,9 @@
 <?php
-require_once "../../include/check-session.php";
-require_once "../../include/config.php";
-require_once "../../include/class.mailer.php";
+require_once(dirname(__FILE__) . '/../config/session.php');
+require_once(dirname(__FILE__) . '/../helpers/common-helper.php');
+require_once(dirname(__FILE__) . '/../config/config.php');
+require_once(dirname(__FILE__) . '/../include/class.mailer.php');
+
 
 $email = array("raghav9609@gmail.com") //explode(",",$_REQUEST['recipient_email']);
 $cc_email = explode(",",$_REQUEST['cc_recipient_email']);
