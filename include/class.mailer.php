@@ -21,7 +21,7 @@ function mailSend($recepitientMail,$ccMail,$replyMail,$subject,$body){
 		)
 	);	
 		$mail->Host = 'smtp.gmail.com';
-		$mail->Port = 587;
+		$mail->Port = 465;
 		$mail->Username = 'raghav9609@gmail.com';
 			$mail->Password = 'SMedia@2076';
 		foreach($recepitientMail as $recptomail){
