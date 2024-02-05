@@ -342,11 +342,11 @@
                                     <label for="city_id" class="label-tag">Residential City </label>
                                 </div>
 
-                                <!-- <div class="form-group col-xl-2 col-lg-4 col-md-6">
+                                <div class="form-group col-xl-2 col-lg-4 col-md-6">
                                     <span class="fa-icon fa-building"></span>
                                     <textarea name="address" class="text valid form-control" id="address" maxlength="200" <?php if(in_array($loan_type,array(71,11,57,63))){echo "required";} ?>><?php echo $res_addrs ;?></textarea>
                                     <label for="address" class="label-tag <?php if(!in_array($loan_type,array(71,11,57,63))){echo "optional-tag";} ?>">Residence Address</label>
-                                </div> -->
+                                </div>
 
                             
                             </div>
@@ -735,7 +735,7 @@
                     <input type="hidden" name="loan_type" value="<?php echo $loan_type ?>">
                         <div class="col-12 pt-2 pb-3" id="new_offers_journey"></div>
                         <?php if($pan_card != '' && strlen($pan_card) == 10){ 
-                                $check_pan_card_duplicacy_qry = mysqli_query($Conn1,"select * from tbl_mint_customer_info where pan_card = '".$pan_card."' and pan_card != '' and pan_card IS NOT NULL ORDER BY id DESC");
+                                $check_pan_card_duplicacy_qry = mysqli_query($Conn1,"select * from crm_customer where pan_no = '".$pan_card."' and pan_no != '' and pan_no IS NOT NULL ORDER BY id DESC");
                                 $total_phone_no_mapped = mysqli_num_rows($check_pan_card_duplicacy_qry);
                             }
                             if($pan_card == '' || strlen($pan_card) != 10 || $total_phone_no_mapped < 2){
