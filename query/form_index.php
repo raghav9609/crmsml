@@ -95,8 +95,8 @@
         // }else{
         //     $loan_obj = new loan_filtering($phone, $loan_type, $occup, $net_incm, $loan_amt, $fil_city_id, $pin_code, $annual_turnover_num,$comp_id,$loan_in_past,$main_account,$loan_in_past,$comp_name,$diff,$cibil_score);
         // }
-        echo $$ccwe;
-        echo $twe;
+        echo "cur".$ccwe;
+        echo "total".$twe;
         
         ?>
     </div>
