@@ -1,45 +1,45 @@
 <script src="<?php echo $head_url; ?>/assets/js/jquery-1.3.2.min.js" type="text/javascript"></script>
 <script>
-$(function() {  
+// $(function() {  
 //   $('#new_pan_card').on('focusout', function () {
 //     	    if($('#new_pan_card').val() != ''){
 // 					    $("#pan_ver_clck").removeClass("hidden");
 //     	    }
 //     });
     
-$("#pin_code").on("focusout",function(){ 
-    var pincode = $("#pin_code").val();
-      $.ajax({
-            data: "pincode="+pincode,
-            type: "POST",
-            url: "<?php echo $head_url;?>/include/get-city.php",
-            success:function(data){
-                if(data != ''){
-                    var element = data.split("@#");
-                 $("#city_id").val(element[0]);
-                 $("#state").val(element[1]);
-                }
-            }
-        });
+// $("#pin_code").on("focusout",function(){ 
+//     var pincode = $("#pin_code").val();
+//       $.ajax({
+//             data: "pincode="+pincode,
+//             type: "POST",
+//             url: "<?php echo $head_url;?>/include/get-city.php",
+//             success:function(data){
+//                 if(data != ''){
+//                     var element = data.split("@#");
+//                  $("#city_id").val(element[0]);
+//                  $("#state").val(element[1]);
+//                 }
+//             }
+//         });
         
-});
+// });
 
-    $("#ofc_pincode").on("focusout",function(){
-        var ofc_pincode = $("#ofc_pincode").val();
-        $.ajax({
-            data: "pincode="+ofc_pincode,
-            type: "POST",
-            url: "<?php echo $head_url;?>/include/get-city.php",
-            success:function(data) {
-                if(data != '') {
-                    var element = data.split("@#");
-                    $("#work_city").val(element[0]);
-                }
-            }
-        });    
-    });
+//     $("#ofc_pincode").on("focusout",function(){
+//         var ofc_pincode = $("#ofc_pincode").val();
+//         $.ajax({
+//             data: "pincode="+ofc_pincode,
+//             type: "POST",
+//             url: "<?php echo $head_url;?>/include/get-city.php",
+//             success:function(data) {
+//                 if(data != '') {
+//                     var element = data.split("@#");
+//                     $("#work_city").val(element[0]);
+//                 }
+//             }
+//         });    
+//     });
 
-});
+// });
 
 function suggestion_box(get_val,offers_level_type=0){
     var query_id = $("input[name='final_query_id']").val();
