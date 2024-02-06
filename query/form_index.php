@@ -723,7 +723,10 @@
                                     <label for="credit_card_vintage_fv" class="label-tag">Credit Card Vintage</label>
                                 </div>
 
-                           
+                            <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_card_5 hidden">
+                                <span class="fa-icon fa-sort-numeric-asc"></span>
+                                <input type="tel" class="text form-control numonly " name="query_id" maxlength="6" id="query_id" value="<?php echo $query_id;?>"/>
+                            </div>
                             <div class="text-center col-12 mb-2"><input type="button" class="btn btn-primary" name="edit_temp" id="step2-temp" value="Edit">&nbsp;&nbsp;&nbsp;
                                 <input type="button" class="btn btn-primary" name="submit" id="step2" value="SUBMIT">
                             </div>                        

@@ -233,35 +233,35 @@ require_once "../include/helper.functions.php";
 	// $query_to_update .= "where query_id ='".replace_special($_REQUEST['id'])."'";
 	$update_qry = mysqli_query($Conn1,$query_to_update) or die(mysqli_error($Conn1));
 
-	$update_mint_status = mysqli_query($Conn1,"update tbl_mint_query_status_detail set 
-		date_modified = NOW(),is_nstp = 1 where query_id = ".replace_special($_REQUEST['id'])) or die(mysqli_error($Conn1));	
+	// $update_mint_status = mysqli_query($Conn1,"update tbl_mint_query_status_detail set 
+	// 	date_modified = NOW(),is_nstp = 1 where query_id = ".replace_special($_REQUEST['id'])) or die(mysqli_error($Conn1));	
 
-	if(($_REQUEST['credit_running'] > 0 || $_REQUEST['exis_loans'] > 0) && $_REQUEST['customer_id'] > 0){
-		$check_loans = mysqli_query($Conn1,"select * from tbl_mint_cust_loans where cust_id =".$_REQUEST['customer_id']);
-		$bank_cards = array_filter(array($_REQUEST['credit_bank_id'],$_REQUEST['credit_bank_id_tw'],$_REQUEST['credit_bank_id_th'],$_REQUEST['credit_bank_id_fr'],$_REQUEST['credit_bank_id_fv']));
-		$cards_outstanding = array_filter(array($_REQUEST['current_out_stan_on'],$_REQUEST['current_out_stan_tw'],$_REQUEST['current_out_stan_th'],$_REQUEST['current_out_stan_fr'],$_REQUEST['current_out_stan_fv']));
-		$cards_credit_limit = array_filter(array($_REQUEST['credit_sanction_amt_on'],$_REQUEST['credit_sanction_amt_tw'],$_REQUEST['credit_sanction_amt_th'],$_REQUEST['credit_sanction_amt_fr'],$_REQUEST['credit_sanction_amt_fv']));
+	// if(($_REQUEST['credit_running'] > 0 || $_REQUEST['exis_loans'] > 0) && $_REQUEST['customer_id'] > 0){
+	// 	$check_loans = mysqli_query($Conn1,"select * from tbl_mint_cust_loans where cust_id =".$_REQUEST['customer_id']);
+	// 	$bank_cards = array_filter(array($_REQUEST['credit_bank_id'],$_REQUEST['credit_bank_id_tw'],$_REQUEST['credit_bank_id_th'],$_REQUEST['credit_bank_id_fr'],$_REQUEST['credit_bank_id_fv']));
+	// 	$cards_outstanding = array_filter(array($_REQUEST['current_out_stan_on'],$_REQUEST['current_out_stan_tw'],$_REQUEST['current_out_stan_th'],$_REQUEST['current_out_stan_fr'],$_REQUEST['current_out_stan_fv']));
+	// 	$cards_credit_limit = array_filter(array($_REQUEST['credit_sanction_amt_on'],$_REQUEST['credit_sanction_amt_tw'],$_REQUEST['credit_sanction_amt_th'],$_REQUEST['credit_sanction_amt_fr'],$_REQUEST['credit_sanction_amt_fv']));
 
-		$exist_loans_outstanding = array_filter(array($_REQUEST['cur_out_stand_on'],$_REQUEST['cur_out_stand_tw'],$_REQUEST['cur_out_stand_th'],$_REQUEST['cur_out_stand_fr'],$_REQUEST['cur_out_stand_fv']));
+	// 	$exist_loans_outstanding = array_filter(array($_REQUEST['cur_out_stand_on'],$_REQUEST['cur_out_stand_tw'],$_REQUEST['cur_out_stand_th'],$_REQUEST['cur_out_stand_fr'],$_REQUEST['cur_out_stand_fv']));
 
-		$type_of_loan = array_filter(array($_REQUEST['loan_type_on'],$_REQUEST['loan_type_tw'],$_REQUEST['loan_type_th'],$_REQUEST['loan_type_fr'],$_REQUEST['loan_type_fv']));
-		$exsit_loan_emi = array_filter(array($_REQUEST['emi_loan_on'],$_REQUEST['emi_loan_tw'],$_REQUEST['emi_loan_th'],$_REQUEST['emi_loan_fr'],$_REQUEST['emi_loan_fv']));
-		$exist_bank_is = array_filter(array($_REQUEST['ex_bank_id'],$_REQUEST['ex_bank_id_tw'],$_REQUEST['ex_bank_id_th'],$_REQUEST['ex_bank_id_fr'],$_REQUEST['ex_bank_id_fv']));
+	// 	$type_of_loan = array_filter(array($_REQUEST['loan_type_on'],$_REQUEST['loan_type_tw'],$_REQUEST['loan_type_th'],$_REQUEST['loan_type_fr'],$_REQUEST['loan_type_fv']));
+	// 	$exsit_loan_emi = array_filter(array($_REQUEST['emi_loan_on'],$_REQUEST['emi_loan_tw'],$_REQUEST['emi_loan_th'],$_REQUEST['emi_loan_fr'],$_REQUEST['emi_loan_fv']));
+	// 	$exist_bank_is = array_filter(array($_REQUEST['ex_bank_id'],$_REQUEST['ex_bank_id_tw'],$_REQUEST['ex_bank_id_th'],$_REQUEST['ex_bank_id_fr'],$_REQUEST['ex_bank_id_fv']));
 
-		$no_of_emis_paid = array_filter(array($_REQUEST['no_of_emis_paid_on'], $_REQUEST['no_of_emis_paid_tw'], $_REQUEST['no_of_emis_paid_th'], $_REQUEST['no_of_emis_paid_fr'], $_REQUEST['no_of_emis_paid_fv']));
-		$credit_card_vintage = array_filter(array($_REQUEST['credit_card_vintage_on'], $_REQUEST['credit_card_vintage_tw'], $_REQUEST['credit_card_vintage_th'], $_REQUEST['credit_card_vintage_fr'], $_REQUEST['credit_card_vintage_fv']));
+	// 	$no_of_emis_paid = array_filter(array($_REQUEST['no_of_emis_paid_on'], $_REQUEST['no_of_emis_paid_tw'], $_REQUEST['no_of_emis_paid_th'], $_REQUEST['no_of_emis_paid_fr'], $_REQUEST['no_of_emis_paid_fv']));
+	// 	$credit_card_vintage = array_filter(array($_REQUEST['credit_card_vintage_on'], $_REQUEST['credit_card_vintage_tw'], $_REQUEST['credit_card_vintage_th'], $_REQUEST['credit_card_vintage_fr'], $_REQUEST['credit_card_vintage_fv']));
 
-		if(mysqli_num_rows($check_loans) > 0){
-			$update_query = mysqli_query($Conn1,"update tbl_mint_cust_loans set no_of_credit_card = '".$_REQUEST['credit_running']."',
-				bank_card='".implode('/',$bank_cards)."',sanction_amt_card='".implode('/',$cards_credit_limit)."',cur_out_stan_card='".implode('/',$cards_outstanding)."',no_of_loan ='".$_REQUEST['exis_loans']."',type_of_loan='".implode('/',$type_of_loan)."',bank='".implode('/',$exist_bank_is)."',emi_of_loan='".implode('/',$exsit_loan_emi)."', no_of_emis_paid = '".implode('/', $no_of_emis_paid)."', credit_card_vintage = '".implode('/', $credit_card_vintage)."', cur_out_standing_amt = '".implode('/', $exist_loans_outstanding)."' where cust_id =".$_REQUEST['customer_id']);
-		}else{
-			$update_query = mysqli_query($Conn1,"insert into tbl_mint_cust_loans set no_of_credit_card = '".$_REQUEST['credit_running']."',
-				bank_card='".$bank_cards."',sanction_amt_card='".$cards_credit_limit."',cur_out_stan_card='".$cards_outstanding."', cur_out_standing_amt = '".implode('/', $exist_loans_outstanding)."' ,cust_id =".$_REQUEST['customer_id']);
-		}
-	}else{
-		$update_query = mysqli_query($Conn1,"update tbl_mint_cust_loans set no_of_loan=0,no_of_credit_card = '0',
-				bank_card='',sanction_amt_card='',cur_out_stan_card='' where cust_id =".$_REQUEST['customer_id']);
-	}
+	// 	if(mysqli_num_rows($check_loans) > 0){
+	// 		$update_query = mysqli_query($Conn1,"update tbl_mint_cust_loans set no_of_credit_card = '".$_REQUEST['credit_running']."',
+	// 			bank_card='".implode('/',$bank_cards)."',sanction_amt_card='".implode('/',$cards_credit_limit)."',cur_out_stan_card='".implode('/',$cards_outstanding)."',no_of_loan ='".$_REQUEST['exis_loans']."',type_of_loan='".implode('/',$type_of_loan)."',bank='".implode('/',$exist_bank_is)."',emi_of_loan='".implode('/',$exsit_loan_emi)."', no_of_emis_paid = '".implode('/', $no_of_emis_paid)."', credit_card_vintage = '".implode('/', $credit_card_vintage)."', cur_out_standing_amt = '".implode('/', $exist_loans_outstanding)."' where cust_id =".$_REQUEST['customer_id']);
+	// 	}else{
+	// 		$update_query = mysqli_query($Conn1,"insert into tbl_mint_cust_loans set no_of_credit_card = '".$_REQUEST['credit_running']."',
+	// 			bank_card='".$bank_cards."',sanction_amt_card='".$cards_credit_limit."',cur_out_stan_card='".$cards_outstanding."', cur_out_standing_amt = '".implode('/', $exist_loans_outstanding)."' ,cust_id =".$_REQUEST['customer_id']);
+	// 	}
+	// }else{
+	// 	$update_query = mysqli_query($Conn1,"update tbl_mint_cust_loans set no_of_loan=0,no_of_credit_card = '0',
+	// 			bank_card='',sanction_amt_card='',cur_out_stan_card='' where cust_id =".$_REQUEST['customer_id']);
+	// }
 
 }
 ?>
