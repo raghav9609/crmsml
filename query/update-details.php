@@ -205,6 +205,7 @@ require_once "../include/helper.functions.php";
 		// 'prev_sess_revenue' => $_REQUEST['gross_turnover_prev_sess'],
 		// 'cur_sess_revenue' => $_REQUEST['gross_turnover_curr_sess']
 	// );
+	$currentDateTime = date("Y-m-d H:i:s");
 	$fieds_array = array(
 		'query_id' => $_REQUEST['id'],
 		'No_of_loans' => $_REQUEST['exis_loans'],
@@ -233,6 +234,7 @@ require_once "../include/helper.functions.php";
 		'emi_5' => $_REQUEST['emi_loan_on_5'],
 		'no_of_emi_5' => $_REQUEST['no_of_emis_paid_on_5'],
 		'outstanding_amount_5' => $_REQUEST['cur_out_stand_on_5'],
+		'created_on' => $currentDateTime 
 	);
 	print_r($fieds_array);
 	exit();
