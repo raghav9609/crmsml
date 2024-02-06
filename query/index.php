@@ -399,6 +399,7 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                                     if ($record > 10) {
                                         continue;
                                     }
+                                    print_r($exe_form);
                                     $id = $exe_form['id'];
                                     $loan_amt = $exe_form['loan_amt'];
                                     $query_status = $exe_form['query_status'];
