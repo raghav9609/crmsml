@@ -232,6 +232,10 @@ if (!function_exists('curl_get_helper')) {
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
         curl_setopt($curl, CURLOPT_HTTPHEADER, $header);
         echo $response = curl_exec($curl);
+        if (curl_errno($curl)) {
+            $response = curl_error($curl);
+        }
+        curl_close($curl);
         return $response;
     }
 }
