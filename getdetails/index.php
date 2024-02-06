@@ -9,16 +9,10 @@ $headers = apache_request_headers();
  //$post = file_get_contents('php://input');
 
     $json_data = file_get_contents('php://input');
-    //$string = ''; //your string
-    $json_data = str_replace('\n', '', $json_data);
-    $json_data = rtrim($json_data, ',');
-    $json_data = "[" . trim($json_data) . "]";
-    $json = json_decode($json_data, true);
-    echo gettype($json);
+    
+    echo gettype($json_data);
     $post = json_decode($json_data,true);
 
-    echo "<br>";
-    print_r($post);
 //print_r($post);
 //$decodedText = html_entity_decode($jsonText);
 //$post = json_decode($jsonText, TRUE);
