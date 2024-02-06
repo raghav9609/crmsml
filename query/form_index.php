@@ -598,7 +598,7 @@
                     <!-- Existing Card 1 -->
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_card_1">
                             <span class="fa-icon fa-bank"></span>
-                            <?php echo get_dropdown('13','credit_bank_id',$credit_bank_id,'class="ext_card_1"'); ?>
+                            <?php echo get_dropdown('2','credit_card_bank_name_exi_1'); ?>
                             <label for="credit_bank_id" class="label-tag">Bank</label>
                         </div>
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_card_1">
@@ -624,7 +624,7 @@
                     <!-- Existing Card 2 -->
                     <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_card_2">
                             <span class="fa-icon fa-bank"></span>
-                            <?php echo get_dropdown('13','credit_bank_id_tw',$credit_bank_id_tw,'class="ext_card_2"'); ?>
+                            <?php echo get_dropdown('2','credit_card_bank_name_exi_2'); ?>
                             <label for="credit_bank_id_tw" class="label-tag">Bank</label>
                         </div>
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_card_2">
@@ -651,7 +651,7 @@
                     <!-- Existing Card 3 -->
                     <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_card_3">
                             <span class="fa-icon fa-bank"></span>
-                            <?php echo get_dropdown('13','credit_bank_id_th',$credit_bank_id_th,'class="ext_card_3"'); ?>
+                            <?php echo get_dropdown('2','credit_card_bank_name_exi_3') ?>
                             <label for="credit_bank_id_th" class="label-tag">Bank</label>
                         </div>
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_card_3">
@@ -678,7 +678,7 @@
                     <!-- Existing Card 4 -->
                     <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_card_4">
                             <span class="fa-icon fa-bank"></span>
-                            <?php echo get_dropdown('13','credit_bank_id_fr',$credit_bank_id_fr,'class="ext_card_4"'); ?>
+                            <?php echo get_dropdown('2','credit_card_bank_name_exi_4')?>
                             <label for="credit_bank_id_fr" class="label-tag">Bank</label>
                         </div>
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_card_4">
@@ -705,7 +705,7 @@
                         <!-- Existing Card 5 -->
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_card_5">
                             <span class="fa-icon fa-bank"></span>
-                            <?php echo get_dropdown('13','credit_bank_id_fv',$credit_bank_id_fr,'class="ext_card_5"'); ?>
+                            <?php echo get_dropdown('2','credit_card_bank_name_exi_5')?>
                             <label for="credit_bank_id_fv" class="label-tag">Bank</label>
                         </div>
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_card_5">
