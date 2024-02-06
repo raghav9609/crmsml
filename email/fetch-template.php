@@ -7,7 +7,6 @@ require_once(dirname(__FILE__) . '/../model/queryHelper.php');
 $template = replace_special($_REQUEST['temp']);
 $query_id = replace_special($_REQUEST['query_id']);
 $queryModelExport = new queryModel();
-echo $queryModelExport->fetchQueryData($query_id);
 $getQueryData = $db_handle->runQuery($queryModelExport->fetchQueryData($query_id));
 $getEmailData = $db_handle->runQuery("select * from crm_communication_template where id = ".$template." and is_active =1 and type = 1");
 $cc_email_id = $getQueryData[0]['cc_email_id'];
