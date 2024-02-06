@@ -242,8 +242,7 @@ require_once "../include/helper.functions.php";
 	$main_array = 0;
 	echo $chek_data = "select id from crm_customer_existing_loan_details where query_id ='".$_REQUEST['id']."'";
 	$data_get = mysqli_fetch_array($chek_data);
-	print_r($data_get);
-	echo "1";
+
 	if(!empty($data_get)){
 	$query_to_insert = "Insert into crm_customer_existing_loan_details set ";
 	foreach($fieds_array as $key => $value){
@@ -271,6 +270,7 @@ require_once "../include/helper.functions.php";
 			}
 		} 
 		$query_to_update .= "where query_id ='".replace_special($_REQUEST['id'])."'";
+		echo $query_to_update;
 		$update_qry = mysqli_query($Conn1,$query_to_update);
 	}
 	// $update_mint_status = mysqli_query($Conn1,"update tbl_mint_query_status_detail set 
