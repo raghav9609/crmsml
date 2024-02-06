@@ -440,138 +440,143 @@
                     </div>
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_1">
                             <span class="fa-icon fa-amnt"></span>
-                            <?php echo get_dropdown('1','loan_type_on',$loan_type_on,'class="ext_loan_1"'); ?>
-                            <label for="loan_type_on" class="label-tag">Loan Type</label>
+                            <?php echo get_dropdown('1','loan_type_on_1',$loan_type_on,'class="ext_loan_1"'); ?>
+                            <label for="loan_type_on_1" class="label-tag">Loan Type</label>
                         </div>
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_1">
                             <span class="fa-icon fa-bank"></span>
-                            <?php echo get_dropdown('2','bank_name_exi'); ?>
-                            <label for="ex_bank_id_fr" class="label-tag">Bank</label>
+                            <?php echo get_dropdown('2','bank_name_exi_1'); ?>
+                            <label for="bank_name_exi_1" class="label-tag">Bank</label>
                         </div>
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_1">
                             <span class="fa-icon fa-inr"></span>
-                            <input type="tel" class="text form-control numonly ext_loan_1" name="emi_loan_on" maxlength="10" id="emi_loan_on" value="<?php echo $emi_loan_on == 0?'': $emi_loan_on ;?>"/>
-                            <label for="emi_loan_on" class="label-tag optional-tag">EMI</label>
+                            <input type="tel" class="text form-control numonly ext_loan_1" name="emi_loan_on_1" maxlength="10" id="emi_loan_on_1" value="<?php echo $emi_loan_on == 0?'': $emi_loan_on ;?>"/>
+                            <label for="emi_loan_on_1" class="label-tag optional-tag">EMI</label>
                         </div>
 
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_1">
                             <span class="fa-icon fa-sort-numeric-asc"></span>
-                            <input type="tel" class="text form-control numonly ext_loan_1" name="no_of_emis_paid_on" maxlength="5" id="no_of_emis_paid_on" value="<?php echo ($no_of_emis_paid_on == 0) ? "" : $no_of_emis_paid_on; ?>"/>
-                            <label for="no_of_emis_paid_on" class="label-tag">No. of EMIs Paid</label>
+                            <input type="tel" class="text form-control numonly ext_loan_1" name="no_of_emis_paid_on_1" maxlength="5" id="no_of_emis_paid_on_1" value="<?php echo ($no_of_emis_paid_on == 0) ? "" : $no_of_emis_paid_on; ?>"/>
+                            <label for="no_of_emis_paid_on_1" class="label-tag">No. of EMIs Paid</label>
                         </div>
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_1">
                             <span class="fa-icon fa-inr"></span>
-                            <input type="tel" class="text form-control numonly ext_loan_1" name="cur_out_stand_on" maxlength="10" id="cur_out_stand_on" value="<?php echo $cur_out_stand_on == 0?'': $cur_out_stand_on ;?>"/>
-                            <label for="cur_out_stand_on" class="label-tag optional-tag">Current OutStanding Amt.</label>
+                            <input type="tel" class="text form-control numonly ext_loan_1" name="cur_out_stand_on_1" maxlength="10" id="cur_out_stand_on_1" value="<?php echo $cur_out_stand_on == 0?'': $cur_out_stand_on ;?>"/>
+                            <label for="cur_out_stand_on_1" class="label-tag optional-tag">Current OutStanding Amt.</label>
                         </div>
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_1"></div>
                     <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_2">
                             <span class="fa-icon fa-amnt"></span>
-                            <?php echo get_dropdown('1','loan_type_tw',$loan_type_tw,'class="ext_loan_2"'); ?>
-                            <label for="loan_type_tw" class="label-tag">Loan Type</label>
+                            <?php echo get_dropdown('1','loan_type_on_2',$loan_type_tw,'class="ext_loan_2"'); ?>
+                            <label for="loan_type_on_2" class="label-tag">Loan Type</label>
                         </div>
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_2">
                             <span class="fa-icon fa-bank"></span>
-                            <?php echo get_dropdown('13','ex_bank_id_tw',$ex_bank_id_tw,'class="ext_loan_2"'); ?>
-                            <label for="ex_bank_id_tw" class="label-tag">Bank</label>
+                            <!-- 'class="ext_loan_2"' -->
+                            <?php echo get_dropdown('2','bank_name_exi_2'); ?>
+                            <label for="bank_name_exi_2" class="label-tag">Bank</label>
                         </div>
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_2">
-                                    <span class="fa-icon fa-inr"></span>
-                                    <input type="tel" class="text form-control numonly ext_loan_2" name="emi_loan_tw" maxlength="10" id="emi_loan_tw" value="<?php echo $emi_loan_tw == 0?'': $emi_loan_tw ;?>" />
-                                    <label for="emi_loan_tw" class="label-tag optional-tag">EMI</label>
-                                </div>
+                            <span class="fa-icon fa-inr"></span>
+                            <input type="tel" class="text form-control numonly ext_loan_2" name="emi_loan_on_2" maxlength="10" id="emi_loan_on_2" value="<?php echo $emi_loan_tw == 0?'': $emi_loan_tw ;?>" />
+                            <label for="emi_loan_on_2" class="label-tag optional-tag">EMI</label>
+                        </div>
 
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_2">
                             <span class="fa-icon fa-sort-numeric-asc"></span>
-                            <input type="tel" class="text form-control numonly ext_loan_2" name="no_of_emis_paid_tw" maxlength="5" id="no_of_emis_paid_tw" value="<?php echo ($no_of_emis_paid_tw == 0) ? "" : $no_of_emis_paid_tw; ?>"/>
-                            <label for="no_of_emis_paid_tw" class="label-tag">No. of EMIs Paid</label>
+                            <input type="tel" class="text form-control numonly ext_loan_2" name="no_of_emis_paid_on_2" maxlength="5" id="no_of_emis_paid_on_2" value="<?php echo ($no_of_emis_paid_tw == 0) ? "" : $no_of_emis_paid_tw; ?>"/>
+                            <label for="no_of_emis_paid_on_2" class="label-tag">No. of EMIs Paid</label>
                         </div>
                     <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_2">
                         <span class="fa-icon fa-inr"></span>
-                        <input type="tel" class="text form-control numonly ext_loan_2" name="cur_out_stand_tw" maxlength="10" id="cur_out_stand_tw" value="<?php echo $cur_out_stand_tw == 0?'': $cur_out_stand_tw ;?>"/>
-                        <label for="cur_out_stand_tw" class="label-tag optional-tag">Current OutStanding Amt.</label>
+                        <input type="tel" class="text form-control numonly ext_loan_2" name="cur_out_stand_on_2" maxlength="10" id="cur_out_stand_on_2" value="<?php echo $cur_out_stand_tw == 0?'': $cur_out_stand_tw ;?>"/>
+                        <label for="cur_out_stand_on_2" class="label-tag optional-tag">Current OutStanding Amt.</label>
                     </div>
                     <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_2"></div>
                     <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_3">
                             <span class="fa-icon fa-amnt"></span>
-                            <?php echo get_dropdown('1','loan_type_th',$loan_type_th,'class="ext_loan_3"'); ?>
-                            <label for="loan_type_th" class="label-tag">Loan Type</label>
+                            <?php echo get_dropdown('1','loan_type_on_3',$loan_type_th,'class="ext_loan_3"'); ?>
+                            <label for="loan_type_on_3" class="label-tag">Loan Type</label>
                         </div>
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_3">
                             <span class="fa-icon fa-bank"></span>
-                            <?php echo get_dropdown('13','ex_bank_id_th',$ex_bank_id_th,'class="ext_loan_3"'); ?>
-                            <label for="ex_bank_id_th" class="label-tag">Bank</label>
-                        </div>
-                        <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_3">
-                                    <span class="fa-icon fa-inr"></span>
-                                    <input type="tel" class="text form-control numonly ext_loan_3" name="emi_loan_th" maxlength="10" id="emi_loan_th" value="<?php echo $emi_loan_th == 0?'': $emi_loan_th ;?>"/>
-                                    <label for="emi_loan_th" class="label-tag optional-tag">EMI</label>
-                                </div>
-
-                        <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_3">
-                            <span class="fa-icon fa-sort-numeric-asc"></span>
-                            <input type="tel" class="text form-control numonly ext_loan_3" name="no_of_emis_paid_th" maxlength="5" id="no_of_emis_paid_th" value="<?php echo ($no_of_emis_paid_th == 0) ? "" : $no_of_emis_paid_th; ?>"/>
-                            <label for="no_of_emis_paid_th" class="label-tag">No. of EMIs Paid</label>
+                            <?php echo get_dropdown('2','bank_name_exi_3'); ?>
+                            <label for="bank_name_exi_3" class="label-tag">Bank</label>
                         </div>
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_3">
                             <span class="fa-icon fa-inr"></span>
-                            <input type="tel" class="text form-control numonly ext_loan_3" name="cur_out_stand_th" maxlength="10" id="cur_out_stand_th" value="<?php echo $cur_out_stand_th == 0?'': $cur_out_stand_th ;?>"/>
-                            <label for="cur_out_stand_th" class="label-tag optional-tag">Current OutStanding Amt.</label>
+                            <input type="tel" class="text form-control numonly ext_loan_3" name="emi_loan_on_3" maxlength="10" id="emi_loan_on_3" value="<?php echo $emi_loan_th == 0?'': $emi_loan_th ;?>"/>
+                            <label for="emi_loan_on_3" class="label-tag optional-tag">EMI</label>
+                        </div>
+
+                        <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_3">
+                            <span class="fa-icon fa-sort-numeric-asc"></span>
+                            <input type="tel" class="text form-control numonly ext_loan_3" name="no_of_emis_paid_on_3" maxlength="5" id="no_of_emis_paid_on_3" value="<?php echo ($no_of_emis_paid_th == 0) ? "" : $no_of_emis_paid_th; ?>"/>
+                            <label for="no_of_emis_paid_on_3" class="label-tag">No. of EMIs Paid</label>
+                        </div>
+                        <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_3">
+                            <span class="fa-icon fa-inr"></span>
+                            <input type="tel" class="text form-control numonly ext_loan_3" name="cur_out_stand_on_3" maxlength="10" id="cur_out_stand_on_3" value="<?php echo $cur_out_stand_th == 0?'': $cur_out_stand_th ;?>"/>
+                            <label for="cur_out_stand_on_3" class="label-tag optional-tag">Current OutStanding Amt.</label>
                         </div>
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_3"></div>
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_4">
                             <span class="fa-icon fa-amnt"></span>
-                            <?php echo get_dropdown('1','loan_type_fr',$loan_type_fr,'class="ext_loan_4"'); ?>
-                            <label for="loan_type_fr" class="label-tag">Loan Type</label>
+                            <?php echo get_dropdown('1','loan_type_on_4',$loan_type_fr,'class="ext_loan_4"'); ?>
+                            <label for="loan_type_on_4" class="label-tag">Loan Type</label>
                         </div>
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_4">
                             <span class="fa-icon fa-bank"></span>
-                            <?php echo get_dropdown('13','ex_bank_id_fr',$ex_bank_id_fr,'class="ext_loan_4"'); ?>
-                            <label for="ex_bank_id_fr" class="label-tag">Bank</label>
-                        </div>
-                        <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_4">
-                                    <span class="fa-icon fa-inr"></span>
-                                    <input type="tel" class="text form-control numonly ext_loan_4" name="emi_loan_fr" maxlength="10" id="emi_loan_fr" value="<?php echo $emi_loan_fr == 0?'': $emi_loan_fr ;?>"/>
-                                    <label for="emi_loan_fr" class="label-tag optional-tag">EMI</label>
-                                </div>
-                        
-                        <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_4">
-                            <span class="fa-icon fa-sort-numeric-asc"></span>
-                            <input type="tel" class="text form-control numonly ext_loan_4" name="no_of_emis_paid_fr" maxlength="5" id="no_of_emis_paid_fr" value="<?php echo ($no_of_emis_paid_fr == 0) ? "" : $no_of_emis_paid_fr; ?>"/>
-                            <label for="no_of_emis_paid_fr" class="label-tag">No. of EMIs Paid</label>
+                            <?php echo get_dropdown('2','bank_name_exi_4'); ?>
+                            <label for="bank_name_exi_4" class="label-tag">Bank</label>
                         </div>
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_4">
                             <span class="fa-icon fa-inr"></span>
-                            <input type="tel" class="text form-control numonly ext_loan_4" name="cur_out_stand_fr" maxlength="10" id="cur_out_stand_fr" value="<?php echo $cur_out_stand_fr == 0?'': $cur_out_stand_fr ;?>"/>
-                            <label for="cur_out_stand_fr" class="label-tag optional-tag">Current OutStanding Amt.</label>
+                            <input type="tel" class="text form-control numonly ext_loan_4" name="emi_loan_on_4" maxlength="10" id="emi_loan_on_4" value="<?php echo $emi_loan_fr == 0?'': $emi_loan_fr ;?>"/>
+                            <label for="emi_loan_on_4" class="label-tag optional-tag">EMI</label>
+                        </div>
+                        
+                        <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_4">
+                            <span class="fa-icon fa-sort-numeric-asc"></span>
+                            <input type="tel" class="text form-control numonly ext_loan_4" name="no_of_emis_paid_on_4" maxlength="5" id="no_of_emis_paid_on_4" value="<?php echo ($no_of_emis_paid_fr == 0) ? "" : $no_of_emis_paid_fr; ?>"/>
+                            <label for="no_of_emis_paid_on_4" class="label-tag">No. of EMIs Paid</label>
+                        </div>
+                        <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_4">
+                            <span class="fa-icon fa-inr"></span>
+                            <input type="tel" class="text form-control numonly ext_loan_4" name="cur_out_stand_on_4" maxlength="10" id="cur_out_stand_on_4" value="<?php echo $cur_out_stand_fr == 0?'': $cur_out_stand_fr ;?>"/>
+                            <label for="cur_out_stand_on_4" class="label-tag optional-tag">Current OutStanding Amt.</label>
                         </div>
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_4"></div>
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_5">
                             <span class="fa-icon fa-amnt"></span>
-                            <?php echo get_dropdown('1','loan_type_fv',$loan_type_fv,'class="ext_loan_5"'); ?>
-                            <label for="loan_type_fv" class="label-tag">Loan Type</label>
+                            <?php echo get_dropdown('1','loan_type_on_5',$loan_type_fv,'class="ext_loan_5"'); ?>
+                            <label for="loan_type_on_5" class="label-tag">Loan Type</label>
                         </div>
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_5">
                             <span class="fa-icon fa-bank"></span>
-                            <?php echo get_dropdown('13','ex_bank_id_fv',$ex_bank_id_fv,'class="ext_loan_5"'); ?>
-                            <label for="ex_bank_id_fv" class="label-tag">Bank</label>
-                        </div>
-                        <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_5">
-                                    <span class="fa-icon fa-inr"></span>
-                                    <input type="tel" class="text form-control numonly ext_loan_5" name="emi_loan_fv" maxlength="10" id="emi_loan_fv" value="<?php echo $emi_loan_fv == 0?'': $emi_loan_fv ;?>"/>
-                                    <label for="emi_loan_fv" class="label-tag optional-tag">EMI</label>
-                                </div>
-                        
-                        <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_5">
-                            <span class="fa-icon fa-sort-numeric-asc"></span>
-                            <input type="tel" class="text form-control numonly ext_loan_5" name="no_of_emis_paid_fv" maxlength="5" id="no_of_emis_paid_fv" value="<?php echo ($no_of_emis_paid_fv == 0) ? "" : $no_of_emis_paid_fv; ?>"/>
-                            <label for="no_of_emis_paid_fv" class="label-tag">No. of EMIs Paid</label>
+                            <?php echo get_dropdown('2','bank_name_exi_5');?>
+                            <label for="bank_name_exi_5" class="label-tag">Bank</label>
                         </div>
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_5">
                             <span class="fa-icon fa-inr"></span>
-                            <input type="tel" class="text form-control numonly ext_loan_5" name="cur_out_stand_fv" maxlength="10" id="cur_out_stand_fv" value="<?php echo $cur_out_stand_fv == 0?'': $cur_out_stand_fv ;?>"/>
-                            <label for="cur_out_stand_fv" class="label-tag optional-tag">Current OutStanding Amt.</label>
+                            <input type="tel" class="text form-control numonly ext_loan_5" name="emi_loan_on_5" maxlength="10" id="emi_loan_on_5" value="<?php echo $emi_loan_fv == 0?'': $emi_loan_fv ;?>"/>
+                            <label for="emi_loan_on_5" class="label-tag optional-tag">EMI</label>
                         </div>
+                        
+                        <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_5">
+                            <span class="fa-icon fa-sort-numeric-asc"></span>
+                            <input type="tel" class="text form-control numonly ext_loan_5" name="no_of_emis_paid_on_5" maxlength="5" id="no_of_emis_paid_on_5" value="<?php echo ($no_of_emis_paid_fv == 0) ? "" : $no_of_emis_paid_fv; ?>"/>
+                            <label for="no_of_emis_paid_on_5" class="label-tag">No. of EMIs Paid</label>
+                        </div>
+                        <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_5">
+                            <span class="fa-icon fa-inr"></span>
+                            <input type="tel" class="text form-control numonly ext_loan_5" name="cur_out_stand_on_5" maxlength="10" id="cur_out_stand_on_5" value="<?php echo $cur_out_stand_fv == 0?'': $cur_out_stand_fv ;?>"/>
+                            <label for="cur_out_stand_on_5" class="label-tag optional-tag">Current OutStanding Amt.</label>
+                        </div>
+
+
+
+                        <!-- cardd -->
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_5"></div>
                         <div class="heading-offers">
                                     <div class="exclamatry-text">Existing Cards</div>
