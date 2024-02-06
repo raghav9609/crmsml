@@ -243,6 +243,7 @@ require_once "../include/helper.functions.php";
 	echo $chek_data = "select id from crm_customer_existing_loan_details where query_id ='".$_REQUEST['id']."'";
 	$data_get = mysqli_fetch_array($chek_data);
 	print_r($data_get);
+	echo "1";
 	exit();
 	if(!empty($data_get)){
 	$query_to_insert = "Insert into crm_customer_existing_loan_details set ";
