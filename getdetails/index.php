@@ -1,17 +1,15 @@
 <?php
+header('Content-Type: application/json');
+$headers = apache_request_headers();
+$json_data = file_get_contents('php://input');
+$post = json_decode($json_data,true);
+print_r($post);
+    die();
 require_once(dirname(__FILE__) . '/../config/config.php');
 require_once(dirname(__FILE__) . '/../helpers/common-helper.php');
 require_once(dirname(__FILE__) . '/../include/helper.functions.php');
 
-header('Content-Type: application/json');
-$headers = apache_request_headers();
-//echo "anu";
- //$post = file_get_contents('php://input');
 
-    $json_data = file_get_contents('php://input');
-    
-    echo gettype($json_data);
-    $post = json_decode($json_data,true);
 
 //print_r($post);
 //$decodedText = html_entity_decode($jsonText);
