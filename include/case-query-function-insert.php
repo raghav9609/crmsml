@@ -1,11 +1,11 @@
 <script src="<?php echo $head_url; ?>/assets/js/jquery-1.3.2.min.js" type="text/javascript"></script>
 <script>
 $(function() {  
-  $('#new_pan_card').on('focusout', function () {
-    	    if($('#new_pan_card').val() != ''){
-					    $("#pan_ver_clck").removeClass("hidden");
-    	    }
-    });
+//   $('#new_pan_card').on('focusout', function () {
+//     	    if($('#new_pan_card').val() != ''){
+// 					    $("#pan_ver_clck").removeClass("hidden");
+//     	    }
+//     });
     
 $("#pin_code").on("focusout",function(){ 
     var pincode = $("#pin_code").val();
