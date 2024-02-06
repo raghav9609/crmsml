@@ -28,9 +28,7 @@ if(!function_exists('get_dropdown')){
             case "user_id_4":
                 $qry = "select id as id,name as value,'User' as code_value from crm_master_user where is_active = 1 and role_id = 4";
             break;
-            case "ex_bank_id":
-                $qry = "select name as value, from crm_master_user where is_active = 1 and crm_masters_code_id = 2";
-            break;
+            
             case "crm_master_city_sub_group":
                 $qry = "select id as id,city_sub_group_name as value,'City Sub Group' as code_value from crm_master_city_sub_group where is_active = 1";
             break;
