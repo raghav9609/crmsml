@@ -241,7 +241,7 @@ require_once "../include/helper.functions.php";
 	$count = count($fieds_array);
 	$main_array = 0;
 	echo $chek_data = "select id from crm_customer_existing_loan_details where query_id ='".$_REQUEST['id']."'";
-	$data_get = mysqli_query($Conn1,$chek_data);
+	$data_get = mysqli_fetch_array($chek_data);
 	print_r($data_get);
 	exit();
 	if(!empty($data_get)){
