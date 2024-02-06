@@ -3,6 +3,8 @@ require_once(dirname(__FILE__) . '/../config/config.php');
 require_once(dirname(__FILE__) . '/../helpers/common-helper.php');
 require_once(dirname(__FILE__) . '/../include/helper.functions.php');
 
+header('Content-Type: application/json');
+$headers = apache_request_headers();
 //echo "anu";
 $jsonText = file_get_contents('php://input');
 //print_r($post);
