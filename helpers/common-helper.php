@@ -224,13 +224,14 @@ if (!function_exists('curl_helper')) {
 if (!function_exists('curl_get_helper')) {
     function curl_get_helper($url, $header = array("cache-control: no-cache"))
     {
+        echo $url;
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "GET");
         curl_setopt($curl, CURLOPT_URL, $url);
         curl_setopt($curl, CURLOPT_CONNECTTIMEOUT, 60);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
         curl_setopt($curl, CURLOPT_HTTPHEADER, $header);
-        $response = curl_exec($curl);
+        echo $response = curl_exec($curl);
         return $response;
     }
 }
