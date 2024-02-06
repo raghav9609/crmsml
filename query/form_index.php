@@ -27,7 +27,7 @@
     <br> 
     <ul>
     <?php 
-    echo "hii".$exe_form['loan_type_1'];
+    echo "hii".$result_cust_data['loan_type_1'];
 
     if ($employer_type == 0) {
         $comp_name = $result_cust_data['comp_name_other'];
