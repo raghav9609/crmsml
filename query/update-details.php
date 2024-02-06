@@ -244,7 +244,6 @@ require_once "../include/helper.functions.php";
 	$data_get = mysqli_fetch_array($chek_data);
 	print_r($data_get);
 	echo "1";
-	exit();
 	if(!empty($data_get)){
 	$query_to_insert = "Insert into crm_customer_existing_loan_details set ";
 	foreach($fieds_array as $key => $value){
