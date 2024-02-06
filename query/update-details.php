@@ -214,6 +214,8 @@ require_once "../include/helper.functions.php";
 		'no_of_emi_1' => $_REQUEST['no_of_emis_paid_on'],
 		'outstanding_amount_1' => $_REQUEST['cur_out_stand_on'],
 	);
+	print_r($fieds_array);
+	exit();
 	$count = count($fieds_array);
 	$main_array = 0;
 	$query_to_update = "Insert into crm_customer_existing_loan_details set ";
