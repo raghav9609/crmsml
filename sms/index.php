@@ -53,8 +53,8 @@ var temp_id = $( "#template" ).val() ;
               } ?>
             </select>       
     </td>
-    <td>Customer Ph No:- </td><td colspan="5" width="26%">
-  <input type="text" name="subject" id="subject" Placeholder="Subject" size="50" value=""/>
+    <td>Customer Ph No:- </td><td>
+  <input type="text" name="subject" id="subject" Placeholder="Customer Phone No." size="10" value=""/>
 </td>
 </tr>
 <tr>
