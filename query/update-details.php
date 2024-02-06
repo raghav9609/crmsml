@@ -230,7 +230,7 @@ require_once "../include/helper.functions.php";
 	// if($_REQUEST['proof_of_address'] != '' && $_REQUEST['proof_of_address'] > 0 && is_numeric($_REQUEST['proof_of_address'])){
 	// 	$query_to_update .= ",addrs_proof = '".$_REQUEST['proof_of_address']."'";
 	// }
-	$query_to_update .= "where query_id ='".replace_special($_REQUEST['id'])."'";
+	// $query_to_update .= "where query_id ='".replace_special($_REQUEST['id'])."'";
 	$update_qry = mysqli_query($Conn1,$query_to_update) or die(mysqli_error($Conn1));
 
 	$update_mint_status = mysqli_query($Conn1,"update tbl_mint_query_status_detail set 
