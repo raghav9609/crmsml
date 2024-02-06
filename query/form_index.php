@@ -524,7 +524,7 @@
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_1"></div>
                     <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_2">
                             <span class="fa-icon fa-amnt"></span>
-                            <?php echo get_dropdown('1','loan_type_on_2',$loan_type_tw,'class="ext_loan_2"'); ?>
+                            <?php echo get_dropdown('1','loan_type_on_2',$loan_type_on2,'class="ext_loan_2"'); ?>
                             <label for="loan_type_on_2" class="label-tag">Loan Type</label>
                         </div>
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_2">
@@ -535,24 +535,24 @@
                         </div>
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_2">
                             <span class="fa-icon fa-inr"></span>
-                            <input type="tel" class="text form-control numonly ext_loan_2" name="emi_loan_on_2" maxlength="10" id="emi_loan_on_2" value="<?php echo $emi_loan_tw == 0?'': $emi_loan_tw ;?>" />
+                            <input type="tel" class="text form-control numonly ext_loan_2" name="emi_loan_on_2" maxlength="10" id="emi_loan_on_2" value="<?php echo $emi_loan_on_2 == 0?'': $emi_loan_on_2 ;?>" />
                             <label for="emi_loan_on_2" class="label-tag optional-tag">EMI</label>
                         </div>
 
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_2">
                             <span class="fa-icon fa-sort-numeric-asc"></span>
-                            <input type="tel" class="text form-control numonly ext_loan_2" name="no_of_emis_paid_on_2" maxlength="5" id="no_of_emis_paid_on_2" value="<?php echo ($no_of_emis_paid_tw == 0) ? "" : $no_of_emis_paid_tw; ?>"/>
+                            <input type="tel" class="text form-control numonly ext_loan_2" name="no_of_emis_paid_on_2" maxlength="5" id="no_of_emis_paid_on_2" value="<?php echo ($no_of_emis_paid_on_2 == 0) ? "" : $no_of_emis_paid_on_2; ?>"/>
                             <label for="no_of_emis_paid_on_2" class="label-tag">No. of EMIs Paid</label>
                         </div>
                     <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_2">
                         <span class="fa-icon fa-inr"></span>
-                        <input type="tel" class="text form-control numonly ext_loan_2" name="cur_out_stand_on_2" maxlength="10" id="cur_out_stand_on_2" value="<?php echo $cur_out_stand_tw == 0?'': $cur_out_stand_tw ;?>"/>
+                        <input type="tel" class="text form-control numonly ext_loan_2" name="cur_out_stand_on_2" maxlength="10" id="cur_out_stand_on_2" value="<?php echo $cur_out_stand_on_2 == 0?'': $cur_out_stand_on_2 ;?>"/>
                         <label for="cur_out_stand_on_2" class="label-tag optional-tag">Current OutStanding Amt.</label>
                     </div>
                     <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_2"></div>
                     <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_3">
                             <span class="fa-icon fa-amnt"></span>
-                            <?php echo get_dropdown('1','loan_type_on_3',$loan_type_th,'class="ext_loan_3"'); ?>
+                            <?php echo get_dropdown('1','loan_type_on_3',$loan_type_on3,'class="ext_loan_3"'); ?>
                             <label for="loan_type_on_3" class="label-tag">Loan Type</label>
                         </div>
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_3">
@@ -562,24 +562,24 @@
                         </div>
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_3">
                             <span class="fa-icon fa-inr"></span>
-                            <input type="tel" class="text form-control numonly ext_loan_3" name="emi_loan_on_3" maxlength="10" id="emi_loan_on_3" value="<?php echo $emi_loan_th == 0?'': $emi_loan_th ;?>"/>
+                            <input type="tel" class="text form-control numonly ext_loan_3" name="emi_loan_on_3" maxlength="10" id="emi_loan_on_3" value="<?php echo $emi_loan_on_3 == 0?'': $emi_loan_on_3 ;?>"/>
                             <label for="emi_loan_on_3" class="label-tag optional-tag">EMI</label>
                         </div>
 
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_3">
                             <span class="fa-icon fa-sort-numeric-asc"></span>
-                            <input type="tel" class="text form-control numonly ext_loan_3" name="no_of_emis_paid_on_3" maxlength="5" id="no_of_emis_paid_on_3" value="<?php echo ($no_of_emis_paid_th == 0) ? "" : $no_of_emis_paid_th; ?>"/>
+                            <input type="tel" class="text form-control numonly ext_loan_3" name="no_of_emis_paid_on_3" maxlength="5" id="no_of_emis_paid_on_3" value="<?php echo ($no_of_emis_paid_on_3 == 0) ? "" : $no_of_emis_paid_on_3; ?>"/>
                             <label for="no_of_emis_paid_on_3" class="label-tag">No. of EMIs Paid</label>
                         </div>
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_3">
                             <span class="fa-icon fa-inr"></span>
-                            <input type="tel" class="text form-control numonly ext_loan_3" name="cur_out_stand_on_3" maxlength="10" id="cur_out_stand_on_3" value="<?php echo $cur_out_stand_th == 0?'': $cur_out_stand_th ;?>"/>
+                            <input type="tel" class="text form-control numonly ext_loan_3" name="cur_out_stand_on_3" maxlength="10" id="cur_out_stand_on_3" value="<?php echo $cur_out_stand_on_3 == 0?'': $cur_out_stand_on_3 ;?>"/>
                             <label for="cur_out_stand_on_3" class="label-tag optional-tag">Current OutStanding Amt.</label>
                         </div>
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_3"></div>
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_4">
                             <span class="fa-icon fa-amnt"></span>
-                            <?php echo get_dropdown('1','loan_type_on_4',$loan_type_fr,'class="ext_loan_4"'); ?>
+                            <?php echo get_dropdown('1','loan_type_on_4',$loan_type_on_4,'class="ext_loan_4"'); ?>
                             <label for="loan_type_on_4" class="label-tag">Loan Type</label>
                         </div>
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_4">
@@ -589,24 +589,24 @@
                         </div>
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_4">
                             <span class="fa-icon fa-inr"></span>
-                            <input type="tel" class="text form-control numonly ext_loan_4" name="emi_loan_on_4" maxlength="10" id="emi_loan_on_4" value="<?php echo $emi_loan_fr == 0?'': $emi_loan_fr ;?>"/>
+                            <input type="tel" class="text form-control numonly ext_loan_4" name="emi_loan_on_4" maxlength="10" id="emi_loan_on_4" value="<?php echo $emi_loan_on_4 == 0?'': $emi_loan_on_4 ;?>"/>
                             <label for="emi_loan_on_4" class="label-tag optional-tag">EMI</label>
                         </div>
                         
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_4">
                             <span class="fa-icon fa-sort-numeric-asc"></span>
-                            <input type="tel" class="text form-control numonly ext_loan_4" name="no_of_emis_paid_on_4" maxlength="5" id="no_of_emis_paid_on_4" value="<?php echo ($no_of_emis_paid_fr == 0) ? "" : $no_of_emis_paid_fr; ?>"/>
+                            <input type="tel" class="text form-control numonly ext_loan_4" name="no_of_emis_paid_on_4" maxlength="5" id="no_of_emis_paid_on_4" value="<?php echo ($no_of_emis_paid_on_4 == 0) ? "" : $no_of_emis_paid_on_4; ?>"/>
                             <label for="no_of_emis_paid_on_4" class="label-tag">No. of EMIs Paid</label>
                         </div>
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_4">
                             <span class="fa-icon fa-inr"></span>
-                            <input type="tel" class="text form-control numonly ext_loan_4" name="cur_out_stand_on_4" maxlength="10" id="cur_out_stand_on_4" value="<?php echo $cur_out_stand_fr == 0?'': $cur_out_stand_fr ;?>"/>
+                            <input type="tel" class="text form-control numonly ext_loan_4" name="cur_out_stand_on_4" maxlength="10" id="cur_out_stand_on_4" value="<?php echo $cur_out_stand_on_4 == 0?'': $cur_out_stand_fr ;?>"/>
                             <label for="cur_out_stand_on_4" class="label-tag optional-tag">Current OutStanding Amt.</label>
                         </div>
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_4"></div>
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_5">
                             <span class="fa-icon fa-amnt"></span>
-                            <?php echo get_dropdown('1','loan_type_on_5',$loan_type_fv,'class="ext_loan_5"'); ?>
+                            <?php echo get_dropdown('1','loan_type_on_5',$loan_type_on_5,'class="ext_loan_5"'); ?>
                             <label for="loan_type_on_5" class="label-tag">Loan Type</label>
                         </div>
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_5">
@@ -616,18 +616,18 @@
                         </div>
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_5">
                             <span class="fa-icon fa-inr"></span>
-                            <input type="tel" class="text form-control numonly ext_loan_5" name="emi_loan_on_5" maxlength="10" id="emi_loan_on_5" value="<?php echo $emi_loan_fv == 0?'': $emi_loan_fv ;?>"/>
+                            <input type="tel" class="text form-control numonly ext_loan_5" name="emi_loan_on_5" maxlength="10" id="emi_loan_on_5" value="<?php echo $emi_loan_on_5 == 0?'': $emi_loan_on_5 ;?>"/>
                             <label for="emi_loan_on_5" class="label-tag optional-tag">EMI</label>
                         </div>
                         
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_5">
                             <span class="fa-icon fa-sort-numeric-asc"></span>
-                            <input type="tel" class="text form-control numonly ext_loan_5" name="no_of_emis_paid_on_5" maxlength="5" id="no_of_emis_paid_on_5" value="<?php echo ($no_of_emis_paid_fv == 0) ? "" : $no_of_emis_paid_fv; ?>"/>
+                            <input type="tel" class="text form-control numonly ext_loan_5" name="no_of_emis_paid_on_5" maxlength="5" id="no_of_emis_paid_on_5" value="<?php echo ($no_of_emis_paid_on_5 == 0) ? "" : $no_of_emis_paid_on_5; ?>"/>
                             <label for="no_of_emis_paid_on_5" class="label-tag">No. of EMIs Paid</label>
                         </div>
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_5">
                             <span class="fa-icon fa-inr"></span>
-                            <input type="tel" class="text form-control numonly ext_loan_5" name="cur_out_stand_on_5" maxlength="10" id="cur_out_stand_on_5" value="<?php echo $cur_out_stand_fv == 0?'': $cur_out_stand_fv ;?>"/>
+                            <input type="tel" class="text form-control numonly ext_loan_5" name="cur_out_stand_on_5" maxlength="10" id="cur_out_stand_on_5" value="<?php echo $cur_out_stand_on_5 == 0?'': $cur_out_stand_on_5 ;?>"/>
                             <label for="cur_out_stand_on_5" class="label-tag optional-tag">Current OutStanding Amt.</label>
                         </div>
 
@@ -686,20 +686,20 @@
                         </div>
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_card_2">
                                     <span class="fa-icon fa-inr"></span>
-                                    <input type="tel" class="text form-control numonly ext_card_2 loan_net_incm" name="credit_sanction_amt_2" min='1000' maxlength="10" id="credit_sanction_amt_2" value="<?php echo $credit_sanction_amt_tw == 0?'': $credit_sanction_amt_tw ;?>"/>
+                                    <input type="tel" class="text form-control numonly ext_card_2 loan_net_incm" name="credit_sanction_amt_2" min='1000' maxlength="10" id="credit_sanction_amt_2" value="<?php echo $credit_sanction_amt_2 == 0?'': $credit_sanction_amt_2 ;?>"/>
                                     <div class='word_below orange'><b class='money_format credit_sanction_amt_tw_value_formt'></b></div>
                                     <label for="credit_sanction_amt_2" class="label-tag">Credit Limit</label>
                                 </div>
                                 <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_card_2">
                                     <span class="fa-icon fa-inr"></span>
-                                    <input type="tel" class="text form-control numonly ext_card_2 loan_net_incm" name="current_out_stan_2" maxlength="10" id="current_out_stan_2" value="<?php echo $current_out_stan_tw ;?>"/>
+                                    <input type="tel" class="text form-control numonly ext_card_2 loan_net_incm" name="current_out_stan_2" maxlength="10" id="current_out_stan_2" value="<?php echo $current_out_stan_2 ;?>"/>
                                     <div class='word_below orange'><b class='money_format current_out_stan_tw_value_formt'></b></div>
                                     <label for="current_out_stan_2" class="label-tag optional-tag">Outstanding Amount</label>
                                 </div>
 
                                 <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_card_2">
                                     <span class="fa-icon fa-sort-numeric-asc"></span>
-                                    <input type="tel" class="text form-control numonly ext_card_2" name="credit_card_vintage_2" maxlength="6" id="credit_card_vintage_2" value="<?php echo ($credit_card_vintage_tw == 0) ? '' : $credit_card_vintage_tw ;?>"/>
+                                    <input type="tel" class="text form-control numonly ext_card_2" name="credit_card_vintage_2" maxlength="6" id="credit_card_vintage_2" value="<?php echo ($credit_card_vintage_2 == 0) ? '' : $credit_card_vintage_2 ;?>"/>
                                     <label for="credit_card_vintage_2" class="label-tag">Credit Card Vintage</label>
                                 </div>
                                 <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_card_2"></div>
@@ -713,20 +713,20 @@
                         </div>
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_card_3">
                                     <span class="fa-icon fa-inr"></span>
-                                    <input type="tel" class="text form-control numonly ext_card_3 loan_net_incm" name="credit_sanction_amt_3" maxlength="10" id="credit_sanction_amt_3" min='1000' value="<?php echo $credit_sanction_amt_th == 0?'': $credit_sanction_amt_th ;?>"/>
+                                    <input type="tel" class="text form-control numonly ext_card_3 loan_net_incm" name="credit_sanction_amt_3" maxlength="10" id="credit_sanction_amt_3" min='1000' value="<?php echo $credit_sanction_amt_3 == 0?'': $credit_sanction_amt_3 ;?>"/>
                                     <div class='word_below orange'><b class='money_format credit_sanction_amt_th_value_formt'></b></div>
                                     <label for="credit_sanction_amt_3" class="label-tag">Credit Limit</label>
                                 </div>
                                 <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_card_3">
                                     <span class="fa-icon fa-inr"></span>
-                                    <input type="tel" class="text form-control numonly ext_card_3 loan_net_incm" name="current_out_stan_3" maxlength="10" id="current_out_stan_3" value="<?php echo $current_out_stan_th ;?>"/>
+                                    <input type="tel" class="text form-control numonly ext_card_3 loan_net_incm" name="current_out_stan_3" maxlength="10" id="current_out_stan_3" value="<?php echo $current_out_stan_3 ;?>"/>
                                     <div class='word_below orange'><b class='money_format current_out_stan_th_value_formt'></b></div>
                                     <label for="current_out_stan_3" class="label-tag optional-tag">Outstanding Amount</label>
                                 </div>
 
                                 <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_card_3">
                                     <span class="fa-icon fa-sort-numeric-asc"></span>
-                                    <input type="tel" class="text form-control numonly ext_card_3" name="credit_card_vintage_3" maxlength="6" id="credit_card_vintage_3" value="<?php echo ($credit_card_vintage_th == 0) ? '' : $credit_card_vintage_th ;?>"/>
+                                    <input type="tel" class="text form-control numonly ext_card_3" name="credit_card_vintage_3" maxlength="6" id="credit_card_vintage_3" value="<?php echo ($credit_card_vintage_3 == 0) ? '' : $credit_card_vintage_3 ;?>"/>
                                     <label for="credit_card_vintage_3" class="label-tag">Credit Card Vintage</label>
                                 </div>
                                 <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_card_3"></div>
@@ -740,20 +740,20 @@
                         </div>
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_card_4">
                                     <span class="fa-icon fa-inr"></span>
-                                    <input type="tel" class="text form-control numonly ext_card_4 loan_net_incm" name="credit_sanction_amt_4" min='1000' maxlength="10" id="credit_sanction_amt_4" value="<?php echo $credit_sanction_amt_fr == 0?'': $credit_sanction_amt_fr ;?>"/>
+                                    <input type="tel" class="text form-control numonly ext_card_4 loan_net_incm" name="credit_sanction_amt_4" min='1000' maxlength="10" id="credit_sanction_amt_4" value="<?php echo $credit_sanction_amt_4 == 0?'': $credit_sanction_amt_4 ;?>"/>
                                     <div class='word_below orange'><b class='money_format credit_sanction_amt_fr_value_formt'></b></div>
                                     <label for="credit_sanction_amt_4" class="label-tag">Credit Limit</label>
                                 </div>
                                 <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_card_4">
                                     <span class="fa-icon fa-inr"></span>
-                                    <input type="tel" class="text form-control numonly ext_card_4 loan_net_incm" name="current_out_stan_4" maxlength="10" id="current_out_stan_4" value="<?php echo $current_out_stan_fr ;?>"/>
+                                    <input type="tel" class="text form-control numonly ext_card_4 loan_net_incm" name="current_out_stan_4" maxlength="10" id="current_out_stan_4" value="<?php echo $current_out_stan_4 ;?>"/>
                                     <div class='word_below orange'><b class='money_format current_out_stan_fr_value_formt'></b></div>
                                     <label for="current_out_stan_4" class="label-tag optional-tag">Outstanding Amount</label>
                                 </div>
 
                                 <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_card_4">
                                     <span class="fa-icon fa-sort-numeric-asc"></span>
-                                    <input type="tel" class="text form-control numonly ext_card_4" name="credit_card_vintage_4" maxlength="6" id="credit_card_vintage_4" value="<?php echo ($credit_card_vintage_fr == 0) ? '' : $credit_card_vintage_fr ;?>"/>
+                                    <input type="tel" class="text form-control numonly ext_card_4" name="credit_card_vintage_4" maxlength="6" id="credit_card_vintage_4" value="<?php echo ($credit_card_vintage_4 == 0) ? '' : $credit_card_vintage_4 ;?>"/>
                                     <label for="credit_card_vintage_4" class="label-tag">Credit Card Vintage</label>
                                 </div>
                                 <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_card_4"></div>
@@ -768,21 +768,21 @@
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_card_5">
                                     <span class="fa-icon fa-inr"></span>
                                     <!-- <input type="tel" class="text form-control numonly ext_card_5" name="credit_sanction_amt_fv" maxlength="10" id="credit_sanction_amt_fv" min='1000' value="<?php //echo $credit_sanction_amt_fv == 0?'': $credit_sanction_amt_fv ;?>"/> -->
-                                    <input type="tel" class="text form-control numonly ext_card_5 loan_net_incm" name="credit_sanction_amt_fv" maxlength="10" id="credit_sanction_amt_fv" min='1000' value="<?php echo $credit_sanction_amt_fv == 0?'': $credit_sanction_amt_fv ;?>"/>
+                                    <input type="tel" class="text form-control numonly ext_card_5 loan_net_incm" name="credit_sanction_amt_fv" maxlength="10" id="credit_sanction_amt_5" min='1000' value="<?php echo $credit_sanction_amt_5 == 0?'': $credit_sanction_amt_5 ;?>"/>
                                     <div class='word_below orange'><b class='money_format current_out_stan_fr_value_formt'></b></div>
-                                    <label for="credit_sanction_amt_fv" class="label-tag">Credit Limit</label>
+                                    <label for="credit_sanction_amt_5" class="label-tag">Credit Limit</label>
                                 </div>
                                 <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_card_5">
                                     <span class="fa-icon fa-inr"></span>
-                                    <input type="tel" class="text form-control numonly ext_card_5 loan_net_incm" name="current_out_stan_fv" maxlength="10" id="current_out_stan_fv" value="<?php echo $current_out_stan_fv ;?>"/>
+                                    <input type="tel" class="text form-control numonly ext_card_5 loan_net_incm" name="current_out_stan_5" maxlength="10" id="current_out_stan_5" value="<?php echo $current_out_stan_5 ;?>"/>
                                     <div class='word_below orange'><b class='money_format current_out_stan_fv_value_formt'></b></div>
-                                    <label for="current_out_stan_fv" class="label-tag optional-tag">Outstanding Amount</label>
+                                    <label for="current_out_stan_5" class="label-tag optional-tag">Outstanding Amount</label>
                                 </div>
 
                                 <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_card_5">
                                     <span class="fa-icon fa-sort-numeric-asc"></span>
-                                    <input type="tel" class="text form-control numonly ext_card_5" name="credit_card_vintage_fv" maxlength="6" id="credit_card_vintage_fv" value="<?php echo ($credit_card_vintage_fv == 0) ? '' : $credit_card_vintage_fv ;?>"/>
-                                    <label for="credit_card_vintage_fv" class="label-tag">Credit Card Vintage</label>
+                                    <input type="tel" class="text form-control numonly ext_card_5" name="credit_card_vintage_4" maxlength="6" id="credit_card_vintage_4" value="<?php echo ($credit_card_vintage_4 == 0) ? '' : $credit_card_vintage_4 ;?>"/>
+                                    <label for="credit_card_vintage_4" class="label-tag">Credit Card Vintage</label>
                                 </div>
 
                             <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_card_5 hidden">
