@@ -234,7 +234,25 @@ require_once "../include/helper.functions.php";
 		'emi_5' => $_REQUEST['emi_loan_on_5'],
 		'no_of_emi_5' => $_REQUEST['no_of_emis_paid_on_5'],
 		'outstanding_amount_5' => $_REQUEST['cur_out_stand_on_5'],
+		'no_of_cards' => $_REQUEST['credit_running'],
+		'credit_card_bank_name_exi_1' => $_REQUEST['credit_card_bank_name_exi_1'],
+		'credit_sanction_amt_1' => $_REQUEST['credit_sanction_amt_1'],
+		'current_out_stan_1' => $_REQUEST['current_out_stan_1'],
+		'credit_card_vintage_1' => $_REQUEST['credit_card_vintage_1'],
+		'credit_card_bank_name_exi_2' => $_REQUEST['credit_card_bank_name_exi_2'],
+		'credit_sanction_amt_2' => $_REQUEST['credit_sanction_amt_2'],
+		'current_out_stan_2' => $_REQUEST['current_out_stan_2'],
+		'credit_card_vintage_2' => $_REQUEST['credit_card_vintage_2'],
+		'credit_card_bank_name_exi_3' => $_REQUEST['credit_card_bank_name_exi_3'],
+		'credit_sanction_amt_3' => $_REQUEST['credit_sanction_amt_3'],
+		'current_out_stan_3' => $_REQUEST['current_out_stan_3'],
+		'credit_card_vintage_3' => $_REQUEST['credit_card_vintage_3'],
+		'credit_card_bank_name_exi_4' => $_REQUEST['credit_card_bank_name_exi_4'],
+		'credit_sanction_amt_4' => $_REQUEST['credit_sanction_amt_4'],
+		'current_out_stan_4' => $_REQUEST['current_out_stan_4'],
+		'credit_card_vintage_4' => $_REQUEST['credit_card_vintage_4'],
 		'created_on' => $currentDateTime 
+		
 	);
 	
 	$count = count($fieds_array);
