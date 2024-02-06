@@ -445,7 +445,7 @@
                         </div>
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_1">
                             <span class="fa-icon fa-bank"></span>
-                            <?php echo gget_dropdown('2','bank_name'); ?>
+                            <?php echo get_dropdown('2','bank_name'); ?>
                             <label for="ex_bank_id_fr" class="label-tag">Bank</label>
                         </div>
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_1">
