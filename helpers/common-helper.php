@@ -224,7 +224,6 @@ if (!function_exists('curl_helper')) {
 if (!function_exists('curl_get_helper')) {
     function curl_get_helper($url, $header = array("cache-control: no-cache"))
     {
-        echo $url."1231241412";
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "GET");
         curl_setopt($curl, CURLOPT_URL, $url);
