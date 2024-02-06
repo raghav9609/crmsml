@@ -236,14 +236,12 @@ require_once "../include/helper.functions.php";
 		'outstanding_amount_5' => $_REQUEST['cur_out_stand_on_5'],
 		'created_on' => $currentDateTime 
 	);
-	// print_r($fieds_array);
-	// exit();
+	
 	$count = count($fieds_array);
 	$main_array = 0;
 	$chek_data = "select id from crm_customer_existing_loan_details where query_id ='".$_REQUEST['id']."'";
 	$data_get = mysqli_query($Conn1,$chek_data);
 	$data_get1 = mysqli_num_rows($data_get);
-	echo $data_get1;
 	
 	if(empty($data_get1)){
 	$query_to_insert = "Insert into crm_customer_existing_loan_details set ";
@@ -272,7 +270,6 @@ require_once "../include/helper.functions.php";
 			}
 		} 
 		$query_to_update .= "where query_id ='".replace_special($_REQUEST['id'])."'";
-		echo $query_to_update;
 		$update_qry = mysqli_query($Conn1,$query_to_update);
 	}
 	// $update_mint_status = mysqli_query($Conn1,"update tbl_mint_query_status_detail set 
@@ -306,4 +303,5 @@ require_once "../include/helper.functions.php";
 	// }
 
 }
+
 ?>
