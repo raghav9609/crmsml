@@ -240,12 +240,15 @@ require_once "../include/helper.functions.php";
 	// exit();
 	$count = count($fieds_array);
 	$main_array = 0;
-	$query_to_update = "Insert into crm_customer_existing_loan_details set ";
+	$chek_data = "select id from crm_customer_existing_loan_details where query_id ='".$_REQUEST['id']."'";
+	$data_get = mysqli_query($Conn1,$chek_data);
+	if(!empty($data_get)){
+	$query_to_insert = "Insert into crm_customer_existing_loan_details set ";
 	foreach($fieds_array as $key => $value){
 		++$main_array;
-		$query_to_update .= $key ." = '".replace_special($value)."'";
+		$query_to_insert .= $key ." = '".replace_special($value)."'";
 		if($main_array != $count){
-			$query_to_update .= ",";
+			$query_to_insert .= ",";
 		}
 	} 
 	// if($_REQUEST['residential_type'] > 0 && is_numeric($_REQUEST['residential_type'])){
@@ -255,8 +258,19 @@ require_once "../include/helper.functions.php";
 	// 	$query_to_update .= ",addrs_proof = '".$_REQUEST['proof_of_address']."'";
 	// }
 	// $query_to_update .= "where query_id ='".replace_special($_REQUEST['id'])."'";
-	$update_qry = mysqli_query($Conn1,$query_to_update) or die(mysqli_error($Conn1));
-
+	$update_qry = mysqli_query($Conn1,$query_to_insert) or die(mysqli_error($Conn1));
+	}else{
+		$query_to_update = "update crm_customer_existing_loan_details set ";
+		foreach($fieds_array as $key => $value){
+			++$main_array;
+			$query_to_update .= $key ." = '".replace_special($value)."'";
+			if($main_array != $count){
+				$query_to_update .= ",";
+			}
+		} 
+		$query_to_update .= "where query_id ='".replace_special($_REQUEST['id'])."'";
+		$update_qry = mysqli_query($Conn1,$query_to_update);
+	}
 	// $update_mint_status = mysqli_query($Conn1,"update tbl_mint_query_status_detail set 
 	// 	date_modified = NOW(),is_nstp = 1 where query_id = ".replace_special($_REQUEST['id'])) or die(mysqli_error($Conn1));	
 
