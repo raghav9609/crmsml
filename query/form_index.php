@@ -363,7 +363,7 @@
                         <input type="hidden" name="step" value="2">
                         <input type="hidden" name="mlc_product_id"  value="<?php echo $mlc_product_id;?>">
                         <input type="hidden" name="if_hot_case" id="if_hot_case" class="if_hot_case"  value="<?php echo $hotcase;?>">
-                        <div class="row div-width">
+                            <div class="row div-width">
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6 hidden">
                                     <span class="fa-icon fa-amnt"></span>
                                     <?php echo get_dropdown(1,'loan_type',$loan_type,'required'); ?>
@@ -427,32 +427,32 @@
                                 <div class="text-center col-12 mb-2">
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
                             <span class="fa-icon fa-amnt"></span>
-                            <select name="exis_loans" id="exis_loans">
-                                        <option value=''>No. of Loans Running</option>
-                                        <option value="1"<?php if(1 == $exis_loans){?>selected="selected"<?php }?>>1</option>
-                                         <option value="2"<?php if(2 == $exis_loans){?>selected="selected"<?php }?>>2</option>
-                                          <option value="3"<?php if(3 == $exis_loans){?>selected="selected"<?php }?>>3</option>
-                                           <option value="4"<?php if(4 == $exis_loans){?>selected="selected"<?php }?>>4</option>
-                                            <option value="5"<?php if(5 == $exis_loans){?>selected="selected"<?php }?>>5</option>
-                                    </select>
+                                 <select name="exis_loans" id="exis_loans">
+                                    <option value=''>No. of Loans Running</option>
+                                    <option value="1"<?php if(1 == $exis_loans){?>selected="selected"<?php }?>>1</option>
+                                    <option value="2"<?php if(2 == $exis_loans){?>selected="selected"<?php }?>>2</option>
+                                    <option value="3"<?php if(3 == $exis_loans){?>selected="selected"<?php }?>>3</option>
+                                    <option value="4"<?php if(4 == $exis_loans){?>selected="selected"<?php }?>>4</option>
+                                    <option value="5"<?php if(5 == $exis_loans){?>selected="selected"<?php }?>>5</option>
+                                </select>
                             <label for="exis_loans" class="label-tag optional-tag">No. of Loans Running</label>
                         </div>
                     </div>
-                    <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_1">
+                        <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_1">
                             <span class="fa-icon fa-amnt"></span>
                             <?php echo get_dropdown('1','loan_type_on',$loan_type_on,'class="ext_loan_1"'); ?>
                             <label for="loan_type_on" class="label-tag">Loan Type</label>
                         </div>
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_1">
                             <span class="fa-icon fa-bank"></span>
-                            <?php echo get_dropdown('2','bank_name'); ?>
+                            <?php echo get_dropdown('2','bank_name_exi'); ?>
                             <label for="ex_bank_id_fr" class="label-tag">Bank</label>
                         </div>
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_1">
-                                    <span class="fa-icon fa-inr"></span>
-                                    <input type="tel" class="text form-control numonly ext_loan_1" name="emi_loan_on" maxlength="10" id="emi_loan_on" value="<?php echo $emi_loan_on == 0?'': $emi_loan_on ;?>"/>
-                                    <label for="emi_loan_on" class="label-tag optional-tag">EMI</label>
-                                </div>
+                            <span class="fa-icon fa-inr"></span>
+                            <input type="tel" class="text form-control numonly ext_loan_1" name="emi_loan_on" maxlength="10" id="emi_loan_on" value="<?php echo $emi_loan_on == 0?'': $emi_loan_on ;?>"/>
+                            <label for="emi_loan_on" class="label-tag optional-tag">EMI</label>
+                        </div>
 
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_1">
                             <span class="fa-icon fa-sort-numeric-asc"></span>

@@ -127,87 +127,96 @@ require_once "../include/helper.functions.php";
 		$hospital_name = $get_company_name;
 	}
 
-		$addrs_proof = implode('/', $_REQUEST['address_proof']);
-		$update_query_data = mysqli_query($Conn1,"update tbl_mint_query set score_flag=0,gross_annual_receipt = '".$_REQUEST['gross_annual_receipt']."',addrs_proof= '".$addrs_proof."',residential_type='".$_REQUEST['residential_type']."',hospital_name='".$hospital_name."',firm_name='".$_REQUEST['firm_name']."' where query_id = 
-		'".replace_special($_REQUEST['id'])."'");
+		// $addrs_proof = implode('/', $_REQUEST['address_proof']);
+		// $update_query_data = mysqli_query($Conn1,"update tbl_mint_query set score_flag=0,gross_annual_receipt = '".$_REQUEST['gross_annual_receipt']."',addrs_proof= '".$addrs_proof."',residential_type='".$_REQUEST['residential_type']."',hospital_name='".$hospital_name."',firm_name='".$_REQUEST['firm_name']."' where query_id = 
+		// '".replace_special($_REQUEST['id'])."'");
 	
-		$update_query_data = mysqli_query($Conn1,"update tbl_mint_query_status_detail set is_nstp = 1 where query_id = 
-		'".replace_special($_REQUEST['id'])."'");
+		// $update_query_data = mysqli_query($Conn1,"update tbl_mint_query_status_detail set is_nstp = 1 where query_id = 
+		// '".replace_special($_REQUEST['id'])."'");
     	
 } else if($_REQUEST['step'] == 2){
-    $property_identified = $_REQUEST['prop_identified'];
+    // $property_identified = $_REQUEST['prop_identified'];
 
+	// $fieds_array = array(
+		// 'score_flag' => 0,
+		// 'loan_nature' => $_REQUEST['nature_loan'],
+		// 'emi_moritorium' => $_REQUEST['emi_moritorium'],
+		// 'property_location_id' => $prop_location_id,
+		// 'loan_amt' => $_REQUEST['loan_amount'],
+		// 'property_city_id' => $final_city_id,
+		// 'asset_type' => $_REQUEST['asset_type'],
+		// 'bank_id' => $_REQUEST['exs_bank_id'],
+		// 'cur_rate' => $_REQUEST['cur_rate'],
+		// 'top_up_neded' => $top_up_needed,
+		// 'current_loan_start_month' => $_REQUEST['cur_lo_s_m'],
+		// 'loan_emi' => $_REQUEST['ex_emi'],
+		// 'extng_amt' => $_REQUEST['ex_amt'],
+		// 'top_loan_amt' => $_REQUEST['top_loan_amt'],
+		// 'agreement_value' => $_REQUEST['agreement_value'],
+		// 'property_identified' => $property_identified,
+		// 'budget_id' => $_REQUEST['u_budget'],
+		// 'saving_account_no' => $_REQUEST['saving_account_no'],
+		// 'relation_with_bank_id' => $_REQUEST['relation_with_bank_id'],
+		// 'address_proof_no' => $_REQUEST['address_proof_no'],
+		// 'property_identified_sale_type_id' => $_REQUEST['prop_identified_sale_type'],
+		// 'type_of_construction' => $_REQUEST['udconst'],
+		// 'builder_name' => $_REQUEST['buildername'],
+		// 'project_name' => $_REQUEST['project_name'],
+		// 'property_size' => $_REQUEST['property_size'],
+		// 'loan_purpose' => $_REQUEST['purpose_of_loan'],
+		// 'total_obligations' => $_REQUEST['total_obligations'],
+		// 'property_identified_market_value' => $_REQUEST['prop_iden_mar_value'],
+		// 'property_negative_ques' => $_REQUEST['negative_ques'],
+		// 'property_ready_to_move_type' => $_REQUEST['srtm'],
+		// 'weight_gold' => $_REQUEST['gold_weight'],
+		// 'purity_gold' => $_REQUEST['gold_purity'],
+		// 'gold_type' => $_REQUEST['gold_type'],
+		// 'appointment_date'=>$_REQUEST['apptmnt_date'], 
+		// 'appointment_time'=>$_REQUEST['apptmnt_time'], 
+		// 'appointment_place'=>$_REQUEST['app_place'], 
+		// 'card_sourcing'=>$_REQUEST['card_tocard'], 
+		// 'res_same_work'=>$_REQUEST['res_same_work'], 
+		// 'credit_limit'=>$_REQUEST['credit_limit'], 
+		// 'loan_in_past' => $_REQUEST['loan_in_past'],
+		// 'pref_loan_tenure' => $_REQUEST['pref_ln_ten'],
+		// 'cc_since'=>$_REQUEST['cc_since'],
+		// 'paramilitary_profile'=>$_REQUEST['commisioned'],
+		// 'dl_degree_specialization' => $_REQUEST['degree_specialization'],
+		// 'educational_degree_dl' =>$_REQUEST['educational_degree'],
+		// 'place_of_business'=>$_REQUEST['place_of_business'],
+		// 'bus_itr_aval'=>$_REQUEST['ITR_available'],
+		// 'work_in_hospital'=>$_REQUEST['work_in_hospital'],
+		// 'bus_reg_type' => $_REQUEST['type_of_registration'],
+		// 'bank_acc_type' => $_REQUEST['bank_account_type'],
+		// 'business_type' => $_REQUEST['business_type'],
+		// 'bus_nature' => $_REQUEST['nature_of_business'],
+		// 'industry' => $_REQUEST['industry_type'],
+		// 'annual_turnover_num' => $_REQUEST['annual_turnover'],
+		// 'business_existing_num' => $_REQUEST['years_in_business'],
+		// 'profit_itr_amt' => $_REQUEST['annual_profit'],
+		// 'degree_reg_year' => $_REQUEST['degree_reg_year'],
+		// 'own_house_in_india' => $_REQUEST['own_house_in_india'],
+		// 'bus_anl_trnover' => $annual_turnover_num,
+		// 'bus_ext_year' => $business_existing_num,
+		// 'gst_reg' => $gst_reg,
+		// 'avg_month_balance' => $_REQUEST['avg_month_balance'],
+		// 'bank_acc_type' => $_REQUEST['cust_bank_account_type'],
+		// 'gstin_number' => $_REQUEST['gstin_number'],
+		// 'prev_sess_revenue' => $_REQUEST['gross_turnover_prev_sess'],
+		// 'cur_sess_revenue' => $_REQUEST['gross_turnover_curr_sess']
+	// );
 	$fieds_array = array(
-		'score_flag' => 0,
-		'loan_nature' => $_REQUEST['nature_loan'],
-		'emi_moritorium' => $_REQUEST['emi_moritorium'],
-		'property_location_id' => $prop_location_id,
-		'loan_amt' => $_REQUEST['loan_amount'],
-		'property_city_id' => $final_city_id,
-		'asset_type' => $_REQUEST['asset_type'],
-		'bank_id' => $_REQUEST['exs_bank_id'],
-		'cur_rate' => $_REQUEST['cur_rate'],
-		'top_up_neded' => $top_up_needed,
-		'current_loan_start_month' => $_REQUEST['cur_lo_s_m'],
-		'loan_emi' => $_REQUEST['ex_emi'],
-		'extng_amt' => $_REQUEST['ex_amt'],
-		'top_loan_amt' => $_REQUEST['top_loan_amt'],
-		'agreement_value' => $_REQUEST['agreement_value'],
-		'property_identified' => $property_identified,
-		'budget_id' => $_REQUEST['u_budget'],
-		'saving_account_no' => $_REQUEST['saving_account_no'],
-		'relation_with_bank_id' => $_REQUEST['relation_with_bank_id'],
-		'address_proof_no' => $_REQUEST['address_proof_no'],
-		'property_identified_sale_type_id' => $_REQUEST['prop_identified_sale_type'],
-		'type_of_construction' => $_REQUEST['udconst'],
-		'builder_name' => $_REQUEST['buildername'],
-		'project_name' => $_REQUEST['project_name'],
-		'property_size' => $_REQUEST['property_size'],
-		'loan_purpose' => $_REQUEST['purpose_of_loan'],
-		'total_obligations' => $_REQUEST['total_obligations'],
-		'property_identified_market_value' => $_REQUEST['prop_iden_mar_value'],
-		'property_negative_ques' => $_REQUEST['negative_ques'],
-		'property_ready_to_move_type' => $_REQUEST['srtm'],
-		'weight_gold' => $_REQUEST['gold_weight'],
-		'purity_gold' => $_REQUEST['gold_purity'],
-		'gold_type' => $_REQUEST['gold_type'],
-		'appointment_date'=>$_REQUEST['apptmnt_date'], 
-		'appointment_time'=>$_REQUEST['apptmnt_time'], 
-		'appointment_place'=>$_REQUEST['app_place'], 
-		'card_sourcing'=>$_REQUEST['card_tocard'], 
-		'res_same_work'=>$_REQUEST['res_same_work'], 
-		'credit_limit'=>$_REQUEST['credit_limit'], 
-		'loan_in_past' => $_REQUEST['loan_in_past'],
-		'pref_loan_tenure' => $_REQUEST['pref_ln_ten'],
-		'cc_since'=>$_REQUEST['cc_since'],
-		'paramilitary_profile'=>$_REQUEST['commisioned'],
-		'dl_degree_specialization' => $_REQUEST['degree_specialization'],
-		'educational_degree_dl' =>$_REQUEST['educational_degree'],
-		'place_of_business'=>$_REQUEST['place_of_business'],
-		'bus_itr_aval'=>$_REQUEST['ITR_available'],
-		'work_in_hospital'=>$_REQUEST['work_in_hospital'],
-		'bus_reg_type' => $_REQUEST['type_of_registration'],
-		'bank_acc_type' => $_REQUEST['bank_account_type'],
-		'business_type' => $_REQUEST['business_type'],
-		'bus_nature' => $_REQUEST['nature_of_business'],
-		'industry' => $_REQUEST['industry_type'],
-		'annual_turnover_num' => $_REQUEST['annual_turnover'],
-		'business_existing_num' => $_REQUEST['years_in_business'],
-		'profit_itr_amt' => $_REQUEST['annual_profit'],
-		'degree_reg_year' => $_REQUEST['degree_reg_year'],
-		'own_house_in_india' => $_REQUEST['own_house_in_india'],
-		'bus_anl_trnover' => $annual_turnover_num,
-		'bus_ext_year' => $business_existing_num,
-		'gst_reg' => $gst_reg,
-		'avg_month_balance' => $_REQUEST['avg_month_balance'],
-		'bank_acc_type' => $_REQUEST['cust_bank_account_type'],
-		'gstin_number' => $_REQUEST['gstin_number'],
-		'prev_sess_revenue' => $_REQUEST['gross_turnover_prev_sess'],
-		'cur_sess_revenue' => $_REQUEST['gross_turnover_curr_sess']
+		'query_id' => $query_id,
+		'No_of_loans' => $_REQUEST['exis_loans'],
+		'loan_type_1' => $_REQUEST['loan_type_on'],
+		'bank_name_1' => $_REQUEST['bank_name_exi'],
+		'emi_1' => $_REQUEST['emi_loan_on'],
+		'no_of_emi_1' => $_REQUEST['no_of_emis_paid_on'],
+		'outstanding_amount_1' => $_REQUEST['cur_out_stand_on'],
 	);
 	$count = count($fieds_array);
 	$main_array = 0;
-	$query_to_update = "update tbl_mint_query set ";
+	$query_to_update = "Insert into crm_customer_existing_loan_details set ";
 	foreach($fieds_array as $key => $value){
 		++$main_array;
 		$query_to_update .= $key ." = '".replace_special($value)."'";
@@ -215,12 +224,12 @@ require_once "../include/helper.functions.php";
 			$query_to_update .= ",";
 		}
 	} 
-	if($_REQUEST['residential_type'] > 0 && is_numeric($_REQUEST['residential_type'])){
-		$query_to_update .= ",residential_type = '".$_REQUEST['residential_type']."'";
-	}
-	if($_REQUEST['proof_of_address'] != '' && $_REQUEST['proof_of_address'] > 0 && is_numeric($_REQUEST['proof_of_address'])){
-		$query_to_update .= ",addrs_proof = '".$_REQUEST['proof_of_address']."'";
-	}
+	// if($_REQUEST['residential_type'] > 0 && is_numeric($_REQUEST['residential_type'])){
+	// 	$query_to_update .= ",residential_type = '".$_REQUEST['residential_type']."'";
+	// }
+	// if($_REQUEST['proof_of_address'] != '' && $_REQUEST['proof_of_address'] > 0 && is_numeric($_REQUEST['proof_of_address'])){
+	// 	$query_to_update .= ",addrs_proof = '".$_REQUEST['proof_of_address']."'";
+	// }
 	$query_to_update .= "where query_id ='".replace_special($_REQUEST['id'])."'";
 	$update_qry = mysqli_query($Conn1,$query_to_update) or die(mysqli_error($Conn1));
 
