@@ -236,8 +236,8 @@ require_once "../include/helper.functions.php";
 		'outstanding_amount_5' => $_REQUEST['cur_out_stand_on_5'],
 		'created_on' => $currentDateTime 
 	);
-	print_r($fieds_array);
-	exit();
+	// print_r($fieds_array);
+	// exit();
 	$count = count($fieds_array);
 	$main_array = 0;
 	$query_to_update = "Insert into crm_customer_existing_loan_details set ";
