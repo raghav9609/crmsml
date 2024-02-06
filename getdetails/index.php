@@ -2,16 +2,14 @@
 header('Content-Type: application/json');
 $headers = apache_request_headers();
 $json_data = file_get_contents('php://input');
-var_dump($json_data);
-$post = json_decode($json_data,true);
+$a = stripslashes(html_entity_decode($json_data));
+var_dump($a);
+$post = json_decode($a,true);
 print_r($post);
-    die();
+die();
 require_once(dirname(__FILE__) . '/../config/config.php');
 require_once(dirname(__FILE__) . '/../helpers/common-helper.php');
 require_once(dirname(__FILE__) . '/../include/helper.functions.php');
-
-
-
 //print_r($post);
 //$decodedText = html_entity_decode($jsonText);
 //$post = json_decode($jsonText, TRUE);
