@@ -6,7 +6,7 @@ require_once(dirname(__FILE__) . '/../include/helper.functions.php');
 header('Content-Type: application/json');
 $headers = apache_request_headers();
 //echo "anu";
-echo $post = file_get_contents('php://input');
+ $post = file_get_contents('php://input');
 //print_r($post);
 //$decodedText = html_entity_decode($jsonText);
 //$post = json_decode($jsonText, TRUE);
