@@ -9,7 +9,7 @@ $headers = apache_request_headers();
  //$post = file_get_contents('php://input');
 
     $json_data = file_get_contents('php://input');
-    $post = json_decode($json_data);
+    $post =$json_data;
 
 //print_r($post);
 //$decodedText = html_entity_decode($jsonText);
