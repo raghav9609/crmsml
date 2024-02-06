@@ -206,7 +206,7 @@ require_once "../include/helper.functions.php";
 		// 'cur_sess_revenue' => $_REQUEST['gross_turnover_curr_sess']
 	// );
 	$fieds_array = array(
-		'query_id' => $query_id,
+		'query_id' => $_REQUEST['id'],
 		'No_of_loans' => $_REQUEST['exis_loans'],
 		'loan_type_1' => $_REQUEST['loan_type_on'],
 		'bank_name_1' => $_REQUEST['bank_name_exi'],
