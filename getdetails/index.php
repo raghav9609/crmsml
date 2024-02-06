@@ -4,6 +4,6 @@ require_once(dirname(__FILE__) . '/../helpers/common-helper.php');
 require_once(dirname(__FILE__) . '/../include/helper.functions.php');
 
 echo "anu";
-$_POST = file_get_contents('php://input');
-print_r($_POST['name']);
+$post = file_get_contents('php://input');
+print_r($post);
 ?>
