@@ -35,7 +35,7 @@ var temp_id = $( "#template" ).val() ;
 <body>
 <div class="mall_40" align="center">
 <div class="wrapper">
-<form name="sendemail" method="post" action="send-email-process.php">
+<form name="sendemail" method="post" action="send-sms-process.php">
 <table class="adminbox admintext" width="100%">
   <input type = "hidden" name= "query_id" id="query_id" value="<?php echo $query_id;?>">
 <tr>
