@@ -47,7 +47,7 @@ $qry1 = "select * from crm_masters where crm_masters_code_id = 2 and is_active =
                                 while ($exe_form = mysqli_fetch_array($res)) {
                                     print_r($exe_form);
                                     $record++;
-                                    if ($record > 10) {
+                                    if ($record > 15) {
                                         continue;
                                     }
                                    
@@ -55,7 +55,7 @@ $qry1 = "select * from crm_masters where crm_masters_code_id = 2 and is_active =
                                 <tr>
                                     <td><?php echo $exe_form['value']; ?></td>
                                     <td>
-                                        <input type ="checkbox" name = "check_bank"  id = "checkbox">
+                                        <input type ="checkbox" name = "check_bank"  id = "checkbox" value ="">
                                     </td>
                                 </tr>
                                 <?php  } ?>
