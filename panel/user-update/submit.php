@@ -15,7 +15,7 @@ echo "<br>".$user_role;
 	if($user_role == 1 ) {
 		$user_password = $_REQUEST['password_flag'];		
 		if(trim($user_password) != "") {
-			if(strlen($user_password) == 8) {
+			if(strlen($user_password) >= 8) {
 				$password = md5(base64_encode($user_password));
 			} else {
 				header("Location: ".$head_url."/panel/user-update/joinee_form.php?msg=3");		//Password length not valid
