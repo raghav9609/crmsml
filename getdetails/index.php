@@ -1,32 +1,9 @@
 <?php
-$a = '{
-    "name":"Anu chhikara",
-"dob":"08-10-1992",
-"pincode":110046,
-"city":"Delhi",
-"res_address":"sdfdsfd dfsdf sfds",
-"mobile":9958619609,
-"email":"anu@gmail.com",
-"marital_status":"married",
-"pan_no":"BMYPA9792E",
-"employment_type":1,
-"company_name":"Google",
-"net_income":45000,
-"salary_paid_by":1,
-"main_account":"sbi",
-"account_number":244002342,
-"office_email":"test@gmail.com",
-"office_pincode":122001,
-"office_city":"gurgaon", 
-"office_address":"testr sdsds",
-"current_work_exp":26,
-"toal_work_exp":36
-}';
 header('Content-type: application/json;');
 $headers = apache_request_headers();
 $method = $_SERVER['REQUEST_METHOD'];
 $json_data = file_get_contents('php://input');
-//$a = stripslashes(html_entity_decode($json_data));
+$a = stripslashes(html_entity_decode($json_data));
 $post = json_decode($a,true);
 
 var_dump($a);
