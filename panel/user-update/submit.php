@@ -7,7 +7,7 @@ echo "<br>".$user_role;
 
 	 $name = replace_special($_REQUEST['name']);
 	 $email = replace_special($_REQUEST['email']);
-	 $mobile = replace_special($_REQUEST['phone']);
+	 $mobile = replace_special($_REQUEST['mobile']);
 	 $tl = replace_special($_REQUEST['tl']);
 	 $loan_type = replace_special($_REQUEST['loan_type']);
 
