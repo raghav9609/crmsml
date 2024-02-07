@@ -303,25 +303,8 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                             $qry .= " AND qry.follow_given_by != 1 ";
                         }
                     }
-                    if ($source_compign != "") {
-                        $default = 1;
-                        if ($source_compign == 'ref_campaign') {
-                            $qry .= " and qry.refer_form_type = '2'";
-                        } else {
-                            $qry .= " and qry.page_url like '%" . $source_used . "%'";
-                        }
-                    }
-                    if ($sub_source != "") {
-                        $default = 1;
-                        $qry .= " and qry.page_url like '%" . $sub_source . "%'";
-                    }
-                    if ($insurance != '') {
-                        $default = 1;
-                        $qry .= " and qry.page_url like '%" . $insurance . "%'";
-                    }
-                     if ($default != 1) {
-                        $qry .= " and date(qry.created_on) between DATE_SUB(CURDATE(), INTERVAL 5 DAY) and CURDATE() ";
-                    }
+                  
+        
                     $qry .= " order by qry.id desc limit " . $offset . "," . $max_offset;
                 
                     ?>
@@ -372,7 +355,7 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                     <form method="POST" name="frmmain" action="mask_assign.php">
                         <table width="100%" class="gridtable">
                             <tr>
-                                <?php if ($_SESSION['assign_access_lead'] == 1) { ?>
+                                <?php if (in_array($user_role,array(1,2))) { ?>
                                     <th width="5%">
                                         <div><input type="checkbox" name="selectall" id="selectall" onClick="selectAll(this)">Select</div>
                                         </td><?php } ?>
@@ -406,10 +389,7 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                                     $date = ($exe_form['date'] == '0000-00-00' || $exe_form['date'] == '' || $exe_form['date'] == '1970-01-01') ? '--' : date("d-m-Y", strtotime($exe_form['date']));
                                     $tool_type = $exe_form['tool_type'];
 
-                                    $tool_type_ybl = '';
-                                    if (strpos($exe_form['page_url'], 'YBL_Bluesky') !== false) {
-                                        $tool_type_ybl = "( <span class='green'>YBL Bluesky Lead</span> )";
-                                    }
+                    
                                     $query_status_desc = $exe_form['query_status_desc'];
                                     $query_follow_date = ($exe_form['q_follow_date'] == '0000-00-00' || $exe_form['q_follow_date'] == '' || $exe_form['q_follow_date'] == '1970-01-01') ? '--' : date("d-m-Y", strtotime($exe_form['q_follow_date']));
 
@@ -470,25 +450,16 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                                     $utm_campain_name = ucfirst($get_array['utm_campaign']);
                             ?>
                                     <tr>
-                                        <?php if ($_SESSION['assign_access_lead'] == 1) { ?>
+                                        <?php if (in_array($user_role,array(1,2))) { ?>
                                             <td>
                                                 <input type="checkbox" name="mask[]" value="<?php echo $id; ?>">
                                             </td>
                                         <?php } ?>
-                                        <td><span><?php echo $id; ?> </span> <br> <span class="fs-13"><?php echo $date; ?> <?php echo common_time_filter($timeindia, "am_pm"); ?></span></td>
-                                        <td><?php echo $tool_type . "<br> " . $tool_type_ybl . " " . $sub_tool_type_name . " " . $utm_campain_name . "<br><span class='fs-12'>(" . $form_type . ")</span>";
-                                            if ($auto_case_create_v > 0) {
-                                                echo "<br><span class='fs-12'>(Auto)</span>";
-                                            } ?></span></td>
-                                        <td><a href="../query/edit.php?ut=<?php echo $ut; ?>&id=<?php echo urlencode(base64_encode($id)); ?>&page=<?php echo $page; ?>" class="has_link"><span><?php echo $loan_amt; ?></span>
-                                                <?php if ($tool == 'CREPF_ScoreBased' || $tool == 'CR_ScoreBased') { ?><span> ? </span><?php } ?></span><br /><span class="fs-12"><?php echo $loantype_name; ?></span></a>
-                                            <br><?php if ($ttl_experian_record > 0) {
-                                                    echo "<span class='fs-12'>$cibil_score</span>";
-                                                } ?>
-
-                                            <?php if ($ttl_epf_record > 0) {
-                                                echo "<br><span class='fs-12'>(EPF <span class='green'><b> &#10003 </b></span>) </span>";
-                                            } ?>
+                                        <td><span><?php echo $id; ?> </span> <br> <span class="fs-13"><?php echo $date; ?></span></td>
+                                        <td><?php echo $tool_type ;?></span></td>
+                                        <td><a href="../query/edit.php?ut=<?php echo $ut; ?>&id=<?php echo urlencode(base64_encode($id)); ?>&page=<?php echo $page; ?>" class="has_link"><span><?php echo $loan_amt; ?></span><br/>
+                                                <span class="fs-12"><?php echo $loantype_name; ?></span></a>
+                            
                                         </td>
                                         <td><span><?php echo substr(ucwords(strtolower($name)), 0, 20); ?></span><br /><span class="fs-12"><?php echo $city_name; ?></span></td>
                                         <td><span><?php echo $echo_number; //$phone_no;  
@@ -497,22 +468,20 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                                                                                                         } ?></b></span> <?php if ($verify_phone != '1') { ?> <span class='red fs-11 valign-mid'> <b>X</b></span> <?php } ?><br /><?php if ($alt_phone != '0' && $alt_phone != '') {
                                                                                                                                                                                                                                         echo $alt_phone; ?><br /><?php } ?><?php //echo $email;
                                                                                                                                                                                                                                                                             ?></td>
-                                        <td><span><?php echo $net_incm; ?></span><br /><span class="fs-12"><?php echo $occupation_name; ?></span></td>
-                                        <td><?php echo $qy_status; ?><br /><?php echo $query_status_desc . "<br><span class = 'red fs-10'>" . $junk_reason . "</span><br>" . $description; ?></td>
-                                        <td><span><?php echo $query_follow_date; ?></span><br /><?php echo $follow_name; ?></td>
+                                        <td><span><?php echo $net_incm; ?></span></td>
+                                        <td><?php if($qy_status > 0){echo $qy_status;}else{echo "-";} ?><br /><?php echo $query_status_desc . "<br><span class = 'red fs-10'>" . $junk_reason . "</span><br>" . $description; ?></td>
+                                        <td><span><?php echo $query_follow_date; ?></span><br /><?php if($follow_name != '' && $follow_name != 0){echo $follow_name;}else{echo "-";} ?></td>
                                         <td><?php if ($user_name == '') { ?> -- <?php } else {
                                                                                 echo $user_name;
-                                                                                if ($extension > 0) {
-                                                                                    echo "<br><span class='fs-12'>(" . $extension . ")</span>";
-                                                                                } ?><?php } ?></td>
+                                                                                 ?><?php } ?></td>
                                         <td><a href="../query/edit.php?ut=<?php echo $ut; ?>&id=<?php echo urlencode(base64_encode($id)); ?>&page=<?php echo $page; ?>" class="has_link"><input type="button" class="pointer_n" value="View" style="border-radius: 5px; background-color: #18375f; font-weight: bold;"></a></td>
                                     </tr>
                                 <?php  } ?>
                         </table>
-                        <?php if ($_SESSION['assign_access_lead']) { ?>
+                        <?php if (in_array($user_role,array(1,2))) { ?>
                             <div class="clear ml10 pdT10" style="margin-top: 1%;">
                                 <input type="radio" id="assign" name="assign">Assigned to
-                                <span id="assign_to"><?php echo get_dropdown('user_lead_assign', 'assigned', '', ''); ?>
+                                <span id="assign_to"><?php echo get_dropdown('user_id_3', 'assigned', '', ''); ?>
                                     <input type="hidden" name="request_builder" value="<?php echo http_build_query($_REQUEST); ?>">
                                     <input type="submit" name="edit" value="Assign" />
                             </div>

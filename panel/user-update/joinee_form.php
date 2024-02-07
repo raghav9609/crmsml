@@ -4,8 +4,6 @@ require_once(dirname(__FILE__) . '/../../helpers/common-helper.php');
 require_once "../../include/header.php";
 include("../../include/helper.functions.php");
 
-echo $user_role;
-
  $msg = $_REQUEST['msg'];
 if($msg == '1'){ 
  $message = "<span class='green'>Id Created Successfully!!!</span>";
@@ -65,6 +63,7 @@ function joinee_validation() {
 <tr><th colspan="2"><input type="submit" class="buttonsub cursor" name="submit" id="submit" value="SUBMIT"></th></tr>
 <tr><td>User Name :</td><td><input type="text" name="name" id="name" value="" required/></td></tr>
 <tr><td>Email :</td><td><input type="email" name="email" id="email" value="" required/></td></tr>
+<tr><td>Phone No :</td><td><input type="tel" name="mobile" id="mobile" value="" minlength="10" maxlength="10" required/></td></tr>
 
 <tr><td>Role Id :</td><td><select name="role_id" id="role_id" required onchange="change();">
 <?php $qry_role = mysqli_query($Conn1,"select id as role_id,role_name As role_type from crm_master_user_role");
@@ -115,11 +114,11 @@ function joinee_validation() {
 <tr class="password_flag hidden">
     <td>Password :</td>
     <td>
-        <input type="password" name="password_flag" id="password_flag" value="" maxlength="8" placeholder="Password"/>
+        <input type="password" name="password_flag" id="password_flag" value="" minlength="8" placeholder="Password"/>
         <small style='color: red'>* 8 digit required</small>
     </td>
 </tr>
-<tr class="show_number_flag hidden">
+<!-- <tr class="show_number_flag hidden">
     <td>Show Number Flag :</td>
     <td>
         <select name="show_number_flag" id="show_number_flag">
@@ -129,7 +128,7 @@ function joinee_validation() {
             <option value="3">Completely Invisible</option>
         </select>
     </td>
-</tr>
+</tr> -->
 
 <tr id="sms_active"><td>Sms On Lead :</td><td><select name="sms_flag" id="sms_flag" required><option value="">Sms on lead</option><option value="1">Yes</option><option value="0" selected>No</option></select></td></tr>
 <tr><td>Status : </td><td><select name="status" id="status" ><option value="">Status</option><option value="0">INACTIVE</option><option value="1" selected>ACTIVE</option></select></td></tr>

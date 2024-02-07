@@ -6,11 +6,11 @@ print_r($_POST);
 if(!empty($_POST['mask'])){
 	$db_handle = new DBController();
 	foreach($_POST['mask'] as $value){
-		$existing_user_value = $db_handle->runQuery("select assign_user from query_details where query_id = ".$value);
-		$existing_user = $existing_user_value[0]['assign_user'];
-		$db_handle->updateRows("Update query_details set assign_user = ".$_POST['assigned'].",assign_date_time =NOW() where query_id = ".$value);
-		$db_handle->insertRows("Insert INTO lead_assign_history set level_id=1,lead_id =".$value.",assign_from ='".$existing_user."',assign_to='".$_POST['assigned']."',assign_by=".$user_id);
+		$existing_user_value = $db_handle->runQuery("select lead_assign_to from crm_query where id = ".$value);
+		$existing_user = $existing_user_value[0]['lead_assign_to'];
+		$db_handle->updateRows("Update crm_query set lead_assign_to = ".$_POST['assigned'].",lead_assign_on =NOW() where id = ".$value);
+		$db_handle->insertRows("Insert INTO crm_lead_assignment_history set lead_id =".$value.",user_assign_from ='".$existing_user."',user_assign_to='".$_POST['assigned']."',assign_by=".$user_id);
 	}
 }
-header("location:index.php");
+echo '<script>window.location.href = "'.$head_url.'/query/";</script>';
 ?>

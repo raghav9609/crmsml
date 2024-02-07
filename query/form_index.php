@@ -21,7 +21,7 @@
     width: 241px;
 }
 </style>
-<div class="main-crmform col-12">
+<div class="main-crmform col-12" style="margin-top:10px;">
     <div class="popup-ctext up-list-box">
     <h2 class='f_14 fw_bold'>Query Detail</h2>
     <br> 
@@ -48,115 +48,16 @@
     $nametext = trim($fname) != '' ? "<li><b class='fw_bold'>".ucfirst($fname)."</b> " : '<li><b class="fw_bold">Customer</b> '  ; 
     $dobtext = ($diff != '') ? " and customer age is&nbsp;&nbsp;<b class='fw_bold'>".$diff."</b>&nbsp;&nbsp;years </li>" : "</li>"  ;
     $citytext = (($city_name != '')? " and residing in <b class='fw_bold'> $city_name </b></li> " : "</li>") ;
-   // echo $occup;
     $occcc = get_name('master_code_id',$occup);
     
     $occuptext = (($occup != '' && $occup != 0) ? "<li>Customer is  <b class='fw_bold'>".$occcc['value']." </b>" : "");
-    $mainbank = get_name('master_code_id',$main_account);
-    $accounttext = (($main_account !='' && $main_account !=0) ? "<li>Customer has account in  <b class='fw_bold'>".$mainbank['value']." </b></li>" : "");
     $loanamounttext = ($loan_amt != 0 && $loan_amt != '') ? " of <b class='fw_bold'> $amt </b>" : "";
     echo  $nametext." looking for a <b class='fw_bold'>".$loantype_name."</b>".$loanamounttext. $citytext.$occuptext.$dobtext.$accounttext; ?>
 </ul>
     </div>
 
     <br>
-    <div class='popup-ctext up-list-box'>
-        <?php if ($fin_opt_bank != '') { ?>        
-            <h2 class="f_14 fw_bold" style='font-size: 15px'>Customer Applied Banks</h2>
-            <br>
-            <span class='green f_13'> <?php echo $apply_bnk_name; ?></span>
-            <br><br> <?php } ?>
-        <h2 class="f_14 fw_bold" style='font-size: 15px'>Agent Offered Banks</h2>
-        <br>
-        <?php 
-            $fil_city_id = $city_id;
-        
-        // if(in_array($loan_type,array(32,56,60,51,52,54))){
-            
-            // if($loan_type == 32){
-            //     $url = "https://www.myloancare.in/api_web/offers?is_offers_crm=1&loan_type_id=32&city=".$fil_city_id."&loan_amount=".$loan_amt."&occupation_id=1&crm_user_id=".$user."&crm_qryid=".$id;
-            // } else if($loan_type == 60){
-            //     $url = "https://www.myloancare.in/api_web/offers?is_offers_crm=1&loan_type_id=60&gold_type=".$gold_type_id."&city=".$fil_city."&gold_weight=".$gold_weight."&loan_amount=".$loan_amt."&crm_user_id=".$user."&cibil_score=".$result_cust_data['cibil_score']."&cibil_flag=".$check_cibil_val."&crm_qryid=".$id;
-            // }else if(in_array($loan_type,array(54,51,52))){
-            //     $url = "https://www.myloancare.in/api_web/offers?is_test=1&is_offers_crm=1&query_id=".$id."&loan_type_id=".$loan_type."&loan_amount=".$loan_amt."&occupation_id=".$occup."&loan_nature=".$loan_nature."&property_identified=".$prop_identified."&property_city_id=".$prop_city."&city=".$city_id."&property_size=".$property_size."&property_location_id=1&salary=".$net_incm."&property_type_id=".$asset_type."&existing_loan_amount=".($exe_form['top_loan_amt']+$exstning_loan_amt)."&roi=".$cur_rate."&loan_emi=".$main_loan_amount."&exist_loan_bank=".$exstn_bank."&is_eligibility=0&property_identified_sale_type_id=".$prop_sale_type."&loan_type=".$loan_type."&crm_user_id=".$user."&cibil_flag=".$check_cibil_val."&cibil_score=".$result_cust_data['cibil_score']."&crm_qryid=".$id;
-            // }else if($loan_type == 56){
-            //     $url = "https://www.myloancare.in/api_web/offers?is_offers_crm=1&query_id=".$id."&loan_type_id=56&loan_amount=".$loan_amt."&occupation_id=".$occup."&loan_nature=".$loan_nature."&city=".$fil_city."&salary=".$net_incm."&existing_loan_amount=".$exstning_loan_amt."&roi=".$cur_rate."&loan_emi=".$main_loan_amount."&exist_loan_bank=".$exstn_bank."&is_eligibility=0&company_id=".$comp_id."&loan_type=".$loan_type."&salary_paid=".$salary_pay_id."&sub_employer=".$sub_employer_type."&dob=".$dob."&total_work_exp=".$twe."&crm_user_id=".$user."&cibil_score=".$result_cust_data['cibil_score']."&cibil_flag=".$check_cibil_val."&main_comp_category=".$comp_category."&comp_sub_category=".$sub_comp_category."&comp_sub_sub_category=".$sub_sub_comp_category."&crm_qryid=".$id;
-            // }
-            // if($user == 173){
-            //     echo $url;
-            // }
-                
-        //     $offers_val = curl_get_helper($url,array("cache-control: no-cache","username:mlcgold","key:mlc-gold-loan"));
-        //     $decoded_data = json_decode($offers_val,true); 
-        //     $offers_partner_id_array = array();
-        //     foreach($decoded_data['data'] as $data){
-        //         $offers_partner_id_array[] = $data['partner_id'];
-        //     }
-        //     $loan_obj = new loan_filtering_new($phone, $loan_type, $occu_id, $net_incm, $main_loan_amount, $fil_city, $pin_code, $annual_turnover_num,$comp_id,$loan_in_past,$main_account,$loan_in_past,$company_name,$diff,$exe['cibil_score'],$offers_partner_id_array);                
-        // }else{
-        //     $loan_obj = new loan_filtering($phone, $loan_type, $occup, $net_incm, $loan_amt, $fil_city_id, $pin_code, $annual_turnover_num,$comp_id,$loan_in_past,$main_account,$loan_in_past,$comp_name,$diff,$cibil_score);
-        // }
-        $qry = "select ext.No_of_loans,ext.loan_type_1,ext.bank_name_1,ext.emi_1,ext.no_of_emi_1,ext.outstanding_amount_1,ext.loan_type_2,ext.bank_name_2,ext.emi_2,ext.no_of_emi_2,ext.outstanding_amount_2,ext.loan_type_3,ext.bank_name_3,ext.emi_3,ext.no_of_emi_3,ext.outstanding_amount_3,ext.loan_type_4,ext.bank_name_4,ext.emi_4,ext.no_of_emi_4,ext.outstanding_amount_4,ext.loan_type_5,ext.bank_name_5,ext.emi_5,ext.no_of_emi_5,ext.outstanding_amount_5,ext.no_of_cards,ext.credit_card_bank_name_exi_1,ext.credit_sanction_amt_1,ext.current_out_stan_1,ext.credit_card_vintage_1,ext.credit_card_bank_name_exi_2,ext.credit_sanction_amt_2,ext.current_out_stan_2,ext.credit_card_vintage_2,ext.credit_card_bank_name_exi_3,ext.credit_sanction_amt_3,ext.current_out_stan_3,ext.credit_card_vintage_3,ext.credit_card_bank_name_exi_4,ext.credit_sanction_amt_4,ext.current_out_stan_4,ext.credit_card_vintage_4,ext.credit_card_bank_name_exi_5,ext.credit_sanction_amt_5,ext.current_out_stan_5,ext.credit_card_vintage_5 from  crm_customer_existing_loan_details as ext where ext.query_id = '".$ol_query_id."'";
-
-        $res = mysqli_query($Conn1, $qry) or die("Error: " . mysqli_error($Conn1));
-        $exe_form = mysqli_fetch_array($res);
-        // print_r($exe_form);
-        $exis_loans = $exe_form['No_of_loans']; 
-        $loan_type_on1 = $exe_form['loan_type_1'];
-        $bank_name_selected1 = $exe_form['bank_name_1'];
-        $emi_loan_on_1 = $exe_form['emi_1'];
-        $no_of_emis_paid_on_1 = $exe_form['no_of_emi_1'];
-        $cur_out_stand_on_1 = $exe_form['outstanding_amount_1'];
-        $loan_type_on2 = $exe_form['loan_type_1'];
-        $bank_name_selected2 = $exe_form['bank_name_2'];
-        $emi_loan_on_2 = $exe_form['emi_2'];
-        $no_of_emis_paid_on_2 = $exe_form['no_of_emi_2'];
-        $cur_out_stand_on_2 = $exe_form['outstanding_amount_2'];
-        $loan_type_on3 = $exe_form['loan_type_3'];
-        $bank_name_selected3 = $exe_form['bank_name_3'];
-        $emi_loan_on_3 = $exe_form['emi_3'];
-        $no_of_emis_paid_on_3 = $exe_form['no_of_emi_3'];
-        $cur_out_stand_on_3 = $exe_form['outstanding_amount_3'];
-        $loan_type_on4 = $exe_form['loan_type_4'];
-        $bank_name_selected4 = $exe_form['bank_name_4'];
-        $emi_loan_on_4 = $exe_form['emi_4'];
-        $no_of_emis_paid_on_4 = $exe_form['no_of_emi_4'];
-        $cur_out_stand_on_4 = $exe_form['outstanding_amount_4'];
-        $loan_type_on5 = $exe_form['loan_type_5'];
-        $bank_name_selected5 = $exe_form['bank_name_5'];
-        $emi_loan_on_5 = $exe_form['emi_5'];
-        $no_of_emis_paid_on_5 = $exe_form['no_of_emi_5'];
-        $cur_out_stand_on_5 = $exe_form['outstanding_amount_5'];
-        $credit_running = $exe_form['no_of_cards'];
-        $credit_card_bank_name_exi_1 = $exe_form['credit_card_bank_name_exi_1'];
-        $credit_sanction_amt_1 = $exe_form['credit_sanction_amt_1'];
-        $current_out_stan_1 = $exe_form['current_out_stan_1'];
-        $credit_card_vintage_1 = $exe_form['credit_card_vintage_1'];
-
-        $credit_card_bank_name_exi_2 = $exe_form['credit_card_bank_name_exi_2'];
-        $credit_sanction_amt_2 = $exe_form['credit_sanction_amt_2'];
-        $current_out_stan_2 = $exe_form['current_out_stan_2'];
-        $credit_card_vintage_2 = $exe_form['credit_card_vintage_2'];
-
-        $credit_card_bank_name_exi_3 = $exe_form['credit_card_bank_name_exi_3'];
-        $credit_sanction_amt_3 = $exe_form['credit_sanction_amt_3'];
-        $current_out_stan_3 = $exe_form['current_out_stan_3'];
-        $credit_card_vintage_3 = $exe_form['credit_card_vintage_3'];
-
-        $credit_card_bank_name_exi_4 = $exe_form['credit_card_bank_name_exi_4'];
-        $credit_sanction_amt_4 = $exe_form['credit_sanction_amt_4'];
-        $current_out_stan_4 = $exe_form['current_out_stan_4'];
-        $credit_card_vintage_4 = $exe_form['credit_card_vintage_4'];
-
-        $credit_card_bank_name_exi_5 = $exe_form['credit_card_vintage_5'];
-        $credit_sanction_amt_5 = $exe_form['credit_card_vintage_5'];
-        $current_out_stan_5 = $exe_form['credit_card_vintage_5'];
-        $credit_card_vintage_5 = $exe_form['credit_card_vintage_5'];
-
-        
-        
-        ?>
-    </div>
+    
 
 
 </div>
@@ -1123,17 +1024,6 @@ if (in_array($loan_type, $language_barrier_loan_type)) {?>
                 <?php } ?>
                 </div>
             </div>
-
-            <?php
-            $tc_loan_type_arr = array('56', '51', '54', '52', '11', '63', '71', '60');
-            ?>
-            <?php if(in_array($loan_type, $tc_loan_type_arr)) { ?>
-                <div id="slide-tc-script" class="fabs-telecaller" style="bottom: 66%; position: fixed; margin: 1em; right: 0;">
-                    <a style='display: block; width: 50px; height: 50px; border-radius: 50%; text-align: center; color: white; margin: 0; box-shadow: 0px 5px 11px -2px rgba(0, 0, 0, 0.18), 0px 4px 12px -7px rgba(0, 0, 0, 0.15); cursor: pointer; -webkit-transition: all .1s ease-out; transition: all .1s ease-out; position: relative; background-color: #EB9B42' target="_blank" class="fab" tooltip="Share" title="Telecaller Script"><i style='position: inherit; color: #fff;' class="fa-icon fa-file"></i></a>
-                </div>
-                <?php //include("../insert/telecaller_script.php"); ?>
-            <?php } ?>
-
         </section>
     </main>
     <?php

@@ -224,7 +224,6 @@ if (!function_exists('curl_helper')) {
 if (!function_exists('curl_get_helper')) {
     function curl_get_helper($url, $header = array("cache-control: no-cache"))
     {
-        echo $ul;
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "GET");
         curl_setopt($curl, CURLOPT_URL, $url);
@@ -232,9 +231,9 @@ if (!function_exists('curl_get_helper')) {
         curl_setopt($curl, CURLOPT_CONNECTTIMEOUT, 60);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
         curl_setopt($curl, CURLOPT_HTTPHEADER, $header);
-         $response = curl_exec($curl);
-         $error = curl_error($curl);
-        $status = curl_getinfo($curl);
+        echo $response = curl_exec($curl);
+        echo $error = curl_error($curl);
+        echo $status = curl_getinfo($curl);
         curl_close($curl);
         return $response;
     }

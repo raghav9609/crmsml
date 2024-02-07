@@ -144,12 +144,12 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
     <input type="hidden" name="final_query_id" value="<?php echo urlencode(base64_encode($id));?>">
     <div class="color-bar-1"></div>
     <div class="color-bar-2 color-bg"></div>
-    <div style="width:100%;"><div style="padding-left: 1%;padding-right: 1%;">
+    <div style="width:100%;"><div style="padding-left: 1%;padding-right: 1%;margin-top:10px;">
     <div id="fixed_tab">
     <span style="font-weight:bold;font-size:14px;">
     <a href="../email/?query_id=<?php echo urlencode(base64_encode($id)); ?>" target='_blank'><input type="button" class="buttonsub cursor" value="Email"></a>
 
-    <a href="../email/send-sms.php?query_id=<?php echo urlencode(base64_encode($id)); ?>" target='_blank'> <input type="button" class="buttonsub cursor" value="SMS"></a>
+    <a href="../sms/?query_id=<?php echo urlencode(base64_encode($id)); ?>" target='_blank'> <input type="button" class="buttonsub cursor" value="SMS"></a>
     <a href="<?php echo $head_url; ?>/calculators/" target="_blank"><input type="button" class="buttonsub cursor" value="EMI"></a>
     <a href="<?php echo $head_url; ?>/calculators/eligibility.php" target="_blank">
         <input type="button" class="buttonsub cursor" value="Eligibility"></a>
@@ -181,50 +181,17 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
             <!-- Title Header -->
             <div class="span9"><!--Begin page content column-->
 
-                    <div style="width:100%;float:left;">
+                    <div style="width:100%;float:left;margin-top:10px;">
               
                     <div align="center">
                         <div class="wrapper">
 
 <span class='orange f_13' style="font-weight:bold;"><?php
    echo "<span class='ml10 fs-13' style='font-weight: normal; color: #000'>Query ID: </span>";
-    echo "<span style='font-weight: 600; color: #000;'>".$qryyy_id."</span>
-    <span class='ml10 fs-13' style='font-weight: normal; color: #000'>Case Id:</span>
-    "; ?>
-    <span id="mention_case_no" style='font-weight: 600; color: #000;'>
-        <?php echo is_numeric($case_id)? $case_id:' -'; ?>
-    </span>
+    echo "<span style='font-weight: 600; color: #000;'>".$qryyy_id."</span>"; ?>
    <?php echo "<span class='ml10 fs-13' style='font-weight: normal; color: #000'>Query Date: </span>";
-    echo "<span style='font-weight: 600; color: #000;'>".date("d-m-Y", strtotime($exe_form['date']))." ".$timeindia."</span>";
-    if($_REQUEST['priority']){
-        echo "<span class='ml10 fs-13' style='font-weight: normal; color: #000'>Priority: </span>";
-        echo "<span style='font-weight: 600; color: #000;'>".$_REQUEST['priority']."</span>";
-    }
-    if($exe_form['fup_date'] != '' && $exe_form['fup_date'] != '0000-00-00' && $exe_form['fup_date'] != '1970-01-01') {
-            $fup_time = $exe_form['fup_time'] != '00:00:00'?date('H:i a',strtotime($exe_form['fup_time'])):"-";
-            echo "<span class='ml10 fs-13' style='font-weight: normal; color: #000'>Next Call Time: </span>";
-            echo "<span style='font-weight: 600; color: #000;'>".date('d-m-Y',strtotime($exe_form['fup_date']))." ".$fup_time."</span>";
-        }
-
-        $current_status = "--";
-        if($exe_form['query_status'] != "--" && $exe_form['query_status'] != "" && $exe_form['query_status'] != "0") {
-
-        }
-
-        echo " <span class='ml10 fs-13' style='font-weight: normal; color: #000'>Current Status:</span> <span style='font-weight: 600; color: #000;'> ".$current_status." </span>";
-
-        echo "<span class='ml10 fs-13' style='font-weight: normal; color: #000'>Tool Type:</span>";
-        if($tool_type == 'Cross Sell - Auto') {
-            echo "<a href='javascript:void' onclick='toCrossSell()'><span class='badge-success badge-pill badge' style='font-weight: 600; color: #000; font-size: 12px'> ".$tool_type." </span></a>";
-        } else {
-            if($tool_type == 'Partner1') {
-                $tool_type_url = $exe_form['page_url'];
-                $tool_type_url_arr = explode("utm_campaign=", $tool_type_url);
-                $tool_type = $tool_type." ".$tool_type_url_arr[1];
-            }
-            echo "<span style='font-weight: 600; color: #000;'> ".$tool_type." </span>";
-        }
-
+    echo "<span style='font-weight: 600; color: #000;'>".date("d-m-Y", strtotime($exe_form['date']))." ".$timeindia."</span>
+    <span class='ml10 fs-13' style='font-weight: normal; color: #000'>Tool Type:</span><span style='font-weight: 600; color: #000;'> ".$tool_type." </span>";
     ?>
     </span>
 
@@ -252,15 +219,6 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
                         }
                         ?>
 
-                            
-                            <?php 
-                            if ($id > $old_form_id) {
-                                if ($old_form_id > 0) { ?>
-                                    <input type="hidden" class="buttonsub cursor"
-                                           value="Query Generated from : <?php echo $old_form_id; ?>"><?php } ?>
-                                <a href="javascript:void(0);" onclick="loan_select();"><input type="hidden" class="buttonsub cursor float-rt" style='margin-right: -17%;' value="Generate Query"></a> <?php } else if ($old_form_id != '0' && $id < $old_form_id) {
-                                echo '<input type="hidden" class="buttonsub cursor float-rt"  style="margin-right: -17%;" value="New Query Generated: ' . $old_form_id . '">';
-                            } ?>
                             <div class='clear'></div>
                            <?php
                            
@@ -293,7 +251,6 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
                         </div>
                     </div>
                 </div>
-<link href="../assets/css/notepad.css" rel='stylesheet' type='text/css' />
 <script src="../assets/js/easyResponsiveTabs.js" type="text/javascript"></script>
 <script type="text/javascript">
     $(document).ready(function () {
