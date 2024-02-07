@@ -303,25 +303,8 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                             $qry .= " AND qry.follow_given_by != 1 ";
                         }
                     }
-                    if ($source_compign != "") {
-                        $default = 1;
-                        if ($source_compign == 'ref_campaign') {
-                            $qry .= " and qry.refer_form_type = '2'";
-                        } else {
-                            $qry .= " and qry.page_url like '%" . $source_used . "%'";
-                        }
-                    }
-                    if ($sub_source != "") {
-                        $default = 1;
-                        $qry .= " and qry.page_url like '%" . $sub_source . "%'";
-                    }
-                    if ($insurance != '') {
-                        $default = 1;
-                        $qry .= " and qry.page_url like '%" . $insurance . "%'";
-                    }
-                     if ($default != 1) {
-                        $qry .= " and date(qry.created_on) between DATE_SUB(CURDATE(), INTERVAL 5 DAY) and CURDATE() ";
-                    }
+                  
+        
                     $qry .= " order by qry.id desc limit " . $offset . "," . $max_offset;
                 
                     ?>
@@ -406,10 +389,7 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                                     $date = ($exe_form['date'] == '0000-00-00' || $exe_form['date'] == '' || $exe_form['date'] == '1970-01-01') ? '--' : date("d-m-Y", strtotime($exe_form['date']));
                                     $tool_type = $exe_form['tool_type'];
 
-                                    $tool_type_ybl = '';
-                                    if (strpos($exe_form['page_url'], 'YBL_Bluesky') !== false) {
-                                        $tool_type_ybl = "( <span class='green'>YBL Bluesky Lead</span> )";
-                                    }
+                    
                                     $query_status_desc = $exe_form['query_status_desc'];
                                     $query_follow_date = ($exe_form['q_follow_date'] == '0000-00-00' || $exe_form['q_follow_date'] == '' || $exe_form['q_follow_date'] == '1970-01-01') ? '--' : date("d-m-Y", strtotime($exe_form['q_follow_date']));
 
@@ -476,19 +456,10 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                                             </td>
                                         <?php } ?>
                                         <td><span><?php echo $id; ?> </span> <br> <span class="fs-13"><?php echo $date; ?> <?php echo common_time_filter($timeindia, "am_pm"); ?></span></td>
-                                        <td><?php echo $tool_type . "<br> " . $tool_type_ybl . " " . $sub_tool_type_name . " " . $utm_campain_name . "<br><span class='fs-12'>(" . $form_type . ")</span>";
-                                            if ($auto_case_create_v > 0) {
-                                                echo "<br><span class='fs-12'>(Auto)</span>";
-                                            } ?></span></td>
+                                        <td><?php echo $tool_type ;?></span></td>
                                         <td><a href="../query/edit.php?ut=<?php echo $ut; ?>&id=<?php echo urlencode(base64_encode($id)); ?>&page=<?php echo $page; ?>" class="has_link"><span><?php echo $loan_amt; ?></span>
-                                                <?php if ($tool == 'CREPF_ScoreBased' || $tool == 'CR_ScoreBased') { ?><span> ? </span><?php } ?></span><br /><span class="fs-12"><?php echo $loantype_name; ?></span></a>
-                                            <br><?php if ($ttl_experian_record > 0) {
-                                                    echo "<span class='fs-12'>$cibil_score</span>";
-                                                } ?>
-
-                                            <?php if ($ttl_epf_record > 0) {
-                                                echo "<br><span class='fs-12'>(EPF <span class='green'><b> &#10003 </b></span>) </span>";
-                                            } ?>
+                                                <span class="fs-12"><?php echo $loantype_name; ?></span></a>
+                            
                                         </td>
                                         <td><span><?php echo substr(ucwords(strtolower($name)), 0, 20); ?></span><br /><span class="fs-12"><?php echo $city_name; ?></span></td>
                                         <td><span><?php echo $echo_number; //$phone_no;  
