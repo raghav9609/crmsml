@@ -3,6 +3,8 @@
  require_once "../config/config.php";
  require_once "../include/helper.functions.php";
  require_once "../include/display-name-functions.php";
+ require_once(dirname(__FILE__) . '/../include/header.php');
+
 
 $qry1 = "select * from crm_masters where crm_masters_code_id = 2 and is_active = 1 ";
 
