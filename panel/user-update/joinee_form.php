@@ -63,6 +63,7 @@ function joinee_validation() {
 <tr><th colspan="2"><input type="submit" class="buttonsub cursor" name="submit" id="submit" value="SUBMIT"></th></tr>
 <tr><td>User Name :</td><td><input type="text" name="name" id="name" value="" required/></td></tr>
 <tr><td>Email :</td><td><input type="email" name="email" id="email" value="" required/></td></tr>
+<tr><td>Phone No :</td><td><input type="tel" name="mobile" id="mobile" value="" required/></td></tr>
 
 <tr><td>Role Id :</td><td><select name="role_id" id="role_id" required onchange="change();">
 <?php $qry_role = mysqli_query($Conn1,"select id as role_id,role_name As role_type from crm_master_user_role");
