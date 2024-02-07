@@ -202,22 +202,6 @@ require_once(dirname(__FILE__) . '/../model/queryHelper.php');
                                     <label for="bank_account_type" class="label-tag set-label-pos">Bank Account Type</label>
                                 </div>
 
-                                <!-- <div class="form-group col-xl-3 col-lg-4 col-md-6 gross_anl_recpt hidden">
-                                    <span class="fa-icon fa-inr"></span>
-                                    <input type="text" id="gross_annual_receipt" name="gross_annual_receipt" value="" placeholder="Gross Annual Receipt" class="form-control numonly" maxlength="10" onkeyup="gar_in_words.innerHTML=price_in_words(this.value)">
-                                    <label for="gross_annual_receipt" id="gar_label" class="label-tag set-label-pos">Gross Annual Receipt</label>
-                                    <div class='word_below set_amt_frmt orange'><b id="gar_in_words" class=' gross_annual_receipt_value_formt'></b></div>
-                                </div> -->
-
-                                <!-- <div class="form-group col-xl-3 col-lg-4 col-md-6 anl_profit hidden">
-                                    <span class="fa-icon fa-inr"></span>
-                                    <input type="text" id="anl_prof" name="anl_prof" value="" placeholder="Annual Profit" class="form-control numonly " maxlength="10" onkeyup="ap_in_words.innerHTML=price_in_words(this.value)">
-                                    <label for="anl_prof" class="label-tag set-label-pos optional-tag">Annual Profit</label>
-                                    <div class='word_below set_amt_frmt orange'><b id="ap_in_words" class='anl_prof_value_formt'></b></div>
-                                </div> -->
-
-                               
-
                                 <div class="form-group col-xl-3 col-lg-4 col-md-6 assign_to user_ass hidden">
                                     <label for="" class="radio-tag set-label-pos label-tag optional-tag">Assign To</label>
                                     <div class="radio-button error_contain new-label">
@@ -234,18 +218,7 @@ require_once(dirname(__FILE__) . '/../model/queryHelper.php');
                                     </div>
                                 </div>
 
-                                <!-- <div class="form-group col-xl-3 col-lg-4 col-md-6 user_assign hidden">
-                                    <span class="fa-icon fa-user"></span>
-                                <?php // echo get_dropdown('u_assign', 'u_assign', '', ''); ?>
-                                    <label for="u_assign" id="u_assign_label" class="label-tag set-label-pos optional-tag">User Assign</label>
-                                </div>
-
-                                <div class="form-group col-xl-3 col-lg-4 col-md-6 acq_mod  hidden">
-                                    <span class="fa-icon fa-medium"></span>
-                                    <?php // echo get_dropdown('acq_mode', 'acq_id', '5', 'onchange= "acqtype(this.value);"'); ?>
-                                    <label for="acq_id" class="label-tag set-label-pos optional-tag">Acquistion Mode</label>
-                                </div> -->
-
+                               
                                 <div class="form-group col-xl-3 col-lg-4 col-md-6 ref_type" style="display:none;">
                                     <span class="fa-icon fa-sitemap"></span>
                                     <select name="ref_type" id="ref_type" class="form-control">

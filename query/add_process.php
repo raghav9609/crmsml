@@ -70,23 +70,8 @@ if($loan_type == 32){
     $user_id = 83;
 }
 
-// if($acq_id == 3 && $reffrl_mob > 6000000000 && $ref_type=='1'){
-// 	$ref_idm = get_display_name('customer_id',$reffrl_mob);
-// 	if($ref_idm == '' || $ref_idm == 0){
-// 		$insert_customer_qry = mysqli_query($Conn1,"insert into crm_customer set phone = '".$reffrl_mob."',date=CURDATE(),time=CURTIME()");
-// }
-// 	$ref_id = get_display_name('customer_id',$reffrl_mob);
-// } else if($acq_id == 3 && $reffrl_mob > 6000000000 && $ref_type=='2'){
-// 	$ref_idm = get_display_name('referer_partner_id',$reffrl_mob);
-// 	if($ref_idm == '' || $ref_idm == 0){
-// 		$insert_customer_qry = mysqli_query($Conn1,"insert into tbl_mint_partner_info set phone = '".$reffrl_mob."',phone_no = '".$reffrl_mob."',date=NOW()");
-// }
-// 	$ref_id = get_display_name('referer_partner_id',$reffrl_mob);
-// }
-
 
 $comp_id = get_display_name('comp_id',$company_name);
-//$refer_amt = get_display_name('cashback',$loan_type);
 $cust_id = get_display_name('customer_id',$phone);
 if($comp_id == '' || $comp_id == '0'){
     $comp_id_n = '';
@@ -127,7 +112,7 @@ if($position != "" && $position > 0) {
     $first_name = $name;
 }
 
-$qry_edit = "insert into crm_raw_data set salutation_id='".$saluation."',name='".$first_name."', email_id ='".$email."',phone_no = '".$phone."', alternate_phone_no = '".$phone."', city_id = '".$city_id."', pincode = '".$pin_code_id."', occupation_id = '".$occup_id."', loan_type_id = '".$loan_type."', loan_amount = '".$loan_amount."', company_id = '".$comp_id_n."', company_name = '".$comp_name_other."', net_income = '".$net_income."',bank_account_no = '".$main_account."', query_status='1',tool_type='Direct',mode_of_salary='".$salary_paid."', created_on=CURDATE(),user_ip='".$_SERVER['REMOTE_ADDR']."',lead_assign_to='".$user_id."',description='".$desc."',ref_mobile='".$ref_id."', refer_form_type='".$ref_type."', verify_phone='1'";
+$qry_edit = "insert into crm_raw_data set salutation_id='".$saluation."',name='".$first_name."', email_id ='".$email."',phone_no = '".$phone."', alternate_phone_no = '".$phone."', city_id = '".$city_id."', pincode = '".$pin_code_id."', occupation_id = '".$occup_id."', loan_type_id = '".$loan_type."', loan_amount = '".$loan_amount."', company_id = '".$comp_id_n."', company_name = '".$comp_name_other."', net_income = '".$net_income."',bank_account_no = '".$main_account."', query_status='1',tool_type='Add_Query',mode_of_salary='".$salary_paid."', created_on=CURDATE(),user_ip='".$_SERVER['REMOTE_ADDR']."',lead_assign_to='".$user_id."',description='".$desc."',ref_mobile='".$ref_id."', refer_form_type='".$ref_type."', verify_phone='1'";
 
 if($date_of_birth != "") {
     $qry_edit .= " , dob = '".$date_of_birth."' ";
@@ -136,12 +121,7 @@ if($date_of_birth != "") {
 if($bank_account_type != "") {
     $qry_edit .= ", bank_acc_type = '".$bank_account_type."' ";
 }
-
-//echo $qry_edit;
-
 $res_qry = mysqli_query($Conn1,$qry_edit);
-
-    // header("Location:add-query.php");
     echo '<script>window.location.href = "'.$head_url.'/query/add-query.php";</script>';
     include("../include/footer_close.php");
     exit;
