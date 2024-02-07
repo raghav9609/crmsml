@@ -14,15 +14,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $loan_amount = $_POST['loan_amount'];
     $dob = $_POST['dob'];
     $net_income = $_POST['net_income'];
-    
-    // print_r( $phone_no);
-    $count = count($phone_no);
+        $count = count($phone_no);
     $rows = array();
-    
-    // $get_data  = 'select count(id) as total_count from crm_raw_data';
-    // $result_app_qry = mysqli_query($Conn1,$get_data);
-    // $row_count_before_insert = mysqli_fetch_array($result_app_qry);
-
     for ($i = 0; $i < $count; $i++) {
         if ($dob[$i] != "" && $dob[$i] != null && $dob[$i] != "null"){
             $dob_get = dateformatymd($dob[$i]);
@@ -30,10 +23,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $dob_get = "1000-01-01";
             }
         };
-        // print_r($phone_no[$i]);
-        
-
-        
         $row = array(
             'name' => $name[$i],
             'phone_no' => $phone_no[$i],
@@ -41,32 +30,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'pincode' => $pincode[$i],
             'loan_amount' => $loan_amount[$i],
             'dob' => $dob_get,
+            'tool_type'=>"Upload_CSV",
             'net_income' => $net_income[$i]
         );
-        // $todayDate = date('Y-m-d');
-        $array_where = array(
-            "phone_no = '".$phone_no[$i]."'"
-        );
-        
-        // if ($communication_type[$i] == 1 || $communication_type[$i] == 2) {
-        //     $array_where[] = "mobile_no =" . $mobile_no[$i];
-        // } else if ($communication_type[$i] == 6) {
-        //     $array_where[] = "email_id =" . $email_id[$i];
-        // }
-        // echo "hihi";
-        // $chek_data = $queryModel->get_rawdata($array_where,10);
-        // echo $chek_data;
-        // echo "jjiiii";
-        // exit();
-        // $chek_data  = "select * from crm_raw_data where phone_no = '".$phone_no[$i]."'";
-        // // echo $chek_data;
-        // // $chek_data1 = $db_handle->runQuery($chek_data);
-        // $res_qry_get = mysqli_query($Conn1,$chek_data);
-        // // print_r($res_qry_get); 
-        // $res_qry1 = mysqli_fetch_array($res_qry_get);
-        // print_r($res_qry1);
-        // exit();
-        // if(empty($res_qry)){
             $insert_qry =  "INSERT INTO crm_raw_data set ";
             $comma ="";
             foreach ($row as $key => $val) {
@@ -75,20 +41,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 } 
             $insert_qry.= ";";            
             $insert_data = mysqli_query($Conn1,$insert_qry);
-            // echo "sucess";
-            
-        // }else{
-        //     $rows = array('status' => 'error', 'message' => 'Duplicate entry','insert_Data' => $insert_row);
-        // }
     }
-    // $row_count  = $queryModel->getrowcount(); 
-    // $row_count  = "select count(id) as total_count from crm_raw_data";
-    // // echo $row_count;
-    // // exit();
-    // $row_count_after_insert =  mysqli_query($Conn1,$row_count);
-    // $countAfterInsert = $row_count_after_insert['total_count'];
-    // $countBeforeInsert = $row_count_before_insert['total_count'];
-    // $insert_row = $countAfterInsert - $countBeforeInsert;
+   
 
     if ($insert_data != false) {
         $rows =array('status' => 'success', 'message' => 'Data Uploaded Successfully','insert_Data' => $insert_row);
@@ -96,8 +50,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $rows = array('status' => 'error', 'message' => $insert_data,'insert_Data' => $insert_row);
     }
 }
-// echo $rows;
-// exit();
 header('Content-Type: application/json');
 echo json_encode($rows);
 ?>
