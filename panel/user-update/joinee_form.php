@@ -117,7 +117,7 @@ function joinee_validation() {
         <small style='color: red'>* 8 digit required</small>
     </td>
 </tr>
-<tr class="show_number_flag hidden">
+<!-- <tr class="show_number_flag hidden">
     <td>Show Number Flag :</td>
     <td>
         <select name="show_number_flag" id="show_number_flag">
@@ -127,7 +127,7 @@ function joinee_validation() {
             <option value="3">Completely Invisible</option>
         </select>
     </td>
-</tr>
+</tr> -->
 
 <tr id="sms_active"><td>Sms On Lead :</td><td><select name="sms_flag" id="sms_flag" required><option value="">Sms on lead</option><option value="1">Yes</option><option value="0" selected>No</option></select></td></tr>
 <tr><td>Status : </td><td><select name="status" id="status" ><option value="">Status</option><option value="0">INACTIVE</option><option value="1" selected>ACTIVE</option></select></td></tr>
