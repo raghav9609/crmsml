@@ -19,7 +19,9 @@ if ($recordcount > 0) {
         }
         $data_bnk[] = '<input type ="checkbox" name = "check_bank_'.$$exe_form['id'].'"  id = "check_bank_'.$exe_form['id'].'" value ="">'.$exe_form['value'];
     }
-    pint_($data_bnk);
+    print_r($data_bnk);
+}
+    
 
 
 
