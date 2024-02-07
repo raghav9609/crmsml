@@ -647,19 +647,7 @@ function card_tocard(){
                   cache: false,
                   timeout: 60000,
                   success: function(response){
-                    var data = jQuery.parseJSON(response)
-                    if($("#case_id").val() == '' || $("#case_id").val() == 0){
-                      $("#mention_case_no").text($.trim(data.case_id));
-                      $("#case_id,.case_id_received").val($.trim(data.case_id));
-                    } 
-                    $("#case_fup_user_type").html(data.user_type);
-                    $("#fos_users").html(data.fos_users);
-                    setTimeout(  function() {  
-                      console.log("Case Created");
-                      bank_process_insert();
-                      $('#loader').css("display","none");
-                      verticalToggle('step3');
-                    }, 3000);  
+                    console.log("Application Created successfully");
                 }                                                                                 
                 });
           } else if(this.id=='step4' && $('#form_step4').valid()){
