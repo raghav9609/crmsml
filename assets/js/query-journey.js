@@ -662,31 +662,32 @@ function card_tocard(){
                     }, 3000);  
                 }                                                                                 
                 });
-          } else if(this.id=='step4' && $('#form_step4').valid()){
-                $('#loader').css("display","block");
-                var data_string = $("#form_step4").serializeArray();
-                $.ajax({      
-                  type: "POST",
-                  dataType: "text",
-                  data: data_string,
-                  cache: false,
-                  timeout: 60000,
-                  url: "/sugar/cases/add_follow_up_ajax.php",
-                  success: function(response){
-                    setTimeout(  function() {  
-                      console.log("Follow Up Added Successfully");  
-                    alert("Follow Up Added Successfully");
-                    if(user_role == 3){
-                      window.location.href = 'https://astechnos.com/crmsml/query/user.php';
-                    }else{
-                      window.location.href = 'https://astechnos.com/crmsml/query/index.php';
-                    }
-                    $('#loader').css("display","none");
-                    verticalToggle('step4');
-                    }, 3000);  
-                }                                                                                 
-                });
-              }   
+           } 
+          //else if(this.id=='step4' && $('#form_step4').valid()){
+          //       $('#loader').css("display","block");
+          //       var data_string = $("#form_step4").serializeArray();
+          //       $.ajax({      
+          //         type: "POST",
+          //         dataType: "text",
+          //         data: data_string,
+          //         cache: false,
+          //         timeout: 60000,
+          //         url: "/sugar/cases/add_follow_up_ajax.php",
+          //         success: function(response){
+          //           setTimeout(  function() {  
+          //             console.log("Follow Up Added Successfully");  
+          //           alert("Follow Up Added Successfully");
+          //           if(user_role == 3){
+          //             window.location.href = 'https://astechnos.com/crmsml/query/user.php';
+          //           }else{
+          //             window.location.href = 'https://astechnos.com/crmsml/query/index.php';
+          //           }
+          //           $('#loader').css("display","none");
+          //           verticalToggle('step4');
+          //           }, 3000);  
+          //       }                                                                                 
+          //       });
+          //     }   
       });
       $('.tab-click').click(function(){
         $('.form-step').slideUp(300);
