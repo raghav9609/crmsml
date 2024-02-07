@@ -94,7 +94,6 @@ function suggestion_box(get_val,offers_level_type=0){
     	var url = "<?php echo $head_url; ?>/offers/index.php";
     }
 	$.ajax({
-        alert("we");
         method:'GET',
         cache:'false',  
         url: url,

@@ -262,13 +262,27 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
     });
 </script>
 <script>
-    var loaded_raw_details = false;
+    var loaded_qry_tab = false;
     var loaded_cases_tab = false;
     var loaded_app_tab = false;
-    var loaded_other_details = false;
     var loaded_lead_alloc = false;
+    var loaded_raw_details = false;
     var loaded_api_res = false;
-    
+    var loaded_other_details = false;
+    var loaded_show_number = false;
+    var loaded_call_log = false;
+    var loaded_bnk_mapp = false;
+    var loaded_one_lead = false;
+    var loaded_page_summary = false;
+    var loaded_cross_sell = false;
+    var loaded_document = false;
+    var loaded_hl_filter = false;
+    var loaded_getdailer=false;
+    var loaded_pre_approved_offers=false;
+    var loaded_whatsapp_msg = false;
+    var loaded_missed_call = false;
+    var loaded_dialer_sms = false;
+    var loaded_nearest_pat = false;
     function callAjaxData(e) {
        if(e.id == "raw_details") {
             var query_id = "<?php echo $qryyy_id; ?>";
@@ -415,6 +429,303 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
                 $(".tab-7 > .facts > .register > .table_set").html("<h3>No Data Found</h3>");
             }
             loaded_lead_alloc = true;
+        } else if(e.id == "show_number") {
+            var query_id = "<?php echo $qryyy_id; ?>";
+            if(loaded_show_number) return;
+            if(query_id) {
+                $.ajax({
+                    type: "POST",
+                    url: "../insert/show_number_history.php",
+                    data: "query_id="+query_id+"&type=query",
+                    beforeSend: function () {
+                        $(".tab-8 > .facts > .register > .table_set").html('<div class="img">Please wait while we are fetching the details...</div><div class="img"><img style="width: 10%" src="../../include/img/common-loader.gif" /></div>');
+                    },
+                    success: function(msg) {
+                        if(msg.trim() == "") {
+                            $(".tab-8 > .facts > .register > .table_set").html("<h3>No Data Found</h3>");
+                        } else {
+                            $(".tab-8 > .facts > .register > .table_set").html(msg);
+                        }
+                    }
+                });
+            } else {
+                $(".tab-8 > .facts > .register > .table_set").html("<h3>No Data Found</h3>");
+            }
+            loaded_show_number = true;
+        } else if(e.id == "call_log") {
+            var query_id = "<?php echo $qryyy_id; ?>";
+            if(loaded_call_log) return;
+            if(query_id) {
+                $.ajax({
+                    type: "POST",
+                    url: "../insert/call_log.php",
+                    data: "query_id="+query_id+"&type=query",
+                    beforeSend: function () {
+                        $(".tab-9 > .facts > .register > .table_set").html('<div class="img">Please wait while we are fetching the details...</div><div class="img"><img style="width: 10%" src="../../include/img/common-loader.gif" /></div>');
+                    },
+                    success: function(msg) {
+                        if(msg.trim() == "") {
+                            $(".tab-9 > .facts > .register > .table_set").html("<h3>No Data Found</h3>");
+                        } else {
+                            $(".tab-9 > .facts > .register > .table_set").html(msg);
+                        }
+                    }
+                });
+            } else {
+                $(".tab-9 > .facts > .register > .table_set").html("<h3>No Data Found</h3>");
+            }
+            loaded_call_log = true;
+        } else if(e.id == "bnk_mapp") {
+            var query_id = "<?php echo $qryyy_id; ?>";
+             var city_id = "<?php echo $city_id; ?>";
+            var loan_type = "<?php echo $loan_type;?>";
+            if(loaded_bnk_mapp) return;
+            if(query_id) {
+                $.ajax({
+                    type: "POST",
+                    url: "../insert/bankers_mapping.php",
+                    data: "city_id="+city_id+"&loan_type="+loan_type+"&query_id="+query_id+"&type=query",
+                    beforeSend: function () {
+                        $(".tab-10 > .facts > .register > .table_set").html('<div class="img">Please wait while we are fetching the details...</div><div class="img"><img style="width: 10%" src="../../include/img/common-loader.gif" /></div>');
+                    },
+                    success: function(msg) {
+                        if(msg.trim() == "") {
+                            $(".tab-10 > .facts > .register > .table_set").html("<h3>No Data Found</h3>");
+                        } else {
+                            $(".tab-10 > .facts > .register > .table_set").html(msg);
+                        }
+                    }
+                });
+            } else {
+                $(".tab-10 > .facts > .register > .table_set").html("<h3>No Data Found</h3>");
+            }
+            loaded_bnk_mapp = true;
+        } else if(e.id == "one_lead") {
+            var query_id = "<?php echo $qryyy_id; ?>";
+            if(loaded_one_lead) return;
+            if(query_id) {
+                $.ajax({
+                    type: "POST",
+                    url: "../insert/one_lead_history.php",
+                    data: "query_id="+query_id+"&type=query",
+                    beforeSend: function () {
+                        $(".tab-11 > .facts > .register > .table_set").html('<div class="img">Please wait while we are fetching the details...</div><div class="img"><img style="width: 10%" src="../../include/img/common-loader.gif" /></div>');
+                    },
+                    success: function(msg) {
+                        if(msg.trim() == "") {
+                            $(".tab-11 > .facts > .register > .table_set").html("<h3>No Data Found</h3>");
+                        } else {
+                            $(".tab-11 > .facts > .register > .table_set").html(msg);
+                        }
+                    }
+                });
+            } else {
+                $(".tab-11 > .facts > .register > .table_set").html("<h3>No Data Found</h3>");
+            }
+            loaded_one_lead = true;
+        } else if(e.id == "page_summary") {
+            var query_id = "<?php echo $qryyy_id; ?>";
+            if(loaded_page_summary) return;
+            if(query_id) {
+                $.ajax({
+                    type: "POST",
+                    url: "../insert/page_submit_summary.php",
+                    data: "query_id="+query_id,
+                    beforeSend: function () {
+                        $(".tab-12 > .facts > .register > .table_set").html('<div class="img">Please wait while we are fetching the details...</div><div class="img"><img style="width: 10%" src="../../include/img/common-loader.gif" /></div>');
+                    },
+                    success: function(msg) {
+                        if(msg.trim() == "") {
+                            $(".tab-12 > .facts > .register > .table_set").html("<h3>No Data Found</h3>");
+                        } else {
+                            $(".tab-12 > .facts > .register > .table_set").html(msg);
+                        }
+                    }
+                });
+            } else {
+                $(".tab-12 > .facts > .register > .table_set").html("<h3>No Data Found</h3>");
+            }
+            loaded_page_summary = true;
+        } else if(e.id == "cross_sell") {
+            var query_id = "<?php echo $qryyy_id; ?>";
+            var tool_type = "<?php echo $tool_type; ?>";
+            if(loaded_cross_sell) return;
+            if(query_id && tool_type == "Cross Sell - Auto") {
+                $.ajax({
+                    type: "POST",
+                    url: "../insert/cross_sell_details.php",
+                    data: "query_id="+query_id+"&type=query",
+                    beforeSend: function () {
+                        $(".tab-13 > .facts > .register > .table_set").html('<div class="img">Please wait while we are fetching the details...</div><div class="img"><img style="width: 10%" src="../../include/img/common-loader.gif" /></div>');
+                    },
+                    success: function(msg) {
+                        if(msg.trim() == "") {
+                            $(".tab-13 > .facts > .register > .table_set").html("<h3>No Data Found</h3>");
+                        } else {
+                            $(".tab-13 > .facts > .register > .table_set").html(msg);
+                        }
+                    }
+                });
+            } else {
+                $(".tab-13 > .facts > .register > .table_set").html("<h3>No Data Found</h3>");
+            }
+
+            loaded_cross_sell = true;
+        }else if(e.id == 'documents'){
+            if(loaded_document) return;
+                $.ajax({
+                    type: "POST",
+                    url: "../customer-document/edit.php?tab=1&cust_id=<?php echo base64_encode($cust_id) ?>",
+                    beforeSend: function () {
+                        $(".tab-14 > .facts > .register > .table_set").html('<div class="img">Please wait while we are fetching the details...</div><div class="img"><img style="width: 10%" src="../../include/img/common-loader.gif" /></div>');
+                    },
+                    success: function(msg) {
+                        if(msg.trim() == "") {
+                            $(".tab-14 > .facts > .register > .table_set").html("<h3>No Data Found</h3>");
+                        } else {
+                            $(".tab-14 > .facts > .register > .table_set").html(msg);
+                        }
+                    }
+                });
+            loaded_document = true;
+        } else if(e.id == 'getdailersms'){
+            var query_id = "<?php echo $qryyy_id; ?>";
+            // alert(query_id)
+            if(loaded_getdailer) return;
+                $.ajax({
+                    type: "POST",
+                    url: "../insert/getdailersms.php?level_id=1&lead_id="+query_id,
+                    beforeSend: function () {
+                        $(".tab-15 > .facts > .register > .table_set").html('<div class="img">Please wait while we are fetching the details...</div><div class="img"><img style="width: 10%" src="../../include/img/common-loader.gif" /></div>');
+                    },
+                    success: function(msg) {
+                        if(msg.trim() == 0) {
+                            $(".tab-15 > .facts > .register > .table_set").html("<h3>No Data Found</h3>");
+                        } else {
+                            $(".tab-15 > .facts > .register > .table_set").html(msg);
+                        }
+                    }
+                });
+                loaded_getdailer = true;
+        } else if(e.id == 'pre_approved_offers'){
+            var cust_id = "<?php echo $cust_id; ?>";
+            var web_fmd_id = "<?php echo $web_fmd_id; ?>";
+            var query_id = "<?php echo $qryyy_id; ?>";
+            //if(loaded_pre_approved_offers) return;
+            if(cust_id) {
+                $.ajax({
+                    type: "POST",
+                    url: "../insert/pre-approved-offers.php",
+                    data: "cust_id="+cust_id+"&web_fmd_id="+web_fmd_id+"&query_id="+query_id,
+                    beforeSend: function () {
+                        $(".tab-16 > .facts > .register > .table_set").html('<div class="img">Please wait while we are fetching the details...</div><div class="img"><img style="width: 10%" src="../../include/img/common-loader.gif" /></div>');
+                    },
+                    success: function(msg) {
+                        if(msg.trim() == "") {
+                            $(".tab-16 > .facts > .register > .table_set").html("<h3>No Data Found</h3>");
+                        } else {
+                            $(".tab-16 > .facts > .register > .table_set").html(msg);
+                        }
+                    }
+                });
+            } else {
+                $(".tab-16 > .facts > .register > .table_set").html("<h3>No Data Found</h3>");
+            }
+            loaded_pre_approved_offers = true;
+        }else if(e.id == 'cust_whatsapp'){
+            var cust_id = "<?php echo $cust_id; ?>";
+            if(loaded_whatsapp_msg) return;
+            if(cust_id) {
+                $.ajax({
+                    type: "POST",
+                    url: "../whatsapp/edit.php?tabs=1&id="+btoa(cust_id),
+                    data: "cust_id="+cust_id,
+                    beforeSend: function () {
+                        $(".tab-17 > .facts > .register > .table_set").html('<div class="img">Please wait while we are fetching the details...</div><div class="img"><img style="width: 10%" src="../../include/img/common-loader.gif" /></div>');
+                    },
+                    success: function(msg) {
+                        if(msg.trim() == "") {
+                            $(".tab-17 > .facts > .register > .table_set").html("<h3>No Data Found</h3>");
+                        } else {
+                            $(".tab-17 > .facts > .register > .table_set").html(msg);
+                        }
+                    }
+                });
+            } else {
+                $(".tab-17 > .facts > .register > .table_set").html("<h3>No Data Found</h3>");
+            }
+            loaded_whatsapp_msg = true;
+        } else if(e.id == "missed_call_log") {
+            var query_id = "<?php echo $qryyy_id; ?>";
+            var cust_phone = "<?php echo $phone; ?>";
+            if(loaded_missed_call) return;
+            if(query_id) {
+                $.ajax({
+                    type: "POST",
+                    url: "../insert/missed_call_log.php",
+                    data: "query_id="+query_id+"&type=query&cust_phone="+cust_phone,
+                    beforeSend: function () {
+                        $(".tab-18 > .facts > .register > .table_set").html('<div class="img">Please wait while we are fetching the details...</div><div class="img"><img style="width: 10%" src="../../include/img/common-loader.gif" /></div>');
+                    },
+                    success: function(msg) {
+                        if(msg.trim() == "") {
+                            $(".tab-18 > .facts > .register > .table_set").html("<h3>No Data Found</h3>");
+                        } else {
+                            $(".tab-18 > .facts > .register > .table_set").html(msg);
+                        }
+                    }
+                });
+            } else {
+                $(".tab-18 > .facts > .register > .table_set").html("<h3>No Data Found</h3>");
+            }
+            loaded_missed_call = true;
+        } else if(e.id == "dialer_sms") {
+            var cust_phone = "<?php echo $phone; ?>";
+            var query_id = "<?php echo $qryyy_id; ?>";
+            if(loaded_dialer_sms) return;
+            if(cust_phone) {
+                $.ajax({
+                    type: "POST",
+                    url: "../insert/dialer-sms.php",
+                    data: "cust_phone="+cust_phone+"&query_id="+query_id,
+                    beforeSend: function () {
+                        $(".tab-19 > .facts > .register > .table_set").html('<div class="img">Please wait while we are fetching the details...</div><div class="img"><img style="width: 10%" src="../../include/img/common-loader.gif" /></div>');
+                    },
+                    success: function(msg) {
+                        if(msg.trim() == "") {
+                            $(".tab-19 > .facts > .register > .table_set").html("<h3>No Data Found</h3>");
+                        } else {
+                            $(".tab-19 > .facts > .register > .table_set").html(msg);
+                        }
+                    }
+                });
+            } else {
+                $(".tab-19 > .facts > .register > .table_set").html("<h3>No Data Found</h3>");
+            }
+            loaded_dialer_sms = true;
+        } else if(e.id == "nearest_pat") {
+            var city_id = "<?php echo $city_id; ?>";
+            if(loaded_nearest_pat) return;
+            if(city_id) {
+                $.ajax({
+                    type: "POST",
+                    url: "../insert/nearest-partner.php",
+                    data: "city_id="+city_id,
+                    beforeSend: function () {
+                        $(".tab-20 > .facts > .register > .table_set").html('<div class="img">Please wait while we are fetching the details...</div><div class="img"><img style="width: 10%" src="../../include/img/common-loader.gif" /></div>');
+                    },
+                    success: function(msg) {
+                        if(msg.trim() == "") {
+                            $(".tab-20 > .facts > .register > .table_set").html("<h3>No Data Found</h3>");
+                        } else {
+                            $(".tab-20 > .facts > .register > .table_set").html(msg);
+                        }
+                    }
+                });
+            } else {
+                $(".tab-20 > .facts > .register > .table_set").html("<h3>No Data Found</h3>");
+            }
+            loaded_nearest_pat = true;
         }
     }
 </script>
@@ -431,7 +742,7 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
                         <span>Raw Details</span>
                     </li>
                         <li class="resp-tab-item lost tab-view" aria-controls="details_tab_3"  id="cases_tab" role="tab" onclick="callAjaxData(this)">
-                            <span>Lead Display</span>
+                            <span>Cases</span>
                         </li>
                     <li class="resp-tab-item lost tab-view" aria-controls="details_tab_4"  id="app_tab"  role="tab" onclick="callAjaxData(this)">
                         <span>Application</span>
@@ -440,11 +751,51 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
                         <span>Page Details</span>
                     </li>
                     <li class="resp-tab-item lost tab-view" aria-controls="details_tab_6"  id="app_rq_rs"  role="tab" onclick="callAjaxData(this)">
-                        <span>Allocation</span>
+                        <span>API Response</span>
                     </li>
                     <li class="resp-tab-item lost tab-view" aria-controls="details_tab_7"  id="lead_alloc"  role="tab" onclick="callAjaxData(this)">
+                        <span>Allocation</span>
+                    </li>
+                    <li class="resp-tab-item lost tab-view" aria-controls="details_tab_8"  id="show_number"  role="tab" onclick="callAjaxData(this)">
                         <span>Show Number</span>
                     </li>
+                    <li class="resp-tab-item lost tab-view" aria-controls="details_tab_9"  id="call_log"  role="tab" onclick="callAjaxData(this)">
+                        <span>Call Log</span>
+                    </li>
+
+                    <li class="resp-tab-item lost tab-view" aria-controls="details_tab_10"  id="bnk_mapp"  role="tab" onclick="callAjaxData(this)">
+                        <span>Banker</span>
+                    </li>
+                    <li class="resp-tab-item lost tab-view" aria-controls="details_tab_11"  id="one_lead"  role="tab" onclick="callAjaxData(this)">
+                        <span>Lead Display</span>
+                    </li>
+                    <li class="resp-tab-item lost tab-view" aria-controls="details_tab_12"  id="page_summary"  role="tab" onclick="callAjaxData(this)">
+                        <span>Summary</span>
+                    </li>
+                    <li class="resp-tab-item lost tab-view" aria-controls="details_tab_13"  id="cross_sell"  role="tab" onclick="callAjaxData(this)">
+                        <span>Cross Sell</span>
+                    </li>
+                     <li class="resp-tab-item lost tab-view" aria-controls="details_tab_14"  id="documents"  role="tab" onclick="callAjaxData(this)">
+                        <span>Documents</span>
+                    </li>
+                    <li class="resp-tab-item lost tab-view" aria-controls="details_tab_15"  id="getdailersms"  role="tab" onclick="callAjaxData(this)">
+                        <span>Dialer SMS</span>
+                    </li>
+                        <li class="resp-tab-item lost tab-view" aria-controls="details_tab_16"  id="pre_approved_offers" role="tab" onclick="callAjaxData(this)">
+                            <span>PA-PQ Offers</span>
+                        </li>
+                        <li class="resp-tab-item lost tab-view" aria-controls="details_tab_17"  id="cust_whatsapp" role="tab" onclick="callAjaxData(this)">
+                            <span>Whatsapp</span>
+                        </li>
+                        <li class="resp-tab-item lost tab-view" aria-controls="details_tab_18"  id="missed_call_log" role="tab" onclick="callAjaxData(this)">
+                            <span>Other Calls</span>
+                        </li>
+                        <li class="resp-tab-item lost tab-view" aria-controls="details_tab_19"  id="dialer_sms" role="tab" onclick="callAjaxData(this)">
+                            <span>Dialer SMS</span>
+                        </li>
+                        <li class="resp-tab-item lost tab-view" aria-controls="details_tab_20"  id="nearest_pat" role="tab" onclick="callAjaxData(this)">
+                            <span>Nearest Pat.</span>
+                        </li>
                     <div class="clear"></div>
                 </ul>
                 <div class="resp-tabs-container">
@@ -453,11 +804,11 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
                             <div class="register">
                                 <div class="table_set">
                                     <?php
-                                        if(in_array($user,$user_new_status) || in_array($loan_type,$loan_type_new_status) || new_staus_user_level == 1 ||  new_staus_loan_type_level == 1){
-                                            include("query-follow-up.php");
-                                        }else{
-                                            include("query_followup_history.php");
-                                        }
+                                        // if(in_array($user,$user_new_status) || in_array($loan_type,$loan_type_new_status) || new_staus_user_level == 1 ||  new_staus_loan_type_level == 1){
+                                        //include("query-follow-up.php");
+                                        // }else{
+                                        //     include("query_followup_history.php");
+                                        // }
                                     ?>
                                 </div>
                             </div>
@@ -512,6 +863,133 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
                     <div class="tab-7 resp-tab-content" aria-labelledby="details_tab_7">
                         <div class="facts">
                             <div class="register">
+                                <div class="table_set">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-8 resp-tab-content" aria-labelledby="details_tab_8">
+                        <div class="facts">
+                            <div class="register">
+                                <div class="table_set">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-9 resp-tab-content" aria-labelledby="details_tab_9">
+                        <div class="facts">
+                            <div class="register">
+                                <div class="table_set">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-10 resp-tab-content" aria-labelledby="details_tab_10">
+                        <div class="facts">
+                            <div class="register">
+                                <div class="table_set">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-11 resp-tab-content" aria-labelledby="details_tab_11">
+                        <div class="facts">
+                            <div class="register">
+                                <div class="table_set">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-12 resp-tab-content" aria-labelledby="details_tab_12">
+                        <div class="facts">
+                            <div class="register">
+                                <div class="table_set">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-13 resp-tab-content" aria-labelledby="details_tab_13">
+                        <div class="facts">
+                            <div class="register">
+                                <div class="table_set">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-14 resp-tab-content" aria-labelledby="details_tab_14">
+                        <div class="facts">
+                            <div class="register">
+                                <div class="table_set">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-15 resp-tab-content" aria-labelledby="details_tab_15">
+                        <div class="facts">
+                            <div class="register">
+                                <div class="table_set">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="tab-16 resp-tab-content" aria-labelledby="details_tab_16">
+                        <div class="facts">
+                            <div class="register">
+                            
+                                <?php $fetch_axis_offers_api_data =  base64_encode(json_encode(array('mobile'=>base64_encode($mobile),'dob'=>base64_encode($dob),'loan_nature'=>base64_encode($loan_nature),'web_fmd_id'=>base64_encode($web_fmd_id),'main_account'=>base64_encode($main_account),'qry_id'=>base64_encode($qryyy_id),'saving_accounts_with'=>base64_encode($result_cust_data['saving_accounts_with']))));?>
+                                <input type="button" value="Fetch Axis PL Offers" name='fetch_axis_pl_offers' id='fetch_axis_pl_offers' onclick='callAxisPLOffersApi("<?php echo $fetch_axis_offers_api_data; ?>");'>
+
+                                <?php $fetch_offers_api_data =  base64_encode(json_encode(array('cust_id'=>base64_encode($cust_id),'lead_id'=>base64_encode($query_id),'level_type'=>base64_encode('1'),'source'=>base64_encode('2'),'mobile_no'=>base64_encode($mobile),'loan_type_id'=>base64_encode($loan_type))));?>
+                                        <input type="button" value="Fetch Offers" name='fetch_offers' id='fetch_offers' onclick='callOffersApi("<?php echo $fetch_offers_api_data; ?>");'>
+                                <div class="table_set">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-17 resp-tab-content" aria-labelledby="details_tab_17">
+                       <div class="facts">
+                           <div class="register">
+
+                               <div class="table_set">
+
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+                    <div class="tab-18 resp-tab-content" aria-labelledby="details_tab_18">
+                        <div class="facts">
+                            <div class="register">
+
+                                <div class="table_set">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-19 resp-tab-content" aria-labelledby="details_tab_19">
+                        <div class="facts">
+                            <div class="register">
+
+                                <div class="table_set">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-20 resp-tab-content" aria-labelledby="details_tab_20">
+                        <div class="facts">
+                            <div class="register">
+
                                 <div class="table_set">
 
                                 </div>
