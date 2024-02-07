@@ -4,8 +4,6 @@ require_once(dirname(__FILE__) . '/../../helpers/common-helper.php');
 require_once "../../include/header.php";
 include("../../include/helper.functions.php");
 
-echo $user_role;
-
  $msg = $_REQUEST['msg'];
 if($msg == '1'){ 
  $message = "<span class='green'>Id Created Successfully!!!</span>";
@@ -115,7 +113,7 @@ function joinee_validation() {
 <tr class="password_flag hidden">
     <td>Password :</td>
     <td>
-        <input type="password" name="password_flag" id="password_flag" value="" maxlength="8" placeholder="Password"/>
+        <input type="password" name="password_flag" id="password_flag" value="" minlength="8" placeholder="Password"/>
         <small style='color: red'>* 8 digit required</small>
     </td>
 </tr>
