@@ -450,14 +450,14 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                                     $utm_campain_name = ucfirst($get_array['utm_campaign']);
                             ?>
                                     <tr>
-                                        <?php if ($_SESSION['assign_access_lead'] == 1) { ?>
+                                        <?php if (in_array($user_role,array(1,2))) { ?>
                                             <td>
                                                 <input type="checkbox" name="mask[]" value="<?php echo $id; ?>">
                                             </td>
                                         <?php } ?>
-                                        <td><span><?php echo $id; ?> </span> <br> <span class="fs-13"><?php echo $date; ?> <?php echo common_time_filter($timeindia, "am_pm"); ?></span></td>
+                                        <td><span><?php echo $id; ?> </span> <br> <span class="fs-13"><?php echo $date; ?></span></td>
                                         <td><?php echo $tool_type ;?></span></td>
-                                        <td><a href="../query/edit.php?ut=<?php echo $ut; ?>&id=<?php echo urlencode(base64_encode($id)); ?>&page=<?php echo $page; ?>" class="has_link"><span><?php echo $loan_amt; ?></span>
+                                        <td><a href="../query/edit.php?ut=<?php echo $ut; ?>&id=<?php echo urlencode(base64_encode($id)); ?>&page=<?php echo $page; ?>" class="has_link"><span><?php echo $loan_amt; ?></span><br/>
                                                 <span class="fs-12"><?php echo $loantype_name; ?></span></a>
                             
                                         </td>
@@ -469,7 +469,7 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                                                                                                                                                                                                                                         echo $alt_phone; ?><br /><?php } ?><?php //echo $email;
                                                                                                                                                                                                                                                                             ?></td>
                                         <td><span><?php echo $net_incm; ?></span><br /><span class="fs-12"><?php echo $occupation_name; ?></span></td>
-                                        <td><?php echo $qy_status; ?><br /><?php echo $query_status_desc . "<br><span class = 'red fs-10'>" . $junk_reason . "</span><br>" . $description; ?></td>
+                                        <td><?php if($qy_status > 0){echo $qy_status;}else{echo ="-";} ?><br /><?php echo $query_status_desc . "<br><span class = 'red fs-10'>" . $junk_reason . "</span><br>" . $description; ?></td>
                                         <td><span><?php echo $query_follow_date; ?></span><br /><?php echo $follow_name; ?></td>
                                         <td><?php if ($user_name == '') { ?> -- <?php } else {
                                                                                 echo $user_name;
@@ -480,7 +480,7 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                                     </tr>
                                 <?php  } ?>
                         </table>
-                        <?php if ($_SESSION['assign_access_lead']) { ?>
+                        <?php if (in_array($user_role,array(1,2))) { ?>
                             <div class="clear ml10 pdT10" style="margin-top: 1%;">
                                 <input type="radio" id="assign" name="assign">Assigned to
                                 <span id="assign_to"><?php echo get_dropdown('user_lead_assign', 'assigned', '', ''); ?>
