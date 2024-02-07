@@ -1749,10 +1749,10 @@ input:focus~label .label-tag {
   flex-wrap: wrap;
   width:100%
 }
-.form-step input[type="checkbox"] {
+/* .form-step input[type="checkbox"] {
   position:absolute;
   left:-99999px;
-}
+} */
 
 .form-step .checkbox {
   display: inline-block;
