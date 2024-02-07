@@ -696,24 +696,28 @@
                             </div>                        
                     </form> 
                     <div class="gray col-12 font-weight-nb pb-2 pt-2 blue-bg font-20 brdr-top-gray pe-none" data-toggle="step3">STEP 3 : Offers Details</div>   
+                    <?php include('../offers/index.php'); ?>
                    <form action="" class="form-step" id="form_step3" style="display:none">
                     <input type="hidden" name="cust_id" value="<?php echo $cust_id; ?>">
                     <input type="hidden" name="case_id" class="case_id_received" id="case_id" value="<?php echo $case_id ?>">
+
                     <!-- <input type="text" name="loan_type" value="<?php echo $loan_type ?>"> -->
                     <?php //include('../offers/index.php'); ?>
-                        <div class="col-12 pt-2 pb-3" id="new_offers_journey"></div>
-                        <?php if($pan_card != '' && strlen($pan_card) == 10){ 
-                                $check_pan_card_duplicacy_qry = mysqli_query($Conn1,"select * from crm_customer where pan_no = '".$pan_card."' and pan_no != '' and pan_no IS NOT NULL ORDER BY id DESC");
-                                $total_phone_no_mapped = mysqli_num_rows($check_pan_card_duplicacy_qry);
-                            }
-                            if($pan_card == '' || strlen($pan_card) != 10 || $total_phone_no_mapped < 2){
+                        <!-- <div class="col-12 pt-2 pb-3" id="new_offers_journey"></div> -->
+                        <?php 
+                        // if($pan_card != '' && strlen($pan_card) == 10){ 
+                        //         $check_pan_card_duplicacy_qry = mysqli_query($Conn1,"select * from crm_customer where pan_no = '".$pan_card."' and pan_no != '' and pan_no IS NOT NULL ORDER BY id DESC");
+                        //         $total_phone_no_mapped = mysqli_num_rows($check_pan_card_duplicacy_qry);
+                        //     }
+                        //     if($pan_card == '' || strlen($pan_card) != 10 || $total_phone_no_mapped < 2){
                         ?>
-                        <div class="text-center col-12 mb-2">
+                        <!-- <div class="text-center col-12 mb-2">
                             <input type="button" class="btn btn-primary" name="submit" id="step3" value="SUBMIT">
-                        </div>
-                    <?php }else{
-                        echo "<span class='red'>Either city marked as others or pan no already mapped with other customer. Either change pan no or city to continue!</span>";
-                    } ?>
+                        </div> -->
+                    <?php //}else{
+                        // echo "<span class='red'>Either city marked as others or pan no already mapped with other customer. Either change pan no or city to continue!</span>";
+                   // } ?>
+
                     </form>
                     <div class="gray col-12 font-weight-nb pb-2 pt-2 blue-bg font-20 brdr-top-gray" data-toggle="step4">STEP 4 : Add Follow Up</div>   
                     <?php
