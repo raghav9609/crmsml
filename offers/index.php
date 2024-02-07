@@ -10,7 +10,7 @@ $res1 = mysqli_query($Conn1, $qry1) or die("Error: " . mysqli_error($Conn1));
 $recordcount = mysqli_num_rows($res1);
 print_r($recordcount);
 
-$get_bank_name = mysqli_fetch_array($res1);
+$get_bank_name = mysqli_fetch_assoc($res1);
 
 print_r($get_bank_name);
 
