@@ -728,9 +728,7 @@
     //if($user == 173 || $user == 83 || $user == 162) {
         include("../insert/form-popup.php");
     //}
-    ?>
-
-    <?php include('../include/loader.php') ?>
+     include('../include/loader.php') ?>
     <script>
         var negative_ques_val = '<?php echo $property_negative_ques ?>';
         var industry_id = '<?php echo $industry_id; ?>';
