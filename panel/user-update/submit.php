@@ -12,10 +12,10 @@ echo "<br>".$user_role;
 	 $loan_type = replace_special($_REQUEST['loan_type']);
 
 	$password = "";
-	if($user_role == 1 || $user == 241 || $user == 16 || $user == 83 || $user == 314) {
+	if($user_role == 1 ) {
 		$user_password = $_REQUEST['password_flag'];		
 		if(trim($user_password) != "") {
-			if(strlen($user_password) == 8) {
+			if(strlen($user_password) >= 8) {
 				$password = md5(base64_encode($user_password));
 			} else {
 				header("Location: ".$head_url."/panel/user-update/joinee_form.php?msg=3");		//Password length not valid
@@ -35,7 +35,7 @@ echo "<br>".$user_role;
 	
 	echo $user_insert_query = "INSERT into crm_master_user set name = '".$name."', email_id = '".$email."', mobile_no = '".$mobile."', role_id = '".$_REQUEST['role_id']."', sms_flag = '".$_REQUEST['sms_flag']."', is_active = '".$_REQUEST['status']."',  password = '".$password."' ";
 
-	if($user_role == 1 || $user == 241 || $user == 16 || $user == 83 || $user == 314) {
+	if($user_role == 1) {
 		$user_insert_query .= " , show_number_flag = '".$show_number_flag."' ";
 	}
 
