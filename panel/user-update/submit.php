@@ -18,7 +18,8 @@ require_once(dirname(__FILE__) . '/../../config/config.php');
 			if(strlen($user_password) >= 8) {
 				$password = md5(base64_encode($user_password));
 			} else {
-				header("Location: ".$head_url."/panel/user-update/joinee_form.php?msg=3");		//Password length not valid
+				echo '<script>window.location.href = "'.$head_url.'/panel/user-update/joinee_form.php?msg=3";</script>';
+				//header("Location: ".$head_url."/panel/user-update/joinee_form.php?msg=3");		//Password length not valid
 				exit;
 			}
 		}
@@ -55,9 +56,12 @@ require_once(dirname(__FILE__) . '/../../config/config.php');
      foreach($loan_type as $loan){
   		$qry_lt = mysqli_query($Conn1,"Insert into crm_user_loan_type_mapping set user_id = '".$last['user_id']."', loan_type = '".$loan."'");
 	 }
-	  header("location:".$head_url."/panel/user-update/joinee_form.php?msg=1");
+	 echo '<script>window.location.href = "'.$head_url.'/panel/user-update/joinee_form.php?msg=1";</script>';
+	 // header("location:".$head_url."/panel/user-update/joinee_form.php?msg=1");
 	} else {
-		 header("location:".$head_url."/panel/user-update/joinee_form.php?msg=2");
+		echo '<script>window.location.href = "'.$head_url.'/panel/user-update/joinee_form.php?msg=2";</script>';
+
+		//header("location:".$head_url."/panel/user-update/joinee_form.php?msg=2");
 	}
 	 
 ?>
