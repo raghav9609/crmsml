@@ -37,15 +37,16 @@ if ($post['office_city'] != ''){
 }
 
 if ($post['name'] != '' && $post['mobile'] != '' && $post['mobile'] != 0 && $post['loan_amount'] != '' && $post['loan_amount'] != 0 && $post['email'] != ''){
-    echo $dataIns = "Insert into crm_raw_data set name='".$post['name']."', phone_no=".$post['mobile'].", gender = '".$post['gender']."', dob = '".$post['dob']."', email_id = '".$post['email']."', marital_status_id = '".$post['marital_status']."', pan_no = '".$post['pancard']."', occupation_id = '".$post['occupation_id']."', company_name = '".$company_name."', net_income = '".$post['net_income']."', mode_of_salary = '".$post['mode_of_salary']."', salary_bank_id = '".$post['main_account']."', bank_account_no = '".$post['account_number']."', ifsc_code = '".$post['ifsc_code']."', office_email_id = '".$post['office_email']."', office_city_id = '".$officecity_id."', office_pincode = '".$post['office_pincode']."', company_id = '".$company_id."', current_work_exp = '".$post['current_work_exp']."', total_work_exp = '".$post['total_work_exp']."', city_id = '".$city_id."',pincode='".$post['pincode']."',address='".$post['res_address']."',loan_type_id = '".$loan_type_id."',loan_amount='".$post['loan_amount']."',query_status=11,tool_type='website',user_ip='".$post['user_ip']."',verify_phone=1,bank_acc_type='".$post['bank_acc_type']."',page_url='".$post['page_url']."'";
+    $dataIns = "Insert into crm_raw_data set name='".$post['name']."', phone_no=".$post['mobile'].", gender = '".$post['gender']."', dob = '".$post['dob']."', email_id = '".$post['email']."', marital_status_id = '".$post['marital_status']."', pan_no = '".$post['pancard']."', occupation_id = '".$post['occupation_id']."', company_name = '".$company_name."', net_income = '".$post['net_income']."', mode_of_salary = '".$post['mode_of_salary']."', salary_bank_id = '".$post['main_account']."', bank_account_no = '".$post['account_number']."', ifsc_code = '".$post['ifsc_code']."', office_email_id = '".$post['office_email']."', office_city_id = '".$officecity_id."', office_pincode = '".$post['office_pincode']."', company_id = '".$company_id."', current_work_exp = '".$post['current_work_exp']."', total_work_exp = '".$post['total_work_exp']."', city_id = '".$city_id."',pincode='".$post['pincode']."',address='".$post['res_address']."',loan_type_id = '".$loan_type_id."',loan_amount='".$post['loan_amount']."',query_status=11,tool_type='Web API',user_ip='".$post['user_ip']."',verify_phone=1,bank_acc_type='".$post['bank_acc_type']."',page_url='".$post['page_url']."'";
+    $dataInset = mysqli_query($Conn1,$dataIns);
     $datareturn = "Data Insert Successfully";
     $statuscode = 1;
 } else {
     $datareturn = "Name, Mobile, Loan Amount or Email Missing";
     $statuscode = 2;
 }
-// $data = {"status":200,"message":$datareturn,"statuscode":$statuscode};
-// echo $data;
+$data = {"status":200,"message":$datareturn,"statuscode":$statuscode};
+echo $data;
 
 //print_r($post);
 ?>
