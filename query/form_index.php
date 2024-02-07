@@ -166,6 +166,7 @@
         <div class="d-flex flex-wrap gen-box text-center white-bg pe-none">
             <div class="col-3 tab-click active-tab" data-toggle="step1">Personal Details</div>
             <div class="col-3 tab-click" data-toggle="step2"><?php if($loan_type != 71){ echo "Loan";}else{echo "Card";} ?> Details</div>
+            <div class="col-3 tab-click active-tab" data-toggle="step3">Offer Details</div>
         </div>
     <div class="gen-box white-bg">
     <div class="blue-bg col-12 font-weight-nb pb-2 pt-2 white font-20 brdr-top-gray pe-none" data-toggle="step1" id="switch_step1"><span id="text_step1">STEP 1</span> : Personal Details</div>    
@@ -797,7 +798,7 @@
                    <form action="" class="form-step" id="form_step3" style="display:none">
                     <input type="hidden" name="cust_id" value="<?php echo $cust_id; ?>">
                     <input type="hidden" name="case_id" class="case_id_received" id="case_id" value="<?php echo $case_id ?>">
-                    <input type="hidden" name="loan_type" value="<?php echo $loan_type ?>">
+                    <input type="text" name="loan_type" value="<?php echo $loan_type ?>">
                         <div class="col-12 pt-2 pb-3" id="new_offers_journey"></div>
                         <?php if($pan_card != '' && strlen($pan_card) == 10){ 
                                 $check_pan_card_duplicacy_qry = mysqli_query($Conn1,"select * from crm_customer where pan_no = '".$pan_card."' and pan_no != '' and pan_no IS NOT NULL ORDER BY id DESC");
