@@ -1024,17 +1024,6 @@ if (in_array($loan_type, $language_barrier_loan_type)) {?>
                 <?php } ?>
                 </div>
             </div>
-
-            <?php
-            $tc_loan_type_arr = array('56', '51', '54', '52', '11', '63', '71', '60');
-            ?>
-            <?php if(in_array($loan_type, $tc_loan_type_arr)) { ?>
-                <div id="slide-tc-script" class="fabs-telecaller" style="bottom: 66%; position: fixed; margin: 1em; right: 0;">
-                    <a style='display: block; width: 50px; height: 50px; border-radius: 50%; text-align: center; color: white; margin: 0; box-shadow: 0px 5px 11px -2px rgba(0, 0, 0, 0.18), 0px 4px 12px -7px rgba(0, 0, 0, 0.15); cursor: pointer; -webkit-transition: all .1s ease-out; transition: all .1s ease-out; position: relative; background-color: #EB9B42' target="_blank" class="fab" tooltip="Share" title="Telecaller Script"><i style='position: inherit; color: #fff;' class="fa-icon fa-file"></i></a>
-                </div>
-                <?php //include("../insert/telecaller_script.php"); ?>
-            <?php } ?>
-
         </section>
     </main>
     <?php
