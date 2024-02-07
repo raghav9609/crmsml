@@ -332,9 +332,10 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                             <input type="text" class="text-input numonly" name="net_incm_to" id="net_incm_to" placeholder="Net Incm To" maxlength="10" value="<?php echo $net_incm_to; ?>" />
                             <input type="text" class="text-input" name="date_from" id="date_from" placeholder="Date From" maxlength="10" value="<?php echo $date_from; ?>" readonly="readonly" />
                             <input type="text" class="text-input" name="date_to" id="date_to" placeholder="Date To" maxlength="10" value="<?php echo $date_to; ?>" readonly="readonly" />
-                            <input type="text" class="text-input" name="query_statussearch" id="query_statussearch" placeholder="Query Status" maxlength="10" value="<?php echo $query_statussearch; ?>" />
 
-                            <input type="text" class="text-input" name="application_status" id="application_status" placeholder="Application Status" maxlength="10" value="<?php echo $application_status; ?>"  />
+                            <?php echo get_dropdown('query_status', 'query_status', $query_statussearch, ''); ?>
+
+                            <?php echo get_dropdown('application_status', 'application_status', $application_status, ''); ?>
 
                         </td>
 
