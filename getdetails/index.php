@@ -12,6 +12,7 @@ require_once(dirname(__FILE__) . '/../include/helper.functions.php');
 
 $loan_type_id = 54;
 $company_name = $post['company_name'];
+echo "select * from crm_master_company where company_name='".$company_name."'";
 $getcompId = mysqli_query($Conn1,"select * from crm_master_company where company_name='".$company_name."'");
 $res =  mysqli_fetch_array($getcompId);
 print_r($res);
