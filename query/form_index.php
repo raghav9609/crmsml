@@ -21,7 +21,7 @@
     width: 241px;
 }
 </style>
-<div class="main-crmform col-12">
+<div class="main-crmform col-12" style="margin-top:10px;">
     <div class="popup-ctext up-list-box">
     <h2 class='f_14 fw_bold'>Query Detail</h2>
     <br> 
