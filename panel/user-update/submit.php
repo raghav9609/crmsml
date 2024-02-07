@@ -11,18 +11,18 @@ echo "<br>".$user_role;
 	 $tl = replace_special($_REQUEST['tl']);
 	 $loan_type = replace_special($_REQUEST['loan_type']);
 
-	$password = "";
-	if($user_role == 1 || $user == 241 || $user == 16 || $user == 83 || $user == 314) {
-		$user_password = $_REQUEST['password_flag'];		
-		if(trim($user_password) != "") {
-			if(strlen($user_password) == 8) {
-				$password = md5(base64_encode($user_password));
-			} else {
-				header("Location: ".$head_url."/panel/user-update/joinee_form.php?msg=3");		//Password length not valid
-				exit;
-			}
-		}
-	}
+	// $password = "";
+	// if($user_role == 1 || $user == 241 || $user == 16 || $user == 83 || $user == 314) {
+	// 	$user_password = $_REQUEST['password_flag'];		
+	// 	if(trim($user_password) != "") {
+	// 		if(strlen($user_password) == 8) {
+	// 			$password = md5(base64_encode($user_password));
+	// 		} else {
+	// 			header("Location: ".$head_url."/panel/user-update/joinee_form.php?msg=3");		//Password length not valid
+	// 			exit;
+	// 		}
+	// 	}
+	// }
 
 	// $show_number_flag = "";
 	// if($user_role == 1 || $user == 241 || $user == 16 || $user == 83 || $user == 314) {
