@@ -481,7 +481,7 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                         <?php if (in_array($user_role,array(1,2))) { ?>
                             <div class="clear ml10 pdT10" style="margin-top: 1%;">
                                 <input type="radio" id="assign" name="assign">Assigned to
-                                <span id="assign_to"><?php echo get_dropdown('user_lead_assign', 'assigned', '', ''); ?>
+                                <span id="assign_to"><?php echo get_dropdown('user_id_3', 'assigned', '', ''); ?>
                                     <input type="hidden" name="request_builder" value="<?php echo http_build_query($_REQUEST); ?>">
                                     <input type="submit" name="edit" value="Assign" />
                             </div>
