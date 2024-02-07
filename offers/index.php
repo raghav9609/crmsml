@@ -4,13 +4,14 @@
  require_once "../include/helper.functions.php";
  require_once "../include/display-name-functions.php";
 
-$qry1 = "select id, value as bank_name from crm_masters where crm_masters_code_id = 2 and is_active = 1 ";
+$qry1 = "select * from crm_masters where crm_masters_code_id = 2 and is_active = 1 ";
 
 $res1 = mysqli_query($Conn1, $qry1) or die("Error: " . mysqli_error($Conn1));
+print_r($res1);
 $recordcount = mysqli_num_rows($res1);
 print_r($recordcount);
 
-$get_bank_name = mysqli_fetch_assoc($res1);
+$get_bank_name = mysqli_fetch_array($res1);
 
 print_r($get_bank_name);
 
