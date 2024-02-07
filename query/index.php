@@ -287,6 +287,11 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                         $qry .= " AND stats.query_status = $query_new_status ";
                     }
 
+                    if ($application_status != "") {
+                        $default = 1;
+                        $qry .= " AND qry.query_status = $application_status ";
+                    }
+
                     if (($user_role == 2 || $user_role == 4 || $user_role == 9) && $search == '') {
                         $qry .= " and qry.loan_type IN ($tl_loan_type)";
                     }
