@@ -333,7 +333,7 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                             <input type="text" class="text-input" name="date_from" id="date_from" placeholder="Date From" maxlength="10" value="<?php echo $date_from; ?>" readonly="readonly" />
                             <input type="text" class="text-input" name="date_to" id="date_to" placeholder="Date To" maxlength="10" value="<?php echo $date_to; ?>" readonly="readonly" />
 
-                            <?php echo get_dropdown('query_status', 'query_status', $query_statussearch, ''); ?>
+                            <?php echo get_dropdown('query_status', 'query_statussearch', $query_statussearch, ''); ?>
 
                             <?php echo get_dropdown('application_status', 'application_status', $application_status, ''); ?>
 
