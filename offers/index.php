@@ -8,14 +8,6 @@
 
 $qry1 = "select * from crm_masters where crm_masters_code_id = 2 and is_active = 1 ";
 
-// $res1 = mysqli_query($Conn1, $qry1) or die("Error: " . mysqli_error($Conn1));
-// $recordcount = mysqli_num_rows($res1);
-// print_r($recordcount);
-
-// $get_bank_name = mysqli_fetch_array($res1);
-
-// print_r($get_bank_name);
-
 
 ?>
 <!DOCTYPE html>
