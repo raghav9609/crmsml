@@ -29,7 +29,7 @@ echo "<br>".$user_role;
 		$show_number_flag = $_REQUEST['show_number_flag'];
 	}
 
-
+	echo "SELECT id as user_id from crm_master_user where email_id = '".$email."'";
 	$qry_check = mysqli_query($Conn1,"SELECT id as user_id from crm_master_user where email_id = '".$email."'");
 	if(mysqli_num_rows($qry_check) == 0){
 	
