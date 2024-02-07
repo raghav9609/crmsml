@@ -469,7 +469,7 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                                                                                                                                                                                                                                         echo $alt_phone; ?><br /><?php } ?><?php //echo $email;
                                                                                                                                                                                                                                                                             ?></td>
                                         <td><span><?php echo $net_incm; ?></span><br /><span class="fs-12"><?php echo $occupation_name; ?></span></td>
-                                        <td><?php if($qy_status > 0){echo $qy_status;}else{echo ="-";} ?><br /><?php echo $query_status_desc . "<br><span class = 'red fs-10'>" . $junk_reason . "</span><br>" . $description; ?></td>
+                                        <td><?php if($qy_status > 0){echo $qy_status;}else{echo "-";} ?><br /><?php echo $query_status_desc . "<br><span class = 'red fs-10'>" . $junk_reason . "</span><br>" . $description; ?></td>
                                         <td><span><?php echo $query_follow_date; ?></span><br /><?php echo $follow_name; ?></td>
                                         <td><?php if ($user_name == '') { ?> -- <?php } else {
                                                                                 echo $user_name;
