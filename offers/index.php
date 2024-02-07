@@ -17,7 +17,7 @@ if ($recordcount > 0) {
         if ($record > 10) {
              continue;
         }
-        $data_bnk[] = '<input type ="checkbox" name = "check_bank_'.$$exe_form['id'].'"  id = "check_bank_'.$exe_form['id'].'" value ="">'.$exe_form['value'];
+        $data_bnk[] = '<input type ="checkbox"  name = "check_bank_'.$exe_form['id'].'" id = "check_bank_'.$exe_form['id'].'" value ="">'.$exe_form['value'];
     }
     echo implode($data_bnk);
 }
