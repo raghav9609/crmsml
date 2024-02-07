@@ -2,12 +2,12 @@
 require_once(dirname(__FILE__) . '/../../config/session.php');
 require_once(dirname(__FILE__) . '/../../helpers/common-helper.php');
 require_once(dirname(__FILE__) . '/../../config/config.php');
-print_r($_REQUEST);
-echo "<br>".$user_role;
+// print_r($_REQUEST);
+// echo "<br>".$user_role;
 
 	 $name = replace_special($_REQUEST['name']);
 	 $email = replace_special($_REQUEST['email']);
-	 $mobile = replace_special($_REQUEST['phone']);
+	 $mobile = replace_special($_REQUEST['mobile']);
 	 $tl = replace_special($_REQUEST['tl']);
 	 $loan_type = replace_special($_REQUEST['loan_type']);
 
@@ -29,11 +29,11 @@ echo "<br>".$user_role;
 	// 	$show_number_flag = $_REQUEST['show_number_flag'];
 	// }
 
-	echo "SELECT id as user_id from crm_master_user where email_id = '".$email."'";
+	//echo "SELECT id as user_id from crm_master_user where email_id = '".$email."'";
 	$qry_check = mysqli_query($Conn1,"SELECT id as user_id from crm_master_user where email_id = '".$email."'");
 	if(mysqli_num_rows($qry_check) == 0){
 	
-	echo $user_insert_query = "INSERT into crm_master_user set name = '".$name."', email_id = '".$email."', mobile_no = '".$mobile."', role_id = '".$_REQUEST['role_id']."', sms_flag = '".$_REQUEST['sms_flag']."', is_active = '".$_REQUEST['status']."',  password = '".$password."' ";
+	$user_insert_query = "INSERT into crm_master_user set name = '".$name."', email_id = '".$email."', mobile_no = '".$mobile."', role_id = '".$_REQUEST['role_id']."', sms_flag = '".$_REQUEST['sms_flag']."', is_active = '".$_REQUEST['status']."',  password = '".$password."' ";
 
 	if($user_role == 1) {
 		$user_insert_query .= " , show_number_flag = '".$show_number_flag."' ";
