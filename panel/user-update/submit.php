@@ -24,10 +24,10 @@ echo "<br>".$user_role;
 		}
 	}
 
-	$show_number_flag = "";
-	if($user_role == 1 || $user == 241 || $user == 16 || $user == 83 || $user == 314) {
-		$show_number_flag = $_REQUEST['show_number_flag'];
-	}
+	// $show_number_flag = "";
+	// if($user_role == 1 || $user == 241 || $user == 16 || $user == 83 || $user == 314) {
+	// 	$show_number_flag = $_REQUEST['show_number_flag'];
+	// }
 
 	echo "SELECT id as user_id from crm_master_user where email_id = '".$email."'";
 	$qry_check = mysqli_query($Conn1,"SELECT id as user_id from crm_master_user where email_id = '".$email."'");
