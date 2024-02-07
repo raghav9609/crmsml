@@ -149,7 +149,7 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
     <span style="font-weight:bold;font-size:14px;">
     <a href="../email/?query_id=<?php echo urlencode(base64_encode($id)); ?>" target='_blank'><input type="button" class="buttonsub cursor" value="Email"></a>
 
-    <a href="../email/send-sms.php?query_id=<?php echo urlencode(base64_encode($id)); ?>" target='_blank'> <input type="button" class="buttonsub cursor" value="SMS"></a>
+    <a href="../sms/?query_id=<?php echo urlencode(base64_encode($id)); ?>" target='_blank'> <input type="button" class="buttonsub cursor" value="SMS"></a>
     <a href="<?php echo $head_url; ?>/calculators/" target="_blank"><input type="button" class="buttonsub cursor" value="EMI"></a>
     <a href="<?php echo $head_url; ?>/calculators/eligibility.php" target="_blank">
         <input type="button" class="buttonsub cursor" value="Eligibility"></a>
