@@ -5,7 +5,7 @@ require_once(dirname(__FILE__) . '/../helpers/common-helper.php');
 require_once(dirname(__FILE__) . '/../include/class.mailer.php');
 
 $subject = $_REQUEST['subject'];									
-$description = ($_REQUEST['description']);
+$description = rawurlencode($_REQUEST['description']);
 $temp_id = $_REQUEST['template'];											
 $query_id = $_REQUEST['query_id']; 
 echo $url= 'https://bulkpush.mytoday.com/BulkSms/SingleMsgApi?feedid=385302&username=9920706289&password=SML2021@123&senderid=SML&To=91'.$subject.'&Text='.$description.'&async=1';
