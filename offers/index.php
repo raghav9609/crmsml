@@ -4,7 +4,8 @@
  require_once "../include/helper.functions.php";
  require_once "../include/display-name-functions.php";
 
-$qry1 = "select id, value as bank_name from crm_masters where crm_masters_code_id = 2 and is_active = 1 ";
+echo $qry1 = "select id, value as bank_name from crm_masters where crm_masters_code_id = 2 and is_active = 1 ";
+
 $res1 = mysqli_query($Conn1, $qry1) or die("Error: " . mysqli_error($Conn1));
 $get_bank_name = mysqli_fetch_array($res1);
 
