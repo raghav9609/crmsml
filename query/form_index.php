@@ -726,7 +726,7 @@
     </main>
     <?php
     //if($user == 173 || $user == 83 || $user == 162) {
-       // include("../insert/form-popup.php");
+        include("../insert/form-popup.php");
     //}
      include('../include/loader.php') ?>
     <script>
@@ -735,7 +735,7 @@
         var user_role = "<?php echo $_SESSION['user_role']; ?>";
         var one_lead = "<?php echo $_SESSION['one_lead_flag']; ?>";
     </script>
-<script src="../assets/js/common-function.js"></script> 
+ 
 <?php if(in_array($user,$user_new_status) || in_array($loan_type,$loan_type_new_status) ){ ?>
 <script src="../assets/js/query-journey-new-status.js?v=16"></script>
 <script src="../assets/js/case-follow-up.js?v=4"></script>
