@@ -19,14 +19,14 @@ if ($recordcount > 0) {
         }
         $data_bnk[] = '<input type ="checkbox" name = "check_bank_'.$$exe_form['id'].'"  id = "check_bank_'.$exe_form['id'].'" value ="">'.$exe_form['value'];
     }
-    print_r($data_bnk);
+    echo implode($data_bnk);
 }
     
 
 
 
 ?>
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -75,7 +75,7 @@ if ($recordcount > 0) {
         </div>
     
 </body>
-</html>
+</html> -->
 
 
 
