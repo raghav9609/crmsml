@@ -12,5 +12,5 @@ if(!empty($_POST['mask'])){
 		$db_handle->insertRows("Insert INTO crm_lead_assignment_history set lead_id =".$value.",user_assign_from ='".$existing_user."',user_assign_to='".$_POST['assigned']."',assign_by=".$user_id);
 	}
 }
-header("location:index.php");
+echo '<script>window.location.href = "'.$head_url.'/query/";</script>';
 ?>
