@@ -47,7 +47,7 @@ $qry1 = "select * from crm_masters where crm_masters_code_id = 2 and is_active =
                                 while ($exe_form = mysqli_fetch_array($res)) {
                                     // print_r($exe_form);
                                     $record++;
-                                    if ($record > 15) {
+                                    if ($record > 25) {
                                         continue;
                                     }
                                    
