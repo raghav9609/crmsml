@@ -144,7 +144,7 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
     <input type="hidden" name="final_query_id" value="<?php echo urlencode(base64_encode($id));?>">
     <div class="color-bar-1"></div>
     <div class="color-bar-2 color-bg"></div>
-    <div style="width:100%;"><div style="padding-left: 1%;padding-right: 1%;">
+    <div style="width:100%;"><div style="padding-left: 1%;padding-right: 1%;margin-top:50px;">
     <div id="fixed_tab">
     <span style="font-weight:bold;font-size:14px;">
     <a href="../email/?query_id=<?php echo urlencode(base64_encode($id)); ?>" target='_blank'><input type="button" class="buttonsub cursor" value="Email"></a>
