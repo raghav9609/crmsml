@@ -91,9 +91,9 @@ if($user_role == 4){
     }
 
 
-    if (isset($_REQUEST['query_new_status'])) {
-        $query_new_status = replace_special($_REQUEST['query_new_status']);
-    }
+    // if (isset($_REQUEST['query_new_status'])) {
+    //     $query_new_status = replace_special($_REQUEST['query_new_status']);
+    // }
 require_once(dirname(__FILE__) . '/../include/helper.functions.php');
 require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
 
@@ -195,7 +195,7 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                 <div class="span9">
                     <!--Begin page content column-->
                     <?php
-                    $qry = "select qry.query_status as query_status,qry.junk_reason as junk_reason,cust.id as customer_id, cust.name as name,cust.email_id as email, cust.phone_no as phone,cust.cibil_score as cibil_score, cust.occupation_id as occup_id,city.city_name as city_name,cust.city_id as city_id, cust.net_income as net_incm, qry.verify_phone as verify_phone, qry.follow_status as follow_status,qry.follow_date as q_follow_date, qry.follow_time AS q_follow_time, user.name as user_name, qry.id as id,qry.created_on as date,qry.query_status_desc as query_status_desc, qry.tool_type as tool_type, qry.lead_assign_to as user_id, qry.loan_type_id as loan_type_id, qry.loan_amount as loan_amt,qry.page_url as page_url from crm_query as qry INNER join crm_customer as cust on qry.crm_customer_id = cust.id left join crm_master_city as city on cust.city_id = city.id left join crm_master_user as user on qry.lead_assign_to = user.id  where 1 ";
+                    $qry = "select,qry_app.application_status, qry.query_status as query_status,qry.junk_reason as junk_reason,cust.id as customer_id, cust.name as name,cust.email_id as email, cust.phone_no as phone,cust.cibil_score as cibil_score, cust.occupation_id as occup_id,city.city_name as city_name,cust.city_id as city_id, cust.net_income as net_incm, qry.verify_phone as verify_phone, qry.follow_status as follow_status,qry.follow_date as q_follow_date, qry.follow_time AS q_follow_time, user.name as user_name, qry.id as id,qry.created_on as date,qry.query_status_desc as query_status_desc, qry.tool_type as tool_type, qry.lead_assign_to as user_id, qry.loan_type_id as loan_type_id, qry.loan_amount as loan_amt,qry.page_url as page_url from crm_query as qry INNER join crm_customer as cust on qry.crm_customer_id = cust.id left join crm_master_city as city on cust.city_id = city.id left join crm_master_user as user on qry.lead_assign_to = user.id left join crm_query_application as qry_app on qry_app.crm_query_id = qry.id where 1 ";
                     if ($user_role != 1) {
                         $qry .= " and cust.phone_no NOT IN (0) ";
                     }
@@ -282,14 +282,13 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                         }
                     }
 
-                    if ($query_new_status != "") {
-                        $default = 1;
-                        $qry .= " AND stats.query_status = $query_new_status ";
-                    }
+                    // if ($query_new_status != "") {
+                    //     $default = 1;
+                    //     $qry .= " AND stats.query_status = $query_new_status ";
+                    // }
 
                     if ($application_status != "") {
-                        $default = 1;
-                        $qry .= " AND qry.query_status = $application_status ";
+                        $qry .= " AND qry_app.application_status = $application_status ";
                     }
 
                     if (($user_role == 2 || $user_role == 4 || $user_role == 9) && $search == '') {
@@ -511,12 +510,12 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                                 <td>
                                     <?php
                                     if ($page > 1) {
-                                        echo "<a class='page gradient' href='index.php?page=1&phone=$phone_search&sub_source=$sub_source&insurance=$insurance&promocode=$promocode&source_compign=$source_compign&ref_phone=$ref_phone&tool=$tool&loan_type=$search&u_assign=$u_assign&loan_amount=$loan_amount&to_loan_amount=$to_loan_amount&name_search=$name_search&query_statussearch=$query_statussearch&city_type=$city_type&city_sub_group=$city_sub_group&date_from=$date_from&date_to=$date_to&anl_trn=$bs_anl_turn&mlc_product=$mlc_product&net_incm_from=$net_incm_from&net_incm_to=$net_incm_to&follow_date_from=$follow_date_from&follow_date_to=$follow_date_to&customer_id_search=$customer_id_search&masked_phone=$masked_phone&email_search=$email_search&auto_case_create=$auto_case_create&query_new_status=$query_new_status&sub_status=$sub_status&sub_sub_status=$sub_sub_status&type_of_registration=$type_of_registration&ni_user=$ni_user&fup_given_by=$fup_given_by&referee_phone=$referee_phone&hot_lead_query=$hot_lead_query'>First</a>";
+                                        echo "<a class='page gradient' href='index.php?page=1&phone=$phone_search&sub_source=$sub_source&insurance=$insurance&promocode=$promocode&source_compign=$source_compign&ref_phone=$ref_phone&tool=$tool&loan_type=$search&u_assign=$u_assign&loan_amount=$loan_amount&to_loan_amount=$to_loan_amount&name_search=$name_search&query_statussearch=$query_statussearch&city_type=$city_type&city_sub_group=$city_sub_group&date_from=$date_from&date_to=$date_to&anl_trn=$bs_anl_turn&mlc_product=$mlc_product&net_incm_from=$net_incm_from&net_incm_to=$net_incm_to&follow_date_from=$follow_date_from&follow_date_to=$follow_date_to&customer_id_search=$customer_id_search&masked_phone=$masked_phone&email_search=$email_search&auto_case_create=$auto_case_create&sub_status=$sub_status&sub_sub_status=$sub_sub_status&type_of_registration=$type_of_registration&ni_user=$ni_user&fup_given_by=$fup_given_by&referee_phone=$referee_phone&hot_lead_query=$hot_lead_query'>First</a>";
                                         echo "<a class='page gradient' href='index.php?page=" . ($page - 1) . "&phone=$phone_search&sub_source=$sub_source&insurance=$insurance&promocode=$promocode&source_compign=$source_compign&ref_phone=$ref_phone&tool=$tool&loan_type=$search&u_assign=$u_assign&loan_amount=$loan_amount&to_loan_amount=$to_loan_amount&name_search=$name_search&query_statussearch=$query_statussearch&city_type=$city_type&city_sub_group=$city_sub_group&date_from=$date_from&date_to=$date_to&anl_trn=$bs_anl_turn&mlc_product=$mlc_product&net_incm_from=$net_incm_from&net_incm_to=$net_incm_to&follow_date_from=$follow_date_from&follow_date_to=$follow_date_to&customer_id_search=$customer_id_search&masked_phone=$masked_phone&email_search=$email_search&auto_case_create=$auto_case_create&query_new_status=$query_new_status&sub_status=$sub_status&sub_sub_status=$sub_sub_status&type_of_registration=$type_of_registration&ni_user=$ni_user&fup_given_by=$fup_given_by&referee_phone=$referee_phone&hot_lead_query=$hot_lead_query'>Prev</a>";
                                     }
                                     echo "<a class='page gradient' href='javascript:void;'>" . $page . "</a>";
                                     if ($recordcount > $display_count) {
-                                        echo "<a class='page gradient' href='index.php?page=" . ($page + 1) . "&phone=$phone_search&sub_source=$sub_source&insurance=$insurance&promocode=$promocode&source_compign=$source_compign&ref_phone=$ref_phone&tool=$tool&loan_type=$search&u_assign=$u_assign&loan_amount=$loan_amount&to_loan_amount=$to_loan_amount&name_search=$name_search&query_statussearch=$query_statussearch&city_type=$city_type&city_sub_group=$city_sub_group&date_from=$date_from&date_to=$date_to&anl_trn=$bs_anl_turn&mlc_product=$mlc_product&net_incm_from=$net_incm_from&net_incm_to=$net_incm_to&follow_date_from=$follow_date_from&follow_date_to=$follow_date_to&customer_id_search=$customer_id_search&masked_phone=$masked_phone&email_search=$email_search&auto_case_create=$auto_case_create&query_new_status=$query_new_status&sub_status=$sub_status&sub_sub_status=$sub_sub_status&type_of_registration=$type_of_registration&ni_user=$ni_user&fup_given_by=$fup_given_by&referee_phone=$referee_phone&hot_lead_query=$hot_lead_query'>Next</a>";
+                                        echo "<a class='page gradient' href='index.php?page=" . ($page + 1) . "&phone=$phone_search&sub_source=$sub_source&insurance=$insurance&promocode=$promocode&source_compign=$source_compign&ref_phone=$ref_phone&tool=$tool&loan_type=$search&u_assign=$u_assign&loan_amount=$loan_amount&to_loan_amount=$to_loan_amount&name_search=$name_search&query_statussearch=$query_statussearch&city_type=$city_type&city_sub_group=$city_sub_group&date_from=$date_from&date_to=$date_to&anl_trn=$bs_anl_turn&mlc_product=$mlc_product&net_incm_from=$net_incm_from&net_incm_to=$net_incm_to&follow_date_from=$follow_date_from&follow_date_to=$follow_date_to&customer_id_search=$customer_id_search&masked_phone=$masked_phone&email_search=$email_search&auto_case_create=$auto_case_create&sub_status=$sub_status&sub_sub_status=$sub_sub_status&type_of_registration=$type_of_registration&ni_user=$ni_user&fup_given_by=$fup_given_by&referee_phone=$referee_phone&hot_lead_query=$hot_lead_query'>Next</a>";
                                     }
                                     ?>
                                 </td>
