@@ -26,8 +26,8 @@ if ($post['name'] != '' && $post['mobile'] != '' && $post['mobile'] != 0 && $pos
     $datareturn = "Name, Mobile, Loan Amount or Email Missing";
     $statuscode = 2;
 }
-$data = {"status":200,"message":$datareturn,"statuscode":$statuscode}
-echo $data;
+// $data = {"status":200,"message":$datareturn,"statuscode":$statuscode};
+// echo $data;
 
 //print_r($post);
 ?>
