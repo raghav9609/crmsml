@@ -6,16 +6,65 @@
 
 $qry1 = "select * from crm_masters where crm_masters_code_id = 2 and is_active = 1 ";
 
-$res1 = mysqli_query($Conn1, $qry1) or die("Error: " . mysqli_error($Conn1));
-$recordcount = mysqli_num_rows($res1);
-print_r($recordcount);
+// $res1 = mysqli_query($Conn1, $qry1) or die("Error: " . mysqli_error($Conn1));
+// $recordcount = mysqli_num_rows($res1);
+// print_r($recordcount);
 
-$get_bank_name = mysqli_fetch_array($res1);
+// $get_bank_name = mysqli_fetch_array($res1);
 
-print_r($get_bank_name);
+// print_r($get_bank_name);
 
 
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offers details</title>
+    <link rel="stylesheet" href="../assets/css/jquery-ui.css">
+    <script type="text/javascript" src="../assets/js/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="../assets/js/jquery-ui.js"></script>
+</head>
+<body>
+<div class="color-bar-1"></div>
+        <div class="color-bar-2 color-bg"></div>
+            <div class="container main-container">
+                <div class="row">
+                    <div class="span9">
+                        <table width="100%" class="gridtable">
+                        <tr>
+                            <th>Bank Name</th>
+                            <th>Check</th>
+                        </tr>
+                        <?php
+                            $res = mysqli_query($Conn1, $qry1) or die("Error: " . mysqli_error($Conn1));
+                             $recordcount = mysqli_num_rows($res); 
+                            if ($recordcount > 0) {
+                                $record = 0;
+                                while ($exe_form = mysqli_fetch_array($res)) {
+                                    $record++;
+                                    if ($record > 10) {
+                                        continue;
+                                    }
+                                   
+                            ?>
+                                <tr>
+                                    <td><?php echo $exe_form['value']; ?></td>
+                                    <td>
+                                        <input type ="checkbox" name = "check_bank"  id = "checkbox">
+                                    </td>
+                                </tr>
+                                <?php  } ?>
+                        </table>
+                        <?php }?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+</body>
+</html>
 
 
 
