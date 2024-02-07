@@ -468,9 +468,9 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                                                                                                         } ?></b></span> <?php if ($verify_phone != '1') { ?> <span class='red fs-11 valign-mid'> <b>X</b></span> <?php } ?><br /><?php if ($alt_phone != '0' && $alt_phone != '') {
                                                                                                                                                                                                                                         echo $alt_phone; ?><br /><?php } ?><?php //echo $email;
                                                                                                                                                                                                                                                                             ?></td>
-                                        <td><span><?php echo $net_incm; ?></span><br /><span class="fs-12"><?php echo $occupation_name; ?></span></td>
+                                        <td><span><?php echo $net_incm; ?></span></td>
                                         <td><?php if($qy_status > 0){echo $qy_status;}else{echo "-";} ?><br /><?php echo $query_status_desc . "<br><span class = 'red fs-10'>" . $junk_reason . "</span><br>" . $description; ?></td>
-                                        <td><span><?php echo $query_follow_date; ?></span><br /><?php echo $follow_name; ?></td>
+                                        <td><span><?php echo $query_follow_date; ?></span><br /><?php if($follow_name != '' && $follow_name != 0){echo $follow_name;}else{echo "-";} ?></td>
                                         <td><?php if ($user_name == '') { ?> -- <?php } else {
                                                                                 echo $user_name;
                                                                                  ?><?php } ?></td>
