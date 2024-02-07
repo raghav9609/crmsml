@@ -355,7 +355,7 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                     <form method="POST" name="frmmain" action="mask_assign.php">
                         <table width="100%" class="gridtable">
                             <tr>
-                                <?php if ($_SESSION['assign_access_lead'] == 1) { ?>
+                                <?php if (in_array($user_role,array(1,2))) { ?>
                                     <th width="5%">
                                         <div><input type="checkbox" name="selectall" id="selectall" onClick="selectAll(this)">Select</div>
                                         </td><?php } ?>
@@ -473,9 +473,7 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                                         <td><span><?php echo $query_follow_date; ?></span><br /><?php echo $follow_name; ?></td>
                                         <td><?php if ($user_name == '') { ?> -- <?php } else {
                                                                                 echo $user_name;
-                                                                                if ($extension > 0) {
-                                                                                    echo "<br><span class='fs-12'>(" . $extension . ")</span>";
-                                                                                } ?><?php } ?></td>
+                                                                                 ?><?php } ?></td>
                                         <td><a href="../query/edit.php?ut=<?php echo $ut; ?>&id=<?php echo urlencode(base64_encode($id)); ?>&page=<?php echo $page; ?>" class="has_link"><input type="button" class="pointer_n" value="View" style="border-radius: 5px; background-color: #18375f; font-weight: bold;"></a></td>
                                     </tr>
                                 <?php  } ?>
