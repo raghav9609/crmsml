@@ -21,7 +21,7 @@
     width: 241px;
 }
 </style>
-<div class="main-crmform col-12">
+<div class="main-crmform col-12" style="margin-top:10px;">
     <div class="popup-ctext up-list-box">
     <h2 class='f_14 fw_bold'>Query Detail</h2>
     <br> 
@@ -48,12 +48,11 @@
     $nametext = trim($fname) != '' ? "<li><b class='fw_bold'>".ucfirst($fname)."</b> " : '<li><b class="fw_bold">Customer</b> '  ; 
     $dobtext = ($diff != '') ? " and customer age is&nbsp;&nbsp;<b class='fw_bold'>".$diff."</b>&nbsp;&nbsp;years </li>" : "</li>"  ;
     $citytext = (($city_name != '')? " and residing in <b class='fw_bold'> $city_name </b></li> " : "</li>") ;
-   // echo $occup;
     $occcc = get_name('master_code_id',$occup);
     
     $occuptext = (($occup != '' && $occup != 0) ? "<li>Customer is  <b class='fw_bold'>".$occcc['value']." </b>" : "");
     $mainbank = get_name('master_code_id',$main_account);
-    $accounttext = (($main_account !='' && $main_account !=0) ? "<li>Customer has account in  <b class='fw_bold'>".$mainbank['value']." </b></li>" : "");
+    $accounttext = (($main_account !='' && $main_account !=0) ? "<li>Customer has account in  <b class='fw_bold'>".$main_account.$mainbank['value']." </b></li>" : "");
     $loanamounttext = ($loan_amt != 0 && $loan_amt != '') ? " of <b class='fw_bold'> $amt </b>" : "";
     echo  $nametext." looking for a <b class='fw_bold'>".$loantype_name."</b>".$loanamounttext. $citytext.$occuptext.$dobtext.$accounttext; ?>
 </ul>
