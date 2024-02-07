@@ -288,7 +288,8 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                     // }
 
                     if ($application_status != "") {
-                        $qry .= " and qry_app.application_status = $application_status ";
+                        $default = 1;
+                        $qry .= " AND qry.query_status = $application_status ";
                     }
 
                     if (($user_role == 2 || $user_role == 4 || $user_role == 9) && $search == '') {
