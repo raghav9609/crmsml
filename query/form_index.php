@@ -696,7 +696,7 @@
                             </div>                        
                     </form> 
                     <div class="gray col-12 font-weight-nb pb-2 pt-2 blue-bg font-20 brdr-top-gray pe-none" data-toggle="step3">STEP 3 : Offers Details</div>   
-                    <?php include('../offers/index.php'); ?>
+                    <?php // include('../offers/index.php'); ?>
                    <form action="" class="form-step" id="form_step3" style="display:none">
                     <input type="hidden" name="cust_id" value="<?php echo $cust_id; ?>">
                     <input type="hidden" name="case_id" class="case_id_received" id="case_id" value="<?php echo $case_id ?>">
