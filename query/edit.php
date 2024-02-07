@@ -454,9 +454,9 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
                                 <div class="table_set">
                                     <?php
                                         if(in_array($user,$user_new_status) || in_array($loan_type,$loan_type_new_status) || new_staus_user_level == 1 ||  new_staus_loan_type_level == 1){
-                                           // include("query-follow-up.php");
+                                            include("query-follow-up.php");
                                         }else{
-                                            //include("query_followup_history.php");
+                                            include("query_followup_history.php");
                                         }
                                     ?>
                                 </div>
