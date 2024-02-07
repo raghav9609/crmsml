@@ -648,6 +648,8 @@ function card_tocard(){
                   timeout: 60000,
                   success: function(response){
                     console.log("Application Created successfully");
+                    $('#loader').css("display","none");
+                    verticalToggle('step4');
                 }                                                                                 
                 });
           } else if(this.id=='step4' && $('#form_step4').valid()){
