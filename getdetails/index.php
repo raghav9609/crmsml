@@ -26,7 +26,7 @@ header('Content-type: application/json;');
 $headers = apache_request_headers();
 $method = $_SERVER['REQUEST_METHOD'];
 $json_data = file_get_contents('php://input');
-$a = stripslashes(html_entity_decode($json_data));
+//$a = stripslashes(html_entity_decode($json_data));
 $post = json_decode($a,true);
 
 var_dump($a);
