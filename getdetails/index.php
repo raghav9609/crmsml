@@ -5,6 +5,11 @@ $method = $_SERVER['REQUEST_METHOD'];
 $json_data = file_get_contents('php://input');
 $a = stripslashes(html_entity_decode($json_data));
 $post = json_decode($a,true);
+
+var_dump($a);
+var_dump(json_decode($a));
+var_dump(json_last_error());
+var_dump(json_last_error_msg());
 print_r($post);
 die();
 require_once(dirname(__FILE__) . '/../config/config.php');
