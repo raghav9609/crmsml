@@ -18,7 +18,7 @@ if($recordcount > 0) {
     $company_nm = "";
     // $cust_id = $res_data['cust_id'];
     if($res_data['company_id'] != '0') {
-        $company_nm = get_display_name('comp_name',$res_data['company_id']); 
+       echo $company_nm = get_display_name('comp_name',$res_data['company_id']); 
     }
 //    if ($res_data['company'] == '38665') {
 //         $company_nm = $company_nm." - ".get_display_name('sub_employer', $res_data['sub_employer_type']);
