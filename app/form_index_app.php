@@ -359,7 +359,7 @@ $recordcount = mysqli_num_rows($res);
     
     <div class="gen-box white-bg">
         <div class="blue-bg col-12 font-weight-nb pb-2 pt-2 white font-20 brdr-top-gray pe-none" data-toggle="step1" id="switch_step1">
-            <span id="text_step1"></span>History<div id="error-message" class="error-message"></div></div>
+            <span id="text_step1"></span>Follow Up History<div id="error-message" class="error-message"></div></div>
             <!-- <div class="row div-width"> -->
             <table class="gridtable" style="width:100%;"aid="maintable">
                 <tr>
@@ -371,7 +371,7 @@ $recordcount = mysqli_num_rows($res);
                 <tr>
                 <?php 
                 if($recordcount > 0){
-                    
+                    $record = 0;
                 while($exe = mysqli_fetch_array($res)){
                     $record++;
                     if($record > 10){
