@@ -289,6 +289,7 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
             if(loaded_raw_details) return;
             if(query_id) {
                 $.ajax({
+                    alert("dfdsf");
                     type: "POST",
                     url: "../insert/ajax_insert_updated_query_details.php",
                     data: "query_id="+query_id,
@@ -296,12 +297,12 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
                         $(".tab-2 > .facts > .register > .table_set").html('<div class="img">Please wait while we are fetching the details...</div><div class="img"><img style="width: 10%" src="../../include/img/common-loader.gif" /></div>');
                     },
                     success: function(msg) {
-                        console.log(msg);
-                        if(msg.trim() == "") {
-                            $(".tab-1 > .facts > .register > .table_set").html("<h3>No Data Found</h3>");
-                        } else {
-                            $(".horizontal_details_tab > .resp-tabs-container > .tab-1 > .facts > .register > .table_set").html(msg);
-                        }
+                        //console.log(msg);
+                        // if(msg.trim() == "") {
+                        //     $(".tab-1 > .facts > .register > .table_set").html("<h3>No Data Found</h3>");
+                        // } else {
+                        $(".tab-2 > .facts > .register > .table_set").html(msg);
+                        //}
                     }
                     
                 });
