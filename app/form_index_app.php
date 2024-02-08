@@ -404,7 +404,7 @@ $recordcount = mysqli_num_rows($res);
                 <td>
                     <?php
 					if($page > 1) {
-                        echo "<a class='page gradient' href='app/edit.php'>Prev</a>";
+                        echo "<a class='page gradient' href='app/edit.php?app_id='".urlencode(base64_encode($app_id)).">Prev</a>";
 					}
                     echo "<a class='page gradient' href='javascript:void;'>".$page."</a>";
                     if($recordcount > $display_count) {
