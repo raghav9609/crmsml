@@ -1,9 +1,9 @@
 <?php
 $query_id = $id;
 ?>
-<script src="<?php echo $head_url; ?>/include/js/query-follow-up.js?version=1.84"></script>
+<script src="<?php echo $head_url; ?>/assets/js/query-follow-up.js?version=1.84"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-<!-- <link rel="stylesheet" type="text/css" href="../../include/css/style.css"/> -->
+<link rel="stylesheet" type="text/css" href="<?php echo $head_url; ?>/assets/css/style.css"/>
 <style type="text/css">
     .query_follow li {
         color: blue;
