@@ -361,14 +361,13 @@ $recordcount = mysqli_num_rows($res);
         <div class="blue-bg col-12 font-weight-nb pb-2 pt-2 white font-20 brdr-top-gray pe-none" data-toggle="step1" id="switch_step1">
             <span id="text_step1"></span>Follow Up History<div id="error-message" class="error-message"></div></div>
             <!-- <div class="row div-width"> -->
-            <table class="gridtable" style="width:100%;"aid="maintable">
+            <table class="gridtable" style="width:100%;" id="maintable">
                 <tr>
                     <th>Query Id</th>
                     <th>User</th>
                     <th>Created On</th>
                     <th>Updated On</th>
                 </tr>
-                
                 <?php 
                 if($recordcount > 0) {
                     $record = 0;
@@ -385,14 +384,15 @@ $recordcount = mysqli_num_rows($res);
                         $updated_on = $exe['updated_on'];
                 ?>
                 <tr>
-                    <td><?php echo $qryyy_id;?><td>
-                    <td><?php echo $user_name;?><td>
-                    <td><?php echo $created_on;?><td>
-                    <td><?php echo $updated_on;?><td>
-                    </tr>
-                <?php  }
-                }?>
-                
+                    <td><?php echo $qryyy_id; ?></td>
+                    <td><?php echo $user_name; ?></td>
+                    <td><?php echo $created_on; ?></td>
+                    <td><?php echo $updated_on; ?></td>
+                </tr>
+                <?php 
+                    }
+                } 
+                ?>
             </table>
 
             <!-- </div> -->
