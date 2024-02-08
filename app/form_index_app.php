@@ -349,7 +349,7 @@ function datevalidate() {
 
 <?php 
 $recordcount= 0;
-$qryd = "select * from crm_lead_summary_history where lead_id = '".$qryyy_id."' and type = 2 order by id desc limit '".$offset."','".$max_offset."'"; 
+$qryd = "select * from crm_lead_summary_history where lead_id = '".$qryyy_id."' and type = 2 order by id desc limit ".$offset.",".$max_offset."'"; 
 echo $qryd;
 $res = mysqli_query($Conn1,$qryd) or die("Error: ".mysqli_error($Conn1));
 $recordcount = mysqli_num_rows($res);
