@@ -10,7 +10,7 @@ require_once(dirname(__FILE__) . '/../config/config.php');
 require_once "../include/helper.functions.php";
 require_once "../include/display-name-functions.php";
 require_once "../include/case-query-function-insert.php";
-
+$user = $user;
 
 $notepadflag=0;
 $level_id = 1;
@@ -303,9 +303,7 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
                             $(".tab-2 > .facts > .register > .table_set").html(msg);
                         }
                     }
-                    error: function(xhr, status, error) {
-                    console.log("AJAX Error:", status, error);
-                }
+                    
                 });
             } else {
                 $(".tab-2 > .facts > .register > .table_set").html("<h3>No Data Found</h3>");
