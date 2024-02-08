@@ -145,10 +145,9 @@ b.caret{
     <div class="row div-width">       
         <div class="form-group col-xl-3 col-lg-4 col-md-6">
         <span class="fa-icon fa-list-alt"></span>
-        <?php echo get_dropdown('status_', 'f_stats', '', 'onchange = "cng_status(this);" class="valid" required'); ?>
+        <?php echo get_dropdown('query_status', 'f_stats', '', ''); ?>
         <label for="f_stats" class="label-tag">Select Status</label>
         </div>
-        <div class="new-heading-offers sub_status_div hidden"></div>
         <!-- Checkbox New status Div ends -->
         <div class="form-group col-xl-3 col-lg-4 col-md-6 hidden foll_type">
         <span class="fa-icon fa-tty"></span>
