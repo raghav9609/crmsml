@@ -347,13 +347,53 @@ function datevalidate() {
 </div>
 </div>
 
+<?php 
+$qryd = "select * from crm_lead_summary_history where lead_id = '".$qryyy_id."' and type = 2"; 
+$res = mysqli_query($Conn1,$qryd) or die("Error: ".mysqli_error($Conn1));
+$recordcount = mysqli_num_rows($res);
+
+?>
+
 <div class="pl-md-3 pl-2 pr-md-3 pr-2 col-12">
     
-<div class="gen-box white-bg">
-<div class="blue-bg col-12 font-weight-nb pb-2 pt-2 white font-20 brdr-top-gray pe-none" data-toggle="step1" id="switch_step1">
-        <span id="text_step1"></span>History<div id="error-message" class="error-message"></div></div>
+    <div class="gen-box white-bg">
+        <div class="blue-bg col-12 font-weight-nb pb-2 pt-2 white font-20 brdr-top-gray pe-none" data-toggle="step1" id="switch_step1">
+            <span id="text_step1"></span>History<div id="error-message" class="error-message"></div>
+            <div class="row div-width">
+            <table>
+                <tr>
+                    <th>Query Id</th>
+                    <th>User</th>
+                    <th>Created On</th>
+                    <th>Updated On</th>
+                </tr>
+                <tr>
+                <?php 
+                if($recordcount > 0){
+                    $record = 0;
+                while($exe = mysqli_fetch_array($res)){
+                    $user_id_get = $exe['user_id'];
+                    $user_name_get = get_name('user_id',$user_id_get);
+                    $user_name = $user_name_get['name'];
 
-</div>
+                    $created_on = $exe['created_on'];
+                    $updated_on = $exe['updated_on'];
+                    
+                ?>
+
+                    <td><?php echo $qryyy_id;?><td>
+                    <td><?php echo $user_name;?><td>
+                    <td><?php echo $created_on;?><td>
+                    <td><?php echo $updated_on;?><td>
+                    <?php  }
+                }?>
+                </tr>
+            </table>
+
+            </div>
+
+        </div>
+    </div>
 </div>
 </body>
 </html>
