@@ -95,7 +95,6 @@ $final_arr = array(
     'tennure' => $tenure,
     'roi '=> $roi
 );
-// print_r($final_arr);
 $where_condition = 'crm_query_id = "' . $app_id . '"';
 $update_query = "UPDATE crm_query_application SET ";
 
@@ -111,19 +110,13 @@ $insert_qry1 =  "INSERT INTO crm_lead_summary_history set lead_id = '".$app_id."
 $res_qry = mysqli_query($Conn1,$insert_qry1);
 
 
-// if ($res_qry) {
-//     $_SESSION['succ_msg'] = "Updated Sucessfully";
-// } else {
-//     echo "Update failed: " . mysqli_error($your_database_connection);
-// }
-
-// echo '<script>window.location.href = "'.$head_url.'/app/edit.php?case_id='.urlencode(base64_encode($case_id)).'%3D%3D&app_id='.urlencode(base64_encode($app_id)).'%3D%3D&cust_id='.urlencode(base64_encode($cust_id)).'%3D%3D&loan_type='.urlencode(base64_encode($loan_type)).'";</script>';
-    
-    // echo '<script>window.location.href = "'.$head_url.'/app/edit.php"</script>';
-    // exit;
+if ($res_qry) {
+    $_SESSION['succ_msg'] = "Updated Sucessfully";
+} else {
+    echo "Update failed: " . mysqli_error($your_database_connection);
+}
     echo '<script>window.location.href = "'.$head_url.'/app/edit.php?app_id='.urlencode(base64_encode($app_id)).'&cust_id='.urlencode(base64_encode($cust_id)).'&loan_type='.urlencode(base64_encode($loan_type)).'";</script>';
 exit;
 }
-// echo '<script>window.location.href = "'.$head_url.'/app/edit.php"</script>';
 
 ?>

@@ -188,6 +188,15 @@
                 <input type="button" class="btn btn-primary valid" name="edit_app" id="edit_app" value="Edit">
                 <input type="button" class="btn btn-primary valid" name="submit_app" id="submit_app" value="SUBMIT">
                 <!-- <input type="button" class="btn btn-primary valid" name="add_app" id="add_app" value="Add"> -->
+
+            <div class="pl-md-3 pl-2 pr-md-3 pr-2 col-12">
+    
+                <div class="gen-box white-bg">
+                <span id="text_step1"></span> History<div id="error-message" class="error-message"></div></div> 
+
+                </div>
+            </div>
+
                        
 <script>
     document.addEventListener('DOMContentLoaded', function () {
