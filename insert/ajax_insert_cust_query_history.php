@@ -8,10 +8,7 @@ $return_html = "";
 /* coding for customer Query history start */
 if($type == "query") {
     $cust_id = $_REQUEST['cust_id'];
-    $qry_id = $_REQUEST['query_id'];
-    // $query_history_query = "select stats.query_status,qry.query_id as id,qry.loan_amt as loan_amt,loan.loan_type_name as loan_type_name,stats.date as date,user.user_name as user_name from tbl_mint_query as qry left JOIN tbl_mint_query_status_detail as stats ON qry.query_id = stats.query_id left join lms_loan_type as loan on qry.loan_type = loan.loan_type_id left join tbl_user_assign as user on stats.user_id = user.user_id where qry.cust_id = ".$cust_id." order by qry.query_id desc limit 10";
-    $query_history_query = "select * from crm_raw_data as raw_data left join crm_query as qry on raw_data.id = qry.crm_raw_data_id where qry.id = '".$qry_id."'";
-    echo $query_history_query;
+    $query_history_query = "select stats.query_status,qry.query_id as id,qry.loan_amt as loan_amt,loan.loan_type_name as loan_type_name,stats.date as date,user.user_name as user_name from tbl_mint_query as qry left JOIN tbl_mint_query_status_detail as stats ON qry.query_id = stats.query_id left join lms_loan_type as loan on qry.loan_type = loan.loan_type_id left join tbl_user_assign as user on stats.user_id = user.user_id where qry.cust_id = ".$cust_id." order by qry.query_id desc limit 10";
     $query_history_result= mysqli_query($Conn1,$query_history_query);
     $query_history = mysqli_num_rows($query_history_result);
     $sr_no = 0;
