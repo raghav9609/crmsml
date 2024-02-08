@@ -166,9 +166,15 @@
                         <span class='green' id='age' style="position: absolute;top: 100%;background: transparent;color: green;left: 15px;"></span>
                     </div> 
                     <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                        <input type="text" id="follow_up_given_by" name="follow_up_given_by" value="<?php echo $follow_up_given_by;?>" placeholder="Enter Follow Up Given By" class="form-control  valid" maxlength="20" <?php echo ($follow_up_given_by != '') ? 'readonly' : ''; ?> required>
+                        <!-- <input type="text" id="follow_up_given_by" name="follow_up_given_by" value="<?php echo $follow_up_given_by;?>" placeholder="Enter Follow Up Given By" class="form-control  valid" maxlength="20" <?php echo ($follow_up_given_by != '') ? 'readonly' : ''; ?> required>
                         <label for="dob" class="label-tag ">Follow Up Given BY</label>
-                        <span class='green' id='age' style="position: absolute;top: 100%;background: transparent;color: green;left: 15px;"></span>
+                        <span class='green' id='age' style="position: absolute;top: 100%;background: transparent;color: green;left: 15px;"></span> -->
+                        <select id="follow_up_given_by" name="follow_up_given_by">
+                            <option>Select</option>
+                            <option>SML User</option>
+                            <option>Customer</option>
+
+                        </select>
                     </div> 
                     <div class="form-group col-xl-2 col-lg-4 col-md-6">
                         <span class="fa-icon fa-building"></span>
@@ -309,7 +315,7 @@
     });
 
 
-});//////
+});
 
 // document.addEventListener('DOMContentLoaded', function () {
 function datevalidate() {
@@ -319,12 +325,10 @@ function datevalidate() {
   var submit_app = document.getElementById('submit_app');
   var errormessageElement = document.getElementById('error-message');
 
-  // Validate Disbursement Date
   var login_date = new Date(logindateInput.value);
   var sanction_date = new Date(sanctiondateInput.value);
   var disburse_date = new Date(disbursementInputdate.value);
-// alert(login_date)
-  // Set hours, minutes, seconds, and milliseconds to 0 for date-only comparison
+
   login_date.setHours(0, 0, 0, 0);
   sanction_date.setHours(0, 0, 0, 0);
   disburse_date.setHours(0, 0, 0, 0);
@@ -350,10 +354,8 @@ function datevalidate() {
 <?php 
 $recordcount= 0;
 $qryd = "select * from crm_lead_summary_history where lead_id = '".$qryyy_id."' and type = 2 order by id desc limit ".$offset.",".$max_offset.""; 
-echo $qryd;
 $res = mysqli_query($Conn1,$qryd) or die("Error: ".mysqli_error($Conn1));
 $recordcount = mysqli_num_rows($res);
-// .$offset.",".$max_offset"; 
 ?>
 
 <div class="pl-md-3 pl-2 pr-md-3 pr-2 col-12">
@@ -372,7 +374,6 @@ $recordcount = mysqli_num_rows($res);
                 if($recordcount > 0) {
                     $record = 0;
                     while($exe = mysqli_fetch_array($res)) {
-                        print_r($exe);
                         $record++;
                         if($record > 10) {
                             continue;
@@ -396,9 +397,6 @@ $recordcount = mysqli_num_rows($res);
                 ?>
             </table>
 
-            <!-- </div> -->
-
-        <!-- </div> -->
         <?php if ($recordcount > 0) { ?>
 
         <table width="width:90%;margin-left:4%;" border="0" align="center" cellpadding="4" cellspacing="1" class="pagination">
