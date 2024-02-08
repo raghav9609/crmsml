@@ -360,7 +360,6 @@ $recordcount = mysqli_num_rows($res);
     <div class="gen-box white-bg">
         <div class="blue-bg col-12 font-weight-nb pb-2 pt-2 white font-20 brdr-top-gray pe-none" data-toggle="step1" id="switch_step1">
             <span id="text_step1"></span>Follow Up History<div id="error-message" class="error-message"></div></div>
-            <!-- <div class="row div-width"> -->
             <table class="gridtable" style="width:100%;" id="maintable">
                 <tr>
                     <th>Query Id</th>
@@ -398,6 +397,23 @@ $recordcount = mysqli_num_rows($res);
             <!-- </div> -->
 
         <!-- </div> -->
+        <?php if ($recordcount > 0) { ?>
+
+        <table width="width:90%;margin-left:4%;" border="0" align="center" cellpadding="4" cellspacing="1" class="pagination">
+            <tr class="sidemain">
+                <td>
+                    <?php
+					if($page > 1) {
+                        echo "<a class='page gradient' href='app/edit.php'>Prev</a>";
+					}
+                    echo "<a class='page gradient' href='javascript:void;'>".$page."</a>";
+                    if($recordcount > $display_count) {
+                        echo "<a class='page gradient' href='app/edit.php?page=".($page+1) ."'>Next</a>";
+                    }
+                    ?></td>
+            </tr>
+        </table>
+        <?php } ?>	
     </div>
 </div>
 </body>
