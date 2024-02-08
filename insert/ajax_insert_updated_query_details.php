@@ -23,7 +23,7 @@ if($recordcount > 0) {
 //    if ($res_data['company'] == '38665') {
 //         $company_nm = $company_nm." - ".get_display_name('sub_employer', $res_data['sub_employer_type']);
 //     }
-    $net_incm = ($res_data['net_incm'] > 0) ? custom_money_format($res_data['net_incm']) : "--";
+    $net_incm = ($res_data['net_income'] > 0) ? custom_money_format($res_data['net_income']) : "--";
 
     // $pan_card_get = trim($res_data['pan_card']);
     // if(trim($res_data['pan_card']) == '' || strlen(trim($res_data['pan_card'])) != '10'){
