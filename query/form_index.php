@@ -58,7 +58,7 @@
 
         $res = mysqli_query($Conn1, $qry) or die("Error: " . mysqli_error($Conn1));
         $exe_form = mysqli_fetch_array($res);
-        // print_r($exe_form);
+        print_r($exe_form);
         $exis_loans = $exe_form['No_of_loans']; 
         $loan_type_on1 = $exe_form['loan_type_1'];
         $bank_name_selected1 = $exe_form['bank_name_1'];
