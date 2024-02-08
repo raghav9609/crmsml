@@ -60,16 +60,23 @@ if($recordcount > 0) {
     // if(($net_incm != '0' && $net_incm != '') || ($res_data['pan_card'] != '0' && $pan_card != '') || $city_nm != '' || $company_nm != '' || $comp_name_other != '' || ($salary_pay_id != '0' && $salary_pay_id != '')) {
 ?>
 <?php 
-    $return_html .= "<table class='gridtable table_set' border='1' style=''><tr class='font-weight-bold'><th>Net Monthly Income</th><th>Company</th><th>Salary Payment Mode</th><th>PAN Card</th><th>City</th><th>Pin Code</th><th>Lead Rank</th><th>Lead Score</th><th>Lead Costing</th>"; 
-    $return_html .= "<th>Business Existing</th><th>Turnover</th>";
-    $return_html .= "</tr>";
-    echo $return_html;
+    // $return_html .= "<table class='gridtable table_set' border='1' style=''><tr class='font-weight-bold'><th>Net Monthly Income</th><th>Company</th><th>Salary Payment Mode</th><th>PAN Card</th><th>City</th><th>Pin Code</th><th>Lead Rank</th><th>Lead Score</th><th>Lead Costing</th>"; 
+    // $return_html .= "<th>Business Existing</th><th>Turnover</th>";
+    // $return_html .= "</tr>";
+    // echo $return_html;
+    $return_html .= "<table class='gridtable table_set' border='1'><tr class='font-weight-bold'><th>Net Monthly Income</th><th>Company</th><th>Salary Payment Mode</th><th>PAN Card</th><th>City</th><th>Pin Code</th><th>Lead Rank</th><th>Lead Score</th><th>Lead Costing</th><th>Business Existing</th><th>Turnover</th></tr>";
+
 ?>
 <?php
     $pincode = ($res_data['pincode'] > 0) ? $res_data['pincode'] : "--";
-    $return_html .= "<tr class='center-align'><td>".$net_incm."</td><td>".$company_nm."".$comp_name_other."</td><td>".$salry_py_mod."</td><td>".$pan_card."</td><td>".$city_nm."</td><td>".$pincode."</td><td>".$lead_rank."</td><td>".$lead_score."</td><td>".$lead_costing."</td>";
-    $return_html .= "<td>".$bus_ext_yr." (".$bus_exst_num.")</td><td>".$bus_anl_turn." (".$ann_turn_num.")</td>";
-    $return_html .= "</tr></table>";
+    // $return_html .= "<tr class='center-align'><td>".$net_incm."</td><td>".$company_nm."".$comp_name_other."</td><td>".$salry_py_mod."</td><td>".$pan_card."</td><td>".$city_nm."</td><td>".$pincode."</td><td>".$lead_rank."</td><td>".$lead_score."</td><td>".$lead_costing."</td>";
+    // $return_html .= "<td>".$bus_ext_yr." (".$bus_exst_num.")</td><td>".$bus_anl_turn." (".$ann_turn_num.")</td>";
+    // $return_html .= "</tr></table>";
+    $return_html .= "<tr class='center-align'><td>".$net_incm."</td><td>".$company_nm."".$comp_name_other."</td><td>".$salry_py_mod."</td><td>".$pan_card."</td><td>".$city_nm."</td><td>".$pincode."</td><td>".$lead_rank."</td><td>".$lead_score."</td><td>".$lead_costing."</td><td>".$bus_ext_yr." (".$bus_exst_num.")</td><td>".$bus_anl_turn." (".$ann_turn_num.")</td></tr>";
+    $return_html .= "</table>";
+    echo $return_html; 
+
+
 ?>
 <?php
     }
