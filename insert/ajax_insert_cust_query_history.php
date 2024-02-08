@@ -1,8 +1,7 @@
 <?php
-$slave = 1;
-require_once "../../config/config.php";
-require_once "../../include/helper.functions.php";
-require_once "../../include/display-name-functions.php";
+require_once "../config/config.php";
+require_once "../include/helper.functions.php";
+require_once "../include/display-name-functions.php";
 $type = $_REQUEST['type'];
 $return_html = "";
 /* coding for customer Query history start */
