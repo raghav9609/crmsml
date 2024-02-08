@@ -190,7 +190,7 @@ $res_num = mysqli_num_rows($res);
 if($res_num > 0) {
     $sr_no = 0;
 ?>
-   <?php $return_html = '<table width="100%" class="gridtable"><tr class="font-weight-bold"><th>Sr. No.</th><th>Application Id</th><th>Bank Name</th><th>Action</th></tr>'; ?>
+   <?php $return_html = '<table width="100%" class="gridtable"><tr class="font-weight-bold"><th>Sr. No.</th><th>Application Id</th><th>Bank Name</th><th>Application Status</th><th>Action</th></tr>'; ?>
 
     <?php while($exe_app_history = mysqli_fetch_array($res)){
         print_r($exe_app_history);
@@ -439,7 +439,7 @@ if($res_num > 0) {
 
     ?>
     <?php 
-    $return_html .= '<tr class="center-align"><td>'.$sr_no.'</td><td><span class="fs-12">(<a href="../app/edit.php?case_id='.urlencode(base64_encode($case_id)).'">'.$case_id.'</a>)</span></td><td> </td><td style="width: 7%"><br><span class="fs-12">(<a href="../app/edit.php?case_id='.urlencode(base64_encode($case_id)).'">View</a>)</span></td></tr>'; 
+    $return_html .= '<tr class="center-align"><td>'.$sr_no.'</td><td><span class="fs-12">(<a href="../app/edit.php?case_id='.urlencode(base64_encode($case_id)).'">'.$case_id.'</a>)</span></td><td> </td><td> </td><td> </td><td style="width: 7%"><br><span class="fs-12">(<a href="../app/edit.php?case_id='.urlencode(base64_encode($case_id)).'">View</a>)</span></td></tr>'; 
     ?>
     <?php } ?>
     <?php $return_html .= '</table>';
