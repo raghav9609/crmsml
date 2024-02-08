@@ -259,20 +259,21 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
     <!-- <span id="mention_case_no" style='font-weight: 600; color: #000;'> -->
         <?php //echo is_numeric($case_id)? $case_id:' -'; ?>
     </span>
-   <?php// echo "<span class='ml10 fs-13' style='font-weight: normal; color: #000'>Query Date: </span>";
-    //echo "<span style='font-weight: 600; color: #000;'>".date("d-m-Y", strtotime($exe_form['created_onSS']))." ".$timeindia."</span>";
-    // if($_REQUEST['priority']){
-    //     echo "<span class='ml10 fs-13' style='font-weight: normal; color: #000'>Priority: </span>";
-    //     echo "<span style='font-weight: 600; color: #000;'>".$_REQUEST['priority']."</span>";
-    // }
-    // if($exe_form['fup_date'] != '' && $exe_form['fup_date'] != '0000-00-00' && $exe_form['fup_date'] != '1970-01-01') {
-    //         $fup_time = $exe_form['fup_time'] != '00:00:00'?date('H:i a',strtotime($exe_form['fup_time'])):"-";
-    //         echo "<span class='ml10 fs-13' style='font-weight: normal; color: #000'>Next Call Time: </span>";
-    //         echo "<span style='font-weight: 600; color: #000;'>".date('d-m-Y',strtotime($exe_form['fup_date']))." ".$fup_time."</span>";
-    //     }
+   <?php
+    // echo "<span class='ml10 fs-13' style='font-weight: normal; color: #000'>Query Date: </span>";
+    // echo "<span style='font-weight: 600; color: #000;'>".date("d-m-Y", strtotime($exe_form['created_onSS']))." ".$timeindia."</span>";
+    if($_REQUEST['priority']){
+        echo "<span class='ml10 fs-13' style='font-weight: normal; color: #000'>Priority: </span>";
+        echo "<span style='font-weight: 600; color: #000;'>".$_REQUEST['priority']."</span>";
+    }
+    if($exe_form['fup_date'] != '' && $exe_form['fup_date'] != '0000-00-00' && $exe_form['fup_date'] != '1970-01-01') {
+            $fup_time = $exe_form['fup_time'] != '00:00:00'?date('H:i a',strtotime($exe_form['fup_time'])):"-";
+            echo "<span class='ml10 fs-13' style='font-weight: normal; color: #000'>Next Call Time: </span>";
+            echo "<span style='font-weight: 600; color: #000;'>".date('d-m-Y',strtotime($exe_form['fup_date']))." ".$fup_time."</span>";
+        }
 
-        // $current_status = "--";
-        // if($exe_form['query_status'] != "--" && $exe_form['query_status'] != "" && $exe_form['query_status'] != "0") {
+        $current_status = "--";
+        if($exe_form['query_status'] != "--" && $exe_form['query_status'] != "" && $exe_form['query_status'] != "0") {
            /* $select_status_qry = "select qy_status from tbl_query_status where qy_status_id = ".$exe_form['query_status'];
             $select_status_exe = mysqli_query($Conn1, $select_status_qry);
             if(mysqli_num_rows($select_status_exe) > 0) {
@@ -291,7 +292,7 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
             //     $other_status_res = mysqli_fetch_array($other_status_exe);
             //     $current_status = $current_status.", ".$other_status_res['new_status'];
             // }
-        //}
+        }
 
         // echo " <span class='ml10 fs-13' style='font-weight: normal; color: #000'>Current Status:</span> <span style='font-weight: 600; color: #000;'> ".$current_status." </span>";
 
