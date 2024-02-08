@@ -346,6 +346,14 @@ function datevalidate() {
 
 </div>
 </div>
+
+<div class="pl-md-3 pl-2 pr-md-3 pr-2 col-12">
+    
+                <div class="gen-box white-bg">
+                <span id="text_step1"></span> History<div id="error-message" class="error-message"></div></div> 
+
+                </div>
+            </div>
 </body>
 </html>
    
