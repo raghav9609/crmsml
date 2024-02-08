@@ -122,6 +122,7 @@ $res_qry = mysqli_query($Conn1,$insert_qry1);
     echo '<script>window.location.href = "'.$head_url.'/app/edit.php"</script>';
     exit;
 }
-echo '<script>window.location.href = "'.$head_url.'/app/edit.php"</script>';
-    exit;
+// echo '<script>window.location.href = "'.$head_url.'/app/edit.php"</script>';
+echo '<script>window.location.href = "'.$head_url.'/app/edit.php?app_id='.urlencode(base64_encode($app_id)).'%3D%3D&cust_id='.urlencode(base64_encode($cust_id)).'%3D%3D&loan_type='.urlencode(base64_encode($loan_type)).'";</script>';
+exit;
 ?>
