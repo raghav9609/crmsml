@@ -169,12 +169,13 @@
                         <!-- <input type="text" id="follow_up_given_by" name="follow_up_given_by" value="<?php echo $follow_up_given_by;?>" placeholder="Enter Follow Up Given By" class="form-control  valid" maxlength="20" <?php echo ($follow_up_given_by != '') ? 'readonly' : ''; ?> required>
                         <label for="dob" class="label-tag ">Follow Up Given BY</label>
                         <span class='green' id='age' style="position: absolute;top: 100%;background: transparent;color: green;left: 15px;"></span> -->
-                        <label for="dob" class="label-tag ">Follow Up Given BY</label>
+                        
                         <select id="follow_up_given_by" name="follow_up_given_by">
                             <option>Select</option>
                             <option>SML User</option>
                             <option>Customer</option>
                         </select>
+                        <label for="dob" class="label-tag ">Follow Up Given BY</label>
                         <span class='green' id='age' style="position: absolute;top: 100%;background: transparent;color: green;left: 15px;"></span> 
                     </div> 
                     <div class="form-group col-xl-2 col-lg-4 col-md-6">
