@@ -185,6 +185,57 @@ b.caret{
     </form>
 </div>
 <br><br>
+
+<?php die(); ?>
+<table class="gridtable " style="width:100%;" border="1">
+    <?php
+$followup_history_query = "SELECT * FROM crm_follow_up_history WHERE lead_id = $id AND status_type = 1 ORDER BY id DESC ";
+$query_follow_up = mysqli_query($Conn1, $followup_history_query);
+$one = 0;
+if (mysqli_num_rows($query_follow_up) > 0) {
+    ?>
+    <tr class="font-weight-bold">
+        <th>Follow Up Status</th>
+        <th>Update Date & Time</th>
+        <th>Remarks</th>
+        <th>User</th>
+        <th>Follow Date & Time & Type</th>
+    </tr>
+    <?php
+while ($result_query = mysqli_fetch_array($query_follow_up)) {
+        $one++;
+        $f_date = ($result_query['follow_up_date'] == '0000-00-00' || $result_query['follow_up_date'] == "" || $result_query['follow_up_date'] == '1970-01-01') ? '--' : date("d-m-Y", strtotime($result_query['follow_up_date']));
+        $follow_given_by_c = $result_query['follow_up_given_by'];
+        $given_by = "SML User";
+        if ($follow_given_by_c == '1') {
+            $given_by = "Customer";
+        }
+        $f_time = $result_query['follow_up_time'];
+        $desc = $result_query['query_status_desc'];
+        $f_modified = ($result_query['date'] == "0000-00-00" || $result_query['created_on'] == "" || $result_query['created_on'] == "1970-01-01") ? "--" : date("d-m-Y", strtotime($result_query['created_on']));
+        $follow_time = $result_query['follow_up_time'];
+        $follow_status = $result_query['status_id'];
+        $time_update = date('H:i:s a', strtotime($follow_time));
+        $follow_up_name = $result_query['qy_status'];
+        $user_name = $result_query['user_name'];
+       
+        if ($f_date == "--" || $f_time == '') {
+            $fol_time = "--";
+        } else {
+            $fol_time = (date('H:i a', strtotime($f_time)) == '00:00 am') ? '--' : date('H:i a', strtotime($f_time));
+        }
+        $follow_up_name = get_name('status_name',$follow_status);
+        echo "<tr class='center-align'><td>" . $follow_up_name . "<br>(" . $given_by . ")" . $input_fname . "</td>
+<td>" . $f_modified . " " . $time_update . "</td><td>" . $desc . "" . $input_desc . "<br>" . $level_type_name . " " . $level_reference_no . "</td><td>" . $user_name . "</td><td>" . $pincode_his . "</td><td>" . $city_name . "</td><td>" . $f_date . "<br>" . $fol_time . "<br>" . $status . "" . $input_type . "</td></tr>";
+    }
+}
+?>
+<div id="up_desc"></div>
+</table>
+
+
+
+
 <script type='text/javascript'>
 $("#fol_time").focusout(function() {
     if($("#fol_time").val() != "") {
