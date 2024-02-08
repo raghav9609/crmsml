@@ -8,7 +8,6 @@ require_once(dirname(__FILE__) . '/../config/config.php');
 require_once(dirname(__FILE__) . '/../helpers/common-helper.php');
 require_once(dirname(__FILE__) . '/../include/header.php');
 require_once(dirname(__FILE__) . '/../model/queryHelper.php');
-// require_once(dirname(__FILE__) . '/../include/loader.php');
 require_once "../include/helper.functions.php";
 require_once "../include/display-name-functions.php";
 require_once "../include/case-query-function-insert.php";
@@ -253,15 +252,15 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
     }
 
     //echo preg_replace('/[0-9]+/', '', $final_src) . "<span class='green'> " . $frm_type . $cr_record . "</span><br>" . $tool_type_ybl;
-    echo "<span class='ml10 fs-13' style='font-weight: normal; color: #000'>Query ID: </span>";
-    echo "<span style='font-weight: 600; color: #000;'>".$qryyy_id."</span>
-    <span class='ml10 fs-13' style='font-weight: normal; color: #000'>Case Id:</span>
-    "; ?>
-    <span id="mention_case_no" style='font-weight: 600; color: #000;'>
-        <?php echo is_numeric($case_id)? $case_id:' -'; ?>
-    </span>
-   <?php echo "<span class='ml10 fs-13' style='font-weight: normal; color: #000'>Query Date: </span>";
-    echo "<span style='font-weight: 600; color: #000;'>".date("d-m-Y", strtotime($exe_form['created_onSS']))." ".$timeindia."</span>";
+//     echo "<span class='ml10 fs-13' style='font-weight: normal; color: #000'>Query ID: </span>";
+//     echo "<span style='font-weight: 600; color: #000;'>".$qryyy_id."</span>
+//     <span class='ml10 fs-13' style='font-weight: normal; color: #000'>Case Id:</span>
+//     "; ?>
+//     <span id="mention_case_no" style='font-weight: 600; color: #000;'>
+//         <?php echo is_numeric($case_id)? $case_id:' -'; ?>
+//     </span>
+//    <?php echo "<span class='ml10 fs-13' style='font-weight: normal; color: #000'>Query Date: </span>";
+//     echo "<span style='font-weight: 600; color: #000;'>".date("d-m-Y", strtotime($exe_form['created_onSS']))." ".$timeindia."</span>";
     if($_REQUEST['priority']){
         echo "<span class='ml10 fs-13' style='font-weight: normal; color: #000'>Priority: </span>";
         echo "<span style='font-weight: 600; color: #000;'>".$_REQUEST['priority']."</span>";
@@ -294,19 +293,19 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
             // }
         }
 
-        echo " <span class='ml10 fs-13' style='font-weight: normal; color: #000'>Current Status:</span> <span style='font-weight: 600; color: #000;'> ".$current_status." </span>";
+        // echo " <span class='ml10 fs-13' style='font-weight: normal; color: #000'>Current Status:</span> <span style='font-weight: 600; color: #000;'> ".$current_status." </span>";
 
-        echo "<span class='ml10 fs-13' style='font-weight: normal; color: #000'>Tool Type:</span>";
-        if($tool_type == 'Cross Sell - Auto') {
-            echo "<a href='javascript:void' onclick='toCrossSell()'><span class='badge-success badge-pill badge' style='font-weight: 600; color: #000; font-size: 12px'> ".$tool_type." </span></a>";
-        } else {
-            if($tool_type == 'Partner1') {
-                $tool_type_url = $exe_form['page_url'];
-                $tool_type_url_arr = explode("utm_campaign=", $tool_type_url);
-                $tool_type = $tool_type." ".$tool_type_url_arr[1];
-            }
-            echo "<span style='font-weight: 600; color: #000;'> ".$tool_type." </span>";
-        }
+        // echo "<span class='ml10 fs-13' style='font-weight: normal; color: #000'>Tool Type:</span>";
+        // if($tool_type == 'Cross Sell - Auto') {
+        //     echo "<a href='javascript:void' onclick='toCrossSell()'><span class='badge-success badge-pill badge' style='font-weight: 600; color: #000; font-size: 12px'> ".$tool_type." </span></a>";
+        // } else {
+        //     if($tool_type == 'Partner1') {
+        //         $tool_type_url = $exe_form['page_url'];
+        //         $tool_type_url_arr = explode("utm_campaign=", $tool_type_url);
+        //         $tool_type = $tool_type." ".$tool_type_url_arr[1];
+        //     }
+        //     echo "<span style='font-weight: 600; color: #000;'> ".$tool_type." </span>";
+        // }
 
         // if(in_array($exe_form['query_status'], array('5','16','17','11','13','18', '21')) && $exe_form['fup_date'] != '' && $exe_form['fup_date'] != '0000-00-00') {
         //     echo "<br><span class='ml10 fs-13' style='font-weight: normal; color: #000'>Updated Date: </span>";

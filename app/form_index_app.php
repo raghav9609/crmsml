@@ -171,12 +171,13 @@
                     <div class="form-group col-xl-2 col-lg-4 col-md-6">
                         <span class="fa-icon fa-building"></span>
                         <input type="text" id="tenure" name="tenure" value="<?php echo $tennure."/".$emi ;?>" placeholder="Enter Tenure / EMI" class="form-control numonly valid" <?php echo ($tennure != '' && $emi != '') ? 'readonly' : '';  ?> maxlength="20" required>
-                        <label for="name" class="label-tag">Tenure/ROI</label>
+                        <label for="name" class="label-tag">Tenure</label>
                     </div>
                     <div class="app_u_assign application_status col-xl-2 col-lg-4 col-md-6 main_acc " >
                         <span class="fa-icon fa-bank"></span>
-                        <label for="name" class="label-tag required" >User</label>
-                        <?php echo get_dropdown('user','app_u_assign',$app_u_assign,'disabled'); ?>
+                        <input type="text" id="roi" name="roi" value="<?php echo $roi;?>" placeholder="Enter Roi " class="form-control numonly valid" <?php echo ($roi != '') ? 'readonly' : '';  ?> maxlength="20" required>
+                        <label for="name" class="label-tag required" >ROI</label>
+                        
                         
                     </div>
                 </div>
