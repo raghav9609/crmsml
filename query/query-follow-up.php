@@ -137,8 +137,8 @@ b.caret{
         left: 15px;
     }
     </style>
-<input type="button" class="cursor" name="ad_follow" id="ad_follow" value="Add Follow Up">
-<div id="ad_form" style="display:none;border: 1px solid #CCC;padding:10px;">
+
+<div id="ad_form" style="border: 1px solid #CCC;padding:10px;">
     <form method="POST" id="follow_up_form">
     <input type="hidden" name="query_id" id="query_id" value="<?php echo $query_id; ?>">
     
@@ -193,8 +193,6 @@ b.caret{
         </div>
     </form>
 </div>
-
-die();
 <br><br>
 <table class="gridtable " style="width:100%;" border="1">
     <?php

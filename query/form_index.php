@@ -321,9 +321,10 @@
                         <input type="hidden" name="customer_id" value="<?php echo $cust_id; ?>">
                         <input type="hidden" name="step" value="2">
                         <input type="hidden" name="mlc_product_id"  value="<?php echo $mlc_product_id;?>">
+                        <input type="hidden" name="user_id" id="user_id"  value="<?php echo $user;?>">
                         <input type="hidden" name="if_hot_case" id="if_hot_case" class="if_hot_case"  value="<?php echo $hotcase;?>">
                             <div class="row div-width">
-                                <div class="form-group col-xl-2 col-lg-4 col-md-6 hidden">
+                                <div class="form-group col-xl-2 col-lg-4 col-md-6 ">
                                     <span class="fa-icon fa-amnt"></span>
                                     <?php echo get_dropdown(1,'loan_type',$loan_type,'required'); ?>
                                     <label for="loan_type" class="label-tag">Loan Type</label>
