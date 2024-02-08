@@ -404,11 +404,12 @@ $recordcount = mysqli_num_rows($res);
                 <td>
                     <?php
 					if($page > 1) {
-                        echo "<a class='page gradient' href='app/edit.php?app_id='".urlencode(base64_encode($qryyy_id)).">Prev</a>";
+                        echo "<a class='page gradient' href='app/edit.php?app_id=" . urlencode(base64_encode($qryyy_id)) . "&cust_id=" . urlencode(base64_encode($cust_id)) . "&loan_type=" . urlencode(base64_encode($loan_type)) . "'>Prev</a>";
+
 					}
                     echo "<a class='page gradient' href='javascript:void;'>".$page."</a>";
                     if($recordcount > $display_count) {
-                        echo "<a class='page gradient' href='app/edit.php?app_id='".urlencode(base64_encode($qryyy_id))."page=".($page+1) ."'>Next</a>";
+                        echo "<a class='page gradient' href='app/edit.php?app_id=" . urlencode(base64_encode($app_id)) . "&cust_id=" . urlencode(base64_encode($cust_id)) . "&loan_type=" . urlencode(base64_encode($loan_type)) . "&page=" . ($page + 1) . "'>Next</a>";
                     }
                     ?></td>
             </tr>
