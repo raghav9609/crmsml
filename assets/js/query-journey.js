@@ -647,7 +647,7 @@ function card_tocard(){
 
                 $.ajax({      
                   method:'POST',
-                  data:"query_id="+$("[name='id']").val()+"&partner_id="+patIds,
+                  data:"query_id="+$("[name='id']").val()+"&partner_id="+patIds+"&loan_amount"+$("[name='loan_amount']").val()+"&user_id="+$("[name='user_id']").val(),
                   url: "/crmsml/query/create-process.php",
                   cache: false,
                   timeout: 60000,
