@@ -303,9 +303,7 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
                             $(".tab-2 > .facts > .register > .table_set").html(msg);
                         }
                     }
-                    error: function(xhr, status, error) {
-                    console.log("AJAX Error:", status, error);
-                }
+                    
                 });
             } else {
                 $(".tab-2 > .facts > .register > .table_set").html("<h3>No Data Found</h3>");
