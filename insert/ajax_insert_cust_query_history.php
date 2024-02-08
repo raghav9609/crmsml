@@ -190,7 +190,7 @@ $res_num = mysqli_num_rows($res);
 if($res_num > 0) {
     $sr_no = 0;
 ?>
-   <?php $return_html = '<table width="100%" class="gridtable"><tr class="font-weight-bold"><th>Sr. No.</th><th>Application Id / Case Id </th><th>Action</th></tr>'; ?>
+   <?php $return_html = '<table width="100%" class="gridtable"><tr class="font-weight-bold"><th>Sr. No.</th><th>Application Id</th><th>Bank Name</th><th>Action</th></tr>'; ?>
 
     <?php while($exe_app_history = mysqli_fetch_array($res)){
         print_r($exe_app_history);
