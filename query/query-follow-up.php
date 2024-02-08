@@ -210,12 +210,8 @@ while ($result_query = mysqli_fetch_array($query_follow_up)) {
         }
         $f_time = $result_query['follow_up_time'];
         $desc = $result_query['query_status_desc'];
-        $f_modified = ($result_query['date'] == "0000-00-00" || $result_query['created_on'] == "" || $result_query['created_on'] == "1970-01-01") ? "--" : date("d-m-Y", strtotime($result_query['created_on']));
-        $follow_time = $result_query['follow_up_time'];
         $follow_status = $result_query['status_id'];
-        $time_update = date('H:i:s a', strtotime($follow_time));
         $follow_up_name = $result_query['qy_status'];
-        $user_name = $result_query['user_name'];
        
         if ($f_date == "--" || $f_time == '') {
             $fol_time = "--";
@@ -225,9 +221,8 @@ while ($result_query = mysqli_fetch_array($query_follow_up)) {
         $follow_up_name = get_name('status_name',$follow_status);
         $follow_up_user_name = get_name('user_name',$result_query['user_id']);
 
-        preArray($follow_up_name);
-        echo "<tr class='center-align'><td>" . $follow_up_name . "<br>(" . $given_by . ")</td>
-<td>" . $f_modified . " " . $time_update . "</td><td>" . $desc . "</td><td>" . $user_name . "</td><td>" . $f_date . "<br>" . $fol_time . "<br>" . $status . "</td></tr>";
+        echo "<tr class='center-align'><td>" . $follow_up_name[0]['value'] . "<br>(" . $given_by . ")</td>
+<td>" . date("d-m-Y", strtotime($result_query['created_on']) . "</td><td>" . $desc . "</td><td>" . $follow_up_user_name[0]['name'] . "</td><td>" . $f_date . "<br>" . $fol_time . "<br>" . $status . "</td></tr>";
     }
 }
 ?>
