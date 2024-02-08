@@ -14,7 +14,7 @@ $res = mysqli_query($Conn1, $qry_get_data);
 $recordcount = mysqli_num_rows($res);
 if($recordcount > 0) {
     $res_data = mysqli_fetch_array($res);
-   
+   print_r($res_data);
     $company_nm = "";
     // $cust_id = $res_data['cust_id'];
     // if($res_data['company'] != '0') {
