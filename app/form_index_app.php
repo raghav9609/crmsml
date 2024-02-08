@@ -408,7 +408,7 @@ $recordcount = mysqli_num_rows($res);
 					}
                     echo "<a class='page gradient' href='javascript:void;'>".$page."</a>";
                     if($recordcount > $display_count) {
-                        echo "<a class='page gradient' href='app/edit.php?page=".($page+1) ."'>Next</a>";
+                        echo "<a class='page gradient' href='app/edit.php?app_id='".urlencode(base64_encode($app_id))."page=".($page+1) ."'>Next</a>";
                     }
                     ?></td>
             </tr>
