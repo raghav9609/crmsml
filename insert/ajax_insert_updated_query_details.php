@@ -17,6 +17,7 @@ $qry_get_data = "select * from crm_raw_data as raw_data left join crm_query as q
 if(mysqli_num_rows($qry_get_data) > 0) {
     $res_data = mysqli_fetch_array($qry_get_data);
     print_r($res_data);
+    exit();
     $company_nm = "";
     $cust_id = $res_data['cust_id'];
     if($res_data['company'] != '0') {
