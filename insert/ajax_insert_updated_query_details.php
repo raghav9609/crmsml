@@ -9,7 +9,7 @@ echo "select * from tbl_updated_query_details where query_id='".$qryyy_id."'";
 $qryyy_id = $_REQUEST['query_id'];
 $return_html = "";
 
-echo $qry_get_data = "select * from crm_raw_data as raw_data left join crm_query as qry on raw_data.id = qry.crm_raw_data_id where qry.id = ".$qryyy_id;
+ $qry_get_data = "select * from crm_raw_data as raw_data left join crm_query as qry on raw_data.id = qry.crm_raw_data_id where qry.id = ".$qryyy_id;
 $res = mysqli_query($Conn1, $qry_get_data);
  $recordcount = mysqli_num_rows($res);
 if($recordcount > 0) {
@@ -23,7 +23,7 @@ if($recordcount > 0) {
         $company_nm = $res_data['company_name'];
     }
     echo "hello";
-    $net_incm = ($res_data['net_income'] > 0) ? custom_money_format($res_data['net_income']) : "--";
+    $net_incm = ($res_data['net_income'] > 0) ? $res_data['net_income'] : "--";
     echo "hello 1";
     $pan_card_get = trim($res_data['pan_no']);
     
