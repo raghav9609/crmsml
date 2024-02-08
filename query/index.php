@@ -444,7 +444,7 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                                     $occupation_name = ($res_occup_name['occup_name']) ? "(" . $res_occup_name['occup_name'] . ")" : "";
                                     $user_name = $exe_form['user_name'];
                                     $follow_name = $exe_form['follow_status'];
-                                    $qy_status = $exe_form['query_status'];;
+                                    $qy_status = 'open';
                         
                                     if (in_array($query_status, array(20, 3))) {
                                         $follow_name = $query_follow_date = '';
