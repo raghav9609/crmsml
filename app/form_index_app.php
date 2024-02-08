@@ -401,17 +401,16 @@ $recordcount = mysqli_num_rows($res);
 
         <table width="width:90%;margin-left:4%;" border="0" align="center" cellpadding="4" cellspacing="1" class="pagination">
             <tr class="sidemain">
-                <td>
-                    <?php
-					if($page > 1) {
-                        echo "<a class='page gradient' href='app/edit.php?app_id=" . urlencode(base64_encode($qryyy_id)) . "&cust_id=" . urlencode(base64_encode($cust_id)) . "&loan_type=" . urlencode(base64_encode($loan_type)) . "'>Prev</a>";
-
-					}
-                    echo "<a class='page gradient' href='javascript:void;'>".$page."</a>";
-                    if($recordcount > $display_count) {
-                        echo "<a class='page gradient' href='app/edit.php?&page=".($page + 1)."&app_id=" . urlencode(base64_encode($qryyy_id)) . "&cust_id=" . urlencode(base64_encode($cust_id)) . "&loan_type=" . urlencode(base64_encode($loan_type)) ."'>Next</a>";
-                    }
-                    ?></td>
+            <td>
+                <?php if($page > 1) {
+                    echo "<a class='page gradient' href='app/edit.php?page=".($page - 1)."&app_id=" . urlencode(base64_encode($qryyy_id)) . "&cust_id=" . urlencode(base64_encode($cust_id)) . "&loan_type=" . urlencode(base64_encode($loan_type)) . "'>Prev</a>";
+                }
+                echo "<a class='page gradient' href='javascript:void;'>".$page."</a>";
+                if($recordcount > $display_count) {
+                    echo "<a class='page gradient' href='app/edit.php?page=".($page + 1)."&app_id=" . urlencode(base64_encode($qryyy_id)) . "&cust_id=" . urlencode(base64_encode($cust_id)) . "&loan_type=" . urlencode(base64_encode($loan_type)) ."'>Next</a>";
+                }
+                ?>
+            </td>
             </tr>
         </table>
         <?php } ?>	
