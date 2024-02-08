@@ -446,6 +446,7 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                                     $follow_name = $exe_form['follow_status'];
                                     $qy_status_id = $exe_form['query_status'];
                                     $qy_status = get_name('status_name',$qy_status_id);
+                                    print_r($qy_status);
                         
                                     if (in_array($query_status, array(20, 3))) {
                                         $follow_name = $query_follow_date = '';
