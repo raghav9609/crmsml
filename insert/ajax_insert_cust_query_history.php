@@ -183,16 +183,17 @@ if($type == "app") {
     $case_id = $_REQUEST['case_id'];
 $loan_type = $_REQUEST['loan_type'];
 $cust_id = $_REQUEST['cust_id'];
-$qry = "select * from tbl_mint_app where case_id = ".$case_id."";
+$case_id = $_REQUEST['case_id'];
+$qry = "select * from crm_query_application where crm_query_id = ".$case_id."";
 $res = mysqli_query($Conn1,$qry) or die(mysqli_error($Conn1));
 $res_num = mysqli_num_rows($res);
 if($res_num > 0) {
     $sr_no = 0;
 ?>
-   <?php $return_html = '<table width="100%" class="gridtable"><tr class="font-weight-bold"><th>Sr. No.</th><th>Application Id / Case Id </th><th>Bank / Partner</th><th>Pre Login/Post Login</th> <th>Bank Response</th> <th>API Status</th>
-    <th>Follow up Date</th><th>Follow up type</th><th>Description</th><th>RM</th><th>SM</th><th>Created Date</th><th>Last Updated</th></tr>'; ?>
+   <?php $return_html = '<table width="100%" class="gridtable"><tr class="font-weight-bold"><th>Sr. No.</th><th>Application Id / Case Id </th><th>Action</th></tr>'; ?>
 
     <?php while($exe_app_history = mysqli_fetch_array($res)){
+        print_r($exe_app_history);
     ++$sr_no;
     $f_type = $exe_app_history['follow_up_type_on'];
     $follow_up_date_on = ($exe_app_history['follow_up_date_on'] == '0000-00-00' || $exe_app_history['follow_up_date_on'] == "" || $exe_app_history['follow_up_date_on'] == "1970-01-01") ? '--' : date("d-m-Y", strtotime($exe_app_history['follow_up_date_on']));

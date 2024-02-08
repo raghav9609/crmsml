@@ -334,7 +334,7 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
             }
             loaded_cases_tab = true;
         } else if(e.id == "app_tab") {
-            var case_id = "<?php echo $case_id; ?>";
+            var case_id = "<?php echo $qryyy_id; ?>";
             var loan_type = "<?php echo $loan_type; ?>";
             var cust_id = "<?php echo $cust_id; ?>";
             if(loaded_app_tab) return;
