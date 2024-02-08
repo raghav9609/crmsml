@@ -1,6 +1,5 @@
 <?php
-
-$slave=1;
+echo "hih";
 require_once "../include/config.php";
 echo "hi";
 require_once "../include/helper.functions.php";
