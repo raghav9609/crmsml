@@ -50,7 +50,6 @@ if($type == "case") {
         $return_html .= '<table  class="gridtable" width="100%"><tr><th>Sr. No.</th><th>User Assign From</th><th>User Assign To</th><th>Assign By</th><th>Date</th></tr>';
         while($case_history_info = mysqli_fetch_array($case_history_result)) {
             ++$sr_no;
-            print_r($case_history_info);
             $user_assign_from_id =  $case_history_info['user_assign_from'];
             $user_assign_to_id = $case_history_info['user_assign_to'];
             $assign_by_id  = $case_history_info['assign_by'];
