@@ -438,7 +438,7 @@ if($res_num > 0) {
     // }
 
     ?>
-    <?php $return_html .= '<tr class="center-align"><td>'.$sr_no.'</td><td><a href = "../app/edit_applicaton.php?case_id='.urlencode(base64_encode($case_id)).'&cust_id='.urlencode(base64_encode($cust_id)).'&loan_type='.$loan_type.'">'.$app_id.'</a><br><span class="fs-12">(<a href="../cases/edit.php?case_id='.$enc_cs.'">'.$case_id.'</a>)</span></td><td style="width: 7%">'.$exe_app_bank['bank_name'].'<br><span class="fs-12">'.$partner_name.'</span></td><td>'.$pre_login_name."/".$post_login_name.'</td><td>'.$bank_response.'</td><td>'.$api_status.'</td><td>'.$follow_up_date_on.'</td><td>'.$exe_f['follow_status'].'</td><td>'.$app_description.'</td><td style="word-break: break-all;">'.$final_rm_emails.'<br>'.$final_rm_contacts.'<br>'.$final_rm_names.'</td><td style="word-break: break-all;">'.$final_sm_emails.'<br>'.$final_sm_contacts.'<br>'.$final_sm_names.'</td><td style="width: 7%">'.$date_created.'<br>'.$user_by.'</td><td>'.$last_updated.'</td></tr>'; ?>
+    <?php $return_html .= '<tr class="center-align"><td>'.$sr_no.'</td><td><a href = "../app/edit_applicaton.php?case_id='.urlencode(base64_encode($case_id)).'&cust_id='.urlencode(base64_encode($cust_id)).'&loan_type='.$loan_type.'">'.$app_id.'</a><br><span class="fs-12">(<a href="../cases/edit.php?case_id='.$enc_cs.'">'.$case_id.'</a>)</span></td><td style="width: 7%">'.$exe_app_bank['bank_name'].'<br><span class="fs-12">'.$partner_name.'</span></td></tr>'; ?>
     <?php } ?>
     <?php $return_html .= '</table>';
     }
