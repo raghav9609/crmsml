@@ -63,7 +63,7 @@ if($type == "case") {
             $assign_by_get = get_name('user_id',$assign_by_id);
             $assign_by = $assign_by_get['name'];
 
-            $return_html .= "<tr class='center-align'><td>".$sr_no."</td>".$user_assign_from."<td></td><td>".$user_assign_to."</td><td>".$assign_by."</td><td>".date('d-m-Y', strtotime($created_on))."</td></tr>";
+            $return_html .= "<tr class='center-align'><td>".$sr_no."</td><td>".$user_assign_from."</td><td>".$user_assign_to."</td><td>".$assign_by."</td><td>".date('d-m-Y', strtotime($created_on))."</td></tr>";
         }
         $return_html .= "</table><br>";
         /*}*/
