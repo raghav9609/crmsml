@@ -41,21 +41,21 @@ if($type == "query") {
 /* coding for customer case history start */
 if($type == "case") {
     $case_id = $_REQUEST['case_id'];
-    // $case_history_query = "select cust_case.case_id as id_case,cust_case.date_created as date,cust_case.required_loan_amt as loan_amt,user.user_name as user_name from tbl_mint_case as cust_case left join tbl_user_assign as user on cust_case.user_id = user.user_id where cust_case.case_id = ".$case_id." order by cust_case.case_id desc";
-    echo $case_history_query = "select * from crm_lead_assignment_history where lead_id = '".$case_id."'";
+    $case_history_query = "select * from crm_lead_assignment_history where lead_id = '".$case_id."'";
     
     $case_history_result= mysqli_query($Conn1,$case_history_query);
     $case_count = mysqli_num_rows($case_history_result);
-    print_r($case_count);
     $sr_no = 0;
     if($case_count > 0) {
-        $return_html .= '<table  class="gridtable" width="100%"><tr><th>Sr. No.</th><th>Case No</th><th>Loan Amount</th><th>User</th><th>Date</th></tr>';
+        $return_html .= '<table  class="gridtable" width="100%"><tr><th>Sr. No.</th><th>User Assign From</th><th>User Assign To</th><th>Assign By</th><th>Date</th></tr>';
         while($case_history_info = mysqli_fetch_array($case_history_result)) {
             ++$sr_no;
-            $case_ref_no[] =  $case_history_info['id_case'];
-            $enc_cs_id = urlencode(base64_encode($case_history_info['id_case']));
-            $loan_amount = (($case_history_info['loan_amt'] > 0) && is_numeric($case_history_info['loan_amt'])) ? custom_money_format($case_history_info['loan_amt']) : "";
-            $return_html .= "<tr class='center-align'><td>".$sr_no."</td><td><a href='../cases/edit.php?case_id=$enc_cs_id&ut=2' target ='_blank'>".$case_history_info['id_case']."</a></td><td>".$loan_amount."</td><td>".$case_history_info['user_name']."</td><td>".date('d-m-Y', strtotime($case_history_info['date']))."</td></tr>";
+            $user_assign_from =  $case_history_info['user_assign_from'];
+            $user_assign_to = $case_history_info['user_assign_to'];
+            $assign_by = $case_history_info['assign_by'];
+            $created_on = $case_history_info['created_on'];
+
+            $return_html .= "<tr class='center-align'><td>".$sr_no."</td>".$user_assign_from."<td></td><td>".$user_assign_to."</td><td>".$assign_by."</td><td>".date('d-m-Y', strtotime($created_on))."</td></tr>";
         }
         $return_html .= "</table><br>";
         /*}*/
