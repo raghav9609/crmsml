@@ -1,10 +1,13 @@
 <?php
-echo "hi";
-exit();
+
 $slave=1;
 require_once "../../include/config.php";
+echo "hi";
 require_once "../../include/helper.functions.php";
+echo "hi1";
 require_once "../../include/display-name-functions.php";
+echo "hi2";
+exit();
 /* if($user == '173'){
 echo "select * from tbl_updated_query_details where query_id='".$qryyy_id."'";
 } */
