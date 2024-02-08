@@ -403,11 +403,11 @@ $recordcount = mysqli_num_rows($res);
             <tr class="sidemain">
             <td>
                 <?php if($page > 1) {
-                    echo "<a class='page gradient' href='/app/edit.php?page=".($page - 1)."&app_id=" . urlencode(base64_encode($qryyy_id)) . "&cust_id=" . urlencode(base64_encode($cust_id)) . "&loan_type=" . urlencode(base64_encode($loan_type)) . "'>Prev</a>";
+                    echo "<a class='page gradient' href='".$head_url."'/app/edit.php?page=".($page - 1)."&app_id=" . urlencode(base64_encode($qryyy_id)) . "&cust_id=" . urlencode(base64_encode($cust_id)) . "&loan_type=" . urlencode(base64_encode($loan_type)) . "'>Prev</a>";
                 }
                 echo "<a class='page gradient' href='javascript:void;'>".$page."</a>";
                 if($recordcount > $display_count) {
-                    echo "<a class='page gradient' href='/app/edit.php?page=".($page + 1)."&app_id=" . urlencode(base64_encode($qryyy_id)) . "&cust_id=" . urlencode(base64_encode($cust_id)) . "&loan_type=" . urlencode(base64_encode($loan_type)) ."'>Next</a>";
+                    echo "<a class='page gradient' href='".$head_url."'/app/edit.php?page=".($page + 1)."&app_id=" . urlencode(base64_encode($qryyy_id)) . "&cust_id=" . urlencode(base64_encode($cust_id)) . "&loan_type=" . urlencode(base64_encode($loan_type)) ."'>Next</a>";
                 }
                 ?>
             </td>
