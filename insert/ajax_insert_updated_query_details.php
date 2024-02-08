@@ -1,11 +1,11 @@
 <?php
 
 $slave=1;
-require_once "/../include/config.php";
+require_once "../include/config.php";
 echo "hi";
-require_once "/../include/helper.functions.php";
+require_once "../include/helper.functions.php";
 echo "hi1";
-require_once "/../include/display-name-functions.php";
+require_once "../include/display-name-functions.php";
 echo "hi2";
 exit();
 /* if($user == '173'){
