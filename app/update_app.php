@@ -24,7 +24,7 @@ if ($update == 'Add'){
     $follow_up_time = $_REQUEST['follow_up_time'];
     $follow_up_given_by = $_REQUEST['follow_up_given_by'];
     $tenure = $_REQUEST['tenure'];
-    $emi = $_REQUEST['roi'];
+    $roi = $_REQUEST['roi'];
 
     $final_arr = array(
         'crm_query_id'=> $crm_query,
@@ -43,7 +43,7 @@ if ($update == 'Add'){
         'follow_up_time' => trim($follow_up_time),
         'follow_up_given_by' => trim($follow_up_given_by),
         'tennure' => $tenure,
-        'roi '=> $emi
+        'roi '=> $roi
     );
     // print_r($final_arr);
     $insert_qry =  "INSERT INTO crm_query_application set ";
@@ -59,17 +59,11 @@ if ($update == 'Add'){
 
 }else{
 $app_id =$_REQUEST['crm_query_id'];
-$case_id = $_REQUEST['case_id'];
+// $case_id = $_REQUEST['case_id'];
 $cust_id = $_REQUEST['cust_id'];
 $loan_type = $_REQUEST['loan_type'];
 
-// $bank_name = $_REQUEST['bank_name'];
-// $bank_name_get = get_name('master_code_id',$bank_name);
 $application_status_num = $_REQUEST['application_status'];
-
-// $application_status_get_up = get_name('status_id',$application_status_num);
-// print_r($application_status_get_up);
-// exit();
 $applied_amount = $_REQUEST['applied_amount'];
 $login_date = $_REQUEST['login_date'];
 $sanction_amount = $_REQUEST['sanction_amount'];
@@ -82,9 +76,8 @@ $bank_application_no = $_REQUEST['bank_application_no'];
 $follow_up_date = $_REQUEST['follow_up_date'];
 $follow_up_time = $_REQUEST['follow_up_time'];
 $follow_up_given_by = $_REQUEST['follow_up_given_by'];
-$values = explode('/',$_REQUEST['tenure']);
-$tenure = isset($values[0]) ? $values[0] : '';
-$emi = isset($values[1]) ? $values[1] : '';
+$tenure = $_REQUEST['tennure'];
+$roi = $_REQUEST['roi'];
 
 $final_arr = array(
     // 'bank_id' => $bank_name_get['id'], 
@@ -102,7 +95,7 @@ $final_arr = array(
     'follow_up_time' => trim($follow_up_time),
     'follow_up_given_by' => trim($follow_up_given_by),
     'tennure' => $tenure,
-    'emi '=> $emi
+    'roi '=> $roi
 );
 // print_r($final_arr);
 $where_condition = 'crm_query_id = "' . $app_id . '"';
@@ -114,6 +107,12 @@ foreach ($final_arr as $key => $val) {
 }
 $update_query .= " WHERE " . $where_condition;
 $res_qry = mysqli_query($Conn1,$update_query);
+
+$current_date = date('Y-m-d');
+$insert_qry1 =  "INSERT INTO crm_lead_summary_history set lead_id = '".$app_id."' and user_id = '".$_SESSION['userDetails']['user_id']."' and type = 2 and updated_on = '".$current_date."'";
+$res_qry = mysqli_query($Conn1,$insert_qry1);
+
+
 if ($res_qry) {
     $_SESSION['succ_msg'] = "Updated Sucessfully";
 } else {
