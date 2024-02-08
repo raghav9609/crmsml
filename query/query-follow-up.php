@@ -223,8 +223,11 @@ while ($result_query = mysqli_fetch_array($query_follow_up)) {
             $fol_time = (date('H:i a', strtotime($f_time)) == '00:00 am') ? '--' : date('H:i a', strtotime($f_time));
         }
         $follow_up_name = get_name('status_name',$follow_status);
-        echo "<tr class='center-align'><td>" . $follow_up_name . "<br>(" . $given_by . ")" . $input_fname . "</td>
-<td>" . $f_modified . " " . $time_update . "</td><td>" . $desc . "" . $input_desc . "<br>" . $level_type_name . " " . $level_reference_no . "</td><td>" . $user_name . "</td><td>" . $pincode_his . "</td><td>" . $city_name . "</td><td>" . $f_date . "<br>" . $fol_time . "<br>" . $status . "" . $input_type . "</td></tr>";
+        $follow_up_user_name = get_name('user_name',$result_query['user_id']);
+
+        preArray($follow_up_name);
+        echo "<tr class='center-align'><td>" . $follow_up_name . "<br>(" . $given_by . ")</td>
+<td>" . $f_modified . " " . $time_update . "</td><td>" . $desc . "</td><td>" . $user_name . "</td><td>" . $f_date . "<br>" . $fol_time . "<br>" . $status . "</td></tr>";
     }
 }
 ?>
