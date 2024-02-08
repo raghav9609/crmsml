@@ -300,7 +300,7 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
                         if(msg.trim() == "") {
                             $(".tab-1 > .facts > .register > .table_set").html("<h3>No Data Found</h3>");
                         } else {
-                            $(".tab-1 > .facts > .register > .table_set").html(msg);
+                            $(".horizontal_details_tab > .resp-tabs-container > .tab-1 > .facts > .register > .table_set").html(msg);
                         }
                     }
                     
