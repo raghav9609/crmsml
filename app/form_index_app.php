@@ -69,7 +69,8 @@
 </head>
 
 <body>
-    <?php echo "jhiiii"; ?>
+    <?php echo "jhiiii"; 
+    print_r($exe_form);?>
 
     <!-- <main>  -->
         
