@@ -637,8 +637,7 @@ function card_tocard(){
                     }, 2000);                                    
                   }                                                                                 
                 }); 
-              } 
-              else if(this.id=='step3' && $('#form_step3').valid() && $('#form_step1').valid() && $('#form_step2').valid()){
+              } else if(this.id=='step3' && $('#form_step3').valid() && $('#form_step1').valid() && $('#form_step2').valid()){
                 $('#loader').css("display","block");
                 var patIds = [];
                 $(".check_bank:checked").each(function() {
@@ -653,11 +652,13 @@ function card_tocard(){
                   timeout: 60000,
                   success: function(response){
                     console.log("Application Created successfully");
+                    alert("Application Created successfully");
+                    //window.location.href = 'https://astechnos.com/crmsml/query/index.php';
                     $('#loader').css("display","none");
-                    verticalToggle('step4');
-                }                                                                                 
+                    verticalToggle('step1');
+                  }                                                                                 
                 });
-          } else if(this.id=='step4' && $('#form_step4').valid()){
+              } else if(this.id=='step4' && $('#form_step4').valid()){
                 $('#loader').css("display","block");
                 var data_string = $("#form_step4").serializeArray();
                 $.ajax({      
