@@ -67,7 +67,7 @@
         <div class="d-flex flex-wrap gen-box text-center white-bg pe-none">
             <div class="col-3 tab-click active-tab" data-toggle="step1">Personal Details</div>
             <div class="col-3 tab-click" data-toggle="step2"><?php if($loan_type != 71){ echo "Loan";}else{echo "Card";} ?> Details</div>
-            <div class="col-3 tab-click active-tab" data-toggle="step3">Offer Details</div>
+            <!-- <div class="col-3 tab-click active-tab" data-toggle="step3">Offer Details</div> -->
         </div>
     <div class="gen-box white-bg">
     <div class="blue-bg col-12 font-weight-nb pb-2 pt-2 white font-20 brdr-top-gray pe-none" data-toggle="step1" id="switch_step1"><span id="text_step1">STEP 1</span> : Personal Details</div>    
