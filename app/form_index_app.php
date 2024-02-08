@@ -173,12 +173,10 @@
                         <input type="text" id="tenure" name="tenure" value="<?php echo $tennure."/".$emi ;?>" placeholder="Enter Tenure / EMI" class="form-control numonly valid" <?php echo ($tennure != '' && $emi != '') ? 'readonly' : '';  ?> maxlength="20" required>
                         <label for="name" class="label-tag">Tenure</label>
                     </div>
-                    <div class="app_u_assign application_status col-xl-2 col-lg-4 col-md-6 main_acc " >
-                        <span class="fa-icon fa-bank"></span>
-                        <input type="text" id="roi" name="roi" value="<?php echo $roi;?>" placeholder="Enter Roi " class="form-control numonly valid" <?php echo ($roi != '') ? 'readonly' : '';  ?> maxlength="20" required>
-                        <label for="name" class="label-tag required" >ROI</label>
-                        
-                        
+                    <div class="form-group col-xl-2 col-lg-4 col-md-6">
+                        <span class="fa-icon fa-building"></span>
+                        <input type="text" id="roi" name="roi" value="<?php echo $emi ;?>" placeholder="Enter Roi" class="form-control numonly valid" <?php echo ($roi != '' ) ? 'readonly' : '';  ?> maxlength="20" required>
+                        <label for="name" class="label-tag">ROI</label>
                     </div>
                 </div>
                 <input type="hidden" id="crm_query_id" name="crm_query_id" value="<?php echo $qryyy_id; ?>">
