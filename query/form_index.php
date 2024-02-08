@@ -779,7 +779,7 @@
                         echo "<span class='red'>Either city marked as others or pan no already mapped with other customer. Either change pan no or city to continue!</span>";
                     } ?>
                     </form>
-                    <div class="gray col-12 font-weight-nb pb-2 pt-2 blue-bg font-20 brdr-top-gray" data-toggle="step4">STEP 4 : Add Follow Up</div>   
+                    <div class="gray col-12 font-weight-nb pb-2 pt-2 blue-bg font-20 brdr-top-gray hidden" data-toggle="step4">STEP 4 : Add Follow Up</div>   
                     <?php
                     $user_new_status = [];
                     $loan_type_new_status = [];
