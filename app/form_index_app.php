@@ -348,6 +348,7 @@ function datevalidate() {
 </div>
 
 <?php 
+$recordcount= 0;
 $qryd = "select * from crm_lead_summary_history where lead_id = '".$qryyy_id."' and type = 2"; 
 $res = mysqli_query($Conn1,$qryd) or die("Error: ".mysqli_error($Conn1));
 $recordcount = mysqli_num_rows($res);
@@ -360,7 +361,7 @@ $recordcount = mysqli_num_rows($res);
         <div class="blue-bg col-12 font-weight-nb pb-2 pt-2 white font-20 brdr-top-gray pe-none" data-toggle="step1" id="switch_step1">
             <span id="text_step1"></span>History<div id="error-message" class="error-message"></div></div>
             <!-- <div class="row div-width"> -->
-            <table class="gridtable" style=";width:100%;"aid="maintable">
+            <table class="gridtable" style="margin-left:2%;width:80%;"aid="maintable">
                 <tr>
                     <th>Query Id</th>
                     <th>User</th>
@@ -369,14 +370,9 @@ $recordcount = mysqli_num_rows($res);
                 </tr>
                 <tr>
                 <?php 
-                // if($recordcount > 0){
-                //     $record = 0;
-                // while($exe = mysqli_fetch_array($res)){
-                    $recordcount = 0;
-                    while($exe = mysqli_fetch_array($res)){
-                        $recordcount++;
-                        if($recordcount > 10){
-                            continue;
+                if($recordcount > 10){
+                    $recordcount++;
+                while($exe = mysqli_fetch_array($res)){
                     $user_id_get = $exe['user_id'];
                     $user_name_get = get_name('user_id',$user_id_get);
                     $user_name = $user_name_get['name'];
