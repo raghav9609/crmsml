@@ -640,8 +640,10 @@ function card_tocard(){
               } 
               else if(this.id=='step3' && $('#form_step3').valid() && $('#form_step1').valid() && $('#form_step2').valid()){
                 $('#loader').css("display","block");
-                var patIds = $("input[name='check_bank']:checked").val();
-                
+                var patIds = [];
+                $(".check_bank:checked").each(function() {
+                  patIds.push($(this).val());
+                });
 
                 $.ajax({      
                   method:'POST',
