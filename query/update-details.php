@@ -251,6 +251,7 @@ require_once "../include/helper.functions.php";
 		'credit_sanction_amt_4' => $_REQUEST['credit_sanction_amt_4'],
 		'current_out_stan_4' => $_REQUEST['current_out_stan_4'],
 		'credit_card_vintage_4' => $_REQUEST['credit_card_vintage_4'],
+		'loan_in_past' => $_REQUEST['loan_in_past'],
 		'created_on' => $currentDateTime 
 		
 	);
