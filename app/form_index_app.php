@@ -368,7 +368,7 @@ $recordcount = mysqli_num_rows($res);
                     <th>Created On</th>
                     <th>Updated On</th>
                 </tr>
-                <tr>
+                
                 <?php 
                 if($recordcount > 0) {
                     $record = 0;
@@ -384,14 +384,15 @@ $recordcount = mysqli_num_rows($res);
                         $created_on = $exe['created_on'];
                         $updated_on = $exe['updated_on'];
                 ?>
-
+                <tr>
                     <td><?php echo $qryyy_id;?><td>
                     <td><?php echo $user_name;?><td>
                     <td><?php echo $created_on;?><td>
                     <td><?php echo $updated_on;?><td>
+                    </tr>
                 <?php  }
                 }?>
-                </tr>
+                
             </table>
 
             <!-- </div> -->
