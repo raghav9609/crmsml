@@ -193,9 +193,10 @@ if($res_num > 0) {
    <?php $return_html = '<table width="100%" class="gridtable"><tr class="font-weight-bold"><th>Sr. No.</th><th>Application Id</th><th>Bank Name</th><th>Application Status</th><th>Action</th></tr>'; ?>
 
     <?php while($exe_app_history = mysqli_fetch_array($res)){
-        print_r($exe_app_history);
+        // print_r($exe_app_history);
         // echo $return_html;
     ++$sr_no;
+    $get_bank_name = get_name('master_code_id',$exe_app_history['bank_id'])
     // $f_type = $exe_app_history['follow_up_type_on'];
     // $follow_up_date_on = ($exe_app_history['follow_up_date_on'] == '0000-00-00' || $exe_app_history['follow_up_date_on'] == "" || $exe_app_history['follow_up_date_on'] == "1970-01-01") ? '--' : date("d-m-Y", strtotime($exe_app_history['follow_up_date_on']));
     // $app_id = $exe_app_history['app_id'];
@@ -439,7 +440,7 @@ if($res_num > 0) {
 
     ?>
     <?php 
-    $return_html .= '<tr class="center-align"><td>'.$sr_no.'</td><td><span class="fs-12">(<a href="../app/edit.php?case_id='.urlencode(base64_encode($case_id)).'">'.$case_id.'</a>)</span></td><td> </td><td> </td><td style="width: 7%"><br><span class="fs-12">(<a href="../app/edit.php?case_id='.urlencode(base64_encode($case_id)).'">View</a>)</span></td></tr>'; 
+    $return_html .= '<tr class="center-align"><td>'.$sr_no.'</td><td><span class="fs-12">(<a href="../app/edit.php?case_id='.urlencode(base64_encode($case_id)).'">'.$case_id.'</a>)</span></td><td>'.$get_bank_name.'</td><td> </td><td style="width: 7%"><br><span class="fs-12">(<a href="../app/edit.php?case_id='.urlencode(base64_encode($case_id)).'">View</a>)</span></td></tr>'; 
     ?>
     <?php } ?>
     <?php $return_html .= '</table>';
