@@ -6,7 +6,7 @@ $query_id = $_REQUEST['query_id'];
 $f_stats = $_REQUEST['f_stats'];
 $folow_given = $_REQUEST['folow_given'];
 $fol_date = $_REQUEST['fol_date'];
-$fol_time = $_REQUEST['fol_time'];
+$fol_time = date("H:i:s", strtotime($_REQUEST['fol_time']));
 $remark = $_REQUEST['remark'];
 
 if($query_id > 0 && $f_stats > 0){

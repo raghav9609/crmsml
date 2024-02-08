@@ -220,8 +220,6 @@ while ($result_query = mysqli_fetch_array($query_follow_up)) {
         }
         $follow_up_name = get_name('status_name',$follow_status);
         $follow_up_user_name = get_name('user_id',$result_query['user_id']);
-        print_r($follow_up_name);
-        print_r($follow_up_user_name);
         ?>
         
         <tr class='center-align'><td><?php echo $follow_up_name['value']; ?><br>(<?php echo $given_by; ?>)</td>
