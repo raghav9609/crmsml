@@ -371,6 +371,7 @@ $recordcount = mysqli_num_rows($res);
                 if($recordcount > 0) {
                     $record = 0;
                     while($exe = mysqli_fetch_array($res)) {
+                        print_r($exe);
                         $record++;
                         if($record > 10) {
                             continue;
