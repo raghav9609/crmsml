@@ -310,7 +310,7 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
             }
             loaded_raw_details = true;
         }else if(e.id == "cases_tab") {
-            var case_id = "<?php echo $case_id; ?>";
+            var case_id = "<?php echo $qryyy_id; ?>";
             if(loaded_cases_tab) return;
             if(case_id) {
                 $.ajax({
@@ -330,7 +330,7 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
                     }
                 });
             } else {
-                $(".tab-3 > .facts > .register > .table_set").html("<h3>No Data Found1</h3>");
+                $(".tab-3 > .facts > .register > .table_set").html("<h3>No Data Found</h3>");
             }
             loaded_cases_tab = true;
         } else if(e.id == "app_tab") {
