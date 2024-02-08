@@ -298,11 +298,11 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
                     },
                     success: function(msg) {
                         //console.log(msg);
-                        // if(msg.trim() == "") {
-                        //     $(".tab-1 > .facts > .register > .table_set").html("<h3>No Data Found</h3>");
-                        // } else {
-                        $(".tab-2 > .facts > .register > .table_set").html(msg);
-                        //}
+                        if(msg.trim() == "") {
+                            $(".tab-1 > .facts > .register > .table_set").html("<h3>No Data Found</h3>");
+                        } else {
+                            $(".tab-2 > .facts > .register > .table_set").html(msg);
+                        }
                     }
                     
                 });
