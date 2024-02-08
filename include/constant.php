@@ -13,6 +13,11 @@ $offset = 0;
 $start_limit = 0;
 $max_offset = 11;
 $display_count = 10;
+
+if ($_REQUEST['page']!= "") {
+    $page = $_REQUEST['page'];
+    $offset = ($page - 1) * $display_count;
+}
 $page_no_onboarding = 1;
 $onboarding_offset = 0;
 $onboarding_max_offset = 110;
