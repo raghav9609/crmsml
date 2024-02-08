@@ -1,38 +1,17 @@
 <?php
-$no_head = 1;
-if(isset($_POST)) {
-    require_once(dirname(__FILE__) . '/../config/session.php');
-    require_once(dirname(__FILE__) . '/../helpers/common-helper.php');
-    require_once(dirname(__FILE__) . '/../config/config.php');
-    require_once(dirname(__FILE__) . '/../model/queryHelper.php');
-    $db_handle = new DBController();
-    $get_qry = new queryModel();
-    $qry_id = base64_decode($_POST['query_fup_id']);
-    $fol_up_date_time = $_POST['fol_date'].' '.date('H:i:s',strtotime($_POST['fol_time']));
-    $qry_upd_arr = array(
-        'query_status'              => $_POST['f_stats'],
-        'follow_up_date_time'      => $fol_up_date_time,
-        'remarks'                  => $_POST['remark'],
-    );
+require_once(dirname(__FILE__) . '/../config/session.php');
+require_once(dirname(__FILE__) . '/../helpers/common-helper.php');
+require_once(dirname(__FILE__) . '/../config/config.php');
+$query_id = $_REQUEST['query_id'];
+$f_stats = $_REQUEST['f_stats'];
+$folow_given = $_REQUEST['folow_given'];
+$fol_date = $_REQUEST['fol_date'];
+$fol_time = $_REQUEST['fol_time'];
+$remark = $_REQUEST['remark'];
 
-    $status_history_ins_arr = array(
-        'lead_id'      => $qry_id,
-        'level_id'     => 1,
-        'follow_up_type'  => $_POST['f_stats'], 
-        'fup_date_time'   => $fol_up_date_time, 
-        'remarks'   => $_POST['remark'],
-        'updated_by'   => $_SESSION['userDetails']['user_id'],
-        'created_on'   => currentDateTime24()
-    );
+if($query_id > 0 && $f_stats > 0){
+    $update_follow_up = mysqli_query($Conn1,"update crm_query set query_status=".$f_stats.",follow_date='".$fol_date."',follow_time='".$fol_time."',follow_given_by='".$folow_given."',query_status_desc='".$remark."' where id =".$query_id);
 
-    $update_cust_query = $get_qry->updateQueryData('query_details',$qry_upd_arr,array("query_id = '".$qry_id."'"));
-    $update_cust_res = $db_handle->updateRows($update_cust_query);
-
-    if( $update_cust_res){
-        $update_status_his_qry = $get_qry->insertQueryData('status_history',$status_history_ins_arr);
-        echo $update_status_his_res = $db_handle->insertRows($update_status_his_qry);
-    }
-            
-}else{
-    return false;
+    $insert_follow_up = mysqli_query($Conn1,"INSERT INTO crm_follow_up_history set status_id=".$f_stats.",follow_up_date='".$fol_date."',follow_up_time='".$fol_time."',follow_up_given_by='".$folow_given."',status_type=1,user_id='".$user_id."',query_status_desc='".$remark."',lead_id =".$query_id);
 }
+?>
