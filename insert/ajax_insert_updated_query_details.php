@@ -1,6 +1,6 @@
 <?php
 echo "hih";
-require_once "../include/config.php";
+require_once "../config/config.php";
 echo "hi";
 require_once "../include/helper.functions.php";
 echo "hi1";
