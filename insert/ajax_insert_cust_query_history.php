@@ -198,6 +198,8 @@ if($res_num > 0) {
     ++$sr_no;
     $get_bank_name_get = get_name('master_code_id',$exe_app_history['bank_id']);
     $get_bank_name = $get_bank_name_get['value'];
+    $get_app_status_get = get_name('status_name',$exe_app_history['application_status']);
+    $get_app_status = $get_app_status_get['value'];
     // $f_type = $exe_app_history['follow_up_type_on'];
     // $follow_up_date_on = ($exe_app_history['follow_up_date_on'] == '0000-00-00' || $exe_app_history['follow_up_date_on'] == "" || $exe_app_history['follow_up_date_on'] == "1970-01-01") ? '--' : date("d-m-Y", strtotime($exe_app_history['follow_up_date_on']));
     // $app_id = $exe_app_history['app_id'];
@@ -441,7 +443,7 @@ if($res_num > 0) {
 
     ?>
     <?php 
-    $return_html .= '<tr class="center-align"><td>'.$sr_no.'</td><td><span class="fs-12">(<a href="../app/edit.php?case_id='.urlencode(base64_encode($case_id)).'">'.$case_id.'</a>)</span></td><td>'.$get_bank_name.'</td><td> </td><td style="width: 7%"><br><span class="fs-12">(<a href="../app/edit.php?case_id='.urlencode(base64_encode($case_id)).'">View</a>)</span></td></tr>'; 
+    $return_html .= '<tr class="center-align"><td>'.$sr_no.'</td><td><span class="fs-12">(<a href="../app/edit.php?case_id='.urlencode(base64_encode($case_id)).'">'.$case_id.'</a>)</span></td><td>'.$get_bank_name.'</td><td>'.$get_app_status.'</td><td style="width: 7%"><br><span class="fs-12">(<a href="../app/edit.php?case_id='.urlencode(base64_encode($case_id)).'">View</a>)</span></td></tr>'; 
     ?>
     <?php } ?>
     <?php $return_html .= '</table>';
