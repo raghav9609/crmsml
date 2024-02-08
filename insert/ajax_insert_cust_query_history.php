@@ -439,7 +439,7 @@ if($res_num > 0) {
 
     ?>
     <?php 
-    $return_html .= '<tr class="center-align"><td>'.$sr_no.'</td><td><span class="fs-12">(<a href="../app/edit.php?case_id='.urlencode(base64_encode($case_id)).'">'.$case_id.'</a>)</span></td><td style="width: 7%"><br><span class="fs-12">(<a href="../app/edit.php?case_id='.urlencode(base64_encode($case_id)).'">View</a>)</span></td></tr>'; 
+    $return_html .= '<tr class="center-align"><td>'.$sr_no.'</td><td><span class="fs-12">(<a href="../app/edit.php?case_id='.urlencode(base64_encode($case_id)).'">'.$case_id.'</a>)</span></td><td> </td><td style="width: 7%"><br><span class="fs-12">(<a href="../app/edit.php?case_id='.urlencode(base64_encode($case_id)).'">View</a>)</span></td></tr>'; 
     ?>
     <?php } ?>
     <?php $return_html .= '</table>';
