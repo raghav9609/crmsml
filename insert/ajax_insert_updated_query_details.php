@@ -19,34 +19,34 @@ if($recordcount > 0) {
     $res_data = mysqli_fetch_array($res);
    
     $company_nm = "";
-    $cust_id = $res_data['cust_id'];
-    if($res_data['company'] != '0') {
-        $company_nm = get_display_name('comp_name',$res_data['company']); 
-    }
-   if ($res_data['company'] == '38665') {
-        $company_nm = $company_nm." - ".get_display_name('sub_employer', $res_data['sub_employer_type']);
-    }
-    $net_incm = ($res_data['net_incm'] > 0) ? custom_money_format($res_data['net_incm']) : "--";
+    // $cust_id = $res_data['cust_id'];
+    // if($res_data['company'] != '0') {
+    //     $company_nm = get_display_name('comp_name',$res_data['company']); 
+//     // }
+//    if ($res_data['company'] == '38665') {
+//         $company_nm = $company_nm." - ".get_display_name('sub_employer', $res_data['sub_employer_type']);
+//     }
+    // $net_incm = ($res_data['net_incm'] > 0) ? custom_money_format($res_data['net_incm']) : "--";
 
-    $pan_card_get = trim($res_data['pan_card']);
-    if(trim($res_data['pan_card']) == '' || strlen(trim($res_data['pan_card'])) != '10'){
-        $get_pan_card_qry = mysqli_query($Conn1,"select pan_card from tbl_customer_detail_history where cust_id = ".$cust_id." and pan_card != '' order by history_id DESC limit 1");
-    $result_pan_card_qry = mysqli_fetch_assoc($get_pan_card_qry);
-    $pan_card_get = $result_pan_card_qry['pan_card'];
-    }
-    $pan_card = ($pan_card_get != "") ? $pan_card_get : "--";
-    $comp_name_other = (trim($res_data['comp_name_other']) != "") ? $res_data['comp_name_other'] : "--";
-    $salary_pay_id = (!empty($res_data['sal_pay_id'])) ? $res_data['sal_pay_id'] : "";
+    // $pan_card_get = trim($res_data['pan_card']);
+    // if(trim($res_data['pan_card']) == '' || strlen(trim($res_data['pan_card'])) != '10'){
+    //     $get_pan_card_qry = mysqli_query($Conn1,"select pan_card from tbl_customer_detail_history where cust_id = ".$cust_id." and pan_card != '' order by history_id DESC limit 1");
+    // $result_pan_card_qry = mysqli_fetch_assoc($get_pan_card_qry);
+    // $pan_card_get = $result_pan_card_qry['pan_card'];
+    // }
+    // $pan_card = ($pan_card_get != "") ? $pan_card_get : "--";
+    // $comp_name_other = (trim($res_data['comp_name_other']) != "") ? $res_data['comp_name_other'] : "--";
+    // $salary_pay_id = (!empty($res_data['sal_pay_id'])) ? $res_data['sal_pay_id'] : "";
 
-    $salry_py_mod = "--";
-    if(!empty($salary_pay_id)) {
-        $salry_py_mod = get_display_name('salary_method',$salary_pay_id);
-    }
+    // $salry_py_mod = "--";
+    // if(!empty($salary_pay_id)) {
+    //     $salry_py_mod = get_display_name('salary_method',$salary_pay_id);
+    // }
 
-    $city_nm = "--";
-    if(!empty($res_data['city'])) {
-        $city_nm = get_display_name('city_name',$res_data['city']); 
-    }
+    // $city_nm = "--";
+    // if(!empty($res_data['city'])) {
+    //     $city_nm = get_display_name('city_name',$res_data['city']); 
+    // }
 
     // $lead_score     =  round($res_data['lead_score'], 2);
     // $lead_rank      =  $res_data['lead_rank'];
