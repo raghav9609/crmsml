@@ -69,9 +69,7 @@
 </head>
 
 <body>
-    <?php echo "jhiiii"; 
-    print_r($exe_form);?>
-
+    
     <!-- <main>  -->
         
     <div class="pl-md-3 pl-2 pr-md-3 pr-2 col-12">
