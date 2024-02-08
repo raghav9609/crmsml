@@ -20,5 +20,5 @@ foreach($explpat As $patners){
     } 
 }
 echo '1';
-print_r($_REQUEST);
+//print_r($_REQUEST);
 ?>
