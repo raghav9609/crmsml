@@ -145,15 +145,15 @@ b.caret{
     <div class="row div-width">       
         <div class="form-group col-xl-3 col-lg-4 col-md-6">
         <span class="fa-icon fa-list-alt"></span>
-        <?php  get_dropdown('query_status', 'f_stats', '', ''); ?>
+        <?php  get_dropdown('query_status', 'f_stats', '', 'onchange = "cng_status(this);" class="valid" required'); ?>
         <label for="f_stats" class="label-tag">Select Status</label>
         </div>
         <!-- Checkbox New status Div ends -->
-        <div class="form-group col-xl-3 col-lg-4 col-md-6 hidden foll_type">
+        <!-- <div class="form-group col-xl-3 col-lg-4 col-md-6 hidden foll_type">
         <span class="fa-icon fa-tty"></span>
-        <?php echo get_dropdown('follow_up_type', 'foll_type', '', 'class="hidden valid"'); ?>
+        <?php //echo get_dropdown('follow_up_type', 'foll_type', '', 'class="hidden valid"'); ?>
         <label for="foll_type" class="label-tag">Select Follow Up Type</label>
-        </div>        
+        </div>         -->
 
 
         <div class="form-group col-xl-3 col-lg-4 col-md-6">
