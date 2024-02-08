@@ -39,9 +39,8 @@ $(document).ready(function () {
                   $('#loader').css("display","none");
                   verticalToggle('step4');
                   }, 3000);  
-              }                                                                                 
+              }
               });
-            alert("Hello");
         }
         
       } );
