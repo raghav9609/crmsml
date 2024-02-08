@@ -7,7 +7,7 @@ $(document).ready(function () {
             $("#fol_date,#fol_time,.fol_date,.fol_time").addClass("hidden").removeAttr('required').val('');
         }        
     });
-    $("#ad_query").onSubmit(function () {
+    $("#ad_query").submit(function () {
         alert("Hello");
     });
 });
