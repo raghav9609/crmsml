@@ -220,7 +220,8 @@ while ($result_query = mysqli_fetch_array($query_follow_up)) {
         }
         $follow_up_name = get_name('status_name',$follow_status);
         $follow_up_user_name = get_name('user_name',$result_query['user_id']);?>
-
+        print_r($follow_up_name);
+        print_r($follow_up_user_name);
         <tr class='center-align'><td><?php echo $follow_up_name[0]['value']; ?><br>(<?php echo $given_by; ?>)</td>
 <td><?php echo date('d-m-Y', strtotime($result_query['created_on'])); ?></td><td><?php echo $desc; ?> </td><td><?php echo $follow_up_user_name[0]['name']; ?> </td><td><?php echo $f_date; ?><br><?php echo $fol_time; ?> <br><?php echo $status;?></td></tr>
     <?php } } ?>
