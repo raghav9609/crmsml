@@ -9,10 +9,6 @@ echo "select * from tbl_updated_query_details where query_id='".$qryyy_id."'";
 $qryyy_id = $_REQUEST['query_id'];
 $return_html = "";
 
-// $qry_get_data = mysqli_query($Conn1, "SELECT tbl_mint_query.cust_id AS cust_id,tbl_mint_query.lead_score AS lead_score, tbl_mint_query.lead_rank AS lead_rank, tbl_mint_query.lead_costing AS lead_costing, tbl_updated_query_details.company AS company, tbl_updated_query_details.net_incm AS net_incm, tbl_updated_query_details.pan_card AS pan_card, tbl_updated_query_details.comp_name_other AS comp_name_other, tbl_updated_query_details.sal_pay_id AS sal_pay_id, tbl_updated_query_details.city AS city, tbl_updated_query_details.pincode AS pincode, tbl_updated_query_details.sub_employer as sub_employer_type,
-// tbl_bussiness_anl_trunover.bus_anl_name AS bus_anl_turn, tbl_bussiness_extng_year.bus_ext_year_name AS bus_ext_yr, 
-// tbl_updated_query_details.business_existing_num AS bus_exst_num, tbl_updated_query_details.annual_turnover_num AS ann_turn_num FROM tbl_mint_query INNER JOIN tbl_updated_query_details ON tbl_updated_query_details.query_id = tbl_mint_query.query_id LEFT JOIN tbl_bussiness_anl_trunover ON tbl_bussiness_anl_trunover.bus_anl_id = 
-// tbl_updated_query_details.bus_anl_trnover LEFT JOIN tbl_bussiness_extng_year ON tbl_bussiness_extng_year.bus_ext_year_id = tbl_updated_query_details.bus_ext_year WHERE tbl_mint_query.query_id = '".$qryyy_id."'");
 $qry_get_data = "select * from crm_raw_data as raw_data left join crm_query as qry on raw_data.id = qry.crm_raw_data_id where qry.id = '".$qryyy_id."'";
 $res = mysqli_query($Conn1, $qry_get_data);
 $recordcount = mysqli_num_rows($res);
