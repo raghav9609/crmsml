@@ -185,6 +185,8 @@ b.caret{
     </form>
 </div>
 <br><br>
+
+exit;
 <table class="gridtable " style="width:100%;" border="1">
     <?php
 $followup_history_query = "SELECT fol.follow_id as follow_id, fol.follow_given_by as follow_given_by, fol.follow_date as follow_date,fol.follow_time as follow_time,fol.follow_type as follow_type, fol.description as description,fol.date as date,fol.time as time,fol.mlc_user_id as mlc_user_id,fol.follow_status as follow_status, lms_city.city_name as city_name, fol.ogl_pincode as pincode,user.user_name as user_name, fol.level_type_id as level_type_id, fol.level_reference_no as level_reference_no FROM tbl_mint_case_followup as fol  LEFT JOIN tbl_user_assign as user on fol.mlc_user_id = user.user_id LEFT JOIN lms_city on lms_city.city_id = fol.ogl_city_id WHERE fol.query_id = $id AND fol.query_flag = 1 ";
