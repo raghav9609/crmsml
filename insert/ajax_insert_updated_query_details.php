@@ -9,9 +9,9 @@ echo "select * from tbl_updated_query_details where query_id='".$qryyy_id."'";
 $qryyy_id = $_REQUEST['query_id'];
 $return_html = "";
 
-$qry_get_data = "select * from crm_raw_data as raw_data left join crm_query as qry on raw_data.id = qry.crm_raw_data_id where qry.id = ".$qryyy_id;
+echo $qry_get_data = "select * from crm_raw_data as raw_data left join crm_query as qry on raw_data.id = qry.crm_raw_data_id where qry.id = ".$qryyy_id;
 $res = mysqli_query($Conn1, $qry_get_data);
-$recordcount = mysqli_num_rows($res);
+echo $recordcount = mysqli_num_rows($res);
 if($recordcount > 0) {
     $res_data = mysqli_fetch_array($res);
   // print_r($res_data);
