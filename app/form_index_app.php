@@ -170,7 +170,7 @@
                     </div> 
                     <div class="form-group col-xl-2 col-lg-4 col-md-6">
                         <span class="fa-icon fa-building"></span>
-                        <input type="text" id="tenure" name="tenure" value="<?php echo $tennure."/".$emi ;?>" placeholder="Enter Tenure / EMI" class="form-control numonly valid" <?php echo ($tennure != '' && $emi != '') ? 'readonly' : '';  ?> maxlength="20" required>
+                        <input type="text" id="tenure" name="tenure" value="<?php echo $tennure;?>" placeholder="Enter Tenure / EMI" class="form-control numonly valid" <?php echo ($tennure != '' ) ? 'readonly' : '';  ?> maxlength="20" required>
                         <label for="name" class="label-tag">Tenure</label>
                     </div>
                     <div class="form-group col-xl-2 col-lg-4 col-md-6">
