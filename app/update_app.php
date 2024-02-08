@@ -122,5 +122,6 @@ $res_qry = mysqli_query($Conn1,$insert_qry1);
     echo '<script>window.location.href = "'.$head_url.'/app/edit.php"</script>';
     exit;
 }
-
+echo '<script>window.location.href = "'.$head_url.'/app/edit.php"</script>';
+    exit;
 ?>
