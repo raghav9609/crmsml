@@ -50,10 +50,14 @@ if($type == "case") {
         $return_html .= '<table  class="gridtable" width="100%"><tr><th>Sr. No.</th><th>User Assign From</th><th>User Assign To</th><th>Assign By</th><th>Date</th></tr>';
         while($case_history_info = mysqli_fetch_array($case_history_result)) {
             ++$sr_no;
-            $user_assign_from =  $case_history_info['user_assign_from'];
-            $user_assign_to = $case_history_info['user_assign_to'];
-            $assign_by = $case_history_info['assign_by'];
+            $user_assign_from_id =  $case_history_info['user_assign_from'];
+            $user_assign_to_id = $case_history_info['user_assign_to'];
+            $assign_by_id  = $case_history_info['assign_by'];
             $created_on = $case_history_info['created_on'];
+
+            $user_assign_from = get_name('user_id',$user_assign_from_id);
+            $user_assign_to = get_name('user_id',$user_assign_to_id);
+            $assign_by = get_name('user_id',$assign_by_id);
 
             $return_html .= "<tr class='center-align'><td>".$sr_no."</td>".$user_assign_from."<td></td><td>".$user_assign_to."</td><td>".$assign_by."</td><td>".date('d-m-Y', strtotime($created_on))."</td></tr>";
         }
