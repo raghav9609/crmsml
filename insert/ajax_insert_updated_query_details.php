@@ -22,14 +22,14 @@ if($recordcount > 0) {
     } else {
         $company_nm = $res_data['company_name'];
     }
-    echo "hello";
+   
     $net_incm = ($res_data['net_income'] > 0) ? $res_data['net_income'] : "--";
-    echo "hello 1";
+ 
     $pan_card_get = trim($res_data['pan_no']);
     
     $pan_card = ($pan_card_get != "") ? $pan_card_get : "--";
     $salary_pay_id = (!empty($res_data['mode_of_salary'])) ? $res_data['mode_of_salary'] : "";
-    echo "hello 2";
+    
     $salry_py_mod = "--";
     if(!empty($salary_pay_id)) {
         $salry_py_mod = get_display_name('salary_method',$salary_pay_id);
@@ -39,12 +39,11 @@ if($recordcount > 0) {
     if(!empty($res_data['city_id'])) {
         $city_nm = get_display_name('city_name',$res_data['city_id']); 
     }
-    echo "hello 3";
-    $return_html .= "<table class='gridtable table_set' border='1'><tr class='font-weight-bold'><th>Net Monthly Income</th><th>Company</th><th>Salary Payment Mode</th><th>PAN Card</th><th>City</th><th>Pin Code</th><th>Lead Rank</th><th>Lead Score</th><th>Lead Costing</th><th>Business Existing</th><th>Turnover</th></tr>";
+    $return_html .= "<table class='gridtable table_set' border='1'><tr class='font-weight-bold'><th>Net Monthly Income</th><th>Company</th><th>Salary Payment Mode</th><th>PAN Card</th><th>City</th><th>Pin Code</th><th>Loan Amount</th><th>Email Id</th><th>Name</th><th>DOB</th></tr>";
 
     $pincode = ($res_data['pincode'] > 0) ? $res_data['pincode'] : "--";
 
-    $return_html .= "<tr class='center-align'><td>".$net_incm."</td><td>".$company_nm."".$comp_name_other."</td><td>".$salry_py_mod."</td><td>".$pan_card."</td><td>".$city_nm."</td><td>".$pincode."</td><td>".$lead_rank."</td><td>".$lead_score."</td><td>".$lead_costing."</td><td>".$bus_ext_yr." (".$bus_exst_num.")</td><td>".$bus_anl_turn." (".$ann_turn_num.")</td></tr>";
+    $return_html .= "<tr class='center-align'><td>".$net_incm."</td><td>".$company_nm."".$comp_name_other."</td><td>".$salry_py_mod."</td><td>".$pan_card."</td><td>".$city_nm."</td><td>".$pincode."</td><td>".$res_data['loan_amount']."</td><td>".$res_data['email_id']."</td><td>".$res_data['name']."</td><td>".$res_data['dob']</td></tr>";
     $return_html .= "</table>";
     echo $return_html; 
 
