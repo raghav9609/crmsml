@@ -551,7 +551,7 @@ if ($(this).not(":checked")) {
 </script>
 <?php }
 } include("../../include/footer_close.php");  ?>
-<script>window.onload = opn_subsource();</script>
+<!-- <script>window.onload = opn_subsource();</script> -->
 <script>
 $("#app_no, #case_no, #phone, #from_loan_amount, #to_loan_amount, #customer_id_search").bind('keypress', function(evt) {
     if (evt.which > 31 && (evt.which < 48 || evt.which > 57)) {
