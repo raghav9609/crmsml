@@ -370,27 +370,26 @@ $recordcount = mysqli_num_rows($res);
                 </tr>
                 <tr>
                 <?php 
-                if($recordcount > 0){
+                if($recordcount > 0) {
                     $record = 0;
-                while($exe = mysqli_fetch_array($res)){
-                    $record++;
-                    if($record > 10){
-                        continue;
-                }
-                    $user_id_get = $exe['user_id'];
-                    $user_name_get = get_name('user_id',$user_id_get);
-                    $user_name = $user_name_get['name'];
+                    while($exe = mysqli_fetch_array($res)) {
+                        $record++;
+                        if($record > 10) {
+                            continue;
+                        }
+                        $user_id_get = $exe['user_id'];
+                        $user_name_get = get_name('user_id', $user_id_get);
+                        $user_name = $user_name_get['name'];
 
-                    $created_on = $exe['created_on'];
-                    $updated_on = $exe['updated_on'];
-                    
+                        $created_on = $exe['created_on'];
+                        $updated_on = $exe['updated_on'];
                 ?>
 
                     <td><?php echo $qryyy_id;?><td>
                     <td><?php echo $user_name;?><td>
                     <td><?php echo $created_on;?><td>
                     <td><?php echo $updated_on;?><td>
-                    <?php  }
+                <?php  }
                 }?>
                 </tr>
             </table>
