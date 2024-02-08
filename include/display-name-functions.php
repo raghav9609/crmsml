@@ -140,7 +140,7 @@ function get_display_name($type,$selected_val){
             $qry = "SELECT description FROM status_master where status_id = ".$selected_val." LIMIT 1";
         break;
     	case "salary_method":
-            $qry = "Select paid_type from tbl_salary_py_method where paid_id = '".$selected_val."'";
+            $qry = "Select value from crm_masters where crm_masters_code_id = 4 and id = '".$selected_val."'";
         break;
     	case "salutation":
             $qry = "select salutn_name from tbl_saluation where salutn_id = '".$selected_val."'";
