@@ -28,7 +28,6 @@
     <ul>
     <?php 
     // echo $exe_form['loan_type_1'];
-    echo "hii".$loan_amt;
 
     if ($employer_type == 0) {
         $comp_name = $result_cust_data['comp_name_other'];
@@ -54,11 +53,11 @@
     $occuptext = (($occup != '' && $occup != 0) ? "<li>Customer is  <b class='fw_bold'>".$occcc['value']." </b>" : "");
     $loanamounttext = ($loan_amt != 0 && $loan_amt != '') ? " of <b class='fw_bold'> $amt </b>" : "";
     echo  $nametext." looking for a <b class='fw_bold'>".$loantype_name."</b>".$loanamounttext. $citytext.$occuptext.$dobtext.$accounttext; 
-    $qry = "select qry.loan_amount, ext.No_of_loans,ext.loan_type_1,ext.bank_name_1,ext.emi_1,ext.no_of_emi_1,ext.outstanding_amount_1,ext.loan_type_2,ext.bank_name_2,ext.emi_2,ext.no_of_emi_2,ext.outstanding_amount_2,ext.loan_type_3,ext.bank_name_3,ext.emi_3,ext.no_of_emi_3,ext.outstanding_amount_3,ext.loan_type_4,ext.bank_name_4,ext.emi_4,ext.no_of_emi_4,ext.outstanding_amount_4,ext.loan_type_5,ext.bank_name_5,ext.emi_5,ext.no_of_emi_5,ext.outstanding_amount_5,ext.no_of_cards,ext.credit_card_bank_name_exi_1,ext.credit_sanction_amt_1,ext.current_out_stan_1,ext.credit_card_vintage_1,ext.credit_card_bank_name_exi_2,ext.credit_sanction_amt_2,ext.current_out_stan_2,ext.credit_card_vintage_2,ext.credit_card_bank_name_exi_3,ext.credit_sanction_amt_3,ext.current_out_stan_3,ext.credit_card_vintage_3,ext.credit_card_bank_name_exi_4,ext.credit_sanction_amt_4,ext.current_out_stan_4,ext.credit_card_vintage_4,ext.credit_card_bank_name_exi_5,ext.credit_sanction_amt_5,ext.current_out_stan_5,ext.credit_card_vintage_5,ext.loan_in_past from  crm_customer_existing_loan_details as ext left join crm_query as qry on qry.id = ext.query_id where ext.query_id = '".$ol_query_id."'";
+    $qry = "select ext.No_of_loans,ext.loan_type_1,ext.bank_name_1,ext.emi_1,ext.no_of_emi_1,ext.outstanding_amount_1,ext.loan_type_2,ext.bank_name_2,ext.emi_2,ext.no_of_emi_2,ext.outstanding_amount_2,ext.loan_type_3,ext.bank_name_3,ext.emi_3,ext.no_of_emi_3,ext.outstanding_amount_3,ext.loan_type_4,ext.bank_name_4,ext.emi_4,ext.no_of_emi_4,ext.outstanding_amount_4,ext.loan_type_5,ext.bank_name_5,ext.emi_5,ext.no_of_emi_5,ext.outstanding_amount_5,ext.no_of_cards,ext.credit_card_bank_name_exi_1,ext.credit_sanction_amt_1,ext.current_out_stan_1,ext.credit_card_vintage_1,ext.credit_card_bank_name_exi_2,ext.credit_sanction_amt_2,ext.current_out_stan_2,ext.credit_card_vintage_2,ext.credit_card_bank_name_exi_3,ext.credit_sanction_amt_3,ext.current_out_stan_3,ext.credit_card_vintage_3,ext.credit_card_bank_name_exi_4,ext.credit_sanction_amt_4,ext.current_out_stan_4,ext.credit_card_vintage_4,ext.credit_card_bank_name_exi_5,ext.credit_sanction_amt_5,ext.current_out_stan_5,ext.credit_card_vintage_5,ext.loan_in_past from  crm_customer_existing_loan_details as ext where ext.query_id = '".$ol_query_id."'";
 
         $res = mysqli_query($Conn1, $qry) or die("Error: " . mysqli_error($Conn1));
         $exe_form = mysqli_fetch_array($res);
-        print_r($exe_form);
+        // print_r($exe_form);
         $exis_loans = $exe_form['No_of_loans']; 
         $loan_type_on1 = $exe_form['loan_type_1'];
         $bank_name_selected1 = $exe_form['bank_name_1'];
@@ -111,7 +110,6 @@
         $current_out_stan_5 = $exe_form['credit_card_vintage_5'];
         $credit_card_vintage_5 = $exe_form['credit_card_vintage_5'];
         $loan_in_past = $exe_form['loan_in_past'];
-        $loan_amt = $exe_form['loan_amount'];
     ?>
 </ul>
     </div>
