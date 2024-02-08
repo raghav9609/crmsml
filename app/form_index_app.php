@@ -372,10 +372,10 @@ $recordcount = mysqli_num_rows($res);
                 // if($recordcount > 0){
                 //     $record = 0;
                 // while($exe = mysqli_fetch_array($res)){
-                    $record = 0;
-                    while($result_app_history_query = mysqli_fetch_array($app_history_result)){
-                            $record++;
-                    if($record > 10){
+                    $recordcount = 0;
+                    while($result_app_history_query = mysqli_fetch_array($res)){
+                        $recordcount++;
+                        if($recordcount > 10){
                             continue;
                     $user_id_get = $exe['user_id'];
                     $user_name_get = get_name('user_id',$user_id_get);
