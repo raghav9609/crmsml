@@ -43,7 +43,7 @@ if($recordcount > 0) {
 
     $pincode = ($res_data['pincode'] > 0) ? $res_data['pincode'] : "--";
 
-    $return_html .= "<tr class='center-align'><td>".$net_incm."</td><td>".$company_nm."".$comp_name_other."</td><td>".$salry_py_mod."</td><td>".$pan_card."</td><td>".$city_nm."</td><td>".$pincode."</td><td>".$res_data['loan_amount']."</td><td>".$res_data['email_id']."</td><td>".$res_data['name']."</td><td>".$res_data['dob']</td></tr>";
+    $return_html .= "<tr class='center-align'><td>".$net_incm."</td><td>".$company_nm."".$comp_name_other."</td><td>".$salry_py_mod."</td><td>".$pan_card."</td><td>".$city_nm."</td><td>".$pincode."</td><td>".$res_data['loan_amount']."</td><td>".$res_data['email_id']."</td><td>".$res_data['name']."</td><td>".$res_data['dob']."</td></tr>";
     $return_html .= "</table>";
     echo $return_html; 
 
