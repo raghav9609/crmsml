@@ -172,10 +172,10 @@
                         
                         <select id="follow_up_given_by" name="follow_up_given_by" <?php echo ($follow_up_given_by != '') ? 'readonly' : ''; ?> >
                             <option value="0">Select</option>
-                            <option value="1">SML User</option>
-                            <option value="2">Customer</option>
+                            <option value="1" <?php if ($follow_up_given_by == "1"){echo "selected";} ?>>SML User</option>
+                            <option value="2" <?php if ($follow_up_given_by == "2"){echo "selected";} ?>>Customer</option>
                         </select>
-                        <label for="dob" class="label-tag ">Follow Up Given BY</label>
+                        <label for="follow_up_given_by" class="label-tag">Follow Up Given By</label>
                         <span class='green' id='age' style="position: absolute;top: 100%;background: transparent;color: green;left: 15px;"></span> 
                     </div> 
                     <div class="form-group col-xl-2 col-lg-4 col-md-6">
