@@ -14,7 +14,7 @@ $return_html = "";
 // tbl_updated_query_details.bus_anl_trnover LEFT JOIN tbl_bussiness_extng_year ON tbl_bussiness_extng_year.bus_ext_year_id = tbl_updated_query_details.bus_ext_year WHERE tbl_mint_query.query_id = '".$qryyy_id."'");
 $qry_get_data = "select * from crm_raw_data as raw_data left join crm_query as qry on raw_data.id = qry.crm_raw_data_id where qry.id = '".$qryyy_id."'";
 $numrow = mysqli_num_rows($qry_get_data);
-echo $numrow;
+echo "hii".$numrow;
 exit();
 if(mysqli_num_rows($qry_get_data) > 0) {
     $res_data = mysqli_fetch_array($qry_get_data);
