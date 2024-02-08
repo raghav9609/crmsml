@@ -330,6 +330,11 @@
                                     <label for="loan_type" class="label-tag">Loan Type</label>
                                 </div>
                               
+                                <div class="form-group col-xl-2 col-lg-4 col-md-6">
+                                <span class="fa-icon fa-user"></span>
+                                <input type="text" id="loan_amount" name="loan_amount" value="<?php echo ($loan_amt) ;?>" placeholder="Enter Required Loan Amount" class="form-control numonly" maxlength="20" required>
+                                <label for="name" class="label-tag"> Loan Amount</label>
+                            </div>
                                 <!-- <div class="form-group col-xl-2 col-lg-4 col-md-6">
                                     <span class="fa-icon fa-search"></span>
                                     <?php // echo get_dropdown('purpose_of_loan', 'purpose_of_loan', $purpose_of_loan, 'required'); ?>
