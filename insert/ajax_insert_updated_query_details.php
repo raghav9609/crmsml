@@ -63,6 +63,7 @@ if($recordcount > 0) {
     $return_html .= "<table class='gridtable table_set' border='1' style=''><tr class='font-weight-bold'><th>Net Monthly Income</th><th>Company</th><th>Salary Payment Mode</th><th>PAN Card</th><th>City</th><th>Pin Code</th><th>Lead Rank</th><th>Lead Score</th><th>Lead Costing</th>"; 
     $return_html .= "<th>Business Existing</th><th>Turnover</th>";
     $return_html .= "</tr>";
+    echo $return_html;
 ?>
 <?php
     $pincode = ($res_data['pincode'] > 0) ? $res_data['pincode'] : "--";
@@ -73,5 +74,5 @@ if($recordcount > 0) {
 <?php
     }
 //}
-echo $return_html;
+// echo $return_html;
 ?>
