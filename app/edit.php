@@ -86,7 +86,7 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
     $follow_up_time=$exe_form['follow_up_time'];
     $follow_up_given_by=$exe_form['follow_up_given_by'];
     $tennure=$exe_form['tennure'];
-    $emi=$exe_form['emi'];
+    $roi=$exe_form['roi'];
 
     // echo $get_bank_name;
    
