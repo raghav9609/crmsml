@@ -321,6 +321,7 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
                         $(".tab-3 > .facts > .register > .table_set").html('<div class="img">Please wait while we are fetching the details...</div><div class="img"><img style="width: 10%" src="../../include/img/common-loader.gif" /></div>');
                     },
                     success: function(msg) {
+                        console.log(msg);
                         if(msg.trim() == "") {
                             $(".tab-3 > .facts > .register > .table_set").html("<h3>No Data Found</h3>");
                         } else {
