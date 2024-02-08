@@ -185,8 +185,6 @@ b.caret{
     </form>
 </div>
 <br><br>
-
-<?php die(); ?>
 <table class="gridtable " style="width:100%;" border="1">
     <?php
 $followup_history_query = "SELECT * FROM crm_follow_up_history WHERE lead_id = $id AND status_type = 1 ORDER BY id DESC ";
