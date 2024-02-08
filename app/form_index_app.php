@@ -373,7 +373,7 @@ $recordcount = mysqli_num_rows($res);
                 //     $record = 0;
                 // while($exe = mysqli_fetch_array($res)){
                     $recordcount = 0;
-                    while($result_app_history_query = mysqli_fetch_array($res)){
+                    while($exe = mysqli_fetch_array($res)){
                         $recordcount++;
                         if($recordcount > 10){
                             continue;
