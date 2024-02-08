@@ -4,8 +4,6 @@ require_once(dirname(__FILE__) . '/../config/config.php');
 require_once(dirname(__FILE__) . '/../helpers/common-helper.php');
 require_once(dirname(__FILE__) . '/../model/queryHelper.php');
 require_once(dirname(__FILE__) . '/../include/helper.functions.php');
-
-// require_once "../include/helper.functions.php";
 require_once "../include/display-name-functions.php";
 $update = $_POST['submit_add'];
 if ($update == 'Add'){
@@ -113,11 +111,11 @@ $insert_qry1 =  "INSERT INTO crm_lead_summary_history set lead_id = '".$app_id."
 $res_qry = mysqli_query($Conn1,$insert_qry1);
 
 
-if ($res_qry) {
-    $_SESSION['succ_msg'] = "Updated Sucessfully";
-} else {
-    echo "Update failed: " . mysqli_error($your_database_connection);
-}
+// if ($res_qry) {
+//     $_SESSION['succ_msg'] = "Updated Sucessfully";
+// } else {
+//     echo "Update failed: " . mysqli_error($your_database_connection);
+// }
 
 // echo '<script>window.location.href = "'.$head_url.'/app/edit.php?case_id='.urlencode(base64_encode($case_id)).'%3D%3D&app_id='.urlencode(base64_encode($app_id)).'%3D%3D&cust_id='.urlencode(base64_encode($cust_id)).'%3D%3D&loan_type='.urlencode(base64_encode($loan_type)).'";</script>';
     
