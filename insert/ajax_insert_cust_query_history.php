@@ -7,10 +7,12 @@ $type = $_REQUEST['type'];
 $return_html = "";
 /* coding for customer Query history start */
 if($type == "query") {
-    $cust_id = $_REQUEST['cust_id'];
-    $query_history_query = "select stats.query_status,qry.query_id as id,qry.loan_amt as loan_amt,loan.loan_type_name as loan_type_name,stats.date as date,user.user_name as user_name from tbl_mint_query as qry left JOIN tbl_mint_query_status_detail as stats ON qry.query_id = stats.query_id left join lms_loan_type as loan on qry.loan_type = loan.loan_type_id left join tbl_user_assign as user on stats.user_id = user.user_id where qry.cust_id = ".$cust_id." order by qry.query_id desc limit 10";
+    $case_id = $_REQUEST['case_id'];
+    // $query_history_query = "select stats.query_status,qry.query_id as id,qry.loan_amt as loan_amt,loan.loan_type_name as loan_type_name,stats.date as date,user.user_name as user_name from tbl_mint_query as qry left JOIN tbl_mint_query_status_detail as stats ON qry.query_id = stats.query_id left join lms_loan_type as loan on qry.loan_type = loan.loan_type_id left join tbl_user_assign as user on stats.user_id = user.user_id where qry.cust_id = ".$cust_id." order by qry.query_id desc limit 10";
+    $query_history_query_d = "select * from crm_lead_assignment_history where lead_id = '".$case_id."'"; 
     $query_history_result= mysqli_query($Conn1,$query_history_query);
     $query_history = mysqli_num_rows($query_history_result);
+    print_r($query_history);
     $sr_no = 0;
     if($query_history > 0) {
         $return_html .= "<table  class='gridtable' width='100%'><tr><th>Sr. No.</th><th>Query Id</th><th>Loan Type & Amount </th><th>Status & User</th><th>Date</th></tr>";
