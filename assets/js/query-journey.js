@@ -640,9 +640,12 @@ function card_tocard(){
               } 
               else if(this.id=='step3' && $('#form_step3').valid() && $('#form_step1').valid() && $('#form_step2').valid()){
                 $('#loader').css("display","block");
+                var patIds = $("input[name='check_bank']:checked").val();
+                
+
                 $.ajax({      
                   method:'POST',
-                  data:"query_id="+$("[name='id']").val()+"&new_journey=1&case_id="+$("#case_id").val(),
+                  data:"query_id="+$("[name='id']").val()+"&partner_id="+patIds,
                   url: "/crmsml/query/create-process.php",
                   cache: false,
                   timeout: 60000,
