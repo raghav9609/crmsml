@@ -370,9 +370,13 @@ $recordcount = mysqli_num_rows($res);
                 </tr>
                 <tr>
                 <?php 
-                if($recordcount > 10){
-                    $recordcount++;
+                if($recordcount > 0){
+                    
                 while($exe = mysqli_fetch_array($res)){
+                    $record++;
+                    if($record > 10){
+                        continue;
+                }
                     $user_id_get = $exe['user_id'];
                     $user_name_get = get_name('user_id',$user_id_get);
                     $user_name = $user_name_get['name'];
