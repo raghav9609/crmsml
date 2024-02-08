@@ -23,7 +23,7 @@ function get_display_name($type,$selected_val){
            $qry = "select sub_employer from tbl_sub_employer where id = '".$selected_val."'";
         break;
     	case "comp_name":
-           $qry = "select comp_name from pl_company where comp_id = '".$selected_val."'";
+           $qry = "select company_name from crm_master_company where id = '".$selected_val."'";
         break;
         case "city":
             $qry = "select city_id from lms_city where city_name = '".trim($selected_val)."'";
