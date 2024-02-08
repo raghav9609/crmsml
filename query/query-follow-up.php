@@ -145,7 +145,7 @@ b.caret{
     <div class="row div-width">       
         <div class="form-group col-xl-3 col-lg-4 col-md-6">
         <span class="fa-icon fa-list-alt"></span>
-        <?php echo get_dropdown('query_status', 'f_stats', '', ''); ?>
+        <?php  get_dropdown('query_status', 'f_stats', '', ''); ?>
         <label for="f_stats" class="label-tag">Select Status</label>
         </div>
         <!-- Checkbox New status Div ends -->
