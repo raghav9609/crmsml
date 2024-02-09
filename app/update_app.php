@@ -118,5 +118,6 @@ if ($res_qry) {
     echo '<script>window.location.href = "'.$head_url.'/app/edit.php?app_id='.urlencode(base64_encode($app_id)).'&cust_id='.urlencode(base64_encode($cust_id)).'&loan_type='.urlencode(base64_encode($loan_type)).'";</script>';
 exit;
 }
-
+echo '<script>window.location.href = "'.$head_url.'/app/edit.php?app_id='.urlencode(base64_encode($app_id)).'&cust_id='.urlencode(base64_encode($cust_id)).'&loan_type='.urlencode(base64_encode($loan_type)).'";</script>';
+exit;
 ?>
