@@ -247,39 +247,39 @@
             });
         });
     });
-    document.getElementById('add_app').addEventListener('click', function() {
-        // Create a form element
-        var form = document.createElement('form');
-        form.action = 'add_app.php'; 
-        form.method = 'post'; 
+    // document.getElementById('add_app').addEventListener('click', function() {
+    //     // Create a form element
+    //     var form = document.createElement('form');
+    //     form.action = 'add_app.php'; 
+    //     form.method = 'post'; 
 
-        var crmQueryIdInput = document.createElement('input');
-        crmQueryIdInput.type = 'hidden';
-        crmQueryIdInput.name = 'crm_query_id';
-        crmQueryIdInput.value = '<?php echo $qryyy_id; ?>';
-        form.appendChild(crmQueryIdInput);
+    //     var crmQueryIdInput = document.createElement('input');
+    //     crmQueryIdInput.type = 'hidden';
+    //     crmQueryIdInput.name = 'crm_query_id';
+    //     crmQueryIdInput.value = '<?php echo $qryyy_id; ?>';
+    //     form.appendChild(crmQueryIdInput);
 
-        var caseIdInput = document.createElement('input');
-        caseIdInput.type = 'hidden';
-        caseIdInput.name = 'case_id';
-        caseIdInput.value = '<?php echo $case_id; ?>';
-        form.appendChild(caseIdInput);
+    //     var caseIdInput = document.createElement('input');
+    //     caseIdInput.type = 'hidden';
+    //     caseIdInput.name = 'case_id';
+    //     caseIdInput.value = '<?php echo $case_id; ?>';
+    //     form.appendChild(caseIdInput);
 
-        var custIdInput = document.createElement('input');
-        custIdInput.type = 'hidden';
-        custIdInput.name = 'cust_id';
-        custIdInput.value = '<?php echo $cust_id; ?>';
-        form.appendChild(custIdInput);
+    //     var custIdInput = document.createElement('input');
+    //     custIdInput.type = 'hidden';
+    //     custIdInput.name = 'cust_id';
+    //     custIdInput.value = '<?php echo $cust_id; ?>';
+    //     form.appendChild(custIdInput);
 
-        var loanTypeInput = document.createElement('input');
-        loanTypeInput.type = 'hidden';
-        loanTypeInput.name = 'loan_type';
-        loanTypeInput.value = '<?php echo $loan_type; ?>';
-        form.appendChild(loanTypeInput);
+    //     var loanTypeInput = document.createElement('input');
+    //     loanTypeInput.type = 'hidden';
+    //     loanTypeInput.name = 'loan_type';
+    //     loanTypeInput.value = '<?php echo $loan_type; ?>';
+    //     form.appendChild(loanTypeInput);
 
-        document.body.appendChild(form);
-        form.submit();
-    });
+    //     document.body.appendChild(form);
+    //     form.submit();
+    // });
     document.addEventListener('DOMContentLoaded', function() {
     //amount 
     var appliedAmountInput = document.getElementById('applied_amount');
