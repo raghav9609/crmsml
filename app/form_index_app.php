@@ -165,20 +165,15 @@
                         <label for="dob" class="label-tag ">Follow Up Time</label>
                         <span class='green' id='age' style="position: absolute;top: 100%;background: transparent;color: green;left: 15px;"></span>
                     </div> 
-                    <div class="form-group col-xl-2 col-lg-4 col-md-6 " style="position: relative;">
-                        <!-- <input type="text" id="follow_up_given_by" name="follow_up_given_by" value="<?php echo $follow_up_given_by;?>" placeholder="Enter Follow Up Given By" class="form-control  valid" maxlength="20" <?php echo ($follow_up_given_by != '') ? 'readonly' : ''; ?> required>
-                        <label for="dob" class="label-tag ">Follow Up Given BY</label>
-                        <span class='green' id='age' style="position: absolute;top: 100%;background: transparent;color: green;left: 15px;"></span> -->
-                        <span class='green' id='age' style="position: absolute;top: 100%;background: transparent;color: green;left: 15px;margin-bottom:20px;"></span> 
-                        <label for="follow_up_given_by" class="label-tag" >Follow Up Given By</label>
-                        <select class ="valid" id="follow_up_given_by" name="follow_up_given_by" <?php echo ($follow_up_given_by != '') ? 'readonly' : ''; ?> >
+                    <div class="form-group col-xl-2 col-lg-4 col-md-6" style="position: relative;">
+                        <label for="follow_up_given_by" class="label-tag" style="position: absolute; top: 0; left: 0;">Follow Up Given By</label>
+                        <select class="valid" id="follow_up_given_by" name="follow_up_given_by" <?php echo ($follow_up_given_by != '') ? 'readonly' : ''; ?> style="position: relative; z-index: 1;">
                             <option value="0">Select</option>
                             <option value="1" <?php if ($follow_up_given_by == "1"){echo "selected";} ?>>SML User</option>
                             <option value="2" <?php if ($follow_up_given_by == "2"){echo "selected";} ?>>Customer</option>
                         </select>
-                        
-                        
-                    </div> 
+                        <span class="green" id="age" style="position: absolute; top: 100%; left: 15px; z-index: 2;"></span>
+                    </div>
                     <div class="form-group col-xl-2 col-lg-4 col-md-6">
                         <span class="fa-icon fa-building"></span>
                         <input type="text" id="tenure" name="tenure" value="<?php echo $tennure;?>" placeholder="Enter Tenure / EMI" class="form-control numonly valid" <?php echo ($tennure != '' ) ? 'readonly' : '';  ?> maxlength="20" required>
