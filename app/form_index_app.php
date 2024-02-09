@@ -166,8 +166,8 @@
                         <span class='green' id='age' style="position: absolute;top: 100%;background: transparent;color: green;left: 15px;"></span>
                     </div> 
                     <div class="form-group col-xl-2 col-lg-4 col-md-6" style="position: relative;">
-                        <label for="follow_up_given_by" class="label-tag" style="position: absolute; top: -15; left: 16; z-index: 0;margin-bottom:5px;">Follow Up Given By</label>
-                        <select class="valid" id="follow_up_given_by" name="follow_up_given_by" <?php echo ($follow_up_given_by != '') ? 'readonly' : ''; ?> style="position: relative; z-index: 0;">
+                        <label for="follow_up_given_by" class="label-tag" style="position: absolute; top: -15; left: 16; ">Follow Up Given By</label>
+                        <select class="valid" id="follow_up_given_by" name="follow_up_given_by" <?php echo ($follow_up_given_by != '') ? 'readonly' : ''; ?> style="position: relative;" disabled>
                             <option value="0">Select</option>
                             <option value="1" <?php if ($follow_up_given_by == "1"){echo "selected";} ?>>SML User</option>
                             <option value="2" <?php if ($follow_up_given_by == "2"){echo "selected";} ?>>Customer</option>
@@ -224,10 +224,7 @@
             document.getElementById('submit_app').style.display = 'block';
             document.getElementById('edit_app').style.display = 'none';
         }
-        var followUpGivenByField = document.getElementById('follow_up_given_by');
-        if (followUpGivenByField) {
-            followUpGivenByField.removeAttribute('disabled');
-        }
+        
 
         $(document).ready(function () {
             $('.datepicker').datepicker({
