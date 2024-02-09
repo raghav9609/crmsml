@@ -221,6 +221,10 @@
             if (user_idField) {
                 user_idField.removeAttribute('disabled');
             }
+            var followUpGivenByField = document.getElementById('follow_up_given_by');
+            if (followUpGivenByField) {
+                followUpGivenByField.removeAttribute('disabled');
+            }
             document.getElementById('submit_app').style.display = 'block';
             document.getElementById('edit_app').style.display = 'none';
         }
