@@ -443,9 +443,9 @@ if($res_num > 0) {
 
     ?>
     <?php 
-    $return_html .= '<tr class="center-align"><td>'.$sr_no.'</td><td><span class="fs-12">(<a href="../app/edit.php?case_id='.urlencode(base64_encode($case_id)).'?app_id='.urlencode(base64_encode($case_id)).'">'.$case_id.'</a>)</span></td><td>'.$get_bank_name.'</td><td>'.$get_app_status.'</td><td style="width: 7%"><br><span class="fs-12">(<a href="../app/edit.php?case_id='.urlencode(base64_encode($case_id)).'">View</a>)</span></td></tr>'; 
+    $return_html .= '<tr class="center-align"><td>'.$sr_no.'</td><td><span class="fs-12">(<a href="../app/edit.php?app_id='.urlencode(base64_encode($case_id)).'&cust_id='.urlencode(base64_encode($cust_id)).'&loan_type='.urlencode(base64_encode($loan_type)).'">'.$case_id.'</a>)</span></td><td>'.$get_bank_name.'</td><td>'.$get_app_status.'</td><td style="width: 7%"><br><span class="fs-12">(<a href="../app/edit.php?app_id='.urlencode(base64_encode($case_id)).'&cust_id='.urlencode(base64_encode($case_id)).'&loan_type='.urlencode(base64_encode($loan_type)).'">View</a>)</span></td></tr>'; 
     ?>
-    <?php } ?>
+    <?php } ?>app_id=Nzc%3D&cust_id=MQ%3D%3D&loan_type=NTQ%3D
     <?php $return_html .= '</table>';
     }
 }
