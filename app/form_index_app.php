@@ -166,8 +166,8 @@
                         <span class='green' id='age' style="position: absolute;top: 100%;background: transparent;color: green;left: 15px;"></span>
                     </div> 
                     <div class="form-group col-xl-2 col-lg-4 col-md-6" style="position: relative;">
-                        <label for="follow_up_given_by" class="label-tag" style="position: absolute; top: 0; left: 0; z-index: 2;">Follow Up Given By</label>
-                        <select class="valid" id="follow_up_given_by" name="follow_up_given_by" <?php echo ($follow_up_given_by != '') ? 'readonly' : ''; ?> style="position: relative; z-index: 1;">
+                        <label for="follow_up_given_by" class="label-tag" style="position: absolute; top: 0; bottom:1; left: 0; z-index: 2;">Follow Up Given By</label>
+                        <select class="valid" id="follow_up_given_by" name="follow_up_given_by" <?php echo ($follow_up_given_by != '') ? 'readonly' : ''; ?> style="position: relative; z-index: 0;">
                             <option value="0">Select</option>
                             <option value="1" <?php if ($follow_up_given_by == "1"){echo "selected";} ?>>SML User</option>
                             <option value="2" <?php if ($follow_up_given_by == "2"){echo "selected";} ?>>Customer</option>
