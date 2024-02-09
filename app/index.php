@@ -225,6 +225,10 @@ if(isset($_REQUEST['fup_user_type'])) {
     $fup_user_type = replace_special($_REQUEST['fup_user_type']);
 }
 
+if(isset($_REQUEST['application_status'])) {
+    $application_status = replace_special($_REQUEST['application_status']);
+}
+
 if($source_compign == 'gcl_id'){
 	$source_used = "gclid=";
 } else if($source_compign == 'source_campaign'){
@@ -307,6 +311,11 @@ if($app_u_assign != ""){
     $qry_ex .= " and app.user_id = '".$app_u_assign."' ";
 }
 
+if($application_status != ""){
+    $qry_ex .= " and app.application_status = '".$application_status."' ";
+}
+
+
 
 if($date_from != "" && $date_to != "" && $date_from != "0000-00-00" && $date_to != "0000-00-00"){
 	$default = 1;
@@ -336,6 +345,7 @@ $qry_ex .= " group by app.id order by app.created_on desc limit ".$offset.",".$m
 <?php echo get_textbox('city_type',$city_type,'placeholder ="City Name (Enter few words)"'); ?>
 <input type="text" class="text-input" name="date_from" id="date_from" placeholder="Date From" value="<?php echo $date_from;?>" maxlength="10" readonly="readonly"/>
 <input type="text" class="text-input" name="date_to" id="date_to" placeholder="Date To" value="<?php echo $date_to;?>" maxlength="10" readonly="readonly"/>
+<?php echo get_dropdown('application_status','application_status','application_status'); ?>
 <?php echo get_dropdown(1,'loan_type',$search,'');
  echo get_dropdown('user', 'app_u_assign', $app_u_assign, '');
 
