@@ -169,8 +169,8 @@
                         <!-- <input type="text" id="follow_up_given_by" name="follow_up_given_by" value="<?php echo $follow_up_given_by;?>" placeholder="Enter Follow Up Given By" class="form-control  valid" maxlength="20" <?php echo ($follow_up_given_by != '') ? 'readonly' : ''; ?> required>
                         <label for="dob" class="label-tag ">Follow Up Given BY</label>
                         <span class='green' id='age' style="position: absolute;top: 100%;background: transparent;color: green;left: 15px;"></span> -->
-                        <span class='green' id='age' style="position: absolute;top: 100%;background: transparent;color: green;left: 15px;"></span> 
-                        <label for="follow_up_given_by" class="label-tag" style ="margin-bottom:20px;">Follow Up Given By</label>
+                        <span class='green' id='age' style="position: absolute;top: 100%;background: transparent;color: green;left: 15px;margin-bottom:20px;"></span> 
+                        <label for="follow_up_given_by" class="label-tag" >Follow Up Given By</label>
                         <select class ="valid" id="follow_up_given_by" name="follow_up_given_by" <?php echo ($follow_up_given_by != '') ? 'readonly' : ''; ?> >
                             <option value="0">Select</option>
                             <option value="1" <?php if ($follow_up_given_by == "1"){echo "selected";} ?>>SML User</option>
