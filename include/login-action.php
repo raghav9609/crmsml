@@ -18,7 +18,7 @@ if(requestMethod() != 'POST'){
     print_r($user_data);
     if(!empty($user_data) && $user_data[0]['is_active'] == 1){
         if($user_data[0]['is_ip_restriction_enable'] == 0 || ($user_data[0]['is_ip_restriction_enable'] == 1 && ipRestrictionCheck($_SERVER['REMOTE_ADDR']) == 1)){
-            if(password_verify($_POST['otp'], $user_data[0]['password'])){
+            if(password_verify(md5($_POST['otp']), $user_data[0]['password'])){
                 $login_history_update = $get_user->updateLoginDateTime($user_data[0]['id'],currentDateTime24());
                 $login_history_insert = $get_user->loginHistory(array('crm_master_user_id','login_ip'),array($user_data[0]['id'],$_POST['deviceId']));
                 $db_handle->insertRows($login_history_insert);
