@@ -16,7 +16,7 @@ if(requestMethod() != 'POST'){
     $db_handle = new DBController();
     $user_data = $db_handle->runQuery($user_query);
     // print_r($user_data);
-    echo $_POST['otp']."-----".$user_data[0]['password'];
+    // echo $_POST['otp']."-----".$user_data[0]['password'];
     if(!empty($user_data) && $user_data[0]['is_active'] == 1){
         if($user_data[0]['is_ip_restriction_enable'] == 0 || ($user_data[0]['is_ip_restriction_enable'] == 1 && ipRestrictionCheck($_SERVER['REMOTE_ADDR']) == 1)){
             // $user_password = md5($_POST['otp']);
