@@ -292,9 +292,9 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                         $qry .= " AND qry_app.application_status = $application_status ";
                     }
 
-                    if (($user_role == 2 || $user_role == 4 || $user_role == 9) && $search == '') {
-                        $qry .= " and qry.loan_type IN ($search)";
-                    }
+                    // if (($user_role == 2 || $user_role == 4 || $user_role == 9) && $search == '') {
+                    //     $qry .= " and qry.loan_type IN ($tl_loan_type)";
+                    // }
 
                     if ($date_from != '' && $date_to != '') {
                         $default = 1;
