@@ -38,6 +38,7 @@ if ($user_role == 3 && $ut != 2) {
     // $qry .= " and qry.loan_type_id IN ($tl_loan_type)";
 }
 $qry .= " order by qry.id desc";
+echo $qry;
 $res = mysqli_query($Conn1, $qry) or die(mysqli_error($Conn1));
 $exe_form = mysqli_fetch_array($res);
 
