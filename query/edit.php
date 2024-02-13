@@ -35,7 +35,7 @@ if ($user_role == 3 && $ut != 2) {
     if($user_role == 2){
         $qry .= " and qry.lead_assign_to IN ($tl_member,0) ";
     }
-    $qry .= " and qry.loan_type_id IN ($tl_loan_type)";
+    // $qry .= " and qry.loan_type_id IN ($tl_loan_type)";
 }
 $qry .= " order by qry.id desc";
 $res = mysqli_query($Conn1, $qry) or die(mysqli_error($Conn1));
