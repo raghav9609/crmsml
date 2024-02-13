@@ -107,8 +107,7 @@ $res_qry = mysqli_query($Conn1,$update_query);
 
 $current_date = date('Y-m-d');
 $insert_qry1 =  "INSERT INTO crm_lead_summary_history set lead_id = '".$app_id."' , user_id = '".$_SESSION['userDetails']['user_id']."' , type = 2 , updated_on = '".$current_date."' , description_by_bank = '".trim($remarks_by_bank)."' , description_by_user = '".trim($remarks_by_user)."' , follow_up_date = '".trim($follow_up_date)."' , follow_up_time = '".trim($follow_up_time)."'";
-echo $insert_qry1;
-exit();
+
 $res_qry = mysqli_query($Conn1,$insert_qry1);
 
 
