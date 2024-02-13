@@ -372,6 +372,9 @@ $recordcount = mysqli_num_rows($res);
                 <tr>
                     <th>Query Id</th>
                     <th>User</th>
+                    <th>Remarks By User</th>
+                    <th>Remarks By Bank</th>
+                    <th>Follow Up Date Time</th>
                     <th>Created On</th>
                     <th>Updated On</th>
                 </tr>
@@ -387,13 +390,19 @@ $recordcount = mysqli_num_rows($res);
                         $user_id_get = $exe['user_id'];
                         $user_name_get = get_name('user_id', $user_id_get);
                         $user_name = $user_name_get['name'];
-
+                        $description_bank = $exe['description_by_bank'];
+                        $description_by_user = $exe['description_by_user'];
+                        $follow_up_date = $exe['follow_up_date'];
+                        $follow_up_time = $exe['follow_up_time'];
                         $created_on = $exe['created_on'];
                         $updated_on = $exe['updated_on'];
                 ?>
                 <tr>
                     <td><?php echo $qryyy_id; ?></td>
                     <td><?php echo $user_name; ?></td>
+                    <td><?php echo $description_bank; ?></td>
+                    <td><?php echo $description_by_user; ?></td>
+                    <td><?php echo $follow_up_date." ".$follow_up_time; ?></td>
                     <td><?php echo $created_on; ?></td>
                     <td><?php echo $updated_on; ?></td>
                 </tr>
