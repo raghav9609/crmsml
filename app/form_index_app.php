@@ -392,7 +392,9 @@ $recordcount = mysqli_num_rows($res);
                         $user_name = $user_name_get['name'];
                         $description_bank = $exe['description_by_bank'];
                         $description_by_user = $exe['description_by_user'];
-                        echo $follow_up_date = $exe['follow_up_date'];
+                        $follow_up_date_get = $exe['follow_up_date'];
+                        $follow_up_date = date("Y-m-d", strtotime($follow_up_date_get));
+
                         echo $follow_up_time = $exe['follow_up_time'];
                         $created_on = $exe['created_on'];
                         $updated_on = $exe['updated_on'];
