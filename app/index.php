@@ -245,10 +245,10 @@ $insurance = replace_special($_REQUEST['insurance']);
 $promo = replace_special($_REQUEST['promocode']);
 $ref_phone = replace_special($_REQUEST['ref_phone']);
 
-$qry_ex = "SELECT app.application_status, cust.phone_no as phone, cust.name as name, app.id as app_i,app.user_id, cust.id as cust_id, cust.city_id as city_id,loan.value as loan_name,qry.crm_raw_data_id,app.crm_query_id,app.bank_id ,app.bank_application_no,qry.loan_type_id as loan_type,qry.loan_amount as required_loan_amt, app.login_date as login_date_on, app.sanction_date as sanction_date_on, app.disburse_date as first_disb_date_on, app.follow_up_date AS fup_date_on from crm_query_application as app JOIN crm_query as qry ON app.crm_query_id = qry.id Inner JOIN crm_customer as cust ON qry.crm_customer_id = cust.id INNER JOIN crm_masters as loan ON loan.id =  qry.loan_type_id INNER JOIN crm_master_city AS city and app.user_id =".$user_id ;
+$qry_ex = "SELECT app.application_status, cust.phone_no as phone, cust.name as name, app.id as app_i,app.user_id, cust.id as cust_id, cust.city_id as city_id,loan.value as loan_name,qry.crm_raw_data_id,app.crm_query_id,app.bank_id ,app.bank_application_no,qry.loan_type_id as loan_type,qry.loan_amount as required_loan_amt, app.login_date as login_date_on, app.sanction_date as sanction_date_on, app.disburse_date as first_disb_date_on, app.follow_up_date AS fup_date_on from crm_query_application as app JOIN crm_query as qry ON app.crm_query_id = qry.id Inner JOIN crm_customer as cust ON qry.crm_customer_id = cust.id INNER JOIN crm_masters as loan ON loan.id =  qry.loan_type_id INNER JOIN crm_master_city AS city" ;
 
 
-$qry_ex .= " where 1 ";
+$qry_ex .= " WHERE 1 AND app.user_id = ".$user_id;
 
 if(trim($email_search) != "") {
     $default = 1;
