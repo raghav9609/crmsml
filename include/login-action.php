@@ -3,7 +3,6 @@ session_start();
 $no_head = 1;
 $btn_txt = '';
 $goto = '';
-global $Conn1;
 require_once(dirname(__FILE__) . '/../helpers/common-helper.php');
 if(requestMethod() != 'POST'){ 
     $status = 'error';
