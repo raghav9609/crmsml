@@ -25,6 +25,7 @@ if(!empty($old_password) && !empty($new_password) && !empty($confirm_new_passwor
         if($enc_old_password == $select_password_res['password']) {
             if($enc_new_password == $enc_confirm_new_password) {
                 $update_password_query = "UPDATE tbl_user_assign SET password = '".$enc_new_password."' WHERE user_id = '".$user."'";
+                echo $update_password_query;
                 $update_password_exe = mysqli_query($Conn1, $update_password_query);
                 $datetime = date("Y-m-d h:i:s");
                 $insert_logs_query = "INSERT INTO password_reset_logs SET user_id = '".$user."', old_password = '".$enc_old_password."', new_password = '".$enc_new_password."', reset_date = '".$datetime."' ";
