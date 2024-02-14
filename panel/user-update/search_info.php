@@ -112,8 +112,8 @@ function joinee_validation() {
     </td>
 </tr>
 
-
-<tr><td>Sms On Lead :</td><td><select name="sms_flag" id="sms_flag" required><option value="">Sms on lead</option><option value="1" <?php if($res_info['sms_flag'] == 1){?>selected<?php }?>>Yes</option><option value="0" <?php if($res_info['sms_flag'] == 0){?>selected<?php }?>>No</option></select></td></tr>
+<!-- 
+<tr><td>Sms On Lead :</td><td><select name="sms_flag" id="sms_flag" required><option value="">Sms on lead</option><option value="1" <?php if($res_info['sms_flag'] == 1){?>selected<?php }?>>Yes</option><option value="0" <?php if($res_info['sms_flag'] == 0){?>selected<?php }?>>No</option></select></td></tr> -->
 
 <tr><td>Status : </td><td><select name="status" id="status" ><option value="">Status</option><option value="0" <?php if($res_info['status'] == 0){?>selected<?php }?>>Inactive</option><option value="1" <?php if($res_info['status'] == 1){?>selected<?php }?>>Active</option></select></td></tr>
 
