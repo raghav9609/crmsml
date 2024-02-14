@@ -12,6 +12,7 @@ $new_password           = $_POST['new_password'];
 $confirm_new_password   = $_POST['confirm_new_password'];
 
 $return_val = 0;
+global $Conn1;
 if(!empty($old_password) && !empty($new_password) && !empty($confirm_new_password)) {
     // $enc_old_password           = md5(base64_encode($old_password));
     // $enc_new_password           = md5(base64_encode($new_password));
