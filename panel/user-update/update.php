@@ -4,12 +4,12 @@
     require_once "../../config/config.php";
 	print_r($_REQUEST);
 
-	 $name = replace_special($_REQUEST['name']);
-	 $email = replace_special($_REQUEST['email']);
-	 $mobile = replace_special($_REQUEST['phone']);
+	 $name = $_REQUEST['name'];
+	 $email = $_REQUEST['email'];
+	 $mobile = ($_REQUEST['phone']);
 	 
-	 $tl = replace_special($_REQUEST['tl']);
-	 $loan_type =replace_special($_REQUEST['loan_type']);
+	 $tl = ($_REQUEST['tl']);
+	 $loan_type =($_REQUEST['loan_type']);
 	 $up_tl = implode(',', $tl);
 	 $up_loan = implode(',',$loan_type);
 
