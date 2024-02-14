@@ -201,7 +201,9 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                     // $qry .= " AND app.user_id IN ($userIds)";
                     // echo $qry;
                     print_r($_SESSION);
+                    echo "---------------";
                     print_r($_SESSION['userDetails']);
+                    echo "---------------";
                     print_r($_SESSION['userDetails']['tluserlist']['user_id']);
 
                     if ($user_role != 1) {
