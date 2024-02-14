@@ -1,6 +1,6 @@
 <?php
-require_once "../../include/crm-header.php";
-require_once "../../include/dropdown.php";
+// require_once "../../include/crm-header.php";
+// require_once "../../include/dropdown.php";
 
 $msg = $_REQUEST['msg'];
 $message = "";
