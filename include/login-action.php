@@ -45,9 +45,9 @@ if(requestMethod() != 'POST'){
                                                 "contact_no"=>$user_data[0]['mobile_no'],
                                                 "role_id"=>$user_data[0]['role_id'],
                                                 "user_login_datetime"=>$user_data[0]['last_login_on'],
-                                                "tluserlist"=>$gettluserList,
-                                                "tlloanlist"=>$gettlloanList,
-                                                "rmpartnerlist"=>$getrmPartnerList
+                                                "tluserlist"=>$gettluserList[0]['userlist'],
+                                                "tlloanlist"=>$gettlloanList[0]['userlist'],
+                                                "rmpartnerlist"=>$getrmPartnerList[0]['userlist']
                                             );
                 $status = 'success';
                 $message = 'Details Fetch Successfully';

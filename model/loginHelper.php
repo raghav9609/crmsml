@@ -51,15 +51,15 @@ class userModel {
         return $queryReturn;
     }
     function getrmPartnerList($user_id){
-        $queryReturn = "select * from crm_rm_assignment where is_active = 1 and rm_user_id = ".$user_id;
+        $queryReturn = "select group_concat(partner_id) as userlist from crm_rm_assignment where is_active = 1 and rm_user_id = ".$user_id;
         return $queryReturn;
     }
     function gettlUserList($user_id){
-        $queryReturn = "select group_concat(user_id) from crm_tl_user_mapping where is_active = 1 and tl_user_id = ".$user_id;
+        $queryReturn = "select group_concat(user_id) as userlist from crm_tl_user_mapping where is_active = 1 and tl_user_id = ".$user_id;
         return $queryReturn;
     }
     function gettlloanList($user_id){
-        $queryReturn = "select * from crm_user_loan_type_mapping where is_active = 1 and user_id = ".$user_id;
+        $queryReturn = "select group_concat(loan_type) as userlist from crm_user_loan_type_mapping where is_active = 1 and user_id = ".$user_id;
         return $queryReturn;
     }
     function attendanceHistory($columns,$values){
