@@ -409,7 +409,7 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
                 $(".tab-6 > .facts > .register > .table_set").html("<h3>No Data Found</h3>");
             }
             loaded_api_res = true;
-        }else if(e.id == "equifax") {
+        }else if(e.id == "experian") {
             var case_id = "<?php echo $case_id; ?>";
             var query_id = "<?php echo $qryyy_id; ?>";
             if(loaded_api_res) return;
@@ -417,7 +417,7 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
                 $.ajax({
                     type: "POST",
                     url: "../insert/ajax_insert_cust_query_history.php",
-                    data: "case_id="+case_id+"&query_id="+query_id+"&type=equifax",
+                    data: "case_id="+case_id+"&query_id="+query_id+"&type=experian",
                     beforeSend: function () {
                         $(".tab-7 > .facts > .register > .table_set").html('<div class="img">Please wait while we are fetching the details...</div><div class="img"><img style="width: 10%" src="../../include/img/common-loader.gif" /></div>');
                     },
@@ -784,8 +784,8 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
                     <li class="resp-tab-item lost tab-view" aria-controls="details_tab_6"  id="app_rq_rs"  role="tab" onclick="callAjaxData(this)">
                         <span>Lead Display</span>
                     </li>
-                    <li class="resp-tab-item lost tab-view" aria-controls="details_tab_7"  id="equifax"  role="tab" onclick="callAjaxData(this)">
-                        <span>Equifax</span>
+                    <li class="resp-tab-item lost tab-view" aria-controls="details_tab_7"  id="experian"  role="tab" onclick="callAjaxData(this)">
+                        <span>Experian</span>
                     </li>
                     <!-- <li class="resp-tab-item lost tab-view" aria-controls="details_tab_7"  id="lead_alloc"  role="tab" onclick="callAjaxData(this)">
                         <span>Allocation</span>
