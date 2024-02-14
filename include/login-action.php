@@ -30,8 +30,13 @@ if(requestMethod() != 'POST'){
                 $gettlloanList = array();
                 $getrmPartnerList = array();
                 if($user_data[0]['role_id'] == 2){
-                    $gettluserList = $db_handle->runQuery($get_user->gettlUserList($user_data[0]['id']));
-                    $gettlloanList = $db_handle->runQuery($get_user->gettlloanList($user_data[0]['id']));
+                    // $gettluserList = $db_handle->runQuery($get_user->gettlUserList($user_data[0]['id']));
+                    // $gettlloanList = $db_handle->runQuery($get_user->gettlloanList($user_data[0]['id']));
+                    $user_list_qry = mysqli_query($Conn1, "select * from crm_tl_user_mapping where is_active = 1 and tl_user_id = ".$user_id);
+                    $gettluserList = mysqli_fetch_array($user_list_qry);
+                    $loan_list_qry = mysqli_query($Conn1, "select * from crm_user_loan_type_mapping where is_active = 1 and user_id = ".$user_id);
+                    $gettlloanList = mysqli_fetch_array($loan_list_qry);
+                    
                 }else if ($user_data[0]['role_id'] == 4){
                     $getrmPartnerList = $db_handle->runQuery($get_user->getrmPartnerList($user_data[0]['id']));
                 }
