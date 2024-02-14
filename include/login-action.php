@@ -31,6 +31,7 @@ if(requestMethod() != 'POST'){
                 $getrmPartnerList = array();
                 if($user_data[0]['role_id'] == 2){
                     $gettluserList = $db_handle->runQuery($get_user->gettlUserList($user_data[0]['id']));
+                    $gettluserList = array_merge($gettluserList);
                     $gettlloanList = $db_handle->runQuery($get_user->gettlloanList($user_data[0]['id']));
                   
                     
