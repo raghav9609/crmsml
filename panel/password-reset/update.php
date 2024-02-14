@@ -27,11 +27,8 @@ if(!empty($old_password) && !empty($new_password) && !empty($confirm_new_passwor
         $select_password_res = mysqli_fetch_array($select_password_exe);
         if($enc_old_password == $select_password_res['password']) {
             if($enc_new_password == $enc_confirm_new_password) {
-                $update_password_query = "UPDATE crm_master_user SET password = '".$enc_new_password."' WHERE user_id = '".$user_id."'";
-                echo $update_password_query;
+                $update_password_query = "UPDATE crm_master_user SET password = '".$enc_new_password."' WHERE id = '".$user_id."'";
                 $update_password_exe = mysqli_query($Conn1, $update_password_query);
-                print_r($update_password_exe);
-                exit();
                 $datetime = date("Y-m-d h:i:s");
                 // $insert_logs_query = "INSERT INTO password_reset_logs SET user_id = '".$user."', old_password = '".$enc_old_password."', new_password = '".$enc_new_password."', reset_date = '".$datetime."' ";
                 // mysqli_query($Conn1, $insert_logs_query);
