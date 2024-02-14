@@ -12,7 +12,7 @@
 	 $up_loan = implode(',',$loan_type);
 
 	$password = "";
-	print_r($_SESSION);
+	print_r($_REQUEST);
 	if($user_role == 1) {
 		echo 1;
 		$user_password = $_REQUEST['password_flag'];
