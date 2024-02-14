@@ -250,11 +250,11 @@ $qry_ex = "SELECT app.application_status, cust.phone_no as phone, cust.name as n
 if($user_role == 3 || ($user_role == 2 && $_SESSION['userDetails']['tluserlist'] == "")){
     $qry_ex .= " and app.user_id = '" . $user_id . "'";
 }else if($user_role == 2 && $_SESSION['userDetails']['tluserlist'] != ""){
-    $qry_ex .= " and app.user_id IN (" . $_SESSION['userDetails']['tluserlist'] . ")";
+    $qry_ex .= " and app.user_id IN (" . $_SESSION['userDetails']['tluserlist'] . ") and app.user_id <> 0";
 }
 
 if($user_role == 4){
-    $qry_ex .= " and app.bank_id IN (" . $_SESSION['userDetails']['rmpartnerlist'] . ")";
+    $qry_ex .= " and app.bank_id <> 0 and app.bank_id IN (" . $_SESSION['userDetails']['rmpartnerlist'] . ")";
 }
 if(trim($email_search) != "") {
     $default = 1;
@@ -377,7 +377,6 @@ $qry_ex .= " group by app.id order by app.created_on desc limit ".$offset.",".$m
 <tr>
 <?php if($_SESSION['assign_access_lead'] == 1){?><th width="5%"><div><input type ="checkbox" name ="selectAll[]" id="selectAll">Select</div></th><?php } ?>
 <th width="10%">Application No<br> Bank App No.</th>
-<th width="10%">Tool Type</th>
 <th width="10%">Name & Mobile & City</th>
 <th width="10%">Loan amount & Loan Type</th>
 <th width="10%">Partner</th>
@@ -444,7 +443,6 @@ if ($(this).not(":checked")) {
 <span><?php echo $crm_query_id;?></span></a>
 <br><?php echo $bank_application_no; ?>
 </td>
-<td></td>
 <td>
 <span>
     <?php echo substr(ucwords(strtolower($cust_name)), 0, 20); ?>

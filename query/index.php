@@ -204,9 +204,9 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                             $qry .= " and qry.lead_assign_to = '" . $u_assign . "'";
                     }
                     if($user_role == 3 || ($user_role == 2 && $_SESSION['userDetails']['tluserlist'] == "")){
-                        $qry .= " and qry.lead_assign_to = '" . $user_id . "'";
+                        $qry .= " and qry.lead_assign_to = '" . $user_id . "' ";
                     }else if($user_role == 2 && $_SESSION['userDetails']['tluserlist'] != ""){
-                        $qry .= " and qry.lead_assign_to IN (" . $_SESSION['userDetails']['tluserlist'] . ")";
+                        $qry .= " and qry.lead_assign_to IN (" . $_SESSION['userDetails']['tluserlist'] . ") and qry.lead_assign_to <> 0";
                     }
                     
                     if ($search != '') {
