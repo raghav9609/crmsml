@@ -1,6 +1,6 @@
 <?php
-require_once "../../include/check-session.php";
-require_once "../../include/config.php";
+require_once "../config/session.php";
+require_once "../config/config.php";
 
 $id = $_REQUEST['id'];
 $src = $_REQUEST['src'];
