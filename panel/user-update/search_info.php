@@ -92,7 +92,7 @@ function joinee_validation() {
 </select></td></tr>
 
 
-<tr class="password_flag hidden">
+<tr class="password_flag">
     <td>Password :</td>
     <td>
         <input type="password" name="password_flag" id="password_flag" value="" maxlength="8" placeholder="Password"/>
