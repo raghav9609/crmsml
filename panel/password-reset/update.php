@@ -7,6 +7,7 @@ require_once(dirname(__FILE__) . '/../../helpers/common-helper.php');
 require_once "../../include/header.php";
 include("../../include/helper.functions.php");
 
+
 $old_password           = $_POST['old_password'];
 $new_password           = $_POST['new_password'];
 $confirm_new_password   = $_POST['confirm_new_password'];
@@ -21,8 +22,8 @@ if(!empty($old_password) && !empty($new_password) && !empty($confirm_new_passwor
     $enc_new_password           = md5($new_password);
     $enc_confirm_new_password   = md5($confirm_new_password);
     $select_password_query = "SELECT id, password FROM crm_master_user WHERE id = '".$user_id."' ";
-    echo $select_password_query;
     $select_password_exe = mysqli_query($Conn1, $select_password_query);
+    echo "hiiii";
     if(mysqli_num_rows($select_password_exe) > 0) {
         $select_password_res = mysqli_fetch_array($select_password_exe);
         echo $enc_old_password."----------".$select_password_res['password'];
