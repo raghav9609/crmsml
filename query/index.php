@@ -203,15 +203,11 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                         $default = 1;
                             $qry .= " and qry.lead_assign_to = '" . $u_assign . "'";
                     }
-                    if($user_role == 3){
+                    if($user_role == 3 || ($_SESSION['userDetails']['tluserlist'] != "")){
                         $qry .= " and qry.lead_assign_to = '" . $user_id . "'";
-                    }else if($user_role == 2){
-                        if(!empty($_SESSION['userDetails']['tluserlist'])){
-                            $qry .= " and qry.lead_assign_to IN (" . $_SESSION['userDetails']['tluserlist'] . ")";
-                        }else{
-                            echo "Please Assign Partner to RM First";
-                        }
-                }
+                    }else if($user_role == 2 && $_SESSION['userDetails']['tluserlist'] != ""){
+                        $qry .= " and qry.lead_assign_to IN (" . $_SESSION['userDetails']['tluserlist'] . ")";
+                    }
                     
                     if ($search != '') {
                         $default = 1;
@@ -299,7 +295,7 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                   
         
                     $qry .= " order by qry.id desc limit " . $offset . "," . $max_offset;
-                    echo $qry;
+                    // echo #
                     ?>
                     <fieldset>
                         <legend>Query Filter</legend>
