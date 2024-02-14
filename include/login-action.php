@@ -49,7 +49,7 @@ if(requestMethod() != 'POST'){
                                                 "contact_no"=>$user_data[0]['mobile_no'],
                                                 "role_id"=>$user_data[0]['role_id'],
                                                 "user_login_datetime"=>$user_data[0]['last_login_on'],
-                                                "tluserlist"=>$gettluserList,
+                                                "tluserlist"=>$gettluserList['user_id'],
                                                 "tlloanlist"=>$gettlloanList,
                                                 "rmpartnerlist"=>$getrmPartnerList
                                             );
