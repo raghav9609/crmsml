@@ -376,7 +376,7 @@ $qry_ex .= " group by app.id order by app.created_on desc limit ".$offset.",".$m
  <form method = "post" name="frmmain" action ="mask_assign.php">
 <tr>
 <?php if($_SESSION['assign_access_lead'] == 1){?><th width="5%"><div><input type ="checkbox" name ="selectAll[]" id="selectAll">Select</div></th><?php } ?>
-<th width="10%">Application No<br> Bank App No.</th>
+<th width="10%">Application No</th>
 <th width="10%">Name & Mobile & City</th>
 <th width="10%">Loan amount & Loan Type</th>
 <th width="10%">Partner</th>
@@ -441,7 +441,6 @@ if ($(this).not(":checked")) {
 <!-- <br/> -->
 <a href = "edit.php?case_id=<?php echo urlencode(base64_encode($case_id)) ;?>&app_id=<?php echo urlencode(base64_encode($crm_query_id)); ?>&cust_id=<?php echo urlencode(base64_encode($cust_id));?>&loan_type=<?php echo $loan_type;?>" class="has_link">
 <span><?php echo $crm_query_id;?></span></a>
-<br><?php echo $bank_application_no; ?>
 </td>
 <td>
 <span>
