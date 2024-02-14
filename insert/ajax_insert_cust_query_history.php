@@ -70,6 +70,22 @@ if($type == "case") {
         $return_html = "";
     }
 }
+if($type == "equifax") {
+    $case_id = $_REQUEST['case_id'];
+    $case_history_query = "select * from crm_lead_assignment_history where lead_id = '".$case_id."'";
+    
+    $case_history_result= mysqli_query($Conn1,$case_history_query);
+    $case_count = mysqli_num_rows($case_history_result);
+    $sr_no = 0;
+    if($case_count > 0) {
+        // $return_html .= '<table  class="gridtable" width="100%"><tr><th>Sr. No.</th><th>User Assign From</th><th>User Assign To</th><th>Assign By</th><th>Date</th></tr>';
+        $return_html .='<button type = "submit">Fetch Equifax</button>';
+        
+        /*}*/
+    } else {
+        $return_html = "";
+    }
+}
 /* coding for customer case history ends*/ 
 /* coding for customer application history start */
 if($type == "app") {
