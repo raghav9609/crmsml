@@ -167,10 +167,11 @@
                                 <span class='green' id='age' style="position: absolute;top: 100%;background: transparent;color: green;left: 15px;"></span>
                             </div>
                                 <?php 
-                                if($_SESSION['show_number_flag'] == 2 || $_SESSION['show_number_flag'] == 3) {
-                                $phone_number =  substr_replace($phone,'XXX',4,3);
+                                // if($_SESSION['show_number_flag'] == 2 || $_SESSION['show_number_flag'] == 3) {
+                                if($user_role != 1){
+                                    $phone_number =  substr_replace($phone,'XXX',4,3);
                                 } else {
-                                $phone_number =  $phone;
+                                    $phone_number =  $phone;
                                 }
                                 ?>
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
