@@ -416,7 +416,7 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
             if(case_id || query_id) {
                 $.ajax({
                     type: "POST",
-                    url: "../app/",
+                    url: "../insert/ajax_insert_cust_query_history.php",
                     data: "case_id="+case_id+"&query_id="+query_id+"&type=equifax",
                     beforeSend: function () {
                         $(".tab-6 > .facts > .register > .table_set").html('<div class="img">Please wait while we are fetching the details...</div><div class="img"><img style="width: 10%" src="../../include/img/common-loader.gif" /></div>');
