@@ -419,20 +419,20 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
                     url: "../insert/ajax_insert_cust_query_history.php",
                     data: "case_id="+case_id+"&query_id="+query_id+"&type=equifax",
                     beforeSend: function () {
-                        $(".tab-6 > .facts > .register > .table_set").html('<div class="img">Please wait while we are fetching the details...</div><div class="img"><img style="width: 10%" src="../../include/img/common-loader.gif" /></div>');
+                        $(".tab-7 > .facts > .register > .table_set").html('<div class="img">Please wait while we are fetching the details...</div><div class="img"><img style="width: 10%" src="../../include/img/common-loader.gif" /></div>');
                     },
                     success: function(msg) {
                         if(msg.trim() == "") {
-                            $(".tab-6 > .facts > .register > .table_set").html("<h3>No Data Found</h3>");
+                            $(".tab-7 > .facts > .register > .table_set").html("<h3>No Data Found</h3>");
                         } else {
-                            $(".tab-6 > .facts > .register > .table_set").html(msg);
+                            $(".tab-7 > .facts > .register > .table_set").html(msg);
                             show_hide(".request_send");
                             show_hide(".response_recv");
                         }
                     }
                 });
             } else {
-                $(".tab-6 > .facts > .register > .table_set").html("<h3>No Data Found</h3>");
+                $(".tab-7 > .facts > .register > .table_set").html("<h3>No Data Found</h3>");
             }
             loaded_api_res = true;
         }
