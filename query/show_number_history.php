@@ -14,5 +14,5 @@ if($src == 'query'){
 $res_fetch = mysqli_fetch_array($qry_fetch);
 echo $phone = $res_fetch['phone'];
 
-$qry_show_num = mysqli_query($Conn1,"Insert into crm_show_number_history set query_id='".$id."',user_id='".$user."',datetime=NOW()");
+$qry_show_num = mysqli_query($Conn1,"Insert into crm_show_number_history set query_id='".$id."',user_id='".$user_id."',datetime=NOW()");
 ?>
