@@ -13,11 +13,11 @@
 
 
 	$password = "";
-	if($user_role == 1 || $user == 241 || $user == 16 || $user == 83 || $user == 150 || $user == 318 || $user == 314) {
+	if($user_role == 1) {
 		$user_password = $_REQUEST['password_flag'];
 		if(trim($user_password) != "") {
 			if(strlen($user_password) == 8) {
-				$password = md5(base64_encode($user_password));
+				$password = md5($user_password);
 			} else {
 				header("Location: ".$head_url."/panel/user-update/index.php?msg=3");		//Password length not valid
 				exit;
@@ -25,10 +25,10 @@
 		}
 	}
 
-	$show_number_flag = "";
-	if($user_role == 1 || $user == 241 || $user == 16 || $user == 83 || $user == 314) {
-		$show_number_flag = $_REQUEST['show_number_flag'];
-	}
+	// $show_number_flag = "";
+	// if($user_role == 1 || $user == 241 || $user == 16 || $user == 83 || $user == 314) {
+	// 	$show_number_flag = $_REQUEST['show_number_flag'];
+	// }
 
 
 	$qry_ins = "UPDATE crm_master_user set name = '".$name."',role_id='".$_REQUEST['role_id']."',sms_flag='".$_REQUEST['sms_flag']."',is_active='".$_REQUEST['status']."'";

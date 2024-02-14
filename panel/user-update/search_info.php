@@ -91,7 +91,7 @@ function joinee_validation() {
 	<?php } ?>
 </select></td></tr>
 
-
+<?php if($user_role = 1){?>
 <tr class="password_flag">
     <td>Password :</td>
     <td>
@@ -99,6 +99,7 @@ function joinee_validation() {
         <small style='color: red'>* 8 digit required</small>
     </td>
 </tr>
+<?php } ?>
 <tr class="show_number_flag hidden">
     <td>Show Number Flag :</td>
     <td>
