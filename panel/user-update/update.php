@@ -2,7 +2,6 @@
 	require_once(dirname(__FILE__) . '/../../config/session.php');
 	require_once(dirname(__FILE__) . '/../../helpers/common-helper.php');
     require_once "../../config/config.php";
-	print_r($_REQUEST);
 	$up_tl = "";
 	$up_loan = "";
 	 $name = $_REQUEST['name'];
@@ -18,10 +17,8 @@
 
 	$password = "";
 	if($user_role == 1) {
-		echo 1;
 		$user_password = $_REQUEST['password_flag'];
 		if(trim($user_password) != "") {
-			echo 2;
 			$password = md5($user_password);
 
 		}
@@ -32,7 +29,6 @@
 	// 	$show_number_flag = $_REQUEST['show_number_flag'];
 	// }
 
-	echo 3;
 	$qry_ins = "UPDATE crm_master_user set name = '".$name."',role_id='".$_REQUEST['role_id']."',sms_flag='".$_REQUEST['sms_flag']."',is_active='".$_REQUEST['status']."'";
 	if($_SESSION['user_role'] == 1 || $_SESSION['user_role'] == 4){
 		$qry_ins .= " ,email_id = '".$email."'";
@@ -50,12 +46,10 @@
 		$qry_ins .= " , show_number_flag = '".$show_number_flag."' ";
 	}
 
-	echo 4;
 
 	$qry_ins .= " where id = '".$_REQUEST['user']."'";
 	$result_query_updation = mysqli_query($Conn1,$qry_ins);
 
-	echo $qry_ins;
 
 
 
@@ -69,5 +63,5 @@
 		$qry_lt = mysqli_query($Conn1,"Insert into crm_user_loan_type_mapping set user_id = '".$_REQUEST['user']."', loan_type = '".$loan."'");
 	 }
   }
-	 header("location:".$head_url."/panel/user-update/index.php?msg=2");
-?>
+	//  header("location:".$head_url."/panel/user-update/index.php?msg=2");
+	echo "<script>window.location.href='$head_url.'/panel/user-update/index.php?msg=2';</script>";?>
