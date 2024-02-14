@@ -55,7 +55,7 @@ class userModel {
         return $queryReturn;
     }
     function gettlUserList($user_id){
-        $queryReturn = "select * from crm_tl_user_mapping where is_active = 1 and tl_user_id = ".$user_id;
+        $queryReturn = "select group_concat(user_id) from crm_tl_user_mapping where is_active = 1 and tl_user_id = ".$user_id;
         return $queryReturn;
     }
     function gettlloanList($user_id){
