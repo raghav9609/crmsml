@@ -203,10 +203,10 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                         $default = 1;
                             $qry .= " and qry.lead_assign_to = '" . $u_assign . "'";
                     }
-                    if($user_role == 3){
-                        $qry .= " and qry.lead_assign_to = '" . $user_id . "'";
-                    }else if($user_role == 2){
-                        $qry .= " and qry.lead_assign_to IN (" . $_SESSION['userDetails']['tluserlist'] . ")";
+                    if($user_role == 3 || ($user_role == 2 && $_SESSION['userDetails']['tluserlist'] == "")){
+                        $qry .= " and qry.lead_assign_to = '" . $user_id . "' ";
+                    }else if($user_role == 2 && $_SESSION['userDetails']['tluserlist'] != ""){
+                        $qry .= " and qry.lead_assign_to IN (" . $_SESSION['userDetails']['tluserlist'] . ") and qry.lead_assign_to <> 0";
                     }
                     
                     if ($search != '') {
@@ -283,7 +283,9 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                         $default = 1;
                         $qry .= " AND cust.email_id = '" . $email_search . "' ";
                     }
+
                     $qry .= " AND qry.follow_given_by <> 2 order by qry.id desc limit " . $offset . "," . $max_offset;
+
                     ?>
                     <fieldset>
                         <legend>Query Filter</legend>
@@ -319,6 +321,13 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                             <input type="text" class="text-input" name="follow_date_from" id="follow_date_from" placeholder="Follow Date From" maxlength="10" value="<?php echo $follow_date_from; ?>" readonly="readonly" />
                             <input type="text" class="text-input" name="follow_date_to" id="follow_date_to" placeholder="Follow Date To" maxlength="10" value="<?php echo $follow_date_to; ?>" readonly="readonly" />
 
+                            <select name="fup_given_by" id="fup_given_by">
+                                <option value="">Followup Given By</option>
+                                <option value="1" <?php echo ($fup_given_by == 1) ? "selected" : ""; ?>>Customer</option>
+                                <option value="5" <?php echo ($fup_given_by == 5) ? "selected" : ""; ?>>Auto FUP by Customer</option>
+                                <option value="2" <?php echo ($fup_given_by == 2) ? "selected" : ""; ?>>SML User</option>
+                            </select>
+
                             <input type="text" class="text-input numonly" name="customer_id_search" id="customer_id_search" placeholder="Customer ID" maxlength="30" value="<?php echo $customer_id_search; ?>" />
                             <input type="text" class="text-input alnum-wo-space" name="masked_phone" id="masked_phone" placeholder="Masked Phone No." value="<?php echo $masked_phone; ?>" maxlength="10" />
                             <input type="text" class="text-input no-space" name="email_search" id="email_search" placeholder="Customer Email" value="<?php echo $email_search; ?>" maxlength="100" autocomplete="null" />
@@ -330,10 +339,6 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                     <form method="POST" name="frmmain" action="mask_assign.php">
                         <table width="100%" class="gridtable">
                             <tr>
-                                <?php if (in_array($user_role,array(1,2))) { ?>
-                                    <th width="5%">
-                                        <div><input type="checkbox" name="selectall" id="selectall" onClick="selectAll(this)">Select</div>
-                                        </td><?php } ?>
                                     <th width="10%">Query id / <br> Date & Time</th>
                                     <th width="10%">Tool Type</th>
                                     <th width="10%">Loan Amount & Type</th>
@@ -427,11 +432,7 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                                     $utm_campain_name = ucfirst($get_array['utm_campaign']);
                             ?>
                                     <tr>
-                                        <?php if (in_array($user_role,array(1,2))) { ?>
-                                            <td>
-                                                <input type="checkbox" name="mask[]" value="<?php echo $id; ?>">
-                                            </td>
-                                        <?php } ?>
+                                       
                                         <td><span><?php echo $id; ?> </span> <br> <span class="fs-13"><?php echo $date; ?></span></td>
                                         <td><?php echo $tool_type ;?></span></td>
                                         <td><a href="../query/edit.php?ut=<?php echo $ut; ?>&id=<?php echo urlencode(base64_encode($id)); ?>&page=<?php echo $page; ?>" class="has_link"><span><?php echo $loan_amt; ?></span><br/>
@@ -455,14 +456,7 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                                     </tr>
                                 <?php  } ?>
                         </table>
-                        <?php if (in_array($user_role,array(1,2))) { ?>
-                            <div class="clear ml10 pdT10" style="margin-top: 1%;">
-                                <input type="radio" id="assign" name="assign">Assigned to
-                                <span id="assign_to"><?php echo get_dropdown('user_id_3', 'assigned', '', ''); ?>
-                                    <input type="hidden" name="request_builder" value="<?php echo http_build_query($_REQUEST); ?>">
-                                    <input type="submit" name="edit" value="Assign" />
-                            </div>
-                        <?php } ?>
+                       
                     </form>
                     <?php if ($recordcount > 0) { ?>
                         <table width="85%" style="float:left" border="0" align="center" cellpadding="4" cellspacing="1" class="pagination">
