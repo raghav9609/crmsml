@@ -209,7 +209,7 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                         if(!empty($_SESSION['userDetails']['tluserlist'])){
                             $qry .= " and qry.lead_assign_to IN (" . $_SESSION['userDetails']['tluserlist'] . ")";
                         }else{
-                            echo "\e[31mPlease Assign Partner to RM First\e[0m";
+                            echo "Please Assign Partner to RM First";
                         }
                 }
                     
