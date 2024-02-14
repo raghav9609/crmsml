@@ -10,6 +10,7 @@
 	 
 	 $tl = ($_REQUEST['tl']);
 	 $loan_type =($_REQUEST['loan_type']);
+	 echo "hello";
 	 $up_tl = implode(',', $tl);
 	 $up_loan = implode(',',$loan_type);
 
