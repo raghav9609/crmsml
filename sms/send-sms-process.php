@@ -12,7 +12,7 @@ echo $url= "https://bulkpush.mytoday.com/BulkSms/SingleMsgApi?feedid=385302&user
 $response = curl_get_helper($url);
 $qry = "INSERT INTO crm_communication_history SET query_id='".$query_id."',type = 2, communication_id = '".$subject."',response='".base64_encode($response)."',description = '".base64_encode($description)."'";
 $insert_comm = mysqli_query($Conn1,$qry);
-// echo '<script>window.location.href = "'.$head_url.'/query/";</script>';
+echo '<script>window.location.href = "'.$head_url.'/query/";</script>';
         ?>       
  
         
