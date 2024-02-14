@@ -5,15 +5,12 @@ require_once "../../include/config.php";
 $id = $_REQUEST['id'];
 $src = $_REQUEST['src'];
 
-if($src == 'query'){
-    $qry_fetch = mysqli_query($Conn1, "SELECT cust.alt_phone as alt_phone FROM tbl_mint_query as query LEFT JOIN tbl_mint_customer_info as cust on query.cust_id = cust.id WHERE query_id = '".$id."'");
+  $qry_fetch = mysqli_query($Conn1, "SELECT cust.alternate_phone_no as alt_phone FROM crm_query as query LEFT JOIN crm_customer as cust on query.crm_customer_id = cust.id WHERE qry.id = '".$id."'");
 
-} else if($src == 'case'){
-  $qry_fetch = mysqli_query($Conn1, "SELECT cust.alt_phone as alt_phone FROM tbl_mint_case as cse LEFT JOIN tbl_mint_customer_info as cust on cse.cust_id = cust.id WHERE case_id = '".$id."'");  
-}
+
 
 $res_fetch = mysqli_fetch_array($qry_fetch);
 echo $alt_phone = $res_fetch['alt_phone'];
 
-$qry_show_num = mysqli_query($Conn1, "INSERT INTO crm_show_number_history SET id='".$id."',user_id='".$user."',source='".$src."',datetime=NOW(), phone_number_type = '2' ");
+$qry_show_num = mysqli_query($Conn1, "INSERT INTO crm_show_number_history SET query_id='".$id."',user_id='".$user_id."',datetime=NOW(), phone_number_type = '2' ");
 ?>
