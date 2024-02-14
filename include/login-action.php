@@ -35,7 +35,6 @@ if(requestMethod() != 'POST'){
                     // $gettlloanList = $db_handle->runQuery($get_user->gettlloanList($user_data[0]['id']));
                     $user_list_qry = mysqli_query($Conn1, "select * from crm_tl_user_mapping where is_active = 1 and tl_user_id = ".$user_id);
                     $gettluserList = mysqli_fetch_array($user_list_qry);
-                    print_r($gettluserList);
                     $loan_list_qry = mysqli_query($Conn1, "select * from crm_user_loan_type_mapping where is_active = 1 and user_id = ".$user_id);
                     $gettlloanList = mysqli_fetch_array($loan_list_qry);
                     
