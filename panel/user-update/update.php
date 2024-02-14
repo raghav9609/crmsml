@@ -3,16 +3,18 @@
 	require_once(dirname(__FILE__) . '/../../helpers/common-helper.php');
     require_once "../../config/config.php";
 	print_r($_REQUEST);
-
+	$up_tl = "";
+	$up_loan = "";
 	 $name = $_REQUEST['name'];
 	 $email = $_REQUEST['email'];
 	 $mobile = ($_REQUEST['phone']);
 	 
 	 $tl = ($_REQUEST['tl']);
 	 $loan_type =($_REQUEST['loan_type']);
-	 echo "hello";
-	 $up_tl = implode(',', $tl);
-	 $up_loan = implode(',',$loan_type);
+	if(!empty($tl)){
+	 $up_tl = implode(',', $tl);}
+	 if(!empty($loan_type)){
+	 $up_loan = implode(',',$loan_type);}
 
 	$password = "";
 	if($user_role == 1) {
