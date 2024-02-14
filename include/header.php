@@ -88,8 +88,7 @@ require_once(dirname(__FILE__) . '/../model/headerModel.php');
           
         <li><span class="f_20 white">
         <?php echo $_SESSION['userDetails']['user_name']; ?></span>&nbsp;&nbsp;
-        <a href="<?php echo $head_url; ?>/change-password/index.php"> 
-            <img style='width: 15%;' src="<?php echo $head_url; ?>/assets/images/reset-icon.png" alt="Reset"> </a>&nbsp;&nbsp;
+        
             <a href="<?php echo $head_url; ?>/logout.php" class=""><img style='width:15%;' src="<?php echo $head_url; ?>/assets/images/logout.png" alt="Logout"></a>
         </li>
 	  </ul> </div>
