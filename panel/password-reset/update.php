@@ -8,9 +8,12 @@ $confirm_new_password   = $_POST['confirm_new_password'];
 
 $return_val = 0;
 if(!empty($old_password) && !empty($new_password) && !empty($confirm_new_password)) {
-    $enc_old_password           = md5(base64_encode($old_password));
-    $enc_new_password           = md5(base64_encode($new_password));
-    $enc_confirm_new_password   = md5(base64_encode($confirm_new_password));
+    // $enc_old_password           = md5(base64_encode($old_password));
+    // $enc_new_password           = md5(base64_encode($new_password));
+    // $enc_confirm_new_password   = md5(base64_encode($confirm_new_password));
+    $enc_old_password           = md5($old_password);
+    $enc_new_password           = md5($new_password);
+    $enc_confirm_new_password   = md5($confirm_new_password);
     $select_password_query = "SELECT user_id, password FROM tbl_user_assign WHERE user_id = '".$user."' ";
     $select_password_exe = mysqli_query($Conn1, $select_password_query);
     if(mysqli_num_rows($select_password_exe) > 0) {
