@@ -409,6 +409,32 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
                 $(".tab-6 > .facts > .register > .table_set").html("<h3>No Data Found</h3>");
             }
             loaded_api_res = true;
+        }else if(e.id == "equifax") {
+            var case_id = "<?php echo $case_id; ?>";
+            var query_id = "<?php echo $qryyy_id; ?>";
+            if(loaded_api_res) return;
+            if(case_id || query_id) {
+                $.ajax({
+                    type: "POST",
+                    url: "../app/",
+                    data: "case_id="+case_id+"&query_id="+query_id,
+                    beforeSend: function () {
+                        $(".tab-6 > .facts > .register > .table_set").html('<div class="img">Please wait while we are fetching the details...</div><div class="img"><img style="width: 10%" src="../../include/img/common-loader.gif" /></div>');
+                    },
+                    success: function(msg) {
+                        if(msg.trim() == "") {
+                            $(".tab-6 > .facts > .register > .table_set").html("<h3>No Data Found</h3>");
+                        } else {
+                            $(".tab-6 > .facts > .register > .table_set").html(msg);
+                            show_hide(".request_send");
+                            show_hide(".response_recv");
+                        }
+                    }
+                });
+            } else {
+                $(".tab-6 > .facts > .register > .table_set").html("<h3>No Data Found</h3>");
+            }
+            loaded_api_res = true;
         }
         // else if(e.id == "lead_alloc") {
         //     var query_id = "<?php echo $qryyy_id; ?>";
@@ -757,6 +783,9 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
                     </li>
                     <li class="resp-tab-item lost tab-view" aria-controls="details_tab_6"  id="app_rq_rs"  role="tab" onclick="callAjaxData(this)">
                         <span>Lead Display</span>
+                    </li>
+                    <li class="resp-tab-item lost tab-view" aria-controls="details_tab_7"  id="equifax"  role="tab" onclick="callAjaxData(this)">
+                        <span>Equifax</span>
                     </li>
                     <!-- <li class="resp-tab-item lost tab-view" aria-controls="details_tab_7"  id="lead_alloc"  role="tab" onclick="callAjaxData(this)">
                         <span>Allocation</span>
