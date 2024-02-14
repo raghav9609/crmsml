@@ -5,7 +5,7 @@ require_once "../config/config.php";
 $id = $_REQUEST['id'];
 $src = $_REQUEST['src'];
 
-  $qry_fetch = mysqli_query($Conn1, "SELECT cust.alternate_phone_no as alt_phone FROM crm_query as query LEFT JOIN crm_customer as cust on query.crm_customer_id = cust.id WHERE qry.id = '".$id."'");
+  $qry_fetch = mysqli_query($Conn1, "SELECT cust.alternate_phone_no as alt_phone FROM crm_query as query LEFT JOIN crm_customer as cust on query.crm_customer_id = cust.id WHERE query.id = '".$id."'");
 
 
 
