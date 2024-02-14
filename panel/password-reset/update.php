@@ -19,6 +19,7 @@ if(!empty($old_password) && !empty($new_password) && !empty($confirm_new_passwor
     $enc_new_password           = md5($new_password);
     $enc_confirm_new_password   = md5($confirm_new_password);
     $select_password_query = "SELECT user_id, password FROM tbl_user_assign WHERE user_id = '".$user."' ";
+    echo $select_password_query;
     $select_password_exe = mysqli_query($Conn1, $select_password_query);
     if(mysqli_num_rows($select_password_exe) > 0) {
         $select_password_res = mysqli_fetch_array($select_password_exe);
