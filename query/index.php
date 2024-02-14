@@ -201,16 +201,14 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                     
                     if ($u_assign != '') {
                         $default = 1;
-                            $qry .= " and qry.user_id = '" . $u_assign . "'";
+                            $qry .= " and qry.lead_assign_to = '" . $u_assign . "'";
                     }
                     if($user_role == 3){
-                        $qry .= " and qry.user_id = '" . $user_id . "'";
+                        $qry .= " and qry.lead_assign_to = '" . $user_id . "'";
                     }else if($user_role == 2){
-                        $qry .= " and qry.user_id IN (" . $_SESSION['userDetails']['tluserlist'] . ")";
+                        $qry .= " and qry.lead_assign_to IN (" . $_SESSION['userDetails']['tluserlist'] . ")";
                     }
-                    if ($tl_member != '' && $user_role == 2 && $u_assign == '') {
-                        $qry .= " and (qry.user_id IN ($tl_member,0))";
-                    }
+                    
                     if ($search != '') {
                         $default = 1;
                         $qry .= " and qry.loan_type = '" . $search . "'";
