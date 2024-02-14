@@ -1,5 +1,6 @@
 <?php
-require_once "../../include/config.php";
+require_once "../config/session.php";
+require_once "../config/config.php";
 $type = $_REQUEST['type'];
 $return_html = "";
 
