@@ -33,7 +33,7 @@ if(requestMethod() != 'POST'){
                     $gettluserList = $db_handle->runQuery($get_user->gettlUserList($user_data[0]['id']));
                     $gettlloanList = $db_handle->runQuery($get_user->gettlloanList($user_data[0]['id']));
                   
-                    
+                    print_r($gettluserList);
                 }else if ($user_data[0]['role_id'] == 4){
                     $getrmPartnerList = $db_handle->runQuery($get_user->getrmPartnerList($user_data[0]['id']));
                 }
