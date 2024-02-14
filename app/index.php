@@ -245,12 +245,16 @@ $insurance = replace_special($_REQUEST['insurance']);
 $promo = replace_special($_REQUEST['promocode']);
 $ref_phone = replace_special($_REQUEST['ref_phone']);
 
-$qry_ex = "SELECT app.application_status, cust.phone_no as phone, cust.name as name, app.id as app_i,app.user_id, cust.id as cust_id, cust.city_id as city_id,loan.value as loan_name,qry.crm_raw_data_id,app.crm_query_id,app.bank_id ,app.bank_application_no,qry.loan_type_id as loan_type,qry.loan_amount as required_loan_amt, app.login_date as login_date_on, app.sanction_date as sanction_date_on, app.disburse_date as first_disb_date_on, app.follow_up_date AS fup_date_on from crm_query_application as app JOIN crm_query as qry ON app.crm_query_id = qry.id Inner JOIN crm_customer as cust ON qry.crm_customer_id = cust.id INNER JOIN crm_masters as loan ON loan.id =  qry.loan_type_id INNER JOIN crm_master_city AS city" ;
+$qry_ex = "SELECT app.application_status, cust.phone_no as phone, cust.name as name, app.id as app_i,app.user_id, cust.id as cust_id, cust.city_id as city_id,loan.value as loan_name,qry.crm_raw_data_id,app.crm_query_id,app.bank_id ,app.bank_application_no,qry.loan_type_id as loan_type,qry.loan_amount as required_loan_amt, app.login_date as login_date_on, app.sanction_date as sanction_date_on, app.disburse_date as first_disb_date_on, app.follow_up_date AS fup_date_on from crm_query_application as app JOIN crm_query as qry ON app.crm_query_id = qry.id Inner JOIN crm_customer as cust ON qry.crm_customer_id = cust.id INNER JOIN crm_masters as loan ON loan.id =  qry.loan_type_id INNER JOIN crm_master_city AS city where 1 " ;
 
-if($user_id == 1){
-    $qry_ex .= " WHERE 1 ";
-}else{
-$qry_ex .= " WHERE 1 AND app.user_id = ".$user_id;
+if($user_role == 3){
+    $qry .= " and app.user_id = '" . $user_id . "'";
+}else if($user_role == 2){
+    $qry .= " and app.user_id IN (" . $_SESSION['userDetails']['tluserlist'] . ")";
+}
+
+if($user_role == 4){
+    $qry .= " and app.bank_id IN (" . $_SESSION['userDetails']['rmpartnerlist'] . ")";
 }
 if(trim($email_search) != "") {
     $default = 1;
@@ -419,49 +423,6 @@ $get_user_name = get_name("user_id",$app_user);
 
 
 $app_partner_on = $exe['partner_on'];
-$digital_verification = "";
-
-$cashback_arr = array(); $app_st_date = $cashback_app = "";
-if($app_status_on == 3 || $pre_login_status == 1016){
-	$app_st_date = (($exe['login_date_on']) == "0000-00-00" || $exe['login_date_on'] == "" || $exe['login_date_on'] == "1970-01-01") ? '--' : date("d-m-Y", strtotime($exe['login_date_on']));
-}else if($app_status_on == 5 || $pre_login_status == 1017){
-    $app_st_date = ($exe['sanction_date_on'] == '0000-00-00' || $exe['sanction_date_on'] == "" || $exe['sanction_date_on'] == "1970-01-01") ? '--' : date("d-m-Y", strtotime($exe['sanction_date_on']));
-}else if($app_status_on == 6 || $app_status_on == 7 || $pre_login_status == 1019){
-    $app_st_date = ($exe['first_disb_date_on'] == '0000-00-00' || $exe['first_disb_date_on'] == "" || $exe['first_disb_date_on'] == "1970-01-01") ? '--' : date("d-m-Y", strtotime($exe['first_disb_date_on']));
-	$cashback_qry = mysqli_query($Conn1,"select sent_flag,form_type, voucher_type from tbl_cash_bonanza where app_id = '".$app_id."' and sent_flag =1");
-	while($result_cashback_qry = mysqli_fetch_array($cashback_qry)){
-		$cashback_sent = $result_cashback_qry['sent_flag'];
-		if($result_cashback_qry['form_type'] == 1){
-			$cashback_msg = "(Refferal <span class='green'>&#10003;</span>)";
-		}else {
-            if($result_cashback_qry['voucher_type'] == 1) {
-                $cashback_msg = "(Flipkart <span class='green'>&#10003;</span>)";
-            } else if($result_cashback_qry['voucher_type'] == 2) {
-                $cashback_msg = "(Transfer to Bank <span class='green'>&#10003;</span>)";
-            } else if($result_cashback_qry['voucher_type'] == 3) {
-                $cashback_msg = "(Corona HI <span class='green'>&#10003;</span>)";
-            } else if($result_cashback_qry['voucher_type'] == 4) {
-                $cashback_msg = "(PA Insurance <span class='green'>&#10003;</span>)";
-            }
-		}
-			$cashback_arr[] = $cashback_msg;
-	}
-	if(!empty($cashback_arr)){
-		$cashback_app = "<span class='fs-12'>".implode("<br>",$cashback_arr)."</span>";
-	}
-}
-	if($app_status_on=='3' || $app_status_on=='5' || $app_status_on=='6' || $app_status_on=='7'){
-		$post_color='style="color:#22610F"';
-	}else if ($app_status_on=='4' ){
-		$post_color='style="color: #DA0808;"';
-    }else{
-        $post_color='style="color: #4E4577;"';
-    }
-
-	if($bank_crm_lead_on != ''){
-		$get_status = mysqli_query($Conn1,"select description,status from partner_lead_status where app_id = '".$app_id."' order by status_id desc limit 1");
-		$count_status = mysqli_num_rows($get_status);
-	}
 
 $script[]='<script type="text/javascript">
 $("#'.urlencode(base64_encode($case_id)).'").change(function(){

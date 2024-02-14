@@ -197,22 +197,16 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                     <!--Begin page content column-->
                     <?php
                     $qry = "select qry_app.application_status, qry.query_status as query_status,qry.junk_reason as junk_reason,cust.id as customer_id, cust.name as name,cust.email_id as email, cust.phone_no as phone,cust.cibil_score as cibil_score, cust.occupation_id as occup_id,city.city_name as city_name,cust.city_id as city_id, cust.net_income as net_incm, qry.verify_phone as verify_phone, qry.follow_status as follow_status,qry.follow_date as q_follow_date, qry.follow_time AS q_follow_time, user.name as user_name, qry.id as id,qry.created_on as date,qry.query_status_desc as query_status_desc, qry.tool_type as tool_type, qry.lead_assign_to as user_id, qry.loan_type_id as loan_type_id, qry.loan_amount as loan_amt,qry.page_url as page_url from crm_query as qry INNER join crm_customer as cust on qry.crm_customer_id = cust.id left join crm_master_city as city on cust.city_id = city.id left join crm_master_user as user on qry.lead_assign_to = user.id left join crm_query_application as qry_app on qry_app.crm_query_id = qry.id where 1 ";
-                    // $userIds = implode(',', $tluserlist);
-                    // $qry .= " AND app.user_id IN ($userIds)";
-                    // echo $qry;
-                
-                    print_r($_SESSION['userDetails']['tluserlist']);
-
-                    if ($user_role != 1) {
-                        $qry .= " and cust.phone_no NOT IN (0) ";
-                    }
+                    $qry .= " and cust.phone_no NOT IN (0) ";
+                    
                     if ($u_assign != '') {
                         $default = 1;
-                        if ($u_assign == 6) {
-                            $qry .= " and qry.user_id IN (0,6)";
-                        } else {
                             $qry .= " and qry.user_id = '" . $u_assign . "'";
-                        }
+                    }
+                    if($user_role == 3){
+                        $qry .= " and qry.user_id = '" . $user_id . "'";
+                    }else if($user_role == 2){
+                        $qry .= " and qry.user_id IN (" . $_SESSION['userDetails']['tluserlist'] . ")";
                     }
                     if ($tl_member != '' && $user_role == 2 && $u_assign == '') {
                         $qry .= " and (qry.user_id IN ($tl_member,0))";
@@ -279,30 +273,9 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
 
                     if ($query_statussearch != '') {
                         $default = 1;
-                        if ($query_statussearch == 11) {
-                            $qry .= " and qry.query_status IN (11,18)";
-                        }
-                        if ($query_statussearch == 5) {
-                            $qry .= " and qry.query_status IN (5,19)";
-                        } else {
+                      
                             $qry .= " and qry.query_status = '" . $query_statussearch . "'";
-                        }
                     }
-
-                    // if ($query_new_status != "") {
-                    //     $default = 1;
-                    //     $qry .= " AND stats.query_status = $query_new_status ";
-                    // }
-
-                    if ($application_status != "") {
-                        $default = 1;
-                        $qry .= " AND qry_app.application_status = $application_status ";
-                    }
-
-                    // if (($user_role == 2 || $user_role == 4 || $user_role == 9) && $search == '') {
-                    //     $qry .= " and qry.loan_type IN ($tl_loan_type)";
-                    // }
-
                     if ($date_from != '' && $date_to != '') {
                         $default = 1;
                         $qry .= " and date(qry.created_on) between '" . $date_from . "' and '" . $date_to . "' ";
@@ -317,9 +290,7 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                         $default = 1;
                         if ($fup_given_by == 1) {
                             $qry .= " AND qry.follow_given_by = 1 ";
-                        } else if ($fup_given_by == 5) {
-                            $qry .= " AND qry.follow_given_by = 5";
-                        } else {
+                        }else {
                             $qry .= " AND qry.follow_given_by != 1 ";
                         }
                     }
