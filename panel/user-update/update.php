@@ -2,6 +2,8 @@
 	require_once(dirname(__FILE__) . '/../../config/session.php');
 	require_once(dirname(__FILE__) . '/../../helpers/common-helper.php');
     require_once "../../config/config.php";
+	print_r($_REQUEST);
+
 	 $name = replace_special($_REQUEST['name']);
 	 $email = replace_special($_REQUEST['email']);
 	 $mobile = replace_special($_REQUEST['phone']);
@@ -12,7 +14,6 @@
 	 $up_loan = implode(',',$loan_type);
 
 	$password = "";
-	print_r($_REQUEST);
 	if($user_role == 1) {
 		echo 1;
 		$user_password = $_REQUEST['password_flag'];
