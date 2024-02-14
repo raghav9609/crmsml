@@ -894,6 +894,15 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
                             </div>
                         </div>
                     </div>
+                    <div class="tab-7 resp-tab-content" aria-labelledby="details_tab_7">
+                        <div class="facts">
+                            <div class="register">
+                                <div class="table_set">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <!-- <div class="tab-7 resp-tab-content" aria-labelledby="details_tab_7">
                         <div class="facts">
                             <div class="register">
