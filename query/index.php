@@ -202,7 +202,7 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                     // echo $qry;
                     print_r($_SESSION);
                     echo "---------------";
-                    print_r($_SESSION['userDetails']);
+                    print_r($_SESSION['userDetails']['tluserlist']);
                     echo "---------------";
                     print_r($_SESSION['userDetails']['tluserlist']['user_id']);
 
