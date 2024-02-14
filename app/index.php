@@ -446,7 +446,22 @@ if ($(this).not(":checked")) {
 </td>
 <td></td>
 <td>
-    <span><?php echo substr(ucwords(strtolower($cust_name)), 0, 20)."</span><br/><span class='fs-12'>".$phone."</span><br/><span class='fs-12'>".$city_name;?></span>
+<span>
+    <?php echo substr(ucwords(strtolower($cust_name)), 0, 20); ?>
+</span><br/>
+<span class='fs-12'>
+    <?php 
+    if($user_role != 1) {
+        $phone = substr_replace($phone, 'XXX', 4, 3);
+        echo $phone;
+    } else {
+        echo $phone;
+    }
+    ?>
+</span><br/>
+<span class='fs-12'>
+    <?php echo $city_name; ?>
+</span>
 </td>
 <td>
     <span><?php echo $loan_amount;?></span><br/><span class="fs-12"><?php echo $loan_name;?></span>
