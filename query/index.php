@@ -203,7 +203,7 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                         $default = 1;
                             $qry .= " and qry.lead_assign_to = '" . $u_assign . "'";
                     }
-                    if($user_role == 3 || ($user_role == 2 && $_SESSION['userDetails']['tluserlist'] != "")){
+                    if($user_role == 3 || ($user_role == 2 && $_SESSION['userDetails']['tluserlist'] == "")){
                         $qry .= " and qry.lead_assign_to = '" . $user_id . "'";
                     }else if($user_role == 2 && $_SESSION['userDetails']['tluserlist'] != ""){
                         $qry .= " and qry.lead_assign_to IN (" . $_SESSION['userDetails']['tluserlist'] . ")";
