@@ -74,7 +74,7 @@ if($msg == 1) {
                     <tr>
                         <td>Old Password <label style='color: red'>*</label> :</td>
                         <td>
-                            <input type="password" name="old_password" id="old_password" value="" placeholder="Old Password" maxlength="8" required/>
+                            <input type="password" name="old_password" id="old_password" value="" placeholder="Old Password" maxlength="10" required/>
                             <small style='color: red'>* 8 digit required</small>
                         </td>
                     </tr>
