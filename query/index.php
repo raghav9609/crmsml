@@ -206,8 +206,12 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                     if($user_role == 3){
                         $qry .= " and qry.lead_assign_to = '" . $user_id . "'";
                     }else if($user_role == 2){
-                        $qry .= " and qry.lead_assign_to IN (" . $_SESSION['userDetails']['tluserlist'] . ")";
-                    }
+                        if(!empty($_SESSION['userDetails']['tluserlist'])){
+                            $qry .= " and qry.lead_assign_to IN (" . $_SESSION['userDetails']['tluserlist'] . ")";
+                        }else{
+                            echo "\e[31mPlease Assign Partner to RM First\e[0m";
+                        }
+                }
                     
                     if ($search != '') {
                         $default = 1;
