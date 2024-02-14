@@ -43,4 +43,5 @@ if(!empty($old_password) && !empty($new_password) && !empty($confirm_new_passwor
     $return_val = 1;                //passwords empty
 }
 
-header("Location: index.php?msg=".$return_val);
+// header("Location: index.php?msg=".$return_val);
+echo "<script>window.location.href = '$head_url';</script>";
