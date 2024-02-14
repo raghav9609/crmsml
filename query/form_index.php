@@ -187,7 +187,8 @@
                                 <?php 
                                     $alternate_phone = "";
                                     if(trim($alt_phone) != "") {
-                                    if($_SESSION['show_number_flag'] == 2 || $_SESSION['show_number_flag'] == 3) {
+                                    // if($_SESSION['show_number_flag'] == 2 || $_SESSION['show_number_flag'] == 3) {
+                                    if($user_role != 1){
                                         $alternate_phone = substr_replace($alt_phone, 'XXX', 4, 3);
                                       } else {
                                         $alternate_phone = $alt_phone;
