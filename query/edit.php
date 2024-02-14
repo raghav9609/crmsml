@@ -365,7 +365,7 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
             if(query_id) {
                 $.ajax({
                     type: "POST",
-                    url: "../all_query/query_other_details.php",
+                    url: "../insert/show_number_history.php",
                     data: "query_id="+query_id,
                     beforeSend: function () {
                         $(".tab-5 > .facts > .register > .table_set").html('<div class="img">Please wait while we are fetching the details...</div><div class="img"><img style="width: 10%" src="../../include/img/common-loader.gif" /></div>');
