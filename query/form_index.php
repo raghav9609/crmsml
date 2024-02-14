@@ -401,10 +401,10 @@
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
                                     <label for="loan_in_past" class="radio-tag label-tag">Any loan or credit card in past?</label>
                                     <div class="boolean-button error_contain">
-                                        <input type="radio" id="loan_in_past" name="loan_in_past" required <?php if($loan_in_past == 1){echo "checked";} ?> value="1" >
-                                        <label for="loan_in_past" class="yes">Yes</label>
-                                        <input type="radio" id="loan_in_past" name="loan_in_past" required <?php if($loan_in_past == 2){echo "checked";} ?> value="2" >
-                                        <label for="loan_in_past" class="no">No</label> 
+                                        <input type="radio" id="loan_in_past_yes" name="loan_in_past" required <?php if($loan_in_past == 1){echo "checked";} ?> value="1" >
+                                        <label for="loan_in_past_yes" class="yes">Yes</label>
+                                        <input type="radio" id="loan_in_past_no" name="loan_in_past" required <?php if($loan_in_past == 2){echo "checked";} ?> value="2" >
+                                        <label for="loan_in_past_no" class="no">No</label> 
                                     </div>
                                 </div>
                           
