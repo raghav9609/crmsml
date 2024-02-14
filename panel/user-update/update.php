@@ -2,7 +2,6 @@
 	require_once(dirname(__FILE__) . '/../../config/session.php');
 	require_once(dirname(__FILE__) . '/../../helpers/common-helper.php');
     require_once "../../config/config.php";
-	print_r($_REQUEST);
 	 $name = replace_special($_REQUEST['name']);
 	 $email = replace_special($_REQUEST['email']);
 	 $mobile = replace_special($_REQUEST['phone']);
@@ -12,17 +11,12 @@
 	 $up_tl = implode(',', $tl);
 	 $up_loan = implode(',',$loan_type);
 
-
 	$password = "";
 	if($user_role == 1) {
 		$user_password = $_REQUEST['password_flag'];
 		if(trim($user_password) != "") {
-			if(strlen($user_password) == 8) {
-				$password = md5($user_password);
-			} else {
-				header("Location: ".$head_url."/panel/user-update/index.php?msg=3");		//Password length not valid
-				exit;
-			}
+			$password = md5($user_password);
+
 		}
 	}
 
