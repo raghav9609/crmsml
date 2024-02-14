@@ -79,7 +79,7 @@ if($type == "equifax") {
     // $sr_no = 0;
     // if($case_count > 0) {
         // $return_html .= '<table  class="gridtable" width="100%"><tr><th>Sr. No.</th><th>User Assign From</th><th>User Assign To</th><th>Assign By</th><th>Date</th></tr>';
-        $return_html .='<button type = "submit">Fetch Equifax</button>';
+        $return_html .='<input type="button" class="btn btn-primary valid" name="equifax" id="step1-temp" value="Fetch Equifax">';
         
         /*}*/
     // } else {
