@@ -1,7 +1,10 @@
 <?php
 // require_once "../../include/check-session.php";
-require_once(dirname(__FILE__) . '../../config/session.php');
-require_once "../../config/config.php";
+// require_once "../../include/config.php";
+require_once(dirname(__FILE__) . '/../../config/session.php');
+require_once(dirname(__FILE__) . '/../../helpers/common-helper.php');
+require_once "../../include/header.php";
+include("../../include/helper.functions.php");
 
 $old_password           = $_POST['old_password'];
 $new_password           = $_POST['new_password'];
