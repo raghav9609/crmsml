@@ -16,7 +16,8 @@ require_once(dirname(__FILE__) . '/../../config/config.php');
 		$user_password = $_REQUEST['password_flag'];		
 		if(trim($user_password) != "") {
 			if(strlen($user_password) >= 8) {
-				$password = md5(base64_encode($user_password));
+				// $password = md5(base64_encode($user_password));
+				$password = md5($user_password);
 			} else {
 				echo '<script>window.location.href = "'.$head_url.'/panel/user-update/joinee_form.php?msg=3";</script>';
 				//header("Location: ".$head_url."/panel/user-update/joinee_form.php?msg=3");		//Password length not valid
