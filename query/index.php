@@ -3,7 +3,7 @@ require_once(dirname(__FILE__) . '/../config/session.php');
 require_once(dirname(__FILE__) . '/../helpers/common-helper.php');
 require_once(dirname(__FILE__) . '/../include/header.php');
 require_once(dirname(__FILE__) . '/../config/config.php');
-print_r($tluserlist);
+print_r($_SESSION['tluserlist']);
 
 if($user_role == 4){
     echo "<script>window.location.href='".$head_url."/app/';</script>";
