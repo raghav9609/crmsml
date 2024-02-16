@@ -26,7 +26,6 @@ $resultqryReport = mysqli_fetch_array($resreport);
     </tbody>
 </table>
 
-
 <?php //print_r($resultqryReport);
 
 ?>
