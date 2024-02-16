@@ -117,9 +117,6 @@ if (isset($_REQUEST['query_statussearch'])) {
                         }
                         $getreport .= " GROUP by qry.query_status,qry.lead_assign_to";
                         
-                        
-                        echo $getreport;
-
                         $resreport = mysqli_query($Conn1,$getreport);
                     ?>
 

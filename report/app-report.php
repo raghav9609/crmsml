@@ -16,7 +16,12 @@ if (isset($_REQUEST['date_from'])) {
 if (isset($_REQUEST['date_to'])) {
     $date_to = replace_special($_REQUEST['date_to']);
 }
-
+if (isset($_REQUEST['follow_date_from'])) {
+    $follow_date_from = replace_special($_REQUEST['follow_date_from']);
+}
+if (isset($_REQUEST['follow_date_to'])) {
+    $follow_date_to = replace_special($_REQUEST['follow_date_to']);
+}
 if (isset($_REQUEST['application_status'])) {
     $application_status = replace_special($_REQUEST['application_status']);
 }
