@@ -121,7 +121,7 @@ if (isset($_REQUEST['application_status'])) {
 
                     <fieldset>
                         <legend>Report Filter</legend>
-                        <form method="post" action="query-report.php" name="searchfrm" autocomplete="off" onsubmit="return filter_validation()">
+                        <form method="post" action="app-report.php" name="searchfrm" autocomplete="off" onsubmit="return filter_validation()">
                             <input type="text" class="text-input" name="date_from" id="date_from" placeholder="Date From" maxlength="10" value="<?php echo $date_from; ?>" readonly="readonly" />
                             <input type="text" class="text-input" name="date_to" id="date_to" placeholder="Date To" maxlength="10" value="<?php echo $date_to; ?>" readonly="readonly" />
                             <?php echo get_dropdown('application_status', 'application_status', $application_status, ''); 
@@ -139,7 +139,7 @@ if (isset($_REQUEST['application_status'])) {
                         <tbody>
                             <tr>
                                 <th width="10%">User Name </th>
-                                <th width="10%">Query Status</th>
+                                <th width="10%">Application Status</th>
                                 <th width="10%">Total Leads</th>
                             </tr>
                             <?php  while($resappdata = mysqli_fetch_array($resappreport)){
