@@ -57,9 +57,9 @@ $title = array("Query Id", "Query Date Time", "Tool Type", "Customer Id", "Custo
 $output = fopen('php://output', 'w');
 
 fputcsv($output, $title);
-foreach ($content as $con) {
-    fputcsv($output, $con);
-}
+// foreach ($content as $con) {
+//     fputcsv($output, $con);
+// }
 fclose($output);
 
 //echo $querytoexecute;
