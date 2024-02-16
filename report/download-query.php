@@ -6,6 +6,14 @@ require_once(dirname(__FILE__) . '/../config/config.php');
 require_once(dirname(__FILE__) . '/../include/helper.functions.php');
 require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
 
+$filename = "crm-report.csv";
+
+header("Content-type: text/csv");
+header("Content-Disposition: attachment; filename=$filename");
+header("Pragma: no-cache");
+header("Expires: 0");
+
+
 if (isset($_REQUEST['fetchdata'])) {
     $querytoexecute = base64_decode($_REQUEST['fetchdata']);
 }
