@@ -151,9 +151,15 @@ if (isset($_REQUEST['query_statussearch'])) {
                                 <?php  foreach($statusdata As $stat){?>
                                     <th width="10%"><?php echo $stat;?></th>
                                     <?php } ?>
-                                <th width="10%">Total Leads</th>
                             </tr>
-                       
+                        <?php  foreach($userdata As $dat){?>
+                            <tr>
+                                <td><span><?php echo $dat;?> </span> </td>
+                                <?php foreach($statusdata As $statdisp){?>
+                                    <td><span><?php echo $dat[$statdisp];?> </span> </td>
+                                    <?php } ?> 
+                            </tr>
+                        <?php } ?>
                         </tbody>
                     </table>
                 </div>
