@@ -18,10 +18,9 @@ $resreport = mysqli_query($Conn1,$getreport);
             <th width="10%">Total Leads</th>
         </tr>
         <?php  while($resdata = mysqli_fetch_array($resreport)){
-            print_r($resdata);
-            ?>
+            if($resdata['user_name'] == ''){$userName = 'Unassigned'; } else {$userName = $resdata['user_name'];}?>
             <tr>
-                <td><span><?php echo $resdata['user_name'];?> </span> </td>
+                <td><span><?php echo $userName;?> </span> </td>
                 <td><span><?php echo $resdata['status'];?> </span> </td>
                 <td><span><?php echo $resdata['Total_count'];?> </span> </td>
             </tr>
