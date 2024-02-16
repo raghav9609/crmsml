@@ -22,8 +22,8 @@ if (isset($_REQUEST['follow_date_from'])) {
 if (isset($_REQUEST['follow_date_to'])) {
     $follow_date_to = replace_special($_REQUEST['follow_date_to']);
 }
-if (isset($_REQUEST['query_status'])) {
-    $query_status = replace_special($_REQUEST['query_status']);
+if (isset($_REQUEST['query_statussearch'])) {
+    $query_status = replace_special($_REQUEST['query_statussearch']);
 }
 ?>
 <!DOCTYPE html>
