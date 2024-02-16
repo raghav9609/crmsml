@@ -156,7 +156,7 @@ if (isset($_REQUEST['query_statussearch'])) {
                             <tr>
                                 <td><span><?php echo $dat;?> </span> </td>
                                 <?php foreach($statusdata As $statdisp){?>
-                                    <td><span><?php echo $dat[$statdisp];?> </span> </td>
+                                    <td><span><?php echo $datadisp[$dat][$statdisp];?> </span> </td>
                                     <?php } ?> 
                             </tr>
                         <?php } ?>
@@ -167,3 +167,16 @@ if (isset($_REQUEST['query_statussearch'])) {
         </div>
     </body>
 </html>
+
+
+
+                        
+        <?php //while($resdata = mysqli_fetch_array($resreport)){
+                            //if($resdata['user_name'] == ''){$userName = 'Unassigned'; } else {$userName = $resdata['user_name'];}
+                            ?>
+                            <!-- <tr>
+                                <td><span><?php //echo $userName;?> </span> </td>
+                                <td><span><?php //echo $resdata['status'];?> </span> </td>
+                                <td><span><?php //echo $resdata['Total_count'];?> </span> </td>
+                            </tr> -->
+                        <?php //} ?>
