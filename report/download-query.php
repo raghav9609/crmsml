@@ -43,7 +43,7 @@ while($rs = mysqli_fetch_array($results)) {
       
 }
 
-print_r($content);
+//print_r($content);
 
 $output = fopen('php://output', 'w');
 
@@ -52,5 +52,5 @@ foreach ($content as $con) {
     fputcsv($output, $con);
 }
 
-echo $querytoexecute;
+//echo $querytoexecute;
 ?>
