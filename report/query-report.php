@@ -66,7 +66,7 @@ if (isset($_REQUEST['query_status'])) {
             });
 
             function resetform() {
-                window.location.href = "<?php echo $head_url; ?>/query/";
+                window.location.href = "<?php echo $head_url; ?>/report/query-report.php";
             }
         </script>
     </head>

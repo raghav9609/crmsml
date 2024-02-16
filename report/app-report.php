@@ -66,17 +66,7 @@ if (isset($_REQUEST['application_status'])) {
             });
 
             function resetform() {
-                window.location.href = "<?php echo $head_url; ?>/query/";
-            }
-
-            function filter_validation() {
-                if ($("#email_search").val().trim() != "") {
-                    var email_regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-                    if (!email_regex.test($("#email_search").val())) {
-                        alert("Customer Email not valid")
-                        return false;
-                    }
-                }
+                window.location.href = "<?php echo $head_url; ?>/report/app-report.php";
             }
         </script>
     </head>
