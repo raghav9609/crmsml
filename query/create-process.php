@@ -12,11 +12,14 @@ $explpat = explode(',',$partnerId);
 $user_id = $_REQUEST['user_id'];
 $loanAmount = $_REQUEST['loan_amount'];
 
+if($user_role == 3){
+   $user_id = $_SESSION['userDetails']['user_id']; 
+}
 foreach($explpat As $patners){
     $getAppDetails = mysqli_query($Conn1,"select * from crm_query_application where crm_query_id = '".$query_id."' and bank_id ='".$patners."'");
     $exisdetails = mysqli_num_rows($getAppDetails);
     if ($exisdetails == 0){
-        $createApp = mysqli_query($Conn1,"Insert into crm_query_application set crm_query_id = '".$query_id."', bank_id ='".$patners."', applied_amount='".$loanAmount."',application_status=26,login_date=CURDATE(),user_id='".$user_id."'");
+        $createApp = mysqli_query($Conn1,"Insert into crm_query_application set crm_query_id = '".$query_id."', bank_id ='".$patners."', applied_amount='".$loanAmount."',application_status=34,user_id='".$user_id."'");
     } 
 }
 echo '1';

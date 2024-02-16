@@ -62,12 +62,8 @@ if($_REQUEST['assign_to'] == '1'){
 } 
 
 
-if($loan_type == 56 && $_REQUEST['salary_method'] == 3){
-    $user_id = 13;
-}
-
-if($loan_type == 32){
-    $user_id = 83;
+if($user_role = 3){
+    $user_id = $_SESSION['userDetails']['user_id'];
 }
 
 

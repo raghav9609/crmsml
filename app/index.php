@@ -245,7 +245,7 @@ $insurance = replace_special($_REQUEST['insurance']);
 $promo = replace_special($_REQUEST['promocode']);
 $ref_phone = replace_special($_REQUEST['ref_phone']);
 
-$qry_ex = "SELECT app.application_status, cust.phone_no as phone, cust.name as name, app.id as app_i,app.user_id, cust.id as cust_id, cust.city_id as city_id,loan.value as loan_name,qry.crm_raw_data_id,app.crm_query_id,app.bank_id ,app.bank_application_no,qry.loan_type_id as loan_type,qry.loan_amount as required_loan_amt, app.login_date as login_date_on, app.sanction_date as sanction_date_on, app.disburse_date as first_disb_date_on, app.follow_up_date AS fup_date_on from crm_query_application as app JOIN crm_query as qry ON app.crm_query_id = qry.id Inner JOIN crm_customer as cust ON qry.crm_customer_id = cust.id INNER JOIN crm_masters as loan ON loan.id =  qry.loan_type_id INNER JOIN crm_master_city AS city where 1 " ;
+$qry_ex = "SELECT app.created_on, app.application_status, cust.phone_no as phone, cust.name as name, app.id as app_i,app.user_id, cust.id as cust_id, cust.city_id as city_id,loan.value as loan_name,qry.crm_raw_data_id,app.crm_query_id,app.bank_id ,app.bank_application_no,qry.loan_type_id as loan_type,qry.loan_amount as required_loan_amt, app.login_date as login_date_on, app.sanction_date as sanction_date_on, app.disburse_date as first_disb_date_on, app.follow_up_date AS follow_up_date,app.follow_up_time as follow_up_time from crm_query_application as app JOIN crm_query as qry ON app.crm_query_id = qry.id Inner JOIN crm_customer as cust ON qry.crm_customer_id = cust.id INNER JOIN crm_masters as loan ON loan.id =  qry.loan_type_id INNER JOIN crm_master_city AS city where 1 " ;
 
 if($user_role == 3 || ($user_role == 2 && $_SESSION['userDetails']['tluserlist'] == "")){
     $qry_ex .= " and app.user_id = '" . $user_id . "'";
@@ -271,17 +271,17 @@ if($app_no != ""){$default = 1;
 if($fup_date_from != "") {
     $default = 1;
     if($fup_user_type != "") {
-            $qry_ex .= " AND app.follow_up_date_on >= '".$fup_date_from."' ";
+            $qry_ex .= " AND app.follow_up_date >= '".$fup_date_from."' ";
     } else {
-        $qry_ex .= " AND (app.follow_up_date_on >= '".$fup_date_from."') ";
+        $qry_ex .= " AND (app.follow_up_date >= '".$fup_date_from."') ";
     }
 }
 if($fup_date_to != "") {
     $default = 1;
     if($fup_user_type != "") {
-        $qry_ex .= " AND app.follow_up_date_on <= '".$fup_date_to."' ";
+        $qry_ex .= " AND app.follow_up_date <= '".$fup_date_to."' ";
     } else {
-        $qry_ex .= " AND (app.follow_up_date_on <= '".$fup_date_to."' )  ";
+        $qry_ex .= " AND (app.follow_up_date <= '".$fup_date_to."' )  ";
     }
 }
 
@@ -375,14 +375,14 @@ $qry_ex .= " group by app.id order by app.created_on desc limit ".$offset.",".$m
 <table width="100%" class="gridtable">
  <form method = "post" name="frmmain" action ="mask_assign.php">
 <tr>
-<?php if($_SESSION['assign_access_lead'] == 1){?><th width="5%"><div><input type ="checkbox" name ="selectAll[]" id="selectAll">Select</div></th><?php } ?>
-<th width="10%">Application No</th>
-<th width="10%">Name & Mobile & City</th>
-<th width="10%">Loan amount & Loan Type</th>
-<th width="10%">Partner</th>
-<th width="10%">Application Status</th>
-<th width="10%">Application Created By</th>
-<th width="6%">View</th>
+<th width="10%">Application No<br> Created On</th>
+<th width="10%">Name<br> Mobile<br> City</th>
+<th width="10%">Loan amount<br>Type</th>
+<th width="10%">Bank</th>
+<th width="10%">Status</th>
+<th width="10%">Follow Up Date Time</th>
+<th width="10%">Assign to</th>
+<th width="6%">Action</th>
 </tr>
 <?php
 $res = mysqli_query($Conn1,$qry_ex) or die("Error: ".mysqli_error($Conn1));
@@ -394,9 +394,23 @@ while($exe = mysqli_fetch_array($res)){
 	if($record > 10){
 		continue;
 	}
-
+$app_i = $exe['app_i'];
 $cust_name  = $exe['name'];
 $phone  = $exe['phone'];
+$follow_up_date  = $exe['follow_up_date'];
+$follow_up_time  = $exe['follow_up_time'];
+$created_on = date("d-m-Y",strtotime($exe['created_on']));
+if($follow_up_date == '' || $follow_up_date == '0000-00-00' || $follow_up_date == "1970-01-01"){
+ $final_follow_up_date = "-";   
+}else{
+ $final_follow_up_date = date("d-m-Y",strtotime($follow_up_date));   
+}
+if($follow_up_time == '' || $follow_up_time == '00:00:00' ){
+ $final_follow_up_time = "-";   
+}else{
+     $final_follow_up_time = date("H:i a",strtotime($follow_up_time));
+}
+
 $application_status_get  = $exe['application_status'];
 $get_application_status = get_name('status_name',$application_status_get);
 
@@ -432,15 +446,14 @@ if ($(this).not(":checked")) {
 </script>';
 ?>
 <tr>
-<?php //if($_SESSION['assign_access_lead'] == 1){?>
-    <!-- <td><input type='hidden' name='url' value='<?php //echo 'http://' . $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . '/index.php';?>'/> -->
-<!-- <input type ="checkbox" name ="mask[]" id="<?php echo urlencode(base64_encode($case_id)); ?>" value ="<?php echo $case_id;?>"</td><?php //} ?> -->
 <td>
     <!-- <input type='' name='applcation_id_<?php echo $case_id;?>' value='<?php echo base64_encode($app_id);?>'> -->
 <!-- <a href = "../cases/edit.php?case_id=<?php echo urlencode(base64_encode($case_id)) ;?>" class="has_link"><?php echo $case_id;?></a> -->
 <!-- <br/> -->
-<a href = "edit.php?case_id=<?php echo urlencode(base64_encode($case_id)) ;?>&app_id=<?php echo urlencode(base64_encode($crm_query_id)); ?>&cust_id=<?php echo urlencode(base64_encode($cust_id));?>&loan_type=<?php echo $loan_type;?>" class="has_link">
-<span><?php echo $crm_query_id;?></span></a>
+<a href = "edit.php?app_id=<?php echo urlencode(base64_encode($app_i)); ?>" class="has_link">
+<span><?php echo $app_i;?></span></a>
+<br>
+<?php echo $created_on; ?>
 </td>
 <td>
 <span>
@@ -473,34 +486,21 @@ if ($(this).not(":checked")) {
 
 </td>
 
-
-
-
+<td>
+    <?php echo $final_follow_up_date." ".$final_follow_up_time;?>
+</td>
 <td>
     <?php echo $get_user_name['name'];?>
 </td>
-
 <td>
-    <a href="edit.php?app_id=<?php echo urlencode(base64_encode($crm_query_id)); ?>&cust_id=<?php echo urlencode(base64_encode($cust_id));?>&loan_type=<?php echo urlencode(base64_encode($loan_type));?>" class="has_link"><input type="button" class = "pointer_n" value="View" style="border-radius: 5px; background-color: #18375f; font-weight: bold;"></a>
+    <a href="edit.php?app_id=<?php echo urlencode(base64_encode($app_i)); ?>" class="has_link"><input type="button" class = "pointer_n" value="View" style="border-radius: 5px; background-color: #18375f; font-weight: bold;"></a>
 </td>
 </tr>
 <?php
 } ?>
 </table>
-<?php if($_SESSION['assign_access_lead'] == 1){?>
-<table width="10%" style="float:left">
-<tr >
-<td><input type="radio" id="assign" name="assign">Assigned to</td>
-<td id = "assign_to"><?php echo get_dropdown('user_lead_assign','assigned','',''); ?></td>
-</tr>
-<tr>
-<td>
-<input type ="hidden" name="page" id ="page" value="<?php echo $page;?>"/>
-<input type ="submit" name="edit" value ="Assign" id="edit"/></td>
-</tr>
-</form>
-</table>
-<?php } if ($recordcount > 0) { ?>
+
+<?php  if ($recordcount > 0) { ?>
 <table width="width:90%;margin-left:4%;" border="0" align="right" cellpadding="4" cellspacing="1" class="pagination">
             <tr class="sidemain">
                 <td>

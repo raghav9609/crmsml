@@ -219,21 +219,7 @@ require_once(dirname(__FILE__) . '/../model/queryHelper.php');
                                 </div>
 
                                
-                                <div class="form-group col-xl-3 col-lg-4 col-md-6 ref_type" style="display:none;">
-                                    <span class="fa-icon fa-sitemap"></span>
-                                    <select name="ref_type" id="ref_type" class="form-control">
-                                    <option value='' class="">Select Referrer </option>
-                                        <option value='1'>Customer</option>
-                                        <option value='2'>Partner</option>
-                                    </select>
-                                    <label for="u_assign" class="label-tag set-label-pos">Referred By</label>
-                                </div>
-
-                                <div class="form-group col-xl-3 col-lg-4 col-md-6 ref_mob" style="display:none;">
-                                    <span class="fa-icon fa-mobile"></span>
-                                    <input type="tel" id="ref_mob" name="ref_mob" value="" placeholder="Referral Mobile" class="form-control numonly"  maxlength="10" minlength="10">
-                                    <label for="ref_mob" class="label-tag set-label-pos">Referral Mobile</label>
-                                </div>
+                               
                             </div>
 
                             <div class="row div-width">

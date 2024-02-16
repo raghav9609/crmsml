@@ -80,7 +80,7 @@ require_once(dirname(__FILE__) . '/../include/header.php');
 
 <script>
 function download_csv_format_file() {
-    var csv = 'name,email_id,phone_no,pincode,loan_amount,dob,net_income,loan_type' ;
+    var csv = 'name,phone_no,email_id,pincode,loan_amount,dob,net_income,loan_type' ;
     var hiddenElement = document.createElement('a');
     hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(csv);
     hiddenElement.target = '_blank';
@@ -198,8 +198,8 @@ $('#upload_csv').on('click', function(event){
 
 				for(i=0; i<arr.length; i++){
 					name[i] =$('.name'+arr[i]).val();
-					phone_no[i] =$('.phone_no'+arr[i]).val();
 					email_id[i] =$('.email_id'+arr[i]).val();
+					phone_no[i] =$('.phone_no'+arr[i]).val();
 					pincode[i] =$('.pincode'+arr[i]).val();
 					loan_amount[i] = $('.loan_amount'+arr[i]).val()
 					dob[i] =$('.dob'+arr[i]).val();

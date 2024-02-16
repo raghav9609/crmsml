@@ -294,7 +294,7 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                     }
                   
         
-                    $qry .= " order by qry.id desc limit " . $offset . "," . $max_offset;
+                    $qry .= " group by qry.id order by qry.id desc limit " . $offset . "," . $max_offset;
                     ?>
                     <fieldset>
                         <legend>Query Filter</legend>

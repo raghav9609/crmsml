@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <link href="<?php echo $head_url; ?>/assets/css/grid-form.css?v=1.1" rel="stylesheet">
+    
     <style>
     .fa-icon { 
         font-size: 18px;
@@ -88,148 +89,103 @@
                     
                     <input type="text" id="bank_name" name="bank_name" value="<?php echo ($get_bank_name['value']) ;?>" placeholder="Enter Bank Name" class="form-control alphaonly valid" maxlength="20" <?php echo ($get_bank_name['value'] != '') ? 'disabled' : 'disabled'; ?>  required >
                     <label for="name" class="label-tag"> Bank Name</label>
-                </div>   
-                <div class="application_status col-xl-2 col-lg-4 col-md-6 main_acc ">
-                    <span class="fa-icon fa-bank"></span>
-                    <label for="name" class="label-tag required" >Application Status</label>
-                    <?php echo get_dropdown('application_status','application_status',$application_status,'disabled'); ?>
-                    
-                </div>
-<!-- 
+                </div> 
+                
+                
+                <div class="form-group col-xl-2 col-lg-4 col-md-6" style="position: relative;">
+                    <span class="fa-icon fa-building"></span>
+                        <label for="application_status" class="label-tag" style="position: absolute; top: -15; left: 16; ">Follow Up Given By</label>
+                        <?php echo get_dropdown('application_status','application_status',$application_status,'class="form-control valid"'); ?>
+                    </div>
+            
                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                    <span class="fa-icon fa-building"></span> -->
-                    
-                    <!-- <input type="text" id="application_status" name="application_status" value="<?php echo ($application_status_get['value']) ;?>" placeholder="Enter Application Status" class="form-control alphaonly valid"  <?php echo ($application_status_get['value'] != '') ? 'readonly' : ''; ?> maxlength="20" required> -->
-                   
-                    <!-- <label for="name" class="label-tag"> Application Status</label>
-                </div> -->
-                <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                    <span class="fa-icon fa-money"></span>
-                    <input type="text" id="applied_amount" name="applied_amount" value="<?php echo $applied_amount;?>" placeholder="Enter Applied Amount" class="form-control numonly valid" maxlength="20" <?php echo ($applied_amount != '') ? 'readonly' : ''; ?> required>
+                    <span class="fa-icon fa-building"></span>
+                    <input type="text" id="applied_amount" name="applied_amount" value="<?php echo $applied_amount;?>" placeholder="Enter Applied Amount" class="form-control numonly valid" maxlength="20" required>
                     <label for="applied_amount" class="label-tag"> Applied Amount</label>
                 </div>
                     <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                        <input type="text" class="text form-control valid datepicker" name="login_date" id="login_date" maxlength="10" value="<?php echo $login_date != '0000-00-00'?$login_date:'';?>" placeholder="yyyy-mm-dd" <?php echo ($login_date != '') ? 'readonly' : ''; ?> onchange="datevalidate()" required>
+                         <span class="fa-icon fa-building"></span>
+                        <input type="text" class="text form-control valid datepicker" name="login_date" id="login_date" maxlength="10" value="<?php echo $login_date != '0000-00-00'? $login_date:'';?>" placeholder="yyyy-mm-dd"  onchange="datevalidate()" required>
                         <label for="dob" class="label-tag ">Login Date</label>
-                        <span class='green' id='age' style="position: absolute;top: 100%;background: transparent;color: green;left: 15px;"></span>
                     </div> 
 
                     <div class="form-group col-xl-2 col-lg-4 col-md-6">
                         <span class="fa-icon fa-building"></span>
-                        <input type="text" id="sanction_amount" name="sanction_amount" value="<?php echo $sanction_amount;?>" placeholder="Enter Sanction Amount" class="form-control numonly valid" <?php echo ($sanction_amount != '') ? 'readonly' : ''; ?> maxlength="20" required>
+                        <input type="text" id="sanction_amount" name="sanction_amount" value="<?php echo $sanction_amount;?>" placeholder="Enter Sanction Amount" class="form-control numonly valid"  maxlength="20" required>
                         <label for="name" class="label-tag"> Sanction Amount</label>
                     </div>
                     
 
                     <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                        
-                        <input type="text" class="text form-control valid datepicker" name="sanction_date" id="sanction_date" maxlength="10" value="<?php echo $sanction_date; ?>" placeholder="yyyy-mm-dd" required <?php echo ($sanction_date != '') ? 'readonly' : '';  ?> onchange="datevalidate()">
-                        <label for="dob" class="label-tag ">Sanction Date</label>
-                        <span class='green' id='age' style="position: absolute;top: 100%;background: transparent;color: green;left: 15px;"></span>
+                        <span class="fa-icon fa-building"></span>
+                        <input type="text" class="text form-control valid datepicker" name="sanction_date" id="sanction_date" maxlength="10" value="<?php echo $sanction_date; ?>" placeholder="yyyy-mm-dd" required  onchange="datevalidate()">
+                        <label for="sanction_date" class="label-tag ">Sanction Date</label>
                     </div> 
 
                     <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                        <span class="fa-icon fa-money"></span>
-                        <input type="text" id="disbursed_amount" name="disbursed_amount" value="<?php echo $disbursed_amount;?>" placeholder="Enter Disbursement Amount" class="form-control numonly valid" maxlength="20" <?php echo ($disbursed_amount != '') ? 'readonly' : ''; ?> required>
-                        <label for="name" class="label-tag"> Disbursement Amount</label>
+<span class="fa-icon fa-building"></span>                        <input type="text" id="disbursed_amount" name="disbursed_amount" value="<?php echo $disbursed_amount;?>" placeholder="Enter Disbursement Amount" class="form-control numonly valid" maxlength="20"  required>
+                        <label for="disbursed_amount" class="label-tag"> Disbursement Amount</label>
                     </div>
                     <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                        <input type="text" class="text form-control valid datepicker" name="disburse_date" id="disburse_date" maxlength="10" value="<?php echo $disburse_date; ?>" placeholder="yyyy-mm-dd" required <?php echo ($disburse_date != '') ? 'readonly' : '';  ?> onchange="datevalidate()">
-                        <label for="dob" class="label-tag ">Disbursement Date</label>
-                        <span class='green' id='age' style="position: absolute;top: 100%;background: transparent;color: green;left: 15px;"></span>
+                        <span class="fa-icon fa-building"></span> 
+                        <input type="text" class="text form-control valid datepicker" name="disburse_date" id="disburse_date" maxlength="10" value="<?php echo $disburse_date; ?>" placeholder="yyyy-mm-dd" required  onchange="datevalidate()">
+                        <label for="disburse_date" class="label-tag ">Disbursement Date</label>
                     </div> 
 
                     <div class="form-group col-xl-2 col-lg-4 col-md-6">
                         <span class="fa-icon fa-building"></span>
-                        <input type="text" id="remarks_by_user" name="remarks_by_user" value="<?php echo $remarks_by_user;?>" placeholder="Enter Remarks By User" class="form-control alphaonly valid" maxlength="20" <?php echo ($remarks_by_user != '') ? 'readonly' : ''; ?> required>
-                        <label for="name" class="label-tag"> Remarks By User</label>
+                        <input type="text" id="remarks_by_user" name="remarks_by_user" value="<?php echo $remarks_by_user;?>" placeholder="Enter Remarks By User" class="form-control alphaonly valid" maxlength="20"  required>
+                        <label for="remarks_by_user" class="label-tag"> Remarks By User</label>
                     </div>
                     <div class="form-group col-xl-2 col-lg-4 col-md-6">
                         <span class="fa-icon fa-building"></span>
-                        <input type="text" id="remarks_by_bank" name="remarks_by_bank" value="<?php echo $remarks_by_bank;?>" placeholder="Enter Remarks By Bank" class="form-control alphaonly valid" maxlength="20" <?php echo ($remarks_by_bank != '') ? 'readonly' : ''; ?> required>
-                        <label for="name" class="label-tag">Remarks By Bank</label>
+                        <input type="text" id="remarks_by_bank" name="remarks_by_bank" value="<?php echo $remarks_by_bank;?>" placeholder="Enter Remarks By Bank" class="form-control alphaonly valid" maxlength="20"  required>
+                        <label for="remarks_by_bank" class="label-tag">Remarks By Bank</label>
                     </div>
                     
                     <div class="form-group col-xl-2 col-lg-4 col-md-6">
                         <span class="fa-icon fa-building"></span>
-                        <input type="text" id="bank_application_no" name="bank_application_no" value="<?php echo $bank_application_no;?>" placeholder="Enter Bank Application Number" class="form-control numonly valid" maxlength="20" <?php echo ($bank_application_no != '') ? 'readonly' : ''; ?> required>
-                        <label for="name" class="label-tag">Bank Application Number</label>
+                        <input type="text" id="bank_application_no" name="bank_application_no" value="<?php echo $bank_application_no;?>" placeholder="Enter Bank Application Number" class="form-control numonly valid" maxlength="20" required>
+                        <label for="bank_application_no" class="label-tag">Bank Application Number</label>
                     </div>
                     <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                        <input type="text" class="text form-control valid datepicker" name="follow_up_date" id="follow_up_date" maxlength="10" value="<?php echo $follow_up_date; ?>" placeholder="yyyy-mm-dd" required <?php echo ($follow_up_date != '') ? 'readonly' : '';  ?>>
-                        <label for="dob" class="label-tag ">Follow Up Date</label>
-                        <span class='green' id='age' style="position: absolute;top: 100%;background: transparent;color: green;left: 15px;"></span>
+                        <span class="fa-icon fa-building"></span>
+                        <input type="text" class="text form-control valid datepicker" name="follow_up_date" id="follow_up_date" maxlength="10" value="<?php echo $follow_up_date; ?>" placeholder="yyyy-mm-dd" required>
+                        <label for="follow_up_date" class="label-tag ">Follow Up Date</label>
                     </div> 
                     <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                        <input type="text" class="text form-control valid flatpickr" name="follow_up_time" id="follow_up_time" maxlength="10" value="<?php echo $follow_up_time; ?>" placeholder="yyyy-mm-dd" required <?php echo ($follow_up_time != '') ? 'readonly' : '';  ?>>
-                        <label for="dob" class="label-tag ">Follow Up Time</label>
-                        <span class='green' id='age' style="position: absolute;top: 100%;background: transparent;color: green;left: 15px;"></span>
+                        <span class="fa-icon fa-building"></span>
+                        <input type="text" class="text form-control valid" name="follow_up_time" id="follow_up_time" maxlength="10" value="<?php echo $follow_up_time; ?>" placeholder="H:i:s" required >
+                        <label for="follow_up_time" class="label-tag ">Follow Up Time</label>
                     </div> 
                     <div class="form-group col-xl-2 col-lg-4 col-md-6" style="position: relative;">
+                        <span class="fa-icon fa-building"></span>
                         <label for="follow_up_given_by" class="label-tag" style="position: absolute; top: -15; left: 16; ">Follow Up Given By</label>
-                        <select class="valid" id="follow_up_given_by" name="follow_up_given_by" <?php echo ($follow_up_given_by != '') ? 'readonly' : ''; ?> style="position: relative;" disabled>
+                        <select class="form-control valid" id="follow_up_given_by" name="follow_up_given_by"  style="position: relative;">
                             <option value="0">Select</option>
                             <option value="1" <?php if ($follow_up_given_by == "1"){echo "selected";} ?>>SML User</option>
                             <option value="2" <?php if ($follow_up_given_by == "2"){echo "selected";} ?>>Customer</option>
                         </select>
-                        <span class="green" id="age" style="position: absolute; top: 100%; left: 15px; z-index: 2;"></span>
                     </div>
                     <div class="form-group col-xl-2 col-lg-4 col-md-6">
                         <span class="fa-icon fa-building"></span>
-                        <input type="text" id="tenure" name="tenure" value="<?php echo $tennure;?>" placeholder="Enter Tenure / EMI" class="form-control numonly valid" <?php echo ($tennure != '' ) ? 'readonly' : '';  ?> maxlength="20" required>
+                        <input type="text" id="tenure" name="tenure" value="<?php echo $tennure;?>" placeholder="Enter Tenure / EMI" class="form-control numonly valid"  maxlength="20" required>
                         <label for="name" class="label-tag">Tenure</label>
                     </div>
                     <div class="form-group col-xl-2 col-lg-4 col-md-6">
                         <span class="fa-icon fa-building"></span>
-                        <input type="text" id="roi" name="roi" value="<?php echo $roi ;?>" placeholder="Enter Roi" class="form-control numonly valid" <?php echo ($roi != '' ) ? 'readonly' : '';  ?> maxlength="20" required>
+                        <input type="text" id="roi" name="roi" value="<?php echo $roi ;?>" placeholder="Enter Roi" class="form-control numonly valid"  maxlength="20" required>
                         <label for="name" class="label-tag">ROI</label>
                     </div>
                 </div>
                 <input type="hidden" id="crm_query_id" name="crm_query_id" value="<?php echo $qryyy_id; ?>">
-                <input type="hidden" id="case_id" name="case_id" value="<?php echo $case_id; ?>">
-                <input type="hidden" id="" name="cust_id" value="<?php echo $cust_id; ?>">
-                <input type="hidden" id="loan_type" name="loan_type" value="<?php echo $loan_type; ?>">
-                <input type="button" class="btn btn-primary valid" name="edit_app" id="edit_app" value="Edit">
                 <input type="button" class="btn btn-primary valid" name="submit_app" id="submit_app" value="SUBMIT">
-                <!-- <input type="button" class="btn btn-primary valid" name="add_app" id="add_app" value="Add"> -->
 
             
 
                        
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        document.getElementById('submit_app').style.display = 'none';
-
-        document.getElementById('edit_app').addEventListener('click', function () {
-            enableEditing();
-        });
-
-        document.getElementById('submit_app').addEventListener('click', function () {
-            document.getElementById('form_step1').submit();
-        });
-
-        function enableEditing() {
-            var fields = document.querySelectorAll('.form-control[readonly]');
-            fields.forEach(function (field) {
-                field.removeAttribute('readonly');
-            });
-            var applicationStatusField = document.getElementById('application_status');
-            if (applicationStatusField) {
-                applicationStatusField.removeAttribute('disabled');
-            }
-            var user_idField = document.getElementById('app_u_assign');
-            if (user_idField) {
-                user_idField.removeAttribute('disabled');
-            }
-            var followUpGivenByField = document.getElementById('follow_up_given_by');
-            if (followUpGivenByField) {
-                followUpGivenByField.removeAttribute('disabled');
-            }
-            document.getElementById('submit_app').style.display = 'block';
-            document.getElementById('edit_app').style.display = 'none';
-        }
-        
-
         $(document).ready(function () {
             $('.datepicker').datepicker({
                 dateFormat: 'yy-mm-dd', 
@@ -247,39 +203,7 @@
             });
         });
     });
-    // document.getElementById('add_app').addEventListener('click', function() {
-    //     // Create a form element
-    //     var form = document.createElement('form');
-    //     form.action = 'add_app.php'; 
-    //     form.method = 'post'; 
-
-    //     var crmQueryIdInput = document.createElement('input');
-    //     crmQueryIdInput.type = 'hidden';
-    //     crmQueryIdInput.name = 'crm_query_id';
-    //     crmQueryIdInput.value = '<?php echo $qryyy_id; ?>';
-    //     form.appendChild(crmQueryIdInput);
-
-    //     var caseIdInput = document.createElement('input');
-    //     caseIdInput.type = 'hidden';
-    //     caseIdInput.name = 'case_id';
-    //     caseIdInput.value = '<?php echo $case_id; ?>';
-    //     form.appendChild(caseIdInput);
-
-    //     var custIdInput = document.createElement('input');
-    //     custIdInput.type = 'hidden';
-    //     custIdInput.name = 'cust_id';
-    //     custIdInput.value = '<?php echo $cust_id; ?>';
-    //     form.appendChild(custIdInput);
-
-    //     var loanTypeInput = document.createElement('input');
-    //     loanTypeInput.type = 'hidden';
-    //     loanTypeInput.name = 'loan_type';
-    //     loanTypeInput.value = '<?php echo $loan_type; ?>';
-    //     form.appendChild(loanTypeInput);
-
-    //     document.body.appendChild(form);
-    //     form.submit();
-    // });
+    
     document.addEventListener('DOMContentLoaded', function() {
     //amount 
     var appliedAmountInput = document.getElementById('applied_amount');
@@ -355,10 +279,8 @@ function datevalidate() {
 </div>
 
 <?php 
-// echo "case".$case_id;
-// echo "qry".$qryyy_id;
 $recordcount= 0;
-$qryd = "select * from crm_lead_summary_history where lead_id = '".$qryyy_id."' and type = 2 order by id desc limit ".$offset.",".$max_offset.""; 
+ $qryd = "select * from crm_lead_summary_history where lead_id = '".$qryyy_id."' and type = 2 order by id desc"; 
 $res = mysqli_query($Conn1,$qryd) or die("Error: ".mysqli_error($Conn1));
 $recordcount = mysqli_num_rows($res);
 ?>
@@ -370,43 +292,46 @@ $recordcount = mysqli_num_rows($res);
             <span id="text_step1"></span>Follow Up History<div id="error-message" class="error-message"></div></div>
             <table class="gridtable" style="width:100%;" id="maintable">
                 <tr>
-                    <th>Query Id</th>
+                    <th>S No.</th>
                     <th>User</th>
                     <th>Remarks By User</th>
                     <th>Remarks By Bank</th>
                     <th>Follow Up Date Time</th>
                     <th>Created On</th>
-                    <th>Updated On</th>
                 </tr>
                 <?php 
                 if($recordcount > 0) {
                     $record = 0;
                     while($exe = mysqli_fetch_array($res)) {
-                        // print_r($exe);
                         $record++;
-                        if($record > 10) {
-                            continue;
-                        }
+                        
                         $user_id_get = $exe['user_id'];
                         $user_name_get = get_name('user_id', $user_id_get);
                         $user_name = $user_name_get['name'];
                         $description_bank = $exe['description_by_bank'];
                         $description_by_user = $exe['description_by_user'];
                         $follow_up_date_get = $exe['follow_up_date'];
-                        $follow_up_date = date("Y-m-d", strtotime($follow_up_date_get));
-
-                        echo $follow_up_time = $exe['follow_up_time'];
-                        $created_on = $exe['created_on'];
-                        $updated_on = $exe['updated_on'];
+                        if($follow_up_date_get == "" || $follow_up_date_get == '0000-00-00' || $follow_up_date_get == "1970-01-01"){
+                            $follow_up_date = '';
+                        }else{
+                            $follow_up_date = date("d-m-Y", strtotime($follow_up_date_get));
+                        }
+                        
+                        if($exe['follow_up_time'] == "" || $exe['follow_up_time'] == '00:00:00'){
+                            $follow_up_time = '';
+                        }else{
+                            $follow_up_time = date("H:i a", strtotime($exe['follow_up_time']));
+                        }
+                        
+                        $created_on = date("d-m-Y H:i a",strtotime($exe['created_on']));
                 ?>
                 <tr>
-                    <td><?php echo $qryyy_id; ?></td>
+                    <td><?php echo $record; ?></td>
                     <td><?php echo $user_name; ?></td>
                     <td><?php echo $description_bank; ?></td>
                     <td><?php echo $description_by_user; ?></td>
                     <td><?php echo $follow_up_date." ".$follow_up_time; ?></td>
                     <td><?php echo $created_on; ?></td>
-                    <td><?php echo $updated_on; ?></td>
                 </tr>
                 <?php 
                     }
