@@ -17,8 +17,8 @@ if (isset($_REQUEST['date_to'])) {
     $date_to = replace_special($_REQUEST['date_to']);
 }
 
-if (isset($_REQUEST['query_status'])) {
-    $query_status = replace_special($_REQUEST['query_status']);
+if (isset($_REQUEST['application_status'])) {
+    $application_status = replace_special($_REQUEST['application_status']);
 }
 ?>
 <!DOCTYPE html>
@@ -68,6 +68,16 @@ if (isset($_REQUEST['query_status'])) {
             function resetform() {
                 window.location.href = "<?php echo $head_url; ?>/query/";
             }
+
+            function filter_validation() {
+                if ($("#email_search").val().trim() != "") {
+                    var email_regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                    if (!email_regex.test($("#email_search").val())) {
+                        alert("Customer Email not valid")
+                        return false;
+                    }
+                }
+            }
         </script>
     </head>
 
@@ -83,30 +93,26 @@ if (isset($_REQUEST['query_status'])) {
                 <!-- Title Header -->
                 <div class="span9">
                     <?php 
-                        $getreport = "SELECT usr.name As user_name,count(qry.id) As Total_count, stat.value As status FROM `crm_query` As qry left JOIN crm_master_user As usr ON qry.lead_assign_to = usr.id LEFT JOIN crm_master_status As stat ON qry.query_status = stat.id WHERE stat.status_type = 1 ";
+                        $getappreport = "SELECT usr.name As user_name,count(app.id) As Total_count, stat.value As status FROM `crm_query_application` As app left JOIN crm_master_user As usr ON app.user_id = usr.id LEFT JOIN crm_master_status As stat ON app.application_status = stat.id WHERE stat.status_type = 2 ";
 
                         if ($u_assign != '') {
                             $default = 1;
-                                $getreport .= " and qry.lead_assign_to = '" . $u_assign . "'";
+                            $getappreport .= " and app.user_id = '" . $u_assign . "'";
                         }
-                        if ($query_status != '') {
+                        if ($application_status != '') {
                             $default = 1;
-                                $getreport .= " and qry.query_status = '" . $query_status . "'";
+                            $getappreport .= " and app.application_status = '" . $application_status . "'";
                         }
                         if ($follow_date_from != '' && $follow_date_to != '') {
                             $default = 1;
-                            $getreport .= " and qry.follow_date between '" . $follow_date_from . "' and '" . $follow_date_to . "' ";
+                            $getappreport .= " and app.follow_up_date between '" . $follow_date_from . "' and '" . $follow_date_to . "' ";
                         }
                         if ($date_from != '' && $date_to != '') {
                             $default = 1;
-                            $getreport .= " and date(qry.created_on) between '" . $date_from . "' and '" . $date_to . "' ";
+                            $getappreport .= " and date(app.created_on) between '" . $date_from . "' and '" . $date_to . "' ";
                         }
-                        $getreport .= " GROUP by qry.query_status,qry.lead_assign_to";
-                        
-                        
-                        echo $getreport;
-
-                        $resreport = mysqli_query($Conn1,$getreport);
+                        $getappreport .= " GROUP by app.application_status,app.user_id";
+                        $resappreport = mysqli_query($Conn1,$getappreport);
                     ?>
 
                     <fieldset>
@@ -114,7 +120,7 @@ if (isset($_REQUEST['query_status'])) {
                         <form method="post" action="query-report.php" name="searchfrm" autocomplete="off" onsubmit="return filter_validation()">
                             <input type="text" class="text-input" name="date_from" id="date_from" placeholder="Date From" maxlength="10" value="<?php echo $date_from; ?>" readonly="readonly" />
                             <input type="text" class="text-input" name="date_to" id="date_to" placeholder="Date To" maxlength="10" value="<?php echo $date_to; ?>" readonly="readonly" />
-                            <?php echo get_dropdown('query_status', 'query_statussearch', $query_statussearch, '');
+                            <?php echo get_dropdown('application_status', 'application_status', $application_status, ''); 
                             if ($user_role != 3) { 
                                 echo get_dropdown('user_id_3', 'u_assign', $u_assign, ''); 
                             } ?>
@@ -124,7 +130,7 @@ if (isset($_REQUEST['query_status'])) {
                         </form>
                     </fieldset>
 
-                    <h2>Query Report</h2>
+                    <h2>Application Report</h2>
                     <table width="80%" class="gridtable" style="margin-left:5%">
                         <tbody>
                             <tr>
@@ -132,14 +138,14 @@ if (isset($_REQUEST['query_status'])) {
                                 <th width="10%">Query Status</th>
                                 <th width="10%">Total Leads</th>
                             </tr>
-                        <?php  while($resdata = mysqli_fetch_array($resreport)){
-                            if($resdata['user_name'] == ''){$userName = 'Unassigned'; } else {$userName = $resdata['user_name'];}?>
-                            <tr>
-                                <td><span><?php echo $userName;?> </span> </td>
-                                <td><span><?php echo $resdata['status'];?> </span> </td>
-                                <td><span><?php echo $resdata['Total_count'];?> </span> </td>
-                            </tr>
-                        <?php } ?>
+                            <?php  while($resappdata = mysqli_fetch_array($resappreport)){
+                                if($resappdata['user_name'] == ''){$userappName = 'Unassigned'; } else {$userappName = $resappdata['user_name'];}?>
+                                <tr>
+                                    <td><span><?php echo $userappName;?> </span> </td>
+                                    <td><span><?php echo $resappdata['status'];?> </span> </td>
+                                    <td><span><?php echo $resappdata['Total_count'];?> </span> </td>
+                                </tr>
+                            <?php } ?>
                         </tbody>
                     </table>
                 </div>
