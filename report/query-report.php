@@ -155,7 +155,7 @@ if (isset($_REQUEST['query_statussearch'])) {
                         <?php  foreach(array_unique($userdata) As $dat){?>
                             <tr>
                                 <td><span><?php echo $dat;?> </span> </td>
-                                <?php foreach($statusdata As $statdisp){?>
+                                <?php foreach(array_unique($statusdata) As $statdisp){?>
                                     <td><span><?php echo $datadisp[$dat][$statdisp];?> </span> </td>
                                     <?php } ?> 
                             </tr>
