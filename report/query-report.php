@@ -152,7 +152,7 @@ if (isset($_REQUEST['query_statussearch'])) {
                                     <th width="10%"><?php echo $stat;?></th>
                                     <?php } ?>
                             </tr>
-                        <?php  foreach($userdata As $dat){?>
+                        <?php  foreach(array_filter($userdata) As $dat){?>
                             <tr>
                                 <td><span><?php echo $dat;?> </span> </td>
                                 <?php foreach($statusdata As $statdisp){?>
