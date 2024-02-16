@@ -23,7 +23,7 @@ if (isset($_REQUEST['follow_date_to'])) {
     $follow_date_to = replace_special($_REQUEST['follow_date_to']);
 }
 if (isset($_REQUEST['query_statussearch'])) {
-    $query_status = replace_special($_REQUEST['query_statussearch']);
+    $query_statussearch = replace_special($_REQUEST['query_statussearch']);
 }
 ?>
 <!DOCTYPE html>
@@ -103,9 +103,9 @@ if (isset($_REQUEST['query_statussearch'])) {
                             $default = 1;
                                 $getreport .= " and qry.lead_assign_to = '" . $u_assign . "'";
                         }
-                        if ($query_status != '') {
+                        if ($query_statussearch != '') {
                             $default = 1;
-                                $getreport .= " and qry.query_status = '" . $query_status . "'";
+                                $getreport .= " and qry.query_status = '" . $query_statussearch . "'";
                         }
                         if ($follow_date_from != '' && $follow_date_to != '') {
                             $default = 1;
