@@ -292,9 +292,10 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                             $qry .= " AND qry.follow_given_by != 1 ";
                         }
                     }
-                  
-        
-                    $qry .= " group by qry.id order by qry.id desc limit " . $offset . "," . $max_offset;
+                   
+                    $qry .= " group by qry.id order by qry.id desc ";
+                    $downloadreportqry = $qry;
+                    $qryexecute = $qry. " limit " . $offset . "," . $max_offset;
                     ?>
                     <fieldset>
                         <legend>Query Filter</legend>
@@ -341,6 +342,8 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                             <input type="text" class="text-input alnum-wo-space" name="masked_phone" id="masked_phone" placeholder="Masked Phone No." value="<?php echo $masked_phone; ?>" maxlength="10" />
                             <input type="text" class="text-input no-space" name="email_search" id="email_search" placeholder="Customer Email" value="<?php echo $email_search; ?>" maxlength="100" autocomplete="null" />
                             <input class="cursor" type="submit" name="searchsubmit" value="Filter"><input class="cursor" type="button" onclick="resetform()" value="Clear">
+
+                            <a href="https://astechnos.com/crmsml/report/download-query.php?fetchdata=<?php echo $downloadreportqry;?>"><input class="cursor" type="button" value="Download"></a>
                         </form>
                     </fieldset>
                     <?php //if($recordcount > 0){ 
@@ -366,7 +369,7 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                                     <th width="10%">View</th>
                             </tr>
                             <?php
-                            $res = mysqli_query($Conn1, $qry) or die("Error: " . mysqli_error($Conn1));
+                            $res = mysqli_query($Conn1, $qryexecute) or die("Error: " . mysqli_error($Conn1));
                              $recordcount = mysqli_num_rows($res); // 11
                             if ($recordcount > 0) {
                                 $record = 0;
