@@ -125,7 +125,7 @@ if (isset($_REQUEST['query_statussearch'])) {
                             $statusdata[] = $resdata['status'];
                         }
                         print_r($datadisp);
-                        exit;
+                        //exit;
                     ?>
 
                     <fieldset>
