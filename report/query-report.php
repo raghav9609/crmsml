@@ -16,7 +16,9 @@ $resultqryReport = mysqli_fetch_array($resreport);
             <th width="10%">Query Status</th>
             <th width="10%">Total Leads</th>
         </tr>
-        <?php  foreach($resultqryReport As $resdata){?>
+        <?php  foreach($resultqryReport As $resdata){
+            print_r($resdata);
+            ?>
             <tr>
                 <td><span><?php echo $resdata['user_name'];?> </span> </td>
                 <td><span><?php echo $resdata['status'];?> </span> </td>
