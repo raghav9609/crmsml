@@ -148,14 +148,14 @@ if (isset($_REQUEST['query_statussearch'])) {
                         <tbody>
                             <tr>
                                 <th width="10%">User Name </th>
-                                <?php  foreach(array_unique($statusdata) As $stat){?>
+                                <?php  foreach($statusdata As $stat){?>
                                     <th width="10%"><?php echo $stat;?></th>
                                     <?php } ?>
                             </tr>
                         <?php  foreach(array_unique($userdata) As $dat){?>
                             <tr>
                                 <td><span><?php echo $dat;?> </span> </td>
-                                <?php foreach(array_unique($statusdata) As $statdisp){?>
+                                <?php foreach($statusdata As $statdisp){?>
                                     <td><span><?php echo $datadisp[$dat][$statdisp];?> </span> </td>
                                     <?php } ?> 
                             </tr>
