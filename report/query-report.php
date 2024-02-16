@@ -124,7 +124,7 @@ if (isset($_REQUEST['query_statussearch'])) {
                             $userdata[] = $userName;
                             $statusdata[] = $resdata['status'];
                         }
-                        print_r($datadisp);
+                        print_r($userdata);
                         //exit;
                     ?>
 
