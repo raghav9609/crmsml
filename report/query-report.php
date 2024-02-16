@@ -115,7 +115,7 @@ if (isset($_REQUEST['query_statussearch'])) {
                             $default = 1;
                             $getreport .= " and date(qry.created_on) between '" . $date_from . "' and '" . $date_to . "' ";
                         }
-                        $getreport .= " GROUP by qry.query_status";
+                        $getreport .= " GROUP by qry.lead_assign_to,qry.query_status";
                         
                         $resreport = mysqli_query($Conn1,$getreport);
                         while($resdata = mysqli_fetch_array($resreport)){
