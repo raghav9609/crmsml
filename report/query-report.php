@@ -118,6 +118,13 @@ if (isset($_REQUEST['query_statussearch'])) {
                         $getreport .= " GROUP by qry.query_status,qry.lead_assign_to";
                         
                         $resreport = mysqli_query($Conn1,$getreport);
+                        while($resdata = mysqli_fetch_array($resreport)){
+                            if($resdata['user_name'] == ''){$userName = 'Unassigned'; } else {$userName = $resdata['user_name'];}
+                            $datadisp[$userName][$resdata['status']] = $resdata['Total_count'];
+                            $userdata[] = $userName;
+                        }
+                        print_r($datadisp);
+                        exit;
                     ?>
 
                     <fieldset>
