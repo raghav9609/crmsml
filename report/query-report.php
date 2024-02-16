@@ -33,12 +33,6 @@ if (isset($_REQUEST['application_status'])) {
         <script type="text/javascript" src="../assets/js/jquery-1.10.2.js"></script>
         <script type="text/javascript" src="../assets/js/jquery-ui.js"></script>
         <script>
-            function selectAll(source) {
-                checkboxes = document.getElementsByName('mask[]');
-                for (var i in checkboxes)
-                    checkboxes[i].checked = source.checked;
-            }
-
             $(function() {
                 jQuery('#date_from').datepicker({
                     changeMonth: true,
@@ -72,22 +66,6 @@ if (isset($_REQUEST['application_status'])) {
                     beforeShow: function() {
                         jQuery(this).datepicker('option', 'minDate', jQuery('#follow_date_from').val());
                     }
-                });
-
-                $("#assign_to").hide();
-                $("#query_search").hide();
-                $('#assign').click(function() {
-                    $('#assign_to').show();
-                    $("#query_search").hide();
-                });
-                $("#city_type").autocomplete({
-                    source: "../../include/city_name.php",
-                    minLength: 2
-                });
-                $('#query').click(function() {
-                    $('#query_search').show();
-                    $("#assign_to").hide();
-
                 });
             });
 
