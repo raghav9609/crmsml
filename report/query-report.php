@@ -148,7 +148,7 @@ if (isset($_REQUEST['query_statussearch'])) {
                         <tbody>
                             <tr>
                                 <th width="10%">User Name </th>
-                                <?php  foreach($statusdata As $stat){?>
+                                <?php  foreach(array_unique($statusdata) As $stat){?>
                                     <th width="10%"><?php echo $stat;?></th>
                                     <?php } ?>
                             </tr>
