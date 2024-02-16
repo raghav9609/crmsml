@@ -148,6 +148,20 @@ if (isset($_REQUEST['query_statussearch'])) {
                         <tbody>
                             <tr>
                                 <th width="10%">User Name </th>
+                                <th width="10%">Open</th>
+                                <th width="10%">Ringing</th>
+                                <th width="10%">Ringing1</th>
+                                <th width="10%">Ringing2</th>
+                                <th width="10%">Ringing3</th>
+                                <th width="10%">Finally Not contactable</th>
+                                <th width="10%">Not Interested</th>
+                                <th width="10%">Call Back</th>
+                                <th width="10%">Future Prospect</th>
+                                <th width="10%">Not Eligible - Cibil/Recent Bounces</th>
+                                <th width="10%">Not Eligible Negative Profile</th>
+                                <th width="10%">Not Eligible/Foir</th>
+                                <th width="10%">Foir</th>
+
                                 <?php  foreach($statusdata As $stat){?>
                                     <th width="10%"><?php echo $stat;?></th>
                                     <?php } ?>
