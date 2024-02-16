@@ -161,17 +161,23 @@ if (isset($_REQUEST['query_statussearch'])) {
                                 <th width="10%">Not Eligible Negative Profile</th>
                                 <th width="10%">Not Eligible/Foir</th>
                                 <th width="10%">Foir</th>
-
-                                <?php  foreach($statusdata As $stat){?>
-                                    <th width="10%"><?php echo $stat;?></th>
-                                    <?php } ?>
                             </tr>
                         <?php  foreach(array_unique($userdata) As $dat){?>
                             <tr>
                                 <td><span><?php echo $dat;?> </span> </td>
-                                <?php foreach($statusdata As $statdisp){?>
-                                    <td><span><?php echo $datadisp[$dat][$statdisp];?> </span> </td>
-                                    <?php } ?> 
+                                <td><span><?php echo $datadisp[$dat]['Open'];?> </span> </td>
+                                <td><span><?php echo $datadisp[$dat]['Ringing'];?> </span> </td>
+                                <td><span><?php echo $datadisp[$dat]['Ringing1'];?> </span> </td>
+                                <td><span><?php echo $datadisp[$dat]['Ringing2'];?> </span> </td>
+                                <td><span><?php echo $datadisp[$dat]['Ringing3'];?> </span> </td>
+                                <td><span><?php echo $datadisp[$dat]['Finally Not contactable'];?> </span> </td>
+                                <td><span><?php echo $datadisp[$dat]['Not Interested'];?> </span> </td>
+                                <td><span><?php echo $datadisp[$dat]['Call Back'];?> </span> </td>
+                                <td><span><?php echo $datadisp[$dat]['Future Prospect'];?> </span> </td>
+                                <td><span><?php echo $datadisp[$dat]['Not Eligible - Cibil/Recent Bounces'];?> </span> </td>
+                                <td><span><?php echo $datadisp[$dat]['Not Eligible Negative Profile'];?> </span> </td>
+                                <td><span><?php echo $datadisp[$dat]['Not Eligible/Foir'];?> </span> </td>
+                                <td><span><?php echo $datadisp[$dat]['Foir'];?> </span> </td>
                             </tr>
                         <?php } ?>
                         </tbody>
