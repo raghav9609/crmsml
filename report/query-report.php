@@ -8,6 +8,25 @@ $resreport = mysqli_query($Conn1,$getreport);
 
 $resultqryReport = mysqli_fetch_array($resreport);
 
-print_r($resultqryReport);
+?>
+<table width="100%" class="gridtable">
+    <tbody>
+        <tr>
+            <th width="10%">User Name </th>
+            <th width="10%">Query Status</th>
+            <th width="10%">Total Leads</th>
+        </tr>
+        <?php  foreach($resultqryReport As $resdata){?>
+            <tr>
+                <td><span><?php echo $resdata['user_name'];?> </span> </td>
+                <td><span><?php echo $resdata['status'];?> </span> </td>
+                <td><span><?php echo $resdata['Total_count'];?> </span> </td>
+            </tr>
+        <?php } ?>
+    </tbody>
+</table>
+
+
+<?php //print_r($resultqryReport);
 
 ?>
