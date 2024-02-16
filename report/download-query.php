@@ -43,7 +43,7 @@ while($rs = mysqli_fetch_array($results)) {
       
 }
 
-
+print_r($content);
 
 $output = fopen('php://output', 'w');
 
