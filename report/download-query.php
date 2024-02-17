@@ -20,7 +20,7 @@ if (isset($_REQUEST['fetchdata'])) {
 }
 
 $content = array();
-$title = array("Query Id", "Query Date Time", "Tool Type", "Customer Id", "Customer Name", "City", "Phone", "Loan Type", "Loan Amount", "Net Income", "User", "Query Status", "Device", "Verify Flag","Page Url","Assign Date Time");
+$title = array("Query Id", "Query Date Time", "Tool Type", "Customer Id", "Customer Name", "City", "Phone", "Loan Type", "Loan Amount", "Net Income", "User", "Query Status", "Verify Flag","Page Url","Assign Date Time");
 
 $results = mysqli_query($Conn1,$querytoexecute);
 while($rs = mysqli_fetch_array($results)) {
@@ -41,7 +41,6 @@ while($rs = mysqli_fetch_array($results)) {
     $row[] = ($rs["net_incm"]);
     $row[] = ($get_user_name["name"]);
     $row[] = ($qstatus_name["value"]);
-    $row[] = ($rs["device_type"]);
     $row[] = ($rs["verify_phone"]);
     $row[] = ($rs["page_url"]);
     $row[] = $rs["lead_assign_on"] ;
