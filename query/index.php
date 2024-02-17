@@ -343,7 +343,7 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
                             <input type="text" class="text-input no-space" name="email_search" id="email_search" placeholder="Customer Email" value="<?php echo $email_search; ?>" maxlength="100" autocomplete="null" />
                             <input class="cursor" type="submit" name="searchsubmit" value="Filter"><input class="cursor" type="button" onclick="resetform()" value="Clear">
 
-                            <a href="https://astechnos.com/crmsml/report/download-query.php?fetchdata=<?php echo base64_encode($downloadreportqry);?>&page=1"><input class="cursor" type="button" value="Download"></a>
+                            <a href="https://astechnos.com/crmsml/report/download-query.php?page=1&fetchdata=<?php echo base64_encode($downloadreportqry);?>"><input class="cursor" type="button" value="Download"></a>
                         </form>
                     </fieldset>
                     <?php //if($recordcount > 0){ 
