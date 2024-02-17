@@ -32,8 +32,8 @@ while($rs = mysqli_fetch_array($results)) {
             $get_loan_type_name = $get_loan_type_nameval["value"];
         }
         $get_user_name = 'UnAssigned';
-        if($rs["lead_assign_to"] > 0 ){
-            $get_user_nameval = get_name('user_name',$rs["lead_assign_to"]);
+        if($rs["user_id"] > 0 ){
+            $get_user_nameval = get_name('user_name',$rs["user_id"]);
             $get_user_name = $get_user_nameval["name"];
         } 
         $qstatus_name = 'Open';
