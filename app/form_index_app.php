@@ -88,7 +88,7 @@
                     <span class="fa-icon fa-building"></span>
                     
                     <input type="text" id="bank_name" name="bank_name" value="<?php echo ($get_bank_name['value']) ;?>" placeholder="Enter Bank Name" class="form-control alphaonly valid" maxlength="20" <?php echo ($get_bank_name['value'] != '') ? 'disabled' : 'disabled'; ?>  required >
-                    <label for="name" class="label-tag"> Bank Name</label>
+                    <label for="bank_name" class="label-tag"> Bank Name</label>
                 </div> 
                 
                 
@@ -106,13 +106,13 @@
                     <div class="form-group col-xl-2 col-lg-4 col-md-6">
                          <span class="fa-icon fa-building"></span>
                         <input type="text" class="text form-control valid datepicker" name="login_date" id="login_date" maxlength="10" value="<?php echo $login_date != '0000-00-00'? $login_date:'';?>" placeholder="yyyy-mm-dd"  onchange="datevalidate()" required>
-                        <label for="dob" class="label-tag ">Login Date</label>
+                        <label for="login_date" class="label-tag ">Login Date</label>
                     </div> 
 
                     <div class="form-group col-xl-2 col-lg-4 col-md-6">
                         <span class="fa-icon fa-building"></span>
                         <input type="text" id="sanction_amount" name="sanction_amount" value="<?php echo $sanction_amount;?>" placeholder="Enter Sanction Amount" class="form-control numonly valid"  maxlength="20" required>
-                        <label for="name" class="label-tag"> Sanction Amount</label>
+                        <label for="sanction_amount" class="label-tag"> Sanction Amount</label>
                     </div>
                     
 
@@ -170,12 +170,12 @@
                     <div class="form-group col-xl-2 col-lg-4 col-md-6">
                         <span class="fa-icon fa-building"></span>
                         <input type="text" id="tenure" name="tenure" value="<?php echo $tennure;?>" placeholder="Enter Tenure / EMI" class="form-control numonly valid"  maxlength="20" required>
-                        <label for="name" class="label-tag">Tenure</label>
+                        <label for="tenure" class="label-tag">Tenure</label>
                     </div>
                     <div class="form-group col-xl-2 col-lg-4 col-md-6">
                         <span class="fa-icon fa-building"></span>
                         <input type="text" id="roi" name="roi" value="<?php echo $roi ;?>" placeholder="Enter Roi" class="form-control numonly valid"  maxlength="20" required>
-                        <label for="name" class="label-tag">ROI</label>
+                        <label for="roi" class="label-tag">ROI</label>
                     </div>
                 </div>
                 <input type="hidden" id="crm_query_id" name="crm_query_id" value="<?php echo $qryyy_id; ?>">
