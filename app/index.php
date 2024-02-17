@@ -164,9 +164,9 @@ $city_type  = replace_special($_REQUEST['city_type']);}
 if(isset($_REQUEST['bankers_name'])) {
     $bankers_name = replace_special($_REQUEST['bankers_name']);
 }
-if(isset($_REQUEST['customer_id_search'])){
-    $customer_id_search = $_REQUEST['customer_id_search'];
-}
+// if(isset($_REQUEST['customer_id_search'])){
+//     $customer_id_search = $_REQUEST['customer_id_search'];
+// }
 if(isset($_REQUEST['masked_phone'])) {
     $masked_phone = replace_special($_REQUEST['masked_phone']);
 }
@@ -361,7 +361,7 @@ $qry_execute = $qry_ex." limit ".$offset.",".$max_offset;
 	echo get_dropdown(13,'banksearch',$banksearch,'');
 
     //echo get_dropdown('pre_login', 'pre_status', $pre_statussearch, ''); ?>
-<input type="text" class="text-input" name="customer_id_search" id="customer_id_search" placeholder="Customer ID" maxlength="30" value="<?php echo $customer_id_search;?>"/>
+<!-- <input type="text" class="text-input" name="customer_id_search" id="customer_id_search" placeholder="Customer ID" maxlength="30" value="<?php // echo $customer_id_search;?>"/> -->
 <input type="text" class="text-input" name="masked_phone" id="masked_phone" placeholder="Masked Phone No." value="<?php echo $masked_phone ;?>" maxlength="10"/>
 <input type="text" class="text-input alpha-num-hyphen" name="bank_app_no" id="bank_app_no" placeholder="Bank Application No." value="<?php echo $bank_app_no; ?>" maxlength="20"/>
 <input type="text" class="text-input" name="email_search" id="email_search" placeholder="Customer Email" value="<?php echo $email_search;?>" maxlength="100" autocomplete="null"/>
