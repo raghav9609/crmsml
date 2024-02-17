@@ -51,13 +51,6 @@ if (isset($_REQUEST['u_assign'])) {
                         }
                         
                         $qry .= " ORDER by DESC limit " . $offset . "," . $max_offset;
-                        
-                        while($resappdata = mysqli_fetch_array($resappreport)){
-                            if($resappdata['user_name'] == ''){$userappName = 'Unassigned'; } else {$userappName = $resappdata['user_name'];}
-                            $datadisp[$userappName][$resappdata['status']] = $resappdata['Total_count'];
-                            $userdata[] = $userappName;
-                            $statusdata[] = $resappdata['status'];
-                        }
                     ?>
 
                     <fieldset>
@@ -72,7 +65,7 @@ if (isset($_REQUEST['u_assign'])) {
                         </form>
                     </fieldset>
 
-                    <h2>Application Report</h2>
+                    <h2>User Login Report</h2>
                     <table width="80%" class="gridtable" style="margin-left:5%">
                         <tbody>
                             <tr>
@@ -82,6 +75,7 @@ if (isset($_REQUEST['u_assign'])) {
                             <?php
                             $result = mysqli_query($Conn1,$qry) or die("Error: " . mysqli_error($Conn1));
                             $recordcount = mysqli_num_rows($result); // 11
+                            echo $recordcount;
                             if ($recordcount > 0) {
                                 $record = 0;
                                 while ($datafetch = mysqli_fetch_array($result)) {
