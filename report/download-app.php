@@ -7,7 +7,7 @@ require_once(dirname(__FILE__) . '/../config/config.php');
 require_once(dirname(__FILE__) . '/../include/helper.functions.php');
 require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
 
-$filename = "query-report-".date('d-m-Y').".csv";
+$filename = "application-report-".date('d-m-Y').".csv";
 
 header("Content-type: text/csv");
 header("Content-Disposition: attachment; filename=$filename");
@@ -21,7 +21,7 @@ if (isset($_REQUEST['fetchdata'])) {
 }
 
 $content = array();
-$title = array("Query Id", "Query Date Time", "Tool Type", "Customer Id", "Customer Name", "City", "Phone", "Loan Type", "Loan Amount", "Net Income", "User", "Query Status", "Verify Flag","Page Url","Assign Date Time");
+$title = array("Application Id", "Application Date Time", "Customer Name", "City", "Phone", "Loan Type", "Loan Amount", "Bank", "User", "Application Status", "Follow up Date","Follow up Time","Login Date","Sanction Date","Disbursement date");
 
 $results = mysqli_query($Conn1,$querytoexecute);
 while($rs = mysqli_fetch_array($results)) {
@@ -110,6 +110,5 @@ foreach ($content as $con) {
     fputcsv($output, $con);
 }
 
-echo '<script>window.location.href = "'.$head_url.'query/";</script>';
 //echo $querytoexecute;
 ?>

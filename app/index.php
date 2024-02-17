@@ -337,7 +337,12 @@ if($date_from != "" && $date_to != "" && $date_from != "0000-00-00" && $date_to 
     }
 }
 }
-$qry_ex .= " group by app.id order by app.created_on desc limit ".$offset.",".$max_offset;
+
+$qry_ex .= " group by app.id order by app.created_on desc ";
+
+$downloadreportapp = $qry_ex;
+
+$qry_execute = $qry_ex." limit ".$offset.",".$max_offset;
 
 // echo $qry_ex;
 ?>
@@ -369,6 +374,7 @@ $qry_ex .= " group by app.id order by app.created_on desc limit ".$offset.",".$m
 
 <input class="cursor" type="submit" name="searchsubmit" value="Filter">
 <input class="cursor" type="button" onclick="resetform()" value="Clear">
+<a href="https://astechnos.com/crmsml/report/download-app.php?page=1&fetchdata=<?php echo base64_encode($downloadreportapp);?>" target="_blank"><input class="cursor" type="button" value="Download"></a>
 </td></tr></table>
 </form>
 </fieldset>
@@ -385,7 +391,7 @@ $qry_ex .= " group by app.id order by app.created_on desc limit ".$offset.",".$m
 <th width="6%">Action</th>
 </tr>
 <?php
-$res = mysqli_query($Conn1,$qry_ex) or die("Error: ".mysqli_error($Conn1));
+$res = mysqli_query($Conn1,$qry_execute) or die("Error: ".mysqli_error($Conn1));
 $recordcount = mysqli_num_rows($res);
 if($recordcount > 0){
 	$record = 0;
