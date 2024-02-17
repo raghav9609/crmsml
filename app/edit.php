@@ -68,45 +68,30 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
                 <div class="span9">
                     <div class="wrapper">
                         <span class='orange f_13' style="font-weight:bold;"></span>
-
-                             <!-- Toggle Div -->
-                             <?php 
-                            if($filterstatus!=""){
-                                $filter=1;
-                            }
-                            else{
-                                $filter=0;
-                            }
-                            if($filterstatus!=""){
-                            if($filterstatus=="Green"){
-                               // $style="background: #1b8c1b;";
-                                $class="np-greenbtn";
-                            }
-                            else if($filterstatus=="Red"){
-
-                                $class="np-redbtn";
-                            }
-                            else{
-                               // $style="background: orenge;";
-                                $class="np-amberbtn";
-                            }
-                        }
-                        else{
+                        <?php 
+                            $filter=0;
+                            $class="np-amberbtn";
                             $style="visibility: hidden;";
-                        }
-                        ?>
-                        <?php
-                           
-                           include("js-insert.php");
+                            if($filterstatus != ""){
+                                $filter=1;
+                                if($filterstatus=="Green"){
+                                    $class="np-greenbtn";
+                                } else if($filterstatus=="Red"){
+                                    $class="np-redbtn";
+                                } else{
+                                    $class="np-amberbtn";
+                                }
+                            }
+                            include("js-insert.php");
                             include("form_index_app.php");
-                           
-                              ?>
+                            ?>
                             <br>
                            
-                        </div>
                     </div>
                 </div>
-                </body>
+            </div>
+        </div>
+    </body>
 </html>
 <?php } ?>
 
