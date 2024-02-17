@@ -118,5 +118,3 @@ foreach ($content as $con) {
 fclose($output);
 //echo $querytoexecute;
 ?>
- <script type="text/javascript" src="../assets/js/jquery-1.10.2.js"></script>
-<script>window.location.href = "https://astechnos.com/crmsml/app/";</script>

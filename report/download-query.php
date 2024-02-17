@@ -109,7 +109,6 @@ fputcsv($output, $title);
 foreach ($content as $con) {
     fputcsv($output, $con);
 }
-
-echo '<script>window.location.href = "'.$head_url.'query/";</script>';
+fclose($output);
 //echo $querytoexecute;
 ?>
