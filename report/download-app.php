@@ -24,7 +24,7 @@ $content = array();
 $title = array("Application Id", "Application Date Time", "Customer Name", "City", "Phone", "Loan Type", "Loan Amount", "Bank", "User", "Application Status", "Follow up Date","Follow up Time","Login Date","Sanction Date","Disbursement date");
 
 echo $querytoexecute;
-die();
+
 $results = mysqli_query($Conn1,$querytoexecute);
 while($rs = mysqli_fetch_array($results)) {
     if (!empty($rs)){
