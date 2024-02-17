@@ -117,6 +117,12 @@ if (isset($_REQUEST['application_status'])) {
                         }
                         $getappreport .= " GROUP by app.application_status,app.user_id";
                         $resappreport = mysqli_query($Conn1,$getappreport);
+                        while($resappdata = mysqli_fetch_array($resappreport)){
+                            if($resappdata['user_name'] == ''){$userappName = 'Unassigned'; } else {$userappName = $resappdata['user_name'];}
+                            $datadisp[$userappName][$resappdata['status']] = $resappdata['Total_count'];
+                            $userdata[] = $userappName;
+                            $statusdata[] = $resappdata['status'];
+                        }
                     ?>
 
                     <fieldset>
@@ -139,17 +145,34 @@ if (isset($_REQUEST['application_status'])) {
                         <tbody>
                             <tr>
                                 <th width="10%">User Name </th>
-                                <th width="10%">Application Status</th>
-                                <th width="10%">Total Leads</th>
+                                <th width="10%">Attempted - Call Back</th>
+                                <th width="10%">Follow Up</th>
+                                <th width="10%">Login</th>
+                                <th width="10%">Sanction</th>
+                                <th width="10%">Disbursed</th>
+                                <th width="10%">Not Eligible/Foir</th>
+                                <th width="10%">Not Interested</th>
+                                <th width="10%">Not Eligible Negative Profile</th>
+                                <th width="10%">Future Prospect</th>
+                                <th width="10%">Not Eligible - Cibil/ Recent Bounces</th>
+                                <th width="10%">Sent to Bank</th>
                             </tr>
-                            <?php  while($resappdata = mysqli_fetch_array($resappreport)){
-                                if($resappdata['user_name'] == ''){$userappName = 'Unassigned'; } else {$userappName = $resappdata['user_name'];}?>
-                                <tr>
-                                    <td><span><?php echo $userappName;?> </span> </td>
-                                    <td><span><?php echo $resappdata['status'];?> </span> </td>
-                                    <td><span><?php echo $resappdata['Total_count'];?> </span> </td>
-                                </tr>
-                            <?php } ?>
+                            <?php  foreach(array_unique($userdata) As $dat){?>
+                            <tr>
+                                <td><span><?php echo $dat;?> </span> </td>
+                                <td><span><?php echo $datadisp[$dat]['Attempted - Call Back'];?> </span> </td>
+                                <td><span><?php echo $datadisp[$dat]['Follow Up'];?> </span> </td>
+                                <td><span><?php echo $datadisp[$dat]['Login'];?> </span> </td>
+                                <td><span><?php echo $datadisp[$dat]['Sanction'];?> </span> </td>
+                                <td><span><?php echo $datadisp[$dat]['Disbursed'];?> </span> </td>
+                                <td><span><?php echo $datadisp[$dat]['Not Eligible/Foir'];?> </span> </td>
+                                <td><span><?php echo $datadisp[$dat]['Not Interested'];?> </span> </td>
+                                <td><span><?php echo $datadisp[$dat]['Not Eligible Negative Profile'];?> </span> </td>
+                                <td><span><?php echo $datadisp[$dat]['Future Prospect'];?> </span> </td>
+                                <td><span><?php echo $datadisp[$dat]['Not Eligible - Cibil/ Recent Bounces'];?> </span> </td>
+                                <td><span><?php echo $datadisp[$dat]['Sent to Bank'];?> </span> </td>
+                            </tr>
+                        <?php } ?>
                         </tbody>
                     </table>
                 </div>
