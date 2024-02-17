@@ -6,7 +6,7 @@ require_once(dirname(__FILE__) . '/../config/config.php');
 require_once(dirname(__FILE__) . '/../include/helper.functions.php');
 require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
 
-$filename = "crm-query-report.csv";
+$filename = "crm-query-report1.csv";
 
 header("Content-type: text/csv");
 header("Content-Disposition: attachment; filename=$filename");
