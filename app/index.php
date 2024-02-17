@@ -256,7 +256,7 @@ if($user_role == 4){
 }
 if(trim($email_search) != "") {
     $default = 1;
-    $qry_ex .= " AND cust.email = '".trim($email_search)."' ";
+    $qry_ex .= " AND cust.email_id = '".trim($email_search)."' ";
 }
 if($city_sub_group != '' && $city_sub_group != '0') {
     $default = 1;
