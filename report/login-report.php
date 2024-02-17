@@ -77,7 +77,6 @@ if (isset($_REQUEST['u_assign'])) {
                             <?php
                             $result = mysqli_query($Conn1,$qry) or die("Error: " . mysqli_error($Conn1));
                             $recordcount = mysqli_num_rows($result); // 11
-                            echo $recordcount;
                             if ($recordcount > 0) {
                                 $record = 0;
                                 while ($datafetch = mysqli_fetch_array($result)) {
