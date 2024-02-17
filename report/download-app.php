@@ -25,85 +25,89 @@ $title = array("Application Id", "Application Date Time", "Customer Name", "City
 
 echo $querytoexecute;
 die();
-// $results = mysqli_query($Conn1,$querytoexecute);
-// while($rs = mysqli_fetch_array($results)) {
-//     if (!empty($rs)){
-//         $row = array();
-//         $get_loan_type_name = 'Personal Loan';
-//         if($rs["loan_type_id"] > 0){
-//             $get_loan_type_nameval = get_name('master_code_id',$rs["loan_type_id"]);
-//             $get_loan_type_name = $get_loan_type_nameval["value"];
-//         }
-//         $get_user_name = 'UnAssigned';
-//         if($rs["user_id"] > 0 ){
-//             $get_user_nameval = get_name('user_id',$rs["user_id"]);
-//             $get_user_name = $get_user_nameval["name"];
-//         } 
-//         $qstatus_name = 'Open';
-//         if($rs["query_status"] > 0 ){
-//             $qstatus_nameval = get_name('status_name',$rs["query_status"]);
-//             $qstatus_name = $qstatus_nameval["value"];
-//         }
-//         $city_name = 'Other';
-//         if($rs["city_id"] > 0 ){
-//             $city_nameval = get_name('city_id',$rs["city_id"]);
-//             $city_name = $city_nameval["city_name"];
-//         }
-//         $toolType = 'Direct';
-//         if ($rs["tool_type"] != ''){
-//             $toolType = $rs["tool_type"];
-//         }
-//         $customerId = 0;
-//         if($rs["customer_id"] > 0){
-//             $customerId = $rs["customer_id"];
-//         }
-//         $customername = '';
-//         if($rs["name"] != ''){
-//             $customername = $rs["name"];
-//         }
-//         $pageurl = '';
-//         if($rs["page_url"] != ''){
-//             $pageurl = $rs["page_url"];
-//         }
-//         $customerphone = 0;
-//         if($rs["phone"] > 0){
-//             $customerphone = $rs["phone"];
-//         }
-//         $loan_amt = 0;
-//         if($rs["loan_amt"] > 0){
-//             $loan_amt = $rs["loan_amt"];
-//         }
-//         $net_incom = 0;
-//         if($rs["net_incm"] > 0){
-//             $net_incom = $rs["net_incm"];
-//         }
-//         $leadassigndate = '';
-//         if($rs["lead_assign_on"] != ''){
-//             $leadassigndate = $rs["lead_assign_on"];
-//         }
-//         $row[] = ($rs["id"]);
-//         $row[] = $rs["date"];
-//         $row[] = ($toolType);
-//         $row[] = ($customerId);
-//         $row[] = ($customername);
-//         $row[] = ($city_name);
-//         $row[] = ($customerphone);
-//         $row[] = ($get_loan_type_name);
-//         $row[] = ($loan_amt);
-//         $row[] = ($net_incom);
-//         $row[] = ($get_user_name);
-//         $row[] = ($qstatus_name);
-//         $row[] = ($rs["verify_phone"]);
-//         $row[] = ($pageurl);
-//         $row[] = $leadassigndate ;
+$results = mysqli_query($Conn1,$querytoexecute);
+while($rs = mysqli_fetch_array($results)) {
+    if (!empty($rs)){
+        $row = array();
+        $get_loan_type_name = 'Personal Loan';
+        if($rs["loan_name"] != ''){
+            $get_loan_type_name = $rs["loan_name"];
+        }
+        $get_user_name = 'UnAssigned';
+        if($rs["user_id"] > 0 ){
+            $get_user_nameval = get_name('user_id',$rs["user_id"]);
+            $get_user_name = $get_user_nameval["name"];
+        } 
+        $qstatus_name = '';
+        if($rs["application_status"] > 0 ){
+            $qstatus_nameval = get_name('status_name',$rs["application_status"]);
+            $qstatus_name = $qstatus_nameval["value"];
+        }
+        $city_name = 'Other';
+        if($rs["city_id"] > 0 ){
+            $city_nameval = get_name('city_id',$rs["city_id"]);
+            $city_name = $city_nameval["city_name"];
+        }
+        $bank_name = '';
+        if($rs["bank_id"] > 0 ){
+            $bank_nameval = get_name('master_code_id',$rs["bank_id"]);
+            $bank_name = $bank_nameval["value"];
+        }
+        $customername = '';
+        if($rs["name"] != ''){
+            $customername = $rs["name"];
+        }
+        $customerphone = 0;
+        if($rs["phone"] > 0){
+            $customerphone = $rs["phone"];
+        }
+        $loan_amt = 0;
+        if($rs["required_loan_amt"] > 0){
+            $loan_amt = $rs["required_loan_amt"];
+        }
+        $followupdate = '';
+        if($rs["follow_up_date"] != ''){
+            $followupdate = $rs["follow_up_date"];
+        }
+        $sanctiondate = '';
+        if($rs["sanction_date_on"] != ''){
+            $sanctiondate = $rs["sanction_date_on"];
+        }
+        $logindate = '';
+        if($rs["login_date_on"] != ''){
+            $logindate = $rs["login_date_on"];
+        }
+        $disbdate = '';
+        if($rs["first_disb_date_on"] != ''){
+            $disbdate = $rs["first_disb_date_on"];
+        }
+        $followuptime = '';
+        if($rs["follow_up_time"] != ''){
+            $followuptime = $rs["follow_up_time"];
+        }
+        $row[] = ($rs["app_i"]);
+        $row[] = $rs["created_on"];
+        $row[] = ($customername);
+        $row[] = ($city_name);
+        $row[] = ($customerphone);
+        $row[] = ($get_loan_type_name);
+        $row[] = ($loan_amt);
+        $row[] = ($bank_name);
+        $row[] = ($get_user_name);
+        $row[] = ($qstatus_name);
+        $row[] = ($followupdate);
+        $row[] = ($followuptime);
+        $row[] = $logindate ;
+        $row[] = $sanctiondate ;
+        $row[] = $disbdate ;
     
         
-//         $content[] = $row;
-//     }
+        $content[] = $row;
+    }
       
-// }
+}
 
-// //print_r($content);
+print_r($content);
 
 // $output = fopen('php://output', 'w');
 
