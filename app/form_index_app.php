@@ -83,7 +83,7 @@
 
                     <div class="form-group col-xl-2 col-lg-4 col-md-6">
                         <span class="fa-icon fa-building"></span>
-                        <input type="text" class="text form-control valid" name="follow_up_time" id="follow_up_time" maxlength="10" value="<?php echo $follow_up_time; ?>" placeholder="H:i:s" required >
+                        <input type="text" class="text form-control time valid onlybackspace hasTimeEntry ui-timepicker-input" name="follow_up_time" id="follow_up_time" maxlength="10" value="<?php echo $follow_up_time; ?>" placeholder="H:i:s" required >
                         <label for="follow_up_time" class="label-tag ">Follow Up Time</label>
                     </div> 
                     <div class="form-group col-xl-2 col-lg-4 col-md-6" style="position: relative;">
