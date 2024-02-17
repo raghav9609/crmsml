@@ -43,7 +43,7 @@ while($rs = mysqli_fetch_array($results)) {
         }
         $city_name = 'Other';
         if($rs["city_id"] > 0 ){
-            $city_nameval = get_name('city_id',$res["city_id"]);
+            $city_nameval = get_name('city_id',$rs["city_id"]);
             $city_name = $city_nameval["city_name"];
         }
         $toolType = 'Direct';
