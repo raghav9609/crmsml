@@ -354,7 +354,7 @@ echo $qry_execute = $qry_ex." limit ".$offset.",".$max_offset;
 <?php echo get_textbox('city_type',$city_type,'placeholder ="City Name (Enter few words)"'); ?>
 <input type="text" class="text-input" name="date_from" id="date_from" placeholder="Date From" value="<?php echo $date_from;?>" maxlength="10" readonly="readonly"/>
 <input type="text" class="text-input" name="date_to" id="date_to" placeholder="Date To" value="<?php echo $date_to;?>" maxlength="10" readonly="readonly"/>
-<?php echo get_dropdown('application_status','application_status','application_status'); ?>
+<?php echo get_dropdown('application_status','application_status',$application_status); ?>
 <?php echo get_dropdown(1,'loan_type',$search,'');
  echo get_dropdown('user', 'app_u_assign', $app_u_assign, '');
 
