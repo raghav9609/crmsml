@@ -18,7 +18,8 @@ ob_clean();
 if (isset($_REQUEST['fetchdata'])) {
     $querytoexecute = base64_decode($_REQUEST['fetchdata']);
 }
-
+echo $querytoexecute;
+die();
 $content = array();
 $title = array("Query Id", "Query Date Time", "Tool Type", "Customer Id", "Customer Name", "City", "Phone", "Loan Type", "Loan Amount", "Net Income", "User", "Query Status", "Device", "Verify Flag","IP", "Page Url","Assign Date Time");
 
