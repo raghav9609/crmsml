@@ -115,7 +115,7 @@ fputcsv($output, $title);
 foreach ($content as $con) {
     fputcsv($output, $con);
 }
-
+fclose($output);
 //echo $querytoexecute;
 ?>
  <script type="text/javascript" src="../assets/js/jquery-1.10.2.js"></script>
