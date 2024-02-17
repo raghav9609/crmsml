@@ -27,23 +27,23 @@ while($rs = mysqli_fetch_array($results)) {
     if (!empty($rs)){
         $row = array();
         $get_loan_type_name = 'Personal Loan';
-        if($res["loan_type_id"] > 0){
-            $get_loan_type_nameval = get_name('master_code_id',$res["loan_type_id"]);
+        if($rs["loan_type_id"] > 0){
+            $get_loan_type_nameval = get_name('master_code_id',$rs["loan_type_id"]);
             $get_loan_type_name = $get_loan_type_nameval["value"];
         }
         $get_user_name = 'UnAssigned';
-        if($res["lead_assign_to"] > 0 ){
-            $get_user_nameval = get_name('user_name',$res["lead_assign_to"]);
+        if($rs["lead_assign_to"] > 0 ){
+            $get_user_nameval = get_name('user_name',$rs["lead_assign_to"]);
             $get_user_name = $get_user_nameval["name"];
         } 
         $qstatus_name = 'Open';
-        if($res["query_status"] > 0 ){
-            $qstatus_nameval = get_name('status_name',$res["query_status"]);
+        if($rs["query_status"] > 0 ){
+            $qstatus_nameval = get_name('status_name',$rs["query_status"]);
             $qstatus_name = $qstatus_nameval["value"];
         }
         $city_name = 'Other';
-        if($res["city_id"] > 0 ){
-            $city_nameval = get_name('city_name',$res["city_id"]);
+        if($rs["city_id"] > 0 ){
+            $city_nameval = get_name('city_name',$rs["city_id"]);
             $city_name = $city_nameval["city_name"];
         }
         $toolType = 'Direct';
