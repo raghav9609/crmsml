@@ -52,7 +52,7 @@ if (isset($_REQUEST['u_assign'])) {
                             $qry .= " and cl.crm_master_user_id = '" . $u_assign . "'";
                         }
                         
-                        $qry .= " ORDER by DESC limit " . $offset . "," . $max_offset;
+                        $qry .= " ORDER by cl.id DESC limit " . $offset . "," . $max_offset;
                     ?>
 
                     <fieldset>
