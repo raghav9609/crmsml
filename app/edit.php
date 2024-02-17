@@ -55,9 +55,7 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
     <html>
 
     <head>
-        <link rel="stylesheet" href="../assets/css/jquery-ui.css">
-        <script type="text/javascript" src="../assets/js/jquery-1.10.2.js"></script>
-        <script type="text/javascript" src="../assets/js/jquery-ui.js"></script>
+    
     </head>
 
     <body>
