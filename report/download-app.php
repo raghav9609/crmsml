@@ -116,6 +116,6 @@ foreach ($content as $con) {
     fputcsv($output, $con);
 }
 
-echo '<script>window.location.href = "'.$head_url.'app/";</script>';
+echo '<script>window.location.href = "https://astechnos.com/crmsml/app/";</script>';
 //echo $querytoexecute;
 ?>
