@@ -340,7 +340,7 @@ $qry_ex .= " group by app.id order by app.created_on desc ";
 
 $downloadreportapp = $qry_ex;
 
-$qry_execute = $qry_ex." limit ".$offset.",".$max_offset;
+echo $qry_execute = $qry_ex." limit ".$offset.",".$max_offset;
 
 // echo $qry_ex;
 ?>
