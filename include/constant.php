@@ -14,7 +14,7 @@ $start_limit = 0;
 $max_offset = 11;
 $display_count = 10;
 
-if ($_REQUEST['page']!= "") {
+if ($_REQUEST['page'] != "") {
     $page = $_REQUEST['page'];
     $offset = ($page - 1) * $display_count;
 }
