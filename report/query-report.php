@@ -165,17 +165,17 @@ if (isset($_REQUEST['query_statussearch'])) {
                                 <td><span><?php echo $dat;?> </span> </td>
                                 <td><span><?php echo $datadisp[$dat]['Open'] > 0 ? $datadisp[$dat]['Open']:0;?> </span> </td>
                                 <td><span><?php echo $datadisp[$dat]['Ringing'] > 0 ? $datadisp[$dat]['Ringing'] : 0 ;?> </span> </td>
-                                <td><span><?php echo $datadisp[$dat]['Ringing1'];?> </span> </td>
-                                <td><span><?php echo $datadisp[$dat]['Ringing2'];?> </span> </td>
-                                <td><span><?php echo $datadisp[$dat]['Ringing3'];?> </span> </td>
-                                <td><span><?php echo $datadisp[$dat]['Finally Not contactable'];?> </span> </td>
-                                <td><span><?php echo $datadisp[$dat]['Not Interested'];?> </span> </td>
-                                <td><span><?php echo $datadisp[$dat]['Call Back'];?> </span> </td>
-                                <td><span><?php echo $datadisp[$dat]['Future Prospect'];?> </span> </td>
-                                <td><span><?php echo $datadisp[$dat]['Not Eligible - Cibil/Recent Bounces'];?> </span> </td>
-                                <td><span><?php echo $datadisp[$dat]['Not Eligible Negative Profile'];?> </span> </td>
-                                <td><span><?php echo $datadisp[$dat]['Not Eligible/Foir'];?> </span> </td>
-                                <td><span><?php echo $datadisp[$dat]['Foir'];?> </span> </td>
+                                <td><span><?php echo $datadisp[$dat]['Ringing1'] > 0 ? $datadisp[$dat]['Ringing1'] : 0;?> </span> </td>
+                                <td><span><?php echo $datadisp[$dat]['Ringing2'] > 0 ? $datadisp[$dat]['Ringing2'] : 0;?> </span> </td>
+                                <td><span><?php echo $datadisp[$dat]['Ringing3'] > 0 ? $datadisp[$dat]['Ringing3'] : 0;?> </span> </td>
+                                <td><span><?php echo $datadisp[$dat]['Finally Not contactable'] > 0 ? $datadisp[$dat]['Finally Not contactable'] : 0;?> </span> </td>
+                                <td><span><?php echo $datadisp[$dat]['Not Interested'] > 0 ? $datadisp[$dat]['Not Interested'] : 0;?> </span> </td>
+                                <td><span><?php echo $datadisp[$dat]['Call Back'] > 0 ? $datadisp[$dat]['Call Back'] : 0;?> </span> </td>
+                                <td><span><?php echo $datadisp[$dat]['Future Prospect'] > 0 ? $datadisp[$dat]['Future Prospect'] : 0;?> </span> </td>
+                                <td><span><?php echo $datadisp[$dat]['Not Eligible - Cibil/Recent Bounces'] > 0 ? $datadisp[$dat]['Not Eligible - Cibil/Recent Bounces'] : 0;?> </span> </td>
+                                <td><span><?php echo $datadisp[$dat]['Not Eligible Negative Profile'] > 0 ? $datadisp[$dat]['Not Eligible Negative Profile'] : 0;?> </span> </td>
+                                <td><span><?php echo $datadisp[$dat]['Not Eligible/Foir'] > 0 ? $datadisp[$dat]['Not Eligible/Foir'] : 0;?> </span> </td>
+                                <td><span><?php echo $datadisp[$dat]['Foir'] > 0 ? $datadisp[$dat]['Foir'] : 0;?> </span> </td>
                             </tr>
                         <?php } ?>
                         </tbody>

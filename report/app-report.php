@@ -160,17 +160,17 @@ if (isset($_REQUEST['application_status'])) {
                             <?php  foreach(array_unique($userdata) As $dat){?>
                             <tr>
                                 <td><span><?php echo $dat;?> </span> </td>
-                                <td><span><?php echo $datadisp[$dat]['Attempted - Call Back'];?> </span> </td>
-                                <td><span><?php echo $datadisp[$dat]['Follow Up'];?> </span> </td>
-                                <td><span><?php echo $datadisp[$dat]['Login'];?> </span> </td>
-                                <td><span><?php echo $datadisp[$dat]['Sanction'];?> </span> </td>
-                                <td><span><?php echo $datadisp[$dat]['Disbursed'];?> </span> </td>
-                                <td><span><?php echo $datadisp[$dat]['Not Eligible/Foir'];?> </span> </td>
-                                <td><span><?php echo $datadisp[$dat]['Not Interested'];?> </span> </td>
-                                <td><span><?php echo $datadisp[$dat]['Not Eligible Negative Profile'];?> </span> </td>
-                                <td><span><?php echo $datadisp[$dat]['Future Prospect'];?> </span> </td>
-                                <td><span><?php echo $datadisp[$dat]['Not Eligible - Cibil/ Recent Bounces'];?> </span> </td>
-                                <td><span><?php echo $datadisp[$dat]['Sent to Bank'];?> </span> </td>
+                                <td><span><?php echo $datadisp[$dat]['Attempted - Call Back'] > 0 ? $datadisp[$dat]['Attempted - Call Back'] : 0 ;?> </span> </td>
+                                <td><span><?php echo $datadisp[$dat]['Follow Up'] > 0 ? $datadisp[$dat]['Follow Up'] : 0 ;?> </span> </td>
+                                <td><span><?php echo $datadisp[$dat]['Login'] > 0 ? $datadisp[$dat]['Login'] : 0 ;?> </span> </td>
+                                <td><span><?php echo $datadisp[$dat]['Sanction'] > 0 ? $datadisp[$dat]['Sanction'] : 0 ;?> </span> </td>
+                                <td><span><?php echo $datadisp[$dat]['Disbursed'] > 0 ? $datadisp[$dat]['Disbursed'] : 0 ;?> </span> </td>
+                                <td><span><?php echo $datadisp[$dat]['Not Eligible/Foir'] > 0 ? $datadisp[$dat]['Not Eligible/Foir'] : 0 ;?> </span> </td>
+                                <td><span><?php echo $datadisp[$dat]['Not Interested'] > 0 ? $datadisp[$dat]['Not Interested'] : 0 ;?> </span> </td>
+                                <td><span><?php echo $datadisp[$dat]['Not Eligible Negative Profile'] > 0 ? $datadisp[$dat]['Not Eligible Negative Profile'] : 0 ;?> </span> </td>
+                                <td><span><?php echo $datadisp[$dat]['Future Prospect'] > 0 ? $datadisp[$dat]['Future Prospect'] : 0 ;?> </span> </td>
+                                <td><span><?php echo $datadisp[$dat]['Not Eligible - Cibil/ Recent Bounces'] > 0 ? $datadisp[$dat]['Not Eligible - Cibil/ Recent Bounces'] : 0 ;?> </span> </td>
+                                <td><span><?php echo $datadisp[$dat]['Sent to Bank'] > 0 ? $datadisp[$dat]['Sent to Bank'] : 0 ;?> </span> </td>
                             </tr>
                         <?php } ?>
                         </tbody>
