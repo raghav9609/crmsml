@@ -153,7 +153,7 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
         </div>
     </body>
 </html>
-
+<script type="text/javascript" src="../assets/js/jquery.timeentry.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         $(document).ready(function () {
