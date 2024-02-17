@@ -2,7 +2,7 @@
 $downloadfile = 1;
 require_once(dirname(__FILE__) . '/../config/session.php');
 require_once(dirname(__FILE__) . '/../helpers/common-helper.php');
-require_once(dirname(__FILE__) . '/../config/config.php');
+require_once(dirname(__FILE__) . '/../config/config-report.php');
 
 require_once(dirname(__FILE__) . '/../include/helper.functions.php');
 require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
