@@ -49,21 +49,34 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
     $follow_up_given_by=$exe_form['follow_up_given_by'];
     $tennure=$exe_form['tennure'];
     $roi=$exe_form['roi'];
-    ?>
+?>
+
+<!DOCTYPE html>
     <html>
+
     <head>
+        <link rel="stylesheet" href="../assets/css/jquery-ui.css">
+        <script type="text/javascript" src="../assets/js/jquery-1.10.2.js"></script>
+        <script type="text/javascript" src="../assets/js/jquery-ui.js"></script>
     </head>
+
     <body>
-    <div class="color-bar-1"></div>
-    <div class="color-bar-2 color-bg"></div>
-    <div style="width:100%;">
-                    <div style="padding-left: 1%;padding-right: 1%;">
-                        
+        <div class="color-bar-1"></div>
+        <div class="color-bar-2 color-bg"></div>
+
+        <div class="container main-container">
+            <!-- End Header -->
+
+            <!-- Page Content
+    ================================================== -->
+            <div class="row">
+                <!--Container row-->
+                <!-- Title Header -->
+                <div class="span9">
 
 
- 
-</span>
-                        </div>
+            <div style="width:100%;">
+                <div style="padding-left: 1%;padding-right: 1%;"> </div>
                     </div>
                 </div>
     <div class="container-fluid main-container">
@@ -81,10 +94,7 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
                     <div align="center">
                         <div class="wrapper">
 
-<span class='orange f_13' style="font-weight:bold;">
-    </span>
-   
-    </span>
+<span class='orange f_13' style="font-weight:bold;"></span>
 
                              <!-- Toggle Div -->
                              <?php 
@@ -123,10 +133,9 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
                         </div>
                     </div>
                 </div>
-
-<?php
-}?>
-</body>
+                </body>
 </html>
+<?php } ?>
+
 
 
