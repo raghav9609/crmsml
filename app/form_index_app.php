@@ -1,3 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Form</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <link href="<?php echo $head_url; ?>/assets/css/grid-form.css?v=1.1" rel="stylesheet">
+    
+    <style>
+    .fa-icon { 
+        font-size: 18px;
+    }
+    .fa-mobile {
+        font-size: 25px !important;
+    }
+    #form_step4 b.caret{
+        margin-left:215px!important;
+        display: inline;
+    }
+    #form_step4 .border-class{
+        font-size: 14px;
+        margin-left: 6px!important;
+        border-bottom: 1px solid #ced4da!important;
+        width: 100%!important;
+        }
+        #form_step4 .dropdown-menu {
+        left: -150px;
+        width: 241px;
+    }
+    .error-message {
+        color: red;
+    }
+    .application_status {
+        margin-bottom: 10px;
+        position: relative;
+    }
+
+    .application_status label {
+        display: block;
+        font-weight: 300;
+        margin-bottom: -2px;
+        
+    }
+
+    .application_status select {
+        width: 100%;
+        padding: 9px;
+        font-size: 12px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    .application_status label.required:after {
+        content: ' *';
+        color: red; /* Adjust the color as needed */
+    }
+
+    .fa-icon {
+        /* Add your FontAwesome styling here */
+        margin-right: 10px; /* Adjust as needed */
+    }
+    </style>
+</head>
+
+<body>
+    
+    <!-- <main>  -->
         
     <div class="pl-md-3 pl-2 pr-md-3 pr-2 col-12">
     
@@ -21,7 +95,7 @@
                 <div class="form-group col-xl-2 col-lg-4 col-md-6" style="position: relative;">
                     <span class="fa-icon fa-building"></span>
                         <label for="application_status" class="label-tag" style="position: absolute; top: -15; left: 16; ">Application Status</label>
-                        <?php echo get_dropdown('application_status','application_status',$application_status,'class="form-control valid" onchange="datevalidate()" '); ?>
+                        <?php echo get_dropdown('application_status','application_status',$application_status,'class="form-control valid"'); ?>
                     </div>
             
                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
@@ -107,6 +181,96 @@
                 <input type="hidden" id="crm_query_id" name="crm_query_id" value="<?php echo $qryyy_id; ?>">
                 <input type="button" class="btn btn-primary valid" name="submit_app" id="submit_app" value="SUBMIT">
 
+            
+
+                       
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        $(document).ready(function () {
+            $('.datepicker').datepicker({
+                dateFormat: 'yy-mm-dd', 
+                changeMonth: true,
+                changeYear: true,
+                yearRange: 'c-100:2050'
+            });
+
+            flatpickr('.flatpickr', {
+                enableTime: true,
+                noCalendar: true,
+                dateFormat: "H:i",
+                time_24hr: true,
+                minuteIncrement: 15
+            });
+        });
+    });
+    
+    document.addEventListener('DOMContentLoaded', function() {
+    //amount 
+    var appliedAmountInput = document.getElementById('applied_amount');
+    var sanctionAmountInput = document.getElementById('sanction_amount');
+    var disbursementInput = document.getElementById('disbursed_amount');
+    var submit_app = document.getElementById('submit_app');
+
+    var messageElement = document.createElement('span');
+    messageElement.className = 'error-message';
+    disbursementInput.parentNode.appendChild(messageElement);
+
+    function validateDisbursement() {
+        var appliedAmount = parseFloat(appliedAmountInput.value) || 0;
+        var sanctionAmount = parseFloat(sanctionAmountInput.value) || 0;
+        var disbursementAmount = parseFloat(disbursementInput.value) || 0;
+
+        if (appliedAmount >= disbursementAmount || sanctionAmount >= disbursementAmount) {
+            messageElement.textContent = ' Disbursement Amount should not be smaller than Applied Amount and Sanction Amount.';
+            submit_app.setAttribute('disabled', 'disabled');
+        } else {
+            messageElement.textContent = '';
+            submit_app.removeAttribute('disabled');
+        }
+    }
+
+    appliedAmountInput.addEventListener('input', function() {
+        validateDisbursement();
+    });
+
+    sanctionAmountInput.addEventListener('input', function() {
+        validateDisbursement();
+    });
+
+    disbursementInput.addEventListener('input', function() {
+        validateDisbursement();
+    });
+
+
+});
+
+// document.addEventListener('DOMContentLoaded', function () {
+function datevalidate() {
+  var logindateInput = document.getElementById('login_date');
+  var sanctiondateInput = document.getElementById('sanction_date');
+  var disbursementInputdate = document.getElementById('disburse_date');
+  var submit_app = document.getElementById('submit_app');
+  var errormessageElement = document.getElementById('error-message');
+
+  var login_date = new Date(logindateInput.value);
+  var sanction_date = new Date(sanctiondateInput.value);
+  var disburse_date = new Date(disbursementInputdate.value);
+
+  login_date.setHours(0, 0, 0, 0);
+  sanction_date.setHours(0, 0, 0, 0);
+  disburse_date.setHours(0, 0, 0, 0);
+
+  if (disburse_date < login_date || disburse_date < sanction_date) {
+    errormessageElement.textContent = 'Disbursement Date should not be smaller than Login Date and Sanction Date.';
+    submit_app.setAttribute('disabled', 'disabled');
+  } else {
+    errormessageElement.textContent = '';
+    submit_app.removeAttribute('disabled');
+  }
+}
+
+    
+</script>
 </form>
 
 
@@ -194,10 +358,8 @@ $recordcount = mysqli_num_rows($res);
         <?php } ?>	
     </div>
 </div>
-
-
-
-
+</body>
+</html>
    
 
 
