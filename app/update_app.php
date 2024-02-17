@@ -5,6 +5,7 @@ require_once(dirname(__FILE__) . '/../helpers/common-helper.php');
 require_once(dirname(__FILE__) . '/../model/queryHelper.php');
 require_once(dirname(__FILE__) . '/../include/helper.functions.php');
 require_once "../include/display-name-functions.php";
+$comma = '';
 $update = $_POST['submit_add'];
 if ($update == 'Add'){
     $application_status = $_REQUEST['application_status'];
