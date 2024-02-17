@@ -163,8 +163,8 @@ if (isset($_REQUEST['query_statussearch'])) {
                         <?php  foreach(array_unique($userdata) As $dat){?>
                             <tr>
                                 <td><span><?php echo $dat;?> </span> </td>
-                                <td><span><?php echo $datadisp[$dat]['Open'];?> </span> </td>
-                                <td><span><?php echo $datadisp[$dat]['Ringing'];?> </span> </td>
+                                <td><span><?php echo $datadisp[$dat]['Open'] > 0 ? $datadisp[$dat]['Open']:0;?> </span> </td>
+                                <td><span><?php echo $datadisp[$dat]['Ringing'] > 0 ? $datadisp[$dat]['Ringing'] : 0 ;?> </span> </td>
                                 <td><span><?php echo $datadisp[$dat]['Ringing1'];?> </span> </td>
                                 <td><span><?php echo $datadisp[$dat]['Ringing2'];?> </span> </td>
                                 <td><span><?php echo $datadisp[$dat]['Ringing3'];?> </span> </td>
