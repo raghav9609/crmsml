@@ -7,7 +7,7 @@ require_once(dirname(__FILE__) . '/../config/config.php');
 require_once(dirname(__FILE__) . '/../include/helper.functions.php');
 require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
 
-$filename = "query-report-".date('d-m-Y h:i:s').".csv";
+$filename = "query-report-".date('d-m-Y').".csv";
 
 header("Content-type: text/csv");
 header("Content-Disposition: attachment; filename=$filename");
