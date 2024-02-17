@@ -29,31 +29,31 @@
                     <input type="text" id="applied_amount" name="applied_amount" value="<?php echo $applied_amount;?>" placeholder="Enter Applied Amount" class="form-control numonly valid" maxlength="20" required>
                     <label for="applied_amount" class="label-tag"> Applied Amount</label>
                 </div>
-                    <div class="form-group col-xl-2 col-lg-4 col-md-6">
+                    <div class="form-group col-xl-2 col-lg-4 col-md-6 hidden">
                          <span class="fa-icon fa-building"></span>
-                        <input type="text" class="text form-control valid datepicker" name="login_date" id="login_date" maxlength="10" value="<?php echo $login_date != '0000-00-00'? $login_date:'';?>" placeholder="yyyy-mm-dd"  onchange="datevalidate()" required>
+                        <input type="text" class="text form-control valid datepicker" name="login_date" id="login_date" maxlength="10" value="<?php echo $login_date != '0000-00-00' ? $login_date:'';?>" placeholder="yyyy-mm-dd"  onchange="datevalidate()" required>
                         <label for="login_date" class="label-tag ">Login Date</label>
                     </div> 
 
-                    <div class="form-group col-xl-2 col-lg-4 col-md-6">
+                    <div class="form-group col-xl-2 col-lg-4 col-md-6 hidden">
                         <span class="fa-icon fa-building"></span>
                         <input type="text" id="sanction_amount" name="sanction_amount" value="<?php echo $sanction_amount;?>" placeholder="Enter Sanction Amount" class="form-control numonly valid"  maxlength="20" required>
                         <label for="sanction_amount" class="label-tag"> Sanction Amount</label>
                     </div>
                     
 
-                    <div class="form-group col-xl-2 col-lg-4 col-md-6">
+                    <div class="form-group col-xl-2 col-lg-4 col-md-6 hidden">
                         <span class="fa-icon fa-building"></span>
                         <input type="text" class="text form-control valid datepicker" name="sanction_date" id="sanction_date" maxlength="10" value="<?php echo $sanction_date; ?>" placeholder="yyyy-mm-dd" required  onchange="datevalidate()">
                         <label for="sanction_date" class="label-tag ">Sanction Date</label>
                     </div> 
 
-                    <div class="form-group col-xl-2 col-lg-4 col-md-6">
+                    <div class="form-group col-xl-2 col-lg-4 col-md-6 hidden">
                         <span class="fa-icon fa-building"></span>                        
                             <input type="text" id="disbursed_amount" name="disbursed_amount" value="<?php echo $disbursed_amount;?>" placeholder="Enter Disbursement Amount" class="form-control numonly valid" maxlength="20"  required>
                             <label for="disbursed_amount" class="label-tag"> Disbursement Amount</label>
                     </div>
-                    <div class="form-group col-xl-2 col-lg-4 col-md-6">
+                    <div class="form-group col-xl-2 col-lg-4 col-md-6 hidden">
                         <span class="fa-icon fa-building"></span> 
                         <input type="text" class="text form-control valid datepicker" name="disburse_date" id="disburse_date" maxlength="10" value="<?php echo $disburse_date; ?>" placeholder="yyyy-mm-dd" required  onchange="datevalidate()">
                         <label for="disburse_date" class="label-tag ">Disbursement Date</label>
@@ -70,7 +70,7 @@
                         <label for="remarks_by_bank" class="label-tag">Remarks By Bank</label>
                     </div>
                     
-                    <div class="form-group col-xl-2 col-lg-4 col-md-6">
+                    <div class="form-group col-xl-2 col-lg-4 col-md-6 hidden">
                         <span class="fa-icon fa-building"></span>
                         <input type="text" id="bank_application_no" name="bank_application_no" value="<?php echo $bank_application_no;?>" placeholder="Enter Bank Application Number" class="form-control numonly valid" maxlength="20" required>
                         <label for="bank_application_no" class="label-tag">Bank Application Number</label>
@@ -107,10 +107,7 @@
                 </div>
                 <input type="hidden" id="crm_query_id" name="crm_query_id" value="<?php echo $qryyy_id; ?>">
                 <input type="submit" class="btn btn-primary valid" name="submit_app" id="submit_app" value="SUBMIT">
-
 </form>
-
-
 
 </div>
 </div>
