@@ -1,7 +1,10 @@
 <?php
 //error_reporting(0);
 //require_once(dirname(__FILE__) . '/../../../../config/config.php');
-require_once(dirname(__FILE__) . '/../include/constant.php');
+if($downloadfile != 1){
+        require_once(dirname(__FILE__) . '/../include/constant.php');    
+}
+
 class DBController
 {
         private $host = 'localhost';
