@@ -33,7 +33,7 @@ while($rs = mysqli_fetch_array($results)) {
         }
         $get_user_name = 'UnAssigned';
         if($rs["user_id"] > 0 ){
-            $get_user_nameval = get_name('user_name',$rs["user_id"]);
+            $get_user_nameval = get_name('user_id',$rs["user_id"]);
             $get_user_name = $get_user_nameval["name"];
         } 
         $qstatus_name = 'Open';
@@ -43,7 +43,7 @@ while($rs = mysqli_fetch_array($results)) {
         }
         $city_name = 'Other';
         if($rs["city_id"] > 0 ){
-            $city_nameval = get_name('city_name',$rs["city_id"]);
+            $city_nameval = get_name('city_id',$rs["city_id"]);
             $city_name = $city_nameval["city_name"];
         }
         $toolType = 'Direct';
