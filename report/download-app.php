@@ -7,13 +7,13 @@ require_once(dirname(__FILE__) . '/../config/config.php');
 require_once(dirname(__FILE__) . '/../include/helper.functions.php');
 require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
 
-// $filename = "application-report-".date('d-m-Y').".csv";
+$filename = "application-report-".date('d-m-Y').".csv";
 
-// header("Content-type: text/csv");
-// header("Content-Disposition: attachment; filename=$filename");
-// header("Pragma: no-cache");
-// header("Expires: 0");
-// ob_clean();
+header("Content-type: text/csv");
+header("Content-Disposition: attachment; filename=$filename");
+header("Pragma: no-cache");
+header("Expires: 0");
+ob_clean();
 
 
 if (isset($_REQUEST['fetchdata'])) {
@@ -107,14 +107,15 @@ while($rs = mysqli_fetch_array($results)) {
       
 }
 
-print_r($content);
+//print_r($content);
 
-// $output = fopen('php://output', 'w');
+$output = fopen('php://output', 'w');
 
-// fputcsv($output, $title);
-// foreach ($content as $con) {
-//     fputcsv($output, $con);
-// }
+fputcsv($output, $title);
+foreach ($content as $con) {
+    fputcsv($output, $con);
+}
 
+echo '<script>window.location.href = "'.$head_url.'app/";</script>';
 //echo $querytoexecute;
 ?>
