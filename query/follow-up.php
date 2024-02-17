@@ -249,7 +249,7 @@ $fup_res = $db_handle->runQuery($fup_qry);
 
     var minimum_days = 0;
     var maximum_days = 30;
-    $('#follow_up_date').datepicker( {
+    $('#fol_date').datepicker( {
         minDate: minimum_days,
         maxDate: maximum_days,
         changeMonth: true,

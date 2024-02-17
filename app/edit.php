@@ -241,7 +241,7 @@ function datevalidate() {
 
 var minimum_days = 0;
     var maximum_days = 30;
-    $('#fol_date').datepicker( {
+    $('#follow_up_date').datepicker( {
         minDate: minimum_days,
         maxDate: maximum_days,
         changeMonth: true,
