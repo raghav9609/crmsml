@@ -63,38 +63,11 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
     <body>
         <div class="color-bar-1"></div>
         <div class="color-bar-2 color-bg"></div>
-
         <div class="container main-container">
-            <!-- End Header -->
-
-            <!-- Page Content
-    ================================================== -->
             <div class="row">
-                <!--Container row-->
-                <!-- Title Header -->
                 <div class="span9">
-
-
-            <div style="width:100%;">
-                <div style="padding-left: 1%;padding-right: 1%;"> </div>
-                    </div>
-                </div>
-    <div class="container-fluid main-container">
-        <!-- End Header -->
-
-        <!-- Page Content
-        ================================================== -->
-        <div class="d-block row"><!--Container row-->
-
-            <!-- Title Header -->
-            <div class="span9"><!--Begin page content column-->
-
-                    <div style="width:100%;float:left;">
-               
-                    <div align="center">
-                        <div class="wrapper">
-
-<span class='orange f_13' style="font-weight:bold;"></span>
+                    <div class="wrapper">
+                        <span class='orange f_13' style="font-weight:bold;"></span>
 
                              <!-- Toggle Div -->
                              <?php 
