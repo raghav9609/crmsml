@@ -24,42 +24,44 @@ $title = array("Query Id", "Query Date Time", "Tool Type", "Customer Id", "Custo
 
 $results = mysqli_query($Conn1,$querytoexecute);
 while($rs = mysqli_fetch_array($results)) {
-    $row = array();
-    $get_loan_type_name = 'Personal Loan';
-    if($res["loan_type_id"] > 0){
-        $get_loan_type_name = get_name('master_code_id',$res["loan_type_id"]);
-    }
-    if($res["lead_assign_to"] > 0 ){
-        $get_user_name = get_name('user_name',$res["lead_assign_to"]);
-    } else {
-        $get_user_name = 'UnAssigned';
-    }
-    $qstatus_name = 'Open';
-    if($res["query_status"] > 0 ){
-        $qstatus_name = get_name('status_name',$res["query_status"]);
-    }
-    $city_name = 'Other';
-    if($res["city_id"] > 0 ){
-        $city_name = get_name('city_name',$res["city_id"]);
-    }
-    $row[] = ($rs["id"]);
-    $row[] = $rs["date"];
-    $row[] = ($rs["tool_type"]);
-    $row[] = ($rs["customer_id"]);
-    $row[] = ($rs["name"]);
-    $row[] = ($city_name["city_name"]);
-    $row[] = ($res["phone"]);
-    $row[] = ($get_loan_type_name["value"]);
-    $row[] = ($rs["loan_amt"]);
-    $row[] = ($rs["net_incm"]);
-    $row[] = ($get_user_name["name"]);
-    $row[] = ($qstatus_name["value"]);
-    $row[] = ($rs["verify_phone"]);
-    $row[] = ($rs["page_url"]);
-    $row[] = $rs["lead_assign_on"] ;
-   
+    if (!empty($rs)){
+        $row = array();
+        $get_loan_type_name = 'Personal Loan';
+        if($res["loan_type_id"] > 0){
+            $get_loan_type_name = get_name('master_code_id',$res["loan_type_id"]);
+        }
+        if($res["lead_assign_to"] > 0 ){
+            $get_user_name = get_name('user_name',$res["lead_assign_to"]);
+        } else {
+            $get_user_name = 'UnAssigned';
+        }
+        $qstatus_name = 'Open';
+        if($res["query_status"] > 0 ){
+            $qstatus_name = get_name('status_name',$res["query_status"]);
+        }
+        $city_name = 'Other';
+        if($res["city_id"] > 0 ){
+            $city_name = get_name('city_name',$res["city_id"]);
+        }
+        $row[] = ($rs["id"]);
+        $row[] = $rs["date"];
+        $row[] = ($rs["tool_type"]);
+        $row[] = ($rs["customer_id"]);
+        $row[] = ($rs["name"]);
+        $row[] = ($city_name["city_name"]);
+        $row[] = ($res["phone"]);
+        $row[] = ($get_loan_type_name["value"]);
+        $row[] = ($rs["loan_amt"]);
+        $row[] = ($rs["net_incm"]);
+        $row[] = ($get_user_name["name"]);
+        $row[] = ($qstatus_name["value"]);
+        $row[] = ($rs["verify_phone"]);
+        $row[] = ($rs["page_url"]);
+        $row[] = $rs["lead_assign_on"] ;
     
-    $content[] = $row;
+        
+        $content[] = $row;
+    }
       
 }
 
