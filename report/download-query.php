@@ -60,6 +60,7 @@ fputcsv($output, $title);
 foreach ($content as $con) {
     fputcsv($output, $con);
 }
-
+fclose($output);
+ob_get_clean();
 //echo $querytoexecute;
 ?>
