@@ -249,6 +249,13 @@ var minimum_days = 0;
         dateFormat: 'yy-mm-dd',
         autoclose: true,
     });
+
+    $('#follow_up_time').timepicker('option', {
+              minTime: minval, 
+              maxTime: '20:00:00',
+              step: 30,
+              disableTextInput: true
+          });
 </script>
 <?php } ?>
 
