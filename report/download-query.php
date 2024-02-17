@@ -8,10 +8,10 @@ require_once(dirname(__FILE__) . '/../include/display-name-functions.php');
 
 $filename = "https://astechnos.com/crmsml/report/crm-query-report3.csv";
 
-// header("Content-type: text/csv");
-// header("Content-Disposition: attachment; filename=$filename");
-// header("Pragma: no-cache");
-// header("Expires: 0");
+header("Content-type: text/csv");
+header("Content-Disposition: attachment; filename=$filename");
+header("Pragma: no-cache");
+header("Expires: 0");
 ob_clean();
 
 
