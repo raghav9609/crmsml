@@ -146,8 +146,8 @@ if(isset($_REQUEST['case_no'])){
 $case_no = replace_special($_REQUEST['case_no']);}
 if(isset($_REQUEST['app_no'])){
 $app_no = replace_special($_REQUEST['app_no']);}
-if(isset($_REQUEST['app_statussearch'])){
-$app_statussearch = replace_special($_REQUEST['app_statussearch']);}
+if(isset($_REQUEST['application_status'])){
+$application_status = replace_special($_REQUEST['application_status']);}
 if(isset($_REQUEST['loan_type'])){
 $search = replace_special($_REQUEST['loan_type']);}
 if(isset($_REQUEST['from_loan_amount'])){
@@ -289,9 +289,9 @@ if($search != ""){$default = 1;
     $qry_ex .= " and qry.loan_type_id = '".$search."'";
 }if($from_loan_amount != "" && $to_loan_amount != ""){
     $default = 1;
-    if($app_statussearch == 28 ){
+    if($application_status == 28 ){
         $qry_ex .= " and app.disbursed_amount between '".$from_loan_amount."' and '".$to_loan_amount."'";
-    } else if($app_statussearch == 27){
+    } else if($application_status == 27){
         $qry_ex .= " and app.sanction_amount between '".$from_loan_amount."' and '".$to_loan_amount."'";
     } else {
         $qry_ex .= " and app.applied_amount between '".$from_loan_amount."' and '".$to_loan_amount."'";
@@ -325,11 +325,11 @@ if($application_status != ""){
 
 if($date_from != "" && $date_to != "" && $date_from != "0000-00-00" && $date_to != "0000-00-00"){
 	$default = 1;
-    if($app_statussearch == 28 ){$default = 1;
+    if($application_status == 28 ){$default = 1;
         $qry_ex .= " and app.disburse_date between '".$date_from."' and '".$date_to."'";
-    }else if($app_statussearch == 27 ){$default = 1;
+    }else if($application_status == 27 ){$default = 1;
      $qry_ex .= " and app.sanction_date between '".$date_from."' and '".$date_to."'";
-    }else if($app_statussearch == 26){$default = 1;
+    }else if($application_status == 26){$default = 1;
         $qry_ex .= " and app.login_date between '".$date_from."' and '".$date_to."'";
     }else{
         if($date_from != "" && $date_to != "" && $date_from != "0000-00-00" && $date_to != "0000-00-00"){$default = 1;
@@ -512,12 +512,12 @@ if ($(this).not(":checked")) {
                 <td>
                     <?php
 					if($page > 1){
-            echo "<a class='page gradient' href='index.php?page=1&u_assign=$u_assign&sub_source=$sub_source&insurance=$insurance&promocode=$promocode&source_compign=$source_compign&ref_phone=$ref_phone&case_no=$case_no&app_no=$app_no&from_loan_amount=$from_loan_amount&to_loan_amount=$to_loan_amount&app_statussearch=$app_statussearch&loan_type=$search&name_search=$name_search&phone=$phone&banksearch=$banksearch&pre_status=$pre_statussearch&patnersearch=$patnersearch&crm_id_num=$crm_id_num&city_type=$city_type&date_from=$date_from&date_to=$date_to&bankers_name=$bankers_name&customer_id_search=$customer_id_search&masked_phone=$masked_phone&bank_app_no=$bank_app_no&email_search=$email_search&city_sub_group=$city_sub_group&case_u_assign=$case_u_assign&app_u_assign=$app_u_assign&app_new_status=$app_new_status&sub_status=$sub_status&sub_sub_status=$sub_sub_status&refarming_user_id=$refarming_user_id&fup_date_from=$fup_date_from&fup_date_to=$fup_date_to&fup_user_type=$fup_user_type'>First</a>";
-						echo "<a class='page gradient' href='index.php?page=" . ($page - 1) . "&u_assign=$u_assign&sub_source=$sub_source&insurance=$insurance&promocode=$promocode&source_compign=$source_compign&ref_phone=$ref_phone&case_no=$case_no&app_no=$app_no&from_loan_amount=$from_loan_amount&to_loan_amount=$to_loan_amount&app_statussearch=$app_statussearch&loan_type=$search&name_search=$name_search&phone=$phone&banksearch=$banksearch&pre_status=$pre_statussearch&patnersearch=$patnersearch&crm_id_num=$crm_id_num&city_type=$city_type&date_from=$date_from&date_to=$date_to&bankers_name=$bankers_name&customer_id_search=$customer_id_search&masked_phone=$masked_phone&bank_app_no=$bank_app_no&email_search=$email_search&city_sub_group=$city_sub_group&case_u_assign=$case_u_assign&app_u_assign=$app_u_assign&app_new_status=$app_new_status&sub_status=$sub_status&sub_sub_status=$sub_sub_status&refarming_user_id=$refarming_user_id&fup_date_from=$fup_date_from&fup_date_to=$fup_date_to&fup_user_type=$fup_user_type'>Prev</a>";
+            echo "<a class='page gradient' href='index.php?page=1&u_assign=$u_assign&sub_source=$sub_source&insurance=$insurance&promocode=$promocode&source_compign=$source_compign&ref_phone=$ref_phone&case_no=$case_no&app_no=$app_no&from_loan_amount=$from_loan_amount&to_loan_amount=$to_loan_amount&application_status=$application_status&loan_type=$search&name_search=$name_search&phone=$phone&banksearch=$banksearch&pre_status=$pre_statussearch&patnersearch=$patnersearch&crm_id_num=$crm_id_num&city_type=$city_type&date_from=$date_from&date_to=$date_to&bankers_name=$bankers_name&customer_id_search=$customer_id_search&masked_phone=$masked_phone&bank_app_no=$bank_app_no&email_search=$email_search&city_sub_group=$city_sub_group&case_u_assign=$case_u_assign&app_u_assign=$app_u_assign&app_new_status=$app_new_status&sub_status=$sub_status&sub_sub_status=$sub_sub_status&refarming_user_id=$refarming_user_id&fup_date_from=$fup_date_from&fup_date_to=$fup_date_to&fup_user_type=$fup_user_type'>First</a>";
+						echo "<a class='page gradient' href='index.php?page=" . ($page - 1) . "&u_assign=$u_assign&sub_source=$sub_source&insurance=$insurance&promocode=$promocode&source_compign=$source_compign&ref_phone=$ref_phone&case_no=$case_no&app_no=$app_no&from_loan_amount=$from_loan_amount&to_loan_amount=$to_loan_amount&application_status=$application_status&loan_type=$search&name_search=$name_search&phone=$phone&banksearch=$banksearch&pre_status=$pre_statussearch&patnersearch=$patnersearch&crm_id_num=$crm_id_num&city_type=$city_type&date_from=$date_from&date_to=$date_to&bankers_name=$bankers_name&customer_id_search=$customer_id_search&masked_phone=$masked_phone&bank_app_no=$bank_app_no&email_search=$email_search&city_sub_group=$city_sub_group&case_u_assign=$case_u_assign&app_u_assign=$app_u_assign&app_new_status=$app_new_status&sub_status=$sub_status&sub_sub_status=$sub_sub_status&refarming_user_id=$refarming_user_id&fup_date_from=$fup_date_from&fup_date_to=$fup_date_to&fup_user_type=$fup_user_type'>Prev</a>";
 					}
           echo "<a class='page gradient' href='javascript:void;'>".$page."</a>";
           if($recordcount > $display_count){
-                    echo "<a class='page gradient' href='index.php?page=".($page+1) ."&u_assign=$u_assign&sub_source=$sub_source&insurance=$insurance&promocode=$promocode&source_compign=$source_compign&ref_phone=$ref_phone&case_no=$case_no&app_no=$app_no&from_loan_amount=$from_loan_amount&to_loan_amount=$to_loan_amount&app_statussearch=$app_statussearch&loan_type=$search&name_search=$name_search&phone=$phone&banksearch=$banksearch&patnersearch=$patnersearch&crm_id_num=$crm_id_num&pre_status=$pre_statussearch&city_type=$city_type&date_from=$date_from&date_to=$date_to&bankers_name=$bankers_name&customer_id_search=$customer_id_search&masked_phone=$masked_phone&bank_app_no=$bank_app_no&email_search=$email_search&city_sub_group=$city_sub_group&case_u_assign=$case_u_assign&app_u_assign=$app_u_assign&app_new_status=$app_new_status&sub_status=$sub_status&sub_sub_status=$sub_sub_status&refarming_user_id=$refarming_user_id&fup_date_from=$fup_date_from&fup_date_to=$fup_date_to&fup_user_type=$fup_user_type'>Next</a>";
+                    echo "<a class='page gradient' href='index.php?page=".($page+1) ."&u_assign=$u_assign&sub_source=$sub_source&insurance=$insurance&promocode=$promocode&source_compign=$source_compign&ref_phone=$ref_phone&case_no=$case_no&app_no=$app_no&from_loan_amount=$from_loan_amount&to_loan_amount=$to_loan_amount&application_status=$application_status&loan_type=$search&name_search=$name_search&phone=$phone&banksearch=$banksearch&patnersearch=$patnersearch&crm_id_num=$crm_id_num&pre_status=$pre_statussearch&city_type=$city_type&date_from=$date_from&date_to=$date_to&bankers_name=$bankers_name&customer_id_search=$customer_id_search&masked_phone=$masked_phone&bank_app_no=$bank_app_no&email_search=$email_search&city_sub_group=$city_sub_group&case_u_assign=$case_u_assign&app_u_assign=$app_u_assign&app_new_status=$app_new_status&sub_status=$sub_status&sub_sub_status=$sub_sub_status&refarming_user_id=$refarming_user_id&fup_date_from=$fup_date_from&fup_date_to=$fup_date_to&fup_user_type=$fup_user_type'>Next</a>";
                   }
                     ?></td>
             </tr>
