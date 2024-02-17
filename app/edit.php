@@ -63,7 +63,7 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
     <body>
         <div class="color-bar-1"></div>
         <div class="color-bar-2 color-bg"></div>
-        <div class="container main-container">
+        <div class="container-fluid main-container">
             <div class="row">
                 <div class="span9">
                     <div class="wrapper">
