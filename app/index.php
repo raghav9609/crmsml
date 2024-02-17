@@ -142,12 +142,10 @@ if(isset($_REQUEST['case_u_assign'])) {
 if(isset($_REQUEST['app_u_assign'])) {
     $app_u_assign = replace_special($_REQUEST['app_u_assign']);
 }
-if(isset($_REQUEST['case_no'])){
-$case_no = replace_special($_REQUEST['case_no']);}
+
 if(isset($_REQUEST['app_no'])){
 $app_no = replace_special($_REQUEST['app_no']);}
-if(isset($_REQUEST['application_status'])){
-$application_status = replace_special($_REQUEST['application_status']);}
+
 if(isset($_REQUEST['loan_type'])){
 $search = replace_special($_REQUEST['loan_type']);}
 if(isset($_REQUEST['from_loan_amount'])){
