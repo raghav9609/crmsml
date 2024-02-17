@@ -28,36 +28,71 @@ while($rs = mysqli_fetch_array($results)) {
         $row = array();
         $get_loan_type_name = 'Personal Loan';
         if($res["loan_type_id"] > 0){
-            $get_loan_type_name = get_name('master_code_id',$res["loan_type_id"]);
+            $get_loan_type_nameval = get_name('master_code_id',$res["loan_type_id"]);
+            $get_loan_type_name = $get_loan_type_nameval["value"];
         }
+        $get_user_name = 'UnAssigned';
         if($res["lead_assign_to"] > 0 ){
-            $get_user_name = get_name('user_name',$res["lead_assign_to"]);
-        } else {
-            $get_user_name = 'UnAssigned';
-        }
+            $get_user_nameval = get_name('user_name',$res["lead_assign_to"]);
+            $get_user_name = $get_user_nameval["name"];
+        } 
         $qstatus_name = 'Open';
         if($res["query_status"] > 0 ){
-            $qstatus_name = get_name('status_name',$res["query_status"]);
+            $qstatus_nameval = get_name('status_name',$res["query_status"]);
+            $qstatus_name = $qstatus_nameval["value"];
         }
         $city_name = 'Other';
         if($res["city_id"] > 0 ){
-            $city_name = get_name('city_name',$res["city_id"]);
+            $city_nameval = get_name('city_name',$res["city_id"]);
+            $city_name = $city_nameval["city_name"];
+        }
+        $toolType = 'Direct';
+        if ($rs["tool_type"] != ''){
+            $toolType = $rs["tool_type"];
+        }
+        $customerId = 0;
+        if($rs["customer_id"] > 0){
+            $customerId = $rs["customer_id"];
+        }
+        $customername = '';
+        if($rs["name"] != ''){
+            $customername = $rs["name"];
+        }
+        $pageurl = '';
+        if($rs["page_url"] != ''){
+            $pageurl = $rs["page_url"];
+        }
+        $customerphone = 0;
+        if($rs["phone"] > 0){
+            $customerphone = $rs["phone"];
+        }
+        $loan_amt = 0;
+        if($rs["loan_amt"] > 0){
+            $loan_amt = $rs["loan_amt"];
+        }
+        $net_incom = 0;
+        if($rs["net_incm"] > 0){
+            $net_incom = $rs["net_incm"];
+        }
+        $leadassigndate = '';
+        if($rs["lead_assign_on"] != ''){
+            $leadassigndate = $rs["lead_assign_on"];
         }
         $row[] = ($rs["id"]);
         $row[] = $rs["date"];
-        $row[] = ($rs["tool_type"]);
-        $row[] = ($rs["customer_id"]);
-        $row[] = ($rs["name"]);
-        $row[] = ($city_name["city_name"]);
-        $row[] = ($res["phone"]);
-        $row[] = ($get_loan_type_name["value"]);
-        $row[] = ($rs["loan_amt"]);
-        $row[] = ($rs["net_incm"]);
-        $row[] = ($get_user_name["name"]);
-        $row[] = ($qstatus_name["value"]);
+        $row[] = ($toolType);
+        $row[] = ($customerId);
+        $row[] = ($customername);
+        $row[] = ($city_name);
+        $row[] = ($customerphone);
+        $row[] = ($get_loan_type_name);
+        $row[] = ($loan_amt);
+        $row[] = ($net_incom);
+        $row[] = ($get_user_name);
+        $row[] = ($qstatus_name);
         $row[] = ($rs["verify_phone"]);
-        $row[] = ($rs["page_url"]);
-        $row[] = $rs["lead_assign_on"] ;
+        $row[] = ($pageurl);
+        $row[] = $leadassigndate ;
     
         
         $content[] = $row;
