@@ -82,7 +82,7 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
                                     $class="np-amberbtn";
                                 }
                             }
-                            include("../query/js-insert.php");
+                          //  include("../query/js-insert.php");
                             include("form_index_app.php");
                             ?>
                             <br>
