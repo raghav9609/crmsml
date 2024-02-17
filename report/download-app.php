@@ -23,7 +23,7 @@ if (isset($_REQUEST['fetchdata'])) {
 $content = array();
 $title = array("Application Id", "Application Date Time", "Customer Name", "City", "Phone", "Loan Type", "Loan Amount", "Bank", "User", "Application Status", "Follow up Date","Follow up Time","Login Date","Sanction Date","Disbursement date");
 
-echo $querytoexecute;
+//echo $querytoexecute;
 
 $results = mysqli_query($Conn1,$querytoexecute);
 while($rs = mysqli_fetch_array($results)) {
@@ -116,6 +116,7 @@ foreach ($content as $con) {
     fputcsv($output, $con);
 }
 
-echo '<script>window.location.href = "https://astechnos.com/crmsml/app/";</script>';
 //echo $querytoexecute;
 ?>
+ <script type="text/javascript" src="../assets/js/jquery-1.10.2.js"></script>
+<script>window.location.href = "https://astechnos.com/crmsml/app/";</script>
