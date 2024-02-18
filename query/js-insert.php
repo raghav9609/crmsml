@@ -152,7 +152,7 @@ function datechange(){
                         disableTimeRanges: disbleslot
                          });                
             }
-            else{
+            else {
                 $('#fol_time').timepicker({disableTextInput: true}).val(""); 
                 $('#fol_time').timepicker('option', {minTime: '09:30:00', 
                         maxTime: '20:00:00', 

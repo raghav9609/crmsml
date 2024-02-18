@@ -164,13 +164,12 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
                 yearRange: 'c-100:2050'
             });
 
-            flatpickr('.flatpickr', {
-                enableTime: true,
-                noCalendar: true,
-                dateFormat: "H:i",
-                time_24hr: true,
-                minuteIncrement: 15
-            });
+            $('#fol_time').timepicker({disableTextInput: true}).val(""); 
+                $('#fol_time').timepicker('option', {minTime: '09:30:00', 
+                        maxTime: '20:00:00', 
+                        step: int1,
+                        disableTextInput: true ,
+                        disableTimeRanges: disbleslot     });
         });
     });
     
