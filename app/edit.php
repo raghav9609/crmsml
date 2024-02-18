@@ -164,12 +164,13 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
                 yearRange: 'c-100:2050'
             });
 
-            $('#fol_time').timepicker({disableTextInput: true}).val(""); 
-                $('#fol_time').timepicker('option', {minTime: '09:30:00', 
-                        maxTime: '20:00:00', 
-                        step: int1,
-                        disableTextInput: true ,
-                        disableTimeRanges: disbleslot     });
+            flatpickr('.flatpickr', {
+                enableTime: true,
+                noCalendar: true,
+                dateFormat: "H:i",
+                time_24hr: true,
+                minuteIncrement: 15
+            });
         });
     });
     
@@ -248,13 +249,19 @@ var minimum_days = 0;
         dateFormat: 'yy-mm-dd',
         autoclose: true,
     });
-
+    $('#follow_up_time').timepicker({disableTextInput: true}).val(""); 
     $('#follow_up_time').timepicker('option', {
-              minTime: minval, 
-              maxTime: '20:00:00',
-              step: 30,
-              disableTextInput: true
-          });
+        minTime: '09:30:00', 
+        maxTime: '20:00:00', 
+        step: int1,
+        disableTextInput: true ,
+        disableTimeRanges: disbleslot     });
+    // $('#follow_up_time').timepicker('option', {
+    //           minTime: minval, 
+    //           maxTime: '20:00:00',
+    //           step: 30,
+    //           disableTextInput: true
+    //       });
 </script>
 <?php } ?>
 
