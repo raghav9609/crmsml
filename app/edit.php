@@ -317,7 +317,7 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
                 alert("Sanction Date can not less than login Date");
                 datavalid = 0;
                 return false;
-            } else if(sanction_amount > applied_amount ){
+            } else if(parseInt(sanction_amount) > parseInt(applied_amount)){
                 $("#sanction_amount").val("");
                 alert("Sanction Amount can not be greater than Applied Amount");
                 datavalid = 0;
@@ -334,12 +334,12 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
                 alert("Disbursement Date can not less than Sanction Date");
                 datavalid = 0;
                 return false;
-            } else if(sanction_amount > applied_amount ){
+            } else if(parseInt(sanction_amount) > parseInt(applied_amount) ){
                 $("#sanction_amount").val("");
                 alert("Sanction Amount can not be greater than Applied Amount");
                 datavalid = 0;
                 return false;
-            } else if(disbursed_amount > sanction_amount ){
+            } else if(parseInt(disbursed_amount) > parseInt(sanction_amount) ){
                 $("#disbursed_amount").val("");
                 alert("Disbursed Amount can not be greater than Sanction Amount");
                 datavalid = 0;
