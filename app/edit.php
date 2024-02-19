@@ -326,6 +326,8 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
             alert("anu");
         }
     }
+
+    validatedata('<?php echo $application_status;?>');
 </script>
 <?php } ?>
 
