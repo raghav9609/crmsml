@@ -371,7 +371,6 @@ $("#login_date").datepicker({
         var sanctiondate = $("#sanction_date_t").val();
         var disbursedate = $("#disburse_date_t").val();
         var statusId = $("#application_status").val();
-        alert(statusId);
         if(statusId == 27){
             if(sanctiondate < logindate){
                 alert("Sanction Date can not less than login Date");
@@ -391,8 +390,8 @@ $("#login_date").datepicker({
     
     $(document).ready(function() {
         $("#submit_app").submit(function() {
-            datavalidate();
-            //alert(validationchk);
+            var validationchk = datavalidate();
+            alert(validationchk);
         })
     });
 </script>
