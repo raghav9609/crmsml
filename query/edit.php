@@ -226,7 +226,7 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
                                 url: "../insert/ajax_insert_updated_query_details.php",
                                 data: "query_id="+query_id,
                                 beforeSend: function () {
-                                    $(".tab-2 > .facts > .register > .table_set").html('<div class="img">Please wait while we are fetching the details...</div><div class="img"><img style="width: 10%" src="../../include/img/common-loader.gif" /></div>');
+                                    $(".tab-2 > .facts > .register > .table_set").html('<div class="img">Please wait while we are fetching the details...</div><div class="img"><img style="width: 10%" src="<?php echo $head_url;?>/include/img/common-loader.gif" /></div>');
                                 },
                                 success: function(msg) {
                                     console.log(msg);
@@ -251,7 +251,7 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
                                 url: "../insert/ajax_insert_cust_query_history.php",
                                 data: "case_id="+case_id+"&type=case",
                                 beforeSend: function () {
-                                    $(".tab-3 > .facts > .register > .table_set").html('<div class="img">Please wait while we are fetching the details...</div><div class="img"><img style="width: 10%" src="../../include/img/common-loader.gif" /></div>');
+                                    $(".tab-3 > .facts > .register > .table_set").html('<div class="img">Please wait while we are fetching the details...</div><div class="img"><img style="width: 10%" src="<?php echo $head_url;?>/include/img/common-loader.gif" /></div>');
                                 },
                                 success: function(msg) {
                                     console.log(msg);
@@ -277,7 +277,7 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
                                 url: "../insert/ajax_insert_cust_query_history.php",
                                 data: "case_id="+case_id+"&loan_type="+loan_type+"&cust_id="+cust_id+"&type=app",
                                 beforeSend: function () {
-                                    $(".tab-4 > .facts > .register > .table_set").html('<div class="img">Please wait while we are fetching the details...</div><div class="img"><img style="width: 10%" src="../../include/img/common-loader.gif" /></div>');
+                                    $(".tab-4 > .facts > .register > .table_set").html('<div class="img">Please wait while we are fetching the details...</div><div class="img"><img style="width: 10%" src="<?php echo $head_url;?>/include/img/common-loader.gif" /></div>');
                                 },
                                 success: function(msg) {
                                     if(msg.trim() == "") {
@@ -300,7 +300,7 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
                                 url: "../insert/show_number_history.php",
                                 data: "query_id="+query_id,
                                 beforeSend: function () {
-                                    $(".tab-5 > .facts > .register > .table_set").html('<div class="img">Please wait while we are fetching the details...</div><div class="img"><img style="width: 10%" src="../../include/img/common-loader.gif" /></div>');
+                                    $(".tab-5 > .facts > .register > .table_set").html('<div class="img">Please wait while we are fetching the details...</div><div class="img"><img style="width: 10%" src="<?php echo $head_url;?>/include/img/common-loader.gif" /></div>');
                                 },
                                 success: function(msg) {
                                     if(msg.trim() == "") {
@@ -324,7 +324,7 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
                                 url: "../app/case_app_req_res.php",
                                 data: "case_id="+case_id+"&query_id="+query_id,
                                 beforeSend: function () {
-                                    $(".tab-6 > .facts > .register > .table_set").html('<div class="img">Please wait while we are fetching the details...</div><div class="img"><img style="width: 10%" src="../../include/img/common-loader.gif" /></div>');
+                                    $(".tab-6 > .facts > .register > .table_set").html('<div class="img">Please wait while we are fetching the details...</div><div class="img"><img style="width: 10%" src="<?php echo $head_url;?>/include/img/common-loader.gif" /></div>');
                                 },
                                 success: function(msg) {
                                     if(msg.trim() == "") {
@@ -350,7 +350,7 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
                                 url: "../insert/ajax_insert_cust_query_history.php",
                                 data: "case_id="+case_id+"&query_id="+query_id+"&type=experian",
                                 beforeSend: function () {
-                                    $(".tab-7 > .facts > .register > .table_set").html('<div class="img">Please wait while we are fetching the details...</div><div class="img"><img style="width: 10%" src="../../include/img/common-loader.gif" /></div>');
+                                    $(".tab-7 > .facts > .register > .table_set").html('<div class="img">Please wait while we are fetching the details...</div><div class="img"><img style="width: 10%" src="<?php echo $head_url;?>/include/img/common-loader.gif" /></div>');
                                 },
                                 success: function(msg) {
                                     if(msg.trim() == "") {

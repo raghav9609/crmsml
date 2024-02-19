@@ -181,7 +181,7 @@ $('#emi_details').on("blur", '.pp_amount', function() {
             url: "part_payment_details.php",
             data: "serial_number=" + serial_number + "&loan_amount=" + loan_amount + "&rate_of_interest=" + rate_of_interest + "&loan_tenure=" + loan_tenure + "&part_payment_val=" + part_payment_val + "&dynamic_values=" + dynamic_values + "&initial_int_paid=" + initial_int_paid,
             beforeSend: function () {
-                $("#emi_details").html('<div class="img">Please wait while we are fetching the details...</div><div class="img"><img style="width: 10%" src="../../include/img/common-loader.gif" /></div>');
+                $("#emi_details").html('<div class="img">Please wait while we are fetching the details...</div><div class="img"><img style="width: 10%" src="<?php echo $head_url;?>/include/img/common-loader.gif" /></div>');
             },
             success: function(msg) {
                 $("#emi_details").html("").html(msg);
