@@ -390,8 +390,8 @@ $("#login_date").datepicker({
     
     $(document).ready(function() {
         $("#submit_app").submit(function() {
-            var validationchk = datavalidate();
-            alert(validationchk);
+            datavalidate();
+            //alert(validationchk);
         })
     });
 </script>
