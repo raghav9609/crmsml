@@ -337,8 +337,8 @@ $("#login_date").datepicker({
 
     function datavalidate(){
         var statusId = $("#application_status").val();
-        alert("statusId");
-        
+        alert(statusId);
+
         var logindate = $("#login_date_t").val();
         var sanctiondate = $("#sanction_date_t").val();
         if(sanctiondate < logindate){
