@@ -337,7 +337,14 @@ $("#login_date").datepicker({
 
     function datavalidate(){
         var statusId = $("#application_status").val();
-        alert(statusId);
+
+        if (statusId == 26){
+            $("#login_date").attr("required",true);
+        } else if(statusId == 27){
+            $("#login_date,#sanction_date,#sanction_amount").attr("required",true);
+        } else if(statusId == 28){
+            $("#login_date,#sanction_date,#sanction_amount,#bank_application_no,#disburse_date,#disbursed_amount").attr("required",true);
+        }
 
         var logindate = $("#login_date_t").val();
         var sanctiondate = $("#sanction_date_t").val();
