@@ -244,8 +244,8 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
 // }
 
 $("#login_date").datepicker({
-          minDate: '0',
-          maxDate: '90',
+        //   minDate: '0',
+        //   maxDate: '90',
           changeMonth: true, 
           changeYear: true,
           dateFormat: 'yy-mm-dd',
@@ -255,7 +255,7 @@ $("#login_date").datepicker({
              
           },
           onClose: function( selectedDate ) {
-            $("#follow_up_date_t").val(selectedDate);
+            $("#login_date_t").val(selectedDate);
           }
       });
 
