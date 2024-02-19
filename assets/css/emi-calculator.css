@@ -1,0 +1,373 @@
+.emi-heading p {
+    font-size: 16px;
+    color: #263238;
+}
+
+.emi-calc-boxes {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+    position: relative;
+}
+.eligib-circle {
+    position: absolute;
+    left: -13%;
+    top: -12%;
+    z-index: -1;
+}
+
+.eligib-circle img {
+    height: 500px;
+    width: 100%;
+}
+
+.eligib-pipe {
+    position: absolute;
+    right: -4%;
+    z-index: -1;
+    top: -18%;
+}
+
+.eligib-pipe img {
+    height: 450px;
+}
+.emi-calc-left {
+    background: #FFFFFF;
+    box-shadow: 0px 8.59375px 25.7812px rgba(17, 53, 112, 0.16);
+    border-radius: 25px;
+    padding: 28px 36px;
+    padding-right: 116px;
+    width: 100%;
+}
+
+.emi-calc-left-head span {
+    color: #8A91A1;
+    font-size: 18px;
+}
+
+.emi-calc-left-head p {
+    color: #263238;
+    font-size: 24px;
+    font-weight: 600;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+.range-box {
+    margin-bottom: 22px;
+}
+
+.range-box:last-child {
+    margin-bottom: 0px;
+}
+
+.range-slider input {
+    width: 100%;
+}
+
+.progress {
+    width: 100%;
+    height: 12px;
+    -webkit-appearance: none;
+    background: #D5D7DD;
+    outline: none;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: inset #D5D7DD;
+    border: none;
+    padding: 0px;
+}
+
+.progress::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #2767C7;
+    cursor: pointer;
+    border: 4px solid #fff;
+    box-shadow: -407px 0 0 400px #2767C7;
+}
+
+.range-values {
+    display: flex;
+    justify-content: space-between;
+}
+
+.range-values span {
+    color: #525660;
+    font-size: 18px;
+}
+
+/* new css by parvesh */
+/* .range-values span:nth-child(1){
+    border-bottom: 2px solid #ddd;
+} */
+.range-values span:nth-child(2){
+    color: #011149;
+    font-size: 20px;
+    font-weight: 600;
+    border-bottom: 1px solid #4D3ECC;
+    margin-bottom: 6px;
+}
+.range-values span input {
+    border: none;
+    outline: none;
+    color: #011149;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: end;
+    width: 110px;
+    margin: 0px;
+    padding: 0px;
+    background: none;
+}
+
+/* new css by parvesh */
+.range-values p {
+    color: #011149;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0px;
+}
+
+.range-limits {
+    display: flex;
+    justify-content: space-between;
+}
+
+.range-limits span {
+    color: #011149;
+    font-size: 12px;
+}
+
+.emi-calc-right {
+    padding: 28px 36px;
+    background: #FFFFFF;
+    box-shadow: 0px 8.51393px 25.5418px rgba(17, 53, 112, 0.16);
+    border-radius: 25px;
+    margin-left: -6%;
+    width: 100%;
+}
+
+.emi-calc-right-head {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.emi-calc-right-head span {
+    color: #011149;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.calculation-area {
+    display: flex;
+    justify-content: space-between;
+}
+
+.calc-top-result {
+    margin-bottom: 26px;
+}
+
+.calc-top-result span {
+    color: #525660 !important;
+    font-size: 16px;
+}
+
+.calc-top-result p {
+    color: #011149;
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0px;
+}
+
+.repay-buton {
+    text-align: center;
+    margin-top: 14px;
+}
+
+.repay-buton span {
+    color: #2767C7;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.emi-left-calc-input input {
+    width: 100%;
+}
+
+.repayment-box {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 42px;
+}
+
+.calc-table {
+    width: 100%;
+    /* margin: auto; */
+    /* margin-top: 50px; */
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.calc-table thead {
+    background-color: blue;
+    color: white;
+    font-weight: bold;
+    position: sticky;
+    top: 0;
+}
+
+.calc-table thead tr td {
+    padding: 1% 0 1% 0;
+}
+
+.calc-table tr td {
+    border: 1px solid #ddd;
+    padding: 1% 0 1% 0;
+}
+
+.calc-td {
+    color: #18375f;
+}
+
+.repay-heading {
+    text-align: center;
+}
+
+.repay-heading span {
+    font-size: 28px;
+    color: #011149;
+    position: relative;
+}
+
+.repay-heading span::after {
+    content: '';
+    background-color: #4d3ecc;
+    height: 6px;
+    position: absolute;
+    bottom: -14px;
+    left: 115px;
+    border-radius: 10px;
+    width: 100px;
+}
+
+.princip-cont {
+    background-color: #E4E2F8;
+    border: 1px solid #6D57DF;
+    border-radius: 10px;
+    padding: 12px 0px;
+    width: 45%;
+    text-align: center;
+}
+
+.princip-monthly {
+    display: flex;
+    justify-content: space-between;
+    width: 85%;
+    margin: 0 auto;
+    margin-top: 38px;
+}
+
+.princip-cont span {
+    color: #011149;
+    font-size: 18px;
+}
+
+.repaytab-cont {
+    border-collapse: collapse;
+    width: 85%;
+    margin: 0 auto;
+    text-align: center;
+    border: 1px solid #D5D7DD;
+    margin-top: 20px;
+}
+
+.repay-table {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.repaytab-cont thead tr td {
+    color: #011149;
+    font-size: 16px;
+    font-family: 'poppins';
+    background-color: #F6F6F8;
+}
+
+.repaytab-cont tbody tr td {
+    color: #263238;
+    font-size: 14px;
+}
+
+.repaytab-cont thead tr td,
+.repaytab-cont tbody tr td {
+    border: 1px solid #D5D7DD;
+    padding: 8px 0px;
+}
+
+.repaytab-cont tr:nth-child(even) {
+    background-color: #F6F6F8;
+}
+
+.repaybtn {
+    border: none;
+    background-color: #fff0ff00;
+    color: #4D3ECC;
+    font-size: 18px;
+    position: relative;
+    text-align: center;
+    font-family: 'poppinsmedium';
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.repaybtn::after {
+    text-decoration: none;
+    content: "\276F";
+    position: absolute;
+    margin-left: -18px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(90deg);
+    right: -14px;
+    top: -2px;
+    color: #4D3ECC;
+}
+
+#total-interest-amount {
+    color: #2767C7 !important;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+#princip-interest-amount {
+    color: #EB9B42 !important;
+    font-size: 16px;
+}
+
+.percentage-box {
+    height: 12px;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.emi-repay-tab {
+    height: 1268px;
+    overflow-y: scroll;
+}
+
+/* .emi-repay-tab::-webkit-scrollbar-thumb {
+    background-color: #4d3ecc;
+    outline: #4d3ecc solid 1px;
+    border-radius: 10px;
+}
+
+.emi-repay-tab::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgb(0 0 0 / 30%);
+} */
