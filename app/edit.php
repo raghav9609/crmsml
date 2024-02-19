@@ -357,8 +357,9 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
                 },                         
                 url: "update_app.php",
                 success: function (data) {
+                    alert(data);
                     alert("Application Updated Successfully");
-                    window.location.href='https://astechnos.com/crmsml/app/edit.php?app_id='+$("#app_id").val();
+                   // window.location.href='https://astechnos.com/crmsml/app/edit.php?app_id='+$("#app_id").val();
                 }
             });
         } 
