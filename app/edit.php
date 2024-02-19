@@ -385,8 +385,8 @@ $("#login_date").datepicker({
                 return false;
             } else if(disbursedate < sanctiondate){
                 alert("Disbursement Date can not less than Sanction Date");
-                datavalid = 0;return false;
-
+                datavalid = 0;
+                return false;
             }
         }
         if (datavalid == 1){
@@ -395,12 +395,12 @@ $("#login_date").datepicker({
     }
 
     
-    $(document).ready(function() {
-        $("#submit_app").submit(function() {
-            var validationchk = datavalidate();
-            alert(validationchk);
-        })
-    });
+    // $(document).ready(function() {
+    //     $("#submit_app").submit(function() {
+    //         var validationchk = datavalidate();
+    //         alert(validationchk);
+    //     })
+    // });
 </script>
 <?php } ?>
 
