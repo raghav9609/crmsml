@@ -30,6 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'pincode' => $pincode[$i],
             'loan_amount' => $loan_amount[$i],
             'dob' => $dob_get,
+            'query_status' => 1,
             'tool_type'=>"Upload_CSV",
             'net_income' => $net_income[$i]
         );
