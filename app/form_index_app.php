@@ -38,13 +38,14 @@
                     <div class="form-group col-xl-2 col-lg-4 col-md-6 hidden sanctiondetails">
                         <span class="fa-icon fa-building"></span>
                         <input type="hidden" id="login_date_t" value="">
+                        <input type="hidden" id="sanction_date_t" value="">
                         <input type="text" id="sanction_amount" name="sanction_amount" value="<?php echo $sanction_amount;?>" placeholder="Enter Sanction Amount" class="form-control numonly valid"  maxlength="20" >
                         <label for="sanction_amount" class="label-tag"> Sanction Amount</label>
                     </div>
                     
                     <div class="form-group col-xl-2 col-lg-4 col-md-6 hidden sanctiondetails">
                         <span class="fa-icon fa-building"></span>
-                        <input type="text" class="text form-control valid datepicker" name="sanction_date" id="sanction_date" maxlength="10" value="<?php echo $sanction_date; ?>" placeholder="yyyy-mm-dd"  onchange="datevalidate()">
+                        <input type="text" class="text form-control valid datepicker" name="sanction_date" id="sanction_date" maxlength="10" value="<?php echo $sanction_date; ?>" placeholder="yyyy-mm-dd"  onfocusout="datevalidate()">
                         <label for="sanction_date" class="label-tag ">Sanction Date</label>
                     </div> 
 

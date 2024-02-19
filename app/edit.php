@@ -260,7 +260,7 @@ $("#login_date").datepicker({
     //   var logindate = $("#login_date").val();
     //     alert(logindate);
       $("#sanction_date").datepicker({
-          minDate: $("#login_date_t").val(),
+          minDate: '0',
           maxDate: '90',
           changeMonth: true, 
           changeYear: true,
@@ -335,6 +335,13 @@ $("#login_date").datepicker({
         }
     }
 
+    function datevalidate(){
+        var logindate = $("#login_date_t").val();
+        var sanctiondate = $("#sanction_date_t").val();
+
+        alert(logindate);
+        alert(sanctiondate);
+    }
     function validatedata(statusId){
         var statusid = statusId;
         alert(statusid);
