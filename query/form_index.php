@@ -146,7 +146,7 @@
                     <input type="hidden" name="logged_in_user" id="logged_in_user" value="<?php echo $user; ?>">
                     <div class="row div-width">
                         <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                            <label for="salutation" class="radio-tag label-tag">Salutation</label>
+                            <!-- <label for="salutation" class="radio-tag label-tag">Salutation</label> -->
                             <div class="radio-button error_contain">
                                 <input type="radio" name="salutation" id="salutation1"  value="1" <?php if($salu_id == 1){ ?>checked <?php } ?> required>
                                 <label for="salutation1">Mr.</label>
