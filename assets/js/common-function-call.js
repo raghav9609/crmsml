@@ -196,18 +196,6 @@ $(document).on('keypress', '.num-dot', function(evt) {
       evt.preventDefault();
 });
 
-$('.roi').keypress(function(event) {
-    if (((event.which != 46 || (event.which == 46 && $(this).val() == '')) ||
-            $(this).val().indexOf('.') != -1) && (event.which < 48 || event.which > 57)) {
-        event.preventDefault();
-    }
-   
-}).on('paste', function(event) {
-    
-    event.preventDefault();
-   
-});
-
     function dots(){
         var dateBox = document.getElementsByClassName("cur_rate_emi")[0];
         var chars = dateBox.value.length;
@@ -222,4 +210,15 @@ $('.roi').keypress(function(event) {
         else if (chars == 1 && roi > '4') {
             dateBox.value = "0" + roi + ".";
         }       
+    }
+    function isNumberKey(evt){
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        if((charCode >=48 && charCode<=57) || (charCode>=96 && charCode<=105)){
+            dots();
+        }
+        else if(charCode==37 ||charCode==39 || charCode==46 || charCode==8 || charCode==9){
+        }
+        else{
+            evt.preventDefault();
+            }
     }
