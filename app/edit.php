@@ -269,6 +269,7 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
               if(datetoday == date) {
                   $('#follow_up_time').timepicker({disableTextInput: true}).val("");
                   var min = formatTime(today);
+                  alert(min);
                   if(min) {
                       var minval = min;
                   } else {
@@ -297,6 +298,7 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
 
       function formatTime(dt) {
         var hour = dt.getHours();
+        alert(hour);
         var hournext = dt.getHours()+1;
         var chhour = ((dt.getMinutes() >= 30) ? hournext : hour);
         if(18 > chhour) {
