@@ -701,13 +701,7 @@
                         <?php
                             $user_new_status = [];
                             $loan_type_new_status = [];
-                            if(in_array($user,$user_new_status) || in_array($loan_type,$loan_type_new_status)){ 
-                                $level_id =2; ?>
-                            
-
-                            <?php } else{  ?>
-                                
-                            <?php } ?>
+                        ?>
                 </div>
             </div>
         </section>
