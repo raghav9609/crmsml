@@ -373,18 +373,16 @@ $("#login_date").datepicker({
         var statusId = $("#application_status").val();
         if(statusId == 27){
             if(sanctiondate < logindate){
-                alert("Sanction Date can not less than login Date");
+                message = "Sanction Date can not less than login Date";
             }
-            return 0;
         } else if(statusId == 28){
             if(sanctiondate < logindate){
-                alert("Sanction Date can not less than login Date");
+                message = "Sanction Date can not less than login Date";
             } else if(disbursedate < sanctiondate){
-                alert("Disbursement Date can not less than Sanction Date");
+                message = "Disbursement Date can not less than Sanction Date";
             }
-            return 0;
         } 
-        return 1;
+        return message;
     }
 
     
