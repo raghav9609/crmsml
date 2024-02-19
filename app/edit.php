@@ -325,6 +325,7 @@ $("#login_date").datepicker({
         alert(statusid);
         if (statusid == 26){
             $(".logindetails").removeClass("hidden");
+            $("#login_date").attr("required",true);
         }
 
     }
