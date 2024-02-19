@@ -370,21 +370,28 @@ $("#login_date").datepicker({
         var logindate = $("#login_date_t").val();
         var sanctiondate = $("#sanction_date_t").val();
         var disbursedate = $("#disburse_date_t").val();
-        alert(logindate);
-        alert(sanctiondate);
-        if(sanctiondate < logindate){
-            alert("Sanction Date can not less than login Date");
-        }
-        if(disbursedate < sanctiondate){
-            alert("Disbursement Date can not less than Sanction Date");
-        }
+        var statusId = $("#application_status").val();
+        if(statusid == 27){
+            if(sanctiondate < logindate){
+                alert("Sanction Date can not less than login Date");
+            }
+            return 0;
+        } else if(statusid == 28){
+            if(sanctiondate < logindate){
+                alert("Sanction Date can not less than login Date");
+            } else if(disbursedate < sanctiondate){
+                alert("Disbursement Date can not less than Sanction Date");
+            }
+            return 0;
+        } 
+        return 1;
     }
 
     
     $(document).ready(function() {
         $("#submit_app").submit(function() {
-            alert("hello");
-            datavalidate();
+            var validationchk = datavalidate();
+            alert(validationchk);
         })
     });
 </script>
