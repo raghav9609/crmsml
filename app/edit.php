@@ -270,7 +270,7 @@ $("#login_date").datepicker({
               var date = Date.parse(value);
           },
           onClose: function( selectedDate ) {
-            $("#login_date_t").val(selectedDate);
+            $("#sanction_date_t").val(selectedDate);
           }
       });
 
