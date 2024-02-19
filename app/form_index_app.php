@@ -49,12 +49,12 @@
                         <label for="sanction_date" class="label-tag ">Sanction Date</label>
                     </div> 
 
-                    <div class="form-group col-xl-2 col-lg-4 col-md-6 hidden">
+                    <div class="form-group col-xl-2 col-lg-4 col-md-6 hidden disbursedetails">
                         <span class="fa-icon fa-building"></span>                        
                             <input type="text" id="disbursed_amount" name="disbursed_amount" value="<?php echo $disbursed_amount;?>" placeholder="Enter Disbursement Amount" class="form-control numonly valid" maxlength="20" >
                             <label for="disbursed_amount" class="label-tag"> Disbursement Amount</label>
                     </div>
-                    <div class="form-group col-xl-2 col-lg-4 col-md-6 hidden">
+                    <div class="form-group col-xl-2 col-lg-4 col-md-6 hidden disbursedetails">
                         <span class="fa-icon fa-building"></span> 
                         <input type="hidden" id="disburse_date_t" value="">
                         <input type="text" class="text form-control valid datepicker" name="disburse_date" id="disburse_date" maxlength="10" value="<?php echo $disburse_date; ?>" placeholder="yyyy-mm-dd"  onchange="datevalidate()">
@@ -72,7 +72,7 @@
                         <label for="remarks_by_bank" class="label-tag">Remarks By Bank</label>
                     </div>
                     
-                    <div class="form-group col-xl-2 col-lg-4 col-md-6 hidden">
+                    <div class="form-group col-xl-2 col-lg-4 col-md-6 hidden commondetails">
                         <span class="fa-icon fa-building"></span>
                         <input type="text" id="bank_application_no" name="bank_application_no" value="<?php echo $bank_application_no;?>" placeholder="Enter Bank Application Number" class="form-control numonly valid" maxlength="20" >
                         <label for="bank_application_no" class="label-tag">Bank Application Number</label>
@@ -97,12 +97,12 @@
                             <option value="2" <?php if ($follow_up_given_by == "2"){echo "selected";} ?>>Customer</option>
                         </select>
                     </div>
-                    <div class="form-group col-xl-2 col-lg-4 col-md-6 hidden">
+                    <div class="form-group col-xl-2 col-lg-4 col-md-6 hidden commondetails">
                         <span class="fa-icon fa-building"></span>
                         <input type="text" id="tenure" name="tenure" value="<?php echo $tennure;?>" placeholder="Enter Tenure / EMI" class="form-control numonly valid"  maxlength="20" >
                         <label for="tenure" class="label-tag">Tenure</label>
                     </div>
-                    <div class="form-group col-xl-2 col-lg-4 col-md-6 hidden">
+                    <div class="form-group col-xl-2 col-lg-4 col-md-6 hidden commondetails">
                         <span class="fa-icon fa-building"></span>
                         <input type="text" id="roi" name="roi" value="<?php echo $roi ;?>" placeholder="Enter Roi" class="form-control numonly valid"  maxlength="20" >
                         <label for="roi" class="label-tag">ROI</label>

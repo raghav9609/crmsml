@@ -348,10 +348,13 @@ $("#login_date").datepicker({
         var statusid = statusId;
         alert(statusid);
         if (statusid == 26){
-            $(".logindetails").removeClass("hidden");
+            $(".logindetails,.commondetails").removeClass("hidden");
             $("#login_date").attr("required",true);
         } else if(statusid == 27){
-            $(".logindetails,.sanctiondetails").removeClass("hidden");
+            $(".logindetails,.sanctiondetails,.commondetails").removeClass("hidden");
+            $("#login_date,#sanction_date,#sanction_amount").attr("required",true);
+        } else if(statusid == 28){
+            $(".logindetails,.sanctiondetails,.commondetails,.disbursedetails").removeClass("hidden");
             $("#login_date,#sanction_date,#sanction_amount").attr("required",true);
         }
     }
