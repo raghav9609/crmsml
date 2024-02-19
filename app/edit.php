@@ -356,7 +356,6 @@ $("#login_date").datepicker({
     }
     function validatedata(statusId){
         var statusid = statusId;
-        alert(statusid);
         if (statusid == 26){
             $(".logindetails,.commondetails").removeClass("hidden");
             $("#login_date").attr("required",true);
