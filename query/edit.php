@@ -173,7 +173,7 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
                             ?>
                             <div class='clear'></div>
                             <?php
-                                require_once "../include/crm_functions-new.php";
+                               // require_once "../include/crm_functions-new.php";
                                 include("js-insert.php");
                                 include("form_index.php");
                             ?>

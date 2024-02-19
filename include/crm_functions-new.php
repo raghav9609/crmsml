@@ -575,20 +575,12 @@ function form_validation(id){
         single_err_msg += "Enter Valid First Name \n ";
         $("#name").css("border", "1px solid red");
     } else if(!regexname.test(name)) {
-        // $("#cst_inf").trigger('click');
-        // alert("Special Characters Are Not Allowed in First Name");
-        // $("#name").focus();
-        // return false;
         single_err_msg += "Special Characters Are Not Allowed in First Name \n ";
         $("#name").css("border", "1px solid red");
     } else {
         $("#name").css({"border": "none", "border-bottom": "1px solid #eb9b42"});
     }
     if(lname == "") {
-        // $("#cst_inf").trigger('click');
-        // alert("Enter Valid Last Name");
-        // $("#lname").focus();
-        // return false;
         single_err_msg += "Enter Valid Last Name \n ";
         $("#lname").css("border", "1px solid red");
     } else if(!regexname.test(lname)) {
