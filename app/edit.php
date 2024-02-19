@@ -371,12 +371,13 @@ $("#login_date").datepicker({
         var sanctiondate = $("#sanction_date_t").val();
         var disbursedate = $("#disburse_date_t").val();
         var statusId = $("#application_status").val();
-        if(statusid == 27){
+        alert(statusId);
+        if(statusId == 27){
             if(sanctiondate < logindate){
                 alert("Sanction Date can not less than login Date");
             }
             return 0;
-        } else if(statusid == 28){
+        } else if(statusId == 28){
             if(sanctiondate < logindate){
                 alert("Sanction Date can not less than login Date");
             } else if(disbursedate < sanctiondate){
