@@ -358,13 +358,13 @@ $("#login_date").datepicker({
         var statusid = statusId;
         if (statusid == 26){
             $(".logindetails,.commondetails").removeClass("hidden");
-            $("#login_date").attr("required",true);
+            // $("#login_date").attr("required",true);
         } else if(statusid == 27){
             $(".logindetails,.sanctiondetails,.commondetails").removeClass("hidden");
-            $("#login_date,#sanction_date,#sanction_amount").attr("required",true);
+            // $("#login_date,#sanction_date,#sanction_amount").attr("required",true);
         } else if(statusid == 28){
             $(".logindetails,.sanctiondetails,.commondetails,.disbursedetails").removeClass("hidden");
-            $("#login_date,#sanction_date,#sanction_amount,#bank_application_no,#disburse_date,#disbursed_amount").attr("required",true);
+            // $("#login_date,#sanction_date,#sanction_amount,#bank_application_no,#disburse_date,#disbursed_amount").attr("required",true);
         }
     }
 
