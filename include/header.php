@@ -9,6 +9,7 @@ require_once(dirname(__FILE__) . '/../model/headerModel.php');
 <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400" rel="stylesheet">
 <link href="<?php echo $head_url; ?>/assets/css/header.css" rel="stylesheet" type="text/css" />
 <link href="<?php echo $head_url; ?>/assets/css/adminstylesheet.css" rel="stylesheet" type="text/css" />
+]<link rel="icon" href="<?php echo $head_url; ?>/assets/images/favicon.png" type="image/x-icon">
 <?php if($user_role == 3 && $_SESSION['one_lead_flag'] != 1) { ?>
     <style>
     .nav-menu1 a { text-decoration: none;  border-radius: .2em; }
