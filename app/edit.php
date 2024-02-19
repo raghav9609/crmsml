@@ -307,8 +307,6 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
         var statusId = $("#application_status").val();
         var applied_amount = $("#applied_amount").val();
         var sanction_amount = $("#sanction_amount").val();
-        alert(applied_amount);
-        alert(sanction_amount);
         var disbursed_amount = $("#disbursed_amount").val();
         var datavalid = 1;
         if(statusId == 27){
