@@ -245,7 +245,7 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
 
 $("#login_date").datepicker({
         //   minDate: '0',
-          maxDate: '90',
+          maxDate: '0',
           changeMonth: true, 
           changeYear: true,
           dateFormat: 'yy-mm-dd',
@@ -257,11 +257,9 @@ $("#login_date").datepicker({
             $("#login_date_t").val(selectedDate);
           }
       });
-    //   var logindate = $("#login_date").val();
-    //     alert(logindate);
       $("#sanction_date").datepicker({
-          minDate: '0',
-          maxDate: '90',
+          //minDate: '0',
+          maxDate: '0',
           changeMonth: true, 
           changeYear: true,
           dateFormat: 'yy-mm-dd',
@@ -271,6 +269,21 @@ $("#login_date").datepicker({
           },
           onClose: function( selectedDate ) {
             $("#sanction_date_t").val(selectedDate);
+          }
+      });
+
+      $("#disburse_date").datepicker({
+          //minDate: '0',
+          maxDate: '0',
+          changeMonth: true, 
+          changeYear: true,
+          dateFormat: 'yy-mm-dd',
+          onSelect: function(value, ui) {
+              var today = new Date();
+              var date = Date.parse(value);
+          },
+          onClose: function( selectedDate ) {
+            $("#disburse_date_t").val(selectedDate);
           }
       });
 
@@ -335,32 +348,17 @@ $("#login_date").datepicker({
         }
     }
 
-    function datavalidate(){
-        // var statusId = $("#application_status").val();
-
-        // if (statusId == 26){
-        //     $("#login_date").attr("required",true);
-        // } else if(statusId == 27){
-        //     $("#login_date,#sanction_date,#sanction_amount").attr("required",true);
-        // } else if(statusId == 28){
-        //     $("#login_date,#sanction_date,#sanction_amount,#bank_application_no,#disburse_date,#disbursed_amount").attr("required",true);
-        // }
-
-        var logindate = $("#login_date_t").val();
-        var sanctiondate = $("#sanction_date_t").val();
-        if(sanctiondate < logindate){
-            alert("Sanction Date can not less than login Date");
-        }    
-        alert(logindate);
-        alert(sanctiondate);
-    }
     function validatedata(statusId){
         var statusid = statusId;
         if (statusid == 26){
             $(".logindetails,.commondetails").removeClass("hidden");
+            $(".sanctiondetails,.disbursedetails").addClass("hidden");
+            // $("#login_date,#sanction_date,#sanction_amount,#bank_application_no,#disburse_date,#disbursed_amount").attr("required",false);
             $("#login_date").attr("required",true);
         } else if(statusid == 27){
             $(".logindetails,.sanctiondetails,.commondetails").removeClass("hidden");
+            $(".disbursedetails").addClass("hidden");
+            // $("#login_date,#sanction_date,#sanction_amount,#bank_application_no,#disburse_date,#disbursed_amount").attr("required",false);
             $("#login_date,#sanction_date,#sanction_amount").attr("required",true);
         } else if(statusid == 28){
             $(".logindetails,.sanctiondetails,.commondetails,.disbursedetails").removeClass("hidden");
@@ -368,12 +366,27 @@ $("#login_date").datepicker({
         }
     }
 
+    function datavalidate(){
+        var logindate = $("#login_date_t").val();
+        var sanctiondate = $("#sanction_date_t").val();
+        var disbursedate = $("#disburse_date_t").val();
+        alert(logindate);
+        alert(sanctiondate);
+        if(sanctiondate < logindate){
+            alert("Sanction Date can not less than login Date");
+        }
+        if(disbursedate < sanctiondate){
+            alert("Disbursement Date can not less than Sanction Date");
+        }
+    }
+
     
     $(document).ready(function() {
-  $("#submit_app").submit(function() {
-    datavalidate();
-  })
-})
+        $("#submit_app").submit(function() {
+            alert("hello");
+            datavalidate();
+        })
+    });
 </script>
 <?php } ?>
 
