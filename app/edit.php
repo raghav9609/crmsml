@@ -391,6 +391,8 @@ $("#login_date").datepicker({
         }
         if (datavalid == 1){
             alert("dsfdsfds");
+        } else {
+            alert("anu");
         }
     }
 
