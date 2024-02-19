@@ -338,7 +338,9 @@ $("#login_date").datepicker({
     function datevalidate(){
         var logindate = $("#login_date_t").val();
         var sanctiondate = $("#sanction_date_t").val();
-
+        if(sanctiondate < logindate){
+            alert("Sanction Date can not less than login Date");
+        }    
         alert(logindate);
         alert(sanctiondate);
     }
