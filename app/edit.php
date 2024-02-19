@@ -372,6 +372,8 @@ $("#login_date").datepicker({
             var logindate = $("#login_date_t").val();
             var sanctiondate = $("#sanction_date_t").val();
             var disbursedate = $("#disburse_date_t").val();
+            alert(logindate);
+            alert(sanctiondate);
             if(sanctiondate < logindate){
                 alert("Sanction Date can not less than login Date");
             }
