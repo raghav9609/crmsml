@@ -243,24 +243,73 @@ function datevalidate() {
   }
 }
 
-var minimum_days = 0;
-    var maximum_days = 30;
-    $('#follow_up_date').datepicker( {
-        minDate: minimum_days,
-        maxDate: maximum_days,
-        changeMonth: true,
-        changeYear: true,
-        dateFormat: 'yy-mm-dd',
-        autoclose: true,
-    });
-    $('#follow_up_time').timepicker({disableTextInput: true}).val(""); 
-    var int1=15;
-    $('#follow_up_time').timepicker('option', {
-        minTime: '09:30:00', 
-        maxTime: '20:00:00', 
-        step: int1,
-        disableTextInput: true ,
-        disableTimeRanges: disbleslot     });
+    $("#follow_up_date").datepicker({
+          minDate: '0',
+          maxDate: '90',
+          changeMonth: true, 
+          changeYear: true,
+          dateFormat: 'yy-mm-dd',
+          onSelect: function(value, ui) {
+              var today = new Date();
+              var date = Date.parse(value);
+              var month = today.getMonth()+1;
+              var days = today.getDate();
+              if (days < 10) {
+                  days = "0" + days;
+              }
+              if (month < 10) {
+                  month = "0" + month;
+              }
+              var tday = today.getFullYear()+"-"+month+"-"+days;
+              var datetoday = Date.parse(tday);
+              var user =  $('#case_folow_given').val(); 
+              var int=30;
+
+              if(datetoday == date) {
+                  $('#follow_up_time').timepicker({disableTextInput: true}).val("");
+                  var min = formatTime(today);
+                  if(min) {
+                      var minval = min;
+                  } else {
+                      var minval = "19:30:00";
+                  }
+                  $('#follow_up_time').timepicker('option', {minTime: minval, 
+                      maxTime: '20:00:00',
+                      step: int,
+                      disableTextInput: true
+                  });                
+              } else {
+                  $('#follow_up_time').timepicker({disableTextInput: true}).val(""); 
+                  $('#follow_up_time').timepicker('option', {
+                      minTime: '09:30:00', 
+                      maxTime: '20:00:00', 
+                      step: int,
+                      disableTextInput: true      
+                  });
+              }        
+          },
+          onClose: function( selectedDate ) {
+          }
+      });
+
+// var minimum_days = 0;
+//     var maximum_days = 30;
+//     $('#follow_up_date').datepicker( {
+//         minDate: minimum_days,
+//         maxDate: maximum_days,
+//         changeMonth: true,
+//         changeYear: true,
+//         dateFormat: 'yy-mm-dd',
+//         autoclose: true,
+//     });
+//     $('#follow_up_time').timepicker({disableTextInput: true}).val(""); 
+//     var int1=15;
+//     $('#follow_up_time').timepicker('option', {
+//         minTime: '09:30:00', 
+//         maxTime: '20:00:00', 
+//         step: int1,
+//         disableTextInput: true ,
+//         disableTimeRanges: disbleslot     });
     // $('#follow_up_time').timepicker('option', {
     //           minTime: '09:30:00', 
     //           maxTime: '20:00:00',
