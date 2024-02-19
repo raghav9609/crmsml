@@ -295,12 +295,12 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
             }
         } else if(statusId == 28){
             if(sanctiondate < logindate){
-                $("#sanction_date_t").val('');
+                $("#sanction_date").val('');
                 alert("Sanction Date can not less than login Date");
                 datavalid = 0;
                 return false;
             } else if(disbursedate < sanctiondate){
-                $("#disburse_date_t").val('');
+                $("#disburse_date").val('');
                 alert("Disbursement Date can not less than Sanction Date");
                 datavalid = 0;
                 return false;
