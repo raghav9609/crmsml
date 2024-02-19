@@ -705,61 +705,15 @@
                                 $level_id =2; ?>
                             
 
-                    <?php } else{  ?>
-                    <form action="" class="form-step" id="form_step4" style="display:none">
-                        <input type="hidden" name="cust_id" value="<?php echo $cust_id; ?>">
-                    <input type="hidden" name="case_id_follow" class="case_id_received" id="case_id_received" value="<?php echo $case_id ?>">
-                     <input type="hidden" name="lead_view_id" value="<?php echo $lead_view_id; ?>">
-                    <input type="hidden" name="click_to_call_id" id="click_to_call_id" value="">
+                            <?php } else{  ?>
+                                <form action="" class="form-step" id="form_step4" style="display:none">
+                                    <input type="hidden" name="cust_id" value="<?php echo $cust_id; ?>">
+                                    <input type="hidden" name="case_id_follow" class="case_id_received" id="case_id_received" value="<?php echo $case_id ?>">
+                                    <input type="hidden" name="lead_view_id" value="<?php echo $lead_view_id; ?>">
+                                    <input type="hidden" name="click_to_call_id" id="click_to_call_id" value="">
                       
-                        <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                            <span class="fa-icon fa-list-alt"></span>
-                            <?php //echo get_dropdown('case_status', 'case_f_stats', '', 'onchange="cng_case_status(this.value);" style="width: 100% !important" required'); ?>
-                            <label for="case_f_stats" class="label-tag">Case Status</label>
-                        </div>
-                        <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                            <span class="fa-icon fa-tty"></span>
-                            <?php //get_dropdown('follow_up_type', 'case_foll_type', '', 'onchange="cng_followup_type(this.value);" style="width: 100% !important"'); ?>
-                            <label for="case_foll_type" class="label-tag">Follow Up Type</label>
-                        </div>
-                        <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                            <span class="fa-icon fa-user"></span>
-                            <select name="fup_user_type" id="case_fup_user_type">
-                                        <option value=''>Follow Up User</option>
-                                        <option value="1"><?php echo $pri_name; ?> (Primary)</option>
-                                        <option value="2"><?php echo $sec_name; ?> (Secondary)</option>
-                                    </select>
-                            <label for="case_fup_user_type" class="label-tag optional-tag">Follow Up User</label>
-                        </div>
-                        <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                            <span class="fa-icon fa-user"></span>
-                            <select name="folow_given" id="case_folow_given" style='width: 100% !important'>
-                                        <option>Feedback Given By</option>
-                                        <option value='1'>Customer</option>
-                                        <option value='2'>MLC User</option>
-                                    </select>
-                            <label for="case_folow_given" class="label-tag optional-tag">Feedback Given By</label>
-                        </div>
-                        <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                            <span class="fa-icon fa-calendar"></span>
-                            <input type="text" class="text form-control" name="fol_date" id="case_fol_date" maxlength="10" placeholder="yyyy-mm-dd" style='width: 100% !important'/>
-                            <label for="case_fol_date" class="label-tag">Follow Up Date</label>
-                        </div>
-                        <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                            <span class="fa-icon fa-clock-o"></span>
-                            <input type="text" class="text form-control" name="fol_time" id="case_fol_time" maxlength="10" placeholder="h:i:s" style='width: 100% !important'/>
-                            <label for="case_fol_time" class="label-tag">Follow Up Time</label>
-                        </div>
-                        <div class="form-group col-xl-2 col-lg-4 col-md-6 residential_pincode">
-                            <span class="fa-icon fa-map-marker"></span>
-                            <input type="text" class="text form-control" name="fol_pin_code" id="case_fol_pin_code" maxlength="10" placeholder="Residenial Pincode" style='width: 100% !important' value="<?php echo $pin_code ;?>"/>
-                            <label for="case_fol_pin_code" class="label-tag optional-tag">Residential Pincode</label>
-                        </div>
-                        <div class="form-group col-xl-2 col-lg-4 col-md-6 customer_city">
-                            <span class="fa-icon fa-map-marker"></span>
-                            <input type="text" class="text form-control city_search" name="fol_city_id" id="case_fol_city_id" maxlength="30" placeholder="Customer City" style='width: 100% !important' value="<?php echo $city_name;?>"/>
-                            <label for="case_fol_city_id" class="label-tag optional-tag">Customer City</label>
-                        </div>
+                                    
+                        
                         <input type="hidden" id="is_fos" name="is_fos" value="<?php echo $is_fos; ?>" />
                         <?php
                         $level_id =1;
