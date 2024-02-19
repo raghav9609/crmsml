@@ -45,7 +45,7 @@
                     
                     <div class="form-group col-xl-2 col-lg-4 col-md-6 hidden sanctiondetails">
                         <span class="fa-icon fa-building"></span>
-                        <input type="text" class="text form-control valid datepicker" name="sanction_date" id="sanction_date" maxlength="10" value="<?php echo $sanction_date; ?>" placeholder="yyyy-mm-dd"  onfocusout="datevalidate()">
+                        <input type="text" class="text form-control valid datepicker" name="sanction_date" id="sanction_date" maxlength="10" value="<?php echo $sanction_date; ?>" placeholder="yyyy-mm-dd" >
                         <label for="sanction_date" class="label-tag ">Sanction Date</label>
                     </div> 
 
@@ -108,7 +108,7 @@
                     </div>
                 </div>
                 <input type="hidden" id="crm_query_id" name="crm_query_id" value="<?php echo $qryyy_id; ?>">
-                <input type="submit" class="btn btn-primary valid" name="submit_app" id="submit_app" value="SUBMIT">
+                <input type="button" class="btn btn-primary valid" name="submit_app" id="submit_app" value="SUBMIT" onclick="datevalidate();" >
 </form>
 
 </div>
