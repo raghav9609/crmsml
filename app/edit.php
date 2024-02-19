@@ -159,133 +159,47 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
 </html>
 <script type="text/javascript" src="../assets/js/jquery.timeentry.js"></script>
 <script>
-    // document.addEventListener('DOMContentLoaded', function () {
-    //     $(document).ready(function () {
-    //         $('.datepicker').datepicker({
-    //             dateFormat: 'yy-mm-dd', 
-    //             changeMonth: true,
-    //             changeYear: true,
-    //             yearRange: 'c-100:2050'
-    //         });
-
-    //         flatpickr('.flatpickr', {
-    //             enableTime: true,
-    //             noCalendar: true,
-    //             dateFormat: "H:i",
-    //             time_24hr: true,
-    //             minuteIncrement: 15
-    //         });
-    //     });
-    // });
-    
-//     document.addEventListener('DOMContentLoaded', function() {
-//     //amount 
-//     var appliedAmountInput = document.getElementById('applied_amount');
-//     var sanctionAmountInput = document.getElementById('sanction_amount');
-//     var disbursementInput = document.getElementById('disbursed_amount');
-//     var submit_app = document.getElementById('submit_app');
-
-//     var messageElement = document.createElement('span');
-//     messageElement.className = 'error-message';
-//     disbursementInput.parentNode.appendChild(messageElement);
-
-//     function validateDisbursement() {
-//         var appliedAmount = parseFloat(appliedAmountInput.value) || 0;
-//         var sanctionAmount = parseFloat(sanctionAmountInput.value) || 0;
-//         var disbursementAmount = parseFloat(disbursementInput.value) || 0;
-
-//         if (appliedAmount >= disbursementAmount || sanctionAmount >= disbursementAmount) {
-//             messageElement.textContent = ' Disbursement Amount should not be smaller than Applied Amount and Sanction Amount.';
-//             submit_app.setAttribute('disabled', 'disabled');
-//         } else {
-//             messageElement.textContent = '';
-//             submit_app.removeAttribute('disabled');
-//         }
-//     }
-
-//     appliedAmountInput.addEventListener('input', function() {
-//         validateDisbursement();
-//     });
-
-//     sanctionAmountInput.addEventListener('input', function() {
-//         validateDisbursement();
-//     });
-
-//     disbursementInput.addEventListener('input', function() {
-//         validateDisbursement();
-//     });
-
-
-// });
-
-// document.addEventListener('DOMContentLoaded', function () {
-// function datevalidate() {
-//   var logindateInput = document.getElementById('login_date');
-//   var sanctiondateInput = document.getElementById('sanction_date');
-//   var disbursementInputdate = document.getElementById('disburse_date');
-//   var submit_app = document.getElementById('submit_app');
-//   var errormessageElement = document.getElementById('error-message');
-
-//   var login_date = new Date(logindateInput.value);
-//   var sanction_date = new Date(sanctiondateInput.value);
-//   var disburse_date = new Date(disbursementInputdate.value);
-
-//   login_date.setHours(0, 0, 0, 0);
-//   sanction_date.setHours(0, 0, 0, 0);
-//   disburse_date.setHours(0, 0, 0, 0);
-
-//   if (disburse_date < login_date || disburse_date < sanction_date) {
-//     errormessageElement.textContent = 'Disbursement Date should not be smaller than Login Date and Sanction Date.';
-//     submit_app.setAttribute('disabled', 'disabled');
-//   } else {
-//     errormessageElement.textContent = '';
-//     submit_app.removeAttribute('disabled');
-//   }
-// }
-
-$("#login_date").datepicker({
-        //   minDate: '0',
-          maxDate: '0',
-          changeMonth: true, 
-          changeYear: true,
-          dateFormat: 'yy-mm-dd',
-          onSelect: function(value, ui) {
-              var today = new Date();
-              var date = Date.parse(value);
-          },
-          onClose: function( selectedDate ) {
+    $("#login_date").datepicker({
+        maxDate: '0',
+        changeMonth: true, 
+        changeYear: true,
+        dateFormat: 'yy-mm-dd',
+        onSelect: function(value, ui) {
+            var today = new Date();
+            var date = Date.parse(value);
+        },
+        onClose: function( selectedDate ) {
             $("#login_date_t").val(selectedDate);
-          }
-      });
-      $("#sanction_date").datepicker({
-          //minDate: '0',
-          maxDate: '0',
-          changeMonth: true, 
-          changeYear: true,
-          dateFormat: 'yy-mm-dd',
-          onSelect: function(value, ui) {
-              var today = new Date();
-              var date = Date.parse(value);
-          },
-          onClose: function( selectedDate ) {
+        }
+    });
+    $("#sanction_date").datepicker({
+        
+        maxDate: '0',
+        changeMonth: true,
+        changeYear: true,
+        dateFormat: 'yy-mm-dd',
+        onSelect: function(value, ui) {
+            var today = new Date();
+            var date = Date.parse(value);
+        },
+        onClose: function( selectedDate ) {
             $("#sanction_date_t").val(selectedDate);
-          }
-      });
+        }
+    });
 
-      $("#disburse_date").datepicker({
-          //minDate: '0',
-          maxDate: '0',
-          changeMonth: true, 
-          changeYear: true,
-          dateFormat: 'yy-mm-dd',
-          onSelect: function(value, ui) {
-              var today = new Date();
-              var date = Date.parse(value);
-          },
-          onClose: function( selectedDate ) {
+    $("#disburse_date").datepicker({
+        maxDate: '0',
+        changeMonth: true, 
+        changeYear: true,
+        dateFormat: 'yy-mm-dd',
+        onSelect: function(value, ui) {
+            var today = new Date();
+            var date = Date.parse(value);
+        },
+        onClose: function( selectedDate ) {
             $("#disburse_date_t").val(selectedDate);
-          }
-      });
+        }
+    });
 
     $("#follow_up_date").datepicker({
           minDate: '0',
@@ -342,7 +256,7 @@ $("#login_date").datepicker({
         var hournext = dt.getHours()+1;
         var chhour = ((dt.getMinutes() >= 30) ? hournext : hour);
         if(18 > chhour) {
-        return ((dt.getMinutes() >= 30) ? hournext : hour)  + ':' + ((dt.getMinutes() < 30) ? '30' : '00').slice(-2) + (chhour >= 12 ? 'pm' : 'am')
+            return ((dt.getMinutes() >= 30) ? hournext : hour)  + ':' + ((dt.getMinutes() < 30) ? '30' : '00').slice(-2) + (chhour >= 12 ? 'pm' : 'am')
         } else {
             return false;
         }
@@ -390,6 +304,22 @@ $("#login_date").datepicker({
             }
         }
         if (datavalid == 1){
+            var data_string = $("#form_step1").serializeArray();
+            $.ajax({
+                type: "POST",
+                dataType: "text",
+                data: data_string,
+                cache: false,
+                beforeSend: function () {
+                    $("#submit_app").attr('value', 'Processing...');
+    			    $("#submit_app").prop('disabled', true);
+                },                         
+                url: "update_app.php",
+                success: function (data) {
+                    alert("Application Updated Successfully");
+                    window.location.href='https://astechnos.com/crmsml/app/edit.php?app_id='+$("#app_id").val();
+                }
+            });
             alert("dsfdsfds");
         } else {
             alert("anu");

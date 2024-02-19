@@ -26,6 +26,7 @@
             
                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
                     <span class="fa-icon fa-building"></span>
+                    <input type="hidden" id="app_id" value="<?php echo $_REQUEST['app_id'];?>">
                     <input type="text" id="applied_amount" name="applied_amount" value="<?php echo $applied_amount;?>" placeholder="Enter Applied Amount" class="form-control numonly valid" maxlength="20" required>
                     <label for="applied_amount" class="label-tag"> Applied Amount</label>
                 </div>
