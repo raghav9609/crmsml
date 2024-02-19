@@ -66,6 +66,7 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
         <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
         <link href="<?php echo $head_url; ?>/assets/css/grid-form.css?v=1.1" rel="stylesheet">
         <script src="../assets/js/jquery.timepicker.js"></script>
+        <script src="../assets/css/jquery.timepicker.min.css"></script>
         <style>
             .fa-icon { 
                 font-size: 18px;
