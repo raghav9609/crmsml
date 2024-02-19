@@ -31,20 +31,20 @@
                 </div>
                     <div class="form-group col-xl-2 col-lg-4 col-md-6 hidden logindetails">
                          <span class="fa-icon fa-building"></span>
+                        <input type="hidden" id="login_date_t" value="">
                         <input type="text" class="text form-control valid datepicker" name="login_date" id="login_date" maxlength="10" value="<?php echo $login_date != '0000-00-00' ? $login_date:'';?>" placeholder="yyyy-mm-dd"  onchange="datevalidate()" >
                         <label for="login_date" class="label-tag ">Login Date</label>
                     </div> 
 
                     <div class="form-group col-xl-2 col-lg-4 col-md-6 hidden sanctiondetails">
                         <span class="fa-icon fa-building"></span>
-                        <input type="hidden" id="login_date_t" value="">
-                        <input type="hidden" id="sanction_date_t" value="">
                         <input type="text" id="sanction_amount" name="sanction_amount" value="<?php echo $sanction_amount;?>" placeholder="Enter Sanction Amount" class="form-control numonly valid"  maxlength="20" >
                         <label for="sanction_amount" class="label-tag"> Sanction Amount</label>
                     </div>
                     
                     <div class="form-group col-xl-2 col-lg-4 col-md-6 hidden sanctiondetails">
                         <span class="fa-icon fa-building"></span>
+                        <input type="hidden" id="sanction_date_t" value="">
                         <input type="text" class="text form-control valid datepicker" name="sanction_date" id="sanction_date" maxlength="10" value="<?php echo $sanction_date; ?>" placeholder="yyyy-mm-dd" >
                         <label for="sanction_date" class="label-tag ">Sanction Date</label>
                     </div> 
@@ -56,6 +56,7 @@
                     </div>
                     <div class="form-group col-xl-2 col-lg-4 col-md-6 hidden">
                         <span class="fa-icon fa-building"></span> 
+                        <input type="hidden" id="disburse_date_t" value="">
                         <input type="text" class="text form-control valid datepicker" name="disburse_date" id="disburse_date" maxlength="10" value="<?php echo $disburse_date; ?>" placeholder="yyyy-mm-dd"  onchange="datevalidate()">
                         <label for="disburse_date" class="label-tag ">Disbursement Date</label>
                     </div> 
