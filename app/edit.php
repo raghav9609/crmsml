@@ -63,7 +63,7 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
         <link rel="stylesheet" type="text/css" href="<?php echo $head_url; ?>/assets/css/cms.style-new.css" />
-       
+        <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
         <link href="<?php echo $head_url; ?>/assets/css/grid-form.css?v=1.1" rel="stylesheet">
         <script src="../assets/js/jquery.timepicker.js"></script>
         <link rel="stylesheet" href="../assets/css/jquery.timepicker.min.css">
