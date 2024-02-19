@@ -283,29 +283,6 @@
                                     <div class='word_below orange'><b class='money_format gross_annual_receipt_value_formt'></b></div>
                                     <label for="gross_annual_receipt" class="label-tag">Gross Annual Receipt</label>
                                 </div>
-                          
-                                    <!-- <div class="col-12 mb-2">
-                                        <h4>Saving Accounts WIth</h4>
-                                        <span>
-                                        <input type="checkbox" class="bank_offers_checkbox" name="saving_acc_with_banks[]" id="saving_acc_with_banks25" value="25" <?php // if(in_array(25,$saving_accounts_with)){ echo "checked"; } ?> >
-                                        <label for="saving_acc_with_banks25" class="checkbox">Axis Bank</label></span>
-                                        
-                                        <span><input type="checkbox" class="bank_offers_checkbox" name="saving_acc_with_banks[]" id="saving_acc_with_banks33" value="33" <?php //if(in_array(33,$saving_accounts_with)){ echo "checked"; } ?> >
-                                        <label for="saving_acc_with_banks33" class="checkbox">ICICI Bank</label></span>
-                                        
-                                        <span><input type="checkbox" class="bank_offers_checkbox" name="saving_acc_with_banks[]" id="saving_acc_with_banks40" value="40" <?php //if(in_array(40,$saving_accounts_with)){ echo "checked"; } ?> >
-                                        <label for="saving_acc_with_banks40" class="checkbox">Kotak Bank</label></span>
-                                        
-                                        <span><input type="checkbox" class="bank_offers_checkbox" name="saving_acc_with_banks[]" id="saving_acc_with_banks32" value="32" <?php //if(in_array(32,$saving_accounts_with)){ echo "checked"; } ?> >
-                                        <label for="saving_acc_with_banks32" class="checkbox">HDFC Bank</label></span>
-                                        
-                                        <span><input type="checkbox" class="bank_offers_checkbox" name="saving_acc_with_banks[]" id="saving_acc_with_banks35" value="35" <?php //if(in_array(35,$saving_accounts_with)){ echo "checked"; } ?> >
-                                        <label for="saving_acc_with_banks35" class="checkbox">IDFC First Bank</label></span>
-                                        
-                                        <span><input type="checkbox" class="bank_offers_checkbox" name="saving_acc_with_banks[]" id="saving_acc_with_banks29" value="29" <?php //if(in_array(29,$saving_accounts_with)){ echo "checked"; } ?> >
-                                        <label for="saving_acc_with_banks29" class="checkbox">DCB Bank</label></span>
-                                    </div> -->
-
                             <div class="heading-offers">
                                     <div class="exclamatry-text">Office Details</div>
                                 </div>
@@ -343,13 +320,6 @@
                                 <div class="heading-offers">
                                     <div class="exclamatry-text">Residence Details</div>   
                                 </div>
-                        
-                                    <!-- <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                                    <span class="fa-icon fa-home"></span>
-                                    <?php //echo get_dropdown('residential_type', 'residential_type', $rented_id, 'required'); ?>
-                                    <label for="residential_type" class="label-tag">Type of Residence</label>
-                                </div> -->
-                            
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
                                     <span class="fa-icon fa-map-marker"></span>
                                     <input type="tel" class="text form-control numonly" name="pin_code" id="pin_code" minlength="6" maxlength="6" required value="<?php echo (trim($pin_code) == 0) ? "" : $pin_code; ?>" />
@@ -366,8 +336,6 @@
                                     <textarea name="address" class="text valid form-control" id="address" maxlength="200" <?php if(in_array($loan_type,array(71,11,57,63))){echo "required";} ?>><?php echo $res_addrs ;?></textarea>
                                     <label for="address" class="label-tag <?php if(!in_array($loan_type,array(71,11,57,63))){echo "optional-tag";} ?>">Residence Address</label>
                                 </div>
-
-                            
                             </div>
                   
                         <div class="text-center col-12 mb-2">
@@ -395,11 +363,6 @@
                                 <input type="text" id="loan_amount" name="loan_amount" value="<?php echo ($loan_amt) ;?>" placeholder="Enter Required Loan Amount" class="form-control numonly" maxlength="20" required>
                                 <label for="name" class="label-tag"> Loan Amount</label>
                             </div>
-                                <!-- <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                                    <span class="fa-icon fa-search"></span>
-                                    <?php // echo get_dropdown('purpose_of_loan', 'purpose_of_loan', $purpose_of_loan, 'required'); ?>
-                                    <label for="purpose_of_loan" class="label-tag">Purpose of Loan</label>
-                                </div> -->
                                 <div class="form-group col-xl-2 col-lg-4 col-md-6">
                                     <label for="loan_in_past" class="radio-tag label-tag">Any loan or credit card in past?</label>
                                     <div class="boolean-button error_contain">
@@ -409,8 +372,6 @@
                                         <label for="loan_in_past_no" class="no">No</label> 
                                     </div>
                                 </div>
-                          
-                          
                                 <div class="heading-offers bt_case">
                                     <div class="exclamatry-text">Existing Loan Details</div>
                                 </div>
@@ -443,9 +404,7 @@
                                     <div class='word_below orange'><b class='ex_amt_value_formt money_format'></b></div>
                                     <label for="ex_amt" class="label-tag">Current Outstanding Amount </label>
                                 </div>
-                             
                     </div>
-                      
                             <div class="heading-offers">
                                     <div class="exclamatry-text">Existing Loans</div>
                                 </div>
@@ -598,9 +557,6 @@
                             <input type="tel" class="text form-control numonly ext_loan_5" name="cur_out_stand_on_5" maxlength="10" id="cur_out_stand_on_5" value="<?php echo $cur_out_stand_on_5 == 0?'': $cur_out_stand_on_5 ;?>"/>
                             <label for="cur_out_stand_on_5" class="label-tag optional-tag">Current OutStanding Amt.</label>
                         </div>
-
-
-
                         <!-- cardd -->
                     <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_loan_5"></div>
                         <div class="heading-offers">
@@ -839,34 +795,7 @@
         <?php //echo get_dropdown('follow_up_type', 'case_foll_type', '', 'class="valid"'); ?>
         <label for="case_foll_type" class="label-tag">Select Follow Up Type</label>
         </div>
-    <?php
-if (in_array($loan_type, $language_barrier_loan_type)) {?>
-    <div class="form-group col-xl-2 col-lg-4 col-md-6 case_languages hidden">
-        <span class="fa-icon fa-language"></span>
-        <?php
-    //echo get_dropdown("languages", "case_languages", $lang_id, "onchange='case_fetch_users_by_lang(this);' class='hidden valid'");?>
-    <label for="case_languages" class="label-tag">Select Language</label>
-        </div>
-        <?php
-// $language_users_query = "SELECT tbl_language_user_map.user_id AS user_id, tbl_user_assign.user_name AS user_name FROM tbl_language_user_map INNER JOIN tbl_user_assign ON tbl_user_assign.user_id = tbl_language_user_map.user_id WHERE tbl_language_user_map.status = 1 AND loan_type = $loan_type ";
-//     $language_users_execute = mysqli_query($Conn1, $language_users_query);
-    ?>
-    <div class="form-group col-xl-2 col-lg-4 col-md-6 case_lang_users hidden">
-        <span class="fa-icon fa-user"></span>
-            <select name='case_lang_users' id='case_lang_users' class='case_lang_users hidden valid'>
-                <option value=''>Select Users</option>
-            <?php
-// while ($language_users_result = mysqli_fetch_array($language_users_execute)) {
-//         $selected_var = ($language_users_result['user_id'] == $lang_user_id) ? "selected" : "";
-//         ?>
-//                 <option value="<?php //echo $language_users_result['user_id']; ?>" <?php //echo $selected_var; ?>><?php //echo $language_users_result['user_name']; ?></option>
-//                 <?php
-// }
-    ?>
-            </select>
-            <label for="case_lang_users" class="label-tag">Select Users</label>
-        </div>
-            <?php } ?>
+
     <div class="form-group col-xl-2 col-lg-4 col-md-6">
             <span class="fa-icon fa-user"></span>
         <select name='case_folow_given' id='case_folow_given' class="valid" required>
