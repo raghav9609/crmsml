@@ -245,14 +245,30 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
 
 $("#login_date").datepicker({
         //   minDate: '0',
-        //   maxDate: '90',
+          maxDate: '90',
           changeMonth: true, 
           changeYear: true,
           dateFormat: 'yy-mm-dd',
           onSelect: function(value, ui) {
               var today = new Date();
               var date = Date.parse(value);
-             
+          },
+          onClose: function( selectedDate ) {
+            $("#login_date_t").val(selectedDate);
+          }
+      });
+
+      $("#sanction_date").datepicker({
+        var logindate = $("#login_date").val();
+        alert(logindate);
+          minDate: '0',
+          maxDate: '90',
+          changeMonth: true, 
+          changeYear: true,
+          dateFormat: 'yy-mm-dd',
+          onSelect: function(value, ui) {
+              var today = new Date();
+              var date = Date.parse(value);
           },
           onClose: function( selectedDate ) {
             $("#login_date_t").val(selectedDate);
@@ -326,8 +342,10 @@ $("#login_date").datepicker({
         if (statusid == 26){
             $(".logindetails").removeClass("hidden");
             $("#login_date").attr("required",true);
+        } else if(statusid == 27){
+            $(".logindetails,.sanctiondetails").removeClass("hidden");
+            $("#login_date,#sanction_date,#sanction_amount").attr("required",true);
         }
-
     }
 
 </script>
