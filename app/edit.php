@@ -243,6 +243,22 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
 //   }
 // }
 
+$("#login_date").datepicker({
+          minDate: '0',
+          maxDate: '90',
+          changeMonth: true, 
+          changeYear: true,
+          dateFormat: 'yy-mm-dd',
+          onSelect: function(value, ui) {
+              var today = new Date();
+              var date = Date.parse(value);
+             
+          },
+          onClose: function( selectedDate ) {
+            $("#follow_up_date_t").val(selectedDate);
+          }
+      });
+
     $("#follow_up_date").datepicker({
           minDate: '0',
           maxDate: '90',
