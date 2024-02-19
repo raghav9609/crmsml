@@ -306,9 +306,11 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
 
     function validatedata(statusId){
         alert(statusId);
+        var statusid = $("#".statusId).val();
+        alert(statusid);
 
     }
-    
+
 </script>
 <?php } ?>
 
