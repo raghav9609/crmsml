@@ -68,6 +68,7 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
         <script src="../assets/js/jquery.timepicker.js"></script>
         <link rel="stylesheet" href="../assets/css/jquery.timepicker.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        <script src="../assets/js/common-function-call.js"></script>
         <style>
             .fa-icon { 
                 font-size: 18px;
