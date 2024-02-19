@@ -262,21 +262,21 @@ function datevalidate() {
               }
               var tday = today.getFullYear()+"-"+month+"-"+days;
               var datetoday = Date.parse(tday);
-              var user =  $('#case_folow_given').val(); 
               var int=30;
 
               if(datetoday == date) {
                   $('#follow_up_time').timepicker({disableTextInput: true}).val("");
-                  var min = formatTime(today);
+                  var min = cse_formatTime(today);
                   if(min) {
                       var minval = min;
                   } else {
                       var minval = "19:30:00";
                   }
-                  $('#follow_up_time').timepicker('option', {minTime: minval, 
-                      maxTime: '20:00:00',
-                      step: int,
-                      disableTextInput: true
+                  $('#follow_up_time').timepicker('option', {
+                    minTime: minval, 
+                    maxTime: '20:00:00',
+                    step: int,
+                    disableTextInput: true
                   });                
               } else {
                   $('#follow_up_time').timepicker({disableTextInput: true}).val(""); 
