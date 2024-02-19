@@ -305,9 +305,11 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
     }
 
     function validatedata(statusId){
-        alert(statusId);
-        var statusid = $("#".statusId).val();
+        var statusid = statusId;
         alert(statusid);
+        if (statusid == 26){
+            $(".logindetails").removeClass("hidden");
+        }
 
     }
 

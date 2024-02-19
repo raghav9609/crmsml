@@ -29,7 +29,7 @@
                     <input type="text" id="applied_amount" name="applied_amount" value="<?php echo $applied_amount;?>" placeholder="Enter Applied Amount" class="form-control numonly valid" maxlength="20" required>
                     <label for="applied_amount" class="label-tag"> Applied Amount</label>
                 </div>
-                    <div class="form-group col-xl-2 col-lg-4 col-md-6 hidden">
+                    <div class="form-group col-xl-2 col-lg-4 col-md-6 hidden logindetails">
                          <span class="fa-icon fa-building"></span>
                         <input type="text" class="text form-control valid datepicker" name="login_date" id="login_date" maxlength="10" value="<?php echo $login_date != '0000-00-00' ? $login_date:'';?>" placeholder="yyyy-mm-dd"  onchange="datevalidate()" >
                         <label for="login_date" class="label-tag ">Login Date</label>
