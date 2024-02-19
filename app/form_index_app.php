@@ -21,7 +21,7 @@
                 <div class="form-group col-xl-2 col-lg-4 col-md-6" style="position: relative;">
                     <span class="fa-icon fa-building"></span>
                         <label for="application_status" class="label-tag" style="position: absolute; top: -15; left: 16; ">Application Status</label>
-                        <?php echo get_dropdown('application_status','application_status',$application_status,'class="form-control valid"'); ?>
+                        <?php echo get_dropdown('application_status','application_status',$application_status,'class="form-control valid" onchange="validatedata(this.id)"'); ?>
                     </div>
             
                 <div class="form-group col-xl-2 col-lg-4 col-md-6">

@@ -243,8 +243,6 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
 //   }
 // }
 
-
-
     $("#follow_up_date").datepicker({
           minDate: '0',
           maxDate: '90',
@@ -305,30 +303,12 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
             return false;
         }
     }
-// var minimum_days = 0;
-//     var maximum_days = 30;
-//     $('#follow_up_date').datepicker( {
-//         minDate: minimum_days,
-//         maxDate: maximum_days,
-//         changeMonth: true,
-//         changeYear: true,
-//         dateFormat: 'yy-mm-dd',
-//         autoclose: true,
-//     });
-//     $('#follow_up_time').timepicker({disableTextInput: true}).val(""); 
-//     var int1=15;
-//     $('#follow_up_time').timepicker('option', {
-//         minTime: '09:30:00', 
-//         maxTime: '20:00:00', 
-//         step: int1,
-//         disableTextInput: true ,
-//         disableTimeRanges: disbleslot     });
-    // $('#follow_up_time').timepicker('option', {
-    //           minTime: '09:30:00', 
-    //           maxTime: '20:00:00',
-    //           step: 30,
-    //           disableTextInput: true
-    //       });
+
+    function validatedata(statusId){
+        alert(statusId);
+
+    }
+    
 </script>
 <?php } ?>
 
