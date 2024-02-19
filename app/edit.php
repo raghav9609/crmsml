@@ -366,21 +366,25 @@ $("#login_date").datepicker({
         }
     }
 
+    function datavalidate(){
+        var logindate = $("#login_date_t").val();
+        var sanctiondate = $("#sanction_date_t").val();
+        var disbursedate = $("#disburse_date_t").val();
+        alert(logindate);
+        alert(sanctiondate);
+        if(sanctiondate < logindate){
+            alert("Sanction Date can not less than login Date");
+        }
+        if(disbursedate < sanctiondate){
+            alert("Disbursement Date can not less than Sanction Date");
+        }
+    }
+
     
     $(document).ready(function() {
         $("#submit_app").submit(function() {
             alert("hello");
-            var logindate = $("#login_date_t").val();
-            var sanctiondate = $("#sanction_date_t").val();
-            var disbursedate = $("#disburse_date_t").val();
-            alert(logindate);
-            alert(sanctiondate);
-            if(sanctiondate < logindate){
-                alert("Sanction Date can not less than login Date");
-            }
-            if(disbursedate < sanctiondate){
-                alert("Disbursement Date can not less than Sanction Date");
-            }
+            datavalidate();
         })
     });
 </script>
