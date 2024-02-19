@@ -976,36 +976,6 @@
                         </div>
                         <input type="hidden" id="is_fos" name="is_fos" value="<?php echo $is_fos; ?>" />
                         <?php
-                       // if(in_array($loan_type, $fos_loan_type)) {
-                        ?>
-                        <!-- <div class="form-group col-xl-2 col-lg-4 col-md-6 fos_flag">
-                            <input type="checkbox" name="fos_checked" class="fos_check" id="fos_check" value="1" <?php echo ($is_fos == 1) ? "checked" : ""; ?> >
-                            <label for="fos_check" class="checkbox green f_14">FOS Flag</label>
-                        </div>
-                        <div class="form-group col-xl-2 col-lg-4 col-md-6 appointment_date">
-                            <span class="fa-icon fa-calendar"></span>
-                            <input type="text" class="text form-control" name="fos_fol_date" id="fos_fol_date" maxlength="10" placeholder="Appointment Date (yyyy-mm-dd)" style='width: 100% !important' value="<?php echo $fos_fol_date; ?>"/>
-                            <label for="fol_date" class="label-tag">Appointment Date</label>
-                        </div>
-                        <div class="form-group col-xl-2 col-lg-4 col-md-6 appointment_time">
-                            <span class="fa-icon fa-clock-o"></span>
-                            <input type="text" class="time text form-control" name="fos_fol_time" id="fos_fol_time" maxlength="10" placeholder="Appointment Time (h:i:s)" style='width: 100% !important' value="<?php echo $fos_fol_time; ?>"/>
-                            <label for="fos_fol_time" class="label-tag">Appointment Time</label>
-                        </div>
-                         <div class="form-group col-xl-2 col-lg-4 col-md-6 fos_user">
-                            <span class="fa-icon fa-user"></span>
-                            <select name="fos_user_id" id="fos_users" class="fos_users" style="100%!important">
-                            </select>
-                            <label for="fos_users" class="label-tag">FOS User</label>
-                        </div>
-                        <div class="form-group col-xl-2 col-lg-4 col-md-6 fos_add">
-                            <span class="fa-icon fa-home"></span>
-                            <textarea class="text valid form-control alpha-num removeSpecial" name="fos_address" id="fos_address" placeholder="Customer Address for FOS" autocomplete="off"><?php echo $fos_address; ?></textarea>
-                            <label for="fos_address" class="label-tag">FOS Address</label>
-                        </div> -->
-                        <?php
-                        // }
-                        
                         $level_id =1;
                         ?>
                         <div class="form-group col-xl-2 col-lg-4 col-md-6">
