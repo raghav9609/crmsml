@@ -339,9 +339,11 @@ $("#login_date").datepicker({
         var statusid = statusId;
         if (statusid == 26){
             $(".logindetails,.commondetails").removeClass("hidden");
+            $(".sanctiondetails,.disbursedetails").addClass("hidden");
             $("#login_date").attr("required",true);
         } else if(statusid == 27){
             $(".logindetails,.sanctiondetails,.commondetails").removeClass("hidden");
+            $(".disbursedetails").addClass("hidden");
             $("#login_date,#sanction_date,#sanction_amount").attr("required",true);
         } else if(statusid == 28){
             $(".logindetails,.sanctiondetails,.commondetails,.disbursedetails").removeClass("hidden");
