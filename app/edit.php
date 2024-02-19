@@ -368,6 +368,12 @@ $("#login_date").datepicker({
         }
     }
 
+    
+    $(document).ready(function() {
+  $("#submit_app").submit(function() {
+    datavalidate();
+  })
+})
 </script>
 <?php } ?>
 

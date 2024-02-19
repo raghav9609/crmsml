@@ -5,7 +5,7 @@
     <div class="blue-bg col-12 font-weight-nb pb-2 pt-2 white font-20 brdr-top-gray pe-none" data-toggle="step1" id="switch_step1">
         <span id="text_step1"></span> Application Details<div id="error-message" class="error-message"></div></div> 
         
-        <form action="update_app.php" class="form-step col-12" autocomplete="off" id="form_step1">
+        <form class="form-step col-12" autocomplete="off" id="form_step1">
                       
             <div class="row div-width">
             
