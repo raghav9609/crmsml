@@ -33,9 +33,9 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
     $get_bank_name = get_name("",$name_bank);
     $application_status = $exe_form['application_status'];
     $app_u_assign = $exe_form['user_id'];
-    $applied_amount = $exe_form['applied_amount'];
-    $sanction_amount = $exe_form['sanction_amount'];
-    $disbursed_amount = $exe_form['disbursed_amount'];
+    $applied_amount = $exe_form['applied_amount'] > 0 ? $exe_form['applied_amount'] : '';
+    $sanction_amount = $exe_form['sanction_amount'] > 0 ? $exe_form['sanction_amount'] : '';
+    $disbursed_amount = $exe_form['disbursed_amount'] > 0 ? $exe_form['disbursed_amount'] : '';
     $login_date = $exe_form['login_date'];
     $sanction_date = $exe_form['sanction_date'];
     $disburse_date = $exe_form['disburse_date'];
@@ -295,12 +295,12 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
             }
         } else if(statusId == 28){
             if(sanctiondate < logindate){
-                $("#sanction_date").val('');
+                $("#sanction_date,#sanction_date_t").val("");
                 alert("Sanction Date can not less than login Date");
                 datavalid = 0;
                 return false;
             } else if(disbursedate < sanctiondate){
-                $("#disburse_date").val('');
+                $("#disburse_date,#disburse_date_t").val("");
                 alert("Disbursement Date can not less than Sanction Date");
                 datavalid = 0;
                 return false;
