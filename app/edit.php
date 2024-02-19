@@ -305,10 +305,17 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
         var sanctiondate = $("#sanction_date_t").val();
         var disbursedate = $("#disburse_date_t").val();
         var statusId = $("#application_status").val();
+        var applied_amount = $("#applied_amount").val();
+        var sanction_amount = $("#sanction_amount").val();
+        var disbursed_amount = $("#disbursed_amount").val();
         var datavalid = 1;
         if(statusId == 27){
             if(sanctiondate < logindate){
                 alert("Sanction Date can not less than login Date");
+                datavalid = 0;
+                return false;
+            } else if(sanction_amount > applied_amount ){
+                alert("Sanction Amount can not be greater than Applied Amount");
                 datavalid = 0;
                 return false;
             }
@@ -321,6 +328,14 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
             } else if(disbursedate < sanctiondate){
                 $("#disburse_date,#disburse_date_t").val("");
                 alert("Disbursement Date can not less than Sanction Date");
+                datavalid = 0;
+                return false;
+            } else if(sanction_amount > applied_amount ){
+                alert("Sanction Amount can not be greater than Applied Amount");
+                datavalid = 0;
+                return false;
+            } else if(disbursed_amount > sanction_amount ){
+                alert("Disbursed Amount can not be greater than Sanction Amount");
                 datavalid = 0;
                 return false;
             }
