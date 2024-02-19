@@ -61,17 +61,6 @@
                         <label for="disburse_date" class="label-tag ">Disbursement Date</label>
                     </div> 
 
-                    <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                        <span class="fa-icon fa-building"></span>
-                        <input type="text" id="remarks_by_user" name="remarks_by_user" value="<?php echo $remarks_by_user;?>" placeholder="Enter Remarks By User" class="form-control alphaonly valid" maxlength="20" >
-                        <label for="remarks_by_user" class="label-tag"> Remarks By User</label>
-                    </div>
-                    <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                        <span class="fa-icon fa-building"></span>
-                        <input type="text" id="remarks_by_bank" name="remarks_by_bank" value="<?php echo $remarks_by_bank;?>" placeholder="Enter Remarks By Bank" class="form-control alphaonly valid" maxlength="20" >
-                        <label for="remarks_by_bank" class="label-tag">Remarks By Bank</label>
-                    </div>
-                    
                     <div class="form-group col-xl-2 col-lg-4 col-md-6 hidden commondetails">
                         <span class="fa-icon fa-building"></span>
                         <input type="text" id="bank_application_no" name="bank_application_no" value="<?php echo $bank_application_no;?>" placeholder="Enter Bank Application Number" class="form-control numonly valid" maxlength="20" >
@@ -97,6 +86,18 @@
                             <option value="2" <?php if ($follow_up_given_by == "2"){echo "selected";} ?>>Customer</option>
                         </select>
                     </div>
+
+                    <div class="form-group col-xl-2 col-lg-4 col-md-6">
+                        <span class="fa-icon fa-building"></span>
+                        <input type="text" id="remarks_by_user" name="remarks_by_user" value="<?php echo $remarks_by_user;?>" placeholder="Enter Remarks By User" class="form-control alphaonly valid" maxlength="20" >
+                        <label for="remarks_by_user" class="label-tag"> Remarks By User</label>
+                    </div>
+                    <div class="form-group col-xl-2 col-lg-4 col-md-6">
+                        <span class="fa-icon fa-building"></span>
+                        <input type="text" id="remarks_by_bank" name="remarks_by_bank" value="<?php echo $remarks_by_bank;?>" placeholder="Enter Remarks By Bank" class="form-control alphaonly valid" maxlength="20" >
+                        <label for="remarks_by_bank" class="label-tag">Remarks By Bank</label>
+                    </div>
+                    
                     <div class="form-group col-xl-2 col-lg-4 col-md-6 hidden commondetails">
                         <span class="fa-icon fa-building"></span>
                         <input type="text" id="tenure" name="tenure" value="<?php echo $tennure;?>" placeholder="Enter Tenure / EMI" class="form-control numonly valid"  maxlength="20" >

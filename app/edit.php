@@ -355,7 +355,7 @@ $("#login_date").datepicker({
             $("#login_date,#sanction_date,#sanction_amount").attr("required",true);
         } else if(statusid == 28){
             $(".logindetails,.sanctiondetails,.commondetails,.disbursedetails").removeClass("hidden");
-            $("#login_date,#sanction_date,#sanction_amount").attr("required",true);
+            $("#login_date,#sanction_date,#sanction_amount,#bank_application_no,#disburse_date,#disbursed_amount").attr("required",true);
         }
     }
 
