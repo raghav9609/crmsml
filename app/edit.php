@@ -292,7 +292,7 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
         } else if(statusid == 27){
             $(".logindetails,.sanctiondetails,.commondetails").removeClass("hidden");
             $(".disbursedetails").addClass("hidden");
-            // $("#login_date,#sanction_date,#sanction_amount,#bank_application_no,#disburse_date,#disbursed_amount").attr("required",false);
+            $("#login_date,#sanction_date,#sanction_amount,#bank_application_no,#disburse_date,#disbursed_amount").attr("required",false);
             $("#login_date,#sanction_date,#sanction_amount").attr("required",true);
         } else if(statusid == 28){
             $(".logindetails,.sanctiondetails,.commondetails,.disbursedetails").removeClass("hidden");
@@ -357,15 +357,11 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
                 },                         
                 url: "update_app.php",
                 success: function (data) {
-                    alert(data);
                     alert("Application Updated Successfully");
                     window.location.href='https://astechnos.com/crmsml/app/edit.php?app_id='+$("#app_id").val();
                 }
             });
-            alert("dsfdsfds");
-        } else {
-            alert("anu");
-        }
+        } 
     }
 
     validatedata('<?php echo $application_status;?>');
