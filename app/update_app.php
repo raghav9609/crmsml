@@ -53,7 +53,7 @@ $comma = '';
         $comma = ", ";
     }
     $update_query .= " WHERE " . $where_condition;
-   // echo $update_query;
+    echo $update_query;
     $res_qry = mysqli_query($Conn1,$update_query);
 
     if(trim($remarks_by_bank) != "" || trim($remarks_by_user) != "" || ($follow_up_date != "0000-00-00" && $follow_up_date != "" && $follow_up_date != "1970-01-01")){
