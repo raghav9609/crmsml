@@ -12,7 +12,7 @@ require_once(dirname(__FILE__) . '/../include/header.php');
 	<link rel="stylesheet" href="<?php echo $head_url; ?>/assets/css/multiselect.css">
     <link rel="stylesheet" type="text/css" href="<?php echo $head_url; ?>/assets/css/style.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo $head_url; ?>/assets/css/jquery-ui.css" />
-	<link rel="stylesheet" type="text/css" href="<?php echo $head_url; ?>/assets/css/cms.style.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo $head_url; ?>/assets/css/cms.style-new.css" />
 	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 	<style>
 		.table_new {
