@@ -110,7 +110,7 @@
                     </div>
                 </div>
                 <input type="hidden" id="crm_query_id" name="crm_query_id" value="<?php echo $qryyy_id; ?>">
-                <input type="button" class="btn btn-primary valid" name="submit_app" id="submit_app" value="SUBMIT" onclick="datevalidate();" >
+                <input type="button" class="btn btn-primary valid" name="submit_app" id="submit_app" value="SUBMIT" onclick="datavalidate();" >
 </form>
 
 </div>
