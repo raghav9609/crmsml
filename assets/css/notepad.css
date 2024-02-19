@@ -1,0 +1,203 @@
+
+.bottom-menu{ display: flex;}
+.header .navigation .main-bx{padding:0px;}
+.fields-botm{ border: 1px solid #ccc;
+    line-height: 23px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: .5rem;
+    position: relative;}
+.fields-botm input[type="text"]{
+    width:76%;
+    line-height: 33px;
+    border: 0px solid rgb(24, 55, 95);
+    margin-top: 0;
+    height: 37px;
+    padding:0px 10px;
+    border-radius: 5px;}
+    .notes-text{display: flex; flex-direction: row;margin-bottom: .5rem;}
+    .notes-text span:first-child{ font-weight: 600;width: 25%;}
+    .notes-text span{ font-weight:normal; font-size:14px;width: 80%;}
+    .content-colm{
+    height: 150px;
+    overflow-y: scroll;
+    display: block;
+    }
+
+.fields-botm input[type="text"]:focus, textarea:focus, select:focus {outline: none;}
+.fields-botm input::placeholder{ font-size:11px;}
+.fields-botm button{
+    cursor: pointer;                            
+    border: 0px;
+    background-color: #f6650b;
+    color: #fff;
+    width: 100%;
+    position: absolute;
+    width: auto;
+    padding: 5px 10px;
+    right: 3px;
+    border-radius: 5px;
+    line-height: 29px;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 12px;
+    top: 3px;
+}
+.content-part{ display:flex; flex-direction:column;padding: 10px;}
+.icons-center{
+    text-align: center;
+    width: 100%;
+    padding: 22px;
+}
+.icons-center i{ 
+    font-size: 54px;
+    margin: auto;
+    opacity: 0.2;
+}
+.botm-menu{
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+}
+.botm-menu .notepad-heading{ padding: 10px; color: #fff;}
+/* .text-section{ padding:10px;} */
+.header {
+    padding:0px;
+    background: #fff;
+    position: fixed;
+    display: none;
+    z-index: 2000;
+    width: auto;
+    bottom: 92px;
+    right: 14px;
+    border:0px solid #ccc;
+    box-shadow: -5px 5px 5px #efefef;
+}
+/* .header .navigation .menu  upload karna{
+    
+} */
+.header .navigation .menu span {
+    display: block;
+    margin-top: 14px;
+    padding: 10px 12px;
+    font-size: 16px;
+    color: #fff;
+}
+.header .navigation .menu .menu-list ul {
+    list-style: none;
+    padding-left: 0px;
+}
+.header .navigation .menu .menu-list ul li {
+    padding-bottom: 6px;
+    padding-top: 6px;
+    background: #fff;
+    padding-left: 10px;
+    border: 1px solid #eee;
+    border-top: 0;
+}
+.header .navigation .menu .menu-list ul li a {
+    font-size: 13px;
+}
+a {
+    color: #888;
+}
+/* .header .navigation .menu {
+    box-shadow: 0px 0px 10px #333;
+} */
+.header .navigation .menu span {
+    display: block;
+    margin-top: 14px;
+    padding: 10px 12px;
+    font-size: 13px;
+    color: #fff;
+    margin-top: 0px;
+}
+.fom-body{ padding-left:10px;padding-right:10px;}
+
+.header .navigation .sform span {
+    display: block;
+    padding-bottom: 8px;
+    margin-bottom: 12px;
+    border-bottom: 1px dashed #ccc;
+    font-size: 15px;
+    color: #555;
+}
+.header .navigation .sform .form .form-group input {
+    margin-bottom: 10px;
+}
+.menu-btn {
+    position: fixed;
+    right: 0;
+    z-index: 2000;
+    bottom: 0px;
+    transition: all .2s cubic-bezier(.785,.135,.15,.86) 0s;
+}
+.menu-btn a {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    /* line-height: 35px; */
+    text-align: center;
+    font-size:22px;
+    color: #fff;
+    background: #18375f;
+    text-decoration: none !important;
+    padding: 10px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    box-shadow: 0 4px 20px -3px #ccc;
+    position: relative;
+}
+.menu-btn a:before{
+    position: absolute;
+    bottom: 95%;
+    right: 50%;
+    margin-right: -9px;
+    content: ' ';
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #18375f;
+    border-top: 12px solid transparent;
+}
+/* .menu-btn .fa-times{
+    transform: rotate(20deg);
+    opacity: 6;
+} */
+/* .menu-btn .fa-file-text-o{
+    transform: rotate(45deg);
+} */
+.head {
+    background: rgba(0, 0, 0, 1.0);
+    border-top: 3px solid #F76753;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+    padding: 8px 0;
+    width: 100%;
+    position: absolute;
+    z-index: 1000;
+}
+.head .logo {
+    margin-top: 7px;
+}
+.head .logo img {
+    display: inline;
+    margin: 0;
+}
+.head .logo a {
+    color: #fff;
+}
+.br-lblue {
+    background:#18375f;
+}
+.br-green {
+    background: #3EB95E;
+}
+.br-red {
+    background: #F7A453;
+}
