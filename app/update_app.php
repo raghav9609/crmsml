@@ -57,7 +57,7 @@ if ($update == 'Add'){
     exit;
 
 }else{
-    $app_id =$_REQUEST['crm_query_id'];
+    $app_id = base64_decode($_REQUEST['app_id']);
     $cust_id = $_REQUEST['cust_id'];
     $loan_type = $_REQUEST['loan_type'];
 
@@ -95,7 +95,7 @@ if ($update == 'Add'){
         'tennure' => $tenure,
         'roi '=> $roi
     );
-    $where_condition = 'crm_query_id = "' . $app_id . '"';
+    $where_condition = 'id = "' . $app_id . '"';
     $update_query = "UPDATE crm_query_application SET ";
 
     foreach ($final_arr as $key => $val) {
