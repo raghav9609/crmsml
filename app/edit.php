@@ -28,7 +28,12 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
         header("location:index.php");
     }
 } else {
-  
+    $bank_application_no = '';
+    $login_date = '';
+    $sanction_date = '';
+    $disburse_date = '';
+    $follow_up_date = '';
+    $follow_up_time = '';
     $name_bank = $exe_form['bank_id'];
     $get_bank_name = get_name("",$name_bank);
     $application_status = $exe_form['application_status'];
@@ -36,17 +41,31 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
     $applied_amount = $exe_form['applied_amount'] > 0 ? $exe_form['applied_amount'] : '';
     $sanction_amount = $exe_form['sanction_amount'] > 0 ? $exe_form['sanction_amount'] : '';
     $disbursed_amount = $exe_form['disbursed_amount'] > 0 ? $exe_form['disbursed_amount'] : '';
-    $login_date = $exe_form['login_date'];
-    $sanction_date = $exe_form['sanction_date'];
-    $disburse_date = $exe_form['disburse_date'];
-    $bank_application_no = $exe_form['bank_application_no'];
+    if($exe_form['login_date'] != '' && $exe_form['login_date'] != 0 && $exe_form['login_date'] != '1970-01-01' && $exe_form['login_date'] != '0000-00-00'){
+        $login_date = $exe_form['login_date'];
+    }
+    if($exe_form['sanction_date'] != '' && $exe_form['sanction_date'] != 0 && $exe_form['sanction_date'] != '1970-01-01' && $exe_form['sanction_date'] != '0000-00-00'){
+        $sanction_date = $exe_form['sanction_date'];
+    }
+    if($exe_form['disburse_date'] != '' && $exe_form['disburse_date'] != 0 && $exe_form['disburse_date'] != '1970-01-01' && $exe_form['disburse_date'] != '0000-00-00'){
+        $disburse_date = $exe_form['disburse_date'];
+    }
+    if($exe_form['follow_up_date'] != '' && $exe_form['follow_up_date'] != 0 && $exe_form['follow_up_date'] != '1970-01-01' && $exe_form['follow_up_date'] != '0000-00-00'){
+        $follow_up_date = $exe_form['follow_up_date'];
+    }
+    if($exe_form['follow_up_time'] != '' && $exe_form['follow_up_time'] != 0 && $exe_form['follow_up_time'] != '00:00:00'){
+        $follow_up_time = $exe_form['follow_up_time'];
+    }
+
+    if($exe_form['bank_application_no'] != '' && $exe_form['bank_application_no'] != 0){
+        $bank_application_no = $exe_form['bank_application_no'];
+    }
+    
     $remarks_by_user = $exe_form['description_by_user'];
     $remarks_by_bank=$exe_form['description_by_bank'];
-    $follow_up_date=$exe_form['follow_up_date'];
-    $follow_up_time=$exe_form['follow_up_time'];
     $follow_up_given_by=$exe_form['follow_up_given_by'];
-    $tennure=$exe_form['tennure'];
-    $roi=$exe_form['roi'];
+    $tennure=$exe_form['tennure'] > 0 ? $exe_form['tennure'] : '';
+    $roi=$exe_form['roi'] > 0 ? $exe_form['roi'] : '';
 ?>
 
 <!DOCTYPE html>
