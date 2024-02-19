@@ -245,7 +245,7 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
 
 $("#login_date").datepicker({
         //   minDate: '0',
-          maxDate: '90',
+          maxDate: '0',
           changeMonth: true, 
           changeYear: true,
           dateFormat: 'yy-mm-dd',
@@ -257,11 +257,9 @@ $("#login_date").datepicker({
             $("#login_date_t").val(selectedDate);
           }
       });
-    //   var logindate = $("#login_date").val();
-    //     alert(logindate);
       $("#sanction_date").datepicker({
           //minDate: '0',
-          maxDate: '90',
+          maxDate: '0',
           changeMonth: true, 
           changeYear: true,
           dateFormat: 'yy-mm-dd',
@@ -271,6 +269,21 @@ $("#login_date").datepicker({
           },
           onClose: function( selectedDate ) {
             $("#sanction_date_t").val(selectedDate);
+          }
+      });
+
+      $("#disburse_date").datepicker({
+          //minDate: '0',
+          maxDate: '0',
+          changeMonth: true, 
+          changeYear: true,
+          dateFormat: 'yy-mm-dd',
+          onSelect: function(value, ui) {
+              var today = new Date();
+              var date = Date.parse(value);
+          },
+          onClose: function( selectedDate ) {
+            $("#disburse_date_t").val(selectedDate);
           }
       });
 
