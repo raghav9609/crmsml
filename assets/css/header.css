@@ -839,7 +839,7 @@ border-top: 1px solid #18375f;
 body { margin: 0; padding: 0;  background: #fff; }
 /* Navigation Bar */
 .nav-bar {	background: #045d73;  font-size: 14px;  font-family: Arial, sans-serif;  text-align: left;  /* May want to align center */ }
-.nav-bar1 {	background: #eb9b42;  font-size: 14px;  font-family: Arial, sans-serif;  text-align: left;  /* May want to align center */ }
+.nav-bar1 {	background: #e30613;  font-size: 14px;  font-family: Arial, sans-serif;  text-align: left;  /* May want to align center */ }
 .nav-menu a {  color: #fff;  /* White font for link color. */ } 
 .nav-menu1 a {  color: #fff;  /* White font for link color. */ }
 .nav-menu, .nav-menu ul { list-style: none; margin: 0;  padding: 0;} 
