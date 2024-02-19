@@ -706,28 +706,8 @@
                             
 
                             <?php } else{  ?>
-                                <form action="" class="form-step" id="form_step4" style="display:none">
-                                    <input type="hidden" name="cust_id" value="<?php echo $cust_id; ?>">
-                                    <input type="hidden" name="case_id_follow" class="case_id_received" id="case_id_received" value="<?php echo $case_id ?>">
-                                    <input type="hidden" name="lead_view_id" value="<?php echo $lead_view_id; ?>">
-                                    <input type="hidden" name="click_to_call_id" id="click_to_call_id" value="">
-                      
-                                    
-                        
-                        <input type="hidden" id="is_fos" name="is_fos" value="<?php echo $is_fos; ?>" />
-                        <?php
-                        $level_id =1;
-                        ?>
-                        <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                            <span class="fa-icon fa-commenting"></span>
-                            <textarea name="remark" class="text valid form-control removeSpecial" id="case_remark" maxlength="200" placeholder="Remarks" style='width: 100% !important'></textarea>
-                            <label for="remark" class="label-tag optional-tag">Remarks</label>
-                        </div>
-                        <div class="text-center col-12 mb-2">
-                            <input type="button" class="btn btn-primary" name="submit" id="step4" value="SUBMIT">
-                        </div>
-                    </form> 
-                <?php } ?>
+                                
+                            <?php } ?>
                 </div>
             </div>
         </section>
