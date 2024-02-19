@@ -31,59 +31,59 @@
                 </div>
                     <div class="form-group col-xl-2 col-lg-4 col-md-6 hidden">
                          <span class="fa-icon fa-building"></span>
-                        <input type="text" class="text form-control valid datepicker" name="login_date" id="login_date" maxlength="10" value="<?php echo $login_date != '0000-00-00' ? $login_date:'';?>" placeholder="yyyy-mm-dd"  onchange="datevalidate()" required>
+                        <input type="text" class="text form-control valid datepicker" name="login_date" id="login_date" maxlength="10" value="<?php echo $login_date != '0000-00-00' ? $login_date:'';?>" placeholder="yyyy-mm-dd"  onchange="datevalidate()" >
                         <label for="login_date" class="label-tag ">Login Date</label>
                     </div> 
 
                     <div class="form-group col-xl-2 col-lg-4 col-md-6 hidden">
                         <span class="fa-icon fa-building"></span>
-                        <input type="text" id="sanction_amount" name="sanction_amount" value="<?php echo $sanction_amount;?>" placeholder="Enter Sanction Amount" class="form-control numonly valid"  maxlength="20" required>
+                        <input type="text" id="sanction_amount" name="sanction_amount" value="<?php echo $sanction_amount;?>" placeholder="Enter Sanction Amount" class="form-control numonly valid"  maxlength="20" >
                         <label for="sanction_amount" class="label-tag"> Sanction Amount</label>
                     </div>
                     
 
                     <div class="form-group col-xl-2 col-lg-4 col-md-6 hidden">
                         <span class="fa-icon fa-building"></span>
-                        <input type="text" class="text form-control valid datepicker" name="sanction_date" id="sanction_date" maxlength="10" value="<?php echo $sanction_date; ?>" placeholder="yyyy-mm-dd" required  onchange="datevalidate()">
+                        <input type="text" class="text form-control valid datepicker" name="sanction_date" id="sanction_date" maxlength="10" value="<?php echo $sanction_date; ?>" placeholder="yyyy-mm-dd"  onchange="datevalidate()">
                         <label for="sanction_date" class="label-tag ">Sanction Date</label>
                     </div> 
 
                     <div class="form-group col-xl-2 col-lg-4 col-md-6 hidden">
                         <span class="fa-icon fa-building"></span>                        
-                            <input type="text" id="disbursed_amount" name="disbursed_amount" value="<?php echo $disbursed_amount;?>" placeholder="Enter Disbursement Amount" class="form-control numonly valid" maxlength="20"  required>
+                            <input type="text" id="disbursed_amount" name="disbursed_amount" value="<?php echo $disbursed_amount;?>" placeholder="Enter Disbursement Amount" class="form-control numonly valid" maxlength="20" >
                             <label for="disbursed_amount" class="label-tag"> Disbursement Amount</label>
                     </div>
                     <div class="form-group col-xl-2 col-lg-4 col-md-6 hidden">
                         <span class="fa-icon fa-building"></span> 
-                        <input type="text" class="text form-control valid datepicker" name="disburse_date" id="disburse_date" maxlength="10" value="<?php echo $disburse_date; ?>" placeholder="yyyy-mm-dd" required  onchange="datevalidate()">
+                        <input type="text" class="text form-control valid datepicker" name="disburse_date" id="disburse_date" maxlength="10" value="<?php echo $disburse_date; ?>" placeholder="yyyy-mm-dd"  onchange="datevalidate()">
                         <label for="disburse_date" class="label-tag ">Disbursement Date</label>
                     </div> 
 
                     <div class="form-group col-xl-2 col-lg-4 col-md-6">
                         <span class="fa-icon fa-building"></span>
-                        <input type="text" id="remarks_by_user" name="remarks_by_user" value="<?php echo $remarks_by_user;?>" placeholder="Enter Remarks By User" class="form-control alphaonly valid" maxlength="20"  required>
+                        <input type="text" id="remarks_by_user" name="remarks_by_user" value="<?php echo $remarks_by_user;?>" placeholder="Enter Remarks By User" class="form-control alphaonly valid" maxlength="20" >
                         <label for="remarks_by_user" class="label-tag"> Remarks By User</label>
                     </div>
                     <div class="form-group col-xl-2 col-lg-4 col-md-6">
                         <span class="fa-icon fa-building"></span>
-                        <input type="text" id="remarks_by_bank" name="remarks_by_bank" value="<?php echo $remarks_by_bank;?>" placeholder="Enter Remarks By Bank" class="form-control alphaonly valid" maxlength="20"  required>
+                        <input type="text" id="remarks_by_bank" name="remarks_by_bank" value="<?php echo $remarks_by_bank;?>" placeholder="Enter Remarks By Bank" class="form-control alphaonly valid" maxlength="20" >
                         <label for="remarks_by_bank" class="label-tag">Remarks By Bank</label>
                     </div>
                     
                     <div class="form-group col-xl-2 col-lg-4 col-md-6 hidden">
                         <span class="fa-icon fa-building"></span>
-                        <input type="text" id="bank_application_no" name="bank_application_no" value="<?php echo $bank_application_no;?>" placeholder="Enter Bank Application Number" class="form-control numonly valid" maxlength="20" required>
+                        <input type="text" id="bank_application_no" name="bank_application_no" value="<?php echo $bank_application_no;?>" placeholder="Enter Bank Application Number" class="form-control numonly valid" maxlength="20" >
                         <label for="bank_application_no" class="label-tag">Bank Application Number</label>
                     </div>
                     <div class="form-group col-xl-2 col-lg-4 col-md-6">
                         <span class="fa-icon fa-building"></span>
-                        <input type="text" class="text form-control valid datepicker" name="follow_up_date" id="follow_up_date" maxlength="10" value="<?php echo $follow_up_date; ?>" placeholder="yyyy-mm-dd" required autocomplete="off">
+                        <input type="text" class="text form-control valid datepicker" name="follow_up_date" id="follow_up_date" maxlength="10" value="<?php echo $follow_up_date; ?>" placeholder="yyyy-mm-dd"  autocomplete="off">
                         <label for="follow_up_date" class="label-tag ">Follow Up Date</label>
                     </div> 
 
                     <div class="form-group col-xl-2 col-lg-4 col-md-6">
                         <span class="fa-icon fa-building"></span>
-                        <input type="text" class="text form-control time valid onlybackspace hasTimeEntry ui-timepicker-input" name="follow_up_time" id="follow_up_time" maxlength="10" value="<?php echo $follow_up_time; ?>" placeholder="H:i:s" required >
+                        <input type="text" class="text form-control time valid onlybackspace hasTimeEntry ui-timepicker-input" name="follow_up_time" id="follow_up_time" maxlength="10" value="<?php echo $follow_up_time; ?>" placeholder="H:i:s"  >
                         <label for="follow_up_time" class="label-tag ">Follow Up Time</label>
                     </div> 
                     <div class="form-group col-xl-2 col-lg-4 col-md-6" style="position: relative;">
@@ -97,12 +97,12 @@
                     </div>
                     <div class="form-group col-xl-2 col-lg-4 col-md-6 hidden">
                         <span class="fa-icon fa-building"></span>
-                        <input type="text" id="tenure" name="tenure" value="<?php echo $tennure;?>" placeholder="Enter Tenure / EMI" class="form-control numonly valid"  maxlength="20" required>
+                        <input type="text" id="tenure" name="tenure" value="<?php echo $tennure;?>" placeholder="Enter Tenure / EMI" class="form-control numonly valid"  maxlength="20" >
                         <label for="tenure" class="label-tag">Tenure</label>
                     </div>
                     <div class="form-group col-xl-2 col-lg-4 col-md-6 hidden">
                         <span class="fa-icon fa-building"></span>
-                        <input type="text" id="roi" name="roi" value="<?php echo $roi ;?>" placeholder="Enter Roi" class="form-control numonly valid"  maxlength="20" required>
+                        <input type="text" id="roi" name="roi" value="<?php echo $roi ;?>" placeholder="Enter Roi" class="form-control numonly valid"  maxlength="20" >
                         <label for="roi" class="label-tag">ROI</label>
                     </div>
                 </div>
