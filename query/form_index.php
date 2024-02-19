@@ -665,7 +665,7 @@
                         </div>
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_card_5">
                             <span class="fa-icon fa-sort-numeric-asc"></span>
-                            <input type="tel" class="text form-control numonly ext_card_5" name="credit_card_vintage_4" maxlength="6" id="credit_card_vintage_4" value="<?php echo ($credit_card_vintage_4 == 0) ? '' : $credit_card_vintage_4 ;?>"/>
+                            <input type="tel" class="text form-control numonly ext_card_5" name="credit_card_vintage_5" maxlength="6" id="credit_card_vintage_5" value="<?php echo ($credit_card_vintage_5 == 0) ? '' : $credit_card_vintage_5 ;?>"/>
                             <label for="credit_card_vintage_4" class="label-tag">Credit Card Vintage</label>
                         </div>
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_card_5 hidden">
