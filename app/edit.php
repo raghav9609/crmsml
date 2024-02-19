@@ -257,10 +257,10 @@ $("#login_date").datepicker({
             $("#login_date_t").val(selectedDate);
           }
       });
-      var logindate = $("#login_date").val();
-        alert(logindate);
+    //   var logindate = $("#login_date").val();
+    //     alert(logindate);
       $("#sanction_date").datepicker({
-          minDate: '0',
+          minDate: $("#login_date").val(),
           maxDate: '90',
           changeMonth: true, 
           changeYear: true,
