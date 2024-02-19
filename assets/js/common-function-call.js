@@ -195,3 +195,15 @@ $(document).on('keypress', '.num-dot', function(evt) {
     else
       evt.preventDefault();
 });
+
+$('.roi').keypress(function(event) {
+    if (((event.which != 46 || (event.which == 46 && $(this).val() == '')) ||
+            $(this).val().indexOf('.') != -1) && (event.which < 48 || event.which > 57)) {
+        event.preventDefault();
+    }
+   
+}).on('paste', function(event) {
+    
+    event.preventDefault();
+   
+});
