@@ -287,7 +287,7 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
         if (statusid == 26){
             $(".logindetails,.commondetails").removeClass("hidden");
             $(".sanctiondetails,.disbursedetails").addClass("hidden");
-            // $("#login_date,#sanction_date,#sanction_amount,#bank_application_no,#disburse_date,#disbursed_amount").attr("required",false);
+            $("#login_date,#sanction_date,#sanction_amount,#bank_application_no,#disburse_date,#disbursed_amount").attr("required",false);
             $("#login_date").attr("required",true);
         } else if(statusid == 27){
             $(".logindetails,.sanctiondetails,.commondetails").removeClass("hidden");
