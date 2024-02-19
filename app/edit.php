@@ -243,16 +243,7 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
 //   }
 // }
 
-function formatTime(dt) {
-    var hour = dt.getHours();
-    var hournext = dt.getHours()+1;
-    var chhour = ((dt.getMinutes() >= 30) ? hournext : hour);
-    if(18 > chhour) {
-    return ((dt.getMinutes() >= 30) ? hournext : hour)  + ':' + ((dt.getMinutes() < 30) ? '30' : '00').slice(-2) + (chhour >= 12 ? 'pm' : 'am')
-    } else {
-        return false;
-    }
-}
+
 
     $("#follow_up_date").datepicker({
           minDate: '0',
@@ -304,6 +295,16 @@ function formatTime(dt) {
           }
       });
 
+      function formatTime(dt) {
+        var hour = dt.getHours();
+        var hournext = dt.getHours()+1;
+        var chhour = ((dt.getMinutes() >= 30) ? hournext : hour);
+        if(18 > chhour) {
+        return ((dt.getMinutes() >= 30) ? hournext : hour)  + ':' + ((dt.getMinutes() < 30) ? '30' : '00').slice(-2) + (chhour >= 12 ? 'pm' : 'am')
+        } else {
+            return false;
+        }
+    }
 // var minimum_days = 0;
 //     var maximum_days = 30;
 //     $('#follow_up_date').datepicker( {
