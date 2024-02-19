@@ -58,16 +58,21 @@ if ($exe_form['id'] == '' || $exe_form['id'] == 0) {
         <title>Application Form</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
         <link rel="stylesheet" type="text/css" href="<?php echo $head_url; ?>/assets/css/cms.style-new.css" />
         <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
         <link href="<?php echo $head_url; ?>/assets/css/grid-form.css?v=1.1" rel="stylesheet">
-        <script src="../assets/js/jquery.timepicker.js"></script>
-        <link rel="stylesheet" href="../assets/css/jquery.timepicker.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        <script src="https://astechnos.com/crmsml/assets/js/jquery-1.3.2.min.js" type="text/javascript"></script>
+        </script><link href="../assets/css/tab_style.css" rel='stylesheet' type='text/css' />
+        <link href = "../assets/css/jquery-ui.css" rel = "stylesheet">
+        <script src = "../assets/js/jquery-1.10.2.js"></script>
+        <script src = "../assets/js/jquery-ui.js"></script>
+        <script type="text/javascript" src="../assets/js/jquery.timeentry.js"></script>
+        <script src="../assets/js/jquery.validate.min.js"></script>
+        <script src="../assets/js/jquery.timepicker.js"></script>
+        <link href="../assets/css/jquery.timepicker.min.css" rel="stylesheet"/> 
+
         <style>
             .fa-icon { 
                 font-size: 18px;
