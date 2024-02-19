@@ -188,7 +188,7 @@
                             <label for="email" class="label-tag optional-tag ">Email</label>
                         </div>
                         <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                            <label for="maritalstatus" class="radio-tag label-tag optional-tag">Marital Status</label>
+                            <label class="radio-tag label-tag optional-tag">Marital Status</label>
                             <div class="radio-button">
                                 <input type="radio" name="maritalstatus" id="maritalstatus1"  value="1" <?php if($maritalstatus == "1"){ ?>checked <?php } ?>>
                                 <label for="maritalstatus1">Married</label>
@@ -332,7 +332,7 @@
                                 <label for="name" class="label-tag"> Loan Amount</label>
                             </div>
                             <div class="form-group col-xl-2 col-lg-4 col-md-6">
-                                <label for="loan_in_past" class="radio-tag label-tag">Any loan or credit card in past?</label>
+                                <label class="radio-tag label-tag">Any loan or credit card in past?</label>
                                 <div class="boolean-button error_contain">
                                     <input type="radio" id="loan_in_past_yes" name="loan_in_past" required <?php if($loan_in_past == 1){echo "checked";} ?> value="1" >
                                     <label for="loan_in_past_yes" class="yes">Yes</label>
@@ -571,7 +571,7 @@
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_card_2">
                             <span class="fa-icon fa-bank"></span>
                             <?php echo get_dropdown('2','credit_card_bank_name_exi_2',$credit_card_bank_name_exi_2); ?>
-                            <label for="credit_bank_id_tw" class="label-tag">Bank</label>
+                            <label for="credit_card_bank_name_exi_2" class="label-tag">Bank</label>
                         </div>
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_card_2">
                             <span class="fa-icon fa-inr"></span>
@@ -649,7 +649,7 @@
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_card_5">
                             <span class="fa-icon fa-bank"></span>
                             <?php echo get_dropdown('2','credit_card_bank_name_exi_5',$credit_card_bank_name_exi_5)?>
-                            <label for="credit_bank_id_fv" class="label-tag">Bank</label>
+                            <label for="credit_card_bank_name_exi_5" class="label-tag">Bank</label>
                         </div>
                         <div class="form-group col-xl-2 col-lg-3 col-md-6 ext_card_5">
                             <span class="fa-icon fa-inr"></span>
