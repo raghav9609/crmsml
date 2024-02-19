@@ -336,15 +336,15 @@ $("#login_date").datepicker({
     }
 
     function datavalidate(){
-        var statusId = $("#application_status").val();
+        // var statusId = $("#application_status").val();
 
-        if (statusId == 26){
-            $("#login_date").attr("required",true);
-        } else if(statusId == 27){
-            $("#login_date,#sanction_date,#sanction_amount").attr("required",true);
-        } else if(statusId == 28){
-            $("#login_date,#sanction_date,#sanction_amount,#bank_application_no,#disburse_date,#disbursed_amount").attr("required",true);
-        }
+        // if (statusId == 26){
+        //     $("#login_date").attr("required",true);
+        // } else if(statusId == 27){
+        //     $("#login_date,#sanction_date,#sanction_amount").attr("required",true);
+        // } else if(statusId == 28){
+        //     $("#login_date,#sanction_date,#sanction_amount,#bank_application_no,#disburse_date,#disbursed_amount").attr("required",true);
+        // }
 
         var logindate = $("#login_date_t").val();
         var sanctiondate = $("#sanction_date_t").val();
@@ -358,13 +358,13 @@ $("#login_date").datepicker({
         var statusid = statusId;
         if (statusid == 26){
             $(".logindetails,.commondetails").removeClass("hidden");
-            // $("#login_date").attr("required",true);
+            $("#login_date").attr("required",true);
         } else if(statusid == 27){
             $(".logindetails,.sanctiondetails,.commondetails").removeClass("hidden");
-            // $("#login_date,#sanction_date,#sanction_amount").attr("required",true);
+            $("#login_date,#sanction_date,#sanction_amount").attr("required",true);
         } else if(statusid == 28){
             $(".logindetails,.sanctiondetails,.commondetails,.disbursedetails").removeClass("hidden");
-            // $("#login_date,#sanction_date,#sanction_amount,#bank_application_no,#disburse_date,#disbursed_amount").attr("required",true);
+            $("#login_date,#sanction_date,#sanction_amount,#bank_application_no,#disburse_date,#disbursed_amount").attr("required",true);
         }
     }
 
