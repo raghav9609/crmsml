@@ -335,25 +335,6 @@ $("#login_date").datepicker({
         }
     }
 
-    function datavalidate(){
-        // var statusId = $("#application_status").val();
-
-        // if (statusId == 26){
-        //     $("#login_date").attr("required",true);
-        // } else if(statusId == 27){
-        //     $("#login_date,#sanction_date,#sanction_amount").attr("required",true);
-        // } else if(statusId == 28){
-        //     $("#login_date,#sanction_date,#sanction_amount,#bank_application_no,#disburse_date,#disbursed_amount").attr("required",true);
-        // }
-
-        var logindate = $("#login_date_t").val();
-        var sanctiondate = $("#sanction_date_t").val();
-        if(sanctiondate < logindate){
-            alert("Sanction Date can not less than login Date");
-        }    
-        alert(logindate);
-        alert(sanctiondate);
-    }
     function validatedata(statusId){
         var statusid = statusId;
         if (statusid == 26){
@@ -370,10 +351,18 @@ $("#login_date").datepicker({
 
     
     $(document).ready(function() {
-  $("#submit_app").submit(function() {
-    datavalidate();
-  })
-})
+        $("#submit_app").submit(function() {
+            var logindate = $("#login_date_t").val();
+            var sanctiondate = $("#sanction_date_t").val();
+            var disbursedate = $("#disburse_date_t").val();
+            if(sanctiondate < logindate){
+                alert("Sanction Date can not less than login Date");
+            }
+            if(disbursedate < sanctiondate){
+                alert("Disbursement Date can not less than Sanction Date");
+            }
+        })
+    });
 </script>
 <?php } ?>
 
