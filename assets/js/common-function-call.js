@@ -207,3 +207,19 @@ $('.roi').keypress(function(event) {
     event.preventDefault();
    
 });
+
+    function dots(){
+        var dateBox = document.getElementsByClassName("cur_rate_emi")[0];
+        var chars = dateBox.value.length;
+        var roi = dateBox.value;
+    
+        if (chars == 2) {
+            dateBox.value = roi + ".";
+        }
+        else if (chars == 6) {
+            dateBox.value = roi + ".";
+        }
+        else if (chars == 1 && roi > '4') {
+            dateBox.value = "0" + roi + ".";
+        }       
+    }

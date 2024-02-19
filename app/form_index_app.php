@@ -106,7 +106,7 @@
                     </div>
                     <div class="form-group col-xl-2 col-lg-4 col-md-6 hidden commondetails">
                         <span class="fa-icon fa-building"></span>
-                        <input type="text" id="roi" name="roi" value="<?php echo $roi ;?>" placeholder="Enter Roi" class="form-control numonly valid"  maxlength="5" >
+                        <input type="text" id="roi" name="roi" value="<?php echo $roi ;?>" placeholder="Enter Roi" class="form-control numonly valid cur_rate_emi"  maxlength="5" >
                         <label for="roi" class="label-tag">ROI</label>
                     </div>
                 </div>
