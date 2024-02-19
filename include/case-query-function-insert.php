@@ -1,3 +1,4 @@
+<script src = "<?php echo $head_url;?>/assets/js/jquery-1.10.2.js"></script>
 <script>
     $(function() {  
         $('#new_pan_card').on('focusout', function () {

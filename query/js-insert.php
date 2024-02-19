@@ -1,6 +1,6 @@
 <link href="<?php echo $head_url;?>/assets/css/tab_style.css" rel='stylesheet' type='text/css' />
 <link href = "<?php echo $head_url;?>/assets/css/jquery-ui.css" rel = "stylesheet">
-<script src = "<?php echo $head_url;?>/assets/js/jquery-1.10.2.js"></script>
+
 <script src = "<?php echo $head_url;?>/assets/js/jquery-ui.js"></script>
 <script type="text/javascript" src="<?php echo $head_url;?>/assets/js/jquery.timeentry.js"></script>
 <script src="<?php echo $head_url;?>/assets/js/jquery.validate.min.js"></script>
