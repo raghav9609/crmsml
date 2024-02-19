@@ -369,6 +369,7 @@ $("#login_date").datepicker({
     
     $(document).ready(function() {
         $("#submit_app").submit(function() {
+            alert("hello");
             var logindate = $("#login_date_t").val();
             var sanctiondate = $("#sanction_date_t").val();
             var disbursedate = $("#disburse_date_t").val();
